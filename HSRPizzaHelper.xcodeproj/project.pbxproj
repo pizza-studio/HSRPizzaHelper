@@ -11,6 +11,40 @@
 		BFFEF70829F8F1D70002E111 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF70729F8F1D70002E111 /* ContentView.swift */; };
 		BFFEF70A29F8F1D90002E111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFEF70929F8F1D90002E111 /* Assets.xcassets */; };
 		BFFEF70D29F8F1D90002E111 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFFEF70C29F8F1D90002E111 /* Preview Assets.xcassets */; };
+		BFFEF71629F8F3280002E111 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF71529F8F3280002E111 /* HomeView.swift */; };
+		BFFEF71929F8F3C80002E111 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF71829F8F3C80002E111 /* StoreManager.swift */; };
+		BFFEF71B29F8F41F0002E111 /* TapticSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF71A29F8F41F0002E111 /* TapticSupport.swift */; };
+		BFFEF71D29F8F4780002E111 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF71C29F8F4780002E111 /* SettingsView.swift */; };
+		BFFEF72029F8F5FF0002E111 /* UserPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF71F29F8F5FF0002E111 /* UserPolicyView.swift */; };
+		BFFEF72229F8F61A0002E111 /* WebBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF72129F8F61A0002E111 /* WebBrowserView.swift */; };
+		BFFEF72429F8F7820002E111 /* AutoSheetDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF72329F8F7820002E111 /* AutoSheetDismiss.swift */; };
+		BFFEF72629F8F8820002E111 /* DeviceRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF72529F8F8820002E111 /* DeviceRecognizer.swift */; };
+		BFFEF72A29F8F9940002E111 /* AccountConfiguration.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF72829F8F9940002E111 /* AccountConfiguration.xcdatamodeld */; };
+		BFFEF72C29F8FB340002E111 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF72B29F8FB340002E111 /* RootViewModel.swift */; };
+		BFFEF73029F8FC670002E111 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF72F29F8FC670002E111 /* AccountModel.swift */; };
+		BFFEF73829F8FDC10002E111 /* HBMihoyoAPI in Resources */ = {isa = PBXBuildFile; fileRef = BFFEF73729F8FDC10002E111 /* HBMihoyoAPI */; };
+		BFFEF73B29F8FDD20002E111 /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = BFFEF73A29F8FDD20002E111 /* HBMihoyoAPI */; };
+		BFFEF73D29F8FEB40002E111 /* ServersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF73C29F8FEB40002E111 /* ServersModel.swift */; };
+		BFFEF74029F8FF420002E111 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF73F29F8FF420002E111 /* NotificationCenter.swift */; };
+		BFFEF74229F8FFA90002E111 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF74129F8FFA90002E111 /* StringExtensions.swift */; };
+		BFFEF74429F900070002E111 /* TimeTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF74329F900070002E111 /* TimeTools.swift */; };
+		BFFEF74629F900FB0002E111 /* AccountConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF74529F900FB0002E111 /* AccountConfigurationModel.swift */; };
+		BFFEF74929F905EA0002E111 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF74829F905EA0002E111 /* AddAccountView.swift */; };
+		BFFEF74B29F906370002E111 /* AddAccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF74A29F906370002E111 /* AddAccountDetailView.swift */; };
+		BFFEF74D29F9068F0002E111 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF74C29F9068F0002E111 /* NetworkReachability.swift */; };
+		BFFEF75029F906CA0002E111 /* InfoPreviewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF74F29F906CA0002E111 /* InfoPreviewerView.swift */; };
+		BFFEF75229F906F20002E111 /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF75129F906F20002E111 /* TextEditorView.swift */; };
+		BFFEF75429F907160002E111 /* GetCookieWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF75329F907160002E111 /* GetCookieWebView.swift */; };
+		BFFEF75729F9073B0002E111 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = BFFEF75629F9073B0002E111 /* AlertToast */; };
+		BFFEF75929F907A80002E111 /* TestSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF75829F907A80002E111 /* TestSectionView.swift */; };
+		BFFEF75B29F907ED0002E111 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF75A29F907ED0002E111 /* ReviewHandler.swift */; };
+		BFFEF75D29F908D40002E111 /* ViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF75C29F908D40002E111 /* ViewTools.swift */; };
+		BFFEF76029F9094B0002E111 /* GameInfoBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF75F29F9094B0002E111 /* GameInfoBlock.swift */; };
+		BFFEF76229F90A480002E111 /* DetailInfoBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF76129F90A480002E111 /* DetailInfoBlock.swift */; };
+		BFFEF76429F916390002E111 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF76329F916390002E111 /* AccountDetailView.swift */; };
+		BFFEF76629F918300002E111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFEF76529F918300002E111 /* AppDelegate.swift */; };
+		BFFEF76929F919B80002E111 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFFEF76B29F919B80002E111 /* Localizable.strings */; };
+		BFFEF77129F91A5D0002E111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFFEF77329F91A5D0002E111 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +53,44 @@
 		BFFEF70729F8F1D70002E111 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFFEF70929F8F1D90002E111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFFEF70C29F8F1D90002E111 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BFFEF71529F8F3280002E111 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BFFEF71829F8F3C80002E111 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		BFFEF71A29F8F41F0002E111 /* TapticSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticSupport.swift; sourceTree = "<group>"; };
+		BFFEF71C29F8F4780002E111 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BFFEF71F29F8F5FF0002E111 /* UserPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPolicyView.swift; sourceTree = "<group>"; };
+		BFFEF72129F8F61A0002E111 /* WebBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserView.swift; sourceTree = "<group>"; };
+		BFFEF72329F8F7820002E111 /* AutoSheetDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSheetDismiss.swift; sourceTree = "<group>"; };
+		BFFEF72529F8F8820002E111 /* DeviceRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRecognizer.swift; sourceTree = "<group>"; };
+		BFFEF72929F8F9940002E111 /* AccountConfiguration.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AccountConfiguration.xcdatamodel; sourceTree = "<group>"; };
+		BFFEF72B29F8FB340002E111 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		BFFEF72F29F8FC670002E111 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		BFFEF73229F8FCA90002E111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BFFEF73729F8FDC10002E111 /* HBMihoyoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HBMihoyoAPI; sourceTree = "<group>"; };
+		BFFEF73C29F8FEB40002E111 /* ServersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersModel.swift; sourceTree = "<group>"; };
+		BFFEF73F29F8FF420002E111 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		BFFEF74129F8FFA90002E111 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		BFFEF74329F900070002E111 /* TimeTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTools.swift; sourceTree = "<group>"; };
+		BFFEF74529F900FB0002E111 /* AccountConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountConfigurationModel.swift; sourceTree = "<group>"; };
+		BFFEF74829F905EA0002E111 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
+		BFFEF74A29F906370002E111 /* AddAccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountDetailView.swift; sourceTree = "<group>"; };
+		BFFEF74C29F9068F0002E111 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		BFFEF74F29F906CA0002E111 /* InfoPreviewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPreviewerView.swift; sourceTree = "<group>"; };
+		BFFEF75129F906F20002E111 /* TextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
+		BFFEF75329F907160002E111 /* GetCookieWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCookieWebView.swift; sourceTree = "<group>"; };
+		BFFEF75829F907A80002E111 /* TestSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSectionView.swift; sourceTree = "<group>"; };
+		BFFEF75A29F907ED0002E111 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
+		BFFEF75C29F908D40002E111 /* ViewTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTools.swift; sourceTree = "<group>"; };
+		BFFEF75F29F9094B0002E111 /* GameInfoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoBlock.swift; sourceTree = "<group>"; };
+		BFFEF76129F90A480002E111 /* DetailInfoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoBlock.swift; sourceTree = "<group>"; };
+		BFFEF76329F916390002E111 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
+		BFFEF76529F918300002E111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BFFEF76A29F919B80002E111 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		BFFEF76C29F919BC0002E111 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFFEF76D29F919BD0002E111 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFFEF77229F91A5D0002E111 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BFFEF77429F91A610002E111 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFFEF77529F91A610002E111 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFFEF77629F91B510002E111 /* HSRPizzaHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HSRPizzaHelper.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFEF73B29F8FDD20002E111 /* HBMihoyoAPI in Frameworks */,
+				BFFEF75729F9073B0002E111 /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,8 +109,16 @@
 		BFFEF6F929F8F1D70002E111 = {
 			isa = PBXGroup;
 			children = (
+				BFFEF72829F8F9940002E111 /* AccountConfiguration.xcdatamodeld */,
+				BFFEF71729F8F3B80002E111 /* CommonTools */,
+				BFFEF73929F8FDD20002E111 /* Frameworks */,
 				BFFEF70429F8F1D70002E111 /* HSRPizzaHelper */,
+				BFFEF76E29F91A1F0002E111 /* Internationalization */,
+				BFFEF72729F8F8F30002E111 /* Models */,
+				BFFEF73E29F8FF350002E111 /* Notification */,
+				BFFEF72D29F8FC290002E111 /* Packages */,
 				BFFEF70329F8F1D70002E111 /* Products */,
+				BFFEF71329F8F2DC0002E111 /* Views */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +133,10 @@
 		BFFEF70429F8F1D70002E111 /* HSRPizzaHelper */ = {
 			isa = PBXGroup;
 			children = (
+				BFFEF77629F91B510002E111 /* HSRPizzaHelper.entitlements */,
+				BFFEF73229F8FCA90002E111 /* Info.plist */,
+				BFFEF76529F918300002E111 /* AppDelegate.swift */,
 				BFFEF70529F8F1D70002E111 /* HSRPizzaHelperApp.swift */,
-				BFFEF70729F8F1D70002E111 /* ContentView.swift */,
 				BFFEF70929F8F1D90002E111 /* Assets.xcassets */,
 				BFFEF70B29F8F1D90002E111 /* Preview Content */,
 			);
@@ -65,6 +149,126 @@
 				BFFEF70C29F8F1D90002E111 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BFFEF71329F8F2DC0002E111 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF75E29F9093D0002E111 /* SubViews */,
+				BFFEF74E29F906B70002E111 /* ViewElements */,
+				BFFEF74729F905DB0002E111 /* AccountViews */,
+				BFFEF71429F8F2ED0002E111 /* RootViews */,
+				BFFEF71E29F8F5DD0002E111 /* WebViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BFFEF71429F8F2ED0002E111 /* RootViews */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF70729F8F1D70002E111 /* ContentView.swift */,
+				BFFEF71529F8F3280002E111 /* HomeView.swift */,
+				BFFEF71C29F8F4780002E111 /* SettingsView.swift */,
+			);
+			path = RootViews;
+			sourceTree = "<group>";
+		};
+		BFFEF71729F8F3B80002E111 /* CommonTools */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF72329F8F7820002E111 /* AutoSheetDismiss.swift */,
+				BFFEF72529F8F8820002E111 /* DeviceRecognizer.swift */,
+				BFFEF71829F8F3C80002E111 /* StoreManager.swift */,
+				BFFEF71A29F8F41F0002E111 /* TapticSupport.swift */,
+				BFFEF74129F8FFA90002E111 /* StringExtensions.swift */,
+				BFFEF74329F900070002E111 /* TimeTools.swift */,
+				BFFEF74C29F9068F0002E111 /* NetworkReachability.swift */,
+				BFFEF75A29F907ED0002E111 /* ReviewHandler.swift */,
+				BFFEF75C29F908D40002E111 /* ViewTools.swift */,
+			);
+			path = CommonTools;
+			sourceTree = "<group>";
+		};
+		BFFEF71E29F8F5DD0002E111 /* WebViews */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF71F29F8F5FF0002E111 /* UserPolicyView.swift */,
+				BFFEF72129F8F61A0002E111 /* WebBrowserView.swift */,
+			);
+			path = WebViews;
+			sourceTree = "<group>";
+		};
+		BFFEF72729F8F8F30002E111 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF72F29F8FC670002E111 /* AccountModel.swift */,
+				BFFEF74529F900FB0002E111 /* AccountConfigurationModel.swift */,
+				BFFEF72B29F8FB340002E111 /* RootViewModel.swift */,
+				BFFEF73C29F8FEB40002E111 /* ServersModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BFFEF72D29F8FC290002E111 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF73729F8FDC10002E111 /* HBMihoyoAPI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		BFFEF73929F8FDD20002E111 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFFEF73E29F8FF350002E111 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF73F29F8FF420002E111 /* NotificationCenter.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		BFFEF74729F905DB0002E111 /* AccountViews */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF74829F905EA0002E111 /* AddAccountView.swift */,
+				BFFEF74A29F906370002E111 /* AddAccountDetailView.swift */,
+			);
+			path = AccountViews;
+			sourceTree = "<group>";
+		};
+		BFFEF74E29F906B70002E111 /* ViewElements */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF74F29F906CA0002E111 /* InfoPreviewerView.swift */,
+				BFFEF75129F906F20002E111 /* TextEditorView.swift */,
+				BFFEF75329F907160002E111 /* GetCookieWebView.swift */,
+				BFFEF75829F907A80002E111 /* TestSectionView.swift */,
+			);
+			path = ViewElements;
+			sourceTree = "<group>";
+		};
+		BFFEF75E29F9093D0002E111 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF75F29F9094B0002E111 /* GameInfoBlock.swift */,
+				BFFEF76129F90A480002E111 /* DetailInfoBlock.swift */,
+				BFFEF76329F916390002E111 /* AccountDetailView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		BFFEF76E29F91A1F0002E111 /* Internationalization */ = {
+			isa = PBXGroup;
+			children = (
+				BFFEF76B29F919B80002E111 /* Localizable.strings */,
+				BFFEF77329F91A5D0002E111 /* InfoPlist.strings */,
+			);
+			path = Internationalization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +287,10 @@
 			dependencies = (
 			);
 			name = HSRPizzaHelper;
+			packageProductDependencies = (
+				BFFEF73A29F8FDD20002E111 /* HBMihoyoAPI */,
+				BFFEF75629F9073B0002E111 /* AlertToast */,
+			);
 			productName = HSRPizzaHelper;
 			productReference = BFFEF70229F8F1D70002E111 /* HSRPizzaHelper.app */;
 			productType = "com.apple.product-type.application";
@@ -109,8 +317,13 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				ja,
 			);
 			mainGroup = BFFEF6F929F8F1D70002E111;
+			packageReferences = (
+				BFFEF75529F9073B0002E111 /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
 			productRefGroup = BFFEF70329F8F1D70002E111 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,7 +339,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFFEF70D29F8F1D90002E111 /* Preview Assets.xcassets in Resources */,
+				BFFEF76929F919B80002E111 /* Localizable.strings in Resources */,
+				BFFEF73829F8FDC10002E111 /* HBMihoyoAPI in Resources */,
 				BFFEF70A29F8F1D90002E111 /* Assets.xcassets in Resources */,
+				BFFEF77129F91A5D0002E111 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,12 +353,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFEF75D29F908D40002E111 /* ViewTools.swift in Sources */,
+				BFFEF75029F906CA0002E111 /* InfoPreviewerView.swift in Sources */,
+				BFFEF76229F90A480002E111 /* DetailInfoBlock.swift in Sources */,
+				BFFEF76429F916390002E111 /* AccountDetailView.swift in Sources */,
+				BFFEF71629F8F3280002E111 /* HomeView.swift in Sources */,
+				BFFEF75B29F907ED0002E111 /* ReviewHandler.swift in Sources */,
+				BFFEF72029F8F5FF0002E111 /* UserPolicyView.swift in Sources */,
+				BFFEF74D29F9068F0002E111 /* NetworkReachability.swift in Sources */,
+				BFFEF75429F907160002E111 /* GetCookieWebView.swift in Sources */,
+				BFFEF72429F8F7820002E111 /* AutoSheetDismiss.swift in Sources */,
+				BFFEF72A29F8F9940002E111 /* AccountConfiguration.xcdatamodeld in Sources */,
+				BFFEF71929F8F3C80002E111 /* StoreManager.swift in Sources */,
+				BFFEF74429F900070002E111 /* TimeTools.swift in Sources */,
+				BFFEF76029F9094B0002E111 /* GameInfoBlock.swift in Sources */,
+				BFFEF73029F8FC670002E111 /* AccountModel.swift in Sources */,
 				BFFEF70829F8F1D70002E111 /* ContentView.swift in Sources */,
+				BFFEF74029F8FF420002E111 /* NotificationCenter.swift in Sources */,
+				BFFEF74229F8FFA90002E111 /* StringExtensions.swift in Sources */,
+				BFFEF74629F900FB0002E111 /* AccountConfigurationModel.swift in Sources */,
+				BFFEF72229F8F61A0002E111 /* WebBrowserView.swift in Sources */,
+				BFFEF73D29F8FEB40002E111 /* ServersModel.swift in Sources */,
+				BFFEF71D29F8F4780002E111 /* SettingsView.swift in Sources */,
+				BFFEF76629F918300002E111 /* AppDelegate.swift in Sources */,
+				BFFEF75229F906F20002E111 /* TextEditorView.swift in Sources */,
+				BFFEF74929F905EA0002E111 /* AddAccountView.swift in Sources */,
 				BFFEF70629F8F1D70002E111 /* HSRPizzaHelperApp.swift in Sources */,
+				BFFEF71B29F8F41F0002E111 /* TapticSupport.swift in Sources */,
+				BFFEF74B29F906370002E111 /* AddAccountDetailView.swift in Sources */,
+				BFFEF72C29F8FB340002E111 /* RootViewModel.swift in Sources */,
+				BFFEF72629F8F8820002E111 /* DeviceRecognizer.swift in Sources */,
+				BFFEF75929F907A80002E111 /* TestSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BFFEF76B29F919B80002E111 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFFEF76A29F919B80002E111 /* zh-Hans */,
+				BFFEF76C29F919BC0002E111 /* en */,
+				BFFEF76D29F919BD0002E111 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		BFFEF77329F91A5D0002E111 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFFEF77229F91A5D0002E111 /* zh-Hans */,
+				BFFEF77429F91A610002E111 /* en */,
+				BFFEF77529F91A610002E111 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BFFEF70E29F8F1D90002E111 /* Debug */ = {
@@ -264,17 +532,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
-				DEVELOPMENT_TEAM = L7XRJ79BCH;
+				DEVELOPMENT_ASSET_PATHS = "dependences/HBMihoyoAPI HSRPizzaHelper/Preview\\ Content";
+				DEVELOPMENT_TEAM = 3P763V36ZR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HSRPizzaHelper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HSRPizza.DisplayName;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -293,17 +566,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
-				DEVELOPMENT_TEAM = L7XRJ79BCH;
+				DEVELOPMENT_ASSET_PATHS = "dependences/HBMihoyoAPI HSRPizzaHelper/Preview\\ Content";
+				DEVELOPMENT_TEAM = 3P763V36ZR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HSRPizzaHelper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HSRPizza.DisplayName;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +617,42 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BFFEF75529F9073B0002E111 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BFFEF73A29F8FDD20002E111 /* HBMihoyoAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HBMihoyoAPI;
+		};
+		BFFEF75629F9073B0002E111 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFFEF75529F9073B0002E111 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BFFEF72829F8F9940002E111 /* AccountConfiguration.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BFFEF72929F8F9940002E111 /* AccountConfiguration.xcdatamodel */,
+			);
+			currentVersion = BFFEF72929F8F9940002E111 /* AccountConfiguration.xcdatamodel */;
+			path = AccountConfiguration.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BFFEF6FA29F8F1D70002E111 /* Project object */;
 }

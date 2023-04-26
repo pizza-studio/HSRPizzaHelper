@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct HSRPizzaHelperApp: App {
+
+    let viewModel: ViewModel = .shared
+    #if !os(watchOS)
+    @UIApplicationDelegateAdaptor(AppDelegate.self)
+    var appDelegate
+    #endif
+    @StateObject
+    var storeManager = StoreManager()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(storeManager: storeManager)
+                .environmentObject(viewModel)
         }
     }
 }
