@@ -2,26 +2,19 @@
 //  HSRPizzaHelperApp.swift
 //  HSRPizzaHelper
 //
-//  Created by Bill Haku on 2023/4/26.
+//  Created by 戴藏龙 on 2023/5/3.
 //
 
 import SwiftUI
 
 @main
 struct HSRPizzaHelperApp: App {
-
-    let viewModel: ViewModel = .shared
-    #if !os(watchOS)
-    @UIApplicationDelegateAdaptor(AppDelegate.self)
-    var appDelegate
-    #endif
-    @StateObject
-    var storeManager = StoreManager()
+    let accountPersistenceController = AccountPersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView(storeManager: storeManager)
-                .environmentObject(viewModel)
+            ContentView()
+                .environment(\.managedObjectContext, accountPersistenceController.container.viewContext)
         }
     }
 }
