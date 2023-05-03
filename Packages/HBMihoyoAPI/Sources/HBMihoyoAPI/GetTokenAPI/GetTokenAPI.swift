@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by 戴藏龙 on 2023/5/2.
 //
@@ -8,11 +8,12 @@
 import Foundation
 
 @available(iOS 15.0, *)
-public extension MiHoYoAPI {
-    static func getMultiTokenByLoginTicket(
+extension MiHoYoAPI {
+    public static func getMultiTokenByLoginTicket(
         loginTicket: String,
         loginUid: String
-    ) async throws -> MultiToken {
+    ) async throws
+        -> MultiToken {
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "login_ticket", value: loginTicket),
             URLQueryItem(name: "token_types", value: "3"),

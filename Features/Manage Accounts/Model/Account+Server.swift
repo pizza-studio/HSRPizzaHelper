@@ -13,7 +13,7 @@ extension Account {
         get {
             .init(rawValue: serverRawValue ?? "") ?? .china
         } set {
-            self.serverRawValue = newValue.rawValue
+            serverRawValue = newValue.rawValue
         }
     }
 }

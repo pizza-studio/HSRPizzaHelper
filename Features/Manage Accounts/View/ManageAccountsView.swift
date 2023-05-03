@@ -8,16 +8,7 @@
 import SwiftUI
 
 struct ManageAccountsView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Account.priority, ascending: true)
-        ],
-        animation: .default)
-    private var accounts: FetchedResults<Account>
-
-    @State private var isAddAccountSheetShown: Bool = false
+    // MARK: Internal
 
     var body: some View {
         List {
@@ -46,7 +37,6 @@ struct ManageAccountsView: View {
                 } label: {
                     Image(systemSymbol: .plusCircle)
                 }
-
             }
         }
         .onAppear {
@@ -58,6 +48,22 @@ struct ManageAccountsView: View {
             }
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.managedObjectContext)
+    private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Account.priority, ascending: true),
+        ],
+        animation: .default
+    )
+    private var accounts: FetchedResults<Account>
+
+    @State
+    private var isAddAccountSheetShown: Bool = false
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {

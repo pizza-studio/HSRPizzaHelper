@@ -5,56 +5,30 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
-import SwiftUI
 import HBMihoyoAPI
+import SwiftUI
+
+// MARK: - AddAccountView
 
 struct AddAccountView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @Binding var isShown: Bool
-
-    @StateObject var account: Account
-
-    @State private var isSaveAccountFailAlertShown: Bool = false
-    @State private var saveAccountError: SaveAccountError?
-
-    @State private var status: AddAccountStatus = .pending
-
-    @State
-    private var accountsForSelected: [FetchedAccount] = []
-
-    @State private var region: Region = .china
-
-    private var selectedAccount: Binding<FetchedAccount?> {
-        .init {
-            accountsForSelected.first { account in
-                account.gameUid == self.account.uid
-            }
-        } set: { account in
-            if let account = account {
-                self.account.name = account.nickname
-                self.account.uid = account.gameUid
-                self.account.server = Server(rawValue: account.region) ?? .china
-            }
-        }
-    }
-
-    private var name: Binding<String> {
-        .init {
-            account.name ?? ""
-        } set: { newValue in
-            account.name = newValue
-        }
-    }
+    // MARK: Lifecycle
 
     init(isShown: Binding<Bool>) {
-        self._isShown = isShown
+        _isShown = isShown
         let account = Account(context: AccountPersistenceController.shared.container.viewContext)
         account.uuid = UUID()
         account.priority = 0
         account.serverRawValue = Server.china.rawValue
-        self._account = StateObject(wrappedValue: account)
+        _account = StateObject(wrappedValue: account)
     }
+
+    // MARK: Internal
+
+    @Binding
+    var isShown: Bool
+
+    @StateObject
+    var account: Account
 
     var body: some View {
         NavigationView {
@@ -146,7 +120,12 @@ struct AddAccountView: View {
                     Text("You can also")
                         .font(.footnote)
                     NavigationLink {
-                        AddAccountDetailView(unsavedName: $account.name, unsavedUid: $account.uid, unsavedCookie: $account.cookie, unsavedServer: $account.server)
+                        AddAccountDetailView(
+                            unsavedName: $account.name,
+                            unsavedUid: $account.uid,
+                            unsavedCookie: $account.cookie,
+                            unsavedServer: $account.server
+                        )
                     } label: {
                         Text("manually config your account")
                             .font(.footnote)
@@ -158,7 +137,7 @@ struct AddAccountView: View {
             }
         }
         .onChange(of: account.cookie) { newValue in
-            if newValue != nil && newValue != "" {
+            if newValue != nil, newValue != "" {
                 status = .gotCookie
             }
         }
@@ -201,19 +180,70 @@ struct AddAccountView: View {
         }
         Section {
             NavigationLink {
-                AddAccountDetailView(unsavedName: $account.name, unsavedUid: $account.uid, unsavedCookie: $account.cookie, unsavedServer: $account.server)
+                AddAccountDetailView(
+                    unsavedName: $account.name,
+                    unsavedUid: $account.uid,
+                    unsavedCookie: $account.cookie,
+                    unsavedServer: $account.server
+                )
             } label: {
                 Text("Account Detail")
             }
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.managedObjectContext)
+    private var viewContext
+
+    @State
+    private var isSaveAccountFailAlertShown: Bool = false
+    @State
+    private var saveAccountError: SaveAccountError?
+
+    @State
+    private var status: AddAccountStatus = .pending
+
+    @State
+    private var accountsForSelected: [FetchedAccount] = []
+
+    @State
+    private var region: Region = .china
+
+    private var selectedAccount: Binding<FetchedAccount?> {
+        .init {
+            accountsForSelected.first { account in
+                account.gameUid == self.account.uid
+            }
+        } set: { account in
+            if let account = account {
+                self.account.name = account.nickname
+                self.account.uid = account.gameUid
+                self.account.server = Server(rawValue: account.region) ?? .china
+            }
+        }
+    }
+
+    private var name: Binding<String> {
+        .init {
+            account.name ?? ""
+        } set: { newValue in
+            account.name = newValue
+        }
+    }
 }
 
-struct RequireLoginView: View {
-    @State var getCookieWebViewRegion: Region?
+// MARK: - RequireLoginView
 
-    @Binding var unsavedCookie: String?
-    @Binding var region: Region
+struct RequireLoginView: View {
+    @State
+    var getCookieWebViewRegion: Region?
+
+    @Binding
+    var unsavedCookie: String?
+    @Binding
+    var region: Region
 
     var body: some View {
         Menu {
@@ -254,31 +284,38 @@ struct RequireLoginView: View {
     }
 }
 
+// MARK: - AddAccountStatus
+
 private enum AddAccountStatus {
     case pending
     case gotCookie
     case gotAccount
 }
 
+// MARK: - SaveAccountError
+
 private enum SaveAccountError {
     case saveDataError(Error)
     case missingFieldError(String)
 }
 
+// MARK: LocalizedError
+
 extension SaveAccountError: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .saveDataError(let error):
+        case let .saveDataError(error):
             return "Save Account Fail\nSave Error: \(error).\nPlease try again."
-        case .missingFieldError(let field):
+        case let .missingFieldError(field):
             return "Save Account Fail\nMissing Fields: \(field).\nPlease try again."
         }
     }
+
     var failureReason: String? {
         switch self {
-        case .saveDataError(let error):
+        case let .saveDataError(error):
             return "Save Error: \(error)."
-        case .missingFieldError(let field):
+        case let .missingFieldError(field):
             return "Missing Fields: \(field)."
         }
     }
@@ -287,6 +324,8 @@ extension SaveAccountError: LocalizedError {
         "Please try login again. "
     }
 }
+
+// MARK: - ExplanationView
 
 private struct ExplanationView: View {
     var body: some View {
@@ -313,7 +352,37 @@ private struct ExplanationView: View {
     }
 }
 
+// MARK: - AddAccountDetailView
+
 struct AddAccountDetailView: View {
+    // MARK: Lifecycle
+
+    init(
+        unsavedName: Binding<String?>,
+        unsavedUid: Binding<String?>,
+        unsavedCookie: Binding<String?>,
+        unsavedServer: Binding<Server>
+    ) {
+        _unsavedName = .init(get: {
+            unsavedName.wrappedValue ?? ""
+        }, set: { newValue in
+            unsavedName.wrappedValue = newValue
+        })
+        _unsavedUid = .init(get: {
+            unsavedUid.wrappedValue ?? ""
+        }, set: { newValue in
+            unsavedUid.wrappedValue = newValue
+        })
+        _unsavedCookie = .init(get: {
+            unsavedCookie.wrappedValue ?? ""
+        }, set: { newValue in
+            unsavedCookie.wrappedValue = newValue
+        })
+        _unsavedServer = unsavedServer
+    }
+
+    // MARK: Internal
+
     @Binding
     var unsavedName: String
     @Binding
@@ -322,30 +391,6 @@ struct AddAccountDetailView: View {
     var unsavedCookie: String
     @Binding
     var unsavedServer: Server
-
-    init(
-        unsavedName: Binding<String?>,
-        unsavedUid: Binding<String?>,
-        unsavedCookie: Binding<String?>,
-        unsavedServer: Binding<Server>
-    ) {
-        self._unsavedName = .init(get: {
-            unsavedName.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedName.wrappedValue = newValue
-        })
-        self._unsavedUid = .init(get: {
-            unsavedUid.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedUid.wrappedValue = newValue
-        })
-        self._unsavedCookie = .init(get: {
-            unsavedCookie.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedCookie.wrappedValue = newValue
-        })
-        self._unsavedServer = unsavedServer
-    }
 
     var body: some View {
         List {
@@ -380,4 +425,3 @@ struct AddAccountDetailView: View {
         .navigationBarTitle("Account Detail", displayMode: .inline)
     }
 }
-

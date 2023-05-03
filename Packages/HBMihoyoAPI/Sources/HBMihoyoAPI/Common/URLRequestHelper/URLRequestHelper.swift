@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by 戴藏龙 on 2023/5/2.
 //
@@ -20,7 +20,7 @@ enum URLRequestHelper {
 
         let time = String(Int(Date().timeIntervalSince1970))
 
-        let randomNumber = String(Int.random(in: 100000 ..< 200000))
+        let randomNumber = String(Int.random(in: 100_000 ..< 200_000))
 
         let bodyString: String
         if let body = body {

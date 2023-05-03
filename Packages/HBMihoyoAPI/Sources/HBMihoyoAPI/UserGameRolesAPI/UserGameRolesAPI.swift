@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by 戴藏龙 on 2023/5/2.
 //
@@ -8,8 +8,8 @@
 import Foundation
 
 @available(iOS 15.0, *)
-public extension MiHoYoAPI {
-    static func getUserGameRolesByCookie(region: Region, cookie: String) async throws -> [FetchedAccount] {
+extension MiHoYoAPI {
+    public static func getUserGameRolesByCookie(region: Region, cookie: String) async throws -> [FetchedAccount] {
         let queryItems: [URLQueryItem] = [
             .init(name: "game_biz", value: region.rawValue),
         ]

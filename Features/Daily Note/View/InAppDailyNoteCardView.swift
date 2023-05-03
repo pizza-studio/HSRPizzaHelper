@@ -6,11 +6,14 @@
 //
 
 import Foundation
-import SwiftUI
 import HBMihoyoAPI
+import SwiftUI
+
+// MARK: - InAppDailyNoteCardView
 
 struct InAppDailyNoteCardView: View {
-    @StateObject var dailyNoteViewModel: DailyNoteViewModel = .init()
+    @StateObject
+    var dailyNoteViewModel: DailyNoteViewModel = .init()
 
     let account: Account
 
@@ -19,11 +22,11 @@ struct InAppDailyNoteCardView: View {
             switch dailyNoteViewModel.dailyNote {
             case .loading:
                 ProgressView()
-            case .finished(let result):
+            case let .finished(result):
                 switch result {
-                case .success(let note):
+                case let .success(note):
                     NoteView(account: account, note: note)
-                case .failure(let error):
+                case let .failure(error):
                     ErrorView(account: account, error: error)
                 }
             }
@@ -35,6 +38,8 @@ struct InAppDailyNoteCardView: View {
         }
     }
 }
+
+// MARK: - NoteView
 
 private struct NoteView: View {
     let account: Account
@@ -91,10 +96,11 @@ private struct NoteView: View {
                     }
                 }
             }
-
         }
     }
 }
+
+// MARK: - ErrorView
 
 private struct ErrorView: View {
     let account: Account

@@ -8,9 +8,7 @@
 import CoreData
 
 struct AccountPersistenceController {
-    static let shared = AccountPersistenceController()
-
-    let container: NSPersistentCloudKitContainer
+    // MARK: Lifecycle
 
     init(inMemory: Bool = false) {
         let containerURL = FileManager.default
@@ -20,8 +18,7 @@ struct AccountPersistenceController {
         let storeURL = containerURL
             .appendingPathComponent("HSRPizzaHelper.splite")
 
-        self
-            .container =
+        self.container =
             NSPersistentCloudKitContainer(name: "HSRPizzaHelper")
         let description = container.persistentStoreDescriptions.first!
         if inMemory {
@@ -50,4 +47,10 @@ struct AccountPersistenceController {
 
         container.viewContext.refreshAllObjects()
     }
+
+    // MARK: Internal
+
+    static let shared = AccountPersistenceController()
+
+    let container: NSPersistentCloudKitContainer
 }

@@ -9,15 +9,17 @@ import Foundation
 import SwiftyUserDefaults
 
 // Store all value in App Group user default.
-var Defaults = DefaultsAdapter<DefaultsKeys>(defaults: UserDefaults(suiteName: AppConfig.appGroupID)!, keyStore: .init())
+// swiftlint:disable identifier_name
+var Defaults = DefaultsAdapter<DefaultsKeys>(
+    defaults: UserDefaults(suiteName: AppConfig.appGroupID)!,
+    keyStore: .init()
+)
+// swiftlint:enable identifier_name
 
 extension DefaultsKeys {
     var example: DefaultsKey<String> { .init("example", defaultValue: "Hello World!") }
 
     // MARK: - In app
 
-
     // MARK: - For widgets
-
-
 }

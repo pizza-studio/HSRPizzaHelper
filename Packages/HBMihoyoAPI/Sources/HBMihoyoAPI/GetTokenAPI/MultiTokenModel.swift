@@ -1,19 +1,16 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by 戴藏龙 on 2023/5/2.
 //
 
 import Foundation
 
-public struct MultiToken: Decodable {
-    public let stoken: String
-    public let ltoken: String
+// MARK: - MultiToken
 
-    enum CodingKeys: String, CodingKey {
-        case list = "list"
-    }
+public struct MultiToken: Decodable {
+    // MARK: Lifecycle
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -33,10 +30,23 @@ public struct MultiToken: Decodable {
         }
     }
 
+    // MARK: Public
+
+    public let stoken: String
+    public let ltoken: String
+
+    // MARK: Internal
+
+    enum CodingKeys: String, CodingKey {
+        case list
+    }
+
     struct Item: Decodable {
         public let name: String
         public let token: String
     }
 }
+
+// MARK: DecodableFromMiHoYoAPIJSONResult
 
 extension MultiToken: DecodableFromMiHoYoAPIJSONResult {}

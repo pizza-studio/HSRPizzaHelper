@@ -5,8 +5,8 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
-import SwiftUI
 import HBMihoyoAPI
+import SwiftUI
 
 struct SettingView: View {
     var body: some View {
@@ -20,4 +20,3 @@ struct SettingView: View {
         }
     }
 }
-

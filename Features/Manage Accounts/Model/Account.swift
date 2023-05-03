@@ -11,13 +11,13 @@ import HBMihoyoAPI
 extension Account {
     func isValid() -> Bool {
         true
-        && self.uid != nil
-        && self.uid != ""
-        && self.cookie != nil
-        && self.cookie != ""
-        && Server(rawValue: self.serverRawValue ?? "") != nil
-        && self.uuid != nil
-        && self.priority != nil
-        && self.name != nil
+            && uid != nil
+            && uid != ""
+            && cookie != nil
+            && cookie != ""
+            && Server(rawValue: serverRawValue ?? "") != nil
+            && uuid != nil
+            && priority != nil
+            && name != nil
     }
 }

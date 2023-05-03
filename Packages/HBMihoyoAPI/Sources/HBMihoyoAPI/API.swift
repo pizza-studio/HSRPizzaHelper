@@ -1,16 +1,18 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by 戴藏龙 on 2023/5/2.
 //
 
 import Foundation
 
+// MARK: - MiHoYoAPI
+
 /// Abstract class for MiHoYoAPI. Add new features by `extension`ing it.
 public enum MiHoYoAPI {}
 
-public extension MiHoYoAPI {
+extension MiHoYoAPI {
     /// Generate `api-takumi-record.mihoyo.com` / `bbs-api-os.mihoyo.com` request for miHoYo API
     /// - Parameters:
     ///   - httpMethod: http method of request. Default `GET`.
@@ -20,15 +22,24 @@ public extension MiHoYoAPI {
     ///   - body: `Body` of request.
     ///   - cookie: cookie of request.
     /// - Returns: `URLRequest`
-    static func generateRecordAPIRequest(
+    public static func generateRecordAPIRequest(
         httpMethod: HTTPMethod = .get,
         region: Region,
         path: String,
         queryItems: [URLQueryItem],
         body: Data? = nil,
         cookie: String? = nil
-    ) throws -> URLRequest {
-        try generateRequest(httpMethod: httpMethod, region: region, host: URLRequestHelperConfiguration.recordURLAPIHost(region: region), path: path, queryItems: queryItems, body: body, cookie: cookie)
+    ) throws
+        -> URLRequest {
+        try generateRequest(
+            httpMethod: httpMethod,
+            region: region,
+            host: URLRequestHelperConfiguration.recordURLAPIHost(region: region),
+            path: path,
+            queryItems: queryItems,
+            body: body,
+            cookie: cookie
+        )
     }
 
     /// Generate `api-takumi.mihoyo.com` / `api-account-os.hoyolab.com` request for miHoYo API
@@ -40,14 +51,15 @@ public extension MiHoYoAPI {
     ///   - body: `Body` of request.
     ///   - cookie: cookie of request.
     /// - Returns: `URLRequest`
-    static func generateAccountAPIRequest(
+    public static func generateAccountAPIRequest(
         httpMethod: HTTPMethod = .get,
         region: Region,
         path: String,
         queryItems: [URLQueryItem],
         body: Data? = nil,
         cookie: String? = nil
-    ) throws -> URLRequest {
+    ) throws
+        -> URLRequest {
         try generateRequest(
             httpMethod: httpMethod,
             region: region,
@@ -77,7 +89,8 @@ public extension MiHoYoAPI {
         queryItems: [URLQueryItem],
         body: Data? = nil,
         cookie: String? = nil
-    ) throws -> URLRequest {
+    ) throws
+        -> URLRequest {
         var components = URLComponents()
 
         components.scheme = "https"
@@ -103,7 +116,10 @@ public extension MiHoYoAPI {
         if let cookie = cookie {
             request.setValue(cookie, forHTTPHeaderField: "Cookie")
         }
-        request.setValue(URLRequestHelper.getDS(region: region, query: url.query ?? "", body: body), forHTTPHeaderField: "DS")
+        request.setValue(
+            URLRequestHelper.getDS(region: region, query: url.query ?? "", body: body),
+            forHTTPHeaderField: "DS"
+        )
         if let body = body {
             request.setValue(
                 "\(body.count)",
@@ -114,7 +130,7 @@ public extension MiHoYoAPI {
         return request
     }
 
-    enum HTTPMethod: String {
+    public enum HTTPMethod: String {
         case post = "POST"
         case get = "GET"
         case put = "PUT"

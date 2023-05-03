@@ -23,9 +23,6 @@
 		EAE519872A01738600EF23B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE519862A01738600EF23B7 /* Preview Assets.xcassets */; };
 		EAE519892A01738600EF23B7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */; };
-		EAE519972A01738600EF23B7 /* HSRPizzaHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519962A01738600EF23B7 /* HSRPizzaHelperTests.swift */; };
-		EAE519A12A01738600EF23B7 /* HSRPizzaHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519A02A01738600EF23B7 /* HSRPizzaHelperUITests.swift */; };
-		EAE519A32A01738600EF23B7 /* HSRPizzaHelperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519A22A01738600EF23B7 /* HSRPizzaHelperUITestsLaunchTests.swift */; };
 		EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = EAE519B02A0174D800EF23B7 /* SFSafeSymbols */; };
 		EAE519B42A01752A00EF23B7 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EAE519B32A01752A00EF23B7 /* AlertToast */; };
 		EAE519C52A01787000EF23B7 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519C42A01787000EF23B7 /* AccountViewModel.swift */; };
@@ -34,23 +31,6 @@
 		EAEC11E72A023E130024314D /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = EAEC11E62A023E130024314D /* SwiftyUserDefaults */; };
 		EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EAE519932A01738600EF23B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EAE519742A01738600EF23B7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EAE5197B2A01738600EF23B7;
-			remoteInfo = HSRPizzaHelper;
-		};
-		EAE5199D2A01738600EF23B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EAE519742A01738600EF23B7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EAE5197B2A01738600EF23B7;
-			remoteInfo = HSRPizzaHelper;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EA742BF62A020A3300ACB8E4 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
@@ -70,11 +50,6 @@
 		EAE519882A01738600EF23B7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		EAE5198B2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HSRPizzaHelper.xcdatamodel; sourceTree = "<group>"; };
 		EAE5198D2A01738600EF23B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EAE519922A01738600EF23B7 /* HSRPizzaHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSRPizzaHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAE519962A01738600EF23B7 /* HSRPizzaHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperTests.swift; sourceTree = "<group>"; };
-		EAE5199C2A01738600EF23B7 /* HSRPizzaHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSRPizzaHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAE519A02A01738600EF23B7 /* HSRPizzaHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperUITests.swift; sourceTree = "<group>"; };
-		EAE519A22A01738600EF23B7 /* HSRPizzaHelperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EAE519B92A01759D00EF23B7 /* HBMihoyoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBMihoyoAPI; path = Packages/HBMihoyoAPI; sourceTree = "<group>"; };
 		EAE519C22A01771F00EF23B7 /* HSRPizzaHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HSRPizzaHelper.entitlements; sourceTree = "<group>"; };
 		EAE519C42A01787000EF23B7 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
@@ -92,20 +67,6 @@
 				EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */,
 				EAEC11E72A023E130024314D /* SwiftyUserDefaults in Frameworks */,
 				EAE519B42A01752A00EF23B7 /* AlertToast in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAE5198F2A01738600EF23B7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAE519992A01738600EF23B7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +98,6 @@
 				EAE519BA2A0175C200EF23B7 /* Features */,
 				EAE519B72A01757400EF23B7 /* Packages */,
 				EAE5197E2A01738600EF23B7 /* HSRPizzaHelper */,
-				EAE519952A01738600EF23B7 /* HSRPizzaHelperTests */,
-				EAE5199F2A01738600EF23B7 /* HSRPizzaHelperUITests */,
 				EAE5197D2A01738600EF23B7 /* Products */,
 				EA143BC62A01808200AE1FCA /* Frameworks */,
 			);
@@ -148,8 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */,
-				EAE519922A01738600EF23B7 /* HSRPizzaHelperTests.xctest */,
-				EAE5199C2A01738600EF23B7 /* HSRPizzaHelperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,23 +130,6 @@
 				EAE519862A01738600EF23B7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		EAE519952A01738600EF23B7 /* HSRPizzaHelperTests */ = {
-			isa = PBXGroup;
-			children = (
-				EAE519962A01738600EF23B7 /* HSRPizzaHelperTests.swift */,
-			);
-			path = HSRPizzaHelperTests;
-			sourceTree = "<group>";
-		};
-		EAE5199F2A01738600EF23B7 /* HSRPizzaHelperUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EAE519A02A01738600EF23B7 /* HSRPizzaHelperUITests.swift */,
-				EAE519A22A01738600EF23B7 /* HSRPizzaHelperUITestsLaunchTests.swift */,
-			);
-			path = HSRPizzaHelperUITests;
 			sourceTree = "<group>";
 		};
 		EAE519B72A01757400EF23B7 /* Packages */ = {
@@ -313,6 +253,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAE519A62A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelper" */;
 			buildPhases = (
+				EAF431162A02B7E4009B3C0D /* ShellScript */,
 				EAE519782A01738600EF23B7 /* Sources */,
 				EAE519792A01738600EF23B7 /* Frameworks */,
 				EAE5197A2A01738600EF23B7 /* Resources */,
@@ -332,42 +273,6 @@
 			productReference = EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EAE519912A01738600EF23B7 /* HSRPizzaHelperTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EAE519A92A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelperTests" */;
-			buildPhases = (
-				EAE5198E2A01738600EF23B7 /* Sources */,
-				EAE5198F2A01738600EF23B7 /* Frameworks */,
-				EAE519902A01738600EF23B7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EAE519942A01738600EF23B7 /* PBXTargetDependency */,
-			);
-			name = HSRPizzaHelperTests;
-			productName = HSRPizzaHelperTests;
-			productReference = EAE519922A01738600EF23B7 /* HSRPizzaHelperTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EAE5199B2A01738600EF23B7 /* HSRPizzaHelperUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EAE519AC2A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelperUITests" */;
-			buildPhases = (
-				EAE519982A01738600EF23B7 /* Sources */,
-				EAE519992A01738600EF23B7 /* Frameworks */,
-				EAE5199A2A01738600EF23B7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EAE5199E2A01738600EF23B7 /* PBXTargetDependency */,
-			);
-			name = HSRPizzaHelperUITests;
-			productName = HSRPizzaHelperUITests;
-			productReference = EAE5199C2A01738600EF23B7 /* HSRPizzaHelperUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -380,14 +285,6 @@
 				TargetAttributes = {
 					EAE5197B2A01738600EF23B7 = {
 						CreatedOnToolsVersion = 14.3;
-					};
-					EAE519912A01738600EF23B7 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = EAE5197B2A01738600EF23B7;
-					};
-					EAE5199B2A01738600EF23B7 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = EAE5197B2A01738600EF23B7;
 					};
 				};
 			};
@@ -410,8 +307,6 @@
 			projectRoot = "";
 			targets = (
 				EAE5197B2A01738600EF23B7 /* HSRPizzaHelper */,
-				EAE519912A01738600EF23B7 /* HSRPizzaHelperTests */,
-				EAE5199B2A01738600EF23B7 /* HSRPizzaHelperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,21 +321,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAE519902A01738600EF23B7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAE5199A2A01738600EF23B7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EAF431162A02B7E4009B3C0D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAE519782A01738600EF23B7 /* Sources */ = {
@@ -467,37 +368,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAE5198E2A01738600EF23B7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAE519972A01738600EF23B7 /* HSRPizzaHelperTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAE519982A01738600EF23B7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAE519A12A01738600EF23B7 /* HSRPizzaHelperUITests.swift in Sources */,
-				EAE519A32A01738600EF23B7 /* HSRPizzaHelperUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EAE519942A01738600EF23B7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EAE5197B2A01738600EF23B7 /* HSRPizzaHelper */;
-			targetProxy = EAE519932A01738600EF23B7 /* PBXContainerItemProxy */;
-		};
-		EAE5199E2A01738600EF23B7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EAE5197B2A01738600EF23B7 /* HSRPizzaHelper */;
-			targetProxy = EAE5199D2A01738600EF23B7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EAE519A42A01738600EF23B7 /* Debug */ = {
@@ -676,84 +547,6 @@
 			};
 			name = Release;
 		};
-		EAE519AA2A01738600EF23B7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 45Z6V4YD5U;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelperTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HSRPizzaHelper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HSRPizzaHelper";
-			};
-			name = Debug;
-		};
-		EAE519AB2A01738600EF23B7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 45Z6V4YD5U;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelperTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HSRPizzaHelper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HSRPizzaHelper";
-			};
-			name = Release;
-		};
-		EAE519AD2A01738600EF23B7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 45Z6V4YD5U;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelperUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HSRPizzaHelper;
-			};
-			name = Debug;
-		};
-		EAE519AE2A01738600EF23B7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 45Z6V4YD5U;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelperUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HSRPizzaHelper;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -771,24 +564,6 @@
 			buildConfigurations = (
 				EAE519A72A01738600EF23B7 /* Debug */,
 				EAE519A82A01738600EF23B7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EAE519A92A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelperTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EAE519AA2A01738600EF23B7 /* Debug */,
-				EAE519AB2A01738600EF23B7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EAE519AC2A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelperUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EAE519AD2A01738600EF23B7 /* Debug */,
-				EAE519AE2A01738600EF23B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

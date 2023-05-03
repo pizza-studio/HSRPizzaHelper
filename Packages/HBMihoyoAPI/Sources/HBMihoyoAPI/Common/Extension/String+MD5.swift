@@ -46,4 +46,3 @@ extension String {
 //        return digest.reduce("") { $0 + String(format: "%02x", $1) }
 //    }
 }
-

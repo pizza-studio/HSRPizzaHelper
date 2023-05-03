@@ -11,6 +11,8 @@ import SafariServices
 import SwiftUI
 import WebKit
 
+// MARK: - GetCookieWebView
+
 struct GetCookieWebView: View {
     @Binding
     var isShown: Bool
@@ -57,7 +59,10 @@ struct GetCookieWebView: View {
         case .china:
             let loginTicket = getFromCookies("login_ticket") ?? ""
             let loginUid = getFromCookies("login_uid") ?? ""
-            let multiToken = try? await MiHoYoAPI.getMultiTokenByLoginTicket(loginTicket: loginTicket, loginUid: loginUid)
+            let multiToken = try? await MiHoYoAPI.getMultiTokenByLoginTicket(
+                loginTicket: loginTicket,
+                loginUid: loginUid
+            )
             if let multiToken = multiToken {
                 cookie += "stuid=" + loginUid + "; "
                 cookie += "stoken=" + multiToken.stoken + "; "
@@ -73,6 +78,8 @@ struct GetCookieWebView: View {
     }
 }
 
+// MARK: - CookieGetterWebView
+
 struct CookieGetterWebView: UIViewRepresentable {
     class Coordinator: NSObject, WKNavigationDelegate {
         // MARK: Lifecycle
@@ -87,7 +94,7 @@ struct CookieGetterWebView: UIViewRepresentable {
 
         func webView(
             _ webView: WKWebView,
-            didFinish navigation: WKNavigation!
+            didFinish _: WKNavigation!
         ) {
             let js = """
             let timer = setInterval(() => {
@@ -140,7 +147,7 @@ struct CookieGetterWebView: UIViewRepresentable {
         return webview
     }
 
-    func updateUIView(_ uiView: WKWebView, context: Context) {
+    func updateUIView(_ uiView: WKWebView, context _: Context) {
         if let url = URL(string: url) {
             var request = URLRequest(
                 url: url,
@@ -159,7 +166,7 @@ struct CookieGetterWebView: UIViewRepresentable {
     }
 }
 
-fileprivate func getURL(region: Region) -> String {
+private func getURL(region: Region) -> String {
     switch region {
     case .china:
         return "https://user.mihoyo.com/#/login/captcha"
@@ -168,7 +175,7 @@ fileprivate func getURL(region: Region) -> String {
     }
 }
 
-fileprivate func getHTTPHeaderFields(region: Region) -> [String: String] {
+private func getHTTPHeaderFields(region: Region) -> [String: String] {
     switch region {
     case .china:
         return [
@@ -192,6 +199,4 @@ fileprivate func getHTTPHeaderFields(region: Region) -> [String: String] {
     }
 }
 
-fileprivate func get(_ cookieField: String) {
-
-}
+private func get(_: String) {}

@@ -9,14 +9,19 @@ import Foundation
 
 @MainActor
 class AccountViewModel: ObservableObject {
-    let accountPersistenceController: AccountPersistenceController
+    // MARK: Lifecycle
 
     private init() {
-        accountPersistenceController = .shared
+        self.accountPersistenceController = .shared
         fetchAccounts()
     }
 
-    @Published var accounts: [Account] = []
+    // MARK: Internal
+
+    let accountPersistenceController: AccountPersistenceController
+
+    @Published
+    var accounts: [Account] = []
 
     func fetchAccounts() {
         let request = Account.fetchRequest()

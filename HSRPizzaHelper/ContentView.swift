@@ -5,10 +5,9 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
+import CoreData
 import SFSafeSymbols
 import SwiftUI
-import CoreData
-
 
 struct ContentView: View {
     var body: some View {

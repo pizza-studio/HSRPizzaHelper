@@ -5,17 +5,12 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
-import SwiftUI
 import CoreData
 import HBMihoyoAPI
+import SwiftUI
 
 struct HomeView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
-        animation: .default)
-    private var accounts: FetchedResults<Account>
+    // MARK: Internal
 
     var body: some View {
         NavigationView {
@@ -29,4 +24,15 @@ struct HomeView: View {
             .navigationTitle("Home")
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.managedObjectContext)
+    private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
+        animation: .default
+    )
+    private var accounts: FetchedResults<Account>
 }

@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by 戴藏龙 on 2023/5/2.
 //
@@ -8,8 +8,8 @@
 import Foundation
 
 @available(iOS 15.0, *)
-public extension MiHoYoAPI {
-    static func note(server: Server, uid: String, cookie: String) async throws -> DailyNote {
+extension MiHoYoAPI {
+    public static func note(server: Server, uid: String, cookie: String) async throws -> DailyNote {
         let queryItems: [URLQueryItem] = [
             .init(name: "role_id", value: uid),
             .init(name: "server", value: server.rawValue),

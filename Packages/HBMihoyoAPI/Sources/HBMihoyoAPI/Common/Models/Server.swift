@@ -23,10 +23,9 @@ extension Server {
     /// The region of the server.
     public var region: Region {
         switch self {
-        case .china, .bilibili:
+        case .bilibili, .china:
             return .china
-        case .asia, .europe, .unitedStates, .hongKongMacauTaiwan:
-            return .global
+        case .asia, .europe, .hongKongMacauTaiwan, .unitedStates:  return .global
         }
     }
 
@@ -43,10 +42,14 @@ extension Server {
     }
 }
 
+// MARK: Identifiable
+
 extension Server: Identifiable {
     public var id: String {
-        self.rawValue
+        rawValue
     }
 }
+
+// MARK: Codable
 
 extension Server: Codable {}

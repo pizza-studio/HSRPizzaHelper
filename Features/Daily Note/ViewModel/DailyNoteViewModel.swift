@@ -9,10 +9,11 @@ import Foundation
 import HBMihoyoAPI
 
 class DailyNoteViewModel: ObservableObject {
-    @Published var dailyNote: FetchStatus<DailyNote> = .loading
+    @Published
+    var dailyNote: FetchStatus<DailyNote> = .loading
 
     func getDailyNote(account: Account) async {
-        if case .finished(.success(let note)) = dailyNote {
+        if case let .finished(.success(note)) = dailyNote {
             if Date().timeIntervalSince(note.fetchTime) > 60 * 3 {
                 await getDailyNoteUncheck(account: account)
             }
@@ -24,9 +25,9 @@ class DailyNoteViewModel: ObservableObject {
     @MainActor
     func getDailyNoteUncheck(account: Account) async {
         do {
-            dailyNote = .finished(
+            dailyNote = try .finished(
                 .success(
-                    try await MiHoYoAPI.note(
+                    await MiHoYoAPI.note(
                         server: account.server,
                         uid: account.uid ?? "",
                         cookie: account.cookie ?? ""
