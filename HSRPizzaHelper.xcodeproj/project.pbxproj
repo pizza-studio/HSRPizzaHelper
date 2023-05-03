@@ -253,7 +253,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAE519A62A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelper" */;
 			buildPhases = (
-				EAF431162A02B7E4009B3C0D /* ShellScript */,
+				EAF431162A02B7E4009B3C0D /* SwiftLintCheck */,
+				EAF431172A02B944009B3C0D /* Clang-format */,
 				EAE519782A01738600EF23B7 /* Sources */,
 				EAE519792A01738600EF23B7 /* Frameworks */,
 				EAE5197A2A01738600EF23B7 /* Resources */,
@@ -324,7 +325,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EAF431162A02B7E4009B3C0D /* ShellScript */ = {
+		EAF431162A02B7E4009B3C0D /* SwiftLintCheck */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -333,6 +334,7 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLintCheck;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -340,6 +342,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		EAF431172A02B944009B3C0D /* Clang-format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Clang-format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat > /dev/null; then\n  make format\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
