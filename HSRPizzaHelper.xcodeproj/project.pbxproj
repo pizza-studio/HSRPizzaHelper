@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA143BC72A01808200AE1FCA /* HBMihoyoAPI */; };
+		EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA37AEB32A02CDB900E4AADA /* SwifterSwift */; };
 		EA742BF72A020A3300ACB8E4 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BF62A020A3300ACB8E4 /* AddAccountView.swift */; };
 		EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */; };
 		EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */; };
@@ -66,6 +67,7 @@
 				EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */,
 				EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */,
 				EAEC11E72A023E130024314D /* SwiftyUserDefaults in Frameworks */,
+				EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */,
 				EAE519B42A01752A00EF23B7 /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +271,7 @@
 				EAE519B32A01752A00EF23B7 /* AlertToast */,
 				EA143BC72A01808200AE1FCA /* HBMihoyoAPI */,
 				EAEC11E62A023E130024314D /* SwiftyUserDefaults */,
+				EA37AEB32A02CDB900E4AADA /* SwifterSwift */,
 			);
 			productName = HSRPizzaHelper;
 			productReference = EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */;
@@ -302,6 +305,7 @@
 				EAE519AF2A0174D800EF23B7 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 				EAE519B22A01752A00EF23B7 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				EAEC11E52A023E130024314D /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+				EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 			);
 			productRefGroup = EAE5197D2A01738600EF23B7 /* Products */;
 			projectDirPath = "";
@@ -591,6 +595,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		EAE519AF2A0174D800EF23B7 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols.git";
@@ -621,6 +633,11 @@
 		EA143BC72A01808200AE1FCA /* HBMihoyoAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HBMihoyoAPI;
+		};
+		EA37AEB32A02CDB900E4AADA /* SwifterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */;
+			productName = SwifterSwift;
 		};
 		EAE519B02A0174D800EF23B7 /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;
