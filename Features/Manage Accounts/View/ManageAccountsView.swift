@@ -28,7 +28,7 @@ struct ManageAccountsView: View {
         .navigationTitle("Manage Account")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $isAddAccountSheetShown) {
-            AddAccountView(isShown: $isAddAccountSheetShown)
+            AddAccountSheetView(isShown: $isAddAccountSheetShown)
         }
         .toolbar {
             ToolbarItem {

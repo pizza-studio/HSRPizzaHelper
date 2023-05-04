@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA143BC72A01808200AE1FCA /* HBMihoyoAPI */; };
 		EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA37AEB32A02CDB900E4AADA /* SwifterSwift */; };
-		EA742BF72A020A3300ACB8E4 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BF62A020A3300ACB8E4 /* AddAccountView.swift */; };
+		EA742BF72A020A3300ACB8E4 /* AddAccountSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BF62A020A3300ACB8E4 /* AddAccountSheetView.swift */; };
 		EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */; };
 		EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */; };
 		EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */; };
@@ -34,7 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EA742BF62A020A3300ACB8E4 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
+		EA742BF62A020A3300ACB8E4 /* AddAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountSheetView.swift; sourceTree = "<group>"; };
 		EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCookieWebView.swift; sourceTree = "<group>"; };
 		EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
@@ -85,10 +85,18 @@
 		EA742BFA2A02389A00ACB8E4 /* Daily Note */ = {
 			isa = PBXGroup;
 			children = (
+				EAA31F2E2A03651C009A4745 /* Model */,
 				EAEC11E92A0241570024314D /* View */,
 				EAEC11E82A0240850024314D /* ViewModel */,
 			);
 			path = "Daily Note";
+			sourceTree = "<group>";
+		};
+		EAA31F2E2A03651C009A4745 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EAE519732A01738600EF23B7 = {
@@ -167,7 +175,7 @@
 			children = (
 				EAE37EC02A0206BC00154432 /* ManageAccountsView.swift */,
 				EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */,
-				EA742BF62A020A3300ACB8E4 /* AddAccountView.swift */,
+				EA742BF62A020A3300ACB8E4 /* AddAccountSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,7 +369,7 @@
 				EAE37EBD2A02035300154432 /* Account+Server.swift in Sources */,
 				EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */,
 				EADA63772A0201B200BF070F /* HomeView.swift in Sources */,
-				EA742BF72A020A3300ACB8E4 /* AddAccountView.swift in Sources */,
+				EA742BF72A020A3300ACB8E4 /* AddAccountSheetView.swift in Sources */,
 				EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */,
 				EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */,
 				EAE519822A01738600EF23B7 /* ContentView.swift in Sources */,
@@ -427,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -481,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

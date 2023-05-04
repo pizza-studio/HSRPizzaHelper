@@ -1,0 +1,49 @@
+{
+    "retcode": 0,
+    "message": "OK",
+    "data": {
+        "current_stamina": 60,
+        "max_stamina": 180,
+        "stamina_recover_time": 42946,
+        "accepted_epedition_num": 4,
+        "total_expedition_num": 4,
+        "expeditions": [
+            {
+                "avatars": [
+                    "https://uploadstatic.mihoyo.com/darkmatter/hkrpg/prod_gf_cn/item_icon_7a87fe/fddf36df9fa2b7b033b6068a792fc767.png",
+                    "https://uploadstatic.mihoyo.com/darkmatter/hkrpg/prod_gf_cn/item_icon_7a87fe/57bf10f79b8520c758d34da3c8926d0a.png"
+                ],
+                "status": "Ongoing",
+                "remaining_time": 7601,
+                "name": "九十亿个名字"
+            },
+            {
+                "avatars": [
+                    "https://uploadstatic.mihoyo.com/darkmatter/hkrpg/prod_gf_cn/item_icon_7a87fe/c511140e350bd409f66e19aba840004a.png",
+                    "https://uploadstatic.mihoyo.com/darkmatter/hkrpg/prod_gf_cn/item_icon_7a87fe/0c18e1d5f5ddd5554751ed1aae0bd226.png"
+                ],
+                "status": "Ongoing",
+                "remaining_time": 7581,
+                "name": "毁灭者的覆灭"
+            },
+            {
+                "avatars": [
+                    "https://uploadstatic.mihoyo.com/darkmatter/hkrpg/prod_gf_cn/item_icon_7a87fe/8f36a3a3276bc37ee76a1240434c73d5.png",
+                    "https://uploadstatic.mihoyo.com/darkmatter/hkrpg/prod_gf_cn/item_icon_7a87fe/9f37b4dd79b7c6f785558bcb72da0921.png"
+                ],
+                "status": "Ongoing",
+                "remaining_time": 7585,
+                "name": "寒冬的战士们"
+            },
+            {
+                "avatars": [
+                    "https://uploadstatic.mihoyo.com/darkmatter/hkrpg/prod_gf_cn/item_icon_7a87fe/b779c0ae56e1ff01e4a5362c40360654.png",
+                    "https://uploadstatic.mihoyo.com/darkmatter/hkrpg/prod_gf_cn/item_icon_7a87fe/8e6b64736bc636f202dffd3e70bb2aaf.png"
+                ],
+                "status": "Ongoing",
+                "remaining_time": 7614,
+                "name": "生而服从"
+            }
+        ]
+    }
+}

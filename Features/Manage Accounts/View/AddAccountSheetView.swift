@@ -10,7 +10,7 @@ import SwiftUI
 
 // MARK: - AddAccountView
 
-struct AddAccountView: View {
+struct AddAccountSheetView: View {
     // MARK: Lifecycle
 
     init(isShown: Binding<Bool>) {
@@ -19,6 +19,11 @@ struct AddAccountView: View {
         account.uuid = UUID()
         account.priority = 0
         account.serverRawValue = Server.china.rawValue
+        _account = StateObject(wrappedValue: account)
+    }
+
+    init(account: Account,isShown: Binding<Bool>) {
+        _isShown = isShown
         _account = StateObject(wrappedValue: account)
     }
 
