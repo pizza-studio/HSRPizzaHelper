@@ -9,7 +9,6 @@ import Foundation
 import HBMihoyoAPI
 import SwiftUI
 
-@MainActor
 class DailyNoteViewModel: ObservableObject {
     @Published var dailyNote: FetchStatus<DailyNote> = .pending
 
