@@ -14,8 +14,6 @@ The app is currently still in development and has not been uploaded to the app s
 
 ## Build & Contribution
 
-This repository uses [SwiftLint](https://github.com/realm/SwiftLint) to enforce code style and conventions. Please install it before building.
+This repository uses [SwiftLint](https://github.com/realm/SwiftLint) and [SwiftFormat](https://github.com/nicklockwood/SwiftFormat) to enforce code style and conventions.
 
-It is also recommended to install [SwiftFormat](https://github.com/nicklockwood/SwiftFormat), which helps you easily format the code. If you have installed it, the build script will automatically format the code.
-
-Before pushing your code, run `make lint` and `make format` in the terminal to automatically correct and format the code.
+Before committing, run `make lint` and `make format` in the terminal to automatically correct and format the code.
