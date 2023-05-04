@@ -8,10 +8,11 @@
 import HBMihoyoAPI
 import SwiftUI
 
-// MARK: - AddAccountSheetView
+// MARK: - ManageAccountSheetView
 
 struct ManageAccountSheetView: View {
     // MARK: Lifecycle
+
     /// Init when a new account
     init(isShown: Binding<Bool>) {
         _isShown = isShown
@@ -20,16 +21,16 @@ struct ManageAccountSheetView: View {
         account.priority = 0
         account.serverRawValue = Server.china.rawValue
         _account = StateObject(wrappedValue: account)
-        isCreatingAccount = true
-        status = .pending
+        self.isCreatingAccount = true
+        self.status = .pending
     }
 
     /// Init with an existed account for setting
     init(account: Account, isShown: Binding<Bool>) {
         _isShown = isShown
         _account = StateObject(wrappedValue: account)
-        isCreatingAccount = false
-        status = .gotAccount
+        self.isCreatingAccount = false
+        self.status = .gotAccount
     }
 
     // MARK: Internal
@@ -37,8 +38,6 @@ struct ManageAccountSheetView: View {
     @Binding var isShown: Bool
 
     @StateObject var account: Account
-
-    private let isCreatingAccount: Bool
 
     var body: some View {
         NavigationView {
@@ -174,7 +173,7 @@ struct ManageAccountSheetView: View {
             HStack {
                 Text("UID: " + (account.uid ?? ""))
                 Spacer()
-                Text(account.server.rawValue)
+                Text(account.server.description)
             }
         }
         Section {
@@ -209,6 +208,8 @@ struct ManageAccountSheetView: View {
     }
 
     // MARK: Private
+
+    private let isCreatingAccount: Bool
 
     @Environment(\.managedObjectContext) private var viewContext
 
@@ -413,7 +414,7 @@ struct AddAccountDetailView: View {
                 }
                 Picker("Server", selection: $unsavedServer) {
                     ForEach(Server.allCases, id: \.self) { server in
-                        Text(server.rawValue)
+                        Text(server.description)
                             .tag(server)
                     }
                 }
@@ -430,19 +431,32 @@ struct AddAccountDetailView: View {
     }
 }
 
+// MARK: - TestAccountView
+
 private struct TestAccountView: View {
+    // MARK: Internal
+
     let account: Account
-    @State private var status: TestStatus = .pending
 
     var body: some View {
         Button {
-            status = .testing
+            withAnimation {
+                status = .testing
+            }
             Task {
                 do {
-                    let result = try await MiHoYoAPI.note(server: account.server, uid: account.uid ?? "", cookie: account.cookie ?? "")
-                    status = .succeeded
+                    _ = try await MiHoYoAPI.note(
+                        server: account.server,
+                        uid: account.uid ?? "",
+                        cookie: account.cookie ?? ""
+                    )
+                    withAnimation {
+                        status = .succeeded
+                    }
                 } catch {
-                    status = .failure(error)
+                    withAnimation {
+                        status = .failure(error)
+                    }
                 }
             }
         } label: {
@@ -453,7 +467,7 @@ private struct TestAccountView: View {
             }
         }
         .disabled(status == .testing)
-        if case .failure(let error) = status {
+        if case let .failure(error) = status {
             FailureView(error: error)
         }
     }
@@ -465,7 +479,7 @@ private struct TestAccountView: View {
             case .succeeded:
                 Image(systemSymbol: .checkmarkCircle)
                     .foregroundColor(.green)
-            case .failure(_):
+            case .failure:
                 Image(systemSymbol: .xmarkCircle)
                     .foregroundColor(.red)
             case .testing:
@@ -476,11 +490,15 @@ private struct TestAccountView: View {
         }
     }
 
+    // MARK: Private
+
     private enum TestStatus: Identifiable, Equatable {
         case pending
         case testing
         case succeeded
         case failure(Error)
+
+        // MARK: Internal
 
         var id: Int {
             switch self {
@@ -491,7 +509,7 @@ private struct TestAccountView: View {
             case .succeeded:
                 // swiftlint:disable:next no_magic_numbers
                 return 2
-            case .failure(let error):
+            case let .failure(error):
                 return error.localizedDescription.hashValue
             }
         }
@@ -516,4 +534,6 @@ private struct TestAccountView: View {
             }
         }
     }
+
+    @State private var status: TestStatus = .pending
 }

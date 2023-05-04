@@ -27,6 +27,7 @@ extension String {
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
         let result = UnsafeMutablePointer<CUnsignedChar>
             .allocate(capacity: digestLen)
+        // swiftlint:disable:next force_unwrapping
         CC_MD5(str!, strLen, result)
 
         let hash = NSMutableString()

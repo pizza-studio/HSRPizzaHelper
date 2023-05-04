@@ -5,6 +5,8 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
+// swiftlint:disable force_unwrapping
+
 import CoreData
 
 struct AccountPersistenceController {
@@ -54,3 +56,5 @@ struct AccountPersistenceController {
 
     let container: NSPersistentCloudKitContainer
 }
+
+// swiftlint:enable force_unwrapping

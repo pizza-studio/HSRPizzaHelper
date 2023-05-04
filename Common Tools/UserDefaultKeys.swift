@@ -10,6 +10,7 @@ import SwiftyUserDefaults
 
 // Store all value in App Group user default.
 var Defaults = DefaultsAdapter<DefaultsKeys>(
+    // swiftlint:disable:next force_unwrapping
     defaults: UserDefaults(suiteName: AppConfig.appGroupID)!,
     keyStore: .init()
 )

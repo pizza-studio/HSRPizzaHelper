@@ -55,3 +55,12 @@ extension Server: Identifiable {
 // MARK: Codable
 
 extension Server: Codable {}
+
+// MARK: CustomStringConvertible
+
+extension Server: CustomStringConvertible {
+    public var description: String {
+        // TODO: - localized the desc of server
+        rawValue
+    }
+}

@@ -12,19 +12,36 @@ struct ManageAccountsView: View {
 
     var body: some View {
         List {
-            Button {
-                sheetType = .createNewAccount
-            } label: {
-                Label("Add new account", systemSymbol: .plusCircle)
-            }
-            ForEach(accounts) { account in
+            Section {
                 Button {
-                    sheetType = .editExistedAccount(account)
+                    sheetType = .createNewAccount
                 } label: {
-                    Text(account.name ?? "")
+                    Label("New account", systemSymbol: .plusCircle)
                 }
             }
-            .onDelete(perform: deleteItems)
+            Section {
+                ForEach(accounts) { account in
+                    Button {
+                        sheetType = .editExistedAccount(account)
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text(account.name ?? "")
+                                    .foregroundColor(.primary)
+                                HStack {
+                                    Text(account.uid ?? "")
+                                    Text(account.server.description)
+                                }
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            Image(systemSymbol: .sliderHorizontal3)
+                        }
+                    }
+                }
+                .onDelete(perform: deleteItems)
+            }
         }
         .navigationTitle("Manage Account")
         .navigationBarTitleDisplayMode(.inline)
@@ -37,7 +54,7 @@ struct ManageAccountsView: View {
             switch type {
             case .createNewAccount:
                 ManageAccountSheetView(isShown: isShown)
-            case .editExistedAccount(let account):
+            case let .editExistedAccount(account):
                 ManageAccountSheetView(account: account, isShown: isShown)
             }
         })
@@ -52,6 +69,22 @@ struct ManageAccountsView: View {
     }
 
     // MARK: Private
+
+    private enum SheetType: Identifiable {
+        case createNewAccount
+        case editExistedAccount(Account)
+
+        // MARK: Internal
+
+        var id: UUID {
+            switch self {
+            case .createNewAccount:
+                return UUID()
+            case let .editExistedAccount(account):
+                return account.uuid ?? UUID()
+            }
+        }
+    }
 
     @Environment(\.managedObjectContext) private var viewContext
 
@@ -72,20 +105,6 @@ struct ManageAccountsView: View {
                 try viewContext.save()
             } catch {
                 print(error)
-            }
-        }
-    }
-
-    private enum SheetType: Identifiable {
-        case createNewAccount
-        case editExistedAccount(Account)
-
-        var id: UUID {
-            switch self {
-            case .createNewAccount:
-                return UUID()
-            case .editExistedAccount(let account):
-                return account.uuid ?? UUID()
             }
         }
     }

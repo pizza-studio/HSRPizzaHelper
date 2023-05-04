@@ -16,6 +16,7 @@ extension DecodableFromMiHoYoAPIJSONResult {
         let decoder = JSONDecoder()
         let result = try decoder.decode(MiHoYoAPIJSONResult<Self>.self, from: data)
         if result.retcode == 0 {
+            // swiftlint:disable:next force_unwrapping
             return result.data!
         } else {
             throw MiHoYoAPIError(retcode: result.retcode, message: result.message)
