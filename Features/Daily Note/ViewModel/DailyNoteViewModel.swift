@@ -7,18 +7,21 @@
 
 import Foundation
 import HBMihoyoAPI
+import SwiftUI
 
+@MainActor
 class DailyNoteViewModel: ObservableObject {
-    @Published var dailyNote: FetchStatus<DailyNote> = .loading
+    @Published var dailyNote: FetchStatus<DailyNote> = .pending
 
     func getDailyNote(account: Account) async {
         if case let .finished(.success(note)) = dailyNote {
-            let shouldUpdateAfterMinute = 3.0
-            let secondOfMinute = 60.0
-            let shouldUpdateAfterSecond = secondOfMinute * shouldUpdateAfterMinute
+            let shouldUpdateAfterMinute: Double = 3
+            let shouldUpdateAfterSecond = 60.0 * shouldUpdateAfterMinute
             if Date().timeIntervalSince(note.fetchTime) > shouldUpdateAfterSecond {
                 await getDailyNoteUncheck(account: account)
             }
+        } else if case .loading = dailyNote {
+            return
         } else {
             await getDailyNoteUncheck(account: account)
         }
@@ -26,18 +29,20 @@ class DailyNoteViewModel: ObservableObject {
 
     @MainActor
     func getDailyNoteUncheck(account: Account) async {
+        dailyNote = .loading
         do {
-            dailyNote = try .finished(
-                .success(
-                    await MiHoYoAPI.note(
-                        server: account.server,
-                        uid: account.uid ?? "",
-                        cookie: account.cookie ?? ""
-                    )
-                )
+            let data = try await MiHoYoAPI.note(
+                server: account.server,
+                uid: account.uid ?? "",
+                cookie: account.cookie ?? ""
             )
+            withAnimation {
+                dailyNote = .finished(.success(data))
+            }
         } catch {
-            dailyNote = .finished(.failure(error))
+            withAnimation {
+                dailyNote = .finished(.failure(error))
+            }
         }
     }
 }

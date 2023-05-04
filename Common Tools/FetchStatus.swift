@@ -8,6 +8,7 @@
 import Foundation
 
 enum FetchStatus<T> {
+    case pending
     case loading
     case finished(Result<T, Error>)
 }

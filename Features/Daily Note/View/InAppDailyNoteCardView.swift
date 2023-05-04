@@ -19,7 +19,7 @@ struct InAppDailyNoteCardView: View {
     var body: some View {
         Group {
             switch dailyNoteViewModel.dailyNote {
-            case .loading:
+            case .loading, .pending:
                 ProgressView()
             case let .finished(result):
                 switch result {
