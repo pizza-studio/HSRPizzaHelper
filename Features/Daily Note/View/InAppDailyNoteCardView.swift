@@ -113,10 +113,30 @@ private struct ErrorView: View {
     let account: Account
     let error: Error
 
+    @State private var isEditAccountSheetShown: Bool = false
+
     var body: some View {
-        VStack {
-            Text(account.name ?? "")
-            Text(error.localizedDescription)
+        Section {
+            ZStack {
+                HStack {
+                    Spacer()
+                    Image(systemSymbol: .exclamationmarkCircle)
+                        .foregroundColor(.red)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text(account.name ?? "")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .onTapGesture {
+            isEditAccountSheetShown.toggle()
+        }
+        .sheet(isPresented: $isEditAccountSheetShown) {
+            ManageAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
         }
     }
 }
