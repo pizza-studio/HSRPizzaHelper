@@ -11,6 +11,7 @@ extension Locale {
     /// Get the language code used for miHoYo API according to current preferred localization.
     public static var langCodeForAPI: String {
         let languageCode = Bundle.main.preferredLocalizations.first ?? "en-us"
+        // swiftlint:disable:next no_magic_numbers
         switch languageCode.prefix(2) {
         case "zh": return "zh-cn"
         case "ja": return "ja-jp"

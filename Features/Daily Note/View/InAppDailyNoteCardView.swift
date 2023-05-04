@@ -12,8 +12,7 @@ import SwiftUI
 // MARK: - InAppDailyNoteCardView
 
 struct InAppDailyNoteCardView: View {
-    @StateObject
-    var dailyNoteViewModel: DailyNoteViewModel = .init()
+    @StateObject var dailyNoteViewModel: DailyNoteViewModel = .init()
 
     let account: Account
 
@@ -79,10 +78,11 @@ private struct NoteView: View {
                         Text("\(expedition.name)")
                         Spacer()
                         HStack {
+                            let imageFrame: CGFloat = 25
                             ForEach(expedition.avatarIconURLs, id: \.self) { url in
                                 AsyncImage(url: url) { image in
                                     image.resizable().scaledToFit()
-                                        .frame(height: 25)
+                                        .frame(height: imageFrame)
                                 } placeholder: {
                                     ProgressView()
                                 }

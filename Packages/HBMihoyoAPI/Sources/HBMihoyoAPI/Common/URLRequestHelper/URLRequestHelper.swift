@@ -19,7 +19,7 @@ enum URLRequestHelper {
         let salt: String = URLRequestHelperConfiguration.salt(region: region)
 
         let time = String(Int(Date().timeIntervalSince1970))
-
+        // swiftlint:disable:next no_magic_numbers
         let randomNumber = String(Int.random(in: 100_000 ..< 200_000))
 
         let bodyString: String
@@ -30,8 +30,8 @@ enum URLRequestHelper {
         }
 
         print("salt=\(salt)&t=\(time)&r=\(randomNumber)&b=\(bodyString)&q=\(query)")
-        let ds = "salt=\(salt)&t=\(time)&r=\(randomNumber)&b=\(bodyString)&q=\(query)".md5
+        let verification = "salt=\(salt)&t=\(time)&r=\(randomNumber)&b=\(bodyString)&q=\(query)".md5
 
-        return time + "," + randomNumber + "," + ds
+        return time + "," + randomNumber + "," + verification
     }
 }

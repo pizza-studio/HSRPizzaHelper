@@ -27,12 +27,10 @@ struct HomeView: View {
 
     // MARK: Private
 
-    @Environment(\.managedObjectContext)
-    private var viewContext
+    @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
         animation: .default
-    )
-    private var accounts: FetchedResults<Account>
+    ) private var accounts: FetchedResults<Account>
 }

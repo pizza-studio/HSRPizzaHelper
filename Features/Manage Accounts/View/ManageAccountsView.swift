@@ -51,19 +51,16 @@ struct ManageAccountsView: View {
 
     // MARK: Private
 
-    @Environment(\.managedObjectContext)
-    private var viewContext
+    @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Account.priority, ascending: true),
         ],
         animation: .default
-    )
-    private var accounts: FetchedResults<Account>
+    ) private var accounts: FetchedResults<Account>
 
-    @State
-    private var isAddAccountSheetShown: Bool = false
+    @State private var isAddAccountSheetShown: Bool = false
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {

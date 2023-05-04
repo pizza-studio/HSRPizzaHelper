@@ -14,11 +14,9 @@ import WebKit
 // MARK: - GetCookieWebView
 
 struct GetCookieWebView: View {
-    @Binding
-    var isShown: Bool
+    @Binding var isShown: Bool
 
-    @Binding
-    var cookie: String!
+    @Binding var cookie: String!
 
     let region: Region
 
@@ -96,14 +94,14 @@ struct CookieGetterWebView: UIViewRepresentable {
             _ webView: WKWebView,
             didFinish _: WKNavigation!
         ) {
-            let js = """
+            let jsonScript = """
             let timer = setInterval(() => {
             var m = document.getElementById("driver-page-overlay");
             m.parentNode.removeChild(m);
             }, 300);
             setTimeout(() => {clearInterval(timer);timer = null}, 10000);
             """
-            webView.evaluateJavaScript(js)
+            webView.evaluateJavaScript(jsonScript)
         }
     }
 
@@ -134,10 +132,11 @@ struct CookieGetterWebView: UIViewRepresentable {
                 }
             }
         HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        let timeoutInterval: TimeInterval = 10
         var request = URLRequest(
             url: url,
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-            timeoutInterval: 10
+            timeoutInterval: timeoutInterval
         )
         request.allHTTPHeaderFields = httpHeaderFields
         let webview = WKWebView()
@@ -149,10 +148,11 @@ struct CookieGetterWebView: UIViewRepresentable {
 
     func updateUIView(_ uiView: WKWebView, context _: Context) {
         if let url = URL(string: url) {
+            let timeoutInterval: TimeInterval = 10
             var request = URLRequest(
                 url: url,
                 cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                timeoutInterval: 10
+                timeoutInterval: timeoutInterval
             )
             request.httpShouldHandleCookies = false
             request.allHTTPHeaderFields = httpHeaderFields

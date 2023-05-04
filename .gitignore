@@ -90,3 +90,6 @@ fastlane/test_output
 iOSInjectionProject/
 
 .DS_Store
+
+BuildTools/.swiftpm
+BuildTools/.build

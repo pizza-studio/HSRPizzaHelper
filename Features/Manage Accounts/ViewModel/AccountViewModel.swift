@@ -20,8 +20,7 @@ class AccountViewModel: ObservableObject {
 
     let accountPersistenceController: AccountPersistenceController
 
-    @Published
-    var accounts: [Account] = []
+    @Published var accounts: [Account] = []
 
     func fetchAccounts() {
         let request = Account.fetchRequest()

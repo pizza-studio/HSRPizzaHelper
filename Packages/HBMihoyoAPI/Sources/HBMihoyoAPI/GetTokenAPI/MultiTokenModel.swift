@@ -20,7 +20,11 @@ public struct MultiToken: Decodable {
             self.stoken = stoken
             self.ltoken = ltoken
         } else {
-            throw MiHoYoAPIError(retcode: -9999, message: "Fail to get stoken & ltoken. Result is: \(items)")
+            let unknownErrorRetcode = -9999
+            throw MiHoYoAPIError(
+                retcode: unknownErrorRetcode,
+                message: "Fail to get stoken & ltoken. Result is: \(items)"
+            )
         }
 
         func get(_ tokenName: String) -> String? {

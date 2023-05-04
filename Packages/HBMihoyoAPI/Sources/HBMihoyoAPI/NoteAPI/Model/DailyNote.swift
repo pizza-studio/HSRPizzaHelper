@@ -14,7 +14,7 @@ public struct DailyNote: Decodable {
     // MARK: Lifecycle
 
     public init(from decoder: Decoder) throws {
-        var decoder = try decoder.singleValueContainer()
+        let decoder = try decoder.singleValueContainer()
         self.staminaInformation = try decoder.decode(StaminaInformation.self)
         self.expeditionInformation = try decoder.decode(ExpeditionInformation.self)
     }

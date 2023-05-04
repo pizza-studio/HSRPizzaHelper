@@ -24,11 +24,9 @@ struct AddAccountView: View {
 
     // MARK: Internal
 
-    @Binding
-    var isShown: Bool
+    @Binding var isShown: Bool
 
-    @StateObject
-    var account: Account
+    @StateObject var account: Account
 
     var body: some View {
         NavigationView {
@@ -194,22 +192,16 @@ struct AddAccountView: View {
 
     // MARK: Private
 
-    @Environment(\.managedObjectContext)
-    private var viewContext
+    @Environment(\.managedObjectContext) private var viewContext
 
-    @State
-    private var isSaveAccountFailAlertShown: Bool = false
-    @State
-    private var saveAccountError: SaveAccountError?
+    @State private var isSaveAccountFailAlertShown: Bool = false
+    @State private var saveAccountError: SaveAccountError?
 
-    @State
-    private var status: AddAccountStatus = .pending
+    @State private var status: AddAccountStatus = .pending
 
-    @State
-    private var accountsForSelected: [FetchedAccount] = []
+    @State private var accountsForSelected: [FetchedAccount] = []
 
-    @State
-    private var region: Region = .china
+    @State private var region: Region = .china
 
     private var selectedAccount: Binding<FetchedAccount?> {
         .init {
@@ -237,13 +229,10 @@ struct AddAccountView: View {
 // MARK: - RequireLoginView
 
 struct RequireLoginView: View {
-    @State
-    var getCookieWebViewRegion: Region?
+    @State var getCookieWebViewRegion: Region?
 
-    @Binding
-    var unsavedCookie: String?
-    @Binding
-    var region: Region
+    @Binding var unsavedCookie: String?
+    @Binding var region: Region
 
     var body: some View {
         Menu {
@@ -383,14 +372,10 @@ struct AddAccountDetailView: View {
 
     // MARK: Internal
 
-    @Binding
-    var unsavedName: String
-    @Binding
-    var unsavedUid: String
-    @Binding
-    var unsavedCookie: String
-    @Binding
-    var unsavedServer: Server
+    @Binding var unsavedName: String
+    @Binding var unsavedUid: String
+    @Binding var unsavedCookie: String
+    @Binding var unsavedServer: Server
 
     var body: some View {
         List {
@@ -416,8 +401,9 @@ struct AddAccountDetailView: View {
                 }
             }
             Section {
+                let cookieTextEditorFrame: CGFloat = 350
                 TextEditor(text: $unsavedCookie)
-                    .frame(height: 350)
+                    .frame(height: cookieTextEditorFrame)
             } header: {
                 Text("Cookie")
             }

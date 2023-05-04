@@ -102,7 +102,8 @@ extension MiHoYoAPI {
         components.queryItems = queryItems
 
         guard let url = components.url else {
-            throw MiHoYoAPIError(retcode: -9999, message: "Unknown error. Please contact developer. ")
+            let unknownErrorRetcode = -9999
+            throw MiHoYoAPIError(retcode: unknownErrorRetcode, message: "Unknown error. Please contact developer. ")
         }
 
         var request = URLRequest(url: url)
