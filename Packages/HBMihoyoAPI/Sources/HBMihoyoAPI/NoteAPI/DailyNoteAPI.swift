@@ -27,12 +27,8 @@ extension MiHoYoAPI {
             cookie: cookie
         )
 
-        print(request)
-        print(request.allHTTPHeaderFields!)
-
         let (data, _) = try await URLSession.shared.data(for: request)
 
-        print(String(data: data, encoding: .utf8)!)
         return try .decodeFromMiHoYoAPIJSONResult(data: data)
     }
 }

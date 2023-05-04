@@ -46,55 +46,60 @@ private struct NoteView: View {
 
     var body: some View {
         Section {
-            Text(account.name!)
-            HStack {
-                Text("current_stamina")
-                Spacer()
-                Text("\(note.staminaInformation.currentStamina)")
-            }
-            HStack {
-                Text("max_stamina")
-                Spacer()
-                Text("\(note.staminaInformation.maxStamina)")
-            }
-            HStack {
-                Text("stamina_recover_time")
-                Spacer()
-                Text("\(note.staminaInformation.remainingTime)")
-            }
-            HStack {
-                Text("acceptedExpeditionNumber")
-                Spacer()
-                Text("\(note.expeditionInformation.acceptedExpeditionNumber)")
-            }
-            HStack {
-                Text("totalExpeditionNumber")
-                Spacer()
-                Text("\(note.expeditionInformation.totalExpeditionNumber)")
-            }
-            ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
-                VStack {
-                    HStack {
-                        Text("\(expedition.name)")
-                        Spacer()
-                        HStack {
-                            let imageFrame: CGFloat = 25
-                            ForEach(expedition.avatarIconURLs, id: \.self) { url in
-                                AsyncImage(url: url) { image in
-                                    image.resizable().scaledToFit()
-                                        .frame(height: imageFrame)
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                            }
-                        }
-                    }
-                    HStack {
-                        Text("\(expedition.status.rawValue)")
-                        Spacer()
-                        Text("\(expedition.remainingTime)")
+            VStack {
+                HStack {
+                    Text("Stamina").bold()
+                    Spacer()
+                    let iconFrame: CGFloat = 30
+                    Image("Item_Trailblaze_Power")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: iconFrame)
+                    Text("\(note.staminaInformation.currentStamina)/\(note.staminaInformation.maxStamina)")
+                }
+                HStack {
+                    Spacer()
+                    VStack(alignment: .trailing) {
+                        Text(note.staminaInformation.fullTime, style: .time)
+                        Text(note.staminaInformation.fullTime, style: .relative)
                     }
                 }
+            }
+            VStack {
+                HStack {
+                    Text("Expedition").bold()
+                    Spacer()
+                    Text("\(note.expeditionInformation.onGoingExpeditionNumber)/\(note.expeditionInformation.totalExpeditionNumber)")
+                }
+                ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
+                    HStack {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                let imageFrame: CGFloat = 40
+                                ForEach(expedition.avatarIconURLs, id: \.self) { url in
+                                    AsyncImage(url: url) { image in
+                                        image.resizable().scaledToFit()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(height: imageFrame)
+                                }
+                            }
+                            Text("\(expedition.name)")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Text(expedition.finishedTime, style: .time)
+                            Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
+                        }
+                    }
+                }
+            }
+        } header: {
+            if let name = account.name {
+                Text(name)
             }
         }
     }
@@ -113,3 +118,18 @@ private struct ErrorView: View {
         }
     }
 }
+
+private let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .none
+    dateFormatter.timeStyle = .medium
+    return dateFormatter
+}()
+
+private let dateComponentsFormatter: DateComponentsFormatter = {
+    let dateComponentFormatter = DateComponentsFormatter()
+    dateComponentFormatter.allowedUnits = [.hour, .minute]
+    dateComponentFormatter.maximumUnitCount = 1
+    dateComponentFormatter.unitsStyle = .brief
+    return dateComponentFormatter
+}()

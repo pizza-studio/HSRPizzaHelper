@@ -12,33 +12,35 @@ struct ManageAccountsView: View {
 
     var body: some View {
         List {
-            if accounts.isEmpty {
-                Button("Add you account first") {
-                    isAddAccountSheetShown.toggle()
-                }
-            } else {
-                ForEach(accounts) { account in
-                    if let name = account.name {
-                        Text(name)
-                    }
-                }
-                .onDelete(perform: deleteItems)
+            Button {
+                sheetType = .createNewAccount
+            } label: {
+                Label("Add new account", systemSymbol: .plusCircle)
             }
+            ForEach(accounts) { account in
+                Button {
+                    sheetType = .editExistedAccount(account)
+                } label: {
+                    Text(account.name ?? "")
+                }
+            }
+            .onDelete(perform: deleteItems)
         }
         .navigationTitle("Manage Account")
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $isAddAccountSheetShown) {
-            AddAccountSheetView(isShown: $isAddAccountSheetShown)
-        }
-        .toolbar {
-            ToolbarItem {
-                Button {
-                    isAddAccountSheetShown.toggle()
-                } label: {
-                    Image(systemSymbol: .plusCircle)
-                }
+        .sheet(item: $sheetType, content: { type in
+            let isShown: Binding<Bool> = .init {
+                sheetType != nil
+            } set: { newValue in
+                if !newValue { sheetType = nil }
             }
-        }
+            switch type {
+            case .createNewAccount:
+                ManageAccountSheetView(isShown: isShown)
+            case .editExistedAccount(let account):
+                ManageAccountSheetView(account: account, isShown: isShown)
+            }
+        })
         .onAppear {
             accounts.forEach { account in
                 if !account.isValid() {
@@ -60,7 +62,7 @@ struct ManageAccountsView: View {
         animation: .default
     ) private var accounts: FetchedResults<Account>
 
-    @State private var isAddAccountSheetShown: Bool = false
+    @State private var sheetType: SheetType?
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
@@ -70,6 +72,20 @@ struct ManageAccountsView: View {
                 try viewContext.save()
             } catch {
                 print(error)
+            }
+        }
+    }
+
+    private enum SheetType: Identifiable {
+        case createNewAccount
+        case editExistedAccount(Account)
+
+        var id: UUID {
+            switch self {
+            case .createNewAccount:
+                return UUID()
+            case .editExistedAccount(let account):
+                return account.uuid ?? UUID()
             }
         }
     }

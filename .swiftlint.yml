@@ -21,6 +21,7 @@ disabled_rules:
 opt_in_rules:
   - convenience_type
   - no_magic_numbers
+  - force_unwrapping
 
 force_cast: warning # implicitly
 force_try:

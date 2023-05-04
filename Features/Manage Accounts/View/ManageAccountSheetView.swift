@@ -10,9 +10,9 @@ import SwiftUI
 
 // MARK: - AddAccountSheetView
 
-struct AddAccountSheetView: View {
+struct ManageAccountSheetView: View {
     // MARK: Lifecycle
-
+    /// Init when a new account
     init(isShown: Binding<Bool>) {
         _isShown = isShown
         let account = Account(context: AccountPersistenceController.shared.container.viewContext)
@@ -20,11 +20,16 @@ struct AddAccountSheetView: View {
         account.priority = 0
         account.serverRawValue = Server.china.rawValue
         _account = StateObject(wrappedValue: account)
+        isCreatingAccount = true
+        status = .pending
     }
 
+    /// Init with an existed account for setting
     init(account: Account, isShown: Binding<Bool>) {
         _isShown = isShown
         _account = StateObject(wrappedValue: account)
+        isCreatingAccount = false
+        status = .gotAccount
     }
 
     // MARK: Internal
@@ -32,6 +37,8 @@ struct AddAccountSheetView: View {
     @Binding var isShown: Bool
 
     @StateObject var account: Account
+
+    private let isCreatingAccount: Bool
 
     var body: some View {
         NavigationView {
@@ -55,7 +62,6 @@ struct AddAccountSheetView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        viewContext.delete(account)
                         isShown.toggle()
                     }
                 }
@@ -74,7 +80,7 @@ struct AddAccountSheetView: View {
                 }
             }
             .onDisappear {
-                if !account.isValid() {
+                if isCreatingAccount {
                     viewContext.delete(account)
                 }
             }
@@ -154,10 +160,14 @@ struct AddAccountSheetView: View {
     @ViewBuilder
     func gotAccountView() -> some View {
         Section {
+            RequireLoginView(unsavedCookie: $account.cookie, region: $region)
+        }
+
+        Section {
             HStack {
                 Text("Nickname")
                 Spacer()
-                TextField("自定义账号名", text: name, prompt: nil)
+                TextField("Nickname", text: name, prompt: nil)
                     .multilineTextAlignment(.trailing)
             }
         } header: {
@@ -193,6 +203,9 @@ struct AddAccountSheetView: View {
                 Text("Account Detail")
             }
         }
+        Section {
+            TestAccountView(account: account)
+        }
     }
 
     // MARK: Private
@@ -202,7 +215,7 @@ struct AddAccountSheetView: View {
     @State private var isSaveAccountFailAlertShown: Bool = false
     @State private var saveAccountError: SaveAccountError?
 
-    @State private var status: AddAccountStatus = .pending
+    @State private var status: AddAccountStatus
 
     @State private var accountsForSelected: [FetchedAccount] = []
 
@@ -414,5 +427,93 @@ struct AddAccountDetailView: View {
             }
         }
         .navigationBarTitle("Account Detail", displayMode: .inline)
+    }
+}
+
+private struct TestAccountView: View {
+    let account: Account
+    @State private var status: TestStatus = .pending
+
+    var body: some View {
+        Button {
+            status = .testing
+            Task {
+                do {
+                    let result = try await MiHoYoAPI.note(server: account.server, uid: account.uid ?? "", cookie: account.cookie ?? "")
+                    status = .succeeded
+                } catch {
+                    status = .failure(error)
+                }
+            }
+        } label: {
+            HStack {
+                Text("Test account")
+                Spacer()
+                buttonIcon()
+            }
+        }
+        .disabled(status == .testing)
+        if case .failure(let error) = status {
+            FailureView(error: error)
+        }
+    }
+
+    @ViewBuilder
+    func buttonIcon() -> some View {
+        Group {
+            switch status {
+            case .succeeded:
+                Image(systemSymbol: .checkmarkCircle)
+                    .foregroundColor(.green)
+            case .failure(_):
+                Image(systemSymbol: .xmarkCircle)
+                    .foregroundColor(.red)
+            case .testing:
+                ProgressView()
+            default:
+                EmptyView()
+            }
+        }
+    }
+
+    private enum TestStatus: Identifiable, Equatable {
+        case pending
+        case testing
+        case succeeded
+        case failure(Error)
+
+        var id: Int {
+            switch self {
+            case .pending:
+                return 0
+            case .testing:
+                return 1
+            case .succeeded:
+                // swiftlint:disable:next no_magic_numbers
+                return 2
+            case .failure(let error):
+                return error.localizedDescription.hashValue
+            }
+        }
+
+        static func == (lhs: TestAccountView.TestStatus, rhs: TestAccountView.TestStatus) -> Bool {
+            lhs.id == rhs.id
+        }
+    }
+
+    private struct FailureView: View {
+        let error: Error
+
+        var body: some View {
+            Text(error.localizedDescription)
+            if let error = error as? LocalizedError {
+                if let failureReason = error.failureReason {
+                    Text(failureReason)
+                }
+                if let recoverySuggestion = error.recoverySuggestion {
+                    Text(recoverySuggestion)
+                }
+            }
+        }
     }
 }
