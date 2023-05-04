@@ -34,8 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EA59E1DC2A03599B0059A473 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		EA59E1DF2A0359CD0059A473 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		EA742BF62A020A3300ACB8E4 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCookieWebView.swift; sourceTree = "<group>"; };
 		EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -84,15 +82,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA59E1DE2A0359AD0059A473 /* BuildTools */ = {
-			isa = PBXGroup;
-			children = (
-				EA59E1DC2A03599B0059A473 /* Package.swift */,
-				EA59E1DF2A0359CD0059A473 /* Empty.swift */,
-			);
-			path = BuildTools;
-			sourceTree = "<group>";
-		};
 		EA742BFA2A02389A00ACB8E4 /* Daily Note */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +94,6 @@
 		EAE519732A01738600EF23B7 = {
 			isa = PBXGroup;
 			children = (
-				EA59E1DE2A0359AD0059A473 /* BuildTools */,
 				EAE519C92A0178B700EF23B7 /* Extensions */,
 				EAE519C82A0178AD00EF23B7 /* Common Tools */,
 				EAE519C12A0175F800EF23B7 /* Assets */,
@@ -271,7 +259,6 @@
 				EAE519782A01738600EF23B7 /* Sources */,
 				EAE519792A01738600EF23B7 /* Frameworks */,
 				EAE5197A2A01738600EF23B7 /* Resources */,
-				EA59E1E12A0359E00059A473 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -341,24 +328,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EA59E1E12A0359E00059A473 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
-		};
 		EAF431162A02B7E4009B3C0D /* SwiftLintCheck */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
