@@ -10,12 +10,6 @@ import Foundation
 @available(iOS 15.0, *)
 extension MiHoYoAPI {
     public static func note(server: Server, uid: String, cookie: String) async throws -> DailyNote {
-        // TODO: Remove this when release
-        #if DEBUG
-        let exampleURL = Bundle.module.url(forResource: "daily_note_example", withExtension: "json")!
-        let exampleData = try Data(contentsOf: exampleURL)
-        return try .decodeFromMiHoYoAPIJSONResult(data: exampleData)
-        #endif
         let queryItems: [URLQueryItem] = [
             .init(name: "role_id", value: uid),
             .init(name: "server", value: server.rawValue),

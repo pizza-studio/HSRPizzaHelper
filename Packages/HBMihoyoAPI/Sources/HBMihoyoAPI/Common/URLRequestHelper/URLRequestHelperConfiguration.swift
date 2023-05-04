@@ -9,12 +9,10 @@ import Foundation
 
 /// Abstract class storing salt, version, etc for API.
 enum URLRequestHelperConfiguration {
-    static var userAgent: String {
-        """
-        Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) \
-        AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.37.1
-        """
-    }
+    static let userAgent: String = """
+    Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) \
+    AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.37.1
+    """
 
     static func recordURLAPIHost(region: Region) -> String {
         switch region {
