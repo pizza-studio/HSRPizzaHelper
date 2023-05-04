@@ -16,7 +16,10 @@ let package = Package(
     targets: [
         .target(
             name: "HBMihoyoAPI",
-            dependencies: []
+            dependencies: [],
+            resources: [
+                .process("Resources"),
+            ]
         ),
         .testTarget(
             name: "HBMihoyoAPITests",

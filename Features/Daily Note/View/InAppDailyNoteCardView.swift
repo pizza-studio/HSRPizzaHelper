@@ -60,7 +60,7 @@ private struct NoteView: View {
             HStack {
                 Text("stamina_recover_time")
                 Spacer()
-                Text("\(note.staminaInformation.staminaRecoverTime)")
+                Text("\(note.staminaInformation.remainingTime)")
             }
             HStack {
                 Text("acceptedExpeditionNumber")

@@ -8,7 +8,7 @@
 import HBMihoyoAPI
 import SwiftUI
 
-// MARK: - AddAccountView
+// MARK: - AddAccountSheetView
 
 struct AddAccountSheetView: View {
     // MARK: Lifecycle
@@ -22,7 +22,7 @@ struct AddAccountSheetView: View {
         _account = StateObject(wrappedValue: account)
     }
 
-    init(account: Account,isShown: Binding<Bool>) {
+    init(account: Account, isShown: Binding<Bool>) {
         _isShown = isShown
         _account = StateObject(wrappedValue: account)
     }
