@@ -98,6 +98,7 @@
 		EA32764A2A03850600774126 /* AppOnly */ = {
 			isa = PBXGroup;
 			children = (
+				EAE519832A01738600EF23B7 /* Assets.xcassets */,
 			);
 			path = AppOnly;
 			sourceTree = "<group>";
@@ -231,7 +232,6 @@
 			children = (
 				EA32764A2A03850600774126 /* AppOnly */,
 				EA3276492A03850300774126 /* AppGroup */,
-				EAE519832A01738600EF23B7 /* Assets.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
