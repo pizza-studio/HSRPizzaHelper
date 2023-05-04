@@ -69,9 +69,9 @@ private struct NoteView: View {
                 HStack {
                     Text("Expedition").bold()
                     Spacer()
-                    Text(
-                        "\(note.expeditionInformation.onGoingExpeditionNumber)/\(note.expeditionInformation.totalExpeditionNumber)"
-                    )
+                    let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
+                    let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
+                    Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
                 }
                 ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
                     HStack {

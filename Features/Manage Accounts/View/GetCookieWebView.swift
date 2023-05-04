@@ -179,19 +179,36 @@ private func getHTTPHeaderFields(region: Region) -> [String: String] {
     switch region {
     case .china:
         return [
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            "Accept": """
+            text/html,application/xhtml+xml,application/xml;q=0.9,\
+            image/webp,image/apng,*/*;q=0.8,\
+            application/signed-exchange;v=b3;q=0.9
+            """,
             "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
             "Connection": "keep-alive",
             "Accept-Encoding": "gzip, deflate, br",
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Mobile/15E148 Safari/604.1",
+            "User-Agent": """
+            Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) \
+            AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Mobile/15E148 \
+            Safari/604.1
+            """,
             "cache-control": "max-age=0",
         ]
     case .global:
         return [
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            "accept": """
+            text/html,application/xhtml+xml,\
+            application/xml;q=0.9,\
+            image/webp,image/apng,*/*;q=0.8,\
+            application/signed-exchange;v=b3;q=0.9
+            """,
             "accept-language": "zh-CN,zh-Hans;q=0.9",
             "accept-encoding": "gzip, deflate, br",
-            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52",
+            "user-agent": """
+            Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) \
+            AppleWebKit/537.36 (KHTML, like Gecko) \
+            Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52
+            """,
             "cache-control": "max-age=0",
         ]
     }
