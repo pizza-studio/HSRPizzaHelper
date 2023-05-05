@@ -24,11 +24,11 @@ struct EditAccountSheetView: View {
             List {
                 EditAccountView(account: account)
             }
-            .navigationTitle("Edit Account")
+            .navigationTitle("account.edit.title")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button("sys.done") {
                         viewContext.performAndWait {
                             do {
                                 try viewContext.save()
@@ -42,7 +42,7 @@ struct EditAccountSheetView: View {
                 }
             }
             .alert(isPresented: $isSaveAccountFailAlertShown, error: saveAccountError) {
-                Button("OK") {
+                Button("sys.ok") {
                     isSaveAccountFailAlertShown.toggle()
                 }
             }

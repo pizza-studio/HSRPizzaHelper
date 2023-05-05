@@ -14,9 +14,10 @@ struct ThanksView: View {
                 .font(.footnote)
             Divider()
             Group {
-                Text(
-                    "SwiftPieChart - Nazar Ilamanov\nhttps://github.com/ilamanov/SwiftPieChart"
-                )
+                Text("AlertToast - elai950\nhttps://github.com/elai950/AlertToast")
+                Text("SFSafeSymbols\nhttps://github.com/SFSafeSymbols/SFSafeSymbols")
+                Text("SwifterSwift\nhttps://github.com/SwifterSwift/SwifterSwift")
+                Text("SwiftyUserDefaults - sunshinejr\nhttps://github.com/sunshinejr/SwiftyUserDefaults")
             }
             .font(.caption)
             Divider()
