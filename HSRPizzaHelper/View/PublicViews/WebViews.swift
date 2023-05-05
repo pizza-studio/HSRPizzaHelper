@@ -59,6 +59,7 @@ struct UserPolicyView: View {
 
     var body: some View {
         NavigationView {
+            // TODO: replace with HSR version policy
             WebBrowserView(url: "https://ophelper.top/static/policy.html")
                 .ignoresSafeArea()
                 .toolbar {
@@ -71,12 +72,8 @@ struct UserPolicyView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         // TODO: use localized key
                         Button("同意") {
-                            UserDefaults.standard.setValue(
-                                true,
-                                forKey: "isPolicyShown"
-                            )
+                            Defaults[\.isPolicyShown] = true
                             UserDefaults.standard.synchronize()
-//                            sheet = nil
                         }
                     }
                 }
