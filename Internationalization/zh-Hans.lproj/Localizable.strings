@@ -43,9 +43,9 @@
 "sys.faq.title" = "常见使用问题（FAQ）";
 "sys.label.trailblaze" = "开拓力";
 "sys.label.dispatch" = "派遣委托";
-"" = "";
-"" = "";
-"" = "";
+"sys.label.preferredlang" = "偏好语言";
+"sys.label.rate" = "在App Store评分";
+"sys.label.support" = "支持我们";
 "" = "";
 "" = "";
 "" = "";

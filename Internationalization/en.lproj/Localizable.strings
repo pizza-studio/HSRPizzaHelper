@@ -43,9 +43,9 @@
 "sys.faq.title" = "FAQ";
 "sys.label.trailblaze" = "Trailblaze Power";
 "sys.label.dispatch" = "Dispatch Assignments";
-"" = "";
-"" = "";
-"" = "";
+"sys.label.preferredlang" = "Preferred Language";
+"sys.label.rate" = "Rate in App Store";
+"sys.label.support" = "Support Us";
 "" = "";
 "" = "";
 "" = "";

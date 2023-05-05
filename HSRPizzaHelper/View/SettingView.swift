@@ -18,6 +18,32 @@ struct SettingView: View {
                     }
                 }
                 Section {
+                    Button("sys.label.rate") {
+                        ReviewHandler.requestReviewIfNotRequestedElseNavigateToAppStore()
+                    }
+//                    NavigationLink(
+//                        destination: GlobalDonateView(
+//                            storeManager: storeManager
+//                        )
+//                    ) {
+                        Text("sys.label.support")
+//                    }
+                }
+                Section {
+                    Button {
+                        UIApplication.shared
+                            .open(URL(
+                                string: UIApplication
+                                    .openSettingsURLString
+                            )!)
+                    } label: {
+                        Label {
+                            Text("sys.label.preferredlang")
+                                .foregroundColor(.primary)
+                        } icon: {
+                            Image(systemSymbol: .globe)
+                        }
+                    }
                     let url: String = {
                         switch Bundle.main.preferredLocalizations.first {
                         case "zh-Hans", "zh-Hant", "zh-HK":
@@ -28,7 +54,7 @@ struct SettingView: View {
                     }()
                     NavigationLink(
                         destination: WebBrowserView(url: url)
-                            .navigationTitle("FAQ")
+                            .navigationTitle("sys.faq.title")
                             .navigationBarTitleDisplayMode(.inline)
                     ) {
                         Label("sys.faq.title", systemSymbol: .personFillQuestionmark)
