@@ -17,7 +17,7 @@ struct ThanksView: View {
                 Text("AlertToast - elai950\nhttps://github.com/elai950/AlertToast")
                 Text("SFSafeSymbols\nhttps://github.com/SFSafeSymbols/SFSafeSymbols")
                 Text("SwifterSwift\nhttps://github.com/SwifterSwift/SwifterSwift")
-                Text("SwiftyUserDefaults - subshinejr\nhttps://github.com/sunshinejr/SwiftyUserDefaults")
+                Text("SwiftyUserDefaults - sunshinejr\nhttps://github.com/sunshinejr/SwiftyUserDefaults")
             }
             .font(.caption)
             Divider()
