@@ -15,25 +15,7 @@ struct TestAccountView: View {
 
     var body: some View {
         Button {
-            withAnimation {
-                status = .testing
-            }
-            Task {
-                do {
-                    _ = try await MiHoYoAPI.note(
-                        server: account.server,
-                        uid: account.uid ?? "",
-                        cookie: account.cookie ?? ""
-                    )
-                    withAnimation {
-                        status = .succeeded
-                    }
-                } catch {
-                    withAnimation {
-                        status = .failure(error)
-                    }
-                }
-            }
+            doTest()
         } label: {
             HStack {
                 Text("Test account")
@@ -44,6 +26,28 @@ struct TestAccountView: View {
         .disabled(status == .testing)
         if case let .failure(error) = status {
             FailureView(error: error)
+        }
+    }
+
+    func doTest() {
+        withAnimation {
+            status = .testing
+        }
+        Task {
+            do {
+                _ = try await MiHoYoAPI.note(
+                    server: account.server,
+                    uid: account.uid ?? "",
+                    cookie: account.cookie ?? ""
+                )
+                withAnimation {
+                    status = .succeeded
+                }
+            } catch {
+                withAnimation {
+                    status = .failure(error)
+                }
+            }
         }
     }
 
