@@ -23,6 +23,7 @@ struct SettingView: View {
                     Button("sys.label.rate") {
                         ReviewHandler.requestReviewIfNotRequestedElseNavigateToAppStore()
                     }
+                    // TODO: support us
 //                    NavigationLink(
 //                        destination: GlobalDonateView(
 //                            storeManager: storeManager
@@ -46,6 +47,7 @@ struct SettingView: View {
                             Image(systemSymbol: .globe)
                         }
                     }
+                    // TODO: replace to HSR version
                     let url: String = {
                         switch Bundle.main.preferredLocalizations.first {
                         case "zh-Hans", "zh-Hant", "zh-HK":
