@@ -56,19 +56,25 @@ private struct NoteView: View {
                 HStack {
                     Text("sys.label.trailblaze").bold()
                     Spacer()
+                }
+                HStack(alignment: .bottom) {
                     let iconFrame: CGFloat = 30
                     Image("Item_Trailblaze_Power")
                         .resizable()
                         .scaledToFit()
                         .frame(height: iconFrame)
-                    Text("\(note.staminaInformation.currentStamina)/\(note.staminaInformation.maxStamina)")
-                }
-                HStack {
+                    HStack(alignment: .bottom, spacing: 0) {
+                        Text("\(note.staminaInformation.currentStamina)")
+                            .font(.title)
+                        + Text("/\(note.staminaInformation.maxStamina)")
+                            .font(.caption)
+                    }
                     Spacer()
                     VStack(alignment: .trailing) {
                         Text(note.staminaInformation.fullTime, style: .time)
                         Text(note.staminaInformation.fullTime, style: .relative)
                     }
+                    .font(.caption2)
                 }
             }
             VStack {
