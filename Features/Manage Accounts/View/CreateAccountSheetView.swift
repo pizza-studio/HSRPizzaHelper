@@ -1,0 +1,279 @@
+//
+//  AddAccountView.swift
+//  HSRPizzaHelper
+//
+//  Created by 戴藏龙 on 2023/5/3.
+//
+
+import HBMihoyoAPI
+import SwiftUI
+
+// MARK: - CreateAccountSheetView
+
+struct CreateAccountSheetView: View {
+    // MARK: Lifecycle
+
+    init(account: Account, isShown: Binding<Bool>) {
+        self._isShown = isShown
+        self._account = StateObject(wrappedValue: account)
+    }
+
+    // MARK: Internal
+
+    var body: some View {
+        NavigationView {
+            List {
+                switch status {
+                case .pending:
+                    pendingView()
+                case .gotCookie:
+                    gotCookieView()
+                case .gotAccount:
+                    gotAccountView()
+                }
+            }
+            .navigationTitle("account.new")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("sys.done") {
+                        saveAccount()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("sys.cancel") {
+                        viewContext.delete(account)
+                        isShown.toggle()
+                    }
+                }
+            }
+            .alert(isPresented: $isSaveAccountFailAlertShown, error: saveAccountError) {
+                Button("sys.ok") {
+                    isSaveAccountFailAlertShown.toggle()
+                }
+            }
+            .onChange(of: status) { newValue in
+                switch newValue {
+                case .gotCookie:
+                    getAccountForSelected()
+                default:
+                    return
+                }
+            }
+        }
+    }
+
+    func saveAccount() {
+        guard account.isValid() else {
+            saveAccountError = .missingFieldError("err.mfe")
+            isSaveAccountFailAlertShown.toggle()
+            return
+        }
+        viewContext.performAndWait {
+            do {
+                try viewContext.save()
+                isShown.toggle()
+            } catch {
+                saveAccountError = .saveDataError(error)
+                isSaveAccountFailAlertShown.toggle()
+            }
+        }
+    }
+
+    func getAccountForSelected() {
+        Task(priority: .userInitiated) {
+            if let cookie = account.cookie {
+                do {
+                    accountsForSelected = try await MiHoYoAPI.getUserGameRolesByCookie(region: region, cookie: cookie)
+                    status = .gotAccount
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    func pendingView() -> some View {
+        Section {
+            RequireLoginView(unsavedCookie: $account.cookie, region: $region)
+            if let cookie = account.cookie {
+                Text(cookie)
+            }
+        } footer: {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("account.login.manual.1")
+                        .font(.footnote)
+                    NavigationLink {
+                        AccountDetailView(
+                            unsavedName: $account.name,
+                            unsavedUid: $account.uid,
+                            unsavedCookie: $account.cookie,
+                            unsavedServer: $account.server
+                        )
+                    } label: {
+                        Text("account.login.manual.2")
+                            .font(.footnote)
+                    }
+                }
+                if !account.isValid() {
+                    ExplanationView()
+                }
+            }
+        }
+        .onChange(of: account.cookie) { newValue in
+            if newValue != nil, newValue != "" {
+                status = .gotCookie
+            }
+        }
+    }
+
+    @ViewBuilder
+    func gotCookieView() -> some View {
+        ProgressView()
+    }
+
+    @ViewBuilder
+    func gotAccountView() -> some View {
+        EditAccountView(account: account, accountsForSelected: accountsForSelected)
+    }
+
+    // MARK: Private
+
+    @Binding private var isShown: Bool
+
+    @StateObject private var account: Account
+
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @State private var isSaveAccountFailAlertShown: Bool = false
+    @State private var saveAccountError: SaveAccountError?
+
+    @State private var status: AddAccountStatus = .pending
+
+    @State private var accountsForSelected: [FetchedAccount] = []
+
+    @State private var region: Region = .china
+
+    private var name: Binding<String> {
+        .init {
+            account.name ?? ""
+        } set: { newValue in
+            account.name = newValue
+        }
+    }
+}
+
+// MARK: - RequireLoginView
+
+private struct RequireLoginView: View {
+    @State var getCookieWebViewRegion: Region?
+
+    @Binding var unsavedCookie: String?
+    @Binding var region: Region
+
+    var body: some View {
+        Menu {
+            Button("sys.server.cn") {
+                getCookieWebViewRegion = .china
+                region = .china
+            }
+            Button("sys.server.os") {
+                getCookieWebViewRegion = .global
+                region = .global
+            }
+        } label: {
+            Group {
+                if unsavedCookie == "" || unsavedCookie == nil {
+                    Text("account.label.login")
+                } else {
+                    Text("account.label.relogin")
+                }
+            }
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity
+            )
+        }
+        .sheet(item: $getCookieWebViewRegion, content: { region in
+            GetCookieWebView(
+                isShown: .init(get: {
+                    getCookieWebViewRegion != nil
+                }, set: { newValue in
+                    if !newValue {
+                        getCookieWebViewRegion = nil
+                    }
+                }),
+                cookie: $unsavedCookie,
+                region: region
+            )
+        })
+    }
+}
+
+// MARK: - AddAccountStatus
+
+private enum AddAccountStatus {
+    case pending
+    case gotCookie
+    case gotAccount
+}
+
+// MARK: - SaveAccountError
+
+private enum SaveAccountError {
+    case saveDataError(Error)
+    case missingFieldError(String)
+}
+
+// MARK: LocalizedError
+
+extension SaveAccountError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case let .saveDataError(error):
+            return "Save Account Fail\nSave Error: \(error).\nPlease try again."
+        case let .missingFieldError(field):
+            return "Save Account Fail\nMissing Fields: \(field).\nPlease try again."
+        }
+    }
+
+    var failureReason: String? {
+        switch self {
+        case let .saveDataError(error):
+            return "Save Error: \(error)."
+        case let .missingFieldError(field):
+            return "Missing Fields: \(field)."
+        }
+    }
+
+    var helpAnchor: String? {
+        "Please try login again. "
+    }
+}
+
+// MARK: - ExplanationView
+
+private struct ExplanationView: View {
+    var body: some View {
+        Group {
+            Divider()
+                .padding(.vertical)
+            Text("account.explanation.title.1")
+                .font(.footnote)
+                .bold()
+            Text("account.explanation.1")
+            .font(.footnote)
+            Text("\n")
+                .font(.footnote)
+            Text("account.explanation.title.2")
+                .font(.footnote)
+                .bold()
+            Text(
+                "account.explanation.2"
+            )
+            .font(.footnote)
+        }
+    }
+}
