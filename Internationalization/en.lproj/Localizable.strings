@@ -26,10 +26,10 @@
 "sys.server.os" = "Global Servers";
 "account.label.login" = "Login";
 "account.label.relogin" = "Re-Login";
-"account.explanation.title.1" = "关于我们的工作原理";
-"account.explanation.title.2" = "关于您的帐号安全";
-"account.explanation.1" = "为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，这是获取数据的必要参数。您在接下来的网页登录后，我们会在您的本地和iCloud存储您的个人数据。然后我们通过类似米游社的方式获取您的游戏内的数据信息。我们承诺，您的个人信息不会发送给任何人，包括我们自己。您的个人信息将会是非常安全的。";
-"account.explanation.2" = "本程序不属于外挂等违法程序。本程序遵守米哈游二次创作规则的相关内容。根据中国原神客服的答复，使用本程序不会造成封号等问题。具体内容参见设置 - FAQ.";
+"account.explanation.title.1" = "How this App work?";
+"account.explanation.title.2" = "About your account security";
+"account.explanation.1" = "To get resin and other data from HoYoLAB, UID and login cookie of your account is needed. After logging into HoYoLAB, we will store them locally as well as on your private iCloud. Then our app will use the stored UID and cookie to get the resin and other information in a way similar to HoYoLAB app, then display them on your widget. Your private information will not be sent to other places other than HoYoLAB and iCloud, including us, so your personal information will be very secure.";
+"account.explanation.2" = "This procedure is not an illegal procedure such as plug-ins. This program abides by the relevant content of miHoYo's secondary creation rules. According to the reply of China's Genshin Impact customer service, the use of our program will not cause problems such as blocking. For details, see Settings - FAQ..";
 "sys.label.server" = "Server";
 "sys.label.cookie" = "Cookie";
 "" = "";
