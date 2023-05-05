@@ -363,6 +363,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAE519A62A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelper" */;
 			buildPhases = (
+				EA60BE632A0510BC00CBF10B /* ShellScript */,
 				EAF431162A02B7E4009B3C0D /* SwiftLintCheck */,
 				EAE519782A01738600EF23B7 /* Sources */,
 				EAE519792A01738600EF23B7 /* Frameworks */,
@@ -442,6 +443,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		EA60BE632A0510BC00CBF10B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
 		EAF431162A02B7E4009B3C0D /* SwiftLintCheck */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
