@@ -122,7 +122,7 @@ private struct SelectAccountView: View {
 
     // MARK: Private
 
-    @MainActor  private var selectedAccount: Binding<FetchedAccount?> {
+    @MainActor private var selectedAccount: Binding<FetchedAccount?> {
         .init {
             accountsForSelected.first { account in
                 account.gameUid == self.account.uid

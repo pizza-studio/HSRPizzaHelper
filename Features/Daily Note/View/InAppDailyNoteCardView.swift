@@ -13,16 +13,14 @@ import SwiftUI
 // MARK: - InAppDailyNoteCardView
 
 struct InAppDailyNoteCardView: View {
-    @StateObject private var dailyNoteViewModel: DailyNoteViewModel
-
-    private var account: Account {
-        dailyNoteViewModel.account
-    }
+    // MARK: Lifecycle
 
     init(account: Account, refreshSubject: PassthroughSubject<(), Never>) {
         self._dailyNoteViewModel = StateObject(wrappedValue: DailyNoteViewModel(account: account))
         self.refreshSubject = refreshSubject
     }
+
+    // MARK: Internal
 
     let refreshSubject: PassthroughSubject<(), Never>
 
@@ -55,6 +53,14 @@ struct InAppDailyNoteCardView: View {
             }
         }
     }
+
+    // MARK: Private
+
+    @StateObject private var dailyNoteViewModel: DailyNoteViewModel
+
+    private var account: Account {
+        dailyNoteViewModel.account
+    }
 }
 
 // MARK: - NoteView
@@ -62,8 +68,7 @@ struct InAppDailyNoteCardView: View {
 private struct NoteView: View {
     let account: Account
     let note: DailyNote
-    @State
-    var isDispatchDetailShow = false
+    @State  var isDispatchDetailShow = false
 
     var body: some View {
         VStack {
@@ -80,7 +85,7 @@ private struct NoteView: View {
                 HStack(alignment: .bottom, spacing: 0) {
                     Text("\(note.staminaInformation.currentStamina)")
                         .font(.title)
-                    + Text("/\(note.staminaInformation.maxStamina)")
+                        + Text("/\(note.staminaInformation.maxStamina)")
                         .font(.caption)
                 }
                 Spacer()

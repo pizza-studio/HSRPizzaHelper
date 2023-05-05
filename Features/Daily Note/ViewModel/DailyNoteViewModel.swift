@@ -10,13 +10,17 @@ import HBMihoyoAPI
 import SwiftUI
 
 class DailyNoteViewModel: ObservableObject {
-    @Published private(set) var dailyNote: FetchStatus<DailyNote> = .pending
-
-    let account: Account
+    // MARK: Lifecycle
 
     init(account: Account) {
         self.account = account
     }
+
+    // MARK: Internal
+
+    @Published private(set) var dailyNote: FetchStatus<DailyNote> = .pending
+
+    let account: Account
 
     func getDailyNote() async {
         if case let .finished(.success(note)) = dailyNote {

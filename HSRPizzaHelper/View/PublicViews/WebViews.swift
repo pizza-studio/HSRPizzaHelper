@@ -27,7 +27,7 @@ struct SFSafariViewWrapper: UIViewControllerRepresentable {
     ) {}
 }
 
-// MARK: - WebBroswerView
+// MARK: - WebBrowserView
 
 struct WebBrowserView: UIViewRepresentable {
     var url: String = ""

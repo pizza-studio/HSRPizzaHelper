@@ -29,7 +29,7 @@ struct SettingView: View {
 //                            storeManager: storeManager
 //                        )
 //                    ) {
-                        Text("sys.label.support")
+                    Text("sys.label.support")
 //                    }
                 }
                 Section {

@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
+// MARK: - OnAppBecomeActiveModifier
+
 private struct OnAppBecomeActiveModifier: ViewModifier {
     @Environment(\.scenePhase) private var scenePhase: ScenePhase
 
-    let action: () -> Void
+    let action: () -> ()
 
     func body(content: Content) -> some View {
         content
@@ -23,10 +25,12 @@ private struct OnAppBecomeActiveModifier: ViewModifier {
     }
 }
 
+// MARK: - OnAppEnterBackgroundModifier
+
 private struct OnAppEnterBackgroundModifier: ViewModifier {
     @Environment(\.scenePhase) private var scenePhase: ScenePhase
 
-    let action: () -> Void
+    let action: () -> ()
 
     func body(content: Content) -> some View {
         content
@@ -38,10 +42,12 @@ private struct OnAppEnterBackgroundModifier: ViewModifier {
     }
 }
 
+// MARK: - OnAppBecomeInactiveModifier
+
 private struct OnAppBecomeInactiveModifier: ViewModifier {
     @Environment(\.scenePhase) private var scenePhase: ScenePhase
 
-    let action: () -> Void
+    let action: () -> ()
 
     func body(content: Content) -> some View {
         content
@@ -53,17 +59,16 @@ private struct OnAppBecomeInactiveModifier: ViewModifier {
     }
 }
 
-
 extension View {
-    func onAppBecomeActive(perform action: @escaping () -> Void) -> some View {
+    func onAppBecomeActive(perform action: @escaping () -> ()) -> some View {
         modifier(OnAppBecomeActiveModifier(action: action))
     }
 
-    func onAppEnterBackground(perform action: @escaping () -> Void) -> some View {
+    func onAppEnterBackground(perform action: @escaping () -> ()) -> some View {
         modifier(OnAppEnterBackgroundModifier(action: action))
     }
 
-    func onAppBecomeInactive(perform action: @escaping () -> Void) -> some View {
+    func onAppBecomeInactive(perform action: @escaping () -> ()) -> some View {
         modifier(OnAppBecomeInactiveModifier(action: action))
     }
 }
