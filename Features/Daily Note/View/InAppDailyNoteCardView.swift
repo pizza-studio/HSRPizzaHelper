@@ -48,7 +48,7 @@ private struct NoteView: View {
         Section {
             VStack {
                 HStack {
-                    Text("Stamina").bold()
+                    Text("sys.label.trailblaze").bold()
                     Spacer()
                     let iconFrame: CGFloat = 30
                     Image("Item_Trailblaze_Power")
@@ -67,7 +67,7 @@ private struct NoteView: View {
             }
             VStack {
                 HStack {
-                    Text("Expedition").bold()
+                    Text("sys.label.dispatch").bold()
                     Spacer()
                     let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
                     let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
