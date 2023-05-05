@@ -70,7 +70,7 @@ private struct RequireLoginView: View {
         Button {
             isGetCookieWebViewShown.toggle()
         } label: {
-            Text("Re-Login")
+            Text("account.label.relogin")
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity
