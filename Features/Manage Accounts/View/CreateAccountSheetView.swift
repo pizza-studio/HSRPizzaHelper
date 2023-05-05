@@ -86,7 +86,6 @@ struct CreateAccountSheetView: View {
             if let cookie = account.cookie {
                 do {
                     accountsForSelected = try await MiHoYoAPI.getUserGameRolesByCookie(region: region, cookie: cookie)
-                    selectedAccount.wrappedValue = accountsForSelected.first
                     status = .gotAccount
                 } catch {
                     print(error)
@@ -108,7 +107,7 @@ struct CreateAccountSheetView: View {
                     Text("account.login.manual.1")
                         .font(.footnote)
                     NavigationLink {
-                        AddAccountDetailView(
+                        AccountDetailView(
                             unsavedName: $account.name,
                             unsavedUid: $account.uid,
                             unsavedCookie: $account.cookie,
@@ -138,54 +137,7 @@ struct CreateAccountSheetView: View {
 
     @ViewBuilder
     func gotAccountView() -> some View {
-        EditAccountView(account: account)
-        Section {
-            RequireLoginView(unsavedCookie: $account.cookie, region: $region)
-        }
-
-        Section {
-            HStack {
-                Text("account.label.nickname")
-                Spacer()
-                TextField("account.label.nickname", text: name, prompt: nil)
-                    .multilineTextAlignment(.trailing)
-            }
-        } header: {
-            HStack {
-                Text("UID: " + (account.uid ?? ""))
-                Spacer()
-                Text(account.server.description)
-            }
-        }
-        Section {
-            // 如果该帐号绑定的UID不止一个，则显示Picker选择帐号
-            if accountsForSelected.count > 1 {
-                Picker("account.label.select", selection: selectedAccount) {
-                    ForEach(
-                        accountsForSelected,
-                        id: \.gameUid
-                    ) { account in
-                        Text(account.nickname + "（\(account.gameUid)）")
-                            .tag(account as FetchedAccount?)
-                    }
-                }
-            }
-        }
-        Section {
-            NavigationLink {
-                AddAccountDetailView(
-                    unsavedName: $account.name,
-                    unsavedUid: $account.uid,
-                    unsavedCookie: $account.cookie,
-                    unsavedServer: $account.server
-                )
-            } label: {
-                Text("account.label.detail")
-            }
-        }
-        Section {
-            TestAccountView(account: account)
-        }
+        EditAccountView(account: account, accountsForSelected: accountsForSelected)
     }
 
     // MARK: Private
@@ -204,20 +156,6 @@ struct CreateAccountSheetView: View {
     @State private var accountsForSelected: [FetchedAccount] = []
 
     @State private var region: Region = .china
-
-    private var selectedAccount: Binding<FetchedAccount?> {
-        .init {
-            accountsForSelected.first { account in
-                account.gameUid == self.account.uid
-            }
-        } set: { account in
-            if let account = account {
-                self.account.name = account.nickname
-                self.account.uid = account.gameUid
-                self.account.server = Server(rawValue: account.region) ?? .china
-            }
-        }
-    }
 
     private var name: Binding<String> {
         .init {
@@ -338,76 +276,5 @@ private struct ExplanationView: View {
             )
             .font(.footnote)
         }
-    }
-}
-
-// MARK: - AddAccountDetailView
-
-struct AddAccountDetailView: View {
-    // MARK: Lifecycle
-
-    init(
-        unsavedName: Binding<String?>,
-        unsavedUid: Binding<String?>,
-        unsavedCookie: Binding<String?>,
-        unsavedServer: Binding<Server>
-    ) {
-        _unsavedName = .init(get: {
-            unsavedName.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedName.wrappedValue = newValue
-        })
-        _unsavedUid = .init(get: {
-            unsavedUid.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedUid.wrappedValue = newValue
-        })
-        _unsavedCookie = .init(get: {
-            unsavedCookie.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedCookie.wrappedValue = newValue
-        })
-        _unsavedServer = unsavedServer
-    }
-
-    // MARK: Internal
-
-    @Binding var unsavedName: String
-    @Binding var unsavedUid: String
-    @Binding var unsavedCookie: String
-    @Binding var unsavedServer: Server
-
-    var body: some View {
-        List {
-            Section {
-                HStack {
-                    Text("account.label.nickname")
-                    Spacer()
-                    TextField("account.label.nickname", text: $unsavedName, prompt: Text("account.label.nickname"))
-                        .multilineTextAlignment(.trailing)
-                }
-                HStack {
-                    Text("UID")
-                    Spacer()
-                    TextField("UID", text: $unsavedUid, prompt: Text("UID"))
-                        .keyboardType(.numberPad)
-                        .multilineTextAlignment(.trailing)
-                }
-                Picker("sys.label.server", selection: $unsavedServer) {
-                    ForEach(Server.allCases, id: \.self) { server in
-                        Text(server.description)
-                            .tag(server)
-                    }
-                }
-            }
-            Section {
-                let cookieTextEditorFrame: CGFloat = 350
-                TextEditor(text: $unsavedCookie)
-                    .frame(height: cookieTextEditorFrame)
-            } header: {
-                Text("sys.label.cookie")
-            }
-        }
-        .navigationBarTitle("account.label.detail", displayMode: .inline)
     }
 }

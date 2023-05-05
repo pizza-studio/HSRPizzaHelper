@@ -13,6 +13,8 @@ import SwiftUI
 struct EditAccountView: View {
     @StateObject var account: Account
 
+    var accountsForSelected: [FetchedAccount]?
+
     var body: some View {
         Section {
             RequireLoginView(
@@ -34,9 +36,12 @@ struct EditAccountView: View {
                 Text(account.server.description)
             }
         }
+        if let accountsForSelected = accountsForSelected {
+            SelectAccountView(account: account, accountsForSelected: accountsForSelected)
+        }
         Section {
             NavigationLink {
-                AddAccountDetailView(
+                AccountDetailView(
                     unsavedName: $account.name,
                     unsavedUid: $account.uid,
                     unsavedCookie: $account.cookie,
@@ -78,5 +83,49 @@ private struct RequireLoginView: View {
                 region: region
             )
         })
+    }
+}
+
+private struct SelectAccountView: View {
+    init(account: Account, accountsForSelected: [FetchedAccount]) {
+        self._account = ObservedObject(wrappedValue: account)
+        self.accountsForSelected = accountsForSelected
+        selectedAccount.wrappedValue = accountsForSelected.first
+    }
+
+    @ObservedObject var account: Account
+
+    let accountsForSelected: [FetchedAccount]
+
+    @MainActor
+    private var selectedAccount: Binding<FetchedAccount?> {
+        .init {
+            accountsForSelected.first { account in
+                account.gameUid == self.account.uid
+            }
+        } set: { account in
+            if let account = account {
+                self.account.name = account.nickname
+                self.account.uid = account.gameUid
+                self.account.server = Server(rawValue: account.region) ?? .china
+            }
+        }
+    }
+
+    var body: some View {
+        Section {
+            // 如果该帐号绑定的UID不止一个，则显示Picker选择帐号
+            if accountsForSelected.count > 1 {
+                Picker("account.label.select", selection: selectedAccount) {
+                    ForEach(
+                        accountsForSelected,
+                        id: \.gameUid
+                    ) { account in
+                        Text(account.nickname + "（\(account.gameUid)）")
+                            .tag(account as FetchedAccount?)
+                    }
+                }
+            }
+        }
     }
 }
