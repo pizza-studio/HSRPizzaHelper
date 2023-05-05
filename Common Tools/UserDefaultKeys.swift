@@ -8,22 +8,27 @@
 import Foundation
 import SwiftyUserDefaults
 
-// Store all value in App Group user default.
+/// An adapter class that handles fetching and storing user defaults values
 var Defaults = DefaultsAdapter<DefaultsKeys>(
     // swiftlint:disable:next force_unwrapping
     defaults: UserDefaults(suiteName: AppConfig.appGroupID)!,
     keyStore: .init()
 )
 
+/// An extension of `DefaultsKeys` to define the keys to use when getting and setting values in user defaults
 extension DefaultsKeys {
-    var example: DefaultsKey<String> { .init("example", defaultValue: "Hello World!") }
+    private var example: DefaultsKey<String> {
+        .init("example", defaultValue: "Hello World!")
+    }
 
     // MARK: - In app
 
+    /// A `DefaultsKey` representing the version of the app for which the user was prompted to leave a review
     var lastVersionPromptedForReview: DefaultsKey<String?> {
         .init("lastVersionPromptedForReview")
     }
 
+    /// A `DefaultsKey` representing whether the user has seen a policy agreement screen
     var isPolicyShown: DefaultsKey<Bool> {
         .init("isPolicyShown", defaultValue: false)
     }

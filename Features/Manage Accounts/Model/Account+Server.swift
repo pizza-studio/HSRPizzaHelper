@@ -9,6 +9,7 @@ import Foundation
 import HBMihoyoAPI
 
 extension Account {
+    /// Get the account's current server
     var server: Server {
         get {
             .init(rawValue: serverRawValue ?? "") ?? .china

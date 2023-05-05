@@ -36,6 +36,7 @@ public struct StaminaInformation {
         }
     }
 
+    /// The time when stamina is full
     public var fullTime: Date {
         Date(timeInterval: _staminaRecoverTime, since: fetchTime)
     }

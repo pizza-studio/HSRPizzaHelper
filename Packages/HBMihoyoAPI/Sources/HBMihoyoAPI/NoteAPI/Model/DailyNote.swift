@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - DailyNote
 
-/// Result of `note` API.
+/// A struct representing the result of note API
 public struct DailyNote: Decodable {
     // MARK: Lifecycle
 
@@ -21,11 +21,20 @@ public struct DailyNote: Decodable {
 
     // MARK: Public
 
+    /// Stamina information
     public let staminaInformation: StaminaInformation
+    /// Expedition information
     public let expeditionInformation: ExpeditionInformation
-
-    /// The time this struct generated
+    /// The time when this struct is generated
     public let fetchTime: Date = .init()
+
+    // MARK: Internal
+
+    /// Deccoding keys for the decoder
+    enum CodingKeys: String, CodingKey {
+        case staminaInformation = "stamina_info"
+        case expeditionInformation = "daily_expedition"
+    }
 }
 
 // MARK: DecodableFromMiHoYoAPIJSONResult

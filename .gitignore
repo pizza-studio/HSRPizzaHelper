@@ -93,3 +93,5 @@ iOSInjectionProject/
 
 BuildTools/.swiftpm
 BuildTools/.build
+
+.vscode

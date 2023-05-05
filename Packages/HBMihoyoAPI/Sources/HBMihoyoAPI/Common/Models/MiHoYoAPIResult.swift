@@ -9,9 +9,11 @@ import Foundation
 
 // MARK: - DecodableFromMiHoYoAPIJSONResult
 
+/// A protocol that enables decoding from MiHoYoAPI JSON results
 protocol DecodableFromMiHoYoAPIJSONResult: Decodable {}
 
 extension DecodableFromMiHoYoAPIJSONResult {
+    /// Decodes data from MiHoYoAPI JSON results
     static func decodeFromMiHoYoAPIJSONResult(data: Data) throws -> Self {
         let decoder = JSONDecoder()
         let result = try decoder.decode(MiHoYoAPIJSONResult<Self>.self, from: data)
@@ -26,6 +28,7 @@ extension DecodableFromMiHoYoAPIJSONResult {
 
 // MARK: - MiHoYoAPIJSONResult
 
+/// A generic structure representing JSON results from MiHoYoAPI
 private struct MiHoYoAPIJSONResult<T: DecodableFromMiHoYoAPIJSONResult>: Decodable {
     // MARK: Lifecycle
 
