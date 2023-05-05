@@ -52,5 +52,7 @@ private struct OtherSettingsView: View {
                 }
             }
         }
+        .navigationTitle("sys.more.title")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
