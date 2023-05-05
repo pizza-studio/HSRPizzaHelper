@@ -20,7 +20,11 @@ struct InAppDailyNoteCardView: View {
         Group {
             switch dailyNoteViewModel.dailyNote {
             case .loading, .pending:
-                ProgressView()
+                HStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
             case let .finished(result):
                 switch result {
                 case let .success(note):
@@ -43,6 +47,8 @@ struct InAppDailyNoteCardView: View {
 private struct NoteView: View {
     let account: Account
     let note: DailyNote
+    @State
+    var isDispatchDetailShow = false
 
     var body: some View {
         Section {
@@ -73,31 +79,46 @@ private struct NoteView: View {
                     let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
                     Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
                 }
-                ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                let imageFrame: CGFloat = 40
-                                ForEach(expedition.avatarIconURLs, id: \.self) { url in
-                                    AsyncImage(url: url) { image in
-                                        image.resizable().scaledToFit()
-                                    } placeholder: {
-                                        ProgressView()
+                .onTapGesture {
+                    withAnimation(.linear) {
+                        isDispatchDetailShow.toggle()
+                    }
+                }
+            }
+            if isDispatchDetailShow {
+                VStack {
+                    ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    let imageFrame: CGFloat = 40
+                                    ForEach(expedition.avatarIconURLs, id: \.self) { url in
+                                        AsyncImage(url: url) { image in
+                                            image.resizable().scaledToFit()
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        .frame(height: imageFrame)
                                     }
-                                    .frame(height: imageFrame)
                                 }
+                                Text("\(expedition.name)")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
                             }
-                            Text("\(expedition.name)")
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                                Text(expedition.finishedTime, style: .time)
+                                Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
+                            }
                         }
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Text(expedition.finishedTime, style: .time)
-                            Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
+                        .onTapGesture {
+                            withAnimation(.linear) {
+                                isDispatchDetailShow.toggle()
+                            }
                         }
                     }
                 }
+                .listRowSeparator(.hidden)
             }
         } header: {
             if let name = account.name {
