@@ -22,6 +22,7 @@
 		EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA37AEB32A02CDB900E4AADA /* SwifterSwift */; };
 		EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5B2A05053200CBF10B /* AboutView.swift */; };
 		EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5C2A05053200CBF10B /* ThanksView.swift */; };
+		EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
 		EA742BF72A020A3300ACB8E4 /* CreateAccountSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BF62A020A3300ACB8E4 /* CreateAccountSheetView.swift */; };
 		EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */; };
 		EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */; };
@@ -65,6 +66,7 @@
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA60BE5B2A05053200CBF10B /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		EA60BE5C2A05053200CBF10B /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
+		EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhaseOnChange.swift; sourceTree = "<group>"; };
 		EA742BF62A020A3300ACB8E4 /* CreateAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountSheetView.swift; sourceTree = "<group>"; };
 		EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCookieWebView.swift; sourceTree = "<group>"; };
 		EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 				EAE519832A01738600EF23B7 /* Assets.xcassets */,
 			);
 			path = AppOnly;
+			sourceTree = "<group>";
+		};
+		EA60BE602A050C4000CBF10B /* View Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */,
+			);
+			path = "View Modifier";
 			sourceTree = "<group>";
 		};
 		EA742BFA2A02389A00ACB8E4 /* Daily Note */ = {
@@ -310,6 +320,7 @@
 		EAE519C82A0178AD00EF23B7 /* Common Tools */ = {
 			isa = PBXGroup;
 			children = (
+				EA60BE602A050C4000CBF10B /* View Modifier */,
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
 				EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */,
 				EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */,
@@ -352,6 +363,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAE519A62A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelper" */;
 			buildPhases = (
+				EA60BE632A0510BC00CBF10B /* ShellScript */,
 				EAF431162A02B7E4009B3C0D /* SwiftLintCheck */,
 				EAE519782A01738600EF23B7 /* Sources */,
 				EAE519792A01738600EF23B7 /* Frameworks */,
@@ -431,6 +443,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		EA60BE632A0510BC00CBF10B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
 		EAF431162A02B7E4009B3C0D /* SwiftLintCheck */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -462,6 +492,7 @@
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
 				EAE519C52A01787000EF23B7 /* AccountViewModel.swift in Sources */,
+				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,
 				BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */,
 				EAE37EBD2A02035300154432 /* Account+Server.swift in Sources */,
 				EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */,

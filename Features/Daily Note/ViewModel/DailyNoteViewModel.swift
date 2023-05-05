@@ -10,24 +10,34 @@ import HBMihoyoAPI
 import SwiftUI
 
 class DailyNoteViewModel: ObservableObject {
-    @Published var dailyNote: FetchStatus<DailyNote> = .pending
+    // MARK: Lifecycle
 
-    func getDailyNote(account: Account) async {
+    init(account: Account) {
+        self.account = account
+    }
+
+    // MARK: Internal
+
+    @Published private(set) var dailyNote: FetchStatus<DailyNote> = .pending
+
+    let account: Account
+
+    func getDailyNote() async {
         if case let .finished(.success(note)) = dailyNote {
-            let shouldUpdateAfterMinute: Double = 3
+            let shouldUpdateAfterMinute: Double = 15
             let shouldUpdateAfterSecond = 60.0 * shouldUpdateAfterMinute
             if Date().timeIntervalSince(note.fetchTime) > shouldUpdateAfterSecond {
-                await getDailyNoteUncheck(account: account)
+                await getDailyNoteUncheck()
             }
         } else if case .loading = dailyNote {
             return
         } else {
-            await getDailyNoteUncheck(account: account)
+            await getDailyNoteUncheck()
         }
     }
 
     @MainActor
-    func getDailyNoteUncheck(account: Account) async {
+    func getDailyNoteUncheck() async {
         dailyNote = .loading
         do {
             let data = try await MiHoYoAPI.note(

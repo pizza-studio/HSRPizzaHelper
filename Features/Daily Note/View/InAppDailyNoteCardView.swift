@@ -13,9 +13,14 @@ import SwiftUI
 // MARK: - InAppDailyNoteCardView
 
 struct InAppDailyNoteCardView: View {
-    @StateObject private var dailyNoteViewModel: DailyNoteViewModel = .init()
+    // MARK: Lifecycle
 
-    let account: Account
+    init(account: Account, refreshSubject: PassthroughSubject<(), Never>) {
+        self._dailyNoteViewModel = StateObject(wrappedValue: DailyNoteViewModel(account: account))
+        self.refreshSubject = refreshSubject
+    }
+
+    // MARK: Internal
 
     let refreshSubject: PassthroughSubject<(), Never>
 
@@ -37,16 +42,24 @@ struct InAppDailyNoteCardView: View {
                 Text(name)
             }
         }
-        .onAppear {
-            Task {
-                await dailyNoteViewModel.getDailyNote(account: account)
-            }
-        }
         .onReceive(refreshSubject, perform: { _ in
             Task {
-                await dailyNoteViewModel.getDailyNoteUncheck(account: account)
+                await dailyNoteViewModel.getDailyNoteUncheck()
             }
         })
+        .onAppBecomeActive {
+            Task {
+                await dailyNoteViewModel.getDailyNote()
+            }
+        }
+    }
+
+    // MARK: Private
+
+    @StateObject private var dailyNoteViewModel: DailyNoteViewModel
+
+    private var account: Account {
+        dailyNoteViewModel.account
     }
 }
 
@@ -55,8 +68,7 @@ struct InAppDailyNoteCardView: View {
 private struct NoteView: View {
     let account: Account
     let note: DailyNote
-    @State
-    var isDispatchDetailShow = false
+    @State  var isDispatchDetailShow = false
 
     var body: some View {
         VStack {
@@ -73,7 +85,7 @@ private struct NoteView: View {
                 HStack(alignment: .bottom, spacing: 0) {
                     Text("\(note.staminaInformation.currentStamina)")
                         .font(.title)
-                    + Text("/\(note.staminaInformation.maxStamina)")
+                        + Text("/\(note.staminaInformation.maxStamina)")
                         .font(.caption)
                 }
                 Spacer()
