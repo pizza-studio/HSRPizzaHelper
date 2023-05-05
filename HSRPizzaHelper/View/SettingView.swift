@@ -18,6 +18,21 @@ struct SettingView: View {
                     }
                 }
                 Section {
+                    let url: String = {
+                        switch Bundle.main.preferredLocalizations.first {
+                        case "zh-Hans", "zh-Hant", "zh-HK":
+                            return "https://ophelper.top/static/faq.html"
+                        default:
+                            return "https://ophelper.top/static/faq_en.html"
+                        }
+                    }()
+                    NavigationLink(
+                        destination: WebBrowserView(url: url)
+                            .navigationTitle("FAQ")
+                            .navigationBarTitleDisplayMode(.inline)
+                    ) {
+                        Label("sys.faq.title", systemSymbol: .personFillQuestionmark)
+                    }
                     NavigationLink("sys.more.title") {
                         OtherSettingsView()
                     }
