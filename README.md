@@ -15,7 +15,7 @@ The app is currently still in development and has not been uploaded to the app s
 ## Contribution
 
 All types of PR are welcome, but
-- If you are planning for a new feature, please create an [issues](https://github.com/pizza-studio/HSRPizzaHelper/issues) first to discuss it.
+- If you are planning for a new feature, please create an [issue](https://github.com/pizza-studio/HSRPizzaHelper/issues) first to discuss it.
 - If you are going to fix a bug, edit docs or update i18n, you can create a pull request directly.
 
 For more detail, see [CONTRIBUTING](./CONTRIBUTING.md).
