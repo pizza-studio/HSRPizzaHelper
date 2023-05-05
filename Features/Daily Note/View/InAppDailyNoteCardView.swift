@@ -17,7 +17,7 @@ struct InAppDailyNoteCardView: View {
     let account: Account
 
     var body: some View {
-        Group {
+        Section {
             switch dailyNoteViewModel.dailyNote {
             case .loading, .pending:
                 ProgressView()
@@ -28,6 +28,10 @@ struct InAppDailyNoteCardView: View {
                 case let .failure(error):
                     ErrorView(account: account, error: error)
                 }
+            }
+        } header: {
+            if let name = account.name {
+                Text(name)
             }
         }
         .onAppear {
@@ -45,63 +49,57 @@ private struct NoteView: View {
     let note: DailyNote
 
     var body: some View {
-        Section {
-            VStack {
-                HStack {
-                    Text("Stamina").bold()
-                    Spacer()
-                    let iconFrame: CGFloat = 30
-                    Image("Item_Trailblaze_Power")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: iconFrame)
-                    Text("\(note.staminaInformation.currentStamina)/\(note.staminaInformation.maxStamina)")
+        VStack {
+            HStack {
+                Text("Stamina").bold()
+                Spacer()
+                let iconFrame: CGFloat = 30
+                Image("Item_Trailblaze_Power")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: iconFrame)
+                Text("\(note.staminaInformation.currentStamina)/\(note.staminaInformation.maxStamina)")
+            }
+            HStack {
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text(note.staminaInformation.fullTime, style: .time)
+                    Text(note.staminaInformation.fullTime, style: .relative)
                 }
+            }
+        }
+        VStack {
+            HStack {
+                Text("Expedition").bold()
+                Spacer()
+                let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
+                let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
+                Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
+            }
+            ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
                 HStack {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            let imageFrame: CGFloat = 40
+                            ForEach(expedition.avatarIconURLs, id: \.self) { url in
+                                AsyncImage(url: url) { image in
+                                    image.resizable().scaledToFit()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(height: imageFrame)
+                            }
+                        }
+                        Text("\(expedition.name)")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                    }
                     Spacer()
                     VStack(alignment: .trailing) {
-                        Text(note.staminaInformation.fullTime, style: .time)
-                        Text(note.staminaInformation.fullTime, style: .relative)
+                        Text(expedition.finishedTime, style: .time)
+                        Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
                     }
                 }
-            }
-            VStack {
-                HStack {
-                    Text("Expedition").bold()
-                    Spacer()
-                    let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
-                    let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
-                    Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
-                }
-                ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                let imageFrame: CGFloat = 40
-                                ForEach(expedition.avatarIconURLs, id: \.self) { url in
-                                    AsyncImage(url: url) { image in
-                                        image.resizable().scaledToFit()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(height: imageFrame)
-                                }
-                            }
-                            Text("\(expedition.name)")
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                        }
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Text(expedition.finishedTime, style: .time)
-                            Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
-                        }
-                    }
-                }
-            }
-        } header: {
-            if let name = account.name {
-                Text(name)
             }
         }
     }
@@ -116,21 +114,11 @@ private struct ErrorView: View {
     let error: Error
 
     var body: some View {
-        Section {
-            ZStack {
-                HStack {
-                    Spacer()
-                    Image(systemSymbol: .exclamationmarkCircle)
-                        .foregroundColor(.red)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(account.name ?? "")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                }
-            }
+        HStack {
+            Spacer()
+            Image(systemSymbol: .exclamationmarkCircle)
+                .foregroundColor(.red)
+            Spacer()
         }
         .onTapGesture {
             isEditAccountSheetShown.toggle()
