@@ -23,11 +23,7 @@ struct InAppDailyNoteCardView: View {
         Section {
             switch dailyNoteViewModel.dailyNote {
             case .loading, .pending:
-                HStack {
-                    Spacer()
-                    ProgressView()
-                    Spacer()
-                }
+                ProgressView()
             case let .finished(result):
                 switch result {
                 case let .success(note):
@@ -63,85 +59,79 @@ private struct NoteView: View {
     var isDispatchDetailShow = false
 
     var body: some View {
-        Section {
-            VStack {
-                HStack {
-                    Text("sys.label.trailblaze").bold()
-                    Spacer()
+        VStack {
+            HStack {
+                Text("sys.label.trailblaze").bold()
+                Spacer()
+            }
+            HStack(alignment: .bottom) {
+                let iconFrame: CGFloat = 30
+                Image("Item_Trailblaze_Power")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: iconFrame)
+                HStack(alignment: .bottom, spacing: 0) {
+                    Text("\(note.staminaInformation.currentStamina)")
+                        .font(.title)
+                    + Text("/\(note.staminaInformation.maxStamina)")
+                        .font(.caption)
                 }
-                HStack(alignment: .bottom) {
-                    let iconFrame: CGFloat = 30
-                    Image("Item_Trailblaze_Power")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: iconFrame)
-                    HStack(alignment: .bottom, spacing: 0) {
-                        Text("\(note.staminaInformation.currentStamina)")
-                            .font(.title)
-                        + Text("/\(note.staminaInformation.maxStamina)")
-                            .font(.caption)
-                    }
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                        Text(expedition.finishedTime, style: .time)
-                        Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
-                    }
-                    .font(.caption2)
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text(note.staminaInformation.fullTime, style: .time)
+                    Text(note.staminaInformation.fullTime, style: .relative)
+                }
+                .font(.caption2)
+            }
+        }
+        VStack {
+            HStack {
+                Text("sys.label.dispatch").bold()
+                Spacer()
+                let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
+                let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
+                Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
+            }
+            .onTapGesture {
+                withAnimation(.linear) {
+                    isDispatchDetailShow.toggle()
                 }
             }
+        }
+        if isDispatchDetailShow {
             VStack {
-                HStack {
-                    Text("sys.label.dispatch").bold()
-                    Spacer()
-                    let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
-                    let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
-                    Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
-                }
-                .onTapGesture {
-                    withAnimation(.linear) {
-                        isDispatchDetailShow.toggle()
-                    }
-                }
-            }
-            if isDispatchDetailShow {
-                VStack {
-                    ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
-                        HStack {
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    let imageFrame: CGFloat = 40
-                                    ForEach(expedition.avatarIconURLs, id: \.self) { url in
-                                        AsyncImage(url: url) { image in
-                                            image.resizable().scaledToFit()
-                                        } placeholder: {
-                                            ProgressView()
-                                        }
-                                        .frame(height: imageFrame)
+                ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
+                    HStack {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                let imageFrame: CGFloat = 40
+                                ForEach(expedition.avatarIconURLs, id: \.self) { url in
+                                    AsyncImage(url: url) { image in
+                                        image.resizable().scaledToFit()
+                                    } placeholder: {
+                                        ProgressView()
                                     }
+                                    .frame(height: imageFrame)
                                 }
-                                Text("\(expedition.name)")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
                             }
-                            Spacer()
-                            VStack(alignment: .trailing) {
-                                Text(expedition.finishedTime, style: .time)
-                                Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
-                            }
+                            Text("\(expedition.name)")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
                         }
-                        .onTapGesture {
-                            withAnimation(.linear) {
-                                isDispatchDetailShow.toggle()
-                            }
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Text(expedition.finishedTime, style: .time)
+                            Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
+                        }
+                    }
+                    .onTapGesture {
+                        withAnimation(.linear) {
+                            isDispatchDetailShow.toggle()
                         }
                     }
                 }
-                .listRowSeparator(.hidden)
             }
-        } header: {
-            if let name = account.name {
-                Text(name)
-            }
+            .listRowSeparator(.hidden)
         }
     }
 }
