@@ -69,8 +69,7 @@ struct GetCookieWebView: View {
             }
         case .global:
             cookies.forEach {
-                cookie = cookie + $0.name + "=" + $0
-                    .value + "; "
+                cookie += "\($0.name)=\($0.value); "
             }
         }
     }

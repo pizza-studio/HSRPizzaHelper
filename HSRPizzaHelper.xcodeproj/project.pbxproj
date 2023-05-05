@@ -109,18 +109,10 @@
 		EA742BFA2A02389A00ACB8E4 /* Daily Note */ = {
 			isa = PBXGroup;
 			children = (
-				EAA31F2E2A03651C009A4745 /* Model */,
 				EAEC11E92A0241570024314D /* View */,
 				EAEC11E82A0240850024314D /* ViewModel */,
 			);
 			path = "Daily Note";
-			sourceTree = "<group>";
-		};
-		EAA31F2E2A03651C009A4745 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		EAACB6D22A03FF6A0034E8D8 /* Extensions */ = {
