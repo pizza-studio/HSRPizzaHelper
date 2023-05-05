@@ -8,13 +8,16 @@
 import Foundation
 import HBMihoyoAPI
 import SwiftUI
+import Combine
 
 // MARK: - InAppDailyNoteCardView
 
 struct InAppDailyNoteCardView: View {
-    @StateObject var dailyNoteViewModel: DailyNoteViewModel = .init()
+    @StateObject private var dailyNoteViewModel: DailyNoteViewModel = .init()
 
     let account: Account
+
+    let refreshSubject: PassthroughSubject<(), Never>
 
     var body: some View {
         Section {
@@ -39,6 +42,11 @@ struct InAppDailyNoteCardView: View {
                 await dailyNoteViewModel.getDailyNote(account: account)
             }
         }
+        .onReceive(refreshSubject, perform: { _ in
+            Task {
+                await dailyNoteViewModel.getDailyNoteUncheck(account: account)
+            }
+        })
     }
 }
 

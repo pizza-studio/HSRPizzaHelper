@@ -8,6 +8,7 @@
 import CoreData
 import HBMihoyoAPI
 import SwiftUI
+import Combine
 
 struct HomeView: View {
     // MARK: Internal
@@ -15,22 +16,14 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(accounts) { account in
-                    if account.isValid() {
-                        InAppDailyNoteCardView(account: account)
-                    }
-                }
+                DailyNoteCards(refreshSubject: dailyNoteRefreshSubject)
             }
             .navigationTitle("home.title")
+            .refreshable {
+                dailyNoteRefreshSubject.send()
+            }
         }
     }
 
-    // MARK: Private
-
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
-        animation: .default
-    ) private var accounts: FetchedResults<Account>
+    private let dailyNoteRefreshSubject = PassthroughSubject<(), Never>()
 }
