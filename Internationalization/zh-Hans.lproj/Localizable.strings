@@ -1,0 +1,73 @@
+/* 
+  Localizable.strings
+  HSRPizzaHelper
+
+  Created by Bill Haku on 2023/5/5.
+  
+*/
+
+"tab.home" = "主页";
+"tab.settings" = "设置";
+"home.title" = "HSR披萨小助手";
+"settings.title" = "设置";
+"account.manage.title" = "帐号管理";
+"account.new" = "添加帐号";
+"account.login.title" = "请完成登录";
+"sys.done" = "完成";
+"sys.cancel" = "取消";
+"sys.ok" = "好";
+"err.mfe" = "缺失字段";
+"account.login.manual.1" = "你也可以";
+"account.login.manual.2" = "手动配置你的帐号";
+"account.label.nickname" = "昵称";
+"account.label.select" = "选择你的帐号";
+"account.label.detail" = "帐号详情";
+"sys.server.cn" = "国服";
+"sys.server.os" = "国际服";
+"account.label.login" = "登录";
+"account.label.relogin" = "重新登录";
+"account.explanation.title.1" = "关于我们的工作原理";
+"account.explanation.title.2" = "关于您的帐号安全";
+"account.explanation.1" = "为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，这是获取数据的必要参数。您在接下来的网页登录后，我们会在您的本地和iCloud存储您的个人数据。然后我们通过类似米游社的方式获取您的游戏内的数据信息。我们承诺，您的个人信息不会发送给任何人，包括我们自己。您的个人信息将会是非常安全的。";
+"account.explanation.2" = "本程序不属于外挂等违法程序。本程序遵守米哈游二次创作规则的相关内容。根据中国原神客服的答复，使用本程序不会造成封号等问题。具体内容参见设置 - FAQ.";
+"sys.label.server" = "服务器";
+"sys.label.cookie" = "Cookie";
+"sys.about.title" = "关于星铁披萨小助手";
+"sys.more.title" = "更多";
+"app.name" = "星铁披萨小助手";
+"app.note.1" = "「星铁披萨小助手」与上海米哈游网络科技股份有限公司及其子公司无关。";
+"app.note.2" = "崩坏：星穹铁道的游戏内容和各种游戏内素材与商标的版权都属于米哈游。";
+"sys.thank.title" = "开源组件与第三方API致谢";
+"sys.thank.headline" = "我们的App使用了以下开源组件和第三方API，在此向其作者表示感谢。";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";

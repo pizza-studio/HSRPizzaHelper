@@ -1,0 +1,73 @@
+/* 
+  Localizable.strings
+  HSRPizzaHelper
+
+  Created by Bill Haku on 2023/5/5.
+  
+*/
+
+"tab.home" = "Home";
+"tab.settings" = "Settings";
+"home.title" = "Home";
+"settings.title" = "Settings";
+"account.manage.title" = "Manage Account";
+"account.new" = "New Account";
+"account.login.title" = "Please Finish Login";
+"sys.done" = "Done";
+"sys.cancel" = "Cancel";
+"sys.ok" = "OK";
+"err.mfe" = "Missing Field";
+"account.login.manual.1" = "You can also";
+"account.login.manual.2" = "manually config your account";
+"account.label.nickname" = "Nickname";
+"account.label.select" = "Select Your Account";
+"account.label.detail" = "Account Detail";
+"sys.server.cn" = "China Mainland Servers";
+"sys.server.os" = "Global Servers";
+"account.label.login" = "Login";
+"account.label.relogin" = "Re-Login";
+"account.explanation.title.1" = "How this App work?";
+"account.explanation.title.2" = "About your account security";
+"account.explanation.1" = "To get resin and other data from HoYoLAB, UID and login cookie of your account is needed. After logging into HoYoLAB, we will store them locally as well as on your private iCloud. Then our app will use the stored UID and cookie to get the resin and other information in a way similar to HoYoLAB app, then display them on your widget. Your private information will not be sent to other places other than HoYoLAB and iCloud, including us, so your personal information will be very secure.";
+"account.explanation.2" = "This procedure is not an illegal procedure such as plug-ins. This program abides by the relevant content of miHoYo's secondary creation rules. According to the reply of China's Genshin Impact customer service, the use of our program will not cause problems such as blocking. For details, see Settings - FAQ..";
+"sys.label.server" = "Server";
+"sys.label.cookie" = "Cookie";
+"sys.about.title" = "About HSR Pizza Helper";
+"sys.more.title" = "More";
+"app.name" = "HSR Pizza Helper";
+"app.note.1" = "HSR Pizza Helper is not affiliated with miHoYo Co., Ltd. and its subsidiaries.";
+"app.note.2" = "Honkai: Star Rail, game content and materials are trademarks and copyrights of HoYoverse.";
+"sys.thank.title" = "Acknowledgement for open source components and third-party APIs";
+"sys.thank.headline" = "Our app uses the following open source components and third-party APIs, and we would like to thank their authors.";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
