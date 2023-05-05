@@ -8,6 +8,8 @@
 import HBMihoyoAPI
 import SwiftUI
 
+// MARK: - SettingView
+
 struct SettingView: View {
     var body: some View {
         NavigationView {
@@ -27,6 +29,8 @@ struct SettingView: View {
         }
     }
 }
+
+// MARK: - OtherSettingsView
 
 private struct OtherSettingsView: View {
     var body: some View {

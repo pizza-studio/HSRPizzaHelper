@@ -264,7 +264,7 @@ private struct ExplanationView: View {
                 .font(.footnote)
                 .bold()
             Text("account.explanation.1")
-            .font(.footnote)
+                .font(.footnote)
             Text("\n")
                 .font(.footnote)
             Text("account.explanation.title.2")

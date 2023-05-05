@@ -5,10 +5,10 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
+import Combine
 import Foundation
 import HBMihoyoAPI
 import SwiftUI
-import Combine
 
 // MARK: - InAppDailyNoteCardView
 

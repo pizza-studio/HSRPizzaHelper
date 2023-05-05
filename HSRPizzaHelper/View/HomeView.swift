@@ -5,10 +5,10 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
+import Combine
 import CoreData
 import HBMihoyoAPI
 import SwiftUI
-import Combine
 
 struct HomeView: View {
     // MARK: Internal
@@ -24,6 +24,8 @@ struct HomeView: View {
             }
         }
     }
+
+    // MARK: Private
 
     private let dailyNoteRefreshSubject = PassthroughSubject<(), Never>()
 }

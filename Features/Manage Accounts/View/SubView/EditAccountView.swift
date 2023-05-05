@@ -86,31 +86,22 @@ private struct RequireLoginView: View {
     }
 }
 
+// MARK: - SelectAccountView
+
 private struct SelectAccountView: View {
+    // MARK: Lifecycle
+
     init(account: Account, accountsForSelected: [FetchedAccount]) {
         self._account = ObservedObject(wrappedValue: account)
         self.accountsForSelected = accountsForSelected
         selectedAccount.wrappedValue = accountsForSelected.first
     }
 
+    // MARK: Internal
+
     @ObservedObject var account: Account
 
     let accountsForSelected: [FetchedAccount]
-
-    @MainActor
-    private var selectedAccount: Binding<FetchedAccount?> {
-        .init {
-            accountsForSelected.first { account in
-                account.gameUid == self.account.uid
-            }
-        } set: { account in
-            if let account = account {
-                self.account.name = account.nickname
-                self.account.uid = account.gameUid
-                self.account.server = Server(rawValue: account.region) ?? .china
-            }
-        }
-    }
 
     var body: some View {
         Section {
@@ -125,6 +116,22 @@ private struct SelectAccountView: View {
                             .tag(account as FetchedAccount?)
                     }
                 }
+            }
+        }
+    }
+
+    // MARK: Private
+
+    @MainActor  private var selectedAccount: Binding<FetchedAccount?> {
+        .init {
+            accountsForSelected.first { account in
+                account.gameUid == self.account.uid
+            }
+        } set: { account in
+            if let account = account {
+                self.account.name = account.nickname
+                self.account.uid = account.gameUid
+                self.account.server = Server(rawValue: account.region) ?? .china
             }
         }
     }
