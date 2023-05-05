@@ -120,10 +120,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EAACB6D22A03FF6A0034E8D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAACB6D32A03FF730034E8D8 /* View Modifier */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Modifier";
+			sourceTree = "<group>";
+		};
 		EAE519732A01738600EF23B7 = {
 			isa = PBXGroup;
 			children = (
-				EAE519C92A0178B700EF23B7 /* Extensions */,
 				EAE519C82A0178AD00EF23B7 /* Common Tools */,
 				EAE519C12A0175F800EF23B7 /* Assets */,
 				EAE519BA2A0175C200EF23B7 /* Features */,
@@ -239,18 +252,13 @@
 		EAE519C82A0178AD00EF23B7 /* Common Tools */ = {
 			isa = PBXGroup;
 			children = (
+				EAACB6D32A03FF730034E8D8 /* View Modifier */,
+				EAACB6D22A03FF6A0034E8D8 /* Extensions */,
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
 				EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */,
 				EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */,
 			);
 			path = "Common Tools";
-			sourceTree = "<group>";
-		};
-		EAE519C92A0178B700EF23B7 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EAE519CA2A0178D100EF23B7 /* View */ = {
