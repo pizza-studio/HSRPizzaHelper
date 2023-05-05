@@ -19,6 +19,13 @@ extension DefaultsKeys {
     var example: DefaultsKey<String> { .init("example", defaultValue: "Hello World!") }
 
     // MARK: - In app
+    var lastVersionPromptedForReview: DefaultsKey<String?> {
+        .init("lastVersionPromptedForReview")
+    }
+
+    var isPolicyShown: DefaultsKey<Bool> {
+        .init("isPolicyShown", defaultValue: false)
+    }
 
     // MARK: - For widgets
 }

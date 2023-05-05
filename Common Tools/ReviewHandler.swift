@@ -8,6 +8,7 @@
 import Foundation
 import StoreKit
 import SwiftUI
+import SwiftyUserDefaults
 
 class ReviewHandler {
     // MARK: Lifecycle
@@ -27,11 +28,11 @@ class ReviewHandler {
 
     static func requestReview() {
         #if DEBUG
-        UserDefaults.standard.set(nil, forKey: "lastVersionPromptedForReviewKey")
+        Defaults[\.lastVersionPromptedForReview] = nil
         #endif
         DispatchQueue.main.async {
             // Keep track of the most recent app version that prompts the user for a review.
-            let lastVersionPromptedForReview = UserDefaults.standard.string(forKey: "lastVersionPromptedForReviewKey")
+            let lastVersionPromptedForReview = Defaults[\.lastVersionPromptedForReview]
 
             // Get the current bundle version for the app.
             let infoDictionaryKey = kCFBundleVersionKey as String
@@ -43,15 +44,14 @@ class ReviewHandler {
                     .first(where: { $0.activationState == .foregroundActive
                     }) as? UIWindowScene {
                     SKStoreReviewController.requestReview(in: windowScene)
-                    UserDefaults.standard.set(currentVersion, forKey: "lastVersionPromptedForReviewKey")
+                    Defaults[\.lastVersionPromptedForReview] = currentVersion
                 }
             }
         }
     }
 
     static func requestReviewIfNotRequestedElseNavigateToAppStore() {
-        let lastVersionPromptedForReview = UserDefaults.standard
-            .string(forKey: "lastVersionPromptedForReviewKey")
+        let lastVersionPromptedForReview = Defaults[\.lastVersionPromptedForReview]
         let infoDictionaryKey = kCFBundleVersionKey as String
         guard let currentVersion = Bundle.main
             .object(forInfoDictionaryKey: infoDictionaryKey) as? String
@@ -60,6 +60,7 @@ class ReviewHandler {
         if currentVersion != lastVersionPromptedForReview {
             ReviewHandler.requestReview()
         } else {
+            // TODO: update AppID after upload to App Store Connect
             guard let writeReviewURL =
                 URL(string: "https://apps.apple.com/app/id1635319193?action=write-review")
             else { fatalError("Expected a valid URL") }
