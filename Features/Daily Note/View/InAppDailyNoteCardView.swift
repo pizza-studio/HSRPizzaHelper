@@ -13,9 +13,16 @@ import SwiftUI
 // MARK: - InAppDailyNoteCardView
 
 struct InAppDailyNoteCardView: View {
-    @StateObject private var dailyNoteViewModel: DailyNoteViewModel = .init()
+    @StateObject private var dailyNoteViewModel: DailyNoteViewModel
 
-    let account: Account
+    private var account: Account {
+        dailyNoteViewModel.account
+    }
+
+    init(account: Account, refreshSubject: PassthroughSubject<(), Never>) {
+        self._dailyNoteViewModel = StateObject(wrappedValue: DailyNoteViewModel(account: account))
+        self.refreshSubject = refreshSubject
+    }
 
     let refreshSubject: PassthroughSubject<(), Never>
 
@@ -37,16 +44,16 @@ struct InAppDailyNoteCardView: View {
                 Text(name)
             }
         }
-        .onAppear {
-            Task {
-                await dailyNoteViewModel.getDailyNote(account: account)
-            }
-        }
         .onReceive(refreshSubject, perform: { _ in
             Task {
-                await dailyNoteViewModel.getDailyNoteUncheck(account: account)
+                await dailyNoteViewModel.getDailyNoteUncheck()
             }
         })
+        .onAppBecomeActive {
+            Task {
+                await dailyNoteViewModel.getDailyNote()
+            }
+        }
     }
 }
 
