@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF06C4A02A04A89C00EE9120 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C49F2A04A89C00EE9120 /* AboutView.swift */; };
+		BF06C4A22A04A90500EE9120 /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A12A04A90500EE9120 /* ThanksView.swift */; };
+		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
+		BFCACD102A0491E9009B0B85 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BFCACD0F2A0491E9009B0B85 /* LICENSE */; };
 		EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA143BC72A01808200AE1FCA /* HBMihoyoAPI */; };
 		EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
@@ -46,6 +50,13 @@
 		EA2C064E2A04AAE000A328E6 /* EditAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountView.swift; sourceTree = "<group>"; };
 		EA2C06512A04AC5A00A328E6 /* TestAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountView.swift; sourceTree = "<group>"; };
 		EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountSheetView.swift; sourceTree = "<group>"; };
+		BF06C49F2A04A89C00EE9120 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		BF06C4A12A04A90500EE9120 /* ThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
+		BF14CFA92A049ADB00E437C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BF14CFAB2A049ADE00E437C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		BF14CFAC2A049AE000E437C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFCACD0F2A0491E9009B0B85 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BFCACD112A04922E009B0B85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EA32764C2A03851F00774126 /* Background.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Background.xcassets; sourceTree = "<group>"; };
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA742BF62A020A3300ACB8E4 /* CreateAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountSheetView.swift; sourceTree = "<group>"; };
@@ -89,6 +100,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF06C49E2A04A88300EE9120 /* SysViews */ = {
+			isa = PBXGroup;
+			children = (
+				BF06C49F2A04A89C00EE9120 /* AboutView.swift */,
+				BF06C4A12A04A90500EE9120 /* ThanksView.swift */,
+			);
+			path = SysViews;
+			sourceTree = "<group>";
+		};
+		BF14CFA72A049AC100E437C6 /* Internationalization */ = {
+			isa = PBXGroup;
+			children = (
+				BF14CFAA2A049ADB00E437C6 /* Localizable.strings */,
+			);
+			path = Internationalization;
+			sourceTree = "<group>";
+		};
 		EA143BC62A01808200AE1FCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,18 +154,10 @@
 		EA742BFA2A02389A00ACB8E4 /* Daily Note */ = {
 			isa = PBXGroup;
 			children = (
-				EAA31F2E2A03651C009A4745 /* Model */,
 				EAEC11E92A0241570024314D /* View */,
 				EAEC11E82A0240850024314D /* ViewModel */,
 			);
 			path = "Daily Note";
-			sourceTree = "<group>";
-		};
-		EAA31F2E2A03651C009A4745 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		EAACB6D22A03FF6A0034E8D8 /* Extensions */ = {
@@ -157,9 +177,12 @@
 		EAE519732A01738600EF23B7 = {
 			isa = PBXGroup;
 			children = (
+				BFCACD112A04922E009B0B85 /* README.md */,
+				BFCACD0F2A0491E9009B0B85 /* LICENSE */,
 				EAE519C82A0178AD00EF23B7 /* Common Tools */,
 				EAE519C12A0175F800EF23B7 /* Assets */,
 				EAE519BA2A0175C200EF23B7 /* Features */,
+				BF14CFA72A049AC100E437C6 /* Internationalization */,
 				EAE519B72A01757400EF23B7 /* Packages */,
 				EAE5197E2A01738600EF23B7 /* HSRPizzaHelper */,
 				EAE5197D2A01738600EF23B7 /* Products */,
@@ -287,6 +310,7 @@
 		EAE519CA2A0178D100EF23B7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF06C49E2A04A88300EE9120 /* SysViews */,
 				EADA63762A0201B200BF070F /* HomeView.swift */,
 				EAE37EBE2A0206AC00154432 /* SettingView.swift */,
 			);
@@ -359,6 +383,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				ja,
 			);
 			mainGroup = EAE519732A01738600EF23B7;
 			packageReferences = (
@@ -382,9 +408,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE519872A01738600EF23B7 /* Preview Assets.xcassets in Resources */,
+				BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */,
 				EAE519842A01738600EF23B7 /* Assets.xcassets in Resources */,
 				EA32764F2A03852C00774126 /* Icon.xcassets in Resources */,
 				EA32764D2A03851F00774126 /* Background.xcassets in Resources */,
+				BFCACD102A0491E9009B0B85 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +449,7 @@
 				EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */,
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
 				EAE519C52A01787000EF23B7 /* AccountViewModel.swift in Sources */,
+				BF06C4A02A04A89C00EE9120 /* AboutView.swift in Sources */,
 				EAE37EBD2A02035300154432 /* Account+Server.swift in Sources */,
 				EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */,
 				EADA63772A0201B200BF070F /* HomeView.swift in Sources */,
@@ -430,6 +459,7 @@
 				EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */,
 				EA2C06522A04AC5A00A328E6 /* TestAccountView.swift in Sources */,
 				EAE519822A01738600EF23B7 /* ContentView.swift in Sources */,
+				BF06C4A22A04A90500EE9120 /* ThanksView.swift in Sources */,
 				EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */,
 				EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */,
 				EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */,
@@ -443,6 +473,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BF14CFAA2A049ADB00E437C6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF14CFA92A049ADB00E437C6 /* en */,
+				BF14CFAB2A049ADE00E437C6 /* zh-Hans */,
+				BF14CFAC2A049AE000E437C6 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EAE519A42A01738600EF23B7 /* Debug */ = {
