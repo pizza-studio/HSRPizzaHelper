@@ -24,9 +24,9 @@ struct EditAccountView: View {
         }
         Section {
             HStack {
-                Text("Nickname")
+                Text("account.label.nickname")
                 Spacer()
-                TextField("Nickname", text: $account.name, prompt: nil)
+                TextField("account.label.nickname", text: $account.name, prompt: nil)
                     .multilineTextAlignment(.trailing)
             }
         } header: {
@@ -48,7 +48,7 @@ struct EditAccountView: View {
                     unsavedServer: $account.server
                 )
             } label: {
-                Text("Account Detail")
+                Text("account.label.detail")
             }
         }
         Section {

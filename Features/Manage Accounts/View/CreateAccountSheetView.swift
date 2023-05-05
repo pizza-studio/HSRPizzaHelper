@@ -41,8 +41,7 @@ struct CreateAccountSheetView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-
-                    Button("Cancel") {
+                    Button("sys.cancel") {
                         viewContext.delete(account)
                         isShown.toggle()
                     }
