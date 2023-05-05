@@ -73,7 +73,6 @@ struct UserPolicyView: View {
                         // TODO: use localized key
                         Button("同意") {
                             Defaults[\.isPolicyShown] = true
-                            UserDefaults.standard.synchronize()
                         }
                     }
                 }
