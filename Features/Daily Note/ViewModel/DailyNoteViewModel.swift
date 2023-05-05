@@ -20,7 +20,7 @@ class DailyNoteViewModel: ObservableObject {
 
     func getDailyNote() async {
         if case let .finished(.success(note)) = dailyNote {
-            let shouldUpdateAfterMinute: Double = 3
+            let shouldUpdateAfterMinute: Double = 15
             let shouldUpdateAfterSecond = 60.0 * shouldUpdateAfterMinute
             if Date().timeIntervalSince(note.fetchTime) > shouldUpdateAfterSecond {
                 await getDailyNoteUncheck()
