@@ -12,11 +12,11 @@ import Foundation
 public struct StaminaInformation {
     // MARK: Public
 
-    // swiftlint: disable no_magic_numbers
+    // swiftlint:disable no_magic_numbers
     /// Each stamina needs 6 minutes to recover
     public static let eachStaminaRecoveryTime: TimeInterval = 60 * 6
 
-    // swiftlint: enable no_magic_numbers
+    // swiftlint:enable no_magic_numbers
 
     /// Max stamina.
     public let maxStamina: Int

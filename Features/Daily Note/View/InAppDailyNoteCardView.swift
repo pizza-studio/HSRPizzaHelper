@@ -23,11 +23,7 @@ struct InAppDailyNoteCardView: View {
         Section {
             switch dailyNoteViewModel.dailyNote {
             case .loading, .pending:
-                HStack {
-                    Spacer()
-                    ProgressView()
-                    Spacer()
-                }
+                ProgressView()
             case let .finished(result):
                 switch result {
                 case let .success(note):
@@ -59,88 +55,59 @@ struct InAppDailyNoteCardView: View {
 private struct NoteView: View {
     let account: Account
     let note: DailyNote
-    @State
-    var isDispatchDetailShow = false
 
     var body: some View {
-        Section {
-            VStack {
-                HStack {
-                    Text("sys.label.trailblaze").bold()
-                    Spacer()
+        VStack {
+            HStack {
+                Text("Stamina").bold()
+                Spacer()
+                let iconFrame: CGFloat = 30
+                Image("Item_Trailblaze_Power")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: iconFrame)
+                Text("\(note.staminaInformation.currentStamina)/\(note.staminaInformation.maxStamina)")
+            }
+            HStack {
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text(note.staminaInformation.fullTime, style: .time)
+                    Text(note.staminaInformation.fullTime, style: .relative)
                 }
-                HStack(alignment: .bottom) {
-                    let iconFrame: CGFloat = 30
-                    Image("Item_Trailblaze_Power")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: iconFrame)
-                    HStack(alignment: .bottom, spacing: 0) {
-                        Text("\(note.staminaInformation.currentStamina)")
-                            .font(.title)
-                        + Text("/\(note.staminaInformation.maxStamina)")
-                            .font(.caption)
+            }
+        }
+        VStack {
+            HStack {
+                Text("Expedition").bold()
+                Spacer()
+                let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
+                let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
+                Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
+            }
+            ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
+                HStack {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            let imageFrame: CGFloat = 40
+                            ForEach(expedition.avatarIconURLs, id: \.self) { url in
+                                AsyncImage(url: url) { image in
+                                    image.resizable().scaledToFit()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(height: imageFrame)
+                            }
+                        }
+                        Text("\(expedition.name)")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
                     }
                     Spacer()
                     VStack(alignment: .trailing) {
                         Text(expedition.finishedTime, style: .time)
                         Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
                     }
-                    .font(.caption2)
                 }
-            }
-            VStack {
-                HStack {
-                    Text("sys.label.dispatch").bold()
-                    Spacer()
-                    let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
-                    let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
-                    Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
-                }
-                .onTapGesture {
-                    withAnimation(.linear) {
-                        isDispatchDetailShow.toggle()
-                    }
-                }
-            }
-            if isDispatchDetailShow {
-                VStack {
-                    ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
-                        HStack {
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    let imageFrame: CGFloat = 40
-                                    ForEach(expedition.avatarIconURLs, id: \.self) { url in
-                                        AsyncImage(url: url) { image in
-                                            image.resizable().scaledToFit()
-                                        } placeholder: {
-                                            ProgressView()
-                                        }
-                                        .frame(height: imageFrame)
-                                    }
-                                }
-                                Text("\(expedition.name)")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                            }
-                            Spacer()
-                            VStack(alignment: .trailing) {
-                                Text(expedition.finishedTime, style: .time)
-                                Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
-                            }
-                        }
-                        .onTapGesture {
-                            withAnimation(.linear) {
-                                isDispatchDetailShow.toggle()
-                            }
-                        }
-                    }
-                }
-                .listRowSeparator(.hidden)
-            }
-        } header: {
-            if let name = account.name {
-                Text(name)
             }
         }
     }

@@ -20,47 +20,6 @@ struct SettingView: View {
                     }
                 }
                 Section {
-                    Button("sys.label.rate") {
-                        ReviewHandler.requestReviewIfNotRequestedElseNavigateToAppStore()
-                    }
-//                    NavigationLink(
-//                        destination: GlobalDonateView(
-//                            storeManager: storeManager
-//                        )
-//                    ) {
-                        Text("sys.label.support")
-//                    }
-                }
-                Section {
-                    Button {
-                        UIApplication.shared
-                            .open(URL(
-                                string: UIApplication
-                                    .openSettingsURLString
-                            )!)
-                    } label: {
-                        Label {
-                            Text("sys.label.preferredlang")
-                                .foregroundColor(.primary)
-                        } icon: {
-                            Image(systemSymbol: .globe)
-                        }
-                    }
-                    let url: String = {
-                        switch Bundle.main.preferredLocalizations.first {
-                        case "zh-Hans", "zh-Hant", "zh-HK":
-                            return "https://ophelper.top/static/faq.html"
-                        default:
-                            return "https://ophelper.top/static/faq_en.html"
-                        }
-                    }()
-                    NavigationLink(
-                        destination: WebBrowserView(url: url)
-                            .navigationTitle("sys.faq.title")
-                            .navigationBarTitleDisplayMode(.inline)
-                    ) {
-                        Label("sys.faq.title", systemSymbol: .personFillQuestionmark)
-                    }
                     NavigationLink("sys.more.title") {
                         OtherSettingsView()
                     }
@@ -82,7 +41,5 @@ private struct OtherSettingsView: View {
                 }
             }
         }
-        .navigationTitle("sys.more.title")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }

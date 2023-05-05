@@ -8,7 +8,7 @@
 
 "tab.home" = "主页";
 "tab.settings" = "设置";
-"home.title" = "星铁披萨小助手";
+"home.title" = "HSR披萨小助手";
 "settings.title" = "设置";
 "account.manage.title" = "帐号管理";
 "account.new" = "添加帐号";
@@ -39,13 +39,13 @@
 "app.note.2" = "崩坏：星穹铁道的游戏内容和各种游戏内素材与商标的版权都属于米哈游。";
 "sys.thank.title" = "开源组件与第三方API致谢";
 "sys.thank.headline" = "我们的App使用了以下开源组件和第三方API，在此向其作者表示感谢。";
-"account.edit.title" = "编辑帐号信息";
-"sys.faq.title" = "常见使用问题（FAQ）";
-"sys.label.trailblaze" = "开拓力";
-"sys.label.dispatch" = "派遣委托";
-"sys.label.preferredlang" = "偏好语言";
-"sys.label.rate" = "在App Store评分";
-"sys.label.support" = "支持我们";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 "" = "";
 "" = "";
 "" = "";

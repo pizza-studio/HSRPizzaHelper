@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		BF06C4A02A04A89C00EE9120 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C49F2A04A89C00EE9120 /* AboutView.swift */; };
 		BF06C4A22A04A90500EE9120 /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A12A04A90500EE9120 /* ThanksView.swift */; };
-		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
-		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
 		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BFCACD102A0491E9009B0B85 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BFCACD0F2A0491E9009B0B85 /* LICENSE */; };
 		EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA143BC72A01808200AE1FCA /* HBMihoyoAPI */; };
@@ -51,8 +49,6 @@
 /* Begin PBXFileReference section */
 		BF06C49F2A04A89C00EE9120 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		BF06C4A12A04A90500EE9120 /* ThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
-		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
-		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
 		BF14CFA92A049ADB00E437C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF14CFAB2A049ADE00E437C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BF14CFAC2A049AE000E437C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -108,23 +104,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF06C49E2A04A88300EE9120 /* SysViews */ = {
-			isa = PBXGroup;
-			children = (
-				BF06C49F2A04A89C00EE9120 /* AboutView.swift */,
-				BF06C4A12A04A90500EE9120 /* ThanksView.swift */,
-			);
-			path = SysViews;
-			sourceTree = "<group>";
-		};
-		BF06C4A32A04D41A00EE9120 /* PublicViews */ = {
-			isa = PBXGroup;
-			children = (
-				BF06C4A42A04D42900EE9120 /* WebViews.swift */,
-			);
-			path = PublicViews;
-			sourceTree = "<group>";
-		};
 		BF14CFA72A049AC100E437C6 /* Internationalization */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +171,20 @@
 				EAEC11E82A0240850024314D /* ViewModel */,
 			);
 			path = "Daily Note";
+			sourceTree = "<group>";
+		};
+		EAACB6D22A03FF6A0034E8D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAACB6D32A03FF730034E8D8 /* View Modifier */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Modifier";
 			sourceTree = "<group>";
 		};
 		EAE519732A01738600EF23B7 = {
@@ -319,10 +312,11 @@
 		EAE519C82A0178AD00EF23B7 /* Common Tools */ = {
 			isa = PBXGroup;
 			children = (
+				EAACB6D32A03FF730034E8D8 /* View Modifier */,
+				EAACB6D22A03FF6A0034E8D8 /* Extensions */,
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
 				EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */,
 				EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */,
-				BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */,
 			);
 			path = "Common Tools";
 			sourceTree = "<group>";
@@ -330,8 +324,6 @@
 		EAE519CA2A0178D100EF23B7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF06C4A32A04D41A00EE9120 /* PublicViews */,
-				BF06C49E2A04A88300EE9120 /* SysViews */,
 				EADA63762A0201B200BF070F /* HomeView.swift */,
 				EAE37EBE2A0206AC00154432 /* SettingView.swift */,
 			);
@@ -472,7 +464,6 @@
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
 				EAE519C52A01787000EF23B7 /* AccountViewModel.swift in Sources */,
 				BF06C4A02A04A89C00EE9120 /* AboutView.swift in Sources */,
-				BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */,
 				EAE37EBD2A02035300154432 /* Account+Server.swift in Sources */,
 				EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */,
 				EADA63772A0201B200BF070F /* HomeView.swift in Sources */,
@@ -490,7 +481,6 @@
 				EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */,
 				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
-				BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */,
 				EAE37EBF2A0206AC00154432 /* SettingView.swift in Sources */,
 				EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */,
 				EAE519C72A01788F00EF23B7 /* Account.swift in Sources */,
