@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFCACD102A0491E9009B0B85 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BFCACD0F2A0491E9009B0B85 /* LICENSE */; };
 		EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA143BC72A01808200AE1FCA /* HBMihoyoAPI */; };
 		EA32764D2A03851F00774126 /* Background.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764C2A03851F00774126 /* Background.xcassets */; };
 		EA32764F2A03852C00774126 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BFCACD0F2A0491E9009B0B85 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BFCACD112A04922E009B0B85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EA32764C2A03851F00774126 /* Background.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Background.xcassets; sourceTree = "<group>"; };
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA742BF62A020A3300ACB8E4 /* ManageAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccountSheetView.swift; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 		EAE519732A01738600EF23B7 = {
 			isa = PBXGroup;
 			children = (
+				BFCACD112A04922E009B0B85 /* README.md */,
+				BFCACD0F2A0491E9009B0B85 /* LICENSE */,
 				EAE519C82A0178AD00EF23B7 /* Common Tools */,
 				EAE519C12A0175F800EF23B7 /* Assets */,
 				EAE519BA2A0175C200EF23B7 /* Features */,
@@ -362,6 +367,7 @@
 				EAE519842A01738600EF23B7 /* Assets.xcassets in Resources */,
 				EA32764F2A03852C00774126 /* Icon.xcassets in Resources */,
 				EA32764D2A03851F00774126 /* Background.xcassets in Resources */,
+				BFCACD102A0491E9009B0B85 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
