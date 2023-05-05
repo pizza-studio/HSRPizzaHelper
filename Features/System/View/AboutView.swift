@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct AboutView: View {
-    let appVersion = (Bundle.main
-        .infoDictionary?["CFBundleShortVersionString"] as? String) ?? ""
+    let appVersion = (
+        Bundle.main
+            .infoDictionary?["CFBundleShortVersionString"] as? String
+    ) ?? ""
     let buildVersion = (Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? ""
 
     var body: some View {

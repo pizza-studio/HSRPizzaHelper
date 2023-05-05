@@ -5,8 +5,8 @@
 //  Created by 戴藏龙 on 2023/5/5.
 //
 
-import SwiftUI
 import HBMihoyoAPI
+import SwiftUI
 
 struct AccountDetailView: View {
     // MARK: Lifecycle

@@ -25,6 +25,7 @@
 		EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */; };
 		EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */; };
 		EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9D024B2A04BE3800796516 /* AccountDetailView.swift */; };
+		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
 		EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */; };
 		EADA63772A0201B200BF070F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63762A0201B200BF070F /* HomeView.swift */; };
 		EAE37EBD2A02035300154432 /* Account+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE37EBC2A02035300154432 /* Account+Server.swift */; };
@@ -65,6 +66,7 @@
 		EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		EA9D024B2A04BE3800796516 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
+		EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteCards.swift; sourceTree = "<group>"; };
 		EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteViewModel.swift; sourceTree = "<group>"; };
 		EADA63762A0201B200BF070F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EAE37EBC2A02035300154432 /* Account+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+Server.swift"; sourceTree = "<group>"; };
@@ -102,15 +104,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF06C49E2A04A88300EE9120 /* SysViews */ = {
-			isa = PBXGroup;
-			children = (
-				BF06C49F2A04A89C00EE9120 /* AboutView.swift */,
-				BF06C4A12A04A90500EE9120 /* ThanksView.swift */,
-			);
-			path = SysViews;
-			sourceTree = "<group>";
-		};
 		BF14CFA72A049AC100E437C6 /* Internationalization */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +117,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA14BF922A04C595002EDBB4 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				EA14BF932A04C59C002EDBB4 /* View */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		EA14BF932A04C59C002EDBB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF06C49F2A04A89C00EE9120 /* AboutView.swift */,
+				BF06C4A12A04A90500EE9120 /* ThanksView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EA2C06502A04AC5200A328E6 /* SubView */ = {
@@ -233,6 +243,7 @@
 		EAE519BA2A0175C200EF23B7 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				EA14BF922A04C595002EDBB4 /* System */,
 				EA742BFA2A02389A00ACB8E4 /* Daily Note */,
 				EAE519BB2A0175DA00EF23B7 /* Manage Accounts */,
 			);
@@ -313,7 +324,6 @@
 		EAE519CA2A0178D100EF23B7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF06C49E2A04A88300EE9120 /* SysViews */,
 				EADA63762A0201B200BF070F /* HomeView.swift */,
 				EAE37EBE2A0206AC00154432 /* SettingView.swift */,
 			);
@@ -332,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */,
+				EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,6 +484,7 @@
 				EAE37EBF2A0206AC00154432 /* SettingView.swift in Sources */,
 				EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */,
 				EAE519C72A01788F00EF23B7 /* Account.swift in Sources */,
+				EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
