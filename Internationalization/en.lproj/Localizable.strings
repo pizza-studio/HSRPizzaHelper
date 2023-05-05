@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  HSRPizzaHelper
+
+  Created by Bill Haku on 2023/5/5.
+  
+*/
+
+"tab.home" = "Home";
+"tab.settings" = "Settings";
+"home.title" = "Home";
+"settings.title" = "Settings";
+"account.manage.title" = "Manage Account";
+"account.new" = "New Account";
+"account.login.title" = "Please Finish Login";
+"sys.done" = "Done";
+"sys.cancel" = "Cancel";
+"sys.ok" = "OK";
+"err.mfe" = "Missing Field";
+"account.login.manual.1" = "You can also";
+"account.login.manual.2" = "manually config your account";
+"account.label.nickname" = "Nickname";
+"account.label.select" = "Select Your Account";
+"account.label.detail" = "Account Detail";
+"sys.server.cn" = "China Mainland Servers";
+"sys.server.os" = "Global Servers";
+"account.label.login" = "Login";
+"account.label.relogin" = "Re-Login";
+"account.explanation.title.1" = "关于我们的工作原理";
+"account.explanation.title.2" = "关于您的帐号安全";
+"account.explanation.1" = "为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，这是获取数据的必要参数。您在接下来的网页登录后，我们会在您的本地和iCloud存储您的个人数据。然后我们通过类似米游社的方式获取您的游戏内的数据信息。我们承诺，您的个人信息不会发送给任何人，包括我们自己。您的个人信息将会是非常安全的。";
+"account.explanation.2" = "本程序不属于外挂等违法程序。本程序遵守米哈游二次创作规则的相关内容。根据中国原神客服的答复，使用本程序不会造成封号等问题。具体内容参见设置 - FAQ.";
+"sys.label.server" = "Server";
+"sys.label.cookie" = "Cookie";
+"" = "";
+"" = "";
+"" = "";
+"" = "";

@@ -21,7 +21,7 @@ struct HomeView: View {
                     }
                 }
             }
-            .navigationTitle("Home")
+            .navigationTitle("home.title")
         }
     }
 

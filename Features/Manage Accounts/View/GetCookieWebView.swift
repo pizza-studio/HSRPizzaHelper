@@ -29,11 +29,11 @@ struct GetCookieWebView: View {
                 dataStore: dataStore,
                 httpHeaderFields: getHTTPHeaderFields(region: region)
             )
-            .navigationTitle("请完成登录")
+            .navigationTitle("account.login.title")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("完成") {
+                    Button("sys.done") {
                         Task(priority: .userInitiated) {
                             await getCookieFromDataStore()
                         }

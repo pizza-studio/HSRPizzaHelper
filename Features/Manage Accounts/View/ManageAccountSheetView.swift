@@ -51,22 +51,22 @@ struct ManageAccountSheetView: View {
                     gotAccountView()
                 }
             }
-            .navigationTitle("New Account")
+            .navigationTitle("account.new")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button("sys.done") {
                         saveAccount()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button("sys.cancel") {
                         isShown.toggle()
                     }
                 }
             }
             .alert(isPresented: $isSaveAccountFailAlertShown, error: saveAccountError) {
-                Button("OK") {
+                Button("sys.ok") {
                     isSaveAccountFailAlertShown.toggle()
                 }
             }
@@ -88,7 +88,7 @@ struct ManageAccountSheetView: View {
 
     func saveAccount() {
         guard account.isValid() else {
-            saveAccountError = .missingFieldError("Missing Field")
+            saveAccountError = .missingFieldError("err.mfe")
             isSaveAccountFailAlertShown.toggle()
             return
         }
@@ -125,7 +125,7 @@ struct ManageAccountSheetView: View {
         } footer: {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("You can also")
+                    Text("account.login.manual.1")
                         .font(.footnote)
                     NavigationLink {
                         AddAccountDetailView(
@@ -135,7 +135,7 @@ struct ManageAccountSheetView: View {
                             unsavedServer: $account.server
                         )
                     } label: {
-                        Text("manually config your account")
+                        Text("account.login.manual.2")
                             .font(.footnote)
                     }
                 }
@@ -164,9 +164,9 @@ struct ManageAccountSheetView: View {
 
         Section {
             HStack {
-                Text("Nickname")
+                Text("account.label.nickname")
                 Spacer()
-                TextField("Nickname", text: name, prompt: nil)
+                TextField("account.label.nickname", text: name, prompt: nil)
                     .multilineTextAlignment(.trailing)
             }
         } header: {
@@ -179,7 +179,7 @@ struct ManageAccountSheetView: View {
         Section {
             // 如果该帐号绑定的UID不止一个，则显示Picker选择帐号
             if accountsForSelected.count > 1 {
-                Picker("请选择帐号", selection: selectedAccount) {
+                Picker("account.label.select", selection: selectedAccount) {
                     ForEach(
                         accountsForSelected,
                         id: \.gameUid
@@ -199,7 +199,7 @@ struct ManageAccountSheetView: View {
                     unsavedServer: $account.server
                 )
             } label: {
-                Text("Account Detail")
+                Text("account.label.detail")
             }
         }
         Section {
@@ -255,20 +255,20 @@ struct RequireLoginView: View {
 
     var body: some View {
         Menu {
-            Button("国服") {
+            Button("sys.server.cn") {
                 getCookieWebViewRegion = .china
                 region = .china
             }
-            Button("国际服") {
+            Button("sys.server.os") {
                 getCookieWebViewRegion = .global
                 region = .global
             }
         } label: {
             Group {
                 if unsavedCookie == "" || unsavedCookie == nil {
-                    Text("Login")
+                    Text("account.label.login")
                 } else {
-                    Text("Re-Login")
+                    Text("account.label.relogin")
                 }
             }
             .frame(
@@ -340,27 +340,18 @@ private struct ExplanationView: View {
         Group {
             Divider()
                 .padding(.vertical)
-            Text("关于我们的工作原理")
+            Text("account.explanation.title.1")
                 .font(.footnote)
                 .bold()
-            Text(
-                """
-                为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，\
-                这是获取数据的必要参数。您在接下来的网页登录后，\
-                我们会在您的本地和iCloud存储您的个人数据。\
-                然后我们通过类似米游社的方式获取您的游戏内的数据信息。\
-                我们承诺，您的个人信息不会发送给任何人，\
-                包括我们自己。您的个人信息将会是非常安全的。
-                """
-            )
+            Text("account.explanation.1")
             .font(.footnote)
             Text("\n")
                 .font(.footnote)
-            Text("关于您的帐号安全")
+            Text("account.explanation.title.2")
                 .font(.footnote)
                 .bold()
             Text(
-                "本程序不属于外挂等违法程序。本程序遵守米哈游二次创作规则的相关内容。根据中国原神客服的答复，使用本程序不会造成封号等问题。具体内容参见设置 - FAQ."
+                "account.explanation.2"
             )
             .font(.footnote)
         }
@@ -407,9 +398,9 @@ struct AddAccountDetailView: View {
         List {
             Section {
                 HStack {
-                    Text("Nickname")
+                    Text("account.label.nickname")
                     Spacer()
-                    TextField("Nickname", text: $unsavedName, prompt: Text("Nickname"))
+                    TextField("account.label.nickname", text: $unsavedName, prompt: Text("account.label.nickname"))
                         .multilineTextAlignment(.trailing)
                 }
                 HStack {
@@ -419,7 +410,7 @@ struct AddAccountDetailView: View {
                         .keyboardType(.numberPad)
                         .multilineTextAlignment(.trailing)
                 }
-                Picker("Server", selection: $unsavedServer) {
+                Picker("sys.label.server", selection: $unsavedServer) {
                     ForEach(Server.allCases, id: \.self) { server in
                         Text(server.description)
                             .tag(server)
@@ -431,10 +422,10 @@ struct AddAccountDetailView: View {
                 TextEditor(text: $unsavedCookie)
                     .frame(height: cookieTextEditorFrame)
             } header: {
-                Text("Cookie")
+                Text("sys.label.cookie")
             }
         }
-        .navigationBarTitle("Account Detail", displayMode: .inline)
+        .navigationBarTitle("account.label.detail", displayMode: .inline)
     }
 }
 
@@ -514,7 +505,7 @@ private struct TestAccountView: View {
             case .testing:
                 return 1
             case .succeeded:
-                // swiftlint:disable:next no_magic_numbers
+                // swiftlint: disable:next no_magic_numbers
                 return 2
             case let .failure(error):
                 return error.localizedDescription.hashValue

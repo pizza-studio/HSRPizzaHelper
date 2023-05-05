@@ -12,11 +12,11 @@ struct SettingView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("Manage Account") {
+                NavigationLink("account.manage.title") {
                     ManageAccountsView()
                 }
             }
-            .navigationTitle("Setting")
+            .navigationTitle("settings.title")
         }
     }
 }
