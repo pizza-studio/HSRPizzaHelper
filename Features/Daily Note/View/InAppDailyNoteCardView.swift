@@ -110,10 +110,10 @@ private struct NoteView: View {
 // MARK: - ErrorView
 
 private struct ErrorView: View {
+    // MARK: Internal
+
     let account: Account
     let error: Error
-
-    @State private var isEditAccountSheetShown: Bool = false
 
     var body: some View {
         Section {
@@ -136,9 +136,13 @@ private struct ErrorView: View {
             isEditAccountSheetShown.toggle()
         }
         .sheet(isPresented: $isEditAccountSheetShown) {
-            ManageAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
+            CreateAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
         }
     }
+
+    // MARK: Private
+
+    @State private var isEditAccountSheetShown: Bool = false
 }
 
 private let dateFormatter: DateFormatter = {

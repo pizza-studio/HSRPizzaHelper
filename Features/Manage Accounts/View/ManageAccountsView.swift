@@ -14,7 +14,7 @@ struct ManageAccountsView: View {
         List {
             Section {
                 Button {
-                    sheetType = .createNewAccount
+                    sheetType = .createNewAccount(Account(context: viewContext))
                 } label: {
                     Label("New account", systemSymbol: .plusCircle)
                 }
@@ -46,16 +46,11 @@ struct ManageAccountsView: View {
         .navigationTitle("Manage Account")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $sheetType, content: { type in
-            let isShown: Binding<Bool> = .init {
-                sheetType != nil
-            } set: { newValue in
-                if !newValue { sheetType = nil }
-            }
             switch type {
-            case .createNewAccount:
-                ManageAccountSheetView(isShown: isShown)
+            case let .createNewAccount(newAccount):
+                CreateAccountSheetView(account: newAccount, isShown: isShown)
             case let .editExistedAccount(account):
-                ManageAccountSheetView(account: account, isShown: isShown)
+                EditAccountSheetView(account: account, isShown: isShown)
             }
         })
         .onAppear {
@@ -68,18 +63,26 @@ struct ManageAccountsView: View {
         }
     }
 
+    var isShown: Binding<Bool> {
+        .init {
+            sheetType != nil
+        } set: { newValue in
+            if !newValue { sheetType = nil }
+        }
+    }
+
     // MARK: Private
 
     private enum SheetType: Identifiable {
-        case createNewAccount
+        case createNewAccount(Account)
         case editExistedAccount(Account)
 
         // MARK: Internal
 
         var id: UUID {
             switch self {
-            case .createNewAccount:
-                return UUID()
+            case let .createNewAccount(account):
+                return account.uuid ?? UUID()
             case let .editExistedAccount(account):
                 return account.uuid ?? UUID()
             }

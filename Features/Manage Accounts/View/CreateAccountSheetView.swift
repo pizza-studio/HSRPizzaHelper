@@ -8,36 +8,17 @@
 import HBMihoyoAPI
 import SwiftUI
 
-// MARK: - ManageAccountSheetView
+// MARK: - CreateAccountSheetView
 
-struct ManageAccountSheetView: View {
+struct CreateAccountSheetView: View {
     // MARK: Lifecycle
 
-    /// Init when a new account
-    init(isShown: Binding<Bool>) {
-        _isShown = isShown
-        let account = Account(context: AccountPersistenceController.shared.container.viewContext)
-        account.uuid = UUID()
-        account.priority = 0
-        account.serverRawValue = Server.china.rawValue
-        _account = StateObject(wrappedValue: account)
-        self.isCreatingAccount = true
-        self.status = .pending
-    }
-
-    /// Init with an existed account for setting
     init(account: Account, isShown: Binding<Bool>) {
-        _isShown = isShown
-        _account = StateObject(wrappedValue: account)
-        self.isCreatingAccount = false
-        self.status = .gotAccount
+        self._isShown = isShown
+        self._account = StateObject(wrappedValue: account)
     }
 
     // MARK: Internal
-
-    @Binding var isShown: Bool
-
-    @StateObject var account: Account
 
     var body: some View {
         NavigationView {
@@ -61,6 +42,7 @@ struct ManageAccountSheetView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
+                        viewContext.delete(account)
                         isShown.toggle()
                     }
                 }
@@ -78,11 +60,6 @@ struct ManageAccountSheetView: View {
                     return
                 }
             }
-            .onDisappear {
-                if isCreatingAccount {
-                    viewContext.delete(account)
-                }
-            }
         }
     }
 
@@ -92,12 +69,14 @@ struct ManageAccountSheetView: View {
             isSaveAccountFailAlertShown.toggle()
             return
         }
-        do {
-            try viewContext.save()
-            isShown.toggle()
-        } catch {
-            saveAccountError = .saveDataError(error)
-            isSaveAccountFailAlertShown.toggle()
+        viewContext.performAndWait {
+            do {
+                try viewContext.save()
+                isShown.toggle()
+            } catch {
+                saveAccountError = .saveDataError(error)
+                isSaveAccountFailAlertShown.toggle()
+            }
         }
     }
 
@@ -158,65 +137,21 @@ struct ManageAccountSheetView: View {
 
     @ViewBuilder
     func gotAccountView() -> some View {
-        Section {
-            RequireLoginView(unsavedCookie: $account.cookie, region: $region)
-        }
-
-        Section {
-            HStack {
-                Text("Nickname")
-                Spacer()
-                TextField("Nickname", text: name, prompt: nil)
-                    .multilineTextAlignment(.trailing)
-            }
-        } header: {
-            HStack {
-                Text("UID: " + (account.uid ?? ""))
-                Spacer()
-                Text(account.server.description)
-            }
-        }
-        Section {
-            // 如果该帐号绑定的UID不止一个，则显示Picker选择帐号
-            if accountsForSelected.count > 1 {
-                Picker("请选择帐号", selection: selectedAccount) {
-                    ForEach(
-                        accountsForSelected,
-                        id: \.gameUid
-                    ) { account in
-                        Text(account.nickname + "（\(account.gameUid)）")
-                            .tag(account as FetchedAccount?)
-                    }
-                }
-            }
-        }
-        Section {
-            NavigationLink {
-                AddAccountDetailView(
-                    unsavedName: $account.name,
-                    unsavedUid: $account.uid,
-                    unsavedCookie: $account.cookie,
-                    unsavedServer: $account.server
-                )
-            } label: {
-                Text("Account Detail")
-            }
-        }
-        Section {
-            TestAccountView(account: account)
-        }
+        EditAccountView(account: account)
     }
 
     // MARK: Private
 
-    private let isCreatingAccount: Bool
+    @Binding private var isShown: Bool
+
+    @StateObject private var account: Account
 
     @Environment(\.managedObjectContext) private var viewContext
 
     @State private var isSaveAccountFailAlertShown: Bool = false
     @State private var saveAccountError: SaveAccountError?
 
-    @State private var status: AddAccountStatus
+    @State private var status: AddAccountStatus = .pending
 
     @State private var accountsForSelected: [FetchedAccount] = []
 
@@ -247,7 +182,7 @@ struct ManageAccountSheetView: View {
 
 // MARK: - RequireLoginView
 
-struct RequireLoginView: View {
+private struct RequireLoginView: View {
     @State var getCookieWebViewRegion: Region?
 
     @Binding var unsavedCookie: String?
@@ -436,111 +371,4 @@ struct AddAccountDetailView: View {
         }
         .navigationBarTitle("Account Detail", displayMode: .inline)
     }
-}
-
-// MARK: - TestAccountView
-
-private struct TestAccountView: View {
-    // MARK: Internal
-
-    let account: Account
-
-    var body: some View {
-        Button {
-            withAnimation {
-                status = .testing
-            }
-            Task {
-                do {
-                    _ = try await MiHoYoAPI.note(
-                        server: account.server,
-                        uid: account.uid ?? "",
-                        cookie: account.cookie ?? ""
-                    )
-                    withAnimation {
-                        status = .succeeded
-                    }
-                } catch {
-                    withAnimation {
-                        status = .failure(error)
-                    }
-                }
-            }
-        } label: {
-            HStack {
-                Text("Test account")
-                Spacer()
-                buttonIcon()
-            }
-        }
-        .disabled(status == .testing)
-        if case let .failure(error) = status {
-            FailureView(error: error)
-        }
-    }
-
-    @ViewBuilder
-    func buttonIcon() -> some View {
-        Group {
-            switch status {
-            case .succeeded:
-                Image(systemSymbol: .checkmarkCircle)
-                    .foregroundColor(.green)
-            case .failure:
-                Image(systemSymbol: .xmarkCircle)
-                    .foregroundColor(.red)
-            case .testing:
-                ProgressView()
-            default:
-                EmptyView()
-            }
-        }
-    }
-
-    // MARK: Private
-
-    private enum TestStatus: Identifiable, Equatable {
-        case pending
-        case testing
-        case succeeded
-        case failure(Error)
-
-        // MARK: Internal
-
-        var id: Int {
-            switch self {
-            case .pending:
-                return 0
-            case .testing:
-                return 1
-            case .succeeded:
-                // swiftlint:disable:next no_magic_numbers
-                return 2
-            case let .failure(error):
-                return error.localizedDescription.hashValue
-            }
-        }
-
-        static func == (lhs: TestAccountView.TestStatus, rhs: TestAccountView.TestStatus) -> Bool {
-            lhs.id == rhs.id
-        }
-    }
-
-    private struct FailureView: View {
-        let error: Error
-
-        var body: some View {
-            Text(error.localizedDescription)
-            if let error = error as? LocalizedError {
-                if let failureReason = error.failureReason {
-                    Text(failureReason)
-                }
-                if let recoverySuggestion = error.recoverySuggestion {
-                    Text(recoverySuggestion)
-                }
-            }
-        }
-    }
-
-    @State private var status: TestStatus = .pending
 }
