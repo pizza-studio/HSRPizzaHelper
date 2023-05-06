@@ -31,7 +31,7 @@ struct HSRPizzaHelperWidgetAttributes: ActivityAttributes {
 // MARK: - HSRPizzaHelperWidgetLiveActivity
 
 @available(iOSApplicationExtension 16.1, *)
-struct HSRPizzaHelperWidgetLiveActivity: Widget {
+struct DailyNoteCountDownLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: HSRPizzaHelperWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
@@ -62,7 +62,6 @@ struct HSRPizzaHelperWidgetLiveActivity: Widget {
             } minimal: {
                 Text("Min")
             }
-            .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
         }
     }

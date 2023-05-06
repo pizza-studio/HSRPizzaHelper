@@ -14,7 +14,7 @@ struct HSRPizzaHelperWidgetBundle: WidgetBundle {
 //        HSRPizzaHelperWidget()
         #if canImport(ActivityKit)
         if #available(iOSApplicationExtension 16.1, *) {
-            HSRPizzaHelperWidgetLiveActivity()
+            DailyNoteCountDownLiveActivity()
         }
         #endif
     }
