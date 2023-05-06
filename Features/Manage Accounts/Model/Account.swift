@@ -16,7 +16,7 @@ extension Account {
             && uid != ""
             && cookie != nil
             && cookie != ""
-            && Server(rawValue: serverRawValue ?? "") != nil
+            && server != nil
             && uuid != nil
             && priority != nil
             && name != nil

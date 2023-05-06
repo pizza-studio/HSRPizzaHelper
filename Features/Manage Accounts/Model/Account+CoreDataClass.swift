@@ -15,7 +15,7 @@ public class Account: NSManagedObject {
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         uuid = UUID()
-        serverRawValue = Server.china.rawValue
+        server = Server.china
         name = name ?? ""
         cookie = cookie ?? ""
         priority = 0
