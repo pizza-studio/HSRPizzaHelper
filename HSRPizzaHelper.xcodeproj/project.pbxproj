@@ -53,6 +53,10 @@
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
 		EADA17C62A06B76700AF9784 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
 		EADA17C82A06B7BE00AF9784 /* Background Images in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* Background Images */; };
+		EADA17CA2A06B87600AF9784 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EADA17C92A06B87600AF9784 /* SwifterSwift */; };
+		EADA17CB2A06B88000AF9784 /* Background Images in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* Background Images */; };
+		EADA17CC2A06B88400AF9784 /* Background Images in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* Background Images */; };
+		EADA17CE2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */; };
 		EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */; };
 		EADA63772A0201B200BF070F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63762A0201B200BF070F /* HomeView.swift */; };
 		EAE37EBF2A0206AC00154432 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE37EBE2A0206AC00154432 /* SettingView.swift */; };
@@ -156,6 +160,7 @@
 		EA9D024B2A04BE3800796516 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteCards.swift; sourceTree = "<group>"; };
 		EADA17C72A06B7BE00AF9784 /* Background Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Background Images"; sourceTree = "<group>"; };
+		EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundOptionsCollectionProvider.swift; sourceTree = "<group>"; };
 		EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteViewModel.swift; sourceTree = "<group>"; };
 		EADA63762A0201B200BF070F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EAE37EBE2A0206AC00154432 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -212,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA702C132A06B232006D3BC9 /* HBMihoyoAPI in Frameworks */,
+				EADA17CA2A06B87600AF9784 /* SwifterSwift in Frameworks */,
 				EA702C152A06B26B006D3BC9 /* SwiftyUserDefaults in Frameworks */,
 				EAE8986E2A06A134000AF830 /* Intents.framework in Frameworks */,
 			);
@@ -327,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */,
+				EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */,
 				EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */,
 				EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */,
 			);
@@ -594,6 +601,7 @@
 			packageProductDependencies = (
 				EA702C122A06B232006D3BC9 /* HBMihoyoAPI */,
 				EA702C142A06B26B006D3BC9 /* SwiftyUserDefaults */,
+				EADA17C92A06B87600AF9784 /* SwifterSwift */,
 			);
 			productName = HSRPizzaHelperWidgetConfigurationIntent;
 			productReference = EAE8986C2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.appex */;
@@ -653,6 +661,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EADA17CC2A06B88400AF9784 /* Background Images in Resources */,
 				EADA17C62A06B76700AF9784 /* Icon.xcassets in Resources */,
 				EA1673FD2A063AF400436487 /* Assets.xcassets in Resources */,
 			);
@@ -675,6 +684,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EADA17CB2A06B88000AF9784 /* Background Images in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +785,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA702C072A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift in Sources */,
+				EADA17CE2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
 				EA702C082A06B04F006D3BC9 /* IntentAccountExtension.swift in Sources */,
 				EA702C112A06B13E006D3BC9 /* UserDefaultKeys.swift in Sources */,
 				EA702C0C2A06B0BF006D3BC9 /* HSRPizzaHelper.xcdatamodeld in Sources */,
@@ -1225,6 +1236,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EAEC11E52A023E130024314D /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
 			productName = SwiftyUserDefaults;
+		};
+		EADA17C92A06B87600AF9784 /* SwifterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */;
+			productName = SwifterSwift;
 		};
 		EAE519B02A0174D800EF23B7 /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;

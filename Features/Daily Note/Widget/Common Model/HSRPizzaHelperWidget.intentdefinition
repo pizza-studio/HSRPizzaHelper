@@ -26,7 +26,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>11</integer>
+			<integer>12</integer>
 			<key>INIntentName</key>
 			<string>SquareWidgetConfiguration</string>
 			<key>INIntentParameters</key>
@@ -122,7 +122,7 @@
 					<key>INIntentParameterName</key>
 					<string>background</string>
 					<key>INIntentParameterObjectType</key>
-					<string>SquareWidgetBackground</string>
+					<string>WidgetBackground</string>
 					<key>INIntentParameterObjectTypeNamespace</key>
 					<string>88xZPY</string>
 					<key>INIntentParameterPromptDialogs</key>
@@ -152,7 +152,7 @@
 					<key>INIntentParameterSupportsMultipleValues</key>
 					<true/>
 					<key>INIntentParameterTag</key>
-					<integer>11</integer>
+					<integer>12</integer>
 					<key>INIntentParameterType</key>
 					<string>Object</string>
 				</dict>
@@ -192,7 +192,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>12</integer>
+			<integer>13</integer>
 			<key>INIntentName</key>
 			<string>RectangularWidgetConfiguration</string>
 			<key>INIntentParameters</key>
@@ -288,7 +288,7 @@
 					<key>INIntentParameterName</key>
 					<string>background</string>
 					<key>INIntentParameterObjectType</key>
-					<string>RectangularWidgetBackground</string>
+					<string>WidgetBackground</string>
 					<key>INIntentParameterObjectTypeNamespace</key>
 					<string>88xZPY</string>
 					<key>INIntentParameterPromptDialogs</key>
@@ -318,7 +318,7 @@
 					<key>INIntentParameterSupportsMultipleValues</key>
 					<true/>
 					<key>INIntentParameterTag</key>
-					<integer>12</integer>
+					<integer>13</integer>
 					<key>INIntentParameterType</key>
 					<string>Object</string>
 				</dict>
@@ -458,13 +458,13 @@
 		</dict>
 		<dict>
 			<key>INTypeDisplayName</key>
-			<string>Rectangular Widget Background</string>
+			<string>Widget Background</string>
 			<key>INTypeDisplayNameID</key>
 			<string>qUsPBs</string>
 			<key>INTypeLastPropertyTag</key>
 			<integer>102</integer>
 			<key>INTypeName</key>
-			<string>RectangularWidgetBackground</string>
+			<string>WidgetBackground</string>
 			<key>INTypeProperties</key>
 			<array>
 				<dict>
@@ -522,83 +522,6 @@
 					<string>Background Image URL</string>
 					<key>INTypePropertyDisplayNameID</key>
 					<string>hlcG0r</string>
-					<key>INTypePropertyDisplayPriority</key>
-					<integer>5</integer>
-					<key>INTypePropertyName</key>
-					<string>backgroundImageURL</string>
-					<key>INTypePropertyTag</key>
-					<integer>102</integer>
-					<key>INTypePropertyType</key>
-					<string>URL</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>INTypeDisplayName</key>
-			<string>Square Widget Background</string>
-			<key>INTypeDisplayNameID</key>
-			<string>yhtybB</string>
-			<key>INTypeLastPropertyTag</key>
-			<integer>102</integer>
-			<key>INTypeName</key>
-			<string>SquareWidgetBackground</string>
-			<key>INTypeProperties</key>
-			<array>
-				<dict>
-					<key>INTypePropertyDefault</key>
-					<true/>
-					<key>INTypePropertyDisplayPriority</key>
-					<integer>1</integer>
-					<key>INTypePropertyName</key>
-					<string>identifier</string>
-					<key>INTypePropertyTag</key>
-					<integer>1</integer>
-					<key>INTypePropertyType</key>
-					<string>String</string>
-				</dict>
-				<dict>
-					<key>INTypePropertyDefault</key>
-					<true/>
-					<key>INTypePropertyDisplayPriority</key>
-					<integer>2</integer>
-					<key>INTypePropertyName</key>
-					<string>displayString</string>
-					<key>INTypePropertyTag</key>
-					<integer>2</integer>
-					<key>INTypePropertyType</key>
-					<string>String</string>
-				</dict>
-				<dict>
-					<key>INTypePropertyDefault</key>
-					<true/>
-					<key>INTypePropertyDisplayPriority</key>
-					<integer>3</integer>
-					<key>INTypePropertyName</key>
-					<string>pronunciationHint</string>
-					<key>INTypePropertyTag</key>
-					<integer>3</integer>
-					<key>INTypePropertyType</key>
-					<string>String</string>
-				</dict>
-				<dict>
-					<key>INTypePropertyDefault</key>
-					<true/>
-					<key>INTypePropertyDisplayPriority</key>
-					<integer>4</integer>
-					<key>INTypePropertyName</key>
-					<string>alternativeSpeakableMatches</string>
-					<key>INTypePropertySupportsMultipleValues</key>
-					<true/>
-					<key>INTypePropertyTag</key>
-					<integer>4</integer>
-					<key>INTypePropertyType</key>
-					<string>SpeakableString</string>
-				</dict>
-				<dict>
-					<key>INTypePropertyDisplayName</key>
-					<string>Background Image URL</string>
-					<key>INTypePropertyDisplayNameID</key>
-					<string>mC1NQe</string>
 					<key>INTypePropertyDisplayPriority</key>
 					<integer>5</integer>
 					<key>INTypePropertyName</key>
