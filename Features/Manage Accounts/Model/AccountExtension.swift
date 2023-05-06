@@ -16,7 +16,6 @@ extension Account {
             && uid != ""
             && cookie != nil
             && cookie != ""
-            && server != nil
             && uuid != nil
             && priority != nil
             && name != nil
