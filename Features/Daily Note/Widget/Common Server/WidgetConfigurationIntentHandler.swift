@@ -11,8 +11,12 @@ import Intents
 enum IntentAccountCollectionProvider {
     static func provideAccountOptionsCollection() async throws
         -> INObjectCollection<IntentAccount> {
-        .init(items: [
-            .init(identifier: "1", display: "!"),
-        ])
+        let accountPersistenceController = AccountPersistenceController.shared
+        let viewContext = accountPersistenceController.container.viewContext
+        let request = Account.fetchRequest()
+        let accounts = try viewContext.fetch(request)
+        return .init(
+            items: accounts.map { .fromAccount($0) }
+        )
     }
 }
