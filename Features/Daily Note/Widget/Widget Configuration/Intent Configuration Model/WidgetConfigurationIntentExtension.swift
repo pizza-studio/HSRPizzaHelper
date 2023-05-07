@@ -36,21 +36,3 @@ extension RectangularWidgetConfigurationIntent: RandomBackgroundDrawable {}
 // MARK: - RectangularWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
 
 extension RectangularWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {}
-
-// MARK: - SquareWidgetConfigurationIntent + HasDefaultBackground
-
-extension SquareWidgetConfigurationIntent: HasDefaultBackground {
-    static var defaultBackground: WidgetBackground {
-        // swiftlint:disable:next force_try
-        try! Self.allAvailableBackgrounds().first!
-    }
-}
-
-// MARK: - RectangularWidgetConfigurationIntent + HasDefaultBackground
-
-extension RectangularWidgetConfigurationIntent: HasDefaultBackground {
-    static var defaultBackground: WidgetBackground {
-        // swiftlint:disable:next force_try
-        try! Self.allAvailableBackgrounds().first!
-    }
-}

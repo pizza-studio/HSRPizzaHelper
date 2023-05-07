@@ -22,9 +22,9 @@ public struct DailyNote: Decodable {
     // MARK: Public
 
     /// Stamina information
-    public let staminaInformation: StaminaInformation
+    public var staminaInformation: StaminaInformation
     /// Expedition information
-    public let expeditionInformation: ExpeditionInformation
+    public var expeditionInformation: ExpeditionInformation
     /// The time when this struct is generated
     public let fetchTime: Date = .init()
 

@@ -28,7 +28,7 @@ public struct StaminaInformation {
 
     /// Rest of recovery time
     public var remainingTime: TimeInterval {
-        let restOfTime = _staminaRecoverTime - Date().timeIntervalSince(fetchTime)
+        let restOfTime = _staminaRecoverTime - benchmarkTime.timeIntervalSince(fetchTime)
         if restOfTime > 0 {
             return restOfTime
         } else {
@@ -43,7 +43,7 @@ public struct StaminaInformation {
 
     public var nextStaminaTime: Date {
         let nextRecoverTimeInterval = remainingTime.truncatingRemainder(dividingBy: Self.eachStaminaRecoveryTime) + 1
-        return Date(timeIntervalSinceNow: nextRecoverTimeInterval)
+        return Date(timeInterval: nextRecoverTimeInterval, since: benchmarkTime)
     }
 
     // MARK: Private
@@ -59,6 +59,8 @@ public struct StaminaInformation {
     private var restOfStamina: Int {
         Int(ceil(remainingTime / Self.eachStaminaRecoveryTime))
     }
+
+    @BenchmarkTime public var benchmarkTime: Date
 }
 
 // MARK: Decodable
@@ -77,3 +79,7 @@ extension StaminaInformation: Decodable {
         case staminaRecoverTime = "stamina_recover_time"
     }
 }
+
+// MARK: ReferencingBenchmarkTime
+
+extension StaminaInformation: ReferencingBenchmarkTime {}

@@ -9,12 +9,13 @@ import Foundation
 
 // MARK: - RandomBackgroundDrawable
 
-protocol RandomBackgroundDrawable: HasDefaultBackground, CanProvideWidgetBackground {
+protocol RandomBackgroundDrawable: CanProvideWidgetBackground {
     func drawRandomBackground() -> WidgetBackground
 }
 
 extension RandomBackgroundDrawable {
     func drawRandomBackground() -> WidgetBackground {
-        (try? Self.allAvailableBackgrounds().randomElement()) ?? Self.defaultBackground
+        // swiftlint:disable:next force_try
+        try! Self.allAvailableBackgrounds().first!
     }
 }

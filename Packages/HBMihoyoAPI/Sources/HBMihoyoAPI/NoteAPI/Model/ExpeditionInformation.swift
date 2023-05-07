@@ -25,6 +25,8 @@ public struct ExpeditionInformation {
             case finished = "Finished"
         }
 
+        @BenchmarkTime public var benchmarkTime: Date
+
         /// The avatars' icons of the expedition
         public let avatarIconURLs: [URL]
         /// The name of expedition
@@ -32,7 +34,7 @@ public struct ExpeditionInformation {
 
         /// Remaining time of expedition
         public var remainingTime: TimeInterval {
-            _remainingTime - Date().timeIntervalSince(fetchTime)
+            _remainingTime - benchmarkTime.timeIntervalSince(fetchTime)
         }
 
         /// The status of the expedition
@@ -64,7 +66,7 @@ public struct ExpeditionInformation {
     }
 
     /// Details of all accepted expeditions
-    public let expeditions: [Expedition]
+    public var expeditions: [Expedition]
     /// Max expeditions number
     public let totalExpeditionNumber: Int
     /// Current accepted expedition number
@@ -108,5 +110,21 @@ extension ExpeditionInformation.Expedition: Decodable {
         self._remainingTime = try container.decode(TimeInterval.self, forKey: .remainingTime)
         self.avatarIconURLs = try container.decode([URL].self, forKey: .avatarIconURLs)
         self.name = try container.decode(String.self, forKey: .name)
+    }
+}
+
+// MARK: - ExpeditionInformation.Expedition + ReferencingBenchmarkTime
+
+extension ExpeditionInformation.Expedition: ReferencingBenchmarkTime {}
+
+// MARK: - ExpeditionInformation + BenchmarkTimeEditable
+
+extension ExpeditionInformation: BenchmarkTimeEditable {
+    public func replacingBenchmarkTime(_ newBenchmarkTime: Date) -> ExpeditionInformation {
+        var information = self
+        information.expeditions = expeditions.map { expedition in
+            expedition.replacingBenchmarkTime(newBenchmarkTime)
+        }
+        return information
     }
 }

@@ -116,17 +116,23 @@ extension DailyNoteTimelineProvider {
                     configuration: configuration.eraseToDailyNoteWidgetConfiguration()
                 )
             )
-            var nextTime = dailyNote.staminaInformation.nextStaminaTime
+
             let refreshTime = Date(timeIntervalSinceNow: refreshWhenSucceedAfterSecond)
+
+            var dailyNote = dailyNote
+            var nextTime = dailyNote.staminaInformation.nextStaminaTime
             while nextTime < refreshTime {
                 entries.append(
                     Entry(
                         date: nextTime,
-                        dailyNoteResult: dailyNoteResult,
+                        dailyNoteResult: .success(
+                            dailyNote
+                        ),
                         configuration: configuration.eraseToDailyNoteWidgetConfiguration()
                     )
                 )
-                nextTime = Date(timeInterval: StaminaInformation.eachStaminaRecoveryTime, since: nextTime)
+                nextTime = dailyNote.staminaInformation.nextStaminaTime
+                dailyNote = dailyNote.replacingBenchmarkTime(nextTime)
             }
             return entries
         } else {

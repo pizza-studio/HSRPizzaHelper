@@ -11,13 +11,16 @@
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
 		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BFCACD102A0491E9009B0B85 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BFCACD0F2A0491E9009B0B85 /* LICENSE */; };
+		EA068D102A080818003C4E69 /* RectangularDailyNoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA068D0E2A0807F3003C4E69 /* RectangularDailyNoteWidget.swift */; };
+		EA068D122A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA068D112A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift */; };
+		EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */; };
+		EA068D152A08169D003C4E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE519832A01738600EF23B7 /* Assets.xcassets */; };
 		EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA143BC72A01808200AE1FCA /* HBMihoyoAPI */; };
 		EA1673F12A063AF300436487 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1673F02A063AF300436487 /* WidgetKit.framework */; };
 		EA1673F32A063AF300436487 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1673F22A063AF300436487 /* SwiftUI.framework */; };
 		EA1673F62A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1673F52A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift */; };
 		EA1673F82A063AF300436487 /* HSRPizzaHelperWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1673F72A063AF300436487 /* HSRPizzaHelperWidgetLiveActivity.swift */; };
 		EA1673FA2A063AF300436487 /* HSRPizzaHelperWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1673F92A063AF300436487 /* HSRPizzaHelperWidget.swift */; };
-		EA1673FD2A063AF400436487 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA1673FC2A063AF400436487 /* Assets.xcassets */; };
 		EA1674032A063AF400436487 /* HSRPizzaHelperWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EA1673EF2A063AF300436487 /* HSRPizzaHelperWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
@@ -162,13 +165,15 @@
 		BF14CFAC2A049AE000E437C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BFCACD0F2A0491E9009B0B85 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BFCACD112A04922E009B0B85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EA068D0E2A0807F3003C4E69 /* RectangularDailyNoteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteWidget.swift; sourceTree = "<group>"; };
+		EA068D112A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteWidgetView.swift; sourceTree = "<group>"; };
+		EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStaminaInformationCard.swift; sourceTree = "<group>"; };
 		EA1673EF2A063AF300436487 /* HSRPizzaHelperWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HSRPizzaHelperWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1673F02A063AF300436487 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EA1673F22A063AF300436487 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		EA1673F52A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperWidgetBundle.swift; sourceTree = "<group>"; };
 		EA1673F72A063AF300436487 /* HSRPizzaHelperWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperWidgetLiveActivity.swift; sourceTree = "<group>"; };
 		EA1673F92A063AF300436487 /* HSRPizzaHelperWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperWidget.swift; sourceTree = "<group>"; };
-		EA1673FC2A063AF400436487 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA1673FE2A063AF400436487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -322,7 +327,6 @@
 				EA68BC842A069FA400A7FF91 /* HSRPizzaHelperWidgetExtension.entitlements */,
 				EA1673F52A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift */,
 				EA1673F92A063AF300436487 /* HSRPizzaHelperWidget.swift */,
-				EA1673FC2A063AF400436487 /* Assets.xcassets */,
 				EA1673FE2A063AF400436487 /* Info.plist */,
 				EAE8986F2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent */,
 			);
@@ -373,6 +377,7 @@
 		EA68BC662A065B8F00A7FF91 /* Common View */ = {
 			isa = PBXGroup;
 			children = (
+				EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */,
 			);
 			path = "Common View";
 			sourceTree = "<group>";
@@ -403,6 +408,8 @@
 		EA68BC6D2A069CC800A7FF91 /* Rectangular Widget */ = {
 			isa = PBXGroup;
 			children = (
+				EA068D0E2A0807F3003C4E69 /* RectangularDailyNoteWidget.swift */,
+				EA068D112A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift */,
 			);
 			path = "Rectangular Widget";
 			sourceTree = "<group>";
@@ -755,8 +762,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EADA17CC2A06B88400AF9784 /* Background Images in Resources */,
+				EA068D152A08169D003C4E69 /* Assets.xcassets in Resources */,
 				EADA17C62A06B76700AF9784 /* Icon.xcassets in Resources */,
-				EA1673FD2A063AF400436487 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,9 +837,11 @@
 			files = (
 				EA8A77232A0748150005C511 /* SquareDailyNoteWidget.swift in Sources */,
 				EA8A77342A074C8A0005C511 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
+				EA068D122A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift in Sources */,
 				EA8A770D2A0735F30005C511 /* Account+CoreDataProperties.swift in Sources */,
 				EA8A77432A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
 				EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */,
+				EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */,
 				EA1673F62A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift in Sources */,
 				EA8A771D2A0742200005C511 /* Persistence.swift in Sources */,
 				EA8A77262A07497A0005C511 /* HSRPizzaHelper.xcdatamodeld in Sources */,
@@ -848,6 +857,7 @@
 				EA8A772B2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,
 				EA8A771F2A0743AC0005C511 /* SquareDailyNoteTimelineProvider.swift in Sources */,
 				EA8A771A2A073E500005C511 /* IntentAccountExtension.swift in Sources */,
+				EA068D102A080818003C4E69 /* RectangularDailyNoteWidget.swift in Sources */,
 				EA8A77472A0769AF0005C511 /* CanProvideWidgetBackground.swift in Sources */,
 				EA8A77162A0737390005C511 /* DailyNoteWidgetConfiguration.swift in Sources */,
 				EA8A77142A07365D0005C511 /* DailyNoteEntry.swift in Sources */,
