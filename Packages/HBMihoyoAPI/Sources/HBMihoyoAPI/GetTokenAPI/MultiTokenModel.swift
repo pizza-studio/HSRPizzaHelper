@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - MultiToken
 
+/// A struct representing a miHoYo multi token API result with stoken and ltoken
 public struct MultiToken: Decodable {
     // MARK: Lifecycle
 
@@ -21,6 +22,7 @@ public struct MultiToken: Decodable {
             self.ltoken = ltoken
         } else {
             let unknownErrorRetcode = -9999
+            /// Throw an `MiHoYoAPIError` if failed to get stoken / ltoken
             throw MiHoYoAPIError(
                 retcode: unknownErrorRetcode,
                 message: "Fail to get stoken & ltoken. Result is: \(items)"
@@ -28,15 +30,17 @@ public struct MultiToken: Decodable {
         }
 
         func get(_ tokenName: String) -> String? {
-            items.first(where: { item in
+            items.first { item in
                 item.name == tokenName
-            })?.token
+            }?.token
         }
     }
 
     // MARK: Public
 
+    /// stoken string
     public let stoken: String
+    /// ltoken string
     public let ltoken: String
 
     // MARK: Internal

@@ -9,6 +9,7 @@ import Foundation
 import HBMihoyoAPI
 
 extension Account {
+    /// Returns true if the account object is valid.
     func isValid() -> Bool {
         true
             && uid != nil

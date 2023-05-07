@@ -68,7 +68,7 @@ struct InAppDailyNoteCardView: View {
 private struct NoteView: View {
     let account: Account
     let note: DailyNote
-    @State  var isDispatchDetailShow = false
+    @State var isDispatchDetailShow = false
 
     var body: some View {
         VStack {

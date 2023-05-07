@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// A namespace for storing the app configuration variables
 enum AppConfig {
+    /// A string representing the App Group identifier
     static let appGroupID: String = "group.Canglong.HSRPizzaHelper"
 }
