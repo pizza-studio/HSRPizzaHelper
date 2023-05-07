@@ -519,13 +519,13 @@
 				</dict>
 				<dict>
 					<key>INTypePropertyDisplayName</key>
-					<string>Background Image URL</string>
+					<string>Background Image Url</string>
 					<key>INTypePropertyDisplayNameID</key>
 					<string>hlcG0r</string>
 					<key>INTypePropertyDisplayPriority</key>
 					<integer>5</integer>
 					<key>INTypePropertyName</key>
-					<string>backgroundImageURL</string>
+					<string>backgroundImageUrl</string>
 					<key>INTypePropertyTag</key>
 					<integer>102</integer>
 					<key>INTypePropertyType</key>

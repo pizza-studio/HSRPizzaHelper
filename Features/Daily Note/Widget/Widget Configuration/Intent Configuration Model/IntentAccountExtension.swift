@@ -27,6 +27,10 @@ extension IntentAccount {
     }
 
     var server: Server {
-        .init(rawValue: serverRawValue!)!
+        get {
+            .init(rawValue: serverRawValue!)!
+        } set {
+            serverRawValue = newValue.rawValue
+        }
     }
 }

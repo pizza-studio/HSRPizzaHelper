@@ -41,7 +41,7 @@ enum WidgetBackgroundOptionsProvider {
                 display: url.deletingPathExtension().lastPathComponent
                     .localized(comment: "key like: widget.background.filename")
             )
-            squareWidgetBackground.backgroundImageURL = url
+            squareWidgetBackground.backgroundImageUrl = url
             return squareWidgetBackground
         }
         return widgetBackgroundOptionsCollection

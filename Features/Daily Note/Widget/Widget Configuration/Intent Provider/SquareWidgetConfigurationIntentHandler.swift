@@ -11,7 +11,7 @@ import Intents
 class SquareWidgetConfigurationIntentHandler: INExtension, SquareWidgetConfigurationIntentHandling {
     func provideAccountOptionsCollection(for intent: SquareWidgetConfigurationIntent) async throws
         -> INObjectCollection<IntentAccount> {
-        try await IntentAccountCollectionProvider.provideAccountOptionsCollection()
+        try await IntentAccountProvider.provideAccountOptionsCollection()
     }
 
     func provideBackgroundOptionsCollection(for intent: SquareWidgetConfigurationIntent) async throws

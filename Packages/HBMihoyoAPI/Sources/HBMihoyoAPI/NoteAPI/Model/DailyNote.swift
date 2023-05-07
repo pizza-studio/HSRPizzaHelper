@@ -40,3 +40,13 @@ public struct DailyNote: Decodable {
 // MARK: DecodableFromMiHoYoAPIJSONResult
 
 extension DailyNote: DecodableFromMiHoYoAPIJSONResult {}
+
+extension DailyNote {
+    public static func example() -> DailyNote {
+        let exampleURL = Bundle.module.url(forResource: "daily_note_example", withExtension: "json")!
+        // swiftlint:disable:next
+        let exampleData = try! Data(contentsOf: exampleURL)
+        // swiftlint:disable:next
+        return try! DailyNote.decodeFromMiHoYoAPIJSONResult(data: exampleData)
+    }
+}

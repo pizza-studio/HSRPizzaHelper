@@ -10,7 +10,7 @@ import SwiftUI
 
 extension WidgetBackground {
     func image() -> Image? {
-        if let url = backgroundImageURL,
+        if let url = backgroundImageUrl,
            let data = try? Data(contentsOf: url),
            let uiImage = UIImage(data: data) {
             return Image(uiImage: uiImage)

@@ -11,7 +11,7 @@ import Intents
 class RectangularWidgetConfigurationIntentHandler: INExtension, RectangularWidgetConfigurationIntentHandling {
     func provideAccountOptionsCollection(for intent: RectangularWidgetConfigurationIntent) async throws
         -> INObjectCollection<IntentAccount> {
-        try await IntentAccountCollectionProvider.provideAccountOptionsCollection()
+        try await IntentAccountProvider.provideAccountOptionsCollection()
     }
 
     func provideBackgroundOptionsCollection(for intent: RectangularWidgetConfigurationIntent) async throws
