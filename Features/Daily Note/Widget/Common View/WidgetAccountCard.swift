@@ -17,9 +17,13 @@ struct WidgetAccountCard: View {
                 Image(systemSymbol: .personFill)
                 Text(accountName)
             }
-            .font(.footnote)
+            .font(.caption)
             .padding(.horizontal, 10)
-            .padding(.vertical, 5)
+            .padding(.vertical, 3)
+            .background(
+                .ultraThinMaterial,
+                in: RoundedRectangle(cornerRadius: 10, style: .continuous)
+            )
         }
     }
 }

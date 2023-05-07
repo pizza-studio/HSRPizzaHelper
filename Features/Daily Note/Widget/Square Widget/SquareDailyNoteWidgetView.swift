@@ -24,6 +24,16 @@ struct SquareDailyNoteWidgetView: View {
             }
         }
         .background {
+            VStack {
+                HStack {
+                    WidgetAccountCard(accountName: entry.configuration.account?.name)
+                    Spacer()
+                }
+                Spacer()
+            }
+            .padding(10)
+        }
+        .background {
             Group {
                 if let image = entry.configuration.background.image() {
                     image.resizable().scaledToFill()
