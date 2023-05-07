@@ -40,7 +40,7 @@ file_length:
 type_name:
   min_length: 3
   max_length:
-    warning: 40
+    warning: 50
     error: 50
 identifier_name:
   min_length: 3

@@ -9,8 +9,6 @@ import Foundation
 
 // MARK: - RectangularWidgetConfigurationIntent + CanProvideWidgetBackground
 
-// TODO: replace documents folder name
-
 extension RectangularWidgetConfigurationIntent: CanProvideWidgetBackground {
     static let bundleBackgroundFolder = "Rectangular Widget Background"
     static let documentsBackgroundFolder = "Rectangular Widget Background"
@@ -25,11 +23,7 @@ extension SquareWidgetConfigurationIntent: CanProvideWidgetBackground {
 
 // MARK: - SquareWidgetConfigurationIntent + RandomBackgroundDrawable
 
-extension SquareWidgetConfigurationIntent: RandomBackgroundDrawable {
-    func drawRandomBackground() -> WidgetBackground {
-        (try? Self.allAvailableBackgrounds().randomElement()) ?? defaultBackground
-    }
-}
+extension SquareWidgetConfigurationIntent: RandomBackgroundDrawable {}
 
 // MARK: - SquareWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
 
@@ -37,11 +31,7 @@ extension SquareWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable 
 
 // MARK: - RectangularWidgetConfigurationIntent + RandomBackgroundDrawable
 
-extension RectangularWidgetConfigurationIntent: RandomBackgroundDrawable {
-    func drawRandomBackground() -> WidgetBackground {
-        (try? Self.allAvailableBackgrounds().randomElement()) ?? defaultBackground
-    }
-}
+extension RectangularWidgetConfigurationIntent: RandomBackgroundDrawable {}
 
 // MARK: - RectangularWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
 
@@ -50,8 +40,8 @@ extension RectangularWidgetConfigurationIntent: DailyNoteWidgetConfigurationEras
 // MARK: - SquareWidgetConfigurationIntent + HasDefaultBackground
 
 extension SquareWidgetConfigurationIntent: HasDefaultBackground {
-    // TODO: replace with other image
-    var defaultBackground: WidgetBackground {
+    static var defaultBackground: WidgetBackground {
+        // swiftlint:disable:next force_try
         try! Self.allAvailableBackgrounds().first!
     }
 }
@@ -59,8 +49,8 @@ extension SquareWidgetConfigurationIntent: HasDefaultBackground {
 // MARK: - RectangularWidgetConfigurationIntent + HasDefaultBackground
 
 extension RectangularWidgetConfigurationIntent: HasDefaultBackground {
-    // TODO: replace with other image
-    var defaultBackground: WidgetBackground {
+    static var defaultBackground: WidgetBackground {
+        // swiftlint:disable:next force_try
         try! Self.allAvailableBackgrounds().first!
     }
 }

@@ -12,7 +12,7 @@ import WidgetKit
 
 // MARK: - DailyNoteTimelineProvider
 
-protocol DailyNoteTimelineProvider: IntentTimelineProvider & HasDefaultAccount & HasDefaultBackground
+protocol DailyNoteTimelineProvider: IntentTimelineProvider, HasDefaultAccount
     where Entry == DailyNoteEntry, Intent: DailyNoteWidgetConfigurationErasable {
     var defaultConfiguration: DailyNoteWidgetConfiguration { get }
 }
@@ -21,7 +21,7 @@ extension DailyNoteTimelineProvider {
     var defaultConfiguration: DailyNoteWidgetConfiguration {
         .init(
             account: defaultAccount,
-            background: defaultBackground
+            background: Intent.defaultBackground
         )
     }
 }
@@ -56,7 +56,6 @@ extension DailyNoteTimelineProvider {
             let intentAccount = configuration
                 .eraseToDailyNoteWidgetConfiguration()
                 .account
-            let background = configuration.eraseToDailyNoteWidgetConfiguration().background
             if let account = intentAccount {
                 let dailyNoteResult = await getDailyNote(account: account)
                 entries.append(

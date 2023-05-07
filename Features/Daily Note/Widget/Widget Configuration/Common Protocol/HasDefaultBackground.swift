@@ -11,5 +11,5 @@ import Intents
 // MARK: - HasDefaultBackground
 
 protocol HasDefaultBackground {
-    var defaultBackground: WidgetBackground { get }
+    static var defaultBackground: WidgetBackground { get }
 }

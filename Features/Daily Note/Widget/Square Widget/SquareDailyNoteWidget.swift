@@ -22,5 +22,6 @@ struct SquareDailyNoteWidget: Widget {
         }
         .configurationDisplayName("SquareDailyNoteWidget")
         .description("This is an example widget.")
+        .supportedFamilies([.systemSmall, .systemLarge])
     }
 }

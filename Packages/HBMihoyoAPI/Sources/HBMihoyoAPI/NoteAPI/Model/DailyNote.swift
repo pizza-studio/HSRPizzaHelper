@@ -44,9 +44,9 @@ extension DailyNote: DecodableFromMiHoYoAPIJSONResult {}
 extension DailyNote {
     public static func example() -> DailyNote {
         let exampleURL = Bundle.module.url(forResource: "daily_note_example", withExtension: "json")!
-        // swiftlint:disable:next
+        // swiftlint:disable:next force_try
         let exampleData = try! Data(contentsOf: exampleURL)
-        // swiftlint:disable:next
+        // swiftlint:disable:next force_try
         return try! DailyNote.decodeFromMiHoYoAPIJSONResult(data: exampleData)
     }
 }

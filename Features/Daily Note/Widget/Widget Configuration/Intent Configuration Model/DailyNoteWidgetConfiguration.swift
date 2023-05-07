@@ -51,12 +51,12 @@ protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackg
 }
 
 extension DailyNoteWidgetConfigurationErasable {
-    func getBackground() -> WidgetBackground {
+    private func getBackground() -> WidgetBackground {
         let background: WidgetBackground
         if randomBackground as? Bool ?? false {
             background = drawRandomBackground()
         } else {
-            background = self.background?.randomElement() ?? defaultBackground
+            background = self.background?.randomElement() ?? Self.defaultBackground
         }
         return background
     }

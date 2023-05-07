@@ -7,6 +7,14 @@
 
 import Foundation
 
-protocol RandomBackgroundDrawable: HasDefaultBackground {
+// MARK: - RandomBackgroundDrawable
+
+protocol RandomBackgroundDrawable: HasDefaultBackground, CanProvideWidgetBackground {
     func drawRandomBackground() -> WidgetBackground
+}
+
+extension RandomBackgroundDrawable {
+    func drawRandomBackground() -> WidgetBackground {
+        (try? Self.allAvailableBackgrounds().randomElement()) ?? Self.defaultBackground
+    }
 }

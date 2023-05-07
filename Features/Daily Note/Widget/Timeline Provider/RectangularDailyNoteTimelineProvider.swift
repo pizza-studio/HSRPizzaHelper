@@ -12,15 +12,6 @@ import WidgetKit
 
 struct RectangularDailyNoteTimelineProvider {}
 
-// MARK: HasDefaultBackground
-
-extension RectangularDailyNoteTimelineProvider: HasDefaultBackground {
-    // TODO: replace with other image
-    var defaultBackground: WidgetBackground {
-        .init(identifier: "Character_March_7th_Splash_Art", display: "Character_March_7th_Splash_Art")
-    }
-}
-
 // MARK: HasDefaultAccount
 
 extension RectangularDailyNoteTimelineProvider: HasDefaultAccount {}
