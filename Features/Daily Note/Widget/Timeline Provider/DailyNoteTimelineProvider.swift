@@ -12,6 +12,14 @@ import WidgetKit
 
 // MARK: - DailyNoteTimelineProvider
 
+private let refreshWhenSucceedAfterHour: Int = 5
+private var refreshWhenSucceedAfterSecond = TimeInterval(refreshWhenSucceedAfterHour * 60 * 60)
+
+private let refreshWhenErrorMinute: Int = 5
+private var refreshWhenErrorAfterSecond = TimeInterval(refreshWhenErrorMinute * 60)
+
+// MARK: - DailyNoteTimelineProvider
+
 protocol DailyNoteTimelineProvider: IntentTimelineProvider, HasDefaultAccount
     where Entry == DailyNoteEntry, Intent: DailyNoteWidgetConfigurationErasable {
     var defaultConfiguration: DailyNoteWidgetConfiguration { get }
@@ -56,29 +64,29 @@ extension DailyNoteTimelineProvider {
             let intentAccount = configuration
                 .eraseToDailyNoteWidgetConfiguration()
                 .account
+
+            let dailyNoteResult: Result<DailyNote, Error>
             if let account = intentAccount {
-                let dailyNoteResult = await getDailyNote(account: account)
-                entries.append(
-                    getEntry(dailyNoteResult: dailyNoteResult)
-                )
+                dailyNoteResult = await getDailyNote(account: account)
             } else {
-                entries.append(
-                    getEntry(
-                        dailyNoteResult: .failure(GetDailyNoteTimelineError.foundNoAccount)
-                    )
-                )
+                dailyNoteResult = .failure(GetDailyNoteTimelineError.foundNoAccount)
             }
+            entries.append(
+                contentsOf: getEntries(dailyNoteResult: dailyNoteResult, configuration: configuration)
+            )
 
-            let timeline = Timeline(entries: entries, policy: .never)
+            let refreshTimeInterval: TimeInterval
+            switch dailyNoteResult {
+            case .success:
+                refreshTimeInterval = refreshWhenSucceedAfterSecond
+            case .failure:
+                refreshTimeInterval = refreshWhenErrorAfterSecond
+            }
+            let timeline = Timeline(
+                entries: entries,
+                policy: .after(Date(timeIntervalSinceNow: refreshTimeInterval))
+            )
             completion(timeline)
-
-            func getEntry(dailyNoteResult: Result<DailyNote, Error>) -> Entry {
-                Entry(
-                    date: Date(),
-                    dailyNoteResult: dailyNoteResult,
-                    configuration: configuration.eraseToDailyNoteWidgetConfiguration()
-                )
-            }
         }
     }
 
@@ -92,6 +100,43 @@ extension DailyNoteTimelineProvider {
             return .success(dailyNote)
         } catch {
             return .failure(error)
+        }
+    }
+
+    private func getEntries(
+        dailyNoteResult: Result<DailyNote, Error>,
+        configuration: Intent
+    ) -> [Entry] {
+        if case let .success(dailyNote) = dailyNoteResult {
+            var entries: [DailyNoteEntry] = []
+            entries.append(
+                Entry(
+                    date: Date(),
+                    dailyNoteResult: dailyNoteResult,
+                    configuration: configuration.eraseToDailyNoteWidgetConfiguration()
+                )
+            )
+            var nextTime = dailyNote.staminaInformation.nextStaminaTime
+            let refreshTime = Date(timeIntervalSinceNow: refreshWhenSucceedAfterSecond)
+            while nextTime < refreshTime {
+                entries.append(
+                    Entry(
+                        date: nextTime,
+                        dailyNoteResult: dailyNoteResult,
+                        configuration: configuration.eraseToDailyNoteWidgetConfiguration()
+                    )
+                )
+                nextTime = Date(timeInterval: StaminaInformation.eachStaminaRecoveryTime, since: nextTime)
+            }
+            return entries
+        } else {
+            return [
+                Entry(
+                    date: Date(),
+                    dailyNoteResult: dailyNoteResult,
+                    configuration: configuration.eraseToDailyNoteWidgetConfiguration()
+                ),
+            ]
         }
     }
 }

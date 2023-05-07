@@ -41,6 +41,11 @@ public struct StaminaInformation {
         Date(timeInterval: _staminaRecoverTime, since: fetchTime)
     }
 
+    public var nextStaminaTime: Date {
+        let nextRecoverTimeInterval = remainingTime.truncatingRemainder(dividingBy: Self.eachStaminaRecoveryTime) + 1
+        return Date(timeIntervalSinceNow: nextRecoverTimeInterval)
+    }
+
     // MARK: Private
 
     /// Stamina when data is fetched.
