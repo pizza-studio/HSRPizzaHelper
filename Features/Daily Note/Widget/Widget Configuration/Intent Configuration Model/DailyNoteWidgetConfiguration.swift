@@ -13,19 +13,14 @@ import Intents
 struct DailyNoteWidgetConfiguration {
     // MARK: Lifecycle
 
-    init(account: IntentAccount, background: Background) {
+    init(account: IntentAccount?, background: WidgetBackground) {
         self.background = background
         self.account = account
     }
 
     // MARK: Internal
 
-    enum Background {
-        case useRandomBackground
-        case useSpecificBackgrounds([WidgetBackground])
-    }
-
-    let background: Background
+    let background: WidgetBackground
 
     var account: IntentAccount? {
         get {
@@ -49,38 +44,24 @@ struct DailyNoteWidgetConfiguration {
 
 // MARK: - DailyNoteWidgetConfigurationErasable
 
-protocol DailyNoteWidgetConfigurationErasable {
-    func eraseToDailyNoteWidgetConfiguration() -> DailyNoteWidgetConfiguration
+protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackgroundDrawable {
+    var background: [WidgetBackground]? { get }
+    var randomBackground: NSNumber? { get }
+    var account: IntentAccount? { get }
 }
 
-// MARK: - SquareWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
-
-extension SquareWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {
-    func eraseToDailyNoteWidgetConfiguration() -> DailyNoteWidgetConfiguration {
-        let background: DailyNoteWidgetConfiguration.Background
-        // swiftlint:disable:next force_cast
-        if randomBackground as! Bool {
-            background = .useRandomBackground
+extension DailyNoteWidgetConfigurationErasable {
+    func getBackground() -> WidgetBackground {
+        let background: WidgetBackground
+        if randomBackground as? Bool ?? false {
+            background = drawRandomBackground()
         } else {
-            background = .useSpecificBackgrounds(self.background!)
+            background = self.background?.randomElement() ?? defaultBackground
         }
-
-        return .init(account: account!, background: background)
+        return background
     }
-}
 
-// MARK: - RectangularWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
-
-extension RectangularWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {
     func eraseToDailyNoteWidgetConfiguration() -> DailyNoteWidgetConfiguration {
-        let background: DailyNoteWidgetConfiguration.Background
-        // swiftlint:disable:next force_cast
-        if randomBackground as! Bool {
-            background = .useRandomBackground
-        } else {
-            background = .useSpecificBackgrounds(self.background!)
-        }
-
-        return .init(account: account!, background: background)
+        .init(account: account, background: getBackground())
     }
 }

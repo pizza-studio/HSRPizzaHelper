@@ -12,9 +12,13 @@ import SwifterSwift
 enum WidgetBackgroundOptionsProvider {
     // MARK: Internal
 
-    static func provideBackgroundOptionsCollection(bundleFolder: String, documentsFolder: String) async throws
-        -> INObjectCollection<WidgetBackground> {
-        guard let bundleBackgroundFolderUrl = Bundle.main.url(forResource: bundleFolder, withExtension: nil) else {
+    static func provideBackgroundOptionsCollection(bundleFolder: String, documentsFolder: String) throws
+        -> [WidgetBackground] {
+        guard let bundleBackgroundFolderUrl = Bundle.main.url(
+            forResource: bundleFolder,
+            withExtension: nil,
+            subdirectory: "Background Images"
+        ) else {
             throw NSError(
                 domain: NSCocoaErrorDomain,
                 code: NSFileNoSuchFileError,
@@ -27,7 +31,7 @@ enum WidgetBackgroundOptionsProvider {
         // TODO: customize dictionary
 //        let documentsFolderBackgroundOptions =
 //            try getWidgetBackgroundOptionsCollectionFromFolder(in: bundleBackgroundFolderUrl)
-        return .init(items: bundleBackgroundOptions)
+        return options
     }
 
     // MARK: Private

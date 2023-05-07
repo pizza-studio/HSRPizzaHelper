@@ -16,11 +16,8 @@ class SquareWidgetConfigurationIntentHandler: INExtension, SquareWidgetConfigura
 
     func provideBackgroundOptionsCollection(for intent: SquareWidgetConfigurationIntent) async throws
         -> INObjectCollection<WidgetBackground> {
-        // TODO: replace documents folder name
-        try await WidgetBackgroundOptionsProvider
-            .provideBackgroundOptionsCollection(
-                bundleFolder: "Square Widget Background",
-                documentsFolder: "Square Widget Background"
-            )
+        .init(
+            items: try SquareWidgetConfigurationIntent.allAvailableBackgrounds()
+        )
     }
 }

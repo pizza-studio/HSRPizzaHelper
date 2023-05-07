@@ -11,7 +11,7 @@ import WidgetKit
 @main
 struct HSRPizzaHelperWidgetBundle: WidgetBundle {
     var body: some Widget {
-//        HSRPizzaHelperWidget()
+        SquareDailyNoteWidget()
         #if canImport(ActivityKit)
         if #available(iOSApplicationExtension 16.1, *) {
             DailyNoteCountDownLiveActivity()

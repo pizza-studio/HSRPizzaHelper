@@ -16,11 +16,8 @@ class RectangularWidgetConfigurationIntentHandler: INExtension, RectangularWidge
 
     func provideBackgroundOptionsCollection(for intent: RectangularWidgetConfigurationIntent) async throws
         -> INObjectCollection<WidgetBackground> {
-        // TODO: replace documents folder name
-        try await WidgetBackgroundOptionsProvider
-            .provideBackgroundOptionsCollection(
-                bundleFolder: "Rectangular Widget Background",
-                documentsFolder: "Rectangular Widget Background"
-            )
+        .init(
+            items: try RectangularWidgetConfigurationIntent.allAvailableBackgrounds()
+        )
     }
 }

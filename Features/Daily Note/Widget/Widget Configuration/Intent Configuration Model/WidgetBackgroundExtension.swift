@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 extension WidgetBackground {
+    /// Get background image. 
     func image() -> Image? {
         if let url = backgroundImageUrl,
            let data = try? Data(contentsOf: url),

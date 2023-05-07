@@ -21,7 +21,7 @@ extension DailyNoteTimelineProvider {
     var defaultConfiguration: DailyNoteWidgetConfiguration {
         .init(
             account: defaultAccount,
-            background: .useSpecificBackgrounds([defaultBackground])
+            background: defaultBackground
         )
     }
 }
@@ -56,6 +56,7 @@ extension DailyNoteTimelineProvider {
             let intentAccount = configuration
                 .eraseToDailyNoteWidgetConfiguration()
                 .account
+            let background = configuration.eraseToDailyNoteWidgetConfiguration().background
             if let account = intentAccount {
                 let dailyNoteResult = await getDailyNote(account: account)
                 entries.append(
@@ -94,29 +95,4 @@ extension DailyNoteTimelineProvider {
             return .failure(error)
         }
     }
-}
-
-// MARK: - HasDefaultAccount
-
-protocol HasDefaultAccount {
-    var defaultAccount: IntentAccount { get }
-}
-
-extension HasDefaultAccount {
-    var defaultAccount: IntentAccount {
-        let intentAccount = IntentAccount(
-            identifier: UUID().uuidString,
-            display: "Lava"
-        )
-        intentAccount.cookie = ""
-        intentAccount.server = .china
-        intentAccount.uid = "118774161"
-        return intentAccount
-    }
-}
-
-// MARK: - HasDefaultBackground
-
-protocol HasDefaultBackground {
-    var defaultBackground: WidgetBackground { get }
 }
