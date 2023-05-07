@@ -17,8 +17,8 @@ protocol CanProvideWidgetBackground {
 extension CanProvideWidgetBackground {
     static func allAvailableBackgrounds() throws -> [WidgetBackground] {
         try WidgetBackgroundOptionsProvider.provideBackgroundOptionsCollection(
-            bundleFolder: SquareWidgetConfigurationIntent.bundleBackgroundFolder,
-            documentsFolder: SquareWidgetConfigurationIntent.documentsBackgroundFolder
+            bundleFolder: Self.bundleBackgroundFolder,
+            documentsFolder: Self.documentsBackgroundFolder
         )
     }
 }
