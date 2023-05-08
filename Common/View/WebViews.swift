@@ -52,29 +52,3 @@ struct WebBrowserView: UIViewRepresentable {
 }
 
 // MARK: - UserPolicyView
-
-struct UserPolicyView: View {
-    @Binding var sheet: ContentViewSheetType?
-
-    var body: some View {
-        NavigationView {
-            WebBrowserView(url: "https://hsr.ophelper.top/static/policy.html")
-                .ignoresSafeArea()
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button("sys.refuse") {
-                            exit(1)
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("sys.accept") {
-                            Defaults[\.isPolicyShown] = true
-                            sheet = nil
-                        }
-                    }
-                }
-                .navigationTitle("app.userpolicy.title")
-                .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}

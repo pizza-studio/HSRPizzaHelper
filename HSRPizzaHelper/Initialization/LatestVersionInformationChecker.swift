@@ -1,16 +1,83 @@
 //
-//  LatestVersionInfoView.swift
+//  LatestVersionInformationChecker.swift
 //  HSRPizzaHelper
 //
-//  Created by Bill Haku on 2023/5/8.
+//  Created by 戴藏龙 on 2023/5/8.
 //
 
+import Foundation
 import HBPizzaHelperAPI
-import StoreKit
 import SwiftUI
 
+extension View {
+    func checkAndPopLatestVersionSheet() -> some View {
+        modifier(LatestVersionInformationChecker())
+    }
+}
+
+// MARK: - LatestVersionInformationChecker
+
+private struct LatestVersionInformationChecker: ViewModifier {
+    // MARK: Internal
+
+    let buildVersion = Int((Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? "") ?? 0
+
+    func body(content: Content) -> some View {
+        content
+            .onAppBecomeActive {
+                checkNewestVersion()
+            }
+            .sheet(isPresented: $isSheetShow) {
+                LatestVersionInfoView(
+                    isShow: $isSheetShow,
+                    newestVersionInfos: $newestVersionInfos,
+                    isJustUpdated: $isJustUpdated
+                )
+                .allowAutoDismiss(false)
+            }
+    }
+
+    func checkNewestVersion() {
+        guard Defaults[\.isPolicyShown] == true else {
+            return
+        }
+        let isBeta: Bool
+        switch AppConfig.appConfiguration {
+        case .appStore:
+            isBeta = false
+        case .debug, .testFlight:
+            isBeta = true
+        }
+        PizzaHelperAPI.fetchNewestVersion(isBeta: isBeta) { result in
+            newestVersionInfos = result
+            guard let newestVersionInfos = newestVersionInfos else {
+                return
+            }
+            if buildVersion < newestVersionInfos.buildVersion,
+               !Defaults[\.checkedUpdateVersions]
+               .contains(newestVersionInfos.buildVersion) {
+                isSheetShow.toggle()
+            } else if Defaults[\.checkedNewestVersion] < newestVersionInfos
+                .buildVersion {
+                isJustUpdated = true
+                isSheetShow.toggle()
+                Defaults[\.checkedNewestVersion] = newestVersionInfos.buildVersion
+            }
+        }
+    }
+
+    // MARK: Private
+
+    @State private var newestVersionInfos: NewestVersion?
+    @State private var isJustUpdated: Bool = false
+
+    @State private var isSheetShow: Bool = false
+}
+
+// MARK: - LatestVersionInfoView
+
 struct LatestVersionInfoView: View {
-    @Binding var sheetType: ContentViewSheetType?
+    @Binding var isShow: Bool
     @Binding var newestVersionInfos: NewestVersion?
     @Binding var isJustUpdated: Bool
 
@@ -118,7 +185,7 @@ struct LatestVersionInfoView: View {
                                     }
                             }
                         }
-                        sheetType = nil
+                        isShow.toggle()
                     }
                 }
             }
