@@ -89,10 +89,10 @@
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
 		EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */; };
 		EADA17C62A06B76700AF9784 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
-		EADA17C82A06B7BE00AF9784 /* Background Images in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* Background Images */; };
+		EADA17C82A06B7BE00AF9784 /* background_image in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* background_image */; };
 		EADA17CA2A06B87600AF9784 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EADA17C92A06B87600AF9784 /* SwifterSwift */; };
-		EADA17CB2A06B88000AF9784 /* Background Images in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* Background Images */; };
-		EADA17CC2A06B88400AF9784 /* Background Images in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* Background Images */; };
+		EADA17CB2A06B88000AF9784 /* background_image in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* background_image */; };
+		EADA17CC2A06B88400AF9784 /* background_image in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* background_image */; };
 		EADA17CE2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */; };
 		EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */; };
 		EADA63772A0201B200BF070F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63762A0201B200BF070F /* HomeView.swift */; };
@@ -209,7 +209,7 @@
 		EA9D024B2A04BE3800796516 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteCards.swift; sourceTree = "<group>"; };
 		EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAccountCard.swift; sourceTree = "<group>"; };
-		EADA17C72A06B7BE00AF9784 /* Background Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Background Images"; sourceTree = "<group>"; };
+		EADA17C72A06B7BE00AF9784 /* background_image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = background_image; sourceTree = "<group>"; };
 		EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundOptionsCollectionProvider.swift; sourceTree = "<group>"; };
 		EADA17CF2A06C0CB00AF9784 /* WidgetBackgroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundExtension.swift; sourceTree = "<group>"; };
 		EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteViewModel.swift; sourceTree = "<group>"; };
@@ -578,7 +578,7 @@
 			children = (
 				EAE519832A01738600EF23B7 /* Assets.xcassets */,
 				EA32764E2A03852C00774126 /* Icon.xcassets */,
-				EADA17C72A06B7BE00AF9784 /* Background Images */,
+				EADA17C72A06B7BE00AF9784 /* background_image */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -764,7 +764,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EADA17CC2A06B88400AF9784 /* Background Images in Resources */,
+				EADA17CC2A06B88400AF9784 /* background_image in Resources */,
 				EA068D152A08169D003C4E69 /* Assets.xcassets in Resources */,
 				EADA17C62A06B76700AF9784 /* Icon.xcassets in Resources */,
 			);
@@ -774,7 +774,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EADA17C82A06B7BE00AF9784 /* Background Images in Resources */,
+				EADA17C82A06B7BE00AF9784 /* background_image in Resources */,
 				EAE519872A01738600EF23B7 /* Preview Assets.xcassets in Resources */,
 				BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */,
 				EAE519842A01738600EF23B7 /* Assets.xcassets in Resources */,
@@ -787,7 +787,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EADA17CB2A06B88000AF9784 /* Background Images in Resources */,
+				EADA17CB2A06B88000AF9784 /* background_image in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

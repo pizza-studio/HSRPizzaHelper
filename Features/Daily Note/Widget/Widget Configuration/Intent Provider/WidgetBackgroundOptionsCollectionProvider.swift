@@ -37,7 +37,7 @@ enum WidgetBackgroundOptionsProvider {
         guard let bundleBackgroundFolderUrl = Bundle.main.url(
             forResource: folderName,
             withExtension: nil,
-            subdirectory: "Background Images"
+            subdirectory: AppConfig.backgroundImageFolderName
         ) else {
             throw NSError(
                 domain: NSCocoaErrorDomain,
@@ -50,7 +50,7 @@ enum WidgetBackgroundOptionsProvider {
 
     static func documentBackgroundFolderUrl(folderName: String) throws -> URL {
         let backgroundFolderUrl = URL(
-            string: "background_images"
+            string: AppConfig.backgroundImageFolderName
         )!.appendingPathComponent(folderName, isDirectory: true)
         let url = try FileManager.default.url(
             for: .documentDirectory,

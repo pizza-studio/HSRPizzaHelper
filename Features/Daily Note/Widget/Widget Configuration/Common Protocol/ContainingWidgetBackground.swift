@@ -16,9 +16,6 @@ protocol CanProvideWidgetBackground: ContainingWidgetBackground {
 
 extension CanProvideWidgetBackground {
     func backgroundImage() -> Image? {
-        try! bundleBackgroundFolderUrl()
-        try! documentBackgroundFolderUrl()
-        background.identifier!
         guard let bundleBackgroundFolderUrl = try? bundleBackgroundFolderUrl(),
               let documentBackgroundFolderUrl = try? documentBackgroundFolderUrl(),
               let filename = background.identifier
@@ -29,9 +26,6 @@ extension CanProvideWidgetBackground {
             name: filename,
             inFolders: [bundleBackgroundFolderUrl, documentBackgroundFolderUrl]
         )
-
-        url!
-        try! Data(contentsOf: url!)
 
         if let url = url,
            let data = try? Data(contentsOf: url),

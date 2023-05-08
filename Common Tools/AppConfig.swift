@@ -11,4 +11,6 @@ import Foundation
 enum AppConfig {
     /// A string representing the App Group identifier
     static let appGroupID: String = "group.Canglong.HSRPizzaHelper"
+
+    static let backgroundImageFolderName: String = "background_image"
 }
