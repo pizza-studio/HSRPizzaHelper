@@ -106,6 +106,7 @@
 		EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = EAE519B02A0174D800EF23B7 /* SFSafeSymbols */; };
 		EAE519B42A01752A00EF23B7 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EAE519B32A01752A00EF23B7 /* AlertToast */; };
 		EAE519C72A01788F00EF23B7 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519C62A01788F00EF23B7 /* AccountExtension.swift */; };
+		EAE519C72A01788F00EF23B7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519C62A01788F00EF23B7 /* Account.swift */; };
 		EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */; };
 		EAE8986E2A06A134000AF830 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE8986D2A06A134000AF830 /* Intents.framework */; };
 		EAE898712A06A134000AF830 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898702A06A134000AF830 /* IntentHandler.swift */; };
@@ -226,6 +227,7 @@
 		EAE519B92A01759D00EF23B7 /* HBMihoyoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBMihoyoAPI; path = Packages/HBMihoyoAPI; sourceTree = "<group>"; };
 		EAE519C22A01771F00EF23B7 /* HSRPizzaHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HSRPizzaHelper.entitlements; sourceTree = "<group>"; };
 		EAE519C62A01788F00EF23B7 /* AccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
+		EAE519C62A01788F00EF23B7 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchStatus.swift; sourceTree = "<group>"; };
 		EAE8986C2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HSRPizzaHelperWidgetConfigurationIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE8986D2A06A134000AF830 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };

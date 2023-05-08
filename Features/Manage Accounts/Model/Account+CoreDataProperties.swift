@@ -12,6 +12,11 @@ import HBMihoyoAPI
 
 /// An `NSManagedObject` representing an account.
 extension Account {
+    /**
+        Returns a fetch request object for retrieving accounts.
+
+        - Returns: A `NSFetchRequest` object from `Account`.
+     */
     @nonobjc
     public class func fetchRequest() -> NSFetchRequest<Account> {
         NSFetchRequest<Account>(entityName: "Account")
