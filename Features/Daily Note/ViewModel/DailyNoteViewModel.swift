@@ -19,6 +19,9 @@ class DailyNoteViewModel: ObservableObject {
     /// - Parameter account: The account for which the daily note will be fetched.
     init(account: Account) {
         self.account = account
+        Task {
+            await getDailyNoteUncheck()
+        }
     }
 
     // MARK: Internal
