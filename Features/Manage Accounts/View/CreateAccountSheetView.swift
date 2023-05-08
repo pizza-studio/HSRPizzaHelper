@@ -98,7 +98,9 @@ struct CreateAccountSheetView: View {
         Section {
             RequireLoginView(unsavedCookie: $account.cookie, region: $region)
             if let cookie = account.cookie {
-                Text(cookie)
+                if cookie != "" {
+                    Text(cookie)
+                }
             }
         } footer: {
             VStack(alignment: .leading) {
