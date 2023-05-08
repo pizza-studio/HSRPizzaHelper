@@ -12,41 +12,66 @@ import SwifterSwift
 enum WidgetBackgroundOptionsProvider {
     // MARK: Internal
 
-    static func provideBackgroundOptionsCollection(bundleFolder: String, documentsFolder: String) throws
+    static func provideBackgroundOptionsCollection(folderName: String) throws
         -> [WidgetBackground] {
+        var options: [WidgetBackground] = []
+
+        let bundleBackgroundFolderUrl = try Self.bundleBackgroundFolderUrl(folderName: folderName)
+        let bundleBackgroundOptions = try getWidgetBackgroundOptionsCollectionFromFolder(in: bundleBackgroundFolderUrl)
+        options.append(contentsOf: bundleBackgroundOptions)
+
+        let documentsBackgroundFolderUrl = try Self.documentBackgroundFolderUrl(folderName: folderName)
+        let documentsBackgroundOptions =
+            try getWidgetBackgroundOptionsCollectionFromFolder(in: documentsBackgroundFolderUrl)
+        options.append(contentsOf: documentsBackgroundOptions)
+        return options
+    }
+
+    static func getWidgetBackgroundUrlsFromFolder(in imageFolderUrl: URL) throws
+        -> [URL] {
+        let imageUrls = try FileManager.default.contentsOfDirectory(at: imageFolderUrl, includingPropertiesForKeys: nil)
+        return imageUrls
+    }
+
+    static func bundleBackgroundFolderUrl(folderName: String) throws -> URL {
         guard let bundleBackgroundFolderUrl = Bundle.main.url(
-            forResource: bundleFolder,
+            forResource: folderName,
             withExtension: nil,
-            subdirectory: "Background Images"
+            subdirectory: AppConfig.backgroundImageFolderName
         ) else {
             throw NSError(
                 domain: NSCocoaErrorDomain,
                 code: NSFileNoSuchFileError,
-                userInfo: [NSFilePathErrorKey: bundleFolder]
+                userInfo: [NSFilePathErrorKey: folderName]
             )
         }
-        var options: [WidgetBackground] = []
-        let bundleBackgroundOptions = try getWidgetBackgroundOptionsCollectionFromFolder(in: bundleBackgroundFolderUrl)
-        options.append(contentsOf: bundleBackgroundOptions)
-        // TODO: customize dictionary
-//        let documentsFolderBackgroundOptions =
-//            try getWidgetBackgroundOptionsCollectionFromFolder(in: bundleBackgroundFolderUrl)
-        return options
+        return bundleBackgroundFolderUrl
+    }
+
+    static func documentBackgroundFolderUrl(folderName: String) throws -> URL {
+        let backgroundFolderUrl = URL(
+            string: AppConfig.backgroundImageFolderName
+        )!.appendingPathComponent(folderName, isDirectory: true)
+        let url = try FileManager.default.url(
+            for: .documentDirectory,
+            in: .userDomainMask,
+            appropriateFor: backgroundFolderUrl,
+            create: true
+        )
+        return url
     }
 
     // MARK: Private
 
     private static func getWidgetBackgroundOptionsCollectionFromFolder(in imageFolderUrl: URL) throws
         -> [WidgetBackground] {
-        let imageUrls = try FileManager.default.contentsOfDirectory(at: imageFolderUrl, includingPropertiesForKeys: nil)
+        let imageUrls = try getWidgetBackgroundUrlsFromFolder(in: imageFolderUrl)
         let widgetBackgroundOptionsCollection = imageUrls.map { url in
-            let squareWidgetBackground = WidgetBackground(
-                identifier: url.deletingPathExtension().lastPathComponent,
+            WidgetBackground(
+                identifier: url.lastPathComponent,
                 display: url.deletingPathExtension().lastPathComponent
                     .localized(comment: "key like: widget.background.filename")
             )
-            squareWidgetBackground.backgroundImageUrl = url
-            return squareWidgetBackground
         }
         return widgetBackgroundOptionsCollection
     }

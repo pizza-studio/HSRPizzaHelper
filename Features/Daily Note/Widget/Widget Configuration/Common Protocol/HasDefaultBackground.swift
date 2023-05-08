@@ -10,7 +10,7 @@ import Intents
 
 // MARK: - HasDefaultBackground
 
-protocol HasDefaultBackground: CanProvideWidgetBackground {
+protocol HasDefaultBackground: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
     static var defaultBackground: WidgetBackground { get }
 }
 
@@ -18,7 +18,7 @@ extension HasDefaultBackground {
     static var defaultBackground: WidgetBackground {
         // swiftlint:disable:next force_try
         try! Self.allAvailableBackgrounds().first(where: { background in
-            background.identifier == "Character_March_7th_Splash_Art"
+            background.identifier == "Character_March_7th_Splash_Art.heic"
         })!
     }
 }
