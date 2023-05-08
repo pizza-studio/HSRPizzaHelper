@@ -95,3 +95,5 @@ BuildTools/.swiftpm
 BuildTools/.build
 
 .vscode
+
+**/.swiftpm

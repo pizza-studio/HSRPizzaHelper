@@ -23,14 +23,24 @@ extension DefaultsKeys {
 
     // MARK: - In app
 
-    /// A `DefaultsKey` representing the version of the app for which the user was prompted to leave a review
+    /// The version of the app for which the user was prompted to leave a review
     var lastVersionPromptedForReview: DefaultsKey<String?> {
         .init("lastVersionPromptedForReview")
     }
 
-    /// A `DefaultsKey` representing whether the user has seen a policy agreement screen
+    /// Whether the user has seen a policy agreement screen
     var isPolicyShown: DefaultsKey<Bool> {
         .init("isPolicyShown", defaultValue: false)
+    }
+
+    /// The latest version the app checked last time
+    var checkedNewestVersion: DefaultsKey<Int> {
+        .init("checkedNewestVersion", defaultValue: 0)
+    }
+
+    /// The version which update notice has been shown to user
+    var checkedUpdateVersions: DefaultsKey<[Int]> {
+        .init("checkedUpdateVersions", defaultValue: [])
     }
 
     // MARK: - For widgets
