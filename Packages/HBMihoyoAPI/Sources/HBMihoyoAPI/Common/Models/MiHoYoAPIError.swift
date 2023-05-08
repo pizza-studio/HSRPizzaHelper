@@ -11,6 +11,15 @@ import Foundation
 
 /// The error returned by miHoYo when `retcode != 0`
 public struct MiHoYoAPIError: Error {
+    // MARK: Lifecycle
+
+    public init(retcode: Int, message: String) {
+        self.retcode = retcode
+        self.message = message
+    }
+
+    // MARK: Public
+
     /// The retcode returned by miHoYo API
     public let retcode: Int
     /// The message returned by miHoYo API

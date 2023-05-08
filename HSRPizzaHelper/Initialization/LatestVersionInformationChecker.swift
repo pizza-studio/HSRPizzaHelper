@@ -25,7 +25,9 @@ private struct LatestVersionInformationChecker: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onAppBecomeActive {
-                checkNewestVersion()
+                Task {
+                    await checkNewestVersion()
+                }
             }
             .sheet(isPresented: $isSheetShow) {
                 LatestVersionInfoView(
@@ -37,7 +39,7 @@ private struct LatestVersionInformationChecker: ViewModifier {
             }
     }
 
-    func checkNewestVersion() {
+    func checkNewestVersion() async {
         guard Defaults[\.isPolicyShown] == true else {
             return
         }
@@ -48,22 +50,24 @@ private struct LatestVersionInformationChecker: ViewModifier {
         case .debug, .testFlight:
             isBeta = true
         }
-        PizzaHelperAPI.fetchNewestVersion(isBeta: isBeta) { result in
-            newestVersionInfos = result
-            guard let newestVersionInfos = newestVersionInfos else {
-                return
+        do {
+            try await PizzaHelperAPI.fetchNewestVersion(isBeta: isBeta) { result in
+                newestVersionInfos = result
+                guard let newestVersionInfos = newestVersionInfos else {
+                    return
+                }
+                if buildVersion < newestVersionInfos.buildVersion,
+                   !Defaults[\.checkedUpdateVersions]
+                   .contains(newestVersionInfos.buildVersion) {
+                    isSheetShow.toggle()
+                } else if Defaults[\.checkedNewestVersion] < newestVersionInfos
+                    .buildVersion {
+                    isJustUpdated = true
+                    isSheetShow.toggle()
+                    Defaults[\.checkedNewestVersion] = newestVersionInfos.buildVersion
+                }
             }
-            if buildVersion < newestVersionInfos.buildVersion,
-               !Defaults[\.checkedUpdateVersions]
-               .contains(newestVersionInfos.buildVersion) {
-                isSheetShow.toggle()
-            } else if Defaults[\.checkedNewestVersion] < newestVersionInfos
-                .buildVersion {
-                isJustUpdated = true
-                isSheetShow.toggle()
-                Defaults[\.checkedNewestVersion] = newestVersionInfos.buildVersion
-            }
-        }
+        } catch {}
     }
 
     // MARK: Private
