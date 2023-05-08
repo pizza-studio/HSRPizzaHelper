@@ -2,9 +2,9 @@
     "retcode": 0,
     "message": "OK",
     "data": {
-        "current_stamina": 60,
+        "current_stamina": 150,
         "max_stamina": 180,
-        "stamina_recover_time": 42946,
+        "stamina_recover_time": 10800,
         "accepted_epedition_num": 4,
         "total_expedition_num": 4,
         "expeditions": [

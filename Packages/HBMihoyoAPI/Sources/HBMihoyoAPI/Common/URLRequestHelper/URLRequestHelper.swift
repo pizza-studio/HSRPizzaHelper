@@ -29,7 +29,6 @@ enum URLRequestHelper {
             bodyString = ""
         }
 
-        print("salt=\(salt)&t=\(time)&r=\(randomNumber)&b=\(bodyString)&q=\(query)")
         let verification = "salt=\(salt)&t=\(time)&r=\(randomNumber)&b=\(bodyString)&q=\(query)".md5
 
         return time + "," + randomNumber + "," + verification

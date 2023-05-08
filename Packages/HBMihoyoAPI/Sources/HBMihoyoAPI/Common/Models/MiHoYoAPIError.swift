@@ -7,10 +7,17 @@
 
 import Foundation
 
+// MARK: - MiHoYoAPIError
+
 /// The error returned by miHoYo when `retcode != 0`
-struct MiHoYoAPIError: Error {
+public struct MiHoYoAPIError: Error {
     /// The retcode returned by miHoYo API
-    let retcode: Int
+    public let retcode: Int
     /// The message returned by miHoYo API
-    let message: String
+    public let message: String
 }
+
+// MARK: LocalizedError
+
+// TODO: implement this protocol
+extension MiHoYoAPIError: LocalizedError {}

@@ -8,12 +8,9 @@
 
 import CoreData
 import Foundation
+import HBMihoyoAPI
 
-/**
- `Account` is a `NSManagedObject` subclass that represents an account.
-
- To make the object as a fetch request, use `fetchRequest` method.
- */
+/// An `NSManagedObject` representing an account.
 extension Account {
     /**
         Returns a fetch request object for retrieving accounts.
@@ -37,7 +34,9 @@ extension Account {
     /**
          The raw value for the server of the account. Possible values depend on the type of server.
      */
-    @NSManaged public var serverRawValue: String!
+    /// The `rawValue` of the server.
+    /// Usually access via `server` property instead of directly use this.
+    @NSManaged fileprivate var serverRawValue: String!
 
     /// The UID of the account.
     @NSManaged public var uid: String!
@@ -51,5 +50,16 @@ extension Account {
 extension Account: Identifiable {
     public var id: UUID {
         uuid
+    }
+}
+
+extension Account {
+    /// Get the account's current server
+    var server: Server {
+        get {
+            .init(rawValue: serverRawValue ?? "") ?? .china
+        } set {
+            serverRawValue = newValue.rawValue
+        }
     }
 }

@@ -19,6 +19,9 @@ extension MiHoYoAPI {
     ///
     /// - Returns: An instance of `DailyNote` that represents the user's daily note.
     public static func note(server: Server, uid: String, cookie: String) async throws -> DailyNote {
+        #if DEBUG
+        return .example()
+        #else
         let queryItems: [URLQueryItem] = [
             .init(name: "role_id", value: uid),
             .init(name: "server", value: server.rawValue),
@@ -33,5 +36,6 @@ extension MiHoYoAPI {
         let (data, _) = try await URLSession.shared.data(for: request)
 
         return try .decodeFromMiHoYoAPIJSONResult(data: data)
+        #endif
     }
 }

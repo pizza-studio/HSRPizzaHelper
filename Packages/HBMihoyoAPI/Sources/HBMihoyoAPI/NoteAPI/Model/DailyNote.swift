@@ -22,9 +22,9 @@ public struct DailyNote: Decodable {
     // MARK: Public
 
     /// Stamina information
-    public let staminaInformation: StaminaInformation
+    public var staminaInformation: StaminaInformation
     /// Expedition information
-    public let expeditionInformation: ExpeditionInformation
+    public var expeditionInformation: ExpeditionInformation
     /// The time when this struct is generated
     public let fetchTime: Date = .init()
 
@@ -40,3 +40,13 @@ public struct DailyNote: Decodable {
 // MARK: DecodableFromMiHoYoAPIJSONResult
 
 extension DailyNote: DecodableFromMiHoYoAPIJSONResult {}
+
+extension DailyNote {
+    public static func example() -> DailyNote {
+        let exampleURL = Bundle.module.url(forResource: "daily_note_example", withExtension: "json")!
+        // swiftlint:disable:next force_try
+        let exampleData = try! Data(contentsOf: exampleURL)
+        // swiftlint:disable:next force_try
+        return try! DailyNote.decodeFromMiHoYoAPIJSONResult(data: exampleData)
+    }
+}
