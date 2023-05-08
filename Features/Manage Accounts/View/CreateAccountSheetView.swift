@@ -97,11 +97,6 @@ struct CreateAccountSheetView: View {
     func pendingView() -> some View {
         Section {
             RequireLoginView(unsavedCookie: $account.cookie, region: $region)
-            if let cookie = account.cookie {
-                if cookie != "" {
-                    Text(cookie)
-                }
-            }
         } footer: {
             VStack(alignment: .leading) {
                 HStack {
