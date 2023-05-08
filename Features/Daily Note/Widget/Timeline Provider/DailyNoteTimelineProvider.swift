@@ -12,7 +12,7 @@ import WidgetKit
 
 // MARK: - DailyNoteTimelineProvider
 
-private let refreshWhenSucceedAfterHour: Int = 5
+private let refreshWhenSucceedAfterHour: Int = 4
 private var refreshWhenSucceedAfterSecond = TimeInterval(refreshWhenSucceedAfterHour * 60 * 60)
 
 private let refreshWhenErrorMinute: Int = 5
@@ -121,8 +121,8 @@ extension DailyNoteTimelineProvider {
             let refreshTime = Date(timeIntervalSinceNow: refreshWhenSucceedAfterSecond)
 
             var dailyNote = dailyNote
-            var nextTime = dailyNote.staminaInformation.nextStaminaTime
-            while nextTime < refreshTime {
+            var loopNextTime = dailyNote.staminaInformation.nextStaminaTime
+            while let nextTime = loopNextTime, nextTime < refreshTime {
                 entries.append(
                     Entry(
                         date: nextTime,
@@ -132,7 +132,7 @@ extension DailyNoteTimelineProvider {
                         configuration: configuration.eraseToDailyNoteWidgetConfiguration()
                     )
                 )
-                nextTime = dailyNote.staminaInformation.nextStaminaTime
+                loopNextTime = dailyNote.staminaInformation.nextStaminaTime
                 dailyNote = dailyNote.replacingBenchmarkTime(nextTime)
             }
             return entries
