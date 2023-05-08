@@ -17,7 +17,7 @@ struct DailyNoteEntry: TimelineEntry {
     init(
         date: Date,
         dailyNoteResult: Result<DailyNote, Error>,
-        configuration: DailyNoteWidgetConfiguration
+        configuration: DailyNoteBackgroundWidgetConfiguration
     ) {
         self.date = date
         self.dailyNoteResult = dailyNoteResult
@@ -28,7 +28,7 @@ struct DailyNoteEntry: TimelineEntry {
 
     let date: Date
 
-    let configuration: DailyNoteWidgetConfiguration
+    let configuration: DailyNoteBackgroundWidgetConfiguration
 
     let dailyNoteResult: Result<DailyNote, Error>
 }

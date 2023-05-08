@@ -41,9 +41,14 @@ public struct StaminaInformation {
         Date(timeInterval: _staminaRecoverTime, since: fetchTime)
     }
 
-    public var nextStaminaTime: Date {
-        let nextRecoverTimeInterval = remainingTime.truncatingRemainder(dividingBy: Self.eachStaminaRecoveryTime) + 1
-        return Date(timeInterval: nextRecoverTimeInterval, since: benchmarkTime)
+    /// The time when next stamina recover. If the stamina is full, return `nil`
+    public var nextStaminaTime: Date? {
+        let nextRecoverTimeInterval = remainingTime.truncatingRemainder(dividingBy: Self.eachStaminaRecoveryTime)
+        if nextRecoverTimeInterval != 0 {
+            return Date(timeInterval: nextRecoverTimeInterval + 1, since: benchmarkTime)
+        } else {
+            return nil
+        }
     }
 
     // MARK: Private

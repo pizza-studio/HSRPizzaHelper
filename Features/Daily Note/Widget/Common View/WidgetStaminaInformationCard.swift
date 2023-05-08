@@ -8,10 +8,14 @@
 import HBMihoyoAPI
 import SwiftUI
 
+// MARK: - WidgetStaminaInformationCard
+
 struct WidgetStaminaInformationCard: View {
     @Environment(\.widgetFamily) private var widgetFamily
 
     let info: StaminaInformation
+
+    let useAccessibilityBackground: Bool
 
     var body: some View {
         HStack(spacing: 5) {
@@ -38,10 +42,7 @@ struct WidgetStaminaInformationCard: View {
 
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
-        .background(
-            .ultraThinMaterial,
-            in: RoundedRectangle(cornerRadius: 15, style: .continuous)
-        )
+        .accessibilityBackground(enable: useAccessibilityBackground)
     }
 
     var iconFrame: CGFloat {
@@ -64,5 +65,29 @@ struct WidgetStaminaInformationCard: View {
         default:
             return .title
         }
+    }
+}
+
+// MARK: - AccessibilityBackground
+
+private struct AccessibilityBackground: ViewModifier {
+    let enable: Bool
+
+    func body(content: Content) -> some View {
+        if enable {
+            content
+                .background(
+                    .ultraThinMaterial,
+                    in: RoundedRectangle(cornerRadius: 15, style: .continuous)
+                )
+        } else {
+            content
+        }
+    }
+}
+
+extension View {
+    fileprivate func accessibilityBackground(enable: Bool) -> some View {
+        modifier(AccessibilityBackground(enable: enable))
     }
 }

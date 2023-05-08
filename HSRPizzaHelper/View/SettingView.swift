@@ -19,6 +19,13 @@ struct SettingView: View {
                         ManageAccountsView()
                     }
                 }
+                if #available(iOS 16, *) {
+                    Section {
+                        NavigationLink("setting.widgetbackground.title") {
+                            WidgetBackgroundSettingView()
+                        }
+                    }
+                }
                 Section {
                     Button("sys.label.rate") {
                         ReviewHandler.requestReviewIfNotRequestedElseNavigateToAppStore()
