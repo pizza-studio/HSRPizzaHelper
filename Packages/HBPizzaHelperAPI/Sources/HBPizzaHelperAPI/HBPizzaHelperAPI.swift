@@ -21,18 +21,18 @@ public enum PizzaHelperAPI {
             NewestVersion
         ) -> ()
     ) async throws {
-        var urlStr: String
+        var url = URL(string: "https://hsr.ophelper.top")!
+
+        var path: String
         if isBeta {
-            urlStr = "api/app/newest_version_beta.json"
+            path = "api/app/newest_version_beta.json"
         } else {
-            urlStr = "api/app/newest_version.json"
+            path = "api/app/newest_version.json"
         }
 
-        let request = try generateRequest(
-            host: "hsr.ophelper.top",
-            path: urlStr,
-            queryItems: []
-        )
+        url.appendPathComponent(path)
+
+        let request = URLRequest(url: url)
 
         let (data, _) = try await URLSession.shared.data(for: request)
 
