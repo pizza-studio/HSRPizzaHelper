@@ -19,9 +19,11 @@ struct WidgetStaminaInformationCard: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: iconFrame)
+                .shadow(radius: 10)
             HStack(alignment: .lastTextBaseline, spacing: 3) {
                 Text("\(info.currentStamina)")
                     .font(staminaFont)
+                    .shadow(radius: 10)
                 (
                     Text(info.fullTime, style: .time)
                         + Text("\n")
@@ -29,10 +31,11 @@ struct WidgetStaminaInformationCard: View {
                 )
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
-                .minimumScaleFactor(0.8)
+                .minimumScaleFactor(0.5)
                 .font(.caption2)
             }
         }
+
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .background(

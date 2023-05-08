@@ -13,41 +13,41 @@ import Intents
 struct DailyNoteWidgetConfiguration {
     // MARK: Lifecycle
 
-    init(account: IntentAccount?, background: WidgetBackground) {
+    init(account: IntentAccount?, background: WidgetBackground, backgroundFolderName: String) {
         self.background = background
-        self.account = account
+        if let account = account,
+           account.identifier != nil {
+            self.account = account
+        } else if let account = IntentAccountProvider.getFirstAccount() {
+            self.account = account
+        } else {
+            self.account = nil
+        }
+        self.backgroundFolderName = backgroundFolderName
     }
 
     // MARK: Internal
 
     let background: WidgetBackground
 
-    var account: IntentAccount? {
-        get {
-            _account
-        } set {
-            if let newAccount = newValue,
-               newAccount.identifier != nil {
-                _account = newValue
-            } else if let account = IntentAccountProvider.getFirstAccount() {
-                _account = account
-            } else {
-                _account = nil
-            }
-        }
-    }
+    let account: IntentAccount?
 
-    // MARK: Private
-
-    private var _account: IntentAccount?
+    let backgroundFolderName: String
 }
+
+// MARK: CanProvideWidgetBackground
+
+extension DailyNoteWidgetConfiguration: CanProvideWidgetBackground {}
 
 // MARK: - DailyNoteWidgetConfigurationErasable
 
-protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackgroundDrawable {
+protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackgroundDrawable,
+    ContainingWidgetBackground {
     var background: [WidgetBackground]? { get }
     var randomBackground: NSNumber? { get }
     var account: IntentAccount? { get }
+
+    var backgroundFolderName: String { get }
 }
 
 extension DailyNoteWidgetConfigurationErasable {
@@ -62,6 +62,6 @@ extension DailyNoteWidgetConfigurationErasable {
     }
 
     func eraseToDailyNoteWidgetConfiguration() -> DailyNoteWidgetConfiguration {
-        .init(account: account, background: getBackground())
+        .init(account: account, background: getBackground(), backgroundFolderName: backgroundFolderName)
     }
 }

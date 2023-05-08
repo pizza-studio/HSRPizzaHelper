@@ -35,7 +35,7 @@ struct SquareDailyNoteWidgetView: View {
         }
         .background {
             Group {
-                if let image = entry.configuration.background.image() {
+                if let image = entry.configuration.backgroundImage() {
                     image.resizable().scaledToFill()
                 } else {
                     EmptyView()

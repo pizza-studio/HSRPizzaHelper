@@ -7,18 +7,16 @@
 
 import Foundation
 
-// MARK: - RectangularWidgetConfigurationIntent + CanProvideWidgetBackground
+// MARK: - RectangularWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
 
-extension RectangularWidgetConfigurationIntent: CanProvideWidgetBackground {
-    static let bundleBackgroundFolder = "Rectangular Widget Background"
-    static let documentsBackgroundFolder = "Rectangular Widget Background"
+extension RectangularWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
+    static let backgroundFolderName = "Rectangular Widget Background"
 }
 
-// MARK: - SquareWidgetConfigurationIntent + CanProvideWidgetBackground
+// MARK: - SquareWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
 
-extension SquareWidgetConfigurationIntent: CanProvideWidgetBackground {
-    static let bundleBackgroundFolder = "Square Widget Background"
-    static let documentsBackgroundFolder = "Square Widget Background"
+extension SquareWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
+    static let backgroundFolderName = "Square Widget Background"
 }
 
 // MARK: - SquareWidgetConfigurationIntent + RandomBackgroundDrawable
