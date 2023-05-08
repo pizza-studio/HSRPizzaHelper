@@ -54,30 +54,26 @@ struct WebBrowserView: UIViewRepresentable {
 // MARK: - UserPolicyView
 
 struct UserPolicyView: View {
-//    @Binding
-//    var sheet: ContentViewSheetType?
+    @Binding var sheet: ContentViewSheetType?
 
     var body: some View {
         NavigationView {
-            // TODO: replace with HSR version policy
-            WebBrowserView(url: "https://ophelper.top/static/policy.html")
+            WebBrowserView(url: "https://hsr.ophelper.top/static/policy.html")
                 .ignoresSafeArea()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        // TODO: use localized key
-                        Button("拒绝") {
+                        Button("sys.refuse") {
                             exit(1)
                         }
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        // TODO: use localized key
-                        Button("同意") {
+                        Button("sys.accept") {
                             Defaults[\.isPolicyShown] = true
+                            sheet = nil
                         }
                     }
                 }
-                // TODO: use localized key
-                .navigationTitle("用户协议")
+                .navigationTitle("app.userpolicy.title")
                 .navigationBarTitleDisplayMode(.inline)
         }
     }

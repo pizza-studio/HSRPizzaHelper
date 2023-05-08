@@ -47,13 +47,12 @@ struct SettingView: View {
                             Image(systemSymbol: .globe)
                         }
                     }
-                    // TODO: replace to HSR version
                     let url: String = {
                         switch Bundle.main.preferredLocalizations.first {
                         case "zh-Hans", "zh-Hant", "zh-HK":
-                            return "https://ophelper.top/static/faq.html"
+                            return "https://hsr.ophelper.top/static/faq.html"
                         default:
-                            return "https://ophelper.top/static/faq_en.html"
+                            return "https://hsr.ophelper.top/static/faq_en.html"
                         }
                     }()
                     NavigationLink(
