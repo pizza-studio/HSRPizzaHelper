@@ -16,6 +16,9 @@ enum AppConfig {
     /// A string representing the App Group identifier
     static let appGroupID: String = "group.Canglong.HSRPizzaHelper"
 
+    /// The name of folder which stores all background image
+    static let backgroundImageFolderName: String = "background_image"
+
     // This can be used to add debug statements.
     static var isDebug: Bool {
         #if DEBUG
@@ -48,7 +51,4 @@ enum AppConfiguration {
     case debug
     case testFlight
     case appStore
-    
-    /// The name of folder which stores all background image
-    static let backgroundImageFolderName: String = "background_image"
 }
