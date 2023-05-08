@@ -101,6 +101,7 @@ func findFolderURLWithImage(name imageName: String, inFolders folders: [URL]) ->
 }
 
 // https://developer.apple.com/forums/thread/710745
+// Fix widget cannot contain too big image
 extension UIImage {
     fileprivate func resized(toWidth width: CGFloat = 860, isOpaque: Bool = true) -> UIImage? {
         let canvas = CGSize(width: width, height: CGFloat(ceil(width / size.width * size.height)))
