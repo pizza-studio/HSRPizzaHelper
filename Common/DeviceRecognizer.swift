@@ -3,7 +3,7 @@
 //  HSRPizzaHelper
 //
 //  Created by Bill Haku on 2023/5/8.
-//  机型识别工具
+//  Device type Recognizer
 
 import Foundation
 import SwiftUI
@@ -12,7 +12,7 @@ import UIKit
 // MARK: - Device
 
 enum Device {
-    // MARK: 当前设备类型 iPhone iPad Mac
+    // MARK: Current device type: iPhone iPad Mac
 
     enum Devicetype {
         case iphone, ipad, mac
@@ -57,6 +57,7 @@ extension View {
     }
 }
 
+// swiftlint:disable line_length
 extension UIDevice {
     public static let modelIdentifier: String = {
         var systemInfo = utsname()
@@ -83,8 +84,7 @@ extension UIDevice {
             }
 
         // swiftlint:disable:next cyclomatic_complexity
-        func mapToDevice(identifier: String)
-            -> String { // swiftlint:disable:this cyclomatic_complexity
+        func mapToDevice(identifier: String) -> String {
             #if os(iOS)
             switch identifier {
             case "iPod5,1": return "iPod touch (5th generation)"
@@ -163,7 +163,8 @@ extension UIDevice {
             case "AudioAccessory1,1": return "HomePod"
             case "AudioAccessory5,1": return "HomePod mini"
             case "i386",
-                 "x86_64": return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "iOS"))"
+                 "x86_64":
+                return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "iOS"))"
             default: return identifier
             }
             #elseif os(tvOS)
@@ -171,7 +172,8 @@ extension UIDevice {
             case "AppleTV5,3": return "Apple TV 4"
             case "AppleTV6,2": return "Apple TV 4K"
             case "i386",
-                 "x86_64": return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "tvOS"))"
+                 "x86_64":
+                return "Simulator \(mapToDevice(identifier: ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? "tvOS"))"
             default: return identifier
             }
             #endif

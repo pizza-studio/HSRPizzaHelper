@@ -23,6 +23,7 @@ enum SimpleTapticType {
     case selection
 }
 
+// swiftlint:disable:next cyclomatic_complexity
 func simpleTaptic(type: SimpleTapticType) {
     let feedbackGenerator = UINotificationFeedbackGenerator()
     switch type {
@@ -85,12 +86,11 @@ class CHTaptic {
     }
 
     func complexTaptic() {
-        // 确保设备支持震动反馈
+        // Make sure support Taptic
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics
         else { return }
         var events = [CHHapticEvent]()
 
-        // 创建一个强烈的，锐利的震动
         let intensity = CHHapticEventParameter(
             parameterID: .hapticIntensity,
             value: 1
@@ -106,7 +106,6 @@ class CHTaptic {
         )
         events.append(event)
 
-        // 将震动事件转换成模式，立即播放
         do {
             let pattern = try CHHapticPattern(
                 events: events,
