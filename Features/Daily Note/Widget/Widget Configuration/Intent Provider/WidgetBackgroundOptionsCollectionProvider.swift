@@ -49,16 +49,16 @@ enum WidgetBackgroundOptionsProvider {
     }
 
     static func documentBackgroundFolderUrl(folderName: String) throws -> URL {
-        let backgroundFolderUrl = URL(
-            string: AppConfig.backgroundImageFolderName
-        )!.appendingPathComponent(folderName, isDirectory: true)
-        let url = try FileManager.default.url(
-            for: .documentDirectory,
-            in: .userDomainMask,
-            appropriateFor: backgroundFolderUrl,
-            create: true
+        let backgroundFolderUrl = FileManager.default
+            .containerURL(forSecurityApplicationGroupIdentifier: AppConfig.appGroupID)!
+            .appendingPathComponent(AppConfig.backgroundImageFolderName, isDirectory: true)
+            .appendingPathComponent(folderName, isDirectory: true)
+        try? FileManager.default.createDirectory(
+            at: backgroundFolderUrl,
+            withIntermediateDirectories: true,
+            attributes: nil
         )
-        return url
+        return backgroundFolderUrl
     }
 
     // MARK: Private

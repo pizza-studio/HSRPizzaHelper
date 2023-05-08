@@ -10,13 +10,13 @@ import Foundation
 // MARK: - RectangularWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
 
 extension RectangularWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
-    static let backgroundFolderName = "rectangular_widget_background"
+    static let backgroundFolderName = AppConfig.rectangularBackgroundImageFolderName
 }
 
 // MARK: - SquareWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
 
 extension SquareWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
-    static let backgroundFolderName = "square_widget_background"
+    static let backgroundFolderName = AppConfig.squareBackgroundImageFolderName
 }
 
 // MARK: - SquareWidgetConfigurationIntent + RandomBackgroundDrawable
