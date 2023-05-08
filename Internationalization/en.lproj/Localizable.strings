@@ -1,9 +1,9 @@
-/* 
+/*
   Localizable.strings
   HSRPizzaHelper
 
   Created by Bill Haku on 2023/5/5.
-  
+
 */
 
 "tab.home" = "Home";
@@ -46,6 +46,16 @@
 "sys.label.preferredlang" = "Preferred Language";
 "sys.label.rate" = "Rate in App Store";
 "sys.label.support" = "Support Us";
+"update.announcement" = "Update Announcements";
+"update.content" = "Update Contents: ";
+"update.move.tf" = "Update at TestFlight";
+"update.move.as" = "Update in App Store";
+"update.thank" = "You are up to date";
+"update.found" = "Newer Version Found";
+"update.read" = "Got it";
+"sys.refuse" = "Refuse";
+"sys.accept" = "Accept";
+"app.userpolicy.title" = "User Policy";
 "setting.widgetbackground.destination.square" = "Square Background";
 "setting.widgetbackground.destination.rectangular" = "Rectangular Background";
 "setting.widgetbackground.manage.add.title" = "New background";
@@ -55,7 +65,6 @@
 "setting.widgetbackground.manage.add.preview" = "Preview";
 "setting.widgetbackground.manage.add.name" = "Name";
 "setting.widgetbackground.manage.add.needname" = "Please name this background before saving";
-"" = "";
 "" = "";
 "" = "";
 "" = "";

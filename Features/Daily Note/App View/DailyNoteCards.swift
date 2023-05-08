@@ -11,6 +11,8 @@ import SwiftUI
 struct DailyNoteCards: View {
     // MARK: Internal
 
+    @State var isNewAccountSheetShow = false
+
     let refreshSubject: PassthroughSubject<(), Never>
 
     var body: some View {
@@ -18,6 +20,37 @@ struct DailyNoteCards: View {
             if account.isValid() {
                 InAppDailyNoteCardView(account: account, refreshSubject: refreshSubject)
             }
+        }
+        if accounts.filter({ $0.isValid() }).isEmpty {
+            HStack {
+                Spacer()
+                Label("account.new", systemSymbol: .plusCircle)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.blue, lineWidth: 4)
+                    )
+                    .background(
+                        .regularMaterial,
+                        in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    )
+                    .contentShape(RoundedRectangle(
+                        cornerRadius: 20,
+                        style: .continuous
+                    ))
+                    .clipShape(RoundedRectangle(
+                        cornerRadius: 20,
+                        style: .continuous
+                    ))
+                    .onTapGesture {
+                        isNewAccountSheetShow.toggle()
+                    }
+                    .sheet(isPresented: $isNewAccountSheetShow) {
+                        CreateAccountSheetView(account: Account(context: viewContext), isShown: $isNewAccountSheetShow)
+                    }
+                Spacer()
+            }
+            .listRowBackground(Color.white.opacity(0))
         }
     }
 

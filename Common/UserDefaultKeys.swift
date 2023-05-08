@@ -33,5 +33,15 @@ extension DefaultsKeys {
         .init("isPolicyShown", defaultValue: false)
     }
 
+    /// A `DefaultsKey` representing whether the user has seen a policy agreement screen
+    var checkedNewestVersion: DefaultsKey<Int> {
+        .init("checkedNewestVersion", defaultValue: 0)
+    }
+
+    /// A `DefaultsKey` representing whether the user has seen a policy agreement screen
+    var checkedUpdateVersions: DefaultsKey<[Int]> {
+        .init("checkedUpdateVersions", defaultValue: [])
+    }
+
     // MARK: - For widgets
 }
