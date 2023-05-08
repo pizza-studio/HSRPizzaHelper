@@ -60,7 +60,19 @@ extension Server: Codable {}
 
 extension Server: CustomStringConvertible {
     public var description: String {
-        // TODO: - localized the desc of server
-        rawValue
+        switch self {
+        case .china:
+            return "星穹列车"
+        case .bilibili:
+            return "无名客"
+        case .unitedStates:
+            return "USA"
+        case .europe:
+            return "Europe"
+        case .asia:
+            return "Asia"
+        case .hongKongMacauTaiwan:
+            return "TW/HK/MO"
+        }
     }
 }
