@@ -49,6 +49,7 @@
 		EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5B2A05053200CBF10B /* AboutView.swift */; };
 		EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5C2A05053200CBF10B /* ThanksView.swift */; };
 		EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
+		EA664C742A092E3A00DCEAC1 /* WidgetAccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */; };
 		EA68BC6A2A06986D00A7FF91 /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA68BC692A06986D00A7FF91 /* HBMihoyoAPI */; };
 		EA68BC6C2A06987300A7FF91 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = EA68BC6B2A06987300A7FF91 /* SwiftyUserDefaults */; };
 		EA702C072A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */; };
@@ -957,6 +958,7 @@
 				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,
 				BFDF6A842A08CAE200048FF9 /* AutoSheetDismiss.swift in Sources */,
 				BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */,
+				EA664C742A092E3A00DCEAC1 /* WidgetAccountCard.swift in Sources */,
 				EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */,
 				EADA63772A0201B200BF070F /* HomeView.swift in Sources */,
 				EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */,

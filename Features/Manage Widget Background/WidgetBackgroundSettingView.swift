@@ -47,19 +47,11 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
             ForEach(imageUrls, id: \.self) { url in
                 if let data = try? Data(contentsOf: url),
                    let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(
-                            getRatio(),
-                            contentMode: .fill
-                        )
-                        .clipped()
-                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                        .contentShape(RoundedRectangle(
-                            cornerRadius: 20,
-                            style: .continuous
-                        ))
-                        .listRowBackground(Color.white.opacity(0))
+                    BackgroundPreviewView(
+                        imageName: url.lastPathComponent.deletingPathExtension,
+                        image: uiImage,
+                        backgroundType: backgroundType
+                    )
                 }
             }
         }
@@ -123,22 +115,7 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
                             .multilineTextAlignment(.trailing)
                         }
                     }
-                    Section {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(
-                                getRatio(),
-                                contentMode: .fill
-                            )
-                            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                            .contentShape(RoundedRectangle(
-                                cornerRadius: 20,
-                                style: .continuous
-                            ))
-                            .listRowBackground(Color.white.opacity(0))
-                    } header: {
-                        Text("setting.widgetbackground.manage.add.preview")
-                    }
+                    BackgroundPreviewView(imageName: backgroundName, image: image, backgroundType: backgroundType)
                 }
             }
             .toolbar {
@@ -260,12 +237,90 @@ extension ContainBackgroundType {
         return try WidgetBackgroundOptionsProvider.documentBackgroundFolderUrl(folderName: folderName)
     }
 
-    func getRatio() -> CGSize {
+    func getSize() -> CGSize {
         switch backgroundType {
         case .square:
-            return CGSize(width: 1, height: 1)
+            return CGSize(width: 158, height: 158)
         case .rectangular:
-            return CGSize(width: 1, height: 0.48)
+            return CGSize(width: 338, height: 158)
         }
+    }
+}
+
+// MARK: - BackgroundPreviewView
+
+private struct BackgroundPreviewView: View, ContainBackgroundType {
+    let imageName: String
+    let image: UIImage
+    let backgroundType: BackgroundType
+
+    var body: some View {
+        Section {
+            VStack {
+                Spacer()
+                HStack {
+                    HStack(spacing: 5) {
+                        Image("Item_Trailblaze_Power")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 27)
+                            .shadow(radius: 10)
+                        HStack(alignment: .lastTextBaseline, spacing: 3) {
+                            Text("\(60)")
+                                .font(.title)
+                                .shadow(radius: 10)
+                            (
+                                Text(Date(timeIntervalSinceNow: (180 - 60) * 6 * 60), style: .time)
+                                    + Text("\n")
+                                    + Text(Date(timeIntervalSinceNow: (180 - 60) * 6 * 60), style: .relative)
+                            )
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                            .minimumScaleFactor(0.5)
+                            .font(.caption2)
+                        }
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(
+                        .ultraThinMaterial,
+                        in: RoundedRectangle(cornerRadius: 15, style: .continuous)
+                    )
+                    Spacer()
+                }
+            }
+            .padding(10)
+        }
+        .frame(getSize())
+        .background {
+            VStack {
+                HStack {
+                    WidgetAccountCard(accountName: imageName)
+                    Spacer()
+                }
+                Spacer()
+            }
+            .padding(10)
+        }
+        .background {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFill()
+                .clipped()
+                .ignoresSafeArea()
+        }
+        .ignoresSafeArea(edges: [.top, .bottom])
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .contentShape(RoundedRectangle(
+            cornerRadius: 20,
+            style: .continuous
+        ))
+        .listRowBackground(Color.clear)
+    }
+}
+
+extension View {
+    func frame(_ size: CGSize) -> some View {
+        frame(width: size.width, height: size.height)
     }
 }
