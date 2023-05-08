@@ -29,7 +29,8 @@ extension DailyNoteTimelineProvider {
     var defaultConfiguration: DailyNoteWidgetConfiguration {
         .init(
             account: defaultAccount,
-            background: Intent.defaultBackground
+            background: Intent.defaultBackground,
+            backgroundFolderName: SquareWidgetConfigurationIntent.backgroundFolderName
         )
     }
 }

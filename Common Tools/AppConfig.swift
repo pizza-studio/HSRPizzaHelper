@@ -48,4 +48,7 @@ enum AppConfiguration {
     case debug
     case testFlight
     case appStore
+    
+    /// The name of folder which stores all background image
+    static let backgroundImageFolderName: String = "background_image"
 }
