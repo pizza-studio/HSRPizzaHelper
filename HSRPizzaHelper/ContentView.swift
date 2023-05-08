@@ -17,16 +17,30 @@ struct ContentView: View {
     @State var sheetType: ContentViewSheetType?
     @State var newestVersionInfos: NewestVersion?
     @State var isJustUpdated: Bool = false
-
+    @State var selection: Int = 0
     let buildVersion = Int((Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? "") ?? 0
 
+    var index: Binding<Int> { Binding(
+        get: { selection },
+        set: {
+            if $0 != selection {
+                simpleTaptic(type: .medium)
+            }
+            selection = $0
+            UserDefaults.standard.setValue($0, forKey: "AppTabIndex")
+            UserDefaults.standard.synchronize()
+        }
+    ) }
+
     var body: some View {
-        TabView {
+        TabView(selection: index) {
             HomeView()
+                .tag(0)
                 .tabItem {
                     Label("tab.home", systemSymbol: .listBullet)
                 }
             SettingView()
+                .tag(1)
                 .tabItem {
                     Label("tab.settings", systemSymbol: .gear)
                 }
