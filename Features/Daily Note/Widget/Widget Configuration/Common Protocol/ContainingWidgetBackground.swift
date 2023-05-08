@@ -94,8 +94,8 @@ func findFolderURLWithImage(name imageName: String, inFolders folders: [URL]) ->
     for folderURL in folders {
         do {
             let contents = try fileManager.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
-            contents.first { fileUrl in
-                fileURL.lastPathComponent == imageName
+            return contents.first { fileUrl in
+                fileUrl.lastPathComponent == imageName
             }
         } catch {
             print("Error while enumerating files \(folderURL.path): \(error.localizedDescription)")
