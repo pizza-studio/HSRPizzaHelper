@@ -22,15 +22,17 @@ private var refreshWhenErrorAfterSecond = TimeInterval(refreshWhenErrorMinute * 
 
 protocol DailyNoteTimelineProvider: IntentTimelineProvider, HasDefaultAccount
     where Entry == DailyNoteEntry, Intent: DailyNoteWidgetConfigurationErasable {
-    var defaultConfiguration: DailyNoteWidgetConfiguration { get }
+    var defaultConfiguration: DailyNoteBackgroundWidgetConfiguration { get }
 }
 
 extension DailyNoteTimelineProvider {
-    var defaultConfiguration: DailyNoteWidgetConfiguration {
+    var defaultConfiguration: DailyNoteBackgroundWidgetConfiguration {
         .init(
             account: defaultAccount,
             background: Intent.defaultBackground,
-            backgroundFolderName: SquareWidgetConfigurationIntent.backgroundFolderName
+            backgroundFolderName: SquareWidgetConfigurationIntent.backgroundFolderName,
+            useAccessibilityBackground: true,
+            textColor: .primary
         )
     }
 }

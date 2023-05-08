@@ -71,8 +71,8 @@
 		EA8A770D2A0735F30005C511 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
 		EA8A770E2A0735F70005C511 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA8A77142A07365D0005C511 /* DailyNoteEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77132A07365D0005C511 /* DailyNoteEntry.swift */; };
-		EA8A77162A0737390005C511 /* DailyNoteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77152A0737390005C511 /* DailyNoteWidgetConfiguration.swift */; };
-		EA8A77172A0737450005C511 /* DailyNoteWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77152A0737390005C511 /* DailyNoteWidgetConfiguration.swift */; };
+		EA8A77162A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77152A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift */; };
+		EA8A77172A0737450005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77152A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift */; };
 		EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77182A0739B10005C511 /* DailyNoteTimelineProvider.swift */; };
 		EA8A771A2A073E500005C511 /* IntentAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898822A06A908000AF830 /* IntentAccountExtension.swift */; };
 		EA8A771C2A0741220005C511 /* WidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */; };
@@ -223,7 +223,7 @@
 		EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		EA8A77132A07365D0005C511 /* DailyNoteEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteEntry.swift; sourceTree = "<group>"; };
-		EA8A77152A0737390005C511 /* DailyNoteWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteWidgetConfiguration.swift; sourceTree = "<group>"; };
+		EA8A77152A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteBackgroundWidgetConfiguration.swift; sourceTree = "<group>"; };
 		EA8A77182A0739B10005C511 /* DailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
 		EA8A771E2A0743AC0005C511 /* SquareDailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareDailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
 		EA8A77202A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
@@ -462,7 +462,7 @@
 				EA8A77422A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition */,
 				EAE898822A06A908000AF830 /* IntentAccountExtension.swift */,
 				EADA17CF2A06C0CB00AF9784 /* WidgetBackgroundExtension.swift */,
-				EA8A77152A0737390005C511 /* DailyNoteWidgetConfiguration.swift */,
+				EA8A77152A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift */,
 				EA8A77382A0751980005C511 /* WidgetConfigurationIntentExtension.swift */,
 			);
 			path = "Intent Configuration Model";
@@ -935,7 +935,7 @@
 				EA9D80A22A08D94700534237 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
 				EA068D102A080818003C4E69 /* RectangularDailyNoteWidget.swift in Sources */,
 				EA8A77472A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
-				EA8A77162A0737390005C511 /* DailyNoteWidgetConfiguration.swift in Sources */,
+				EA8A77162A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
 				EA8A77142A07365D0005C511 /* DailyNoteEntry.swift in Sources */,
 				EA477FF82A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA8A77332A074C670005C511 /* WidgetBackgroundExtension.swift in Sources */,
@@ -1009,7 +1009,7 @@
 				EAE898712A06A134000AF830 /* IntentHandler.swift in Sources */,
 				EA8A772C2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,
 				EA702C0B2A06B0BC006D3BC9 /* Account+CoreDataProperties.swift in Sources */,
-				EA8A77172A0737450005C511 /* DailyNoteWidgetConfiguration.swift in Sources */,
+				EA8A77172A0737450005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
 				EA702C0F2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
 				EA8A77442A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
 				EAE8987E2A06A2A6000AF830 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,

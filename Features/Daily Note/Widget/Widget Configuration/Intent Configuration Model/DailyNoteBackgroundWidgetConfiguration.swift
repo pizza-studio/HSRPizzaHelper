@@ -7,13 +7,20 @@
 
 import Foundation
 import Intents
+import SwiftUI
 
-// MARK: - DailyNoteWidgetConfiguration
+// MARK: - DailyNoteBackgroundWidgetConfiguration
 
-struct DailyNoteWidgetConfiguration {
+struct DailyNoteBackgroundWidgetConfiguration {
     // MARK: Lifecycle
 
-    init(account: IntentAccount?, background: WidgetBackground, backgroundFolderName: String) {
+    init(
+        account: IntentAccount?,
+        background: WidgetBackground,
+        backgroundFolderName: String,
+        useAccessibilityBackground: Bool,
+        textColor: Color
+    ) {
         self.background = background
         if let account = account,
            account.identifier != nil {
@@ -24,6 +31,8 @@ struct DailyNoteWidgetConfiguration {
             self.account = nil
         }
         self.backgroundFolderName = backgroundFolderName
+        self.useAccessibilityBackground = useAccessibilityBackground
+        self.textColor = textColor
     }
 
     // MARK: Internal
@@ -33,11 +42,15 @@ struct DailyNoteWidgetConfiguration {
     let account: IntentAccount?
 
     let backgroundFolderName: String
+
+    let useAccessibilityBackground: Bool
+
+    let textColor: Color
 }
 
 // MARK: CanProvideWidgetBackground
 
-extension DailyNoteWidgetConfiguration: CanProvideWidgetBackground {}
+extension DailyNoteBackgroundWidgetConfiguration: CanProvideWidgetBackground {}
 
 // MARK: - DailyNoteWidgetConfigurationErasable
 
@@ -48,6 +61,9 @@ protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackg
     var account: IntentAccount? { get }
 
     var backgroundFolderName: String { get }
+
+    var useAccessibilityBackground: NSNumber? { get }
+    var textColor: IntentWidgetTextColor { get }
 }
 
 extension DailyNoteWidgetConfigurationErasable {
@@ -61,7 +77,26 @@ extension DailyNoteWidgetConfigurationErasable {
         return background
     }
 
-    func eraseToDailyNoteWidgetConfiguration() -> DailyNoteWidgetConfiguration {
-        .init(account: account, background: getBackground(), backgroundFolderName: backgroundFolderName)
+    func eraseToDailyNoteWidgetConfiguration() -> DailyNoteBackgroundWidgetConfiguration {
+        .init(
+            account: account,
+            background: getBackground(),
+            backgroundFolderName: backgroundFolderName,
+            useAccessibilityBackground: useAccessibilityBackground as? Bool ?? true,
+            textColor: { () -> Color in
+                switch textColor {
+                case .followSystem, .unknown:
+                    return .primary
+                case .black:
+                    return .black
+                case .white:
+                    return .white
+                }
+            }()
+        )
+//        .init(
+//            account: account,
+//            background: getBackground(),
+//            backgroundFolderName: backgroundFolderName)
     }
 }

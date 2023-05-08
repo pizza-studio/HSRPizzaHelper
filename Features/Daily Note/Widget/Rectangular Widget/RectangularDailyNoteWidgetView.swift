@@ -25,7 +25,10 @@ struct RectangularDailyNoteWidgetView: View {
         .background {
             VStack {
                 HStack {
-                    WidgetAccountCard(accountName: entry.configuration.account?.name)
+                    WidgetAccountCard(
+                        accountName: entry.configuration.account?.name,
+                        useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+                    )
                     Spacer()
                 }
                 Spacer()
@@ -42,6 +45,7 @@ struct RectangularDailyNoteWidgetView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+        .foregroundColor(entry.configuration.textColor)
     }
 }
 
@@ -56,10 +60,13 @@ private struct RectangularDailyNoteSuccessView: View {
             VStack {
                 Spacer()
                 HStack {
-                    WidgetStaminaInformationCard(info: dailyNote.staminaInformation)
-                        .padding([.bottom, .leading], 10)
-                        .padding(.trailing, 5)
-                        .frame(maxWidth: geo.size.width * 1 / 2)
+                    WidgetStaminaInformationCard(
+                        info: dailyNote.staminaInformation,
+                        useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+                    )
+                    .padding([.bottom, .leading], 10)
+                    .padding(.trailing, 5)
+                    .frame(maxWidth: geo.size.width * 1 / 2)
                     Spacer()
                 }
             }

@@ -295,7 +295,10 @@ private struct BackgroundPreviewView: View, ContainBackgroundType {
         .background {
             VStack {
                 HStack {
-                    WidgetAccountCard(accountName: imageName)
+                    WidgetAccountCard(
+                        accountName: imageName,
+                        useAccessibilityBackground: true
+                    )
                     Spacer()
                 }
                 Spacer()
