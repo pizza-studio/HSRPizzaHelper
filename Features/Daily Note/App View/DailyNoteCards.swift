@@ -24,8 +24,10 @@ struct DailyNoteCards: View {
             }
         }
         if accounts.filter({ $0.isValid() }).isEmpty {
-            AddNewAccountButton(isNewAccountSheetShow: $isNewAccountSheetShow)
-                .listRowBackground(Color.white.opacity(0))
+            AddNewAccountButton(
+                isNewAccountSheetShow: $isNewAccountSheetShow
+            )
+            .listRowBackground(Color.white.opacity(0))
         }
     }
 
