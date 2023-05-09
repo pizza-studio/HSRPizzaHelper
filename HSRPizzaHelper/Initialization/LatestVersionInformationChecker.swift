@@ -147,20 +147,18 @@ struct LatestVersionInfoView: View {
                     if !isJustUpdated {
                         switch AppConfig.appConfiguration {
                         case .debug, .testFlight:
-                            // TODO: Change to HSR App ID
                             Link(
                                 destination: URL(
-                                    string: "itms-beta://beta.itunes.apple.com/v1/app/1635319193"
+                                    string: "itms-beta://beta.itunes.apple.com/v1/app/6448894222"
                                 )!
                             ) {
                                 Text("update.move.tf")
                             }
                             .padding(.top)
                         case .appStore:
-                            // TODO: Change to HSR App ID
                             Link(
                                 destination: URL(
-                                    string: "itms-apps://apps.apple.com/us/app/id1635319193"
+                                    string: "itms-apps://apps.apple.com/us/app/id6448894222"
                                 )!
                             ) {
                                 Text("update.move.as")
