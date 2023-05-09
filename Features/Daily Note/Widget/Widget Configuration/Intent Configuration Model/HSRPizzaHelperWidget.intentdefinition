@@ -309,6 +309,13 @@
 							<string>Confirmation</string>
 						</dict>
 					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>useAccessibilityBackground</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
 					<key>INIntentParameterTag</key>
 					<integer>15</integer>
 					<key>INIntentParameterType</key>
@@ -579,6 +586,13 @@
 							<string>Confirmation</string>
 						</dict>
 					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>useAccessibilityBackground</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
 					<key>INIntentParameterTag</key>
 					<integer>15</integer>
 					<key>INIntentParameterType</key>
