@@ -21,6 +21,8 @@ struct WidgetBackgroundSettingView: View {
                 ManageWidgetBackgroundView(backgroundType: .rectangular)
             }
         }
+        .navigationTitle("setting.widgetbackground.title")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -55,6 +57,8 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
                 }
             }
         }
+        .navigationTitle("setting.widgetbackground.title")
+        .navigationBarTitleDisplayMode(.inline)
         .onChange(of: isAddBackgroundSheetShow, perform: { newValue in
             if newValue == false {
                 reloadImage()

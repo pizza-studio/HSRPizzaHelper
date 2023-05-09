@@ -60,7 +60,7 @@
 "setting.widgetbackground.destination.rectangular" = "Rectangular Background";
 "setting.widgetbackground.manage.add.title" = "New background";
 "setting.widgetbackground.manage.reselect" = "Select another image";
-"setting.widgetbackground.title" = "Manage Background";
+"setting.widgetbackground.title" = "Manage Widget Background";
 "sys.save" = "Save";
 "setting.widgetbackground.manage.add.preview" = "Preview";
 "setting.widgetbackground.manage.add.name" = "Name";

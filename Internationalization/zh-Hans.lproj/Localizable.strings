@@ -56,6 +56,15 @@
 "sys.refuse" = "拒绝";
 "sys.accept" = "同意";
 "app.userpolicy.title" = "用户协议";
+"setting.widgetbackground.destination.square" = "正方形小组件背景";
+"setting.widgetbackground.destination.rectangular" = "长方形小组件背景";
+"setting.widgetbackground.manage.add.title" = "新建背景";
+"setting.widgetbackground.manage.reselect" = "选择图片";
+"setting.widgetbackground.title" = "管理小组件背景";
+"sys.save" = "保存";
+"setting.widgetbackground.manage.add.preview" = "预览";
+"setting.widgetbackground.manage.add.name" = "名称";
+"setting.widgetbackground.manage.add.needname" = "请在保存前对该背景命名";
 "" = "";
 "" = "";
 "" = "";
