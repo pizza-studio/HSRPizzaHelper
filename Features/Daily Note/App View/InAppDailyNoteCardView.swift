@@ -15,14 +15,21 @@ import SwiftUI
 struct InAppDailyNoteCardView: View {
     // MARK: Lifecycle
 
-    init(account: Account, refreshSubject: PassthroughSubject<(), Never>) {
+    init(
+        account: Account,
+        isDispatchDetailShow: Bool,
+        refreshSubject: PassthroughSubject<(), Never>
+    ) {
         self._dailyNoteViewModel = StateObject(wrappedValue: DailyNoteViewModel(account: account))
+        self.isDispatchDetailShow = isDispatchDetailShow
         self.refreshSubject = refreshSubject
     }
 
     // MARK: Internal
 
     let refreshSubject: PassthroughSubject<(), Never>
+
+    let isDispatchDetailShow: Bool
 
     var body: some View {
         Section {
@@ -32,7 +39,7 @@ struct InAppDailyNoteCardView: View {
             case let .finished(result):
                 switch result {
                 case let .success(note):
-                    NoteView(account: account, note: note)
+                    NoteView(account: account, note: note, isDispatchDetailShow: isDispatchDetailShow)
                 case let .failure(error):
                     ErrorView(account: account, error: error)
                 }
@@ -68,7 +75,8 @@ struct InAppDailyNoteCardView: View {
 private struct NoteView: View {
     let account: Account
     let note: DailyNote
-    @State var isDispatchDetailShow = false
+
+    @State var isDispatchDetailShow: Bool
 
     var body: some View {
         VStack {
