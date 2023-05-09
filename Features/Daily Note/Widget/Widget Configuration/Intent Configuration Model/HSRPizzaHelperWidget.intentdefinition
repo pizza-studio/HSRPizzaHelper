@@ -214,7 +214,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Use Accessibility Background</string>
+					<string>Accessibility Background</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>RucQ8Q</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -491,7 +491,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Use Accessibility Background</string>
+					<string>Accessibility Background</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>XiMrNA</string>
 					<key>INIntentParameterDisplayPriority</key>
