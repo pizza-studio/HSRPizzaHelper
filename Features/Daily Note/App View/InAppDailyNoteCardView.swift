@@ -27,10 +27,6 @@ struct InAppDailyNoteCardView: View {
 
     // MARK: Internal
 
-    let refreshSubject: PassthroughSubject<(), Never>
-
-    let isDispatchDetailShow: Bool
-
     var body: some View {
         Section {
             switch dailyNoteViewModel.dailyNote {
@@ -62,6 +58,10 @@ struct InAppDailyNoteCardView: View {
     }
 
     // MARK: Private
+
+    private let refreshSubject: PassthroughSubject<(), Never>
+
+    private let isDispatchDetailShow: Bool
 
     @StateObject private var dailyNoteViewModel: DailyNoteViewModel
 
