@@ -34,7 +34,7 @@ public struct ExpeditionInformation {
 
         /// Remaining time of expedition
         public var remainingTime: TimeInterval {
-            _remainingTime - benchmarkTime.timeIntervalSince(fetchTime)
+            max(_remainingTime - benchmarkTime.timeIntervalSince(fetchTime), 0)
         }
 
         /// The status of the expedition
