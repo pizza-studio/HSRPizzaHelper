@@ -31,7 +31,7 @@ struct WidgetStaminaInformationCard: View {
                 (
                     Text(info.fullTime, style: .time)
                         + Text("\n")
-                        + Text(info.fullTime, style: .relative)
+                        + Text(timeIntervalFormatter.string(from: info.remainingTime)!)
                 )
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
@@ -91,3 +91,11 @@ extension View {
         modifier(AccessibilityBackground(enable: enable))
     }
 }
+
+private let timeIntervalFormatter: DateComponentsFormatter = {
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.minute, .hour]
+    formatter.unitsStyle = .abbreviated
+    formatter.maximumUnitCount = 2
+    return formatter
+}()

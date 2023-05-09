@@ -12,10 +12,13 @@ import WidgetKit
 
 // MARK: - DailyNoteTimelineProvider
 
-private let refreshWhenSucceedAfterHour: Int = 4
-private var refreshWhenSucceedAfterSecond = TimeInterval(refreshWhenSucceedAfterHour * 60 * 60)
+private var refreshWhenSucceedAfterHour: Double {
+    Defaults[\.widgetRefreshFrequencyInHour]
+}
 
-private let refreshWhenErrorMinute: Int = 5
+private var refreshWhenSucceedAfterSecond = refreshWhenSucceedAfterHour * 60 * 60
+
+private let refreshWhenErrorMinute: Int = 30
 private var refreshWhenErrorAfterSecond = TimeInterval(refreshWhenErrorMinute * 60)
 
 // MARK: - DailyNoteTimelineProvider

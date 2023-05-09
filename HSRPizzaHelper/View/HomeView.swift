@@ -9,6 +9,7 @@ import Combine
 import CoreData
 import HBMihoyoAPI
 import SwiftUI
+import WidgetKit
 
 struct HomeView: View {
     // MARK: Internal
@@ -21,6 +22,7 @@ struct HomeView: View {
             .navigationTitle("home.title")
             .refreshable {
                 dailyNoteRefreshSubject.send()
+                WidgetCenter.shared.reloadAllTimelines()
             }
         }.navigationViewStyle(.stack)
     }

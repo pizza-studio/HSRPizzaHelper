@@ -19,11 +19,9 @@ struct SettingView: View {
                         ManageAccountsView()
                     }
                 }
-                if #available(iOS 16, *) {
-                    Section {
-                        NavigationLink("setting.widgetbackground.title") {
-                            WidgetBackgroundSettingView()
-                        }
+                Section {
+                    NavigationLink("setting.widget.title") {
+                        WidgetSettingView()
                     }
                 }
                 Section {

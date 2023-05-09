@@ -20,12 +20,18 @@ struct DailyNoteCards: View {
     var body: some View {
         ForEach(accounts) { account in
             if account.isValid() {
-                InAppDailyNoteCardView(account: account, refreshSubject: refreshSubject)
+                InAppDailyNoteCardView(
+                    account: account,
+                    isDispatchDetailShow: accounts.count == 1,
+                    refreshSubject: refreshSubject
+                )
             }
         }
         if accounts.filter({ $0.isValid() }).isEmpty {
-            AddNewAccountButton(isNewAccountSheetShow: $isNewAccountSheetShow)
-                .listRowBackground(Color.white.opacity(0))
+            AddNewAccountButton(
+                isNewAccountSheetShow: $isNewAccountSheetShow
+            )
+            .listRowBackground(Color.white.opacity(0))
         }
     }
 
