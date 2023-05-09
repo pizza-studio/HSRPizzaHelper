@@ -106,6 +106,8 @@
 		EA9D80A22A08D94700534237 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */; };
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
 		EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */; };
+		EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */; };
+		EAC9E4172A09F83B00011E1F /* WidgetFrequencyEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4162A09F83B00011E1F /* WidgetFrequencyEditor.swift */; };
 		EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */; };
 		EADA17C62A06B76700AF9784 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
 		EADA17C82A06B7BE00AF9784 /* background_image in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* background_image */; };
@@ -240,6 +242,8 @@
 		EA9D024B2A04BE3800796516 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteCards.swift; sourceTree = "<group>"; };
 		EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimelineReloader.swift; sourceTree = "<group>"; };
+		EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingView.swift; sourceTree = "<group>"; };
+		EAC9E4162A09F83B00011E1F /* WidgetFrequencyEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetFrequencyEditor.swift; sourceTree = "<group>"; };
 		EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAccountCard.swift; sourceTree = "<group>"; };
 		EADA17C72A06B7BE00AF9784 /* background_image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = background_image; sourceTree = "<group>"; };
 		EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundOptionsCollectionProvider.swift; sourceTree = "<group>"; };
@@ -528,6 +532,16 @@
 			path = "Common Protocol";
 			sourceTree = "<group>";
 		};
+		EAC9E4122A09F70B00011E1F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */,
+				EAC9E4162A09F83B00011E1F /* WidgetFrequencyEditor.swift */,
+				EA1DE41C2A08B76D00CFB37C /* Manage Widget Background */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		EADA17D12A06C42C00AF9784 /* Widget Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,8 +613,8 @@
 		EAE519BA2A0175C200EF23B7 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				EA1DE41C2A08B76D00CFB37C /* Manage Widget Background */,
 				EA14BF922A04C595002EDBB4 /* System */,
+				EAC9E4122A09F70B00011E1F /* Setting */,
 				EA742BFA2A02389A00ACB8E4 /* Daily Note */,
 				EAE519BB2A0175DA00EF23B7 /* Manage Accounts */,
 			);
@@ -959,6 +973,7 @@
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
 				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,
+				EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */,
 				BFDF6A842A08CAE200048FF9 /* AutoSheetDismiss.swift in Sources */,
 				BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */,
 				EA664C742A092E3A00DCEAC1 /* WidgetAccountCard.swift in Sources */,
@@ -980,6 +995,7 @@
 				EA2C064F2A04AAE000A328E6 /* EditAccountView.swift in Sources */,
 				EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */,
+				EAC9E4172A09F83B00011E1F /* WidgetFrequencyEditor.swift in Sources */,
 				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
 				BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */,

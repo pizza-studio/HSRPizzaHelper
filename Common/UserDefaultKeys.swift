@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import SwiftyUserDefaults
 
 /// An adapter class that handles fetching and storing user defaults values
@@ -44,11 +45,31 @@ extension DefaultsKeys {
     }
 
     // MARK: - For widgets
-    var widgetTimelineLatestRefreshOnAppearOfAppTime: DefaultsKey<Date?> {
+
+    var widgetTimelineLatestStartAppRefreshTime: DefaultsKey<Date?> {
         .init("widgetTimelineLatestUpdatedOnAppearOfApp")
     }
 
-    var widgetRefreshFrequencyInHour: DefaultsKey<Int> {
-        .init("widgetRefreshFrequencyInHour", defaultValue: 5)
+    var widgetRefreshFrequencyInHour: DefaultsKey<Double> {
+        .init("widgetRefreshFrequencyInHour", defaultValue: 5.0)
+    }
+}
+
+// MARK: - ObservableSwiftyUserDefault
+
+class ObservableSwiftyUserDefault<T: DefaultsSerializable>: ObservableObject
+    where T.T == T {
+    // MARK: Lifecycle
+
+    init(keyPath: KeyPath<DefaultsKeys, DefaultsKey<T>>) {
+        self._value = SwiftyUserDefault(keyPath: keyPath, adapter: Defaults)
+    }
+
+    // MARK: Internal
+
+    @SwiftyUserDefault var value: T {
+        didSet {
+            objectWillChange.send()
+        }
     }
 }

@@ -15,11 +15,13 @@ extension View {
     }
 }
 
+// MARK: - WidgetTimelineReloader
+
 private struct WidgetTimelineReloader: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onAppBecomeActive {
-                guard let latestRefreshTime = Defaults[\.widgetTimelineLatestRefreshOnAppearOfAppTime] else {
+                guard let latestRefreshTime = Defaults[\.widgetTimelineLatestStartAppRefreshTime] else {
                     reloadAllTimelines()
                     return
                 }
@@ -27,7 +29,7 @@ private struct WidgetTimelineReloader: ViewModifier {
                     .hoursSince(
                         latestRefreshTime
                     )
-                let shouldRefreshAfterHour = Double(Defaults[\.widgetRefreshFrequencyInHour])
+                let shouldRefreshAfterHour = Defaults[\.widgetRefreshFrequencyInHour]
                 if hoursSinceLatestRefresh > shouldRefreshAfterHour {
                     reloadAllTimelines()
                 }
@@ -36,6 +38,6 @@ private struct WidgetTimelineReloader: ViewModifier {
 
     func reloadAllTimelines() {
         WidgetCenter.shared.reloadAllTimelines()
-        Defaults[\.widgetTimelineLatestRefreshOnAppearOfAppTime] = Date()
+        Defaults[\.widgetTimelineLatestStartAppRefreshTime] = Date()
     }
 }
