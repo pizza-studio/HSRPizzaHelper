@@ -16,11 +16,15 @@ struct WidgetBackgroundSettingView: View {
         List {
             NavigationLink("setting.widget.background.destination.square") {
                 ManageWidgetBackgroundView(backgroundType: .square)
+                    .navigationTitle("setting.widget.background.destination.square")
             }
             NavigationLink("setting.widget.background.destination.rectangular") {
                 ManageWidgetBackgroundView(backgroundType: .rectangular)
+                    .navigationTitle("setting.widget.background.destination.rectangular")
             }
         }
+        .navigationTitle("setting.widget.background.title")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
