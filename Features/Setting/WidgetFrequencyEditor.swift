@@ -32,7 +32,7 @@ struct WidgetFrequencyEditor: View {
             } label: {
                 Text(
                     String(
-                        format: "setting.widget.refresh.frequency.value"
+                        format: "setting.widget.refresh.frequency.everyvalue"
                             .localized(comment: "%lld Hr"),
                         Int(widgetRefreshFrequencyInHour.value)
                     )

@@ -69,6 +69,7 @@
 "setting.widget.refresh.header" = "Refresh";
 "setting.widget.refresh.frequency.title" = "Refresh Frequency";
 "setting.widget.refresh.frequency.value" = "%lld Hr";
+"setting.widget.refresh.frequency.everyvalue" = "Every %lld Hr";
 "setting.widget.title" = "Widget";
 "" = "";
 "" = "";
