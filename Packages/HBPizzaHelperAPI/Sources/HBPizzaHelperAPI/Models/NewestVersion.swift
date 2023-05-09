@@ -39,3 +39,5 @@ public struct NewestVersion: Codable {
     public var notice: MultiLanguageContents
     public var updateHistory: [VersionHistory]
 }
+
+// swiftlint:enable identifier_name

@@ -19,7 +19,7 @@ enum Method {
 // MARK: - HttpMethod
 
 @available(iOS 13, watchOS 6, *)
-struct HttpMethod<T: Codable> {
+enum HttpMethod<T: Codable> {
     static func homeRequest(
         _ method: Method,
         _ urlStr: String,
