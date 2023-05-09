@@ -83,6 +83,51 @@ private struct OtherSettingsView: View {
     var body: some View {
         List {
             Section {
+                NavigationLink("update.history.title") {
+                    HistoryVersionInfoView()
+                }
+            }
+
+            Section {
+                VStack(alignment: .leading) {
+                    Text("sys.about.otherapp.title")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Link(destination: URL(string: "https://apps.apple.com/cn/app/id1635319193")!) {
+                        HStack {
+                            Image("icon.ophelper")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(10)
+                            Text("ophelper.name")
+                                .foregroundColor(.primary)
+                            Spacer()
+                            Image(systemSymbol: .chevronForward)
+                        }
+                    }
+                }
+            }
+            Section {
+                Link(destination: URL(string: "https://github.com/pizza-studio/hsrpizzahelper")!) {
+                    Label {
+                        Text("sys.about.opensource.title")
+                    } icon: {
+                        Image("icon.github")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
+                }
+            } header: {
+                Text("sys.about.opensource.header")
+                    .textCase(.none)
+            }
+
+            Section {
+                NavigationLink("app.userpolicy.title") {
+                    WebBrowserView(url: "https://hsr.ophelper.top/static/policy")
+                        .navigationTitle("app.userpolicy.title")
+                        .navigationBarTitleDisplayMode(.inline)
+                }
                 NavigationLink("sys.about.title") {
                     AboutView()
                 }

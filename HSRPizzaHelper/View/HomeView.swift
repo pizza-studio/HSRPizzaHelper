@@ -24,7 +24,7 @@ struct HomeView: View {
                 dailyNoteRefreshSubject.send()
                 WidgetCenter.shared.reloadAllTimelines()
             }
-        }
+        }.navigationViewStyle(.stack)
     }
 
     // MARK: Private
