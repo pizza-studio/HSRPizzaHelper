@@ -89,6 +89,25 @@ private struct OtherSettingsView: View {
                     AboutView()
                 }
             }
+            Section {
+                VStack(alignment: .leading) {
+                    Text("sys.about.otherapp.title")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Link(destination: URL(string: "https://apps.apple.com/cn/app/id1635319193")!) {
+                        HStack {
+                            Image("ophelper.icon")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(10)
+                            Text("ophelper.name")
+                                .foregroundColor(.primary)
+                            Spacer()
+                            Image(systemSymbol: .chevronForward)
+                        }
+                    }
+                }
+            }
         }
         .navigationTitle("sys.more.title")
         .navigationBarTitleDisplayMode(.inline)
