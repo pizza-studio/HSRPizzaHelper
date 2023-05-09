@@ -85,15 +85,11 @@ private struct OtherSettingsView: View {
     var body: some View {
         List {
             Section {
-                NavigationLink("app.userpolicy.title") {
-                    WebBrowserView(url: "https://hsr.ophelper.top/static/policy")
-                        .navigationTitle("app.userpolicy.title")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
-                NavigationLink("sys.about.title") {
-                    AboutView()
+                NavigationLink("update.history.title") {
+                    HistoryVersionInfoView()
                 }
             }
+
             Section {
                 VStack(alignment: .leading) {
                     Text("sys.about.otherapp.title")
@@ -126,6 +122,17 @@ private struct OtherSettingsView: View {
             } header: {
                 Text("sys.about.opensource.header")
                     .textCase(.none)
+            }
+
+            Section {
+                NavigationLink("app.userpolicy.title") {
+                    WebBrowserView(url: "https://hsr.ophelper.top/static/policy")
+                        .navigationTitle("app.userpolicy.title")
+                        .navigationBarTitleDisplayMode(.inline)
+                }
+                NavigationLink("sys.about.title") {
+                    AboutView()
+                }
             }
         }
         .navigationTitle("sys.more.title")
