@@ -13,10 +13,10 @@ import Foundation
 public enum Server: String, CaseIterable {
     case china = "prod_gf_cn"
     case bilibili = "世界树" // TODO: still unknown.
-    case unitedStates = "os_usa"
-    case europe = "os_euro"
-    case asia = "os_asia"
-    case hongKongMacauTaiwan = "os_cht"
+    case unitedStates = "prod_official_usa"
+    case europe = "prod_official_euro"
+    case asia = "prod_official_asia"
+    case hongKongMacauTaiwan = "prod_official_cht"
 }
 
 extension Server {

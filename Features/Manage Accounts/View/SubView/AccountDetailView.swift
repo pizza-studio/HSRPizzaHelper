@@ -58,10 +58,25 @@ struct AccountDetailView: View {
                         .keyboardType(.numberPad)
                         .multilineTextAlignment(.trailing)
                 }
-                Picker("sys.label.server", selection: $unsavedServer) {
-                    ForEach(Server.allCases, id: \.self) { server in
-                        Text(server.description)
-                            .tag(server)
+                // Server Picker.
+                // I don't know why SwiftUI `Picker` does not work here.
+                // So I use `Menu` instead.
+                HStack {
+                    Text("sys.label.server")
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Menu {
+                        ForEach(Server.allCases, id: \.self) { server in
+                            Button(server.description) {
+                                unsavedServer = server
+                            }
+                        }
+                    } label: {
+                        Group {
+                            Text(unsavedServer.description)
+                            Image(systemSymbol: .chevronUpChevronDown)
+                        }
+                        .foregroundColor(.secondary)
                     }
                 }
             }
