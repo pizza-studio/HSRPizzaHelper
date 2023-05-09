@@ -44,4 +44,11 @@ extension DefaultsKeys {
     }
 
     // MARK: - For widgets
+    var widgetTimelineLatestRefreshOnAppearOfAppTime: DefaultsKey<Date?> {
+        .init("widgetTimelineLatestUpdatedOnAppearOfApp")
+    }
+
+    var widgetRefreshFrequencyInHour: DefaultsKey<Int> {
+        .init("widgetRefreshFrequencyInHour", defaultValue: 5)
+    }
 }

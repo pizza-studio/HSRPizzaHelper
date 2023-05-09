@@ -16,6 +16,7 @@ private struct AppInitializer: ViewModifier {
             .checkAndPopPolicySheet()
             .cleanApplicationIconBadgeNumber()
             .checkAndPopLatestVersionSheet()
+            .checkAndReloadWidgetTimeline()
     }
 }
 
