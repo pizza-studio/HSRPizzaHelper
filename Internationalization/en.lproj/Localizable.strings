@@ -65,10 +65,10 @@
 "setting.widgetbackground.manage.add.preview" = "Preview";
 "setting.widgetbackground.manage.add.name" = "Name";
 "setting.widgetbackground.manage.add.needname" = "Please name this background before saving";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"sys.about.otherapp.title" = "Other our works";
+"ophelper.name" = "GI Pizza Helper";
+"sys.about.opensource.title" = "Source Code Repository on GitHub";
+"sys.about.opensource.header" = "The source code of this App is opensourced under GPL-3.0 license. Everyone is welcomed to contribute to this project.";
 "" = "";
 "" = "";
 "" = "";

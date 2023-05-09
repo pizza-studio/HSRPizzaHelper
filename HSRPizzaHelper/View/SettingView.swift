@@ -96,7 +96,7 @@ private struct OtherSettingsView: View {
                         .foregroundColor(.secondary)
                     Link(destination: URL(string: "https://apps.apple.com/cn/app/id1635319193")!) {
                         HStack {
-                            Image("ophelper.icon")
+                            Image("icon.ophelper")
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .cornerRadius(10)
@@ -107,6 +107,20 @@ private struct OtherSettingsView: View {
                         }
                     }
                 }
+            }
+            Section {
+                Link(destination: URL(string: "https://github.com/pizza-studio/hsrpizzahelper")!) {
+                    Label {
+                        Text("sys.about.opensource.title")
+                    } icon: {
+                        Image("icon.github")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
+                }
+            } header: {
+                Text("sys.about.opensource.header")
+                    .textCase(.none)
             }
         }
         .navigationTitle("sys.more.title")
