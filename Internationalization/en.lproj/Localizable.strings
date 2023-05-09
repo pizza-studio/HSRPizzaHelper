@@ -77,4 +77,4 @@
 "setting.widget.refresh.frequency.everyvalue" = "Every %lld Hr";
 "setting.widget.title" = "Widget";
 "setting.widget.refresh.manually" = "Sync All Widgets";
-"setting.widget.refresh.footer" = "You can manually sync widgets by clicking the button or pulling down to refresh on the homepage.";
+"setting.widget.refresh.footer" = "You can manually sync widgets by clicking the button or pulling down to refresh on the homepage";
