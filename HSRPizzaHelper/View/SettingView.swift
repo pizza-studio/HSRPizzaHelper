@@ -15,18 +15,24 @@ struct SettingView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink("account.manage.title") {
+                    NavigationLink {
                         ManageAccountsView()
+                    } label: {
+                        Label("account.manage.title", systemSymbol: .personFill)
                     }
                 }
                 Section {
-                    NavigationLink("setting.widget.title") {
+                    NavigationLink {
                         WidgetSettingView()
+                    } label: {
+                        Label("setting.widget.title", systemSymbol: .platter2FilledIphone)
                     }
                 }
                 Section {
-                    Button("sys.label.rate") {
+                    Button {
                         ReviewHandler.requestReviewIfNotRequestedElseNavigateToAppStore()
+                    } label: {
+                        Label("sys.label.rate", systemSymbol: .starBubble)
                     }
                     // TODO: support us
 //                    NavigationLink(
@@ -34,7 +40,7 @@ struct SettingView: View {
 //                            storeManager: storeManager
 //                        )
 //                    ) {
-                    Text("sys.label.support")
+                    Label("sys.label.support", systemSymbol: .giftcard)
 //                    }
                 }
                 Section {
@@ -67,8 +73,10 @@ struct SettingView: View {
                     ) {
                         Label("sys.faq.title", systemSymbol: .personFillQuestionmark)
                     }
-                    NavigationLink("sys.more.title") {
+                    NavigationLink {
                         OtherSettingsView()
+                    } label: {
+                        Label("sys.more.title", systemSymbol: .ellipsis)
                     }
                 }
             }
