@@ -22,7 +22,7 @@ struct HomeView: View {
             .refreshable {
                 dailyNoteRefreshSubject.send()
             }
-        }
+        }.navigationViewStyle(.stack)
     }
 
     // MARK: Private
