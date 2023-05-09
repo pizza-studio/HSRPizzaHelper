@@ -169,7 +169,7 @@ private struct ErrorView: View {
             isEditAccountSheetShown.toggle()
         }
         .sheet(isPresented: $isEditAccountSheetShown) {
-            CreateAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
+            EditAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
         }
     }
 
