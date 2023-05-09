@@ -75,7 +75,7 @@ struct SettingView: View {
                 }
             }
             .navigationTitle("settings.title")
-        }.navigationViewStyle(.stack)
+        }
     }
 }
 
