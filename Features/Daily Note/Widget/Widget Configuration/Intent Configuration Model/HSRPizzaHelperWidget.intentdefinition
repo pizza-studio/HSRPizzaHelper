@@ -214,7 +214,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Use Accessibility Background</string>
+					<string>Accessibility Background</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>RucQ8Q</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -309,6 +309,13 @@
 							<string>Confirmation</string>
 						</dict>
 					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>useAccessibilityBackground</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
 					<key>INIntentParameterTag</key>
 					<integer>15</integer>
 					<key>INIntentParameterType</key>
@@ -484,7 +491,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Use Accessibility Background</string>
+					<string>Accessibility Background</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>XiMrNA</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -579,6 +586,13 @@
 							<string>Confirmation</string>
 						</dict>
 					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>useAccessibilityBackground</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
 					<key>INIntentParameterTag</key>
 					<integer>15</integer>
 					<key>INIntentParameterType</key>

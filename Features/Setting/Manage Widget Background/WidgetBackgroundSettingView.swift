@@ -14,13 +14,17 @@ import SwiftUI
 struct WidgetBackgroundSettingView: View {
     var body: some View {
         List {
-            NavigationLink("setting.widgetbackground.destination.square") {
+            NavigationLink("setting.widget.background.destination.square") {
                 ManageWidgetBackgroundView(backgroundType: .square)
+                    .navigationTitle("setting.widget.background.destination.square")
             }
-            NavigationLink("setting.widgetbackground.destination.rectangular") {
+            NavigationLink("setting.widget.background.destination.rectangular") {
                 ManageWidgetBackgroundView(backgroundType: .rectangular)
+                    .navigationTitle("setting.widget.background.destination.rectangular")
             }
         }
+        .navigationTitle("setting.widget.background.title")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -37,7 +41,7 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
     var body: some View {
         List {
             Section {
-                Button("setting.widgetbackground.manage.add.title") {
+                Button("setting.widget.background.manage.add.title") {
                     isAddBackgroundSheetShow.toggle()
                 }
                 .sheet(isPresented: $isAddBackgroundSheetShow) {
@@ -99,17 +103,17 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
         NavigationView {
             List {
                 Section {
-                    Button("setting.widgetbackground.manage.reselect") {
+                    Button("setting.widget.background.manage.reselect") {
                         isPhotoPickerShow.toggle()
                     }
                 }
                 if let image {
                     Section {
                         HStack {
-                            Text("setting.widgetbackground.manage.add.name")
+                            Text("setting.widget.background.manage.add.name")
                             Spacer()
                             TextField(
-                                "setting.widgetbackground.manage.add.name",
+                                "setting.widget.background.manage.add.name",
                                 text: $backgroundName
                             )
                             .multilineTextAlignment(.trailing)
@@ -144,7 +148,7 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
                     }
                 }
             }
-            .navigationTitle("setting.widgetbackground.manage.add.title")
+            .navigationTitle("setting.widget.background.manage.add.title")
             .navigationBarTitleDisplayMode(.inline)
         }
         .photosPicker(
@@ -163,7 +167,7 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
                 }
             }
         }
-        .alert("setting.widgetbackground.manage.add.needname", isPresented: $isNeedNameAlertShow, actions: {
+        .alert("setting.widget.background.manage.add.needname", isPresented: $isNeedNameAlertShow, actions: {
             Button("sys.ok") {
                 isNeedNameAlertShow.toggle()
             }
