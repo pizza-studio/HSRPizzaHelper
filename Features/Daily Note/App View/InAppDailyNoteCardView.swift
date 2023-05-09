@@ -106,18 +106,16 @@ private struct NoteView: View {
                 .font(.caption2)
             }
         }
-        VStack {
-            HStack {
-                Text("sys.label.dispatch").bold()
-                Spacer()
-                let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
-                let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
-                Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
-            }
-            .onTapGesture {
-                withAnimation(.linear) {
-                    isDispatchDetailShow.toggle()
-                }
+        HStack {
+            Text("sys.label.dispatch").bold()
+            Spacer()
+            let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
+            let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
+            Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
+        }
+        .onTapGesture {
+            withAnimation(.interactiveSpring()) {
+                isDispatchDetailShow.toggle()
             }
         }
         if isDispatchDetailShow {
@@ -146,14 +144,14 @@ private struct NoteView: View {
                             Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
                         }
                     }
-                    .onTapGesture {
-                        withAnimation(.linear) {
-                            isDispatchDetailShow.toggle()
-                        }
-                    }
                 }
             }
             .listRowSeparator(.hidden)
+            .onTapGesture {
+                withAnimation(.linear) {
+                    isDispatchDetailShow.toggle()
+                }
+            }
         }
     }
 }
