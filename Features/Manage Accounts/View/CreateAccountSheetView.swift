@@ -52,6 +52,11 @@ struct CreateAccountSheetView: View {
                     isSaveAccountFailAlertShown.toggle()
                 }
             }
+            .alert(isPresented: $isGetAccountFailAlertShown, error: getAccountError) {
+                Button("sys.ok") {
+                    isGetAccountFailAlertShown.toggle()
+                }
+            }
             .onChange(of: status) { newValue in
                 switch newValue {
                 case .gotCookie:
@@ -87,7 +92,9 @@ struct CreateAccountSheetView: View {
                     accountsForSelected = try await MiHoYoAPI.getUserGameRolesByCookie(region: region, cookie: cookie)
                     status = .gotAccount
                 } catch {
-                    print(error)
+                    getAccountError = .init(source: error)
+                    isGetAccountFailAlertShown.toggle()
+                    status = .pending
                 }
             }
         }
@@ -146,6 +153,9 @@ struct CreateAccountSheetView: View {
 
     @State private var isSaveAccountFailAlertShown: Bool = false
     @State private var saveAccountError: SaveAccountError?
+
+    @State private var isGetAccountFailAlertShown: Bool = false
+    @State private var getAccountError: GetAccountError?
 
     @State private var status: AddAccountStatus = .pending
 
@@ -247,6 +257,16 @@ extension SaveAccountError: LocalizedError {
 
     var helpAnchor: String? {
         "Please try login again. "
+    }
+}
+
+// MARK: - GetAccountError
+
+private struct GetAccountError: LocalizedError {
+    let source: Error
+
+    var errorDescription: String? {
+        source.localizedDescription
     }
 }
 
