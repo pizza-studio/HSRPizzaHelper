@@ -26,5 +26,7 @@ struct WidgetSettingView: View {
                 Text("setting.widget.refresh.header")
             }
         }
+        .navigationTitle("setting.widget.title")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
