@@ -67,8 +67,8 @@
 "setting.widget.background.manage.add.needname" = "请先为该背景命名";
 "sys.about.otherapp.title" = "我们的其他作品";
 "ophelper.name" = "原神披萨小助手";
-"sys.about.opensource.title" = "GitHub上的源代码仓库";
-"sys.about.opensource.header" = "本程序的源代码以GPL-3.0协议开源。欢迎所有人参与贡献。";
+"sys.about.opensource.title" = "GitHub仓库";
+"sys.about.opensource.footer" = "本程序的源代码以GPL-3.0协议开源。欢迎所有人参与贡献。";
 "update.history.title" = "更新历史记录";
 "setting.widget.appearance.header" = "外观";
 "setting.widget.refresh.header" = "同步";

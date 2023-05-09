@@ -67,8 +67,8 @@
 "setting.widget.background.manage.add.needname" = "Please name this background before saving";
 "sys.about.otherapp.title" = "Other our works";
 "ophelper.name" = "GI Pizza Helper";
-"sys.about.opensource.title" = "Source Code Repository on GitHub";
-"sys.about.opensource.header" = "The source code of this App is opensourced under GPL-3.0 license. Everyone is welcomed to contribute to this project.";
+"sys.about.opensource.title" = "GitHub Repository";
+"sys.about.opensource.footer" = "The source code of this App is opensourced under GPL-3.0 license. Everyone is welcomed to contribute to this project.";
 "update.history.title" = "Update History";
 "setting.widget.appearance.header" = "Appearance";
 "setting.widget.refresh.header" = "Synchronization";
@@ -78,3 +78,4 @@
 "setting.widget.title" = "Widget";
 "setting.widget.refresh.manually" = "Sync All Widgets";
 "setting.widget.refresh.footer" = "You can manually sync widgets by clicking the button or pulling down to refresh on the homepage";
+"ophelper.intro" = "A tools for Genshin Impact ";

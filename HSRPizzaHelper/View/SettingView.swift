@@ -89,23 +89,26 @@ private struct OtherSettingsView: View {
             }
 
             Section {
-                VStack(alignment: .leading) {
-                    Text("sys.about.otherapp.title")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                    Link(destination: URL(string: "https://apps.apple.com/cn/app/id1635319193")!) {
-                        HStack {
-                            Image("icon.ophelper")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
+                Link(destination: URL(string: "https://apps.apple.com/cn/app/id1635319193")!) {
+                    HStack {
+                        Image("icon.ophelper")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(10)
+                        VStack(alignment: .leading) {
                             Text("ophelper.name")
                                 .foregroundColor(.primary)
-                            Spacer()
-                            Image(systemSymbol: .chevronForward)
+                            Text("ophelper.intro")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
                         }
+
+                        Spacer()
+                        Image(systemSymbol: .chevronForward)
                     }
                 }
+            } header: {
+                Text("sys.about.otherapp.title")
             }
             Section {
                 Link(destination: URL(string: "https://github.com/pizza-studio/hsrpizzahelper")!) {
@@ -114,12 +117,11 @@ private struct OtherSettingsView: View {
                     } icon: {
                         Image("icon.github")
                             .resizable()
-                            .frame(width: 30, height: 30)
+                            .scaledToFit()
                     }
                 }
-            } header: {
-                Text("sys.about.opensource.header")
-                    .textCase(.none)
+            } footer: {
+                Text("sys.about.opensource.footer")
             }
 
             Section {
