@@ -10,6 +10,8 @@
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
 		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
+		BFA4A8492A0BD07400239BB0 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = BFA4A8482A0BD07400239BB0 /* Mantis */; };
+		BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */; };
 		BFCACD102A0491E9009B0B85 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BFCACD0F2A0491E9009B0B85 /* LICENSE */; };
 		BFD051D32A08B999008343E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D52A08B999008343E8 /* InfoPlist.strings */; };
 		BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */; };
@@ -194,6 +196,7 @@
 		BF14CFA92A049ADB00E437C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF14CFAB2A049ADE00E437C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BF14CFAC2A049AE000E437C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroper.swift; sourceTree = "<group>"; };
 		BFCACD0F2A0491E9009B0B85 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BFCACD112A04922E009B0B85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BFD051D42A08B999008343E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -314,6 +317,7 @@
 				EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */,
 				EAEC11E72A023E130024314D /* SwiftyUserDefaults in Frameworks */,
 				EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */,
+				BFA4A8492A0BD07400239BB0 /* Mantis in Frameworks */,
 				EAE519B42A01752A00EF23B7 /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				EA1DE41D2A08B78500CFB37C /* WidgetBackgroundSettingView.swift */,
+				BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */,
 			);
 			path = "Manage Widget Background";
 			sourceTree = "<group>";
@@ -789,6 +794,7 @@
 				EAEC11E62A023E130024314D /* SwiftyUserDefaults */,
 				EA37AEB32A02CDB900E4AADA /* SwifterSwift */,
 				BFDF6A7F2A08C32200048FF9 /* HBPizzaHelperAPI */,
+				BFA4A8482A0BD07400239BB0 /* Mantis */,
 			);
 			productName = HSRPizzaHelper;
 			productReference = EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */;
@@ -853,6 +859,7 @@
 				EAE519B22A01752A00EF23B7 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				EAEC11E52A023E130024314D /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 				EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */,
+				BFA4A8472A0BD07400239BB0 /* XCRemoteSwiftPackageReference "Mantis" */,
 			);
 			productRefGroup = EAE5197D2A01738600EF23B7 /* Products */;
 			projectDirPath = "";
@@ -1022,6 +1029,7 @@
 				EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */,
 				BFDF6A862A08D6C000048FF9 /* TapticSupport.swift in Sources */,
 				EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */,
+				BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */,
 				EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */,
 				EA2C064F2A04AAE000A328E6 /* EditAccountView.swift in Sources */,
 				EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */,
@@ -1456,6 +1464,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BFA4A8472A0BD07400239BB0 /* XCRemoteSwiftPackageReference "Mantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/guoyingtao/Mantis";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift.git";
@@ -1491,6 +1507,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BFA4A8482A0BD07400239BB0 /* Mantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFA4A8472A0BD07400239BB0 /* XCRemoteSwiftPackageReference "Mantis" */;
+			productName = Mantis;
+		};
 		BFDF6A7F2A08C32200048FF9 /* HBPizzaHelperAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HBPizzaHelperAPI;

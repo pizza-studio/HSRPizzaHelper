@@ -6,6 +6,7 @@
 //
 
 import HBMihoyoAPI
+import Mantis
 import SwiftUI
 
 // MARK: - SettingView

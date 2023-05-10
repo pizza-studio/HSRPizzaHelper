@@ -5,6 +5,7 @@
 //  Created by 戴藏龙 on 2023/5/8.
 //
 
+import Mantis
 import PhotosUI
 import SwiftUI
 
@@ -93,13 +94,10 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
 
     @Binding var isShow: Bool
 
-    var image: UIImage? {
-        if let selectedPhotoData {
-            return UIImage(data: selectedPhotoData)
-        } else {
-            return nil
-        }
-    }
+    @State var image: UIImage?
+    @State var shape: CropShapeType = .rect
+    @State var ratio: PresetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 2.2)
+    @State var cropperType: ImageCropperType = .normal
 
     var body: some View {
         NavigationView {
@@ -122,6 +120,15 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
                         }
                     }
                     BackgroundPreviewView(imageName: backgroundName, image: image, backgroundType: backgroundType)
+
+                    NavigationLink("编辑") {
+                        ImageCropper(
+                            image: $image,
+                            cropShapeType: $shape,
+                            presetFixedRatioType: $ratio,
+                            type: $cropperType
+                        )
+                    }
                 }
             }
             .toolbar {
@@ -163,6 +170,7 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
                 do {
                     if let data = try await newItem?.loadTransferable(type: Data.self) {
                         selectedPhotoData = data
+                        image = UIImage(data: data)
                     }
                 } catch {
                     self.error = .init(source: error)
