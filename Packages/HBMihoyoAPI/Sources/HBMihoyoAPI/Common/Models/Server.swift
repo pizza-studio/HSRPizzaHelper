@@ -66,7 +66,7 @@ extension Server: CustomStringConvertible {
         case .bilibili:
             return "无名客"
         case .unitedStates:
-            return "USA"
+            return "America"
         case .europe:
             return "Europe"
         case .asia:

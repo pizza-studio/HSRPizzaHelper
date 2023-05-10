@@ -68,7 +68,7 @@
 "sys.about.otherapp.title" = "開発者の他のApp";
 "ophelper.name" = "原神ピザ助手";
 "sys.about.opensource.title" = "GitHubリポジトリ";
-"sys.about.opensource.footer" = "このプログラムのソース コードは、GPL-3.0 契約に基づくオープン ソースです。このプロジェクトに貢献することを歓迎します";
+"sys.about.opensource.footer" = "このプログラムのソース コードは、GPL-3.0 Licenseに基づくオープン ソースです。このプロジェクトに貢献することを歓迎します";
 "update.history.title" = "更新履歴";
 "setting.widget.appearance.header" = "外観";
 "setting.widget.refresh.header" = "同期";
@@ -78,3 +78,5 @@
 "setting.widget.title" = "ウィジェット";
 "setting.widget.refresh.manually" = "全てのウィジェットを同期";
 "setting.widget.refresh.footer" = "上のボタンをタップするかプルダウンしてホーム ページを更新し、ウィジェットを手動で同期できます。";
+"ophelper.intro" = "原神のゲームツール";
+"account.new.test" = "アカウントをテスト";

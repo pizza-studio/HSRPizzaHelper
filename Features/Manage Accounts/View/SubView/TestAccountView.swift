@@ -18,7 +18,7 @@ struct TestAccountView: View {
             doTest()
         } label: {
             HStack {
-                Text("Test account")
+                Text("account.new.test")
                 Spacer()
                 buttonIcon()
             }
