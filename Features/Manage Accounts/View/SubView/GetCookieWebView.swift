@@ -40,7 +40,7 @@ struct GetCookieWebView: View {
                     }
                 }
             }
-        }
+        }.navigationViewStyle(.stack)
     }
 
     @MainActor
