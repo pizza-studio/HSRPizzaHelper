@@ -28,8 +28,8 @@
 "account.label.relogin" = "Re-Login";
 "account.explanation.title.1" = "How this App work?";
 "account.explanation.title.2" = "About your account security";
-"account.explanation.1" = "To get resin and other data from HoYoLAB, UID and login cookie of your account is needed. After logging into HoYoLAB, we will store them locally as well as on your private iCloud. Then our app will use the stored UID and cookie to get the resin and other information in a way similar to HoYoLAB app, then display them on your widget. Your private information will not be sent to other places other than HoYoLAB and iCloud, including us, so your personal information will be very secure.";
-"account.explanation.2" = "This procedure is not an illegal procedure such as plug-ins. This program abides by the relevant content of miHoYo's secondary creation rules. According to the reply of China's Genshin Impact customer service, the use of our program will not cause problems such as blocking. For details, see Settings - FAQ..";
+"account.explanation.1" = "To get resin and other data from HoYoLAB, UID and login cookie of your account is needed. After logging into HoYoLAB, we will store them locally as well as on your private iCloud. Then our app will use the stored UID and cookie to get the resin and other information in a way similar to HoYoLAB app, then display them on your widget. Your private information will not be sent to other places other than HoYoLAB and iCloud, including us, so your personal information will be very secure. This App is an opensource project. Everyone can check and supervise all the underlying behaviors of this program.";
+"account.explanation.2" = "This procedure is not an illegal procedure such as plug-ins. This program abides by the relevant content of miHoYo's secondary creation rules. This App is an opensource project. Everyone can check and supervise all the underlying behaviors of this program. For details, see Settings - FAQ.";
 "sys.label.server" = "Server";
 "sys.label.cookie" = "Cookie";
 "sys.about.title" = "About HSR Pizza Helper";
@@ -78,4 +78,5 @@
 "setting.widget.title" = "Widget";
 "setting.widget.refresh.manually" = "Sync All Widgets";
 "setting.widget.refresh.footer" = "You can manually sync widgets by clicking the button or pulling down to refresh on the homepage";
-"ophelper.intro" = "A tools for Genshin Impact";
+"ophelper.intro" = "A tool for Genshin Impact";
+"account.new.test" = "Test connection";

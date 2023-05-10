@@ -1,9 +1,9 @@
-/* 
+/*
   Localizable.strings
   HSRPizzaHelper
 
   Created by Bill Haku on 2023/5/5.
-  
+
 */
 
 "tab.home" = "主页";
@@ -28,8 +28,8 @@
 "account.label.relogin" = "重新登录";
 "account.explanation.title.1" = "关于我们的工作原理";
 "account.explanation.title.2" = "关于您的帐号安全";
-"account.explanation.1" = "为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，这是获取数据的必要参数。您在接下来的网页登录后，我们会在您的本地和iCloud存储您的个人数据。然后我们通过类似米游社的方式获取您的游戏内的数据信息。我们承诺，您的个人信息不会发送给任何人，包括我们自己。您的个人信息将会是非常安全的。";
-"account.explanation.2" = "本程序不属于外挂等违法程序。本程序遵守米哈游二次创作规则的相关内容。根据中国原神客服的答复，使用本程序不会造成封号等问题。具体内容参见设置 - FAQ.";
+"account.explanation.1" = "为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，这是获取数据的必要参数。您在接下来的网页登录后，我们会在您的本地和iCloud存储您的个人数据。然后我们通过类似米游社的方式获取您的游戏内的数据信息。您的个人信息不会发送给任何人，包括我们自己。您的个人信息将会是非常安全的。本程序是开源程序，每个人都可以检查和监督本程序的全部底层行为。";
+"account.explanation.2" = "本程序不属于外挂等违法程序。本程序遵守米哈游二次创作规则的相关内容。本程序是开源程序，每个人都可以检查和监督本程序的全部底层行为。具体内容参见设置 - FAQ.";
 "sys.label.server" = "服务器";
 "sys.label.cookie" = "Cookie";
 "sys.about.title" = "关于星铁披萨小助手";
@@ -78,4 +78,5 @@
 "setting.widget.title" = "小组件";
 "setting.widget.refresh.manually" = "同步所有小组件";
 "setting.widget.refresh.footer" = "您可以点击上方按钮或在主页下拉刷新以手动同步小组件。";
-"ophelper.intro" = "原神工具全家桶";
+"ophelper.intro" = "为原神玩家开发的游戏助手";
+"account.new.test" = "测试帐号连接";
