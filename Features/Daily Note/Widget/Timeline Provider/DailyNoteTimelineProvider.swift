@@ -33,7 +33,7 @@ extension DailyNoteTimelineProvider {
         .init(
             account: defaultAccount,
             background: Intent.defaultBackground,
-            backgroundFolderName: SquareWidgetConfigurationIntent.backgroundFolderName,
+            backgroundFolderName: LargeSquareWidgetConfigurationIntent.backgroundFolderName,
             useAccessibilityBackground: true,
             textColor: .primary,
             expeditionDisplayMode: .display,

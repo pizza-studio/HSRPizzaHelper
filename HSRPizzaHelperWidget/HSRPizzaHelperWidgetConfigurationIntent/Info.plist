@@ -12,8 +12,9 @@
 			<array/>
 			<key>IntentsSupported</key>
 			<array>
+				<string>LargeSquareWidgetConfigurationIntent</string>
 				<string>RectangularWidgetConfigurationIntent</string>
-				<string>SquareWidgetConfigurationIntent</string>
+				<string>SmallSquareWidgetConfigurationIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>

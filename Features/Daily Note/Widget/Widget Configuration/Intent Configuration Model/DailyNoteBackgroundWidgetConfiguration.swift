@@ -49,6 +49,7 @@ struct DailyNoteBackgroundWidgetConfiguration {
     enum StaminaPosition {
         case left
         case right
+        case center
     }
 
     let background: WidgetBackground
@@ -126,6 +127,8 @@ extension DailyNoteWidgetConfigurationErasable {
                             return .left
                         case .right:
                             return .right
+                        case .center:
+                            return .center
                         }
                     }())
                 }

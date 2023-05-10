@@ -7,8 +7,9 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>ConfigurationIntent</string>
+		<string>LargeSquareWidgetConfigurationIntent</string>
 		<string>RectangularWidgetConfigurationIntent</string>
-		<string>SquareWidgetConfigurationIntent</string>
+		<string>SmallSquareWidgetConfigurationIntent</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

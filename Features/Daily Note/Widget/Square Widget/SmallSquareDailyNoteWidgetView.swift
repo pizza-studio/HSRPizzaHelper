@@ -1,17 +1,17 @@
 //
-//  SquareDailyNoteWidgetView.swift
+//  SmallSquareDailyNoteWidgetView.swift
 //  HSRPizzaHelperWidgetExtension
 //
-//  Created by 戴藏龙 on 2023/5/7.
+//  Created by 戴藏龙 on 2023/5/10.
 //
 
 import HBMihoyoAPI
 import Intents
 import SwiftUI
 
-// MARK: - SquareDailyNoteWidgetView
+// MARK: - SmallSquareDailyNoteWidgetView
 
-struct SquareDailyNoteWidgetView: View {
+struct SmallSquareDailyNoteWidgetView: View {
     // MARK: Internal
 
     let entry: DailyNoteEntry
@@ -35,7 +35,7 @@ struct SquareDailyNoteWidgetView: View {
             Group {
                 switch entry.dailyNoteResult {
                 case let .success(dailyNote):
-                    SquareDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
+                    SmallSquareDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
                 case let .failure(error):
                     Text(error.localizedDescription)
                 }
@@ -60,27 +60,17 @@ struct SquareDailyNoteWidgetView: View {
     private let mainViewPadding: CGFloat = 10
 }
 
-// MARK: - SquareDailyNoteSuccessView
+// MARK: - SmallSquareDailyNoteSuccessView
 
-private struct SquareDailyNoteSuccessView: View {
-    @Environment(\.widgetFamily) private var widgetFamily
-
+private struct SmallSquareDailyNoteSuccessView: View {
     let entry: DailyNoteEntry
     let dailyNote: DailyNote
 
     var body: some View {
-        switch widgetFamily {
-        case .systemSmall:
-            WidgetStaminaInformationCard(
-                info: dailyNote.staminaInformation,
-                useAccessibilityBackground: entry.configuration.useAccessibilityBackground,
-                direction: .leftToRight
-            )
-        case .systemLarge:
-            WidgetDailyNoteSuccessLargeView(entry: entry, dailyNote: dailyNote)
-                .embed(in: .bottom)
-        default:
-            EmptyView()
-        }
+        WidgetStaminaInformationCard(
+            info: dailyNote.staminaInformation,
+            useAccessibilityBackground: entry.configuration.useAccessibilityBackground,
+            direction: .leftToRight
+        )
     }
 }

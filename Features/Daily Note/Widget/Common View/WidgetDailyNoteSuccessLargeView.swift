@@ -32,9 +32,15 @@ struct WidgetDailyNoteSuccessLargeView: View {
             WidgetStaminaInformationCard(
                 info: dailyNote.staminaInformation,
                 useAccessibilityBackground: entry.configuration.useAccessibilityBackground,
-                direction: position == .left ? .leftToRight : .rightToLeft
+                direction: position == .right ? .rightToLeft : .leftToRight
             )
-            .embed(in: position == .left ? .left : .right)
+            .embed(in: {
+                switch position {
+                case .left: return .left
+                case .right: return .right
+                case .center: return .center
+                }
+            }())
         }
     }
 }
