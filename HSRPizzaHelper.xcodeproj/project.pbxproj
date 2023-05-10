@@ -49,6 +49,7 @@
 		EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC102A0BB1AD00D2AC5F /* Algorithms */; };
 		EA4DAC132A0BB1C300D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC122A0BB1C300D2AC5F /* Algorithms */; };
 		EA4DAC152A0BB1C800D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC142A0BB1C800D2AC5F /* Algorithms */; };
+		EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */; };
 		EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5B2A05053200CBF10B /* AboutView.swift */; };
 		EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5C2A05053200CBF10B /* ThanksView.swift */; };
 		EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
@@ -228,6 +229,7 @@
 		EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountSheetView.swift; sourceTree = "<group>"; };
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
+		EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocalizedError.swift; sourceTree = "<group>"; };
 		EA60BE5B2A05053200CBF10B /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		EA60BE5C2A05053200CBF10B /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhaseOnChange.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
+				EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1037,6 +1040,7 @@
 				EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */,
 				EAC9E4172A09F83B00011E1F /* WidgetFrequencyEditor.swift in Sources */,
+				EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */,
 				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
 				BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */,
