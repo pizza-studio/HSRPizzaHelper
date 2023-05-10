@@ -24,7 +24,7 @@ struct RectangularDailyNoteWidgetView: View {
                 Text(error.localizedDescription)
             }
         }
-        .padding(mainViewPadding)
+        .padding(.vertical, mainViewPadding)
         .background {
             VStack {
                 HStack {
