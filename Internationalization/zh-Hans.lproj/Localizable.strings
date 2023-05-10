@@ -80,3 +80,4 @@
 "setting.widget.refresh.footer" = "您可以点击上方按钮或在主页下拉刷新以手动同步小组件。";
 "ophelper.intro" = "为原神玩家开发的游戏助手";
 "account.new.test" = "测试帐号连接";
+"setting.widget.background.manage.add.edit" = "裁剪图片";

@@ -80,3 +80,4 @@
 "setting.widget.refresh.footer" = "You can manually sync widgets by clicking the button or pulling down to refresh on the homepage";
 "ophelper.intro" = "A tool for Genshin Impact";
 "account.new.test" = "Test connection";
+"setting.widget.background.manage.add.edit" = "Crop Image";

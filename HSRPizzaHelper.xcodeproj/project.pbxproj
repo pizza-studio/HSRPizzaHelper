@@ -414,13 +414,13 @@
 			path = HSRPizzaHelperWidget;
 			sourceTree = "<group>";
 		};
-		EA1DE41C2A08B76D00CFB37C /* Manage Widget Background */ = {
+		EA1DE41C2A08B76D00CFB37C /* Widget Background */ = {
 			isa = PBXGroup;
 			children = (
 				EA1DE41D2A08B78500CFB37C /* WidgetBackgroundSettingView.swift */,
 				BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */,
 			);
-			path = "Manage Widget Background";
+			path = "Widget Background";
 			sourceTree = "<group>";
 		};
 		EA2C06502A04AC5200A328E6 /* SubView */ = {
@@ -432,6 +432,16 @@
 				EA9D024B2A04BE3800796516 /* AccountDetailView.swift */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		EA5F232E2A0BE35600D6D024 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */,
+				EAC9E4162A09F83B00011E1F /* WidgetFrequencyEditor.swift */,
+				EA1DE41C2A08B76D00CFB37C /* Widget Background */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		EA60BE602A050C4000CBF10B /* View Modifier */ = {
@@ -563,9 +573,7 @@
 		EAC9E4122A09F70B00011E1F /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */,
-				EAC9E4162A09F83B00011E1F /* WidgetFrequencyEditor.swift */,
-				EA1DE41C2A08B76D00CFB37C /* Manage Widget Background */,
+				EA5F232E2A0BE35600D6D024 /* Widget */,
 			);
 			path = Setting;
 			sourceTree = "<group>";

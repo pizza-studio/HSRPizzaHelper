@@ -12,10 +12,8 @@ struct WidgetSettingView: View {
     var body: some View {
         List {
             Section {
-                if #available(iOS 16, *) {
-                    NavigationLink("setting.widget.background.title") {
-                        WidgetBackgroundSettingView()
-                    }
+                NavigationLink("setting.widget.background.title") {
+                    WidgetBackgroundSettingView()
                 }
             } header: {
                 Text("setting.widget.appearance.header")
