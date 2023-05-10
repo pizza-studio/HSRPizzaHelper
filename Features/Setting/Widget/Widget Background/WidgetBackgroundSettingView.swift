@@ -258,7 +258,7 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
             .fullScreenCover(isPresented: $isEditImageCoverShow, content: {
                 ImageCropper(
                     image: $image,
-                    presetFixedRatioType: .alwaysUsingOnePresetFixedRatio(ratio: 2.2)
+                    presetFixedRatioType: .alwaysUsingOnePresetFixedRatio(ratio: ratio)
                 )
             })
             .toolbar {
