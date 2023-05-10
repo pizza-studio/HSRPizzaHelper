@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct WidgetSettingView: View {
     var body: some View {
@@ -21,9 +22,14 @@ struct WidgetSettingView: View {
             }
 
             Section {
+                Button("setting.widget.refresh.manually") {
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
                 WidgetFrequencyEditor()
             } header: {
                 Text("setting.widget.refresh.header")
+            } footer: {
+                Text("setting.widget.refresh.footer")
             }
         }
         .navigationTitle("setting.widget.title")

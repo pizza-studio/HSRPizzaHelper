@@ -60,9 +60,8 @@ class ReviewHandler {
         if currentVersion != lastVersionPromptedForReview {
             ReviewHandler.requestReview()
         } else {
-            // TODO: update AppID after upload to App Store Connect
             guard let writeReviewURL =
-                URL(string: "https://apps.apple.com/app/id1635319193?action=write-review")
+                URL(string: "https://apps.apple.com/app/id6448894222?action=write-review")
             else { fatalError("Expected a valid URL") }
             UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
         }

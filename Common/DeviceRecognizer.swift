@@ -181,3 +181,5 @@ extension UIDevice {
         return mapToDevice(identifier: identifier)
     }()
 }
+
+// swiftlint:enable line_length

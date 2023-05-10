@@ -67,8 +67,8 @@
 "setting.widget.background.manage.add.needname" = "请先为该背景命名";
 "sys.about.otherapp.title" = "我们的其他作品";
 "ophelper.name" = "原神披萨小助手";
-"sys.about.opensource.title" = "GitHub上的源代码仓库";
-"sys.about.opensource.header" = "本程序的源代码以GPL-3.0协议开源。欢迎所有人参与贡献。";
+"sys.about.opensource.title" = "GitHub仓库";
+"sys.about.opensource.footer" = "本程序的源代码以GPL-3.0协议开源。欢迎所有人参与贡献。";
 "update.history.title" = "更新历史记录";
 "setting.widget.appearance.header" = "外观";
 "setting.widget.refresh.header" = "同步";
@@ -76,3 +76,5 @@
 "setting.widget.refresh.frequency.value" = "%lld小时";
 "setting.widget.refresh.frequency.everyvalue" = "每%lld小时";
 "setting.widget.title" = "小组件";
+"setting.widget.refresh.manually" = "同步所有小组件";
+"setting.widget.refresh.footer" = "您可以点击上方按钮或在主页下拉刷新以手动同步小组件。";

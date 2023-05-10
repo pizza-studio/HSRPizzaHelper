@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import HBMihoyoAPI
+import SFSafeSymbols
 import SwiftUI
 
 // MARK: - InAppDailyNoteCardView
@@ -17,19 +18,13 @@ struct InAppDailyNoteCardView: View {
 
     init(
         account: Account,
-        isDispatchDetailShow: Bool,
         refreshSubject: PassthroughSubject<(), Never>
     ) {
         self._dailyNoteViewModel = StateObject(wrappedValue: DailyNoteViewModel(account: account))
-        self.isDispatchDetailShow = isDispatchDetailShow
         self.refreshSubject = refreshSubject
     }
 
     // MARK: Internal
-
-    let refreshSubject: PassthroughSubject<(), Never>
-
-    let isDispatchDetailShow: Bool
 
     var body: some View {
         Section {
@@ -39,7 +34,7 @@ struct InAppDailyNoteCardView: View {
             case let .finished(result):
                 switch result {
                 case let .success(note):
-                    NoteView(account: account, note: note, isDispatchDetailShow: isDispatchDetailShow)
+                    NoteView(account: account, note: note)
                 case let .failure(error):
                     ErrorView(account: account, error: error)
                 }
@@ -63,6 +58,8 @@ struct InAppDailyNoteCardView: View {
 
     // MARK: Private
 
+    private let refreshSubject: PassthroughSubject<(), Never>
+
     @StateObject private var dailyNoteViewModel: DailyNoteViewModel
 
     private var account: Account {
@@ -76,16 +73,15 @@ private struct NoteView: View {
     let account: Account
     let note: DailyNote
 
-    @State var isDispatchDetailShow: Bool
-
     var body: some View {
+        // Trailblaze_Power
         VStack {
             HStack {
                 Text("sys.label.trailblaze").bold()
                 Spacer()
             }
             HStack(spacing: 10) {
-                let iconFrame: CGFloat = 30
+                let iconFrame: CGFloat = 40
                 Image("Item_Trailblaze_Power")
                     .resizable()
                     .scaledToFit()
@@ -95,61 +91,60 @@ private struct NoteView: View {
                         .font(.title)
                     Text(" / \(note.staminaInformation.maxStamina)")
                         .font(.caption)
+                    Spacer()
+                    (
+                        Text(note.staminaInformation.fullTime, style: .relative)
+                            + Text("\n")
+                            + Text(dateFormatter.string(from: note.staminaInformation.fullTime))
+                    )
+                    .multilineTextAlignment(.trailing)
+                    .font(.caption2)
                 }
+            }
+        }
+        // Dispatch
+        VStack {
+            HStack {
+                Text("sys.label.dispatch").bold()
                 Spacer()
-                (
-                    Text(note.staminaInformation.fullTime, style: .time)
-                        + Text("\n")
-                        + Text(note.staminaInformation.fullTime, style: .relative)
-                )
-                .multilineTextAlignment(.trailing)
-                .font(.caption2)
+                let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
+                let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
+                Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
             }
-        }
-        HStack {
-            Text("sys.label.dispatch").bold()
-            Spacer()
-            let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
-            let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
-            Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
-        }
-        .onTapGesture {
-            withAnimation(.interactiveSpring()) {
-                isDispatchDetailShow.toggle()
-            }
-        }
-        if isDispatchDetailShow {
-            VStack {
+            VStack(spacing: 15) {
                 ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                let imageFrame: CGFloat = 40
-                                ForEach(expedition.avatarIconURLs, id: \.self) { url in
-                                    AsyncImage(url: url) { image in
-                                        image.resizable().scaledToFit()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(height: imageFrame)
+                    HStack(alignment: .bottom) {
+                        // Avatar Icon
+                        HStack {
+                            let imageFrame: CGFloat = 40
+                            ForEach(expedition.avatarIconURLs, id: \.self) { url in
+                                AsyncImage(url: url) { image in
+                                    image.resizable().scaledToFit()
+                                } placeholder: {
+                                    ProgressView()
                                 }
+                                .frame(height: imageFrame)
                             }
-                            Text("\(expedition.name)")
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
                         }
+                        // Expedition Name
+                        Text("\(expedition.name)")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
                         Spacer()
-                        VStack(alignment: .trailing) {
-                            Text(expedition.finishedTime, style: .time)
-                            Text(dateComponentsFormatter.string(from: expedition.remainingTime) ?? "")
+                        // Time
+                        if expedition.remainingTime > 0 {
+                            (
+                                Text(expedition.finishedTime, style: .relative)
+                                    + Text("\n")
+                                    + Text(dateFormatter.string(from: expedition.finishedTime))
+                            )
+                            .multilineTextAlignment(.trailing)
+                            .font(.caption2)
+                        } else {
+                            Image(systemSymbol: .checkmarkCircle)
+                                .foregroundColor(.green)
                         }
                     }
-                }
-            }
-            .listRowSeparator(.hidden)
-            .onTapGesture {
-                withAnimation(.linear) {
-                    isDispatchDetailShow.toggle()
                 }
             }
         }
@@ -186,15 +181,16 @@ private struct ErrorView: View {
 
 private let dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .none
-    dateFormatter.timeStyle = .medium
+    dateFormatter.dateStyle = .short
+    dateFormatter.timeStyle = .short
+    dateFormatter.doesRelativeDateFormatting = true
     return dateFormatter
 }()
 
 private let dateComponentsFormatter: DateComponentsFormatter = {
     let dateComponentFormatter = DateComponentsFormatter()
     dateComponentFormatter.allowedUnits = [.hour, .minute]
-    dateComponentFormatter.maximumUnitCount = 1
+    dateComponentFormatter.maximumUnitCount = 2
     dateComponentFormatter.unitsStyle = .brief
     return dateComponentFormatter
 }()

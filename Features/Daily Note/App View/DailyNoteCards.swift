@@ -22,7 +22,6 @@ struct DailyNoteCards: View {
             if account.isValid() {
                 InAppDailyNoteCardView(
                     account: account,
-                    isDispatchDetailShow: accounts.count == 1,
                     refreshSubject: refreshSubject
                 )
             }
