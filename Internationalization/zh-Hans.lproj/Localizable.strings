@@ -80,3 +80,10 @@
 "setting.widget.refresh.footer" = "您可以点击上方按钮或在主页下拉刷新以手动同步小组件。";
 "ophelper.intro" = "为原神玩家开发的游戏助手";
 "account.new.test" = "测试帐号连接";
+"setting.widget.background.context.menu.delete" = "删除";
+"setting.widget.background.context.menu.rename" = "重命名";
+"setting.widget.background.alert.rename.title" = "重命名背景";
+"setting.widget.background.alert.rename.textfield.title" = "输入新的文件名";
+"setting.widget.background.alert.rename.button.save" = "保存";
+"setting.widget.background.delete.confirmation.title" = "确认要删除该背景吗？";
+"setting.widget.background.delete.confirmation.delete" = "删除";

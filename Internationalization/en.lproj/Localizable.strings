@@ -80,3 +80,10 @@
 "setting.widget.refresh.footer" = "You can manually sync widgets by clicking the button or pulling down to refresh on the homepage";
 "ophelper.intro" = "A tool for Genshin Impact";
 "account.new.test" = "Test connection";
+"setting.widget.background.context.menu.delete" = "Delete";
+"setting.widget.background.context.menu.rename" = "Rename";
+"setting.widget.background.alert.rename.title" = "Enter a new name";
+"setting.widget.background.alert.rename.textfield.title" = "Enter a new name";
+"setting.widget.background.alert.rename.button.save" = "Save";
+"setting.widget.background.delete.confirmation.title" = "Determine to delete the background?";
+"setting.widget.background.delete.confirmation.delete" = "Delete";
