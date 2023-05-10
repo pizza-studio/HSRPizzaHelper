@@ -45,7 +45,7 @@ struct WidgetStaminaInformationCard: View {
         .accessibilityBackground(enable: useAccessibilityBackground)
     }
 
-    var iconFrame: CGFloat {
+    private var iconFrame: CGFloat {
         switch widgetFamily {
         case .systemSmall:
             return 20
@@ -56,7 +56,7 @@ struct WidgetStaminaInformationCard: View {
         }
     }
 
-    var staminaFont: Font {
+    private var staminaFont: Font {
         switch widgetFamily {
         case .systemSmall:
             return .title2

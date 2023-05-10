@@ -11,6 +11,8 @@ import SwiftUI
 // MARK: - RectangularDailyNoteWidgetView
 
 struct RectangularDailyNoteWidgetView: View {
+    // MARK: Internal
+
     let entry: DailyNoteEntry
 
     var body: some View {
@@ -22,6 +24,7 @@ struct RectangularDailyNoteWidgetView: View {
                 Text(error.localizedDescription)
             }
         }
+        .padding(mainViewPadding)
         .background {
             VStack {
                 HStack {
@@ -33,7 +36,7 @@ struct RectangularDailyNoteWidgetView: View {
                 }
                 Spacer()
             }
-            .padding(10)
+            .padding(mainViewPadding)
         }
         .background {
             Group {
@@ -47,6 +50,10 @@ struct RectangularDailyNoteWidgetView: View {
         .edgesIgnoringSafeArea(.all)
         .foregroundColor(entry.configuration.textColor)
     }
+
+    // MARK: Private
+
+    private let mainViewPadding: CGFloat = 10
 }
 
 // MARK: - RectangularDailyNoteSuccessView
@@ -64,7 +71,6 @@ private struct RectangularDailyNoteSuccessView: View {
                         info: dailyNote.staminaInformation,
                         useAccessibilityBackground: entry.configuration.useAccessibilityBackground
                     )
-                    .padding([.bottom, .leading], 10)
                     .padding(.trailing, 5)
                     .frame(maxWidth: geo.size.width * 1 / 2)
                     Spacer()
