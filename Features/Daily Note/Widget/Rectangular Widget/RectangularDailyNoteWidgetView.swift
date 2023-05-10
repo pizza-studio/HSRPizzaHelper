@@ -19,11 +19,14 @@ struct RectangularDailyNoteWidgetView: View {
         VStack {
             // MARK: Top: Account
 
-            WidgetAccountCard(
-                accountName: entry.configuration.account?.name,
-                useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-            )
-            .embed(in: .left)
+            if entry.configuration.showAccountName {
+                WidgetAccountCard(
+                    accountName: entry.configuration.account?.name,
+                    useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+                )
+                .embed(in: .left)
+            }
+
             Spacer()
 
             // MARK: Bottom: Result
@@ -31,7 +34,8 @@ struct RectangularDailyNoteWidgetView: View {
             Group {
                 switch entry.dailyNoteResult {
                 case let .success(dailyNote):
-                    RectangularDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
+                    WidgetDailyNoteSuccessLargeView(entry: entry, dailyNote: dailyNote)
+                        .embed(in: .bottom)
                 case let .failure(error):
                     Text(error.localizedDescription)
                 }
@@ -54,25 +58,4 @@ struct RectangularDailyNoteWidgetView: View {
     // MARK: Private
 
     private let mainViewPadding: CGFloat = 10
-}
-
-// MARK: - RectangularDailyNoteSuccessView
-
-private struct RectangularDailyNoteSuccessView: View {
-    let entry: DailyNoteEntry
-    let dailyNote: DailyNote
-
-    var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                WidgetStaminaInformationCard(
-                    info: dailyNote.staminaInformation,
-                    useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-                )
-                .padding(.trailing, 5)
-                Spacer()
-            }
-        }
-    }
 }

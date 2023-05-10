@@ -17,6 +17,8 @@ struct WidgetStaminaInformationCard: View {
 
     let useAccessibilityBackground: Bool
 
+    let direction: LayoutDirection
+
     var body: some View {
         HStack(spacing: 5) {
             Image("Item_Trailblaze_Power")
@@ -39,7 +41,7 @@ struct WidgetStaminaInformationCard: View {
                 .font(.caption2)
             }
         }
-
+        .environment(\.layoutDirection, direction)
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .accessibilityBackground(enable: useAccessibilityBackground)
@@ -65,6 +67,11 @@ struct WidgetStaminaInformationCard: View {
         default:
             return .title
         }
+    }
+
+    enum Direction {
+        case leftToRight
+        case rightToLeft
     }
 }
 

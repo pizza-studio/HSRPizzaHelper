@@ -20,11 +20,14 @@ struct SquareDailyNoteWidgetView: View {
         VStack {
             // MARK: Top - Account Name
 
-            WidgetAccountCard(
-                accountName: entry.configuration.account?.name,
-                useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-            )
-            .embed(in: .left)
+            if entry.configuration.showAccountName {
+                WidgetAccountCard(
+                    accountName: entry.configuration.account?.name,
+                    useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+                )
+                .embed(in: .left)
+            }
+
             Spacer()
 
             // MARK: Bottom - Result
@@ -70,20 +73,12 @@ private struct SquareDailyNoteSuccessView: View {
         case .systemSmall:
             WidgetStaminaInformationCard(
                 info: dailyNote.staminaInformation,
-                useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+                useAccessibilityBackground: entry.configuration.useAccessibilityBackground,
+                direction: .leftToRight
             )
         case .systemLarge:
-            VStack {
-                Spacer()
-                HStack {
-                    WidgetStaminaInformationCard(
-                        info: dailyNote.staminaInformation,
-                        useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-                    )
-                    .padding(.trailing, 5)
-                    Spacer()
-                }
-            }
+            WidgetDailyNoteSuccessLargeView(entry: entry, dailyNote: dailyNote)
+                .embed(in: .bottom)
         default:
             EmptyView()
         }
