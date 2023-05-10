@@ -82,3 +82,10 @@
 "account.new.test" = "Test connection";
 "setting.widget.background.manage.add.edit" = "Crop Image";
 "setting.widget.background.manage.add.notname" = "unnamed";
+"setting.widget.background.context.menu.delete" = "Delete";
+"setting.widget.background.context.menu.rename" = "Rename";
+"setting.widget.background.alert.rename.title" = "Enter a new name";
+"setting.widget.background.alert.rename.textfield.title" = "Enter a new name";
+"setting.widget.background.alert.rename.button.save" = "Save";
+"setting.widget.background.delete.confirmation.title" = "Determine to delete the background?";
+"setting.widget.background.delete.confirmation.delete" = "Delete";

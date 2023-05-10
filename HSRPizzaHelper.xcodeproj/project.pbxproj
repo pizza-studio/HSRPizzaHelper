@@ -49,6 +49,10 @@
 		EA477FF82A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F23312A0BE87000D6D024 /* OnFocused.swift */; };
+		EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC102A0BB1AD00D2AC5F /* Algorithms */; };
+		EA4DAC132A0BB1C300D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC122A0BB1C300D2AC5F /* Algorithms */; };
+		EA4DAC152A0BB1C800D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC142A0BB1C800D2AC5F /* Algorithms */; };
+		EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */; };
 		EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5B2A05053200CBF10B /* AboutView.swift */; };
 		EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5C2A05053200CBF10B /* ThanksView.swift */; };
 		EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
@@ -230,6 +234,7 @@
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
 		EA5F23312A0BE87000D6D024 /* OnFocused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFocused.swift; sourceTree = "<group>"; };
+		EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocalizedError.swift; sourceTree = "<group>"; };
 		EA60BE5B2A05053200CBF10B /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		EA60BE5C2A05053200CBF10B /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhaseOnChange.swift; sourceTree = "<group>"; };
@@ -304,6 +309,7 @@
 				EA8A773C2A0755EF0005C511 /* SFSafeSymbols in Frameworks */,
 				EA8A77322A074BB30005C511 /* CloudKit.framework in Frameworks */,
 				EA1673F32A063AF300436487 /* SwiftUI.framework in Frameworks */,
+				EA4DAC132A0BB1C300D2AC5F /* Algorithms in Frameworks */,
 				EA68BC6A2A06986D00A7FF91 /* HBMihoyoAPI in Frameworks */,
 				EA1673F12A063AF300436487 /* WidgetKit.framework in Frameworks */,
 				EA68BC6C2A06987300A7FF91 /* SwiftyUserDefaults in Frameworks */,
@@ -315,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFDF6A802A08C32200048FF9 /* HBPizzaHelperAPI in Frameworks */,
+				EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */,
 				EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */,
 				EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */,
 				EAEC11E72A023E130024314D /* SwiftyUserDefaults in Frameworks */,
@@ -331,6 +338,7 @@
 				EA702C132A06B232006D3BC9 /* HBMihoyoAPI in Frameworks */,
 				EADA17CA2A06B87600AF9784 /* SwifterSwift in Frameworks */,
 				EA702C152A06B26B006D3BC9 /* SwiftyUserDefaults in Frameworks */,
+				EA4DAC152A0BB1C800D2AC5F /* Algorithms in Frameworks */,
 				EAE8986E2A06A134000AF830 /* Intents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
+				EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -774,6 +783,7 @@
 				EA68BC6B2A06987300A7FF91 /* SwiftyUserDefaults */,
 				EA8A773B2A0755EF0005C511 /* SFSafeSymbols */,
 				EA8A773D2A0756390005C511 /* SwifterSwift */,
+				EA4DAC122A0BB1C300D2AC5F /* Algorithms */,
 			);
 			productName = HSRPizzaHelperWidgetExtension;
 			productReference = EA1673EF2A063AF300436487 /* HSRPizzaHelperWidgetExtension.appex */;
@@ -806,6 +816,7 @@
 				EA37AEB32A02CDB900E4AADA /* SwifterSwift */,
 				BFDF6A7F2A08C32200048FF9 /* HBPizzaHelperAPI */,
 				BFA4A8482A0BD07400239BB0 /* Mantis */,
+				EA4DAC102A0BB1AD00D2AC5F /* Algorithms */,
 			);
 			productName = HSRPizzaHelper;
 			productReference = EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */;
@@ -828,6 +839,7 @@
 				EA702C122A06B232006D3BC9 /* HBMihoyoAPI */,
 				EA702C142A06B26B006D3BC9 /* SwiftyUserDefaults */,
 				EADA17C92A06B87600AF9784 /* SwifterSwift */,
+				EA4DAC142A0BB1C800D2AC5F /* Algorithms */,
 			);
 			productName = HSRPizzaHelperWidgetConfigurationIntent;
 			productReference = EAE8986C2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.appex */;
@@ -871,6 +883,7 @@
 				EAEC11E52A023E130024314D /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 				EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				BFA4A8472A0BD07400239BB0 /* XCRemoteSwiftPackageReference "Mantis" */,
+				EA4DAC0F2A0BB1AD00D2AC5F /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = EAE5197D2A01738600EF23B7 /* Products */;
 			projectDirPath = "";
@@ -1047,6 +1060,7 @@
 				EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */,
 				EAC9E4172A09F83B00011E1F /* WidgetFrequencyEditor.swift in Sources */,
+				EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */,
 				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
 				BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */,
@@ -1492,6 +1506,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		EA4DAC0F2A0BB1AD00D2AC5F /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		EAE519AF2A0174D800EF23B7 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols.git";
@@ -1536,6 +1558,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */;
 			productName = SwifterSwift;
+		};
+		EA4DAC102A0BB1AD00D2AC5F /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA4DAC0F2A0BB1AD00D2AC5F /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		EA4DAC122A0BB1C300D2AC5F /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA4DAC0F2A0BB1AD00D2AC5F /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		EA4DAC142A0BB1C800D2AC5F /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA4DAC0F2A0BB1AD00D2AC5F /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
 		EA68BC692A06986D00A7FF91 /* HBMihoyoAPI */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -82,3 +82,10 @@
 "account.new.test" = "测试帐号连接";
 "setting.widget.background.manage.add.edit" = "裁剪图片";
 "setting.widget.background.manage.add.notname" = "未命名";
+"setting.widget.background.context.menu.delete" = "删除";
+"setting.widget.background.context.menu.rename" = "重命名";
+"setting.widget.background.alert.rename.title" = "重命名背景";
+"setting.widget.background.alert.rename.textfield.title" = "输入新的文件名";
+"setting.widget.background.alert.rename.button.save" = "保存";
+"setting.widget.background.delete.confirmation.title" = "确认要删除该背景吗？";
+"setting.widget.background.delete.confirmation.delete" = "删除";

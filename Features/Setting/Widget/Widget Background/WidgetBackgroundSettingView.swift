@@ -55,6 +55,14 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
                         image: uiImage,
                         backgroundType: backgroundType
                     )
+                    .contextMenu {
+                        Button("setting.widget.background.context.menu.delete", role: .destructive) {
+                            alert = .deletingConfirmation(url)
+                        }
+                        Button("setting.widget.background.context.menu.rename") {
+                            alert = .renaming(url, newName: "")
+                        }
+                    }
                 }
             }
         }
@@ -68,18 +76,142 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
         .onAppear {
             reloadImage()
         }
+        .alert(isPresented: $isErrorAlertShow, error: error) {
+            Button("sys.ok") {
+                isErrorAlertShow.toggle()
+                error = nil
+            }
+        }
+        .alert("setting.widget.background.alert.rename.title", isPresented: isRenameAlertShow) {
+            TextField("setting.widget.background.alert.rename.textfield.title", text: newName)
+            Button("setting.widget.background.alert.rename.button.save") {
+                renameSelectedBackground()
+            }
+            cancelButton()
+        }
+        .confirmationDialog(
+            "setting.widget.background.delete.confirmation.title",
+            isPresented: isDeletingConfirmationShow
+        ) {
+            Button("setting.widget.background.delete.confirmation.delete", role: .destructive) {
+                if case let .deletingConfirmation(url) = alert {
+                    deleteSelectedBackground(url: url)
+                } else {
+                    alert = .notShowing
+                }
+            }
+            cancelButton()
+        }
     }
 
     func reloadImage() {
-        imageUrls = (
-            try? WidgetBackgroundOptionsProvider
-                .getWidgetBackgroundUrlsFromFolder(in: getFolderUrl())
-        ) ?? []
+        withAnimation {
+            imageUrls = (
+                try? WidgetBackgroundOptionsProvider
+                    .getWidgetBackgroundUrlsFromFolder(in: getFolderUrl())
+            ) ?? []
+        }
+    }
+
+    func renameSelectedBackground() {
+        defer {
+            reloadImage()
+            alert = .notShowing
+        }
+        switch alert {
+        case let .renaming(url, newName):
+            let newFileURL = url.deletingLastPathComponent().appendingPathComponent(newName)
+            do {
+                try FileManager.default.moveItem(at: url, to: newFileURL)
+            } catch {
+                self.error = .init(source: error)
+            }
+        default:
+            return
+        }
+    }
+
+    func deleteSelectedBackground(url: URL) {
+        defer {
+            reloadImage()
+            alert = .notShowing
+        }
+        switch alert {
+        case let .deletingConfirmation(url):
+            do {
+                try FileManager.default.removeItem(at: url)
+            } catch {
+                self.error = .init(source: error)
+                isErrorAlertShow.toggle()
+            }
+        default:
+            return
+        }
+    }
+
+    @ViewBuilder
+    func cancelButton() -> some View {
+        Button("sys.cancel", role: .cancel) {
+            alert = .notShowing
+        }
     }
 
     // MARK: Private
 
+    private enum Alert {
+        case notShowing
+        case renaming(URL, newName: String)
+        case deletingConfirmation(URL)
+    }
+
     @State private var isAddBackgroundSheetShow: Bool = false
+
+    @State private var isErrorAlertShow: Bool = false
+    @State private var error: SourceLocalizedError?
+
+    @State private var alert: Alert = .notShowing
+
+    private var newName: Binding<String> {
+        .init {
+            if case let .renaming(_, newName) = alert {
+                return newName
+            } else {
+                return ""
+            }
+        } set: { newValue in
+            if case let .renaming(url, _) = alert {
+                alert = .renaming(url, newName: newValue)
+            }
+        }
+    }
+
+    private var isRenameAlertShow: Binding<Bool> {
+        .init {
+            if case .renaming = alert {
+                return true
+            } else {
+                return false
+            }
+        } set: { newValue in
+            if newValue == false {
+                alert = .notShowing
+            }
+        }
+    }
+
+    private var isDeletingConfirmationShow: Binding<Bool> {
+        .init {
+            if case .deletingConfirmation = alert {
+                return true
+            } else {
+                return false
+            }
+        } set: { newValue in
+            if newValue == false {
+                alert = .notShowing
+            }
+        }
+    }
 }
 
 // MARK: - AddWidgetBackgroundCover
