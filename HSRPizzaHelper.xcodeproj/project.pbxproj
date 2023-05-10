@@ -48,11 +48,11 @@
 		EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF82A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
-		EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F23312A0BE87000D6D024 /* OnFocused.swift */; };
 		EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC102A0BB1AD00D2AC5F /* Algorithms */; };
 		EA4DAC132A0BB1C300D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC122A0BB1C300D2AC5F /* Algorithms */; };
 		EA4DAC152A0BB1C800D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC142A0BB1C800D2AC5F /* Algorithms */; };
 		EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */; };
+		EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F23312A0BE87000D6D024 /* OnFocused.swift */; };
 		EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5B2A05053200CBF10B /* AboutView.swift */; };
 		EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5C2A05053200CBF10B /* ThanksView.swift */; };
 		EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
@@ -233,8 +233,8 @@
 		EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountSheetView.swift; sourceTree = "<group>"; };
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
-		EA5F23312A0BE87000D6D024 /* OnFocused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFocused.swift; sourceTree = "<group>"; };
 		EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocalizedError.swift; sourceTree = "<group>"; };
+		EA5F23312A0BE87000D6D024 /* OnFocused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFocused.swift; sourceTree = "<group>"; };
 		EA60BE5B2A05053200CBF10B /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		EA60BE5C2A05053200CBF10B /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhaseOnChange.swift; sourceTree = "<group>"; };
@@ -1149,7 +1149,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/Info.plist;
@@ -1179,7 +1179,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/Info.plist;
@@ -1326,7 +1326,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -1363,7 +1363,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -1397,7 +1397,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/HSRPizzaHelperWidgetConfigurationIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/Info.plist;
@@ -1425,7 +1425,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/HSRPizzaHelperWidgetConfigurationIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/Info.plist;
