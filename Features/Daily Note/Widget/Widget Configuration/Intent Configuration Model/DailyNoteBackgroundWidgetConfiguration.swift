@@ -19,7 +19,9 @@ struct DailyNoteBackgroundWidgetConfiguration {
         background: WidgetBackground,
         backgroundFolderName: String,
         useAccessibilityBackground: Bool,
-        textColor: Color
+        textColor: Color,
+        expeditionDisplayMode: ExpeditionDisplayMode,
+        showAccountName: Bool
     ) {
         self.background = background
         if let account = account,
@@ -33,9 +35,21 @@ struct DailyNoteBackgroundWidgetConfiguration {
         self.backgroundFolderName = backgroundFolderName
         self.useAccessibilityBackground = useAccessibilityBackground
         self.textColor = textColor
+        self.expeditionDisplayMode = expeditionDisplayMode
+        self.showAccountName = showAccountName
     }
 
     // MARK: Internal
+
+    enum ExpeditionDisplayMode {
+        case display
+        case hide(staminaPosition: StaminaPosition)
+    }
+
+    enum StaminaPosition {
+        case left
+        case right
+    }
 
     let background: WidgetBackground
 
@@ -46,6 +60,10 @@ struct DailyNoteBackgroundWidgetConfiguration {
     let useAccessibilityBackground: Bool
 
     let textColor: Color
+
+    let expeditionDisplayMode: ExpeditionDisplayMode
+
+    let showAccountName: Bool
 }
 
 // MARK: CanProvideWidgetBackground
@@ -64,6 +82,11 @@ protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackg
 
     var useAccessibilityBackground: NSNumber? { get }
     var textColor: IntentWidgetTextColor { get }
+
+    var showExpedition: NSNumber? { get }
+    var staminaPosition: IntentStaminaPosition { get }
+
+    var showAccountName: NSNumber? { get }
 }
 
 extension DailyNoteWidgetConfigurationErasable {
@@ -92,7 +115,22 @@ extension DailyNoteWidgetConfigurationErasable {
                 case .white:
                     return .white
                 }
-            }()
+            }(),
+            expeditionDisplayMode: {
+                if showExpedition as? Bool ?? true {
+                    return .display
+                } else {
+                    return .hide(staminaPosition: {
+                        switch staminaPosition {
+                        case .left, .unknown:
+                            return .left
+                        case .right:
+                            return .right
+                        }
+                    }())
+                }
+            }(),
+            showAccountName: showAccountName as? Bool ?? true
         )
 //        .init(
 //            account: account,

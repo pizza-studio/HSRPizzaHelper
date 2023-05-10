@@ -35,7 +35,9 @@ extension DailyNoteTimelineProvider {
             background: Intent.defaultBackground,
             backgroundFolderName: SquareWidgetConfigurationIntent.backgroundFolderName,
             useAccessibilityBackground: true,
-            textColor: .primary
+            textColor: .primary,
+            expeditionDisplayMode: .display,
+            showAccountName: true
         )
     }
 }
