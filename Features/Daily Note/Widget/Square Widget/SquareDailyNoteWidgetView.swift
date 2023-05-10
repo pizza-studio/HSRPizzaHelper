@@ -17,28 +17,30 @@ struct SquareDailyNoteWidgetView: View {
     let entry: DailyNoteEntry
 
     var body: some View {
-        Group {
-            switch entry.dailyNoteResult {
-            case let .success(dailyNote):
-                SquareDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
-            case let .failure(error):
-                Text(error.localizedDescription)
-            }
-        }
-//        .padding(mainViewPadding)
-        .background {
-            VStack {
-                HStack {
-                    WidgetAccountCard(
-                        accountName: entry.configuration.account?.name,
-                        useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-                    )
-                    Spacer()
-                }
+        VStack {
+            // MARK: Top - Account Name
+
+            HStack {
+                WidgetAccountCard(
+                    accountName: entry.configuration.account?.name,
+                    useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+                )
                 Spacer()
             }
-            .padding(mainViewPadding)
+            Spacer()
+
+            // MARK: Bottom - Result
+
+            Group {
+                switch entry.dailyNoteResult {
+                case let .success(dailyNote):
+                    SquareDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
+                case let .failure(error):
+                    Text(error.localizedDescription)
+                }
+            }
         }
+        .padding(mainViewPadding)
         .background {
             Group {
                 if let image = entry.configuration.backgroundImage() {
@@ -66,34 +68,26 @@ private struct SquareDailyNoteSuccessView: View {
     let dailyNote: DailyNote
 
     var body: some View {
-        Group {
-            switch widgetFamily {
-            case .systemSmall:
-                VStack {
-                    Spacer()
+        switch widgetFamily {
+        case .systemSmall:
+            WidgetStaminaInformationCard(
+                info: dailyNote.staminaInformation,
+                useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+            )
+        case .systemLarge:
+            VStack {
+                Spacer()
+                HStack {
                     WidgetStaminaInformationCard(
                         info: dailyNote.staminaInformation,
                         useAccessibilityBackground: entry.configuration.useAccessibilityBackground
                     )
+                    .padding(.trailing, 5)
+                    Spacer()
                 }
-            case .systemLarge:
-                GeometryReader { geo in
-                    VStack {
-                        Spacer()
-                        HStack {
-                            WidgetStaminaInformationCard(
-                                info: dailyNote.staminaInformation,
-                                useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-                            )
-                            .padding(.trailing, 5)
-                            .frame(maxWidth: geo.size.width * 1 / 2)
-                            Spacer()
-                        }
-                    }
-                }
-            default:
-                EmptyView()
             }
+        default:
+            EmptyView()
         }
     }
 }

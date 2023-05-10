@@ -29,7 +29,7 @@ struct WidgetStaminaInformationCard: View {
                     .font(staminaFont)
                     .shadow(radius: 10)
                 (
-                    Text(info.fullTime, style: .time)
+                    Text(dateFormatter.string(from: info.fullTime))
                         + Text("\n")
                         + Text(timeIntervalFormatter.string(from: info.remainingTime)!)
                 )
@@ -97,5 +97,12 @@ private let timeIntervalFormatter: DateComponentsFormatter = {
     formatter.allowedUnits = [.minute, .hour]
     formatter.unitsStyle = .abbreviated
     formatter.maximumUnitCount = 2
+    return formatter
+}()
+
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .none
+    formatter.timeStyle = .short
     return formatter
 }()

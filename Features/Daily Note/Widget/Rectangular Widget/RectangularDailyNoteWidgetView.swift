@@ -16,28 +16,27 @@ struct RectangularDailyNoteWidgetView: View {
     let entry: DailyNoteEntry
 
     var body: some View {
-        Group {
-            switch entry.dailyNoteResult {
-            case let .success(dailyNote):
-                RectangularDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
-            case let .failure(error):
-                Text(error.localizedDescription)
-            }
-        }
-        .padding(.vertical, mainViewPadding)
-        .background {
-            VStack {
-                HStack {
-                    WidgetAccountCard(
-                        accountName: entry.configuration.account?.name,
-                        useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-                    )
-                    Spacer()
-                }
+        VStack {
+            // Top: Account
+            HStack {
+                WidgetAccountCard(
+                    accountName: entry.configuration.account?.name,
+                    useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+                )
                 Spacer()
             }
-            .padding(mainViewPadding)
+            Spacer()
+            // Bottom: Result
+            Group {
+                switch entry.dailyNoteResult {
+                case let .success(dailyNote):
+                    RectangularDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
+                case let .failure(error):
+                    Text(error.localizedDescription)
+                }
+            }
         }
+        .padding(mainViewPadding)
         .background {
             Group {
                 if let image = entry.configuration.backgroundImage() {
@@ -63,18 +62,15 @@ private struct RectangularDailyNoteSuccessView: View {
     let dailyNote: DailyNote
 
     var body: some View {
-        GeometryReader { geo in
-            VStack {
+        VStack {
+            Spacer()
+            HStack {
+                WidgetStaminaInformationCard(
+                    info: dailyNote.staminaInformation,
+                    useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+                )
+                .padding(.trailing, 5)
                 Spacer()
-                HStack {
-                    WidgetStaminaInformationCard(
-                        info: dailyNote.staminaInformation,
-                        useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-                    )
-                    .padding(.trailing, 5)
-                    .frame(maxWidth: geo.size.width * 1 / 2)
-                    Spacer()
-                }
             }
         }
     }
