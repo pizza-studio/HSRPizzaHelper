@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EAE8986B2A06A134000AF830"
-               BuildableName = "HSRPizzaHelperWidgetConfigurationIntent.appex"
-               BlueprintName = "HSRPizzaHelperWidgetConfigurationIntent"
+               BlueprintIdentifier = "EA1673EE2A063AF300436487"
+               BuildableName = "HSRPizzaHelperWidgetExtension.appex"
+               BlueprintName = "HSRPizzaHelperWidgetExtension"
                ReferencedContainer = "container:HSRPizzaHelper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,7 +45,7 @@
       shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
@@ -56,8 +56,18 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "EA1673EE2A063AF300436487"
+            BuildableName = "HSRPizzaHelperWidgetExtension.appex"
+            BlueprintName = "HSRPizzaHelperWidgetExtension"
+            ReferencedContainer = "container:HSRPizzaHelper.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EAE5197B2A01738600EF23B7"
@@ -65,7 +75,24 @@
             BlueprintName = "HSRPizzaHelper"
             ReferencedContainer = "container:HSRPizzaHelper.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "_XCWidgetKind"
+            value = "com.Canglong.HSRPizzaHelper.HSRPizzaHelperWidget.SquareDailyNoteWidget"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetDefaultView"
+            value = "snapshot"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetFamily"
+            value = "large"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -73,6 +100,7 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
+      askForAppToLaunch = "Yes"
       launchAutomaticallySubstyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">

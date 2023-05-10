@@ -1,23 +1,24 @@
 //
-//  RectangularDailyNoteWidgetView.swift
+//  SmallSquareDailyNoteWidgetView.swift
 //  HSRPizzaHelperWidgetExtension
 //
-//  Created by 戴藏龙 on 2023/5/8.
+//  Created by 戴藏龙 on 2023/5/10.
 //
 
 import HBMihoyoAPI
+import Intents
 import SwiftUI
 
-// MARK: - RectangularDailyNoteWidgetView
+// MARK: - SmallSquareDailyNoteWidgetView
 
-struct RectangularDailyNoteWidgetView: View {
+struct SmallSquareDailyNoteWidgetView: View {
     // MARK: Internal
 
     let entry: DailyNoteEntry
 
     var body: some View {
         VStack {
-            // MARK: Top: Account
+            // MARK: Top - Account Name
 
             if entry.configuration.showAccountName {
                 WidgetAccountCard(
@@ -29,13 +30,12 @@ struct RectangularDailyNoteWidgetView: View {
 
             Spacer()
 
-            // MARK: Bottom: Result
+            // MARK: Bottom - Result
 
             Group {
                 switch entry.dailyNoteResult {
                 case let .success(dailyNote):
-                    WidgetDailyNoteSuccessLargeView(entry: entry, dailyNote: dailyNote)
-                        .embed(in: .bottom)
+                    SmallSquareDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
                 case let .failure(error):
                     Text(error.localizedDescription)
                 }
@@ -58,4 +58,19 @@ struct RectangularDailyNoteWidgetView: View {
     // MARK: Private
 
     private let mainViewPadding: CGFloat = 10
+}
+
+// MARK: - SmallSquareDailyNoteSuccessView
+
+private struct SmallSquareDailyNoteSuccessView: View {
+    let entry: DailyNoteEntry
+    let dailyNote: DailyNote
+
+    var body: some View {
+        WidgetStaminaInformationCard(
+            info: dailyNote.staminaInformation,
+            useAccessibilityBackground: entry.configuration.useAccessibilityBackground,
+            direction: .leftToRight
+        )
+    }
 }

@@ -10,7 +10,9 @@ import Intents
 
 // MARK: - HasDefaultAccount
 
+/// A protocol for objects that have a default account.
 protocol HasDefaultAccount {
+    /// The default account.
     var defaultAccount: IntentAccount { get }
 }
 

@@ -17,6 +17,8 @@ struct WidgetStaminaInformationCard: View {
 
     let useAccessibilityBackground: Bool
 
+    let direction: LayoutDirection
+
     var body: some View {
         HStack(spacing: 5) {
             Image("Item_Trailblaze_Power")
@@ -29,7 +31,7 @@ struct WidgetStaminaInformationCard: View {
                     .font(staminaFont)
                     .shadow(radius: 10)
                 (
-                    Text(info.fullTime, style: .time)
+                    Text(dateFormatter.string(from: info.fullTime))
                         + Text("\n")
                         + Text(timeIntervalFormatter.string(from: info.remainingTime)!)
                 )
@@ -39,13 +41,13 @@ struct WidgetStaminaInformationCard: View {
                 .font(.caption2)
             }
         }
-
+        .environment(\.layoutDirection, direction)
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .accessibilityBackground(enable: useAccessibilityBackground)
     }
 
-    var iconFrame: CGFloat {
+    private var iconFrame: CGFloat {
         switch widgetFamily {
         case .systemSmall:
             return 20
@@ -56,7 +58,7 @@ struct WidgetStaminaInformationCard: View {
         }
     }
 
-    var staminaFont: Font {
+    private var staminaFont: Font {
         switch widgetFamily {
         case .systemSmall:
             return .title2
@@ -65,6 +67,11 @@ struct WidgetStaminaInformationCard: View {
         default:
             return .title
         }
+    }
+
+    enum Direction {
+        case leftToRight
+        case rightToLeft
     }
 }
 
@@ -97,5 +104,12 @@ private let timeIntervalFormatter: DateComponentsFormatter = {
     formatter.allowedUnits = [.minute, .hour]
     formatter.unitsStyle = .abbreviated
     formatter.maximumUnitCount = 2
+    return formatter
+}()
+
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .none
+    formatter.timeStyle = .short
     return formatter
 }()

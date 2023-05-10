@@ -9,7 +9,10 @@ import Foundation
 
 // MARK: - RandomBackgroundDrawable
 
+/// A protocol for objects that can draw a random background.
 protocol RandomBackgroundDrawable: ContainingWidgetBackground {
+    /// Draws a random background.
+    /// - Returns: A `WidgetBackground` object representing the drawn background.
     func drawRandomBackground() -> WidgetBackground
 }
 

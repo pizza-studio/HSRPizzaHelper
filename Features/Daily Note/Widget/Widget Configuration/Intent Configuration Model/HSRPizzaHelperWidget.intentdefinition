@@ -57,6 +57,59 @@
 				</dict>
 			</array>
 		</dict>
+		<dict>
+			<key>INEnumDisplayName</key>
+			<string>Intent Stamina Position</string>
+			<key>INEnumDisplayNameID</key>
+			<string>X3BEWY</string>
+			<key>INEnumGeneratesHeader</key>
+			<true/>
+			<key>INEnumName</key>
+			<string>IntentStaminaPosition</string>
+			<key>INEnumType</key>
+			<string>Regular</string>
+			<key>INEnumValues</key>
+			<array>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>unknown</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>JlhfkD</string>
+					<key>INEnumValueName</key>
+					<string>unknown</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>left</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>cqJzBX</string>
+					<key>INEnumValueIndex</key>
+					<integer>1</integer>
+					<key>INEnumValueName</key>
+					<string>left</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>right</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>cFdBqE</string>
+					<key>INEnumValueIndex</key>
+					<integer>2</integer>
+					<key>INEnumValueName</key>
+					<string>right</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>center</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>iE7nDM</string>
+					<key>INEnumValueIndex</key>
+					<integer>3</integer>
+					<key>INEnumValueName</key>
+					<string>center</string>
+				</dict>
+			</array>
+		</dict>
 	</array>
 	<key>INIntentDefinitionModelVersion</key>
 	<string>1.2</string>
@@ -80,9 +133,9 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>16</integer>
+			<integer>22</integer>
 			<key>INIntentName</key>
-			<string>SquareWidgetConfiguration</string>
+			<string>LargeSquareWidgetConfiguration</string>
 			<key>INIntentParameters</key>
 			<array>
 				<dict>
@@ -214,11 +267,55 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
+					<string>Account Name</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>uNSxVK</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>4</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>fOhgy6</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>YIpCby</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>showAccountName</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterTag</key>
+					<integer>22</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
 					<string>Accessibility Background</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>RucQ8Q</string>
 					<key>INIntentParameterDisplayPriority</key>
-					<integer>4</integer>
+					<integer>5</integer>
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataDefaultValue</key>
@@ -262,7 +359,7 @@
 					<key>INIntentParameterDisplayNameID</key>
 					<string>NoSQ0J</string>
 					<key>INIntentParameterDisplayPriority</key>
-					<integer>5</integer>
+					<integer>6</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>IntentWidgetTextColor</string>
 					<key>INIntentParameterEnumTypeNamespace</key>
@@ -321,6 +418,117 @@
 					<key>INIntentParameterType</key>
 					<string>Integer</string>
 				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Dispatch Assignments</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>XUD3Yf</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>7</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>VBT9un</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>osQOMd</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>showExpedition</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterTag</key>
+					<integer>18</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Trailblaze Power Position</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>Jvemll</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>8</integer>
+					<key>INIntentParameterEnumType</key>
+					<string>IntentStaminaPosition</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>88xZPY</string>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<string>left</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>staminaPosition</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>There are ${count} options matching ‘${staminaPosition}’.</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>yd55oz</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationIntroduction</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${staminaPosition}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>VCPWar</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>showExpedition</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
+					<key>INIntentParameterTag</key>
+					<integer>20</integer>
+					<key>INIntentParameterType</key>
+					<string>Integer</string>
+				</dict>
 			</array>
 			<key>INIntentResponse</key>
 			<dict>
@@ -339,7 +547,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Square Widget Configuration</string>
+			<string>Large Square Widget Configuration</string>
 			<key>INIntentTitleID</key>
 			<string>gpCwrM</string>
 			<key>INIntentType</key>
@@ -357,7 +565,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>15</integer>
+			<integer>18</integer>
 			<key>INIntentName</key>
 			<string>RectangularWidgetConfiguration</string>
 			<key>INIntentParameters</key>
@@ -491,11 +699,55 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
+					<string>Account Name</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>eNPXAH</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>4</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>fOhgy6</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>YIpCby</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>showAccountName</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterTag</key>
+					<integer>18</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
 					<string>Accessibility Background</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>XiMrNA</string>
 					<key>INIntentParameterDisplayPriority</key>
-					<integer>4</integer>
+					<integer>5</integer>
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataDefaultValue</key>
@@ -539,7 +791,7 @@
 					<key>INIntentParameterDisplayNameID</key>
 					<string>KXq17m</string>
 					<key>INIntentParameterDisplayPriority</key>
-					<integer>5</integer>
+					<integer>6</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>IntentWidgetTextColor</string>
 					<key>INIntentParameterEnumTypeNamespace</key>
@@ -598,6 +850,117 @@
 					<key>INIntentParameterType</key>
 					<string>Integer</string>
 				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Dispatch Assignments</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>G4xAlP</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>7</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>VBT9un</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>osQOMd</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>showExpedition</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterTag</key>
+					<integer>16</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Trailblaze Power Position</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>caHrt7</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>8</integer>
+					<key>INIntentParameterEnumType</key>
+					<string>IntentStaminaPosition</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>88xZPY</string>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<string>left</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>staminaPosition</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>There are ${count} options matching ‘${staminaPosition}’.</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>RbYjoT</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationIntroduction</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${staminaPosition}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>1DtUon</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>showExpedition</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
+					<key>INIntentParameterTag</key>
+					<integer>17</integer>
+					<key>INIntentParameterType</key>
+					<string>Integer</string>
+				</dict>
 			</array>
 			<key>INIntentResponse</key>
 			<dict>
@@ -619,6 +982,438 @@
 			<string>Rectangular Widget Configuration</string>
 			<key>INIntentTitleID</key>
 			<string>gIq270</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>View</string>
+		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>information</string>
+			<key>INIntentDescriptionID</key>
+			<string>LMxlQO</string>
+			<key>INIntentEligibleForWidgets</key>
+			<true/>
+			<key>INIntentIneligibleForSuggestions</key>
+			<true/>
+			<key>INIntentLastParameterTag</key>
+			<integer>22</integer>
+			<key>INIntentName</key>
+			<string>SmallSquareWidgetConfiguration</string>
+			<key>INIntentParameters</key>
+			<array>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Account</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>69mJG9</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>1</integer>
+					<key>INIntentParameterName</key>
+					<string>account</string>
+					<key>INIntentParameterObjectType</key>
+					<string>IntentAccount</string>
+					<key>INIntentParameterObjectTypeNamespace</key>
+					<string>88xZPY</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsDynamicEnumeration</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>9</integer>
+					<key>INIntentParameterType</key>
+					<string>Object</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Random Background</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>4ZaQIc</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>tgZ9ty</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>SXQ4o6</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>randomBackground</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterTag</key>
+					<integer>7</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Background</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>DwhB9D</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>3</integer>
+					<key>INIntentParameterName</key>
+					<string>background</string>
+					<key>INIntentParameterObjectType</key>
+					<string>WidgetBackground</string>
+					<key>INIntentParameterObjectTypeNamespace</key>
+					<string>88xZPY</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>randomBackground</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
+					<key>INIntentParameterSupportsDynamicEnumeration</key>
+					<true/>
+					<key>INIntentParameterSupportsMultipleValues</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>12</integer>
+					<key>INIntentParameterType</key>
+					<string>Object</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Account Name</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>cfp269</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>4</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>fOhgy6</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>YIpCby</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>showAccountName</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterTag</key>
+					<integer>22</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Accessibility Background</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>UKnmzD</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>5</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>ObEQoc</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>Rd7wVz</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>useAccessibilityBackground</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterTag</key>
+					<integer>16</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Text Color</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>UqxBnR</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>6</integer>
+					<key>INIntentParameterEnumType</key>
+					<string>IntentWidgetTextColor</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>88xZPY</string>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<string>followSystem</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>textColor</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>There are ${count} options matching ‘${textColor}’.</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>aV09WP</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationIntroduction</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${textColor}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>UtOPE2</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>useAccessibilityBackground</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
+					<key>INIntentParameterTag</key>
+					<integer>15</integer>
+					<key>INIntentParameterType</key>
+					<string>Integer</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Dispatch Assignments</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>DyGr5V</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>7</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>VBT9un</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>osQOMd</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>showExpedition</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterTag</key>
+					<integer>18</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Trailblaze Power Position</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>luJuNQ</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>8</integer>
+					<key>INIntentParameterEnumType</key>
+					<string>IntentStaminaPosition</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>88xZPY</string>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<string>left</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>staminaPosition</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>There are ${count} options matching ‘${staminaPosition}’.</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>yd55oz</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationIntroduction</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${staminaPosition}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>VCPWar</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>showExpedition</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+					</dict>
+					<key>INIntentParameterTag</key>
+					<integer>20</integer>
+					<key>INIntentParameterType</key>
+					<string>Integer</string>
+				</dict>
+			</array>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Small Square Widget Configuration</string>
+			<key>INIntentTitleID</key>
+			<string>WqRD3a</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentVerb</key>

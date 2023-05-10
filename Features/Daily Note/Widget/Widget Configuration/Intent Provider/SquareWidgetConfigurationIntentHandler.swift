@@ -8,16 +8,43 @@
 import Foundation
 import Intents
 
-class SquareWidgetConfigurationIntentHandler: INExtension, SquareWidgetConfigurationIntentHandling {
-    func provideAccountOptionsCollection(for intent: SquareWidgetConfigurationIntent) async throws
+class SquareWidgetConfigurationIntentHandler: INExtension, LargeSquareWidgetConfigurationIntentHandling,
+    SmallSquareWidgetConfigurationIntentHandling {
+    // MARK: Internal
+
+    func provideAccountOptionsCollection(for intent: SmallSquareWidgetConfigurationIntent) async throws
+        -> INObjectCollection<IntentAccount> {
+        try await provideAccountOptionsCollection()
+    }
+
+    func provideAccountOptionsCollection(for intent: LargeSquareWidgetConfigurationIntent) async throws
         -> INObjectCollection<IntentAccount> {
         try await IntentAccountProvider.provideAccountOptionsCollection()
     }
 
-    func provideBackgroundOptionsCollection(for intent: SquareWidgetConfigurationIntent) async throws
+    func provideBackgroundOptionsCollection(for intent: SmallSquareWidgetConfigurationIntent) async throws
+        -> INObjectCollection<WidgetBackground> {
+        try await provideBackgroundOptionsCollection()
+    }
+
+    func provideBackgroundOptionsCollection(for intent: LargeSquareWidgetConfigurationIntent) async throws
+        -> INObjectCollection<WidgetBackground> {
+        try await provideBackgroundOptionsCollection()
+    }
+
+    // MARK: Private
+
+    // MARK: Account
+
+    private func provideAccountOptionsCollection() async throws
+        -> INObjectCollection<IntentAccount> {
+        try await IntentAccountProvider.provideAccountOptionsCollection()
+    }
+
+    private func provideBackgroundOptionsCollection() async throws
         -> INObjectCollection<WidgetBackground> {
         .init(
-            items: try SquareWidgetConfigurationIntent.allAvailableBackgrounds()
+            items: try LargeSquareWidgetConfigurationIntent.allAvailableBackgrounds()
         )
     }
 }

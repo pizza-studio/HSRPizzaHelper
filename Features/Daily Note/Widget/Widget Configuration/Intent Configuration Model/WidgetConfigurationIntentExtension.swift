@@ -13,19 +13,33 @@ extension RectangularWidgetConfigurationIntent: StaticContainingProvideWidgetBac
     static let backgroundFolderName = AppConfig.rectangularBackgroundImageFolderName
 }
 
-// MARK: - SquareWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
+// MARK: - LargeSquareWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
 
-extension SquareWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
+extension LargeSquareWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
     static let backgroundFolderName = AppConfig.squareBackgroundImageFolderName
 }
 
-// MARK: - SquareWidgetConfigurationIntent + RandomBackgroundDrawable
+// MARK: - SmallSquareWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
 
-extension SquareWidgetConfigurationIntent: RandomBackgroundDrawable {}
+extension SmallSquareWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
+    static let backgroundFolderName = AppConfig.squareBackgroundImageFolderName
+}
 
-// MARK: - SquareWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
+// MARK: - LargeSquareWidgetConfigurationIntent + RandomBackgroundDrawable
 
-extension SquareWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {}
+extension LargeSquareWidgetConfigurationIntent: RandomBackgroundDrawable {}
+
+// MARK: - LargeSquareWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
+
+extension LargeSquareWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {}
+
+// MARK: - SmallSquareWidgetConfigurationIntent + RandomBackgroundDrawable
+
+extension SmallSquareWidgetConfigurationIntent: RandomBackgroundDrawable {}
+
+// MARK: - SmallSquareWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
+
+extension SmallSquareWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {}
 
 // MARK: - RectangularWidgetConfigurationIntent + RandomBackgroundDrawable
 

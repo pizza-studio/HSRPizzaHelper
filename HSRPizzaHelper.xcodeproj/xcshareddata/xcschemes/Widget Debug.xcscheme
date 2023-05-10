@@ -79,17 +79,17 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"
-            value = "com.Canglong.HSRPizzaHelper.HSRPizzaHelperWidget.RectangularDailyNoteWidget"
+            value = "com.Canglong.HSRPizzaHelper.HSRPizzaHelperWidget.SmallSquareDailyNoteWidget"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "_XCWidgetDefaultView"
-            value = "timeline"
-            isEnabled = "NO">
+            value = "snapshot"
+            isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "_XCWidgetFamily"
-            value = "medium"
+            value = "Small"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -100,6 +100,7 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
+      askForAppToLaunch = "Yes"
       launchAutomaticallySubstyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
