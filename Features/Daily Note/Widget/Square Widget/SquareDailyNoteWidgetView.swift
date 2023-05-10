@@ -20,13 +20,11 @@ struct SquareDailyNoteWidgetView: View {
         VStack {
             // MARK: Top - Account Name
 
-            HStack {
-                WidgetAccountCard(
-                    accountName: entry.configuration.account?.name,
-                    useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-                )
-                Spacer()
-            }
+            WidgetAccountCard(
+                accountName: entry.configuration.account?.name,
+                useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+            )
+            .embed(in: .left)
             Spacer()
 
             // MARK: Bottom - Result

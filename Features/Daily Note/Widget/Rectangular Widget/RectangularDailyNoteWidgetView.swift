@@ -17,16 +17,17 @@ struct RectangularDailyNoteWidgetView: View {
 
     var body: some View {
         VStack {
-            // Top: Account
-            HStack {
-                WidgetAccountCard(
-                    accountName: entry.configuration.account?.name,
-                    useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-                )
-                Spacer()
-            }
+            // MARK: Top: Account
+
+            WidgetAccountCard(
+                accountName: entry.configuration.account?.name,
+                useAccessibilityBackground: entry.configuration.useAccessibilityBackground
+            )
+            .embed(in: .left)
             Spacer()
-            // Bottom: Result
+
+            // MARK: Bottom: Result
+
             Group {
                 switch entry.dailyNoteResult {
                 case let .success(dailyNote):
