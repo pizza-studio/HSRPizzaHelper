@@ -97,3 +97,4 @@ BuildTools/.build
 .vscode
 
 **/.swiftpm
+Package.resolved

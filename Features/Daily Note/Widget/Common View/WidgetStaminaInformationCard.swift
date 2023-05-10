@@ -30,13 +30,19 @@ struct WidgetStaminaInformationCard: View {
                 Text("\(info.currentStamina)")
                     .font(staminaFont)
                     .shadow(radius: 10)
-                (
-                    Text(dateFormatter.string(from: info.fullTime))
-                        + Text("\n")
-                        + Text(timeIntervalFormatter.string(from: info.remainingTime)!)
-                )
-                .lineLimit(2)
-                .multilineTextAlignment(.leading)
+                Group {
+                    if info.currentStamina == info.maxStamina {
+                        (
+                            Text(dateFormatter.string(from: info.fullTime))
+                                + Text("\n")
+                                + Text(timeIntervalFormatter.string(from: info.remainingTime)!)
+                        )
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                    } else {
+                        Text(" / 180")
+                    }
+                }
                 .minimumScaleFactor(0.5)
                 .font(.caption2)
             }
