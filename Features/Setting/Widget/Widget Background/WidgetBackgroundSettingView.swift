@@ -44,7 +44,7 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
                     isAddBackgroundSheetShow.toggle()
                 }
                 .fullScreenCover(isPresented: $isAddBackgroundSheetShow) {
-                    AddWidgetBackgroundSheet(backgroundType: backgroundType, isShow: $isAddBackgroundSheetShow)
+                    AddWidgetBackgroundCover(backgroundType: backgroundType, isShow: $isAddBackgroundSheetShow)
                 }
             }
             ForEach(imageUrls, id: \.self) { url in
@@ -82,9 +82,9 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
     @State private var isAddBackgroundSheetShow: Bool = false
 }
 
-// MARK: - AddWidgetBackgroundSheet
+// MARK: - AddWidgetBackgroundCover
 
-private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
+private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
     // MARK: Internal
 
     let backgroundType: BackgroundType
@@ -109,6 +109,12 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
                                 text: $backgroundName
                             )
                             .multilineTextAlignment(.trailing)
+                            .foregroundColor(backgroundNameIsNotNamed ? .secondary : .primary)
+                            .onFocused {
+                                if backgroundNameIsNotNamed {
+                                    backgroundName = ""
+                                }
+                            }
                         }
                         Button("setting.widget.background.manage.add.edit") {
                             isEditImageCoverShow.toggle()
@@ -126,19 +132,7 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.save") {
-                        guard backgroundName != "" else {
-                            isNeedNameAlertShow.toggle()
-                            return
-                        }
-                        let data = image!.resized()!.jpegData(compressionQuality: 0.8)!
-                        do {
-                            let fileUrl = try getFolderUrl().appendingPathComponent(backgroundName, conformingTo: .png)
-                            try data.write(to: fileUrl)
-                            isShow.toggle()
-                        } catch {
-                            self.error = .init(source: error)
-                            isErrorAlertShow.toggle()
-                        }
+                        isAskForNameAlertShow.toggle()
                     }
                     .disabled(image == nil)
                 }
@@ -162,6 +156,7 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
         .alert("setting.widget.background.manage.add.needname", isPresented: $isNeedNameAlertShow, actions: {
             Button("sys.ok") {
                 isNeedNameAlertShow.toggle()
+                isAskForNameAlertShow.toggle()
             }
         })
         .alert(isPresented: $isErrorAlertShow, error: error) { _ in
@@ -171,6 +166,55 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
             }
         } message: { error in
             Text(error.localizedDescription)
+        }
+        .alert("setting.widget.background.manage.add.needname", isPresented: $isAskForNameAlertShow) {
+            TextField("setting.widget.background.manage.add.name", text: $backgroundName)
+                .foregroundColor(backgroundNameIsNotNamed ? .secondary : .primary)
+                .onFocused {
+                    if backgroundNameIsNotNamed {
+                        backgroundName = ""
+                    }
+                }
+            Button("sys.save") {
+                guard backgroundName != "" else {
+                    isNeedNameAlertShow.toggle()
+                    return
+                }
+                let data = image!.resized()!.jpegData(compressionQuality: 0.8)!
+                do {
+                    let fileUrl = try getFolderUrl().appendingPathComponent(backgroundName, conformingTo: .png)
+                    try data.write(to: fileUrl)
+                    isShow.toggle()
+                } catch {
+                    self.error = .init(source: error)
+                    isErrorAlertShow.toggle()
+                }
+            }
+            Button("sys.cancel", role: .cancel) {
+                isAskForNameAlertShow.toggle()
+            }
+        }
+        .onAppear {
+            // Set an default name for image
+            var name: Int = 1
+            let fileManager = FileManager.default
+            guard let folderURL = try? getFolderUrl() else { return }
+            while true {
+                do {
+                    let contents = try fileManager.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
+                    let pendingName = "setting.widget.background.manage.add.notname".localized() + " " + "\(name)"
+                    if contents.allSatisfy({ fileUrl in
+                        fileUrl.lastPathComponent.deletingPathExtension != pendingName
+                    }) {
+                        backgroundName = pendingName
+                        break
+                    } else {
+                        name += 1
+                    }
+                } catch {
+                    print("Error while enumerating files \(folderURL.path): \(error.localizedDescription)")
+                }
+            }
         }
     }
 
@@ -187,6 +231,8 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
     @State private var error: SaveBackgroundError?
     @State private var isErrorAlertShow: Bool = false
 
+    @State private var isAskForNameAlertShow: Bool = false
+
     @State private var isNeedNameAlertShow: Bool = false
 
     private var ratio: Double {
@@ -196,6 +242,12 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
         case .rectangular:
             return 2.0
         }
+    }
+
+    private var backgroundNameIsNotNamed: Bool {
+        backgroundName.starts(
+            with: "setting.widget.background.manage.add.notname".localized()
+        )
     }
 }
 

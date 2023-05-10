@@ -81,3 +81,4 @@
 "ophelper.intro" = "A tool for Genshin Impact";
 "account.new.test" = "Test connection";
 "setting.widget.background.manage.add.edit" = "Crop Image";
+"setting.widget.background.manage.add.notname" = "unnamed";

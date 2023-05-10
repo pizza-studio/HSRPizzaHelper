@@ -48,6 +48,7 @@
 		EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF82A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
+		EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F23312A0BE87000D6D024 /* OnFocused.swift */; };
 		EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5B2A05053200CBF10B /* AboutView.swift */; };
 		EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5C2A05053200CBF10B /* ThanksView.swift */; };
 		EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
@@ -228,6 +229,7 @@
 		EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountSheetView.swift; sourceTree = "<group>"; };
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
+		EA5F23312A0BE87000D6D024 /* OnFocused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFocused.swift; sourceTree = "<group>"; };
 		EA60BE5B2A05053200CBF10B /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		EA60BE5C2A05053200CBF10B /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhaseOnChange.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 				BFDF6A832A08CAE200048FF9 /* AutoSheetDismiss.swift */,
 				EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */,
 				EADCE9352A0B7857008D81A9 /* EmbedIn.swift */,
+				EA5F23312A0BE87000D6D024 /* OnFocused.swift */,
 			);
 			path = "View Modifier";
 			sourceTree = "<group>";
@@ -1031,6 +1034,7 @@
 				EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */,
 				EA1DE41F2A08C4DB00CFB37C /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
 				EA09B19D2A091B0200986D46 /* LatestVersionInformationChecker.swift in Sources */,
+				EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */,
 				EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */,
 				EA2C06522A04AC5A00A328E6 /* TestAccountView.swift in Sources */,
 				EAE519822A01738600EF23B7 /* ContentView.swift in Sources */,
