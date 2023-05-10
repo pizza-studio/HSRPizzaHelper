@@ -5,12 +5,12 @@
 //  Created by 戴藏龙 on 2023/5/8.
 //
 
+import Mantis
 import PhotosUI
 import SwiftUI
 
 // MARK: - WidgetBackgroundSettingView
 
-@available(iOS 16.0, *)
 struct WidgetBackgroundSettingView: View {
     var body: some View {
         List {
@@ -30,7 +30,6 @@ struct WidgetBackgroundSettingView: View {
 
 // MARK: - ManageWidgetBackgroundView
 
-@available(iOS 16.0, *)
 private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
     // MARK: Internal
 
@@ -44,8 +43,8 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
                 Button("setting.widget.background.manage.add.title") {
                     isAddBackgroundSheetShow.toggle()
                 }
-                .sheet(isPresented: $isAddBackgroundSheetShow) {
-                    AddWidgetBackgroundSheet(backgroundType: backgroundType, isShow: $isAddBackgroundSheetShow)
+                .fullScreenCover(isPresented: $isAddBackgroundSheetShow) {
+                    AddWidgetBackgroundCover(backgroundType: backgroundType, isShow: $isAddBackgroundSheetShow)
                 }
             }
             ForEach(imageUrls, id: \.self) { url in
@@ -215,23 +214,14 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
     }
 }
 
-// MARK: - AddWidgetBackgroundSheet
+// MARK: - AddWidgetBackgroundCover
 
-@available(iOS 16.0, *)
-private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
+private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
     // MARK: Internal
 
     let backgroundType: BackgroundType
 
     @Binding var isShow: Bool
-
-    var image: UIImage? {
-        if let selectedPhotoData {
-            return UIImage(data: selectedPhotoData)
-        } else {
-            return nil
-        }
-    }
 
     var body: some View {
         NavigationView {
@@ -251,28 +241,30 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
                                 text: $backgroundName
                             )
                             .multilineTextAlignment(.trailing)
+                            .foregroundColor(backgroundNameIsNotNamed ? .secondary : .primary)
+                            .onFocused {
+                                if backgroundNameIsNotNamed {
+                                    backgroundName = ""
+                                }
+                            }
+                        }
+                        Button("setting.widget.background.manage.add.edit") {
+                            isEditImageCoverShow.toggle()
                         }
                     }
                     BackgroundPreviewView(imageName: backgroundName, image: image, backgroundType: backgroundType)
                 }
             }
+            .fullScreenCover(isPresented: $isEditImageCoverShow, content: {
+                ImageCropper(
+                    image: $image,
+                    presetFixedRatioType: .alwaysUsingOnePresetFixedRatio(ratio: 2.2)
+                )
+            })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.save") {
-                        guard backgroundName != "" else {
-                            isNeedNameAlertShow.toggle()
-                            return
-                        }
-                        let image = image!
-                        let data = image.pngData()!
-                        do {
-                            let fileUrl = try getFolderUrl().appendingPathComponent(backgroundName, conformingTo: .png)
-                            try data.write(to: fileUrl)
-                            isShow.toggle()
-                        } catch {
-                            self.error = .init(source: error)
-                            isErrorAlertShow.toggle()
-                        }
+                        isAskForNameAlertShow.toggle()
                     }
                     .disabled(image == nil)
                 }
@@ -285,25 +277,18 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
             .navigationTitle("setting.widget.background.manage.add.title")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .photosPicker(
-            isPresented: $isPhotoPickerShow,
-            selection: $selectedPhotoItem,
-            matching: .images
-        )
-        .onChange(of: selectedPhotoItem) { newItem in
-            Task {
-                do {
-                    if let data = try await newItem?.loadTransferable(type: Data.self) {
-                        selectedPhotoData = data
+        .sheet(isPresented: $isPhotoPickerShow, content: {
+            ImagePickerView(image: $image)
+                .onDisappear {
+                    if image != nil {
+                        isEditImageCoverShow.toggle()
                     }
-                } catch {
-                    self.error = .init(source: error)
                 }
-            }
-        }
+        })
         .alert("setting.widget.background.manage.add.needname", isPresented: $isNeedNameAlertShow, actions: {
             Button("sys.ok") {
                 isNeedNameAlertShow.toggle()
+                isAskForNameAlertShow.toggle()
             }
         })
         .alert(isPresented: $isErrorAlertShow, error: error) { _ in
@@ -314,22 +299,88 @@ private struct AddWidgetBackgroundSheet: View, ContainBackgroundType {
         } message: { error in
             Text(error.localizedDescription)
         }
+        .alert("setting.widget.background.manage.add.needname", isPresented: $isAskForNameAlertShow) {
+            TextField("setting.widget.background.manage.add.name", text: $backgroundName)
+                .foregroundColor(backgroundNameIsNotNamed ? .secondary : .primary)
+                .onFocused {
+                    if backgroundNameIsNotNamed {
+                        backgroundName = ""
+                    }
+                }
+            Button("sys.save") {
+                guard backgroundName != "" else {
+                    isNeedNameAlertShow.toggle()
+                    return
+                }
+                let data = image!.resized()!.jpegData(compressionQuality: 0.8)!
+                do {
+                    let fileUrl = try getFolderUrl().appendingPathComponent(backgroundName, conformingTo: .png)
+                    try data.write(to: fileUrl)
+                    isShow.toggle()
+                } catch {
+                    self.error = .init(source: error)
+                    isErrorAlertShow.toggle()
+                }
+            }
+            Button("sys.cancel", role: .cancel) {
+                isAskForNameAlertShow.toggle()
+            }
+        }
+        .onAppear {
+            // Set an default name for image
+            var name: Int = 1
+            let fileManager = FileManager.default
+            guard let folderURL = try? getFolderUrl() else { return }
+            while true {
+                do {
+                    let contents = try fileManager.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
+                    let pendingName = "setting.widget.background.manage.add.notname".localized() + " " + "\(name)"
+                    if contents.allSatisfy({ fileUrl in
+                        fileUrl.lastPathComponent.deletingPathExtension != pendingName
+                    }) {
+                        backgroundName = pendingName
+                        break
+                    } else {
+                        name += 1
+                    }
+                } catch {
+                    print("Error while enumerating files \(folderURL.path): \(error.localizedDescription)")
+                }
+            }
+        }
     }
 
     // MARK: Private
+
+    @State private var image: UIImage?
+
+    @State private var isEditImageCoverShow: Bool = false
 
     @State private var backgroundName: String = ""
 
     @State private var isPhotoPickerShow: Bool = true
 
-    @State private var selectedPhotoItem: PhotosPickerItem?
-
-    @State private var selectedPhotoData: Data?
-
     @State private var error: SaveBackgroundError?
     @State private var isErrorAlertShow: Bool = false
 
+    @State private var isAskForNameAlertShow: Bool = false
+
     @State private var isNeedNameAlertShow: Bool = false
+
+    private var ratio: Double {
+        switch backgroundType {
+        case .square:
+            return 1.0
+        case .rectangular:
+            return 2.0
+        }
+    }
+
+    private var backgroundNameIsNotNamed: Bool {
+        backgroundName.starts(
+            with: "setting.widget.background.manage.add.notname".localized()
+        )
+    }
 }
 
 // MARK: - BackgroundType
@@ -463,5 +514,76 @@ private struct BackgroundPreviewView: View, ContainBackgroundType {
 extension View {
     func frame(_ size: CGSize) -> some View {
         frame(width: size.width, height: size.height)
+    }
+}
+
+// MARK: - ImagePickerView
+
+private struct ImagePickerView: UIViewControllerRepresentable {
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        // MARK: Lifecycle
+
+        init(_ parent: ImagePickerView) {
+            self.parent = parent
+        }
+
+        // MARK: Internal
+
+        let parent: ImagePickerView
+
+        func imagePickerController(
+            _ picker: UIImagePickerController,
+            didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+        ) {
+            if let selectedImage = info[.originalImage] as? UIImage {
+                parent.image = selectedImage
+            }
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+
+    @Binding var image: UIImage?
+    @Environment(\.presentationMode) var presentationMode
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>)
+        -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(
+        _ uiViewController: UIImagePickerController,
+        context: UIViewControllerRepresentableContext<ImagePickerView>
+    ) {}
+}
+
+/// An extension of `UIImage` to add functionality of resizing images.
+extension UIImage {
+    /// Resizes the image to a specified width and height.
+    /// - Parameters:
+    ///     - width: The width to resize the image to.
+    ///     - isOpaque: A boolean indicating whether the resulting image should be opaque or not.
+    /// - Returns: A `UIImage` object representing the resized image.
+    fileprivate func resized(toWidth width: CGFloat = 860, isOpaque: Bool = true) -> UIImage? {
+        let canvas = CGSize(width: width, height: CGFloat(ceil(width / size.width * size.height)))
+        let format = imageRendererFormat
+        format.opaque = isOpaque
+        return UIGraphicsImageRenderer(
+            size: canvas,
+            format: format
+        )
+        .image { _ in
+            draw(in: CGRect(origin: .zero, size: canvas))
+        }
     }
 }

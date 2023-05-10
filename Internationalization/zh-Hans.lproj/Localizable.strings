@@ -64,7 +64,7 @@
 "sys.save" = "保存";
 "setting.widget.background.manage.add.preview" = "预览";
 "setting.widget.background.manage.add.name" = "名称";
-"setting.widget.background.manage.add.needname" = "请先为该背景命名";
+"setting.widget.background.manage.add.needname" = "请为该背景命名";
 "sys.about.otherapp.title" = "我们的其他作品";
 "ophelper.name" = "原神披萨小助手";
 "sys.about.opensource.title" = "GitHub仓库";
@@ -80,6 +80,8 @@
 "setting.widget.refresh.footer" = "您可以点击上方按钮或在主页下拉刷新以手动同步小组件。";
 "ophelper.intro" = "为原神玩家开发的游戏助手";
 "account.new.test" = "测试帐号连接";
+"setting.widget.background.manage.add.edit" = "裁剪图片";
+"setting.widget.background.manage.add.notname" = "未命名";
 "setting.widget.background.context.menu.delete" = "删除";
 "setting.widget.background.context.menu.rename" = "重命名";
 "setting.widget.background.alert.rename.title" = "重命名背景";
