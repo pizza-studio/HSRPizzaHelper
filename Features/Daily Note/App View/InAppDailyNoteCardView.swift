@@ -92,13 +92,15 @@ private struct NoteView: View {
                     Text(" / \(note.staminaInformation.maxStamina)")
                         .font(.caption)
                     Spacer()
-                    (
-                        Text(note.staminaInformation.fullTime, style: .relative)
-                            + Text("\n")
-                            + Text(dateFormatter.string(from: note.staminaInformation.fullTime))
-                    )
-                    .multilineTextAlignment(.trailing)
-                    .font(.caption2)
+                    if note.staminaInformation.fullTime > Date() {
+                        (
+                            Text(note.staminaInformation.fullTime, style: .relative)
+                                + Text("\n")
+                                + Text(dateFormatter.string(from: note.staminaInformation.fullTime))
+                        )
+                        .multilineTextAlignment(.trailing)
+                        .font(.caption2)
+                    }
                 }
             }
         }
