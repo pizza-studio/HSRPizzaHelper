@@ -9,11 +9,15 @@ import Foundation
 import Intents
 import SwifterSwift
 
+/// An enum providing functions to retrieve an array of `WidgetBackground`s.
 enum WidgetBackgroundOptionsProvider {
     // MARK: Internal
 
-    static func provideBackgroundOptionsCollection(folderName: String) throws
-        -> [WidgetBackground] {
+    /// Provides an array of `WidgetBackground`s from the bundle and documents directory.
+    /// - Parameter folderName: The name of the folder where the `WidgetBackground`s are stored.
+    /// - Throws: An `NSError` if no folder with the given `folderName` in the bundle is found.
+    /// - Returns: An array of `WidgetBackground`s.
+    static func provideBackgroundOptionsCollection(folderName: String) throws -> [WidgetBackground] {
         var options: [WidgetBackground] = []
 
         let bundleBackgroundFolderUrl = try Self.bundleBackgroundFolderUrl(folderName: folderName)
@@ -27,12 +31,22 @@ enum WidgetBackgroundOptionsProvider {
         return options
     }
 
-    static func getWidgetBackgroundUrlsFromFolder(in imageFolderUrl: URL) throws
-        -> [URL] {
-        let imageUrls = try FileManager.default.contentsOfDirectory(at: imageFolderUrl, includingPropertiesForKeys: nil)
+    /// Retrieves an array of `URL`s of `WidgetBackground`s in the given folder.
+    /// - Parameter imageFolderUrl: The URL of the folder where the `WidgetBackground`s are stored.
+    /// - Throws: An error if contents of the directory at the `imageFolderUrl` cannot be retrieved.
+    /// - Returns: An array of `URL`s of `WidgetBackground`s.
+    static func getWidgetBackgroundUrlsFromFolder(in imageFolderUrl: URL) throws -> [URL] {
+        let imageUrls = try FileManager.default.contentsOfDirectory(
+            at: imageFolderUrl,
+            includingPropertiesForKeys: nil
+        )
         return imageUrls
     }
 
+    /// Retrieves the URL of the folder where the `WidgetBackground`s are stored in the bundle.
+    /// - Parameter folderName: The name of the folder where the `WidgetBackground`s are stored.
+    /// - Throws: An `NSError` if no folder with the given `folderName` in the bundle is found.
+    /// - Returns: The URL of the folder where the `WidgetBackground`s are stored in the bundle.
     static func bundleBackgroundFolderUrl(folderName: String) throws -> URL {
         guard let bundleBackgroundFolderUrl = Bundle.main.url(
             forResource: folderName,
@@ -48,6 +62,9 @@ enum WidgetBackgroundOptionsProvider {
         return bundleBackgroundFolderUrl
     }
 
+    /// Retrieves the URL of the folder where the `WidgetBackground`s are stored in the documents directory.
+    /// - Parameter folderName: The name of the folder where the `WidgetBackground`s are stored.
+    /// - Returns: The URL of the folder where the `WidgetBackground`s are stored in the documents directory.
     static func documentBackgroundFolderUrl(folderName: String) throws -> URL {
         let backgroundFolderUrl = FileManager.default
             .containerURL(forSecurityApplicationGroupIdentifier: AppConfig.appGroupID)!
@@ -63,6 +80,10 @@ enum WidgetBackgroundOptionsProvider {
 
     // MARK: Private
 
+    /// Retrieves an array of `WidgetBackground`s from the given folder.
+    /// - Parameter imageFolderUrl: The URL of the folder where the `WidgetBackground`s are stored.
+    /// - Throws: An error if contents of the directory at the `imageFolderUrl` cannot be retrieved.
+    /// - Returns: An array of `WidgetBackground`s.
     private static func getWidgetBackgroundOptionsCollectionFromFolder(in imageFolderUrl: URL) throws
         -> [WidgetBackground] {
         let imageUrls = try getWidgetBackgroundUrlsFromFolder(in: imageFolderUrl)

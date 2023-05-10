@@ -9,6 +9,13 @@ import Foundation
 import SwiftUI
 
 extension View {
+    /**
+     Embeds a view in the specified position.
+
+     - Parameter position: The EmbedPosition enum that specifies the position to embed the view in.
+
+     - Returns: A view embedded in the specified position.
+     */
     func embed(in position: EmbedIn.EmbedPosition) -> some View {
         modifier(EmbedIn(position))
     }

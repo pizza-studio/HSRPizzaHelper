@@ -10,7 +10,9 @@ import Intents
 
 // MARK: - HasDefaultBackground
 
+/// A protocol for objects that have a default background.
 protocol HasDefaultBackground: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
+    /// The default background.
     static var defaultBackground: WidgetBackground { get }
 }
 
