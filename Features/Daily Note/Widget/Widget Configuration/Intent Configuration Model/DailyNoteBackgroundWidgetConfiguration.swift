@@ -13,7 +13,6 @@ import SwiftUI
 
 /// A struct representing the configuration of a daily note background widget.
 struct DailyNoteBackgroundWidgetConfiguration {
-
     // MARK: Lifecycle
 
     /// Initializes a new instance of `DailyNoteBackgroundWidgetConfiguration`.
@@ -87,7 +86,6 @@ struct DailyNoteBackgroundWidgetConfiguration {
     let showAccountName: Bool
 }
 
-
 // MARK: CanProvideWidgetBackground
 
 extension DailyNoteBackgroundWidgetConfiguration: CanProvideWidgetBackground {}
@@ -97,7 +95,6 @@ extension DailyNoteBackgroundWidgetConfiguration: CanProvideWidgetBackground {}
 /// A protocol for erasing to a `DailyNoteBackgroundWidgetConfiguration`. Usually an `Intent`.
 protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackgroundDrawable,
     ContainingWidgetBackground {
-
     /// The widget background.
     var background: [WidgetBackground]? { get }
 
@@ -127,7 +124,6 @@ protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackg
 }
 
 extension DailyNoteWidgetConfigurationErasable {
-
     /// Returns the widget background.
     private func getBackground() -> WidgetBackground {
         let background: WidgetBackground
@@ -177,4 +173,3 @@ extension DailyNoteWidgetConfigurationErasable {
         )
     }
 }
-

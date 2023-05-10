@@ -8,7 +8,6 @@
 import Foundation
 
 extension WidgetBackground {
-
     /// The filename of the widget background.
     var filename: String {
         identifier!.deletingPathExtension

@@ -10,7 +10,6 @@ import HBMihoyoAPI
 import Intents
 
 extension IntentAccount {
-
     /// Convert a `Account` instance to an `IntentAccount` instance.
     /// - Parameter account: The `Account` instance to be converted.
     /// - Returns: The `IntentAccount` instance converted from `account`.
