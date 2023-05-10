@@ -102,7 +102,7 @@
 		EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */; };
 		EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9D024B2A04BE3800796516 /* AccountDetailView.swift */; };
 		EA9D80A02A08D92C00534237 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898702A06A134000AF830 /* IntentHandler.swift */; };
-		EA9D80A12A08D93900534237 /* LargeSquareWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987A2A06A1D3000AF830 /* LargeSquareWidgetConfigurationIntentHandler.swift */; };
+		EA9D80A12A08D93900534237 /* SquareWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */; };
 		EA9D80A22A08D94700534237 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */; };
 		EA9E22122A0B9DC0002F3351 /* WidgetExpeditionInformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E22102A0B9D47002F3351 /* WidgetExpeditionInformationCard.swift */; };
 		EA9E22152A0B9E25002F3351 /* WidgetDailyNoteSuccessLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E22132A0B9E1B002F3351 /* WidgetDailyNoteSuccessLargeView.swift */; };
@@ -140,7 +140,7 @@
 		EAE8986E2A06A134000AF830 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE8986D2A06A134000AF830 /* Intents.framework */; };
 		EAE898712A06A134000AF830 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898702A06A134000AF830 /* IntentHandler.swift */; };
 		EAE898752A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EAE8986C2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EAE8987E2A06A2A6000AF830 /* LargeSquareWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987A2A06A1D3000AF830 /* LargeSquareWidgetConfigurationIntentHandler.swift */; };
+		EAE8987E2A06A2A6000AF830 /* SquareWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */; };
 		EAE898812A06A8D3000AF830 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */; };
 		EAEC11E72A023E130024314D /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = EAEC11E62A023E130024314D /* SwiftyUserDefaults */; };
 		EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */; };
@@ -284,7 +284,7 @@
 		EAE898702A06A134000AF830 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		EAE898722A06A134000AF830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE898762A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HSRPizzaHelperWidgetConfigurationIntent.entitlements; sourceTree = "<group>"; };
-		EAE8987A2A06A1D3000AF830 /* LargeSquareWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeSquareWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
+		EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EAE898822A06A908000AF830 /* IntentAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentAccountExtension.swift; sourceTree = "<group>"; };
 		EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppDailyNoteCardView.swift; sourceTree = "<group>"; };
@@ -477,7 +477,7 @@
 			children = (
 				EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */,
 				EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */,
-				EAE8987A2A06A1D3000AF830 /* LargeSquareWidgetConfigurationIntentHandler.swift */,
+				EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */,
 				EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */,
 			);
 			path = "Intent Provider";
@@ -975,7 +975,7 @@
 				EA8A77252A0748AC0005C511 /* LargeSquareDailyNoteWidgetView.swift in Sources */,
 				EA8A772B2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,
 				EA9E22122A0B9DC0002F3351 /* WidgetExpeditionInformationCard.swift in Sources */,
-				EA9D80A12A08D93900534237 /* LargeSquareWidgetConfigurationIntentHandler.swift in Sources */,
+				EA9D80A12A08D93900534237 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,
 				EA8A771F2A0743AC0005C511 /* LargeSquareDailyNoteTimelineProvider.swift in Sources */,
 				EA8A771A2A073E500005C511 /* IntentAccountExtension.swift in Sources */,
 				EA9D80A22A08D94700534237 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
@@ -1064,7 +1064,7 @@
 				EA8A77172A0737450005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
 				EA702C0F2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
 				EA8A77442A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
-				EAE8987E2A06A2A6000AF830 /* LargeSquareWidgetConfigurationIntentHandler.swift in Sources */,
+				EAE8987E2A06A2A6000AF830 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,
 				EA702C0A2A06B0BA006D3BC9 /* Account+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
