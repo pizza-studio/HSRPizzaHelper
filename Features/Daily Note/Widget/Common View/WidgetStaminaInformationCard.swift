@@ -31,7 +31,7 @@ struct WidgetStaminaInformationCard: View {
                     .font(staminaFont)
                     .shadow(radius: 10)
                 Group {
-                    if info.currentStamina == info.maxStamina {
+                    if info.currentStamina != info.maxStamina {
                         (
                             Text(dateFormatter.string(from: info.fullTime))
                                 + Text("\n")

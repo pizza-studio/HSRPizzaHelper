@@ -39,7 +39,15 @@ extension SmallSquareWidgetConfigurationIntent: RandomBackgroundDrawable {}
 
 // MARK: - SmallSquareWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
 
-extension SmallSquareWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {}
+extension SmallSquareWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {
+    var showExpedition: NSNumber? {
+        false
+    }
+
+    var staminaPosition: IntentStaminaPosition {
+        .left
+    }
+}
 
 // MARK: - RectangularWidgetConfigurationIntent + RandomBackgroundDrawable
 
