@@ -22,9 +22,6 @@ extension HasDefaultAccount {
             identifier: UUID().uuidString,
             display: "Lava"
         )
-        intentAccount.cookie = ""
-        intentAccount.server = .china
-        intentAccount.uid = "118774161"
         return intentAccount
     }
 }
