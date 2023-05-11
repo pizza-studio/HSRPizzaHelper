@@ -77,7 +77,7 @@
 "setting.widget.refresh.frequency.everyvalue" = "Every %lld Hr";
 "setting.widget.title" = "Widget";
 "setting.widget.refresh.manually" = "Sync All Widgets";
-"setting.widget.refresh.footer" = "You can manually sync widgets by clicking the button or pulling down to refresh on the homepage";
+"setting.widget.refresh.footer" = "The widgets will refresh every 6 minutes and synchronize every 5 hours. Manually syncing widgets can be achieved by either entering the app or pulling down to refresh on the homepage.";
 "ophelper.intro" = "A tool for Genshin Impact";
 "account.new.test" = "Test connection";
 "setting.widget.background.manage.add.edit" = "Crop Image";

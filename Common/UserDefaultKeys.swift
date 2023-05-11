@@ -49,10 +49,6 @@ extension DefaultsKeys {
     var widgetTimelineLatestStartAppRefreshTime: DefaultsKey<Date?> {
         .init("widgetTimelineLatestUpdatedOnAppearOfApp")
     }
-
-    var widgetRefreshFrequencyInHour: DefaultsKey<Double> {
-        .init("widgetRefreshFrequencyInHour", defaultValue: 5.0)
-    }
 }
 
 // MARK: - ObservableSwiftyUserDefault

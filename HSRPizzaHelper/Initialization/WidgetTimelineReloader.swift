@@ -26,11 +26,11 @@ private struct WidgetTimelineReloader: ViewModifier {
                     return
                 }
                 let hoursSinceLatestRefresh = Date()
-                    .hoursSince(
+                    .minutesSince(
                         latestRefreshTime
                     )
-                let shouldRefreshAfterHour = Defaults[\.widgetRefreshFrequencyInHour]
-                if hoursSinceLatestRefresh > shouldRefreshAfterHour {
+                let shouldRefreshAfterMinute = AppConfig.enterAppShouldRefreshWidgetAfterMinute
+                if hoursSinceLatestRefresh > shouldRefreshAfterMinute {
                     reloadAllTimelines()
                 }
             }
