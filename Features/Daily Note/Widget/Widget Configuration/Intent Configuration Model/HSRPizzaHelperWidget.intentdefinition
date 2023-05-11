@@ -1372,48 +1372,6 @@
 					<key>INTypePropertyType</key>
 					<string>SpeakableString</string>
 				</dict>
-				<dict>
-					<key>INTypePropertyDisplayName</key>
-					<string>Cookie</string>
-					<key>INTypePropertyDisplayNameID</key>
-					<string>gRah44</string>
-					<key>INTypePropertyDisplayPriority</key>
-					<integer>5</integer>
-					<key>INTypePropertyName</key>
-					<string>cookie</string>
-					<key>INTypePropertyTag</key>
-					<integer>101</integer>
-					<key>INTypePropertyType</key>
-					<string>String</string>
-				</dict>
-				<dict>
-					<key>INTypePropertyDisplayName</key>
-					<string>Server Raw Value</string>
-					<key>INTypePropertyDisplayNameID</key>
-					<string>bGcnJz</string>
-					<key>INTypePropertyDisplayPriority</key>
-					<integer>6</integer>
-					<key>INTypePropertyName</key>
-					<string>serverRawValue</string>
-					<key>INTypePropertyTag</key>
-					<integer>102</integer>
-					<key>INTypePropertyType</key>
-					<string>String</string>
-				</dict>
-				<dict>
-					<key>INTypePropertyDisplayName</key>
-					<string>Uid</string>
-					<key>INTypePropertyDisplayNameID</key>
-					<string>LdfHTo</string>
-					<key>INTypePropertyDisplayPriority</key>
-					<integer>7</integer>
-					<key>INTypePropertyName</key>
-					<string>uid</string>
-					<key>INTypePropertyTag</key>
-					<integer>103</integer>
-					<key>INTypePropertyType</key>
-					<string>String</string>
-				</dict>
 			</array>
 		</dict>
 		<dict>

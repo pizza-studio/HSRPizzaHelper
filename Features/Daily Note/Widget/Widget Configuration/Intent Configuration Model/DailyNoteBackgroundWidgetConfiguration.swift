@@ -34,8 +34,7 @@ struct DailyNoteBackgroundWidgetConfiguration {
         showAccountName: Bool
     ) {
         self.background = background
-        if let account = account,
-           account.identifier != nil {
+        if let account = account?.toAccount() {
             self.account = account
         } else if let account = IntentAccountProvider.getFirstAccount() {
             self.account = account
@@ -68,7 +67,7 @@ struct DailyNoteBackgroundWidgetConfiguration {
     let background: WidgetBackground
 
     /// The `IntentAccount` to display in the widget.
-    let account: IntentAccount?
+    let account: Account?
 
     /// The name of the folder containing the background.
     let backgroundFolderName: String

@@ -8,6 +8,7 @@
 import Foundation
 import HBMihoyoAPI
 import Intents
+import SwifterSwift
 
 extension IntentAccount {
     /// Convert a `Account` instance to an `IntentAccount` instance.
@@ -18,23 +19,16 @@ extension IntentAccount {
             identifier: account.uuid.uuidString,
             display: account.name
         )
-        intentAccount.cookie = account.cookie
-        intentAccount.serverRawValue = account.server.rawValue
-        intentAccount.uid = account.uid
         return intentAccount
     }
 
-    /// The name of the account.
-    var name: String {
-        displayString
-    }
-
-    /// The server of the account.
-    var server: Server {
-        get {
-            .init(rawValue: serverRawValue!)!
-        } set {
-            serverRawValue = newValue.rawValue
-        }
+    func toAccount() -> Account? {
+        let viewContext = AccountPersistenceController.shared.container.viewContext
+        let request = Account.fetchRequest()
+        guard let uuid = identifier else { return nil }
+        request.predicate = NSPredicate(
+            format: "%K == %@", #keyPath(Account.uuid), uuid
+        )
+        return try? viewContext.fetch(request).first
     }
 }
