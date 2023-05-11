@@ -90,3 +90,9 @@
 "setting.widget.background.delete.confirmation.title" = "Determine to delete the background?";
 "setting.widget.background.delete.confirmation.delete" = "Delete";
 "account.login.error.no.account.found" = "This HoYoLAB account is not bound to any game character.";
+"widget.rect.display" = "HSR Trailblaze Power Widget";
+"widget.rect.desc" = "Track your trailblaze power and dispacth assignments at any time.";
+"widget.small.display" = "HSR Trailblaze Power Widget";
+"widget.small.desc" = "Track your trailblaze power and dispacth assignments at any time.";
+"widget.large.display" = "HSR Trailblaze Power Widget";
+"widget.large.desc" = "Track your trailblaze power and dispacth assignments at any time.";
