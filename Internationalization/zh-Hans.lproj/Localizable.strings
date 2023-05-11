@@ -90,3 +90,9 @@
 "setting.widget.background.delete.confirmation.title" = "确认要删除该背景吗？";
 "setting.widget.background.delete.confirmation.delete" = "删除";
 "account.login.error.no.account.found" = "该米游社账号未绑定游戏角色。";
+"widget.rect.display" = "星铁体力小组件";
+"widget.rect.desc" = "立即查看开拓力、派遣委托信息";
+"widget.small.display" = "星铁体力小组件";
+"widget.small.desc" = "立即查看开拓力、派遣委托信息";
+"widget.large.display" = "星铁体力小组件";
+"widget.large.desc" = "立即查看开拓力、派遣委托信息";

@@ -21,8 +21,8 @@ struct SmallSquareDailyNoteWidget: Widget {
         ) { entry in
             SmallSquareDailyNoteWidgetView(entry: entry)
         }
-        .configurationDisplayName("SmallSquareDailyNoteWidget")
-        .description("This is an example widget.")
+        .configurationDisplayName("widget.small.display".localized())
+        .description("widget.small.desc".localized())
         .supportedFamilies([.systemSmall])
     }
 }

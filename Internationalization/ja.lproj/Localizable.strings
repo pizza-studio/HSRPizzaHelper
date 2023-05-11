@@ -80,3 +80,9 @@
 "setting.widget.refresh.footer" = "上のボタンをタップするかプルダウンしてホーム ページを更新し、ウィジェットを手動で同期できます。";
 "ophelper.intro" = "原神のゲームツール";
 "account.new.test" = "アカウントをテスト";
+"widget.rect.display" = "崩スタ開拓力ウィジェット";
+"widget.rect.desc" = "今すぐ開拓力と派遣依頼の状態を確認！";
+"widget.small.display" = "崩スタ開拓力ウィジェット";
+"widget.small.desc" = "今すぐ開拓力と派遣依頼の状態を確認！";
+"widget.large.display" = "崩スタ開拓力ウィジェット";
+"widget.large.desc" = "今すぐ開拓力と派遣依頼の状態を確認！";
