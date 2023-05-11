@@ -31,12 +31,9 @@ extension Account {
     /// The priority of the account.
     @NSManaged public var priority: NSNumber!
 
-    /**
-         The raw value for the server of the account. Possible values depend on the type of server.
-     */
     /// The `rawValue` of the server.
     /// Usually access via `server` property instead of directly use this.
-    @NSManaged fileprivate var serverRawValue: String!
+    @NSManaged public var serverRawValue: String!
 
     /// The UID of the account.
     @NSManaged public var uid: String!

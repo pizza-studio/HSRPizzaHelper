@@ -26,7 +26,7 @@ struct EditAccountView: View {
             HStack {
                 Text("account.label.nickname")
                 Spacer()
-                TextField("account.label.nickname", text: $account.name, prompt: nil)
+                TextField("account.label.nickname", text: accountName)
                     .multilineTextAlignment(.trailing)
             }
         } header: {
@@ -53,6 +53,14 @@ struct EditAccountView: View {
         }
         Section {
             TestAccountView(account: account)
+        }
+    }
+
+    var accountName: Binding<String> {
+        .init {
+            account.name ?? ""
+        } set: { newValue in
+            account.name = newValue
         }
     }
 }
@@ -94,7 +102,6 @@ private struct SelectAccountView: View {
     init(account: Account, accountsForSelected: [FetchedAccount]) {
         self._account = ObservedObject(wrappedValue: account)
         self.accountsForSelected = accountsForSelected
-        selectedAccount.wrappedValue = accountsForSelected.first
     }
 
     // MARK: Internal

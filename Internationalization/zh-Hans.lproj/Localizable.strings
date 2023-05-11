@@ -89,3 +89,4 @@
 "setting.widget.background.alert.rename.button.save" = "保存";
 "setting.widget.background.delete.confirmation.title" = "确认要删除该背景吗？";
 "setting.widget.background.delete.confirmation.delete" = "删除";
+"account.login.error.no.account.found" = "该米游社账号未绑定游戏角色。";
