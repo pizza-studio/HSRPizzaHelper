@@ -20,8 +20,8 @@ struct RectangularDailyNoteWidget: Widget {
         ) { entry in
             RectangularDailyNoteWidgetView(entry: entry)
         }
-        .configurationDisplayName("widget.rect.display")
-        .description("widget.rect.desc")
+        .configurationDisplayName("widget.rect.display".localized())
+        .description("widget.rect.desc".localized())
         .supportedFamilies([.systemMedium, .systemExtraLarge])
     }
 }

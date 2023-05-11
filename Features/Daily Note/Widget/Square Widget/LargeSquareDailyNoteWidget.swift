@@ -20,8 +20,8 @@ struct LargeSquareDailyNoteWidget: Widget {
         ) { entry in
             LargeSquareDailyNoteWidgetView(entry: entry)
         }
-        .configurationDisplayName("widget.large.display")
-        .description("widget.large.desc")
+        .configurationDisplayName("widget.large.display".localized())
+        .description("widget.large.desc".localized())
         .supportedFamilies([.systemLarge])
     }
 }
