@@ -69,12 +69,12 @@ extension DailyNoteTimelineProvider {
         Task {
             var entries: [Entry] = []
 
-            let intentAccount = configuration
+            let account = configuration
                 .eraseToDailyNoteWidgetConfiguration()
                 .account
 
             let dailyNoteResult: Result<DailyNote, Error>
-            if let account = intentAccount {
+            if let account {
                 dailyNoteResult = await getDailyNote(account: account)
             } else {
                 dailyNoteResult = .failure(GetDailyNoteTimelineError.foundNoAccount)
@@ -98,7 +98,7 @@ extension DailyNoteTimelineProvider {
         }
     }
 
-    private func getDailyNote(account: IntentAccount) async -> Result<DailyNote, Error> {
+    private func getDailyNote(account: Account) async -> Result<DailyNote, Error> {
         do {
             let dailyNote = try await MiHoYoAPI.note(
                 server: account.server,

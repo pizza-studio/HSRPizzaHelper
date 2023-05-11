@@ -24,13 +24,13 @@ enum IntentAccountProvider {
 
     /// Retrieves the first `IntentAccount`.
     /// - Returns: The first `IntentAccount`. Returns `nil` if no `IntentAccount` is found.
-    static func getFirstAccount() -> IntentAccount? {
+    static func getFirstAccount() -> Account? {
         let accountPersistenceController = AccountPersistenceController.shared
         let viewContext = accountPersistenceController.container.viewContext
         let request = Account.fetchRequest()
         let accounts = try? viewContext.fetch(request)
         if let account = accounts?.first {
-            return .fromAccount(account)
+            return account
         } else {
             return nil
         }
