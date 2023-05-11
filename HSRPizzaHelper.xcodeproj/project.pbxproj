@@ -12,6 +12,8 @@
 		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BFA4A8492A0BD07400239BB0 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = BFA4A8482A0BD07400239BB0 /* Mantis */; };
 		BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */; };
+		BFBA36172A0CDD5E00E0142A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
+		BFBA36182A0CDD6100E0142A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BFCACD102A0491E9009B0B85 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BFCACD0F2A0491E9009B0B85 /* LICENSE */; };
 		BFD051D32A08B999008343E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D52A08B999008343E8 /* InfoPlist.strings */; };
 		BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */; };
@@ -898,6 +900,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFBA36172A0CDD5E00E0142A /* Localizable.strings in Resources */,
 				EADA17CC2A06B88400AF9784 /* background_image in Resources */,
 				EA068D152A08169D003C4E69 /* Assets.xcassets in Resources */,
 				BFD051DA2A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */,
@@ -925,6 +928,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD051DB2A08C2EA008343E8 /* HBPizzaHelperAPI in Resources */,
+				BFBA36182A0CDD6100E0142A /* Localizable.strings in Resources */,
 				EADA17CB2A06B88000AF9784 /* background_image in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
