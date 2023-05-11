@@ -14,11 +14,10 @@ import HBMihoyoAPI
 public class Account: NSManagedObject {
     public override func awakeFromInsert() {
         super.awakeFromInsert()
-        uuid = UUID()
-        server = Server.china
-        name = name ?? ""
-        cookie = cookie ?? ""
-        priority = 0
-        uid = uid ?? ""
+        setPrimitiveValue(UUID(), forKey: #keyPath(Account.uuid))
+        setPrimitiveValue(Server.china.rawValue, forKey: #keyPath(Account.serverRawValue))
+        setPrimitiveValue("", forKey: #keyPath(Account.name))
+        setPrimitiveValue("", forKey: #keyPath(Account.cookie))
+        setPrimitiveValue("", forKey: #keyPath(Account.uid))
     }
 }

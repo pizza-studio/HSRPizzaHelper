@@ -42,7 +42,7 @@ struct CreateAccountSheetView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("sys.cancel") {
-                        viewContext.delete(account)
+                        viewContext.rollback()
                         isShown.toggle()
                     }
                 }
@@ -90,9 +90,16 @@ struct CreateAccountSheetView: View {
             if let cookie = account.cookie {
                 do {
                     accountsForSelected = try await MiHoYoAPI.getUserGameRolesByCookie(region: region, cookie: cookie)
+                    if let account = accountsForSelected.first {
+                        self.account.name = account.nickname
+                        self.account.uid = account.gameUid
+                        self.account.server = Server(rawValue: account.region) ?? .china
+                    } else {
+                        getAccountError = .customize("account.login.error.no.account.found")
+                    }
                     status = .gotAccount
                 } catch {
-                    getAccountError = .init(source: error)
+                    getAccountError = .source(error)
                     isGetAccountFailAlertShown.toggle()
                     status = .pending
                 }
@@ -262,11 +269,19 @@ extension SaveAccountError: LocalizedError {
 
 // MARK: - GetAccountError
 
-private struct GetAccountError: LocalizedError {
-    let source: Error
+private enum GetAccountError: LocalizedError {
+    case source(Error)
+    case customize(String)
+
+    // MARK: Internal
 
     var errorDescription: String? {
-        source.localizedDescription
+        switch self {
+        case let .source(error):
+            return error.localizedDescription
+        case let .customize(message):
+            return message
+        }
     }
 }
 

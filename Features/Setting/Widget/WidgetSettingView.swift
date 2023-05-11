@@ -23,7 +23,6 @@ struct WidgetSettingView: View {
                 Button("setting.widget.refresh.manually") {
                     WidgetCenter.shared.reloadAllTimelines()
                 }
-                WidgetFrequencyEditor()
             } header: {
                 Text("setting.widget.refresh.header")
             } footer: {

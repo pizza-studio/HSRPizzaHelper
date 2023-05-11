@@ -13,7 +13,7 @@ import WidgetKit
 // MARK: - DailyNoteTimelineProvider
 
 private var refreshWhenSucceedAfterHour: Double {
-    Defaults[\.widgetRefreshFrequencyInHour]
+    AppConfig.widgetRefreshFrequencyInHour
 }
 
 private var refreshWhenSucceedAfterSecond = refreshWhenSucceedAfterHour * 60 * 60

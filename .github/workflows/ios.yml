@@ -16,6 +16,7 @@ jobs:
   build:
     name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-latest
+    needs: SwiftLint
     steps:
       - name: Checkout
         uses: actions/checkout@v3

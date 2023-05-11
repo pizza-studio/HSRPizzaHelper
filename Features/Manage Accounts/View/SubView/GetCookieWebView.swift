@@ -39,6 +39,11 @@ struct GetCookieWebView: View {
                         }
                     }
                 }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("sys.cancel") {
+                        isShown.toggle()
+                    }
+                }
             }
         }.navigationViewStyle(.stack)
     }

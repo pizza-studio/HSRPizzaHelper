@@ -77,7 +77,7 @@
 "setting.widget.refresh.frequency.everyvalue" = "Every %lld Hr";
 "setting.widget.title" = "Widget";
 "setting.widget.refresh.manually" = "Sync All Widgets";
-"setting.widget.refresh.footer" = "You can manually sync widgets by clicking the button or pulling down to refresh on the homepage";
+"setting.widget.refresh.footer" = "The widgets will refresh every 6 minutes and synchronize every 5 hours. Manually syncing widgets can be achieved by either entering the app or pulling down to refresh on the homepage.";
 "ophelper.intro" = "A tool for Genshin Impact";
 "account.new.test" = "Test connection";
 "setting.widget.background.manage.add.edit" = "Crop Image";
@@ -89,3 +89,4 @@
 "setting.widget.background.alert.rename.button.save" = "Save";
 "setting.widget.background.delete.confirmation.title" = "Determine to delete the background?";
 "setting.widget.background.delete.confirmation.delete" = "Delete";
+"account.login.error.no.account.found" = "This HoYoLAB account is not bound to any game character.";

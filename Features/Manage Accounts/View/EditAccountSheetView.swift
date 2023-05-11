@@ -40,6 +40,12 @@ struct EditAccountSheetView: View {
                         }
                     }
                 }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("sys.cancel") {
+                        viewContext.rollback()
+                        isShown.toggle()
+                    }
+                }
             }
             .alert(isPresented: $isSaveAccountFailAlertShown, error: saveAccountError) {
                 Button("sys.ok") {
