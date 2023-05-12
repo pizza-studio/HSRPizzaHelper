@@ -96,3 +96,6 @@
 "widget.small.desc" = "立即查看开拓力、派遣委托信息";
 "widget.large.display" = "星铁体力小组件";
 "widget.large.desc" = "立即查看开拓力、派遣委托信息";
+"setting.notification.notpermitted" = "未允许通知";
+"setting.notification.navigatetosetting" = "开启通知";
+"setting.notification.title" = "通知";

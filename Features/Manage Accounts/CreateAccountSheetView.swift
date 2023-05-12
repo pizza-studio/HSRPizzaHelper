@@ -78,6 +78,13 @@ struct CreateAccountSheetView: View {
             do {
                 try viewContext.save()
                 isShown.toggle()
+                Task {
+                    do {
+                        _ = try await HSRNotificationCenter.requestAuthorization()
+                    } catch {
+                        print(error)
+                    }
+                }
             } catch {
                 saveAccountError = .saveDataError(error)
                 isSaveAccountFailAlertShown.toggle()

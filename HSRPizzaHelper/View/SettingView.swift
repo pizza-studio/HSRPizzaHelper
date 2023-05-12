@@ -28,6 +28,15 @@ struct SettingView: View {
                     } label: {
                         Label("setting.widget.title", systemSymbol: .platter2FilledIphone)
                     }
+                    NavigationLink {
+                        NotificationSettingView()
+                    } label: {
+                        Label {
+                            Text("setting.notification.title")
+                        } icon: {
+                            Image(systemSymbol: .bellBadgeFill)
+                        }
+                    }
                 }
                 Section {
                     Button {
