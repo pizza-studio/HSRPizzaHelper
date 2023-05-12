@@ -116,6 +116,8 @@
 		EA9E22182A0BA324002F3351 /* SmallSquareDailyNoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E22162A0BA322002F3351 /* SmallSquareDailyNoteWidget.swift */; };
 		EA9E221B2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */; };
 		EA9E221D2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E221C2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift */; };
+		EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
+		EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
 		EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */; };
 		EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */; };
@@ -997,6 +999,7 @@
 				EA8A77392A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
 				EA8A772E2A074AD40005C511 /* HasDefaultBackground.swift in Sources */,
 				EA9E221B2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift in Sources */,
+				EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */,
 				EA8A77212A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift in Sources */,
 				EADCE9372A0B7859008D81A9 /* EmbedIn.swift in Sources */,
 				EADCE93A2A0B98DD008D81A9 /* OptionalSpacer.swift in Sources */,
@@ -1086,6 +1089,7 @@
 				EAE898812A06A8D3000AF830 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
 				EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */,
+				EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */,
 				EA8A77372A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
 				EA8A773A2A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
 				EAE898712A06A134000AF830 /* IntentHandler.swift in Sources */,
