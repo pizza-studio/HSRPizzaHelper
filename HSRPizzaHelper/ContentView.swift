@@ -13,8 +13,10 @@ import SwiftUI
 // MARK: - ContentView
 
 struct ContentView: View {
+    // MARK: Internal
+
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             HomeView()
                 .tag(0)
                 .tabItem {
@@ -26,6 +28,15 @@ struct ContentView: View {
                     Label("tab.settings", systemSymbol: .gear)
                 }
         }
+        .onChange(of: selection) { _ in
+            feedbackGenerator.selectionChanged()
+        }
         .initializeApp()
     }
+
+    // MARK: Private
+
+    @State private var selection: Int = 0
+
+    private let feedbackGenerator = UISelectionFeedbackGenerator()
 }
