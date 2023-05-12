@@ -23,7 +23,7 @@ extension IntentAccount {
     }
 
     func toAccount() -> Account? {
-        let viewContext = AccountPersistenceController.shared.container.viewContext
+        let viewContext = PersistenceController.shared.container.viewContext
         let request = Account.fetchRequest()
         guard let uuid = identifier else { return nil }
         request.predicate = NSPredicate(

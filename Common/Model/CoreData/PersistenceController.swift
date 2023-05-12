@@ -5,11 +5,9 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
-// swiftlint:disable force_unwrapping
-
 import CoreData
 
-struct AccountPersistenceController {
+struct PersistenceController {
     // MARK: Lifecycle
 
     init(inMemory: Bool = false) {
@@ -52,9 +50,7 @@ struct AccountPersistenceController {
 
     // MARK: Internal
 
-    static let shared = AccountPersistenceController()
+    static let shared = PersistenceController()
 
     let container: NSPersistentCloudKitContainer
 }
-
-// swiftlint:enable force_unwrapping

@@ -27,10 +27,6 @@
 		EA068D122A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA068D112A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift */; };
 		EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */; };
 		EA068D152A08169D003C4E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE519832A01738600EF23B7 /* Assets.xcassets */; };
-		EA09B1972A0918B200986D46 /* UserPolicyChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09B1962A0918B200986D46 /* UserPolicyChecker.swift */; };
-		EA09B1992A091A1F00986D46 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09B1982A091A1F00986D46 /* AppInitializer.swift */; };
-		EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09B19A2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift */; };
-		EA09B19D2A091B0200986D46 /* LatestVersionInformationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09B19C2A091B0200986D46 /* LatestVersionInformationChecker.swift */; };
 		EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA143BC72A01808200AE1FCA /* HBMihoyoAPI */; };
 		EA1673F12A063AF300436487 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1673F02A063AF300436487 /* WidgetKit.framework */; };
 		EA1673F32A063AF300436487 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1673F22A063AF300436487 /* SwiftUI.framework */; };
@@ -63,7 +59,7 @@
 		EA68BC6C2A06987300A7FF91 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = EA68BC6B2A06987300A7FF91 /* SwiftyUserDefaults */; };
 		EA702C072A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */; };
 		EA702C082A06B04F006D3BC9 /* IntentAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898822A06A908000AF830 /* IntentAccountExtension.swift */; };
-		EA702C092A06B0B7006D3BC9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
+		EA702C092A06B0B7006D3BC9 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* PersistenceController.swift */; };
 		EA702C0A2A06B0BA006D3BC9 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA702C0B2A06B0BC006D3BC9 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
 		EA702C0C2A06B0BF006D3BC9 /* HSRPizzaHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */; };
@@ -85,7 +81,7 @@
 		EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77182A0739B10005C511 /* DailyNoteTimelineProvider.swift */; };
 		EA8A771A2A073E500005C511 /* IntentAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898822A06A908000AF830 /* IntentAccountExtension.swift */; };
 		EA8A771C2A0741220005C511 /* WidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */; };
-		EA8A771D2A0742200005C511 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
+		EA8A771D2A0742200005C511 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* PersistenceController.swift */; };
 		EA8A771F2A0743AC0005C511 /* LargeSquareDailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A771E2A0743AC0005C511 /* LargeSquareDailyNoteTimelineProvider.swift */; };
 		EA8A77212A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77202A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift */; };
 		EA8A77232A0748150005C511 /* LargeSquareDailyNoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77222A0748150005C511 /* LargeSquareDailyNoteWidget.swift */; };
@@ -119,7 +115,17 @@
 		EA9E221B2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */; };
 		EA9E221D2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E221C2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift */; };
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
-		EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */; };
+		EAB19E522A0DDD22004D3F9D /* HSRPizzaHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E442A0DDD22004D3F9D /* HSRPizzaHelperApp.swift */; };
+		EAB19E532A0DDD22004D3F9D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB19E462A0DDD22004D3F9D /* Preview Assets.xcassets */; };
+		EAB19E542A0DDD22004D3F9D /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E482A0DDD22004D3F9D /* AppInitializer.swift */; };
+		EAB19E552A0DDD22004D3F9D /* WidgetTimelineReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E492A0DDD22004D3F9D /* WidgetTimelineReloader.swift */; };
+		EAB19E562A0DDD22004D3F9D /* ApplicationIconBadgeNumberCleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E4A2A0DDD22004D3F9D /* ApplicationIconBadgeNumberCleaner.swift */; };
+		EAB19E572A0DDD22004D3F9D /* UserPolicyChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E4B2A0DDD22004D3F9D /* UserPolicyChecker.swift */; };
+		EAB19E582A0DDD22004D3F9D /* LatestVersionInformationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E4C2A0DDD22004D3F9D /* LatestVersionInformationChecker.swift */; };
+		EAB19E592A0DDD22004D3F9D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E4E2A0DDD22004D3F9D /* HomeView.swift */; };
+		EAB19E5A2A0DDD22004D3F9D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E4F2A0DDD22004D3F9D /* SettingView.swift */; };
+		EAB19E5B2A0DDD22004D3F9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB19E502A0DDD22004D3F9D /* ContentView.swift */; };
+		EAB19E5C2A0DDD22004D3F9D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAB19E512A0DDD22004D3F9D /* Info.plist */; };
 		EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */; };
 		EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */; };
 		EADA17C62A06B76700AF9784 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
@@ -129,18 +135,13 @@
 		EADA17CC2A06B88400AF9784 /* background_image in Resources */ = {isa = PBXBuildFile; fileRef = EADA17C72A06B7BE00AF9784 /* background_image */; };
 		EADA17CE2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */; };
 		EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */; };
-		EADA63772A0201B200BF070F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63762A0201B200BF070F /* HomeView.swift */; };
 		EADCE9362A0B7857008D81A9 /* EmbedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADCE9352A0B7857008D81A9 /* EmbedIn.swift */; };
 		EADCE9372A0B7859008D81A9 /* EmbedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADCE9352A0B7857008D81A9 /* EmbedIn.swift */; };
 		EADCE9392A0B985F008D81A9 /* OptionalSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADCE9382A0B985F008D81A9 /* OptionalSpacer.swift */; };
 		EADCE93A2A0B98DD008D81A9 /* OptionalSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADCE9382A0B985F008D81A9 /* OptionalSpacer.swift */; };
-		EAE37EBF2A0206AC00154432 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE37EBE2A0206AC00154432 /* SettingView.swift */; };
 		EAE37EC12A0206BC00154432 /* ManageAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE37EC02A0206BC00154432 /* ManageAccountsView.swift */; };
-		EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE5197F2A01738600EF23B7 /* HSRPizzaHelperApp.swift */; };
-		EAE519822A01738600EF23B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519812A01738600EF23B7 /* ContentView.swift */; };
 		EAE519842A01738600EF23B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE519832A01738600EF23B7 /* Assets.xcassets */; };
-		EAE519872A01738600EF23B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE519862A01738600EF23B7 /* Preview Assets.xcassets */; };
-		EAE519892A01738600EF23B7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
+		EAE519892A01738600EF23B7 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* PersistenceController.swift */; };
 		EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */; };
 		EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = EAE519B02A0174D800EF23B7 /* SFSafeSymbols */; };
 		EAE519B42A01752A00EF23B7 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EAE519B32A01752A00EF23B7 /* AlertToast */; };
@@ -215,10 +216,6 @@
 		EA068D0E2A0807F3003C4E69 /* RectangularDailyNoteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteWidget.swift; sourceTree = "<group>"; };
 		EA068D112A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteWidgetView.swift; sourceTree = "<group>"; };
 		EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStaminaInformationCard.swift; sourceTree = "<group>"; };
-		EA09B1962A0918B200986D46 /* UserPolicyChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPolicyChecker.swift; sourceTree = "<group>"; };
-		EA09B1982A091A1F00986D46 /* AppInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
-		EA09B19A2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationIconBadgeNumberCleaner.swift; sourceTree = "<group>"; };
-		EA09B19C2A091B0200986D46 /* LatestVersionInformationChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestVersionInformationChecker.swift; sourceTree = "<group>"; };
 		EA1673EF2A063AF300436487 /* HSRPizzaHelperWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HSRPizzaHelperWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1673F02A063AF300436487 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EA1673F22A063AF300436487 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -266,28 +263,32 @@
 		EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
 		EA9E221C2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteWidgetView.swift; sourceTree = "<group>"; };
 		EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteCards.swift; sourceTree = "<group>"; };
-		EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimelineReloader.swift; sourceTree = "<group>"; };
+		EAB19E432A0DDD22004D3F9D /* HSRPizzaHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HSRPizzaHelper.entitlements; sourceTree = "<group>"; };
+		EAB19E442A0DDD22004D3F9D /* HSRPizzaHelperApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperApp.swift; sourceTree = "<group>"; };
+		EAB19E462A0DDD22004D3F9D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EAB19E482A0DDD22004D3F9D /* AppInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
+		EAB19E492A0DDD22004D3F9D /* WidgetTimelineReloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTimelineReloader.swift; sourceTree = "<group>"; };
+		EAB19E4A2A0DDD22004D3F9D /* ApplicationIconBadgeNumberCleaner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationIconBadgeNumberCleaner.swift; sourceTree = "<group>"; };
+		EAB19E4B2A0DDD22004D3F9D /* UserPolicyChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPolicyChecker.swift; sourceTree = "<group>"; };
+		EAB19E4C2A0DDD22004D3F9D /* LatestVersionInformationChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestVersionInformationChecker.swift; sourceTree = "<group>"; };
+		EAB19E4E2A0DDD22004D3F9D /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EAB19E4F2A0DDD22004D3F9D /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		EAB19E502A0DDD22004D3F9D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EAB19E512A0DDD22004D3F9D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingView.swift; sourceTree = "<group>"; };
 		EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAccountCard.swift; sourceTree = "<group>"; };
 		EADA17C72A06B7BE00AF9784 /* background_image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = background_image; sourceTree = "<group>"; };
 		EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundOptionsCollectionProvider.swift; sourceTree = "<group>"; };
 		EADA17CF2A06C0CB00AF9784 /* WidgetBackgroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundExtension.swift; sourceTree = "<group>"; };
 		EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteViewModel.swift; sourceTree = "<group>"; };
-		EADA63762A0201B200BF070F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EADCE9352A0B7857008D81A9 /* EmbedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedIn.swift; sourceTree = "<group>"; };
 		EADCE9382A0B985F008D81A9 /* OptionalSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalSpacer.swift; sourceTree = "<group>"; };
-		EAE37EBE2A0206AC00154432 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		EAE37EC02A0206BC00154432 /* ManageAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccountsView.swift; sourceTree = "<group>"; };
 		EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSRPizzaHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAE5197F2A01738600EF23B7 /* HSRPizzaHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperApp.swift; sourceTree = "<group>"; };
-		EAE519812A01738600EF23B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EAE519832A01738600EF23B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EAE519862A01738600EF23B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EAE519882A01738600EF23B7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		EAE519882A01738600EF23B7 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		EAE5198B2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HSRPizzaHelper.xcdatamodel; sourceTree = "<group>"; };
-		EAE5198D2A01738600EF23B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE519B92A01759D00EF23B7 /* HBMihoyoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBMihoyoAPI; path = Packages/HBMihoyoAPI; sourceTree = "<group>"; };
-		EAE519C22A01771F00EF23B7 /* HSRPizzaHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HSRPizzaHelper.entitlements; sourceTree = "<group>"; };
 		EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchStatus.swift; sourceTree = "<group>"; };
 		EAE8986C2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HSRPizzaHelperWidgetConfigurationIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE8986D2A06A134000AF830 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
@@ -364,21 +365,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		EA09B1942A09182A00986D46 /* Initialization */ = {
-			isa = PBXGroup;
-			children = (
-				EA09B1982A091A1F00986D46 /* AppInitializer.swift */,
-				EA09B1962A0918B200986D46 /* UserPolicyChecker.swift */,
-				EA09B19A2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift */,
-				EA09B19C2A091B0200986D46 /* LatestVersionInformationChecker.swift */,
-				EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */,
-			);
-			path = Initialization;
-			sourceTree = "<group>";
-		};
 		EA09B19E2A091DFE00986D46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EA739BD62A0DDAC9002E04D9 /* CoreData */,
+				EA739BD72A0DDAF7002E04D9 /* Account */,
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
 				EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */,
 			);
@@ -465,20 +456,6 @@
 			path = "View Modifier";
 			sourceTree = "<group>";
 		};
-		EA68BC632A065B0200A7FF91 /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				EA8A77122A07364E0005C511 /* Timeline Provider */,
-				EA8A77112A07364B0005C511 /* Entry */,
-				EADA17D12A06C42C00AF9784 /* Widget Configuration */,
-				EA68BC662A065B8F00A7FF91 /* Common View */,
-				EA68BC642A065B0800A7FF91 /* Live Activity */,
-				EA68BC6E2A069CCF00A7FF91 /* Square Widget */,
-				EA68BC6D2A069CC800A7FF91 /* Rectangular Widget */,
-			);
-			path = Widget;
-			sourceTree = "<group>";
-		};
 		EA68BC642A065B0800A7FF91 /* Live Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,12 +518,45 @@
 			path = "Square Widget";
 			sourceTree = "<group>";
 		};
+		EA739BD62A0DDAC9002E04D9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */,
+				EAE519882A01738600EF23B7 /* PersistenceController.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EA739BD72A0DDAF7002E04D9 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */,
+				EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */,
+				EA477FF62A08899C0082D211 /* AccountExtension.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		EA739BD82A0DDBDF002E04D9 /* Daily Note Widget */ = {
+			isa = PBXGroup;
+			children = (
+				EA8A77122A07364E0005C511 /* Timeline Provider */,
+				EA8A77112A07364B0005C511 /* Entry */,
+				EADA17D12A06C42C00AF9784 /* Widget Configuration */,
+				EA68BC662A065B8F00A7FF91 /* Common View */,
+				EA68BC642A065B0800A7FF91 /* Live Activity */,
+				EA68BC6E2A069CCF00A7FF91 /* Square Widget */,
+				EA68BC6D2A069CC800A7FF91 /* Rectangular Widget */,
+			);
+			path = "Daily Note Widget";
+			sourceTree = "<group>";
+		};
 		EA742BFA2A02389A00ACB8E4 /* Daily Note */ = {
 			isa = PBXGroup;
 			children = (
-				EA68BC632A065B0200A7FF91 /* Widget */,
-				EAEC11E92A0241570024314D /* App View */,
-				EAEC11E82A0240850024314D /* ViewModel */,
+				EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */,
+				EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */,
+				EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */,
 			);
 			path = "Daily Note";
 			sourceTree = "<group>";
@@ -581,9 +591,53 @@
 			path = "Common Protocol";
 			sourceTree = "<group>";
 		};
+		EAB19E422A0DDD22004D3F9D /* HSRPizzaHelper */ = {
+			isa = PBXGroup;
+			children = (
+				EAB19E432A0DDD22004D3F9D /* HSRPizzaHelper.entitlements */,
+				EAB19E442A0DDD22004D3F9D /* HSRPizzaHelperApp.swift */,
+				EAB19E452A0DDD22004D3F9D /* Preview Content */,
+				EAB19E472A0DDD22004D3F9D /* Initialization */,
+				EAB19E4D2A0DDD22004D3F9D /* View */,
+				EAB19E502A0DDD22004D3F9D /* ContentView.swift */,
+				EAB19E512A0DDD22004D3F9D /* Info.plist */,
+			);
+			path = HSRPizzaHelper;
+			sourceTree = "<group>";
+		};
+		EAB19E452A0DDD22004D3F9D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EAB19E462A0DDD22004D3F9D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EAB19E472A0DDD22004D3F9D /* Initialization */ = {
+			isa = PBXGroup;
+			children = (
+				EAB19E482A0DDD22004D3F9D /* AppInitializer.swift */,
+				EAB19E492A0DDD22004D3F9D /* WidgetTimelineReloader.swift */,
+				EAB19E4A2A0DDD22004D3F9D /* ApplicationIconBadgeNumberCleaner.swift */,
+				EAB19E4B2A0DDD22004D3F9D /* UserPolicyChecker.swift */,
+				EAB19E4C2A0DDD22004D3F9D /* LatestVersionInformationChecker.swift */,
+			);
+			path = Initialization;
+			sourceTree = "<group>";
+		};
+		EAB19E4D2A0DDD22004D3F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAB19E4E2A0DDD22004D3F9D /* HomeView.swift */,
+				EAB19E4F2A0DDD22004D3F9D /* SettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EAC9E4122A09F70B00011E1F /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				EAE519BB2A0175DA00EF23B7 /* Manage Accounts */,
 				EA5F232E2A0BE35600D6D024 /* Widget */,
 			);
 			path = Setting;
@@ -608,9 +662,9 @@
 				EAE519C12A0175F800EF23B7 /* Assets */,
 				EAE519BA2A0175C200EF23B7 /* Features */,
 				BF14CFA72A049AC100E437C6 /* Internationalization */,
-				EAE519B72A01757400EF23B7 /* Packages */,
-				EAE5197E2A01738600EF23B7 /* HSRPizzaHelper */,
+				EAB19E422A0DDD22004D3F9D /* HSRPizzaHelper */,
 				EA1673F42A063AF300436487 /* HSRPizzaHelperWidget */,
+				EAE519B72A01757400EF23B7 /* Packages */,
 				EAE5197D2A01738600EF23B7 /* Products */,
 				EA143BC62A01808200AE1FCA /* Frameworks */,
 			);
@@ -624,28 +678,6 @@
 				EAE8986C2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.appex */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		EAE5197E2A01738600EF23B7 /* HSRPizzaHelper */ = {
-			isa = PBXGroup;
-			children = (
-				EA09B1942A09182A00986D46 /* Initialization */,
-				EAE519CA2A0178D100EF23B7 /* View */,
-				EAE519C22A01771F00EF23B7 /* HSRPizzaHelper.entitlements */,
-				EAE5197F2A01738600EF23B7 /* HSRPizzaHelperApp.swift */,
-				EAE519812A01738600EF23B7 /* ContentView.swift */,
-				EAE5198D2A01738600EF23B7 /* Info.plist */,
-				EAE519852A01738600EF23B7 /* Preview Content */,
-			);
-			path = HSRPizzaHelper;
-			sourceTree = "<group>";
-		};
-		EAE519852A01738600EF23B7 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				EAE519862A01738600EF23B7 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		EAE519B72A01757400EF23B7 /* Packages */ = {
@@ -663,7 +695,7 @@
 				EA14BF922A04C595002EDBB4 /* System */,
 				EAC9E4122A09F70B00011E1F /* Setting */,
 				EA742BFA2A02389A00ACB8E4 /* Daily Note */,
-				EAE519BB2A0175DA00EF23B7 /* Manage Accounts */,
+				EA739BD82A0DDBDF002E04D9 /* Daily Note Widget */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -671,33 +703,12 @@
 		EAE519BB2A0175DA00EF23B7 /* Manage Accounts */ = {
 			isa = PBXGroup;
 			children = (
-				EAE519BE2A0175E600EF23B7 /* Model */,
-				EAE519BC2A0175DD00EF23B7 /* View */,
-			);
-			path = "Manage Accounts";
-			sourceTree = "<group>";
-		};
-		EAE519BC2A0175DD00EF23B7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EA2C06502A04AC5200A328E6 /* SubView */,
 				EAE37EC02A0206BC00154432 /* ManageAccountsView.swift */,
 				EA742BF62A020A3300ACB8E4 /* CreateAccountSheetView.swift */,
 				EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */,
+				EA2C06502A04AC5200A328E6 /* SubView */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		EAE519BE2A0175E600EF23B7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EAE519882A01738600EF23B7 /* Persistence.swift */,
-				EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */,
-				EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */,
-				EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */,
-				EA477FF62A08899C0082D211 /* AccountExtension.swift */,
-			);
-			path = Model;
+			path = "Manage Accounts";
 			sourceTree = "<group>";
 		};
 		EAE519C12A0175F800EF23B7 /* Assets */ = {
@@ -725,15 +736,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		EAE519CA2A0178D100EF23B7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EADA63762A0201B200BF070F /* HomeView.swift */,
-				EAE37EBE2A0206AC00154432 /* SettingView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		EAE8986F2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,23 +744,6 @@
 				EAE898722A06A134000AF830 /* Info.plist */,
 			);
 			path = HSRPizzaHelperWidgetConfigurationIntent;
-			sourceTree = "<group>";
-		};
-		EAEC11E82A0240850024314D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		EAEC11E92A0241570024314D /* App View */ = {
-			isa = PBXGroup;
-			children = (
-				EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */,
-				EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */,
-			);
-			path = "App View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -912,10 +897,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB19E532A0DDD22004D3F9D /* Preview Assets.xcassets in Resources */,
 				EADA17C82A06B7BE00AF9784 /* background_image in Resources */,
+				EAB19E5C2A0DDD22004D3F9D /* Info.plist in Resources */,
 				BFD051D32A08B999008343E8 /* InfoPlist.strings in Resources */,
 				BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */,
-				EAE519872A01738600EF23B7 /* Preview Assets.xcassets in Resources */,
 				BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */,
 				EAE519842A01738600EF23B7 /* Assets.xcassets in Resources */,
 				EA32764F2A03852C00774126 /* Icon.xcassets in Resources */,
@@ -990,7 +976,7 @@
 				EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */,
 				EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */,
 				EA1673F62A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift in Sources */,
-				EA8A771D2A0742200005C511 /* Persistence.swift in Sources */,
+				EA8A771D2A0742200005C511 /* PersistenceController.swift in Sources */,
 				EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */,
 				EA8A77262A07497A0005C511 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EA1673FA2A063AF300436487 /* HSRPizzaHelperWidget.swift in Sources */,
@@ -1029,49 +1015,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1DE41E2A08B78500CFB37C /* WidgetBackgroundSettingView.swift in Sources */,
-				EA09B1992A091A1F00986D46 /* AppInitializer.swift in Sources */,
 				EAE37EC12A0206BC00154432 /* ManageAccountsView.swift in Sources */,
 				EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */,
 				EADCE9362A0B7857008D81A9 /* EmbedIn.swift in Sources */,
-				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
+				EAE519892A01738600EF23B7 /* PersistenceController.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
+				EAB19E542A0DDD22004D3F9D /* AppInitializer.swift in Sources */,
 				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,
+				EAB19E582A0DDD22004D3F9D /* LatestVersionInformationChecker.swift in Sources */,
 				EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */,
 				BFDF6A842A08CAE200048FF9 /* AutoSheetDismiss.swift in Sources */,
 				BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */,
 				EA664C742A092E3A00DCEAC1 /* WidgetAccountCard.swift in Sources */,
 				EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */,
-				EADA63772A0201B200BF070F /* HomeView.swift in Sources */,
+				EAB19E562A0DDD22004D3F9D /* ApplicationIconBadgeNumberCleaner.swift in Sources */,
 				EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */,
+				EAB19E592A0DDD22004D3F9D /* HomeView.swift in Sources */,
 				EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA742BF72A020A3300ACB8E4 /* CreateAccountSheetView.swift in Sources */,
 				EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */,
 				EA1DE41F2A08C4DB00CFB37C /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
-				EA09B19D2A091B0200986D46 /* LatestVersionInformationChecker.swift in Sources */,
+				EAB19E5A2A0DDD22004D3F9D /* SettingView.swift in Sources */,
 				EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */,
 				EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */,
 				EA2C06522A04AC5A00A328E6 /* TestAccountView.swift in Sources */,
-				EAE519822A01738600EF23B7 /* ContentView.swift in Sources */,
 				EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */,
 				BFDF6A862A08D6C000048FF9 /* TapticSupport.swift in Sources */,
 				EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */,
 				BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */,
+				EAB19E522A0DDD22004D3F9D /* HSRPizzaHelperApp.swift in Sources */,
+				EAB19E572A0DDD22004D3F9D /* UserPolicyChecker.swift in Sources */,
 				EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */,
 				EA2C064F2A04AAE000A328E6 /* EditAccountView.swift in Sources */,
 				EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */,
 				EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */,
-				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
 				BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */,
+				EAB19E552A0DDD22004D3F9D /* WidgetTimelineReloader.swift in Sources */,
 				EADCE9392A0B985F008D81A9 /* OptionalSpacer.swift in Sources */,
 				EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */,
-				EAE37EBF2A0206AC00154432 /* SettingView.swift in Sources */,
-				EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */,
+				EAB19E5B2A0DDD22004D3F9D /* ContentView.swift in Sources */,
 				EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */,
 				EA8A77452A07661C0005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
-				EA09B1972A0918B200986D46 /* UserPolicyChecker.swift in Sources */,
-				EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */,
 				EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1090,7 +1076,7 @@
 				EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA8A77372A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
-				EA702C092A06B0B7006D3BC9 /* Persistence.swift in Sources */,
+				EA702C092A06B0B7006D3BC9 /* PersistenceController.swift in Sources */,
 				EA8A773A2A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
 				EAE898712A06A134000AF830 /* IntentHandler.swift in Sources */,
 				EA8A772C2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,
@@ -1324,14 +1310,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Target Entrance/HSRPizzaHelper/HSRPizzaHelper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HSRPizzaHelper/Info.plist;
+				INFOPLIST_FILE = "Target Entrance/HSRPizzaHelper/Info.plist";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = permission.photo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1361,14 +1347,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Target Entrance/HSRPizzaHelper/HSRPizzaHelper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HSRPizzaHelper/Info.plist;
+				INFOPLIST_FILE = "Target Entrance/HSRPizzaHelper/Info.plist";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = permission.photo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

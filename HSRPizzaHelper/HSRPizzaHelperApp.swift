@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct HSRPizzaHelperApp: App {
-    let accountPersistenceController = AccountPersistenceController.shared
+    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, accountPersistenceController.container.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
