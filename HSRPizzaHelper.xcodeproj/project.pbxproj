@@ -465,7 +465,7 @@
 			path = "View Modifier";
 			sourceTree = "<group>";
 		};
-		EA68BC632A065B0200A7FF91 /* Widget */ = {
+		EA68BC632A065B0200A7FF91 /* Daily Note Widget */ = {
 			isa = PBXGroup;
 			children = (
 				EA8A77122A07364E0005C511 /* Timeline Provider */,
@@ -476,7 +476,7 @@
 				EA68BC6E2A069CCF00A7FF91 /* Square Widget */,
 				EA68BC6D2A069CC800A7FF91 /* Rectangular Widget */,
 			);
-			path = Widget;
+			path = "Daily Note Widget";
 			sourceTree = "<group>";
 		};
 		EA68BC642A065B0800A7FF91 /* Live Activity */ = {
@@ -544,8 +544,7 @@
 		EA742BFA2A02389A00ACB8E4 /* Daily Note */ = {
 			isa = PBXGroup;
 			children = (
-				EA68BC632A065B0200A7FF91 /* Widget */,
-				EAEC11E92A0241570024314D /* App View */,
+				EAEC11E92A0241570024314D /* View */,
 				EAEC11E82A0240850024314D /* ViewModel */,
 			);
 			path = "Daily Note";
@@ -672,6 +671,7 @@
 				EA14BF922A04C595002EDBB4 /* System */,
 				EAC9E4122A09F70B00011E1F /* Setting */,
 				EA742BFA2A02389A00ACB8E4 /* Daily Note */,
+				EA68BC632A065B0200A7FF91 /* Daily Note Widget */,
 				EAE519BB2A0175DA00EF23B7 /* Manage Accounts */,
 			);
 			path = Features;
@@ -750,13 +750,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EAEC11E92A0241570024314D /* App View */ = {
+		EAEC11E92A0241570024314D /* View */ = {
 			isa = PBXGroup;
 			children = (
 				EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */,
 				EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */,
 			);
-			path = "App View";
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
