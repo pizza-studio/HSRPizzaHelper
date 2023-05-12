@@ -6,18 +6,11 @@
 //
 
 import Foundation
+import HBMihoyoAPI
 import UserNotifications
-
-private let center = UNUserNotificationCenter.current()
 
 // MARK: - HSRNotificationCenter
 
 enum HSRNotificationCenter {
-    static func requestAuthorization() async throws -> Bool {
-        try await center.requestAuthorization(options: [.alert, .sound, .badge])
-    }
-
-    static func authorizationStatus() async -> UNAuthorizationStatus {
-        await center.notificationSettings().authorizationStatus
-    }
+    static let center = UNUserNotificationCenter.current()
 }

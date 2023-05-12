@@ -80,6 +80,8 @@
 		EA80CFE32A0E8FFF00002B53 /* HSRNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */; };
 		EA80CFE62A0E928B00002B53 /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE52A0E928B00002B53 /* NotificationSettingView.swift */; };
 		EA80CFE82A0E983C00002B53 /* InlineNavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE72A0E983C00002B53 /* InlineNavigationTitle.swift */; };
+		EA80CFEA2A0E9E2E00002B53 /* RequestAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE92A0E9E2E00002B53 /* RequestAuthorization.swift */; };
+		EA80CFEC2A0E9E9A00002B53 /* DailyNoteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */; };
 		EA8A770D2A0735F30005C511 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
 		EA8A770E2A0735F70005C511 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA8A77142A07365D0005C511 /* DailyNoteEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77132A07365D0005C511 /* DailyNoteEntry.swift */; };
@@ -253,6 +255,8 @@
 		EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRNotificationCenter.swift; sourceTree = "<group>"; };
 		EA80CFE52A0E928B00002B53 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
 		EA80CFE72A0E983C00002B53 /* InlineNavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineNavigationTitle.swift; sourceTree = "<group>"; };
+		EA80CFE92A0E9E2E00002B53 /* RequestAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAuthorization.swift; sourceTree = "<group>"; };
+		EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteNotification.swift; sourceTree = "<group>"; };
 		EA8A77132A07365D0005C511 /* DailyNoteEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteEntry.swift; sourceTree = "<group>"; };
 		EA8A77152A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteBackgroundWidgetConfiguration.swift; sourceTree = "<group>"; };
 		EA8A77182A0739B10005C511 /* DailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
@@ -566,6 +570,8 @@
 			isa = PBXGroup;
 			children = (
 				EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */,
+				EA80CFE92A0E9E2E00002B53 /* RequestAuthorization.swift */,
+				EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -1060,6 +1066,7 @@
 				EA09B1992A091A1F00986D46 /* AppInitializer.swift in Sources */,
 				EAE37EC12A0206BC00154432 /* ManageAccountsView.swift in Sources */,
 				EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */,
+				EA80CFEC2A0E9E9A00002B53 /* DailyNoteNotification.swift in Sources */,
 				EADCE9362A0B7857008D81A9 /* EmbedIn.swift in Sources */,
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
@@ -1101,6 +1108,7 @@
 				EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */,
 				EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */,
 				EA8A77452A07661C0005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
+				EA80CFEA2A0E9E2E00002B53 /* RequestAuthorization.swift in Sources */,
 				EA09B1972A0918B200986D46 /* UserPolicyChecker.swift in Sources */,
 				EA80CFE82A0E983C00002B53 /* InlineNavigationTitle.swift in Sources */,
 				EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */,
