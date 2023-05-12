@@ -7,6 +7,7 @@
 
 import Foundation
 import HBMihoyoAPI
+import SwiftyUserDefaults
 import UserNotifications
 
 private var center: UNUserNotificationCenter { HSRNotificationCenter.center }
@@ -30,7 +31,25 @@ private struct DailyNoteNotificationSender {
 
     // MARK: Internal
 
-    func send() {}
+    func send() {
+        guard (account.allowNotification as? Bool) ?? false else { return }
+        if setting.allowStaminaNotification {
+            scheduleStaminaFullNotification()
+            setting.staminaAdditionalNotificationNumbers.forEach { number in
+                scheduleStaminaNotification(to: number)
+            }
+        }
+        if setting.allowExpeditionNotification {
+            switch setting.expeditionNotificationSetting {
+            case .onlySummary:
+                scheduleExpeditionSummaryNotification()
+            case .forEachExpedition:
+                dailyNote.expeditionInformation.expeditions.forEach { expedition in
+                    scheduleEachExpeditionNotification(expedition: expedition)
+                }
+            }
+        }
+    }
 
     // MARK: Private
 
@@ -43,6 +62,8 @@ private struct DailyNoteNotificationSender {
 
     private let account: Account
     private let dailyNote: DailyNote
+
+    private let setting = DailyNoteNotificationSetting()
 
     private func scheduleStaminaFullNotification() {
         let information = dailyNote.staminaInformation
@@ -67,7 +88,8 @@ private struct DailyNoteNotificationSender {
         content.title = ""
         content.body = ""
 
-        let timeInterval = information.remainingTime - Double(staminaNumber) * StaminaInformation.eachStaminaRecoveryTime
+        let timeInterval = information.remainingTime - Double(staminaNumber) * StaminaInformation
+            .eachStaminaRecoveryTime
         guard timeInterval > 0 else { return }
 
         let trigger = UNTimeIntervalNotificationTrigger(
@@ -127,4 +149,70 @@ private struct DailyNoteNotificationSender {
     }
 }
 
+// MARK: - DailyNoteNotificationSetting
 
+struct DailyNoteNotificationSetting {
+    // MARK: Lifecycle
+
+    init() {}
+
+    // MARK: Internal
+
+    enum ExpeditionNotificationSetting: String, DefaultsSerializable, CustomStringConvertible, CaseIterable {
+        case onlySummary
+        case forEachExpedition
+
+        // MARK: Internal
+
+        var description: String {
+            switch self {
+            case .onlySummary:
+                return ""
+            case .forEachExpedition:
+                return ""
+            }
+        }
+    }
+
+    @SwiftyUserDefault(
+        keyPath: \.allowStaminaNotification,
+        adapter: Defaults,
+        options: .observed
+    ) var allowStaminaNotification: Bool
+
+    @SwiftyUserDefault(
+        keyPath: \.staminaAdditionalNotificationNumbers,
+        adapter: Defaults,
+        options: .observed
+    ) var staminaAdditionalNotificationNumbers: [Int]
+
+    @SwiftyUserDefault(
+        keyPath: \.allowExpeditionNotification,
+        adapter: Defaults,
+        options: .observed
+    ) var allowExpeditionNotification: Bool
+
+    @SwiftyUserDefault(
+        keyPath: \.expeditionNotificationSetting,
+        adapter: Defaults,
+        options: .observed
+    ) var expeditionNotificationSetting: ExpeditionNotificationSetting
+}
+
+extension DefaultsKeys {
+    var allowStaminaNotification: DefaultsKey<Bool> {
+        .init("allowStaminaNotification", defaultValue: true)
+    }
+
+    var staminaAdditionalNotificationNumbers: DefaultsKey<[Int]> {
+        .init("staminaAdditionalNotificationNumber", defaultValue: [150])
+    }
+
+    var expeditionNotificationSetting: DefaultsKey<DailyNoteNotificationSetting.ExpeditionNotificationSetting> {
+        .init("expeditionNotificationSetting", defaultValue: .onlySummary)
+    }
+
+    var allowExpeditionNotification: DefaultsKey<Bool> {
+        .init("allowExpeditionNotification", defaultValue: true)
+    }
+}

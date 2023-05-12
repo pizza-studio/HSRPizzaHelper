@@ -19,5 +19,6 @@ public class Account: NSManagedObject {
         setPrimitiveValue("", forKey: #keyPath(Account.name))
         setPrimitiveValue("", forKey: #keyPath(Account.cookie))
         setPrimitiveValue("", forKey: #keyPath(Account.uid))
+        setPrimitiveValue(true as NSNumber, forKey: #keyPath(Account.allowNotification))
     }
 }
