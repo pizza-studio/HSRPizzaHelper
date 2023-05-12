@@ -16,7 +16,7 @@ struct AboutView: View {
 
     var body: some View {
         VStack {
-            Image("AppIconHD")
+            Image("icon.hsrhelper")
                 .resizable()
                 .frame(width: 75, height: 75, alignment: .center)
                 .cornerRadius(10)
