@@ -14,13 +14,17 @@ struct NotificationSettingView: View {
 
     var body: some View {
         List {
-            if let authorizationStatus, allowPushNotification {
-                AskForNotificationPermissionView()
+            if authorizationStatus != nil {
+                if !allowPushNotification {
+                    AskForNotificationPermissionView()
+                }
+                NotificationSettingDetailView()
+                    .disabled(!allowPushNotification)
+            } else {
+                ProgressView()
             }
-            NotificationSettingDetailView()
-                .disabled(!allowPushNotification)
         }
-        .navigationTitle("setting.notification.title")
+        .inlineNavigationTitle("setting.notification.title")
         .onAppear {
             Task {
                 authorizationStatus = await HSRNotificationCenter.authorizationStatus()
@@ -31,13 +35,13 @@ struct NotificationSettingView: View {
         }
     }
 
-    private var allowPushNotification: Bool {
-        authorizationStatus == .authorized || authorizationStatus == .provisional || authorizationStatus == .ephemeral
-    }
-
     // MARK: Private
 
     @State private var authorizationStatus: UNAuthorizationStatus?
+
+    private var allowPushNotification: Bool {
+        authorizationStatus == .authorized || authorizationStatus == .provisional || authorizationStatus == .ephemeral
+    }
 }
 
 // MARK: - NotificationSettingDetailView
