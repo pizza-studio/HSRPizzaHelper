@@ -378,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				EAA6916A2A0E66B8003D17FF /* CoreData */,
+				EAE519BE2A0175E600EF23B7 /* Account */,
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
 				EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */,
 			);
@@ -679,31 +680,22 @@
 		EAE519BB2A0175DA00EF23B7 /* Manage Accounts */ = {
 			isa = PBXGroup;
 			children = (
-				EAE519BE2A0175E600EF23B7 /* Model */,
-				EAE519BC2A0175DD00EF23B7 /* View */,
-			);
-			path = "Manage Accounts";
-			sourceTree = "<group>";
-		};
-		EAE519BC2A0175DD00EF23B7 /* View */ = {
-			isa = PBXGroup;
-			children = (
 				EA2C06502A04AC5200A328E6 /* SubView */,
 				EAE37EC02A0206BC00154432 /* ManageAccountsView.swift */,
 				EA742BF62A020A3300ACB8E4 /* CreateAccountSheetView.swift */,
 				EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */,
 			);
-			path = View;
+			path = "Manage Accounts";
 			sourceTree = "<group>";
 		};
-		EAE519BE2A0175E600EF23B7 /* Model */ = {
+		EAE519BE2A0175E600EF23B7 /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */,
 				EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */,
 				EA477FF62A08899C0082D211 /* AccountExtension.swift */,
 			);
-			path = Model;
+			path = Account;
 			sourceTree = "<group>";
 		};
 		EAE519C12A0175F800EF23B7 /* Assets */ = {
