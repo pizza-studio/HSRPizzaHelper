@@ -552,6 +552,13 @@
 			path = "Daily Note";
 			sourceTree = "<group>";
 		};
+		EA80CFDF2A0E8CDF00002B53 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		EA8A77112A07364B0005C511 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,9 +720,10 @@
 		EAE519C82A0178AD00EF23B7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				EA09B19E2A091DFE00986D46 /* Model */,
 				EA09B1932A09180200986D46 /* View */,
+				EA09B19E2A091DFE00986D46 /* Model */,
 				EA60BE602A050C4000CBF10B /* View Modifier */,
+				EA80CFDF2A0E8CDF00002B53 /* Notification */,
 				EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */,
 				EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */,
 				BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */,
