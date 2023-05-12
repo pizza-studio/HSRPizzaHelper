@@ -13,8 +13,8 @@ enum IntentAccountProvider {
     /// Provides an `INObjectCollection` of `IntentAccount`s.
     /// - Returns: An `INObjectCollection` of `IntentAccount`s.
     static func provideAccountOptionsCollection() async throws -> INObjectCollection<IntentAccount> {
-        let accountPersistenceController = AccountPersistenceController.shared
-        let viewContext = accountPersistenceController.container.viewContext
+        let PersistenceController = PersistenceController.shared
+        let viewContext = PersistenceController.container.viewContext
         let request = Account.fetchRequest()
         let accounts = try viewContext.fetch(request)
         return .init(
@@ -25,8 +25,8 @@ enum IntentAccountProvider {
     /// Retrieves the first `IntentAccount`.
     /// - Returns: The first `IntentAccount`. Returns `nil` if no `IntentAccount` is found.
     static func getFirstAccount() -> Account? {
-        let accountPersistenceController = AccountPersistenceController.shared
-        let viewContext = accountPersistenceController.container.viewContext
+        let PersistenceController = PersistenceController.shared
+        let viewContext = PersistenceController.container.viewContext
         let request = Account.fetchRequest()
         let accounts = try? viewContext.fetch(request)
         if let account = accounts?.first {

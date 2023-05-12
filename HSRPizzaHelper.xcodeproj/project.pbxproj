@@ -63,7 +63,6 @@
 		EA68BC6C2A06987300A7FF91 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = EA68BC6B2A06987300A7FF91 /* SwiftyUserDefaults */; };
 		EA702C072A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */; };
 		EA702C082A06B04F006D3BC9 /* IntentAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898822A06A908000AF830 /* IntentAccountExtension.swift */; };
-		EA702C092A06B0B7006D3BC9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EA702C0A2A06B0BA006D3BC9 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA702C0B2A06B0BC006D3BC9 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
 		EA702C0C2A06B0BF006D3BC9 /* HSRPizzaHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */; };
@@ -85,7 +84,6 @@
 		EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77182A0739B10005C511 /* DailyNoteTimelineProvider.swift */; };
 		EA8A771A2A073E500005C511 /* IntentAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898822A06A908000AF830 /* IntentAccountExtension.swift */; };
 		EA8A771C2A0741220005C511 /* WidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */; };
-		EA8A771D2A0742200005C511 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EA8A771F2A0743AC0005C511 /* LargeSquareDailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A771E2A0743AC0005C511 /* LargeSquareDailyNoteTimelineProvider.swift */; };
 		EA8A77212A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77202A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift */; };
 		EA8A77232A0748150005C511 /* LargeSquareDailyNoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77222A0748150005C511 /* LargeSquareDailyNoteWidget.swift */; };
@@ -379,6 +377,7 @@
 		EA09B19E2A091DFE00986D46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EAA6916A2A0E66B8003D17FF /* CoreData */,
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
 				EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */,
 			);
@@ -581,6 +580,15 @@
 			path = "Common Protocol";
 			sourceTree = "<group>";
 		};
+		EAA6916A2A0E66B8003D17FF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EAE519882A01738600EF23B7 /* Persistence.swift */,
+				EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		EAC9E4122A09F70B00011E1F /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,10 +699,8 @@
 		EAE519BE2A0175E600EF23B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EAE519882A01738600EF23B7 /* Persistence.swift */,
 				EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */,
 				EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */,
-				EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */,
 				EA477FF62A08899C0082D211 /* AccountExtension.swift */,
 			);
 			path = Model;
@@ -990,7 +996,6 @@
 				EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */,
 				EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */,
 				EA1673F62A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift in Sources */,
-				EA8A771D2A0742200005C511 /* Persistence.swift in Sources */,
 				EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */,
 				EA8A77262A07497A0005C511 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EA1673FA2A063AF300436487 /* HSRPizzaHelperWidget.swift in Sources */,
@@ -1090,7 +1095,6 @@
 				EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA8A77372A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
-				EA702C092A06B0B7006D3BC9 /* Persistence.swift in Sources */,
 				EA8A773A2A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
 				EAE898712A06A134000AF830 /* IntentHandler.swift in Sources */,
 				EA8A772C2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,

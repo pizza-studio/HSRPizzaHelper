@@ -9,7 +9,7 @@
 
 import CoreData
 
-struct AccountPersistenceController {
+struct PersistenceController {
     // MARK: Lifecycle
 
     init(inMemory: Bool = false) {
@@ -52,7 +52,7 @@ struct AccountPersistenceController {
 
     // MARK: Internal
 
-    static let shared = AccountPersistenceController()
+    static let shared = PersistenceController()
 
     let container: NSPersistentCloudKitContainer
 }
