@@ -12,9 +12,9 @@ import WidgetKit
 struct HSRPizzaHelperWidgetBundle: WidgetBundle {
     var body: some Widget {
         RectangularDailyNoteWidget()
-        LargeSquareDailyNoteWidget()
-        SmallSquareDailyNoteWidget()
         RectangularGIStyleWidget()
+        SmallSquareDailyNoteWidget()
+        LargeSquareDailyNoteWidget()
         SquareGIStyleWidget()
         #if canImport(ActivityKit)
         if #available(iOSApplicationExtension 16.1, *) {
