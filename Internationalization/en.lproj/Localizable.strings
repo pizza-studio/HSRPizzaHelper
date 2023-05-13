@@ -121,3 +121,7 @@
 "notification.expedition.title" = "Reminder: dispatch assignments for %@";
 "notification.expedition.summary.body" = "All dispatch assignments for %@ have been completed.";
 "notification.expedition.each.body" = "Dispatch assignment '%2$@' for %1$@ has been completed.";
+"widget.gistyle.rect.display" = "Trailblaze Power and Dispatch Assignments";
+"widget.gistyle.rect.desc" = "Status for Trailblaze Power and Dispatch Assignments.";
+"widget.gistyle.square.display" = "Trailblaze Power and Dispatch Assignments";
+"widget.gistyle.square.desc" = "Status for Trailblaze Power and Dispatch Assignments."
