@@ -11,6 +11,7 @@ import SwiftUI
 // MARK: - GIStyleRectangularWidgetView
 
 struct GIStyleRectangularWidgetView: View {
+    @Environment(\.colorScheme) var colorScheme
     let entry: GIStyleEntry
 
     var body: some View {
@@ -18,6 +19,11 @@ struct GIStyleRectangularWidgetView: View {
             switch entry.dailyNoteResult {
             case let .success(dailyNote):
                 WidgetGIStyleSuccessView(entry: entry, dailyNote: dailyNote)
+                    .environment(
+                        \.colorScheme,
+                        entry.configuration.textColor == .primary ? colorScheme : entry.configuration
+                            .textColor == .white ? .light : .dark
+                    )
             case let .failure(error):
                 Text(error.localizedDescription)
             }
