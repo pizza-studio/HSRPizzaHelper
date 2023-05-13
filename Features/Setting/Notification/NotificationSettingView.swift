@@ -123,6 +123,7 @@ private struct NotificationSettingDetailView: View {
             NavigationLink("setting.notification.stamina.customize.title") {
                 CustomizeStaminaNotificationSettingView()
             }
+            .disabled(!setting.allowStaminaNotification)
         } header: {
             Text("setting.notification.stamina.header")
         } footer: {
@@ -134,7 +135,10 @@ private struct NotificationSettingDetailView: View {
                 "setting.notification.expedition.allow",
                 isOn: $setting.allowExpeditionNotification
             )
-            Picker("setting.notification.expedition.method", selection: $setting.expeditionNotificationSetting) {
+            Picker(
+                "setting.notification.expedition.method",
+                selection: $setting.expeditionNotificationSetting
+            ) {
                 ForEach(DailyNoteNotificationSetting.ExpeditionNotificationSetting.allCases, id: \.self) { setting in
                     Text(setting.description.localized())
                         .tag(setting)
@@ -148,7 +152,7 @@ private struct NotificationSettingDetailView: View {
 
     // MARK: Private
 
-    @State private var setting: DailyNoteNotificationSetting = .init()
+    @StateObject private var setting: NotificationSettingViewModel = .init()
 }
 
 // MARK: - CustomizeStaminaNotificationSettingView

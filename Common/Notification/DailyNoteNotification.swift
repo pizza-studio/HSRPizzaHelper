@@ -66,16 +66,32 @@ private struct DailyNoteNotificationSender {
 
     // MARK: Internal
 
+    var allowStaminaNotification: Bool {
+        Defaults[\.allowStaminaNotification]
+    }
+
+    var staminaAdditionalNotificationNumbers: [Int] {
+        Defaults[\.staminaAdditionalNotificationNumbers]
+    }
+
+    var allowExpeditionNotification: Bool {
+        Defaults[\.allowExpeditionNotification]
+    }
+
+    var expeditionNotificationSetting: DailyNoteNotificationSetting.ExpeditionNotificationSetting {
+        Defaults[\.expeditionNotificationSetting]
+    }
+
     func send() {
         guard (account.allowNotification as? Bool) ?? false else { return }
-        if setting.allowStaminaNotification {
+        if allowStaminaNotification {
             scheduleStaminaFullNotification()
-            setting.staminaAdditionalNotificationNumbers.forEach { number in
+            staminaAdditionalNotificationNumbers.forEach { number in
                 scheduleStaminaNotification(to: number)
             }
         }
-        if setting.allowExpeditionNotification {
-            switch setting.expeditionNotificationSetting {
+        if allowExpeditionNotification {
+            switch expeditionNotificationSetting {
             case .onlySummary:
                 scheduleExpeditionSummaryNotification()
             case .forEachExpedition:
@@ -90,8 +106,6 @@ private struct DailyNoteNotificationSender {
 
     private let account: Account
     private let dailyNote: DailyNote
-
-    private let setting = DailyNoteNotificationSetting()
 
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -227,13 +241,7 @@ private struct DailyNoteNotificationSender {
 
 // MARK: - DailyNoteNotificationSetting
 
-struct DailyNoteNotificationSetting {
-    // MARK: Lifecycle
-
-    init() {}
-
-    // MARK: Internal
-
+enum DailyNoteNotificationSetting {
     enum ExpeditionNotificationSetting: String, DefaultsSerializable, CustomStringConvertible, CaseIterable {
         case onlySummary
         case forEachExpedition
@@ -249,30 +257,6 @@ struct DailyNoteNotificationSetting {
             }
         }
     }
-
-    @SwiftyUserDefault(
-        keyPath: \.allowStaminaNotification,
-        adapter: Defaults,
-        options: .observed
-    ) var allowStaminaNotification: Bool
-
-    @SwiftyUserDefault(
-        keyPath: \.staminaAdditionalNotificationNumbers,
-        adapter: Defaults,
-        options: .observed
-    ) var staminaAdditionalNotificationNumbers: [Int]
-
-    @SwiftyUserDefault(
-        keyPath: \.allowExpeditionNotification,
-        adapter: Defaults,
-        options: .observed
-    ) var allowExpeditionNotification: Bool
-
-    @SwiftyUserDefault(
-        keyPath: \.expeditionNotificationSetting,
-        adapter: Defaults,
-        options: .observed
-    ) var expeditionNotificationSetting: ExpeditionNotificationSetting
 }
 
 extension DefaultsKeys {
