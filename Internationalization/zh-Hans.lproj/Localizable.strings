@@ -114,3 +114,9 @@
 "setting.notification.account.header" = "帐号";
 "setting.notification.expedition.method.summary" = "全部完成时";
 "setting.notification.expedition.method.each" = "任意一个完成时";
+"notification.stamina.title" = "「%@」开拓力提醒";
+"notification.stamina.full.body" = "「%@」的开拓力已回满。";
+"notification.stamina.customize.body" = "「%@」现有%lld开拓力，将在%@ 回满";
+"notification.expedition.title" = "「%@」派遣委托提醒";
+"notification.expedition.summary.body" = "「%@」的派遣委托已全部完成。";
+"notification.expedition.each.body" = "「%@」的派遣委托「%@」已完成。";

@@ -65,12 +65,29 @@ private struct DailyNoteNotificationSender {
 
     private let setting = DailyNoteNotificationSetting()
 
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        formatter.doesRelativeDateFormatting = true
+        return formatter
+    }()
+
     private func scheduleStaminaFullNotification() {
         let information = dailyNote.staminaInformation
 
         let content = UNMutableNotificationContent()
-        content.title = ""
-        content.body = ""
+        content.title = String(
+            format: "notification.stamina.title"
+                .localized(comment: "%@'s ..."),
+            account.name
+        )
+        content.body = String(
+            format: "notification.stamina.full.body"
+                .localized(comment: "%@'s ..."),
+            account.name
+        )
+        content.badge = 1
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: information.remainingTime, repeats: false)
 
@@ -85,8 +102,19 @@ private struct DailyNoteNotificationSender {
         let information = dailyNote.staminaInformation
 
         let content = UNMutableNotificationContent()
-        content.title = ""
-        content.body = ""
+        content.title = String(
+            format: "notification.stamina.title"
+                .localized(comment: "%@'s ..."),
+            account.name
+        )
+        content.body = String(
+            format: "notification.stamina.customize.body"
+                .localized(comment: "%@ now have %lld power, will recover at %@. "),
+            account.name,
+            staminaNumber,
+            dateFormatter.string(from: information.fullTime)
+        )
+        content.badge = 1
 
         let timeInterval = information.remainingTime - Double(staminaNumber) * StaminaInformation
             .eachStaminaRecoveryTime
@@ -108,10 +136,19 @@ private struct DailyNoteNotificationSender {
         let information = dailyNote.expeditionInformation
 
         let content = UNMutableNotificationContent()
-        content.title = ""
-        content.body = ""
+        content.title = String(
+            format: "notification.expedition.title"
+                .localized(comment: "%@'s ..."),
+            account.name
+        )
+        content.body = String(
+            format: "notification.expedition.summary.body"
+                .localized(comment: "%@'s ..."),
+            account.name
+        )
+        content.badge = 1
 
-        guard let timeInterval = information.expeditions.map(\.remainingTime).min() else {
+        guard let timeInterval = information.expeditions.map(\.remainingTime).max() else {
             return
         }
 
@@ -129,8 +166,19 @@ private struct DailyNoteNotificationSender {
 
     private func scheduleEachExpeditionNotification(expedition: ExpeditionInformation.Expedition) {
         let content = UNMutableNotificationContent()
-        content.title = ""
-        content.body = ""
+        content.title = String(
+            format: "notification.expedition.title"
+                .localized(comment: "%@'s ..."),
+            account.name
+        )
+        content.body = String(
+            format: "notification.expedition.each.body"
+                .localized(comment: "%@'s assignment 'xxx' is finished"),
+            account.name,
+            expedition.name
+        )
+
+        content.badge = 1
 
         let trigger = UNTimeIntervalNotificationTrigger(
             timeInterval: expedition.remainingTime,
@@ -167,9 +215,9 @@ struct DailyNoteNotificationSetting {
         var description: String {
             switch self {
             case .onlySummary:
-                return ""
+                return "setting.notification.expedition.method.summary".localized()
             case .forEachExpedition:
-                return ""
+                return "setting.notification.expedition.method.each".localized()
             }
         }
     }
