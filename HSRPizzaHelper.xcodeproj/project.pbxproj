@@ -464,6 +464,13 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		EA43EDFC2A0F578C0035977E /* GI Pizza Style Widget */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "GI Pizza Style Widget";
+			sourceTree = "<group>";
+		};
 		EA5F232E2A0BE35600D6D024 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +495,7 @@
 		EA68BC632A065B0200A7FF91 /* Daily Note Widget */ = {
 			isa = PBXGroup;
 			children = (
+				EA43EDFC2A0F578C0035977E /* GI Pizza Style Widget */,
 				EA8A77122A07364E0005C511 /* Timeline Provider */,
 				EA8A77112A07364B0005C511 /* Entry */,
 				EADA17D12A06C42C00AF9784 /* Widget Configuration */,

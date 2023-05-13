@@ -13,9 +13,9 @@ class IntentHandler: INExtension {
         // you can override this and return the handler you want for that particular intent.
 
         switch intent {
-        case is LargeSquareWidgetConfigurationIntent, is SmallSquareWidgetConfigurationIntent:
+        case is LargeSquareWidgetConfigurationIntent, is SmallSquareWidgetConfigurationIntent, is GIStyleSquareWidgetConfigurationIntent:
             return SquareWidgetConfigurationIntentHandler()
-        case is RectangularWidgetConfigurationIntent:
+        case is RectangularWidgetConfigurationIntent, is GIStyleRectangularWidgetConfigurationIntent:
             return RectangularWidgetConfigurationIntentHandler()
         default:
             return nil
