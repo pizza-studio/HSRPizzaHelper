@@ -40,13 +40,15 @@ extension Account {
 
     /// The UUID of the account.
     @NSManaged public var uuid: UUID!
+
+    @NSManaged public var allowNotification: NSNumber!
 }
 
 // MARK: - Account + Identifiable
 
 extension Account: Identifiable {
     public var id: UUID {
-        uuid
+        uuid ?? UUID()
     }
 }
 

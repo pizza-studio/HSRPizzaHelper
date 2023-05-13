@@ -59,6 +59,7 @@ class DailyNoteViewModel: ObservableObject {
                 uid: account.uid ?? "",
                 cookie: account.cookie ?? ""
             )
+            HSRNotificationCenter.scheduleNotification(for: account, dailyNote: data)
             withAnimation {
                 dailyNote = .finished(.success(data))
             }
