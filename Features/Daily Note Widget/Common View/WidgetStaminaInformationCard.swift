@@ -115,7 +115,8 @@ private let timeIntervalFormatter: DateComponentsFormatter = {
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateStyle = .none
+    formatter.dateStyle = .short
     formatter.timeStyle = .short
+    formatter.doesRelativeDateFormatting = true
     return formatter
 }()
