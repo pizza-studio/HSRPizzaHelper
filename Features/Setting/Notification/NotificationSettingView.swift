@@ -15,6 +15,13 @@ struct NotificationSettingView: View {
 
     var body: some View {
         List {
+            if AppConfig.isDebug {
+                Button("*DEBUG* Print all notification") {
+                    Task {
+                        await HSRNotificationCenter.printAllNotifications()
+                    }
+                }
+            }
             if authorizationStatus != nil {
                 if !allowPushNotification {
                     AskForNotificationPermissionView()
@@ -68,18 +75,29 @@ private class NotificationSettingViewModel: ObservableObject {
     @Published var allowExpeditionNotification: Bool {
         didSet {
             Defaults[\.allowExpeditionNotification] = allowExpeditionNotification
+            if !allowStaminaNotification {
+                HSRNotificationCenter.deleteDailyNoteNotification(for: .expeditionEach)
+                HSRNotificationCenter.deleteDailyNoteNotification(for: .expeditionSummary)
+            }
         }
     }
 
     @Published var expeditionNotificationSetting: DailyNoteNotificationSetting.ExpeditionNotificationSetting {
         didSet {
             Defaults[\.expeditionNotificationSetting] = expeditionNotificationSetting
+            HSRNotificationCenter
+                .deleteDailyNoteNotification(
+                    for: expeditionNotificationSetting == .forEachExpedition ?
+                        .expeditionSummary : .expeditionEach
+                )
         }
     }
 
     @Published var allowStaminaNotification: Bool {
         didSet {
             Defaults[\.allowStaminaNotification] = allowStaminaNotification
+            HSRNotificationCenter.deleteDailyNoteNotification(for: .stamina)
+            HSRNotificationCenter.deleteDailyNoteNotification(for: .staminaFull)
         }
     }
 }

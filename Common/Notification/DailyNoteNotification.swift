@@ -17,6 +17,41 @@ extension HSRNotificationCenter {
         DailyNoteNotificationSender(account: account, dailyNote: dailyNote)
             .send()
     }
+
+    static func deleteDailyNoteNotification(for account: Account) {
+        Task {
+            let requests = await center.pendingNotificationRequests()
+            center.removePendingNotificationRequests(
+                withIdentifiers: requests
+                    .map(\.identifier)
+                    .filter { id in
+                        id.contains(account.uuid.uuidString)
+                    }
+            )
+        }
+    }
+
+    static func deleteDailyNoteNotification(for type: DailyNoteNotificationType) {
+        Task {
+            let requests = await center.pendingNotificationRequests()
+            center.removePendingNotificationRequests(
+                withIdentifiers: requests
+                    .map(\.identifier)
+                    .filter { id in
+                        id.starts(with: type.rawValue)
+                    }
+            )
+        }
+    }
+}
+
+// MARK: - DailyNoteNotificationType
+
+enum DailyNoteNotificationType: String {
+    case stamina
+    case staminaFull
+    case expeditionSummary
+    case expeditionEach
 }
 
 // MARK: - DailyNoteNotificationSender
@@ -52,13 +87,6 @@ private struct DailyNoteNotificationSender {
     }
 
     // MARK: Private
-
-    private enum NotificationType: String {
-        case stamina
-        case staminaFull
-        case expeditionSummary
-        case expeditionEach
-    }
 
     private let account: Account
     private let dailyNote: DailyNote
@@ -125,7 +153,7 @@ private struct DailyNoteNotificationSender {
             repeats: false
         )
 
-        let id = getId(for: .stamina)
+        let id = getId(for: .stamina, extraId: "\(staminaNumber)")
 
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
 
@@ -192,8 +220,8 @@ private struct DailyNoteNotificationSender {
         center.add(request)
     }
 
-    private func getId(for type: NotificationType, extraId: String = "") -> String {
-        account.uuid.uuidString + type.rawValue + extraId
+    private func getId(for type: DailyNoteNotificationType, extraId: String = "") -> String {
+        type.rawValue + account.uuid.uuidString + extraId
     }
 }
 

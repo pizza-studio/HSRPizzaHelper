@@ -47,6 +47,10 @@
 		EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */; };
 		EA32764F2A03852C00774126 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
 		EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA37AEB32A02CDB900E4AADA /* SwifterSwift */; };
+		EA43EDF72A0F38920035977E /* HSRNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */; };
+		EA43EDF82A0F38920035977E /* DailyNoteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */; };
+		EA43EDF92A0F3E060035977E /* HSRNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */; };
+		EA43EDFA2A0F3E080035977E /* DailyNoteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */; };
 		EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF82A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
@@ -1024,6 +1028,7 @@
 				EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */,
 				EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */,
 				EA1673F62A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift in Sources */,
+				EA43EDF82A0F38920035977E /* DailyNoteNotification.swift in Sources */,
 				EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */,
 				EA8A77262A07497A0005C511 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EA1673FA2A063AF300436487 /* HSRPizzaHelperWidget.swift in Sources */,
@@ -1034,6 +1039,7 @@
 				EA8A772E2A074AD40005C511 /* HasDefaultBackground.swift in Sources */,
 				EA9E221B2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift in Sources */,
 				EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */,
+				EA43EDF72A0F38920035977E /* HSRNotificationCenter.swift in Sources */,
 				EA8A77212A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift in Sources */,
 				EADCE9372A0B7859008D81A9 /* EmbedIn.swift in Sources */,
 				EADCE93A2A0B98DD008D81A9 /* OptionalSpacer.swift in Sources */,
@@ -1130,8 +1136,10 @@
 				EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */,
+				EA43EDFA2A0F3E080035977E /* DailyNoteNotification.swift in Sources */,
 				EA8A77372A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
 				EA8A773A2A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
+				EA43EDF92A0F3E060035977E /* HSRNotificationCenter.swift in Sources */,
 				EAE898712A06A134000AF830 /* IntentHandler.swift in Sources */,
 				EA8A772C2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,
 				EA702C0B2A06B0BC006D3BC9 /* Account+CoreDataProperties.swift in Sources */,

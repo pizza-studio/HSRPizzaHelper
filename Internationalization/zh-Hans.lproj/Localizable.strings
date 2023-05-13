@@ -119,4 +119,4 @@
 "notification.stamina.customize.body" = "「%@」现有%lld开拓力，将在%@ 回满";
 "notification.expedition.title" = "「%@」派遣委托提醒";
 "notification.expedition.summary.body" = "「%@」的派遣委托已全部完成。";
-"notification.expedition.each.body" = "「%@」的派遣委托「%@」已完成。";
+"notification.expedition.each.body" = "「%1$@」的派遣委托「%2$@」已完成。";

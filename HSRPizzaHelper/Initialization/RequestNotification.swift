@@ -17,7 +17,7 @@ private struct NotificationRequester: ViewModifier {
             if let accounts = try? viewContext.fetch(request), !accounts.isEmpty {
                 Task {
                     do {
-                        try await HSRNotificationCenter.requestAuthorization()
+                        _ = try await HSRNotificationCenter.requestAuthorization()
                     } catch {
                         print(error)
                     }

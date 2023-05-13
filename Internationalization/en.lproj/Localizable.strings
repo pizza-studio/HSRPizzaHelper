@@ -114,3 +114,9 @@
 "setting.notification.account.header" = "Account";
 "setting.notification.expedition.method.summary" = "All completed";
 "setting.notification.expedition.method.each" = "Each completed";
+"notification.stamina.title" = "Reminder: trailblaze power for %@";
+"notification.stamina.full.body" = "The trailblaze power for %@ has been fully restored.";
+"notification.stamina.customize.body" = "%@ currently has %lld trailblaze power and will be fully restored on %@.";
+"notification.expedition.title" = "Reminder: dispatch assignments for %@";
+"notification.expedition.summary.body" = "All dispatch assignments for %@ have been completed.";
+"notification.expedition.each.body" = "Dispatch assignment '%2$@' for %1$@ has been completed.";

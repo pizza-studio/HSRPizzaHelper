@@ -21,4 +21,11 @@ public class Account: NSManagedObject {
         setPrimitiveValue("", forKey: #keyPath(Account.uid))
         setPrimitiveValue(true as NSNumber, forKey: #keyPath(Account.allowNotification))
     }
+
+    public override func didSave() {
+        super.didSave()
+        if !(allowNotification as? Bool ?? true) {
+            HSRNotificationCenter.deleteDailyNoteNotification(for: self)
+        }
+    }
 }
