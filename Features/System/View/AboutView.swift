@@ -37,6 +37,8 @@ struct AboutView: View {
                     .padding()
                     .font(.callout)
             }
+            Text("app.note.3")
+                .font(.caption2)
             Text("app.note.1")
                 .font(.caption2)
             Text("app.note.2")

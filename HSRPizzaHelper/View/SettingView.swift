@@ -54,7 +54,7 @@ struct SettingView: View {
                     } label: {
                         Label {
                             Text("sys.label.preferredlang")
-                                .foregroundColor(.primary)
+//                                .foregroundColor(.primary)
                         } icon: {
                             Image(systemSymbol: .globe)
                         }
