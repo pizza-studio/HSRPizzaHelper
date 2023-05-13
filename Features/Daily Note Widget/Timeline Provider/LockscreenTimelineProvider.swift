@@ -26,20 +26,18 @@ private var refreshWhenErrorAfterSecond = TimeInterval(refreshWhenErrorMinute * 
 
 // MARK: - LockscreenTimelineProvider
 
-protocol LockscreenTimelineProvider: IntentTimelineProvider, HasDefaultAccount
-    where Entry == LockscreenEntry, Intent: LockscreenWidgetConfigurationIntent {
-    var defaultConfiguration: LockscreenWidgetConfigurationIntent { get }
-}
+struct LockscreenTimelineProvider: IntentTimelineProvider, HasDefaultAccount {
+    // MARK: Internal
 
-extension LockscreenTimelineProvider {
+    typealias Entry = LockscreenEntry
+    typealias Intent = LockscreenWidgetConfigurationIntent
+
     var defaultConfiguration: LockscreenWidgetConfigurationIntent {
         let defaultIntent = LockscreenWidgetConfigurationIntent()
         defaultIntent.account = defaultAccount
         return defaultIntent
     }
-}
 
-extension LockscreenTimelineProvider {
     func placeholder(in context: Context) -> LockscreenEntry {
         .init(
             date: Date(),
@@ -66,7 +64,15 @@ extension LockscreenTimelineProvider {
         Task {
             var entries: [Entry] = []
 
-            let account = configuration.account?.toAccount()
+            let account: Account? = {
+                if let account = configuration.account?.toAccount() {
+                    return account
+                } else if let account = IntentAccountProvider.getFirstAccount() {
+                    return account
+                } else {
+                    return nil
+                }
+            }()
 
             let dailyNoteResult: Result<DailyNote, Error>
             if let account {
@@ -92,6 +98,8 @@ extension LockscreenTimelineProvider {
             completion(timeline)
         }
     }
+
+    // MARK: Private
 
     private func getDailyNote(account: Account) async -> Result<DailyNote, Error> {
         do {

@@ -132,6 +132,8 @@
 		EA946A8B2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */; };
 		EA946A8D2A0FF706003FC598 /* LockscreenTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A8C2A0FF706003FC598 /* LockscreenTimelineProvider.swift */; };
 		EA946A902A0FF76C003FC598 /* LockscreenEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A8F2A0FF76C003FC598 /* LockscreenEntry.swift */; };
+		EA946A952A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A942A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift */; };
+		EA946A982A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A972A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift */; };
 		EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9D024B2A04BE3800796516 /* AccountDetailView.swift */; };
 		EA9D80A02A08D92C00534237 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898702A06A134000AF830 /* IntentHandler.swift */; };
 		EA9D80A12A08D93900534237 /* SquareWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */; };
@@ -302,6 +304,8 @@
 		EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EA946A8C2A0FF706003FC598 /* LockscreenTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenTimelineProvider.swift; sourceTree = "<group>"; };
 		EA946A8F2A0FF76C003FC598 /* LockscreenEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenEntry.swift; sourceTree = "<group>"; };
+		EA946A942A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStaminaLockscreenWidget.swift; sourceTree = "<group>"; };
+		EA946A972A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaminaLockscreenWidgetCircularView.swift; sourceTree = "<group>"; };
 		EA9D024B2A04BE3800796516 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		EA9E22102A0B9D47002F3351 /* WidgetExpeditionInformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExpeditionInformationCard.swift; sourceTree = "<group>"; };
 		EA9E22132A0B9E1B002F3351 /* WidgetDailyNoteSuccessLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDailyNoteSuccessLargeView.swift; sourceTree = "<group>"; };
@@ -533,6 +537,7 @@
 		EA68BC632A065B0200A7FF91 /* Daily Note Widget */ = {
 			isa = PBXGroup;
 			children = (
+				EA946A922A0FF856003FC598 /* Lockscreen Widget */,
 				EA56DB912A0F63F600BCF884 /* GI Style Square Widget */,
 				EA43EDFC2A0F578C0035977E /* GI Style Rectangular Widget */,
 				EA8A77122A07364E0005C511 /* Timeline Provider */,
@@ -671,6 +676,23 @@
 				EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */,
 			);
 			path = "Common Protocol";
+			sourceTree = "<group>";
+		};
+		EA946A922A0FF856003FC598 /* Lockscreen Widget */ = {
+			isa = PBXGroup;
+			children = (
+				EA946A932A0FF85F003FC598 /* Common Stamina Widget */,
+			);
+			path = "Lockscreen Widget";
+			sourceTree = "<group>";
+		};
+		EA946A932A0FF85F003FC598 /* Common Stamina Widget */ = {
+			isa = PBXGroup;
+			children = (
+				EA946A942A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift */,
+				EA946A972A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift */,
+			);
+			path = "Common Stamina Widget";
 			sourceTree = "<group>";
 		};
 		EAA6916A2A0E66B8003D17FF /* CoreData */ = {
@@ -1074,6 +1096,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA8A77232A0748150005C511 /* LargeSquareDailyNoteWidget.swift in Sources */,
+				EA946A952A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift in Sources */,
 				EA8A77342A074C8A0005C511 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
 				EA9E22182A0BA324002F3351 /* SmallSquareDailyNoteWidget.swift in Sources */,
 				EA946A8A2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */,
@@ -1094,6 +1117,7 @@
 				EA8A771C2A0741220005C511 /* WidgetConfigurationIntentHandler.swift in Sources */,
 				EA702C0E2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
 				EA8A77392A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
+				EA946A982A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift in Sources */,
 				EA8A772E2A074AD40005C511 /* HasDefaultBackground.swift in Sources */,
 				EA9E221B2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift in Sources */,
 				EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */,
