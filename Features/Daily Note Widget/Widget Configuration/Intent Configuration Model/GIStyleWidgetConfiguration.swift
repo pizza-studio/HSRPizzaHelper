@@ -29,7 +29,8 @@ struct GIStyleWidgetConfiguration {
         background: WidgetBackground,
         backgroundFolderName: String,
         textColor: Color,
-        showAccountName: Bool
+        showAccountName: Bool,
+        showExpedition: Bool
     ) {
         self.background = background
         if let account = account?.toAccount() {
@@ -42,6 +43,7 @@ struct GIStyleWidgetConfiguration {
         self.backgroundFolderName = backgroundFolderName
         self.textColor = textColor
         self.showAccountName = showAccountName
+        self.showExpedition = showExpedition
     }
 
     // MARK: Internal
@@ -67,6 +69,8 @@ struct GIStyleWidgetConfiguration {
 
     /// A boolean indicating whether to show the name of the account in the widget.
     let showAccountName: Bool
+
+    let showExpedition: Bool
 }
 
 // MARK: CanProvideWidgetBackground
@@ -95,6 +99,8 @@ protocol GIStyleWidgetConfigurationErasable: HasDefaultBackground, RandomBackgro
 
     /// A boolean indicating whether to show the name of the account in the widget.
     var showAccountName: NSNumber? { get }
+
+    var showExpedition: NSNumber? { get }
 }
 
 extension GIStyleWidgetConfigurationErasable {
@@ -126,7 +132,8 @@ extension GIStyleWidgetConfigurationErasable {
                     return .white
                 }
             }(),
-            showAccountName: showAccountName as? Bool ?? true
+            showAccountName: showAccountName as? Bool ?? true,
+            showExpedition: showExpedition as? Bool ?? true
         )
     }
 }
