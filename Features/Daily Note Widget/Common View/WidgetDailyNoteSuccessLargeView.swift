@@ -14,33 +14,17 @@ struct WidgetDailyNoteSuccessLargeView: View {
     let dailyNote: DailyNote
 
     var body: some View {
-        switch entry.configuration.expeditionDisplayMode {
-        case .display:
-            WidgetStaminaInformationCard(
-                info: dailyNote.staminaInformation,
-                useAccessibilityBackground: entry.configuration.useAccessibilityBackground,
-                direction: .leftToRight
-            )
-            .padding(.trailing, 5)
-            Spacer()
-            WidgetExpeditionInformationCard(
-                info: dailyNote.expeditionInformation,
-                useAccessibilityBackground: entry.configuration.useAccessibilityBackground
-            )
-            .padding(.leading, 5)
-        case let .hide(staminaPosition: position):
-            WidgetStaminaInformationCard(
-                info: dailyNote.staminaInformation,
-                useAccessibilityBackground: entry.configuration.useAccessibilityBackground,
-                direction: position == .right ? .rightToLeft : .leftToRight
-            )
-            .embed(in: {
-                switch position {
-                case .left: return .left
-                case .right: return .right
-                case .center: return .center
-                }
-            }())
-        }
+        WidgetStaminaInformationCard(
+            info: dailyNote.staminaInformation,
+            useAccessibilityBackground: entry.configuration.useAccessibilityBackground,
+            direction: entry.configuration.staminaPosition == .right ? .rightToLeft : .leftToRight
+        )
+        .embed(in: {
+            switch entry.configuration.staminaPosition {
+            case .left: return .left
+            case .right: return .right
+            case .center: return .center
+            }
+        }())
     }
 }
