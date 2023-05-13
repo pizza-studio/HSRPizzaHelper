@@ -131,6 +131,8 @@ private struct DailyNoteNotificationSender {
         )
         content.badge = 1
 
+        guard information.remainingTime > 0 else { return }
+
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: information.remainingTime, repeats: false)
 
         let id = getId(for: .staminaFull)
@@ -190,7 +192,7 @@ private struct DailyNoteNotificationSender {
         )
         content.badge = 1
 
-        guard let timeInterval = information.expeditions.map(\.remainingTime).max() else {
+        guard let timeInterval = information.expeditions.map(\.remainingTime).max(), timeInterval > 0 else {
             return
         }
 
@@ -221,6 +223,8 @@ private struct DailyNoteNotificationSender {
         )
 
         content.badge = 1
+
+        guard expedition.remainingTime > 0 else { return }
 
         let trigger = UNTimeIntervalNotificationTrigger(
             timeInterval: expedition.remainingTime,
