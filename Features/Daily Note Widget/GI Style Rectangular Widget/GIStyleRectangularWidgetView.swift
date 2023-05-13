@@ -93,28 +93,30 @@ private struct WidgetGIStyleSuccessView: View {
                 }
                 .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
             }
-            Spacer()
-            VStack(alignment: .leading, spacing: 6) {
-                ForEach(entry.expeditionWithUIImage, id: \.0.name) { expedition, images in
-                    HStack {
-                        ForEach(images, id: \.self) { uiImage in
-                            if let uiImage {
-                                Image(uiImage: uiImage)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30, height: 30)
-                                    .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
-                                    .background(.thinMaterial, in: Circle())
+            if entry.configuration.showExpedition {
+                Spacer()
+                VStack(alignment: .leading, spacing: 6) {
+                    ForEach(entry.expeditionWithUIImage, id: \.0.name) { expedition, images in
+                        HStack {
+                            ForEach(images, id: \.self) { uiImage in
+                                if let uiImage {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
+                                        .background(.thinMaterial, in: Circle())
+                                }
                             }
+                            .layoutPriority(1)
+                            VStack(alignment: .leading, spacing: 3) {
+                                percentageBar(1 - expedition.remainingTime / ExpeditionInformation.Expedition.totalTime)
+                                    .frame(maxWidth: 100)
+                                Text(timeIntervalFormatter.string(from: expedition.remainingTime)!)
+                                    .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
+                            }
+                            .font(.caption2)
                         }
-                        .layoutPriority(1)
-                        VStack(alignment: .leading, spacing: 3) {
-                            percentageBar(1 - expedition.remainingTime / ExpeditionInformation.Expedition.totalTime)
-                                .frame(maxWidth: 100)
-                            Text(timeIntervalFormatter.string(from: expedition.remainingTime)!)
-                                .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
-                        }
-                        .font(.caption2)
                     }
                 }
             }

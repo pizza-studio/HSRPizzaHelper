@@ -39,7 +39,8 @@ extension GIStyleTimelineProvider {
             background: Intent.defaultBackground,
             backgroundFolderName: LargeSquareWidgetConfigurationIntent.backgroundFolderName,
             textColor: .white,
-            showAccountName: true
+            showAccountName: true,
+            showExpedition: true
         )
     }
 }
