@@ -78,7 +78,7 @@
 "setting.widget.title" = "小组件";
 "setting.widget.refresh.manually" = "使所有小组件同步";
 "setting.widget.refresh.footer" = "小组件每6分钟刷新一次，每5小时同步一次。也可以通过进入App或在主页下拉刷新手动同步小组件。";
-"ophelper.intro" = "为原神玩家开发的游戏助手";
+"ophelper.intro" = "原神游戏助手工具全家桶";
 "account.new.test" = "测试帐号连接";
 "setting.widget.background.manage.add.edit" = "裁剪图片";
 "setting.widget.background.manage.add.notname" = "未命名";
@@ -96,6 +96,7 @@
 "widget.small.desc" = "立即查看开拓力、派遣委托信息";
 "widget.large.display" = "星铁体力小组件";
 "widget.large.desc" = "立即查看开拓力、派遣委托信息";
+"app.note.3" = "「星铁披萨小助手」是一个托管在[GitHub](https://github.com/pizza-studio/HSRPizzaHelper/)上的开源项目。";
 "setting.notification.notpermitted" = "未允许通知";
 "setting.notification.navigatetosetting" = "开启通知";
 "setting.notification.title" = "通知";

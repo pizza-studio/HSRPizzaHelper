@@ -96,6 +96,7 @@
 "widget.small.desc" = "Track your trailblaze power and dispacth assignments at any time.";
 "widget.large.display" = "HSR Trailblaze Power Widget";
 "widget.large.desc" = "Track your trailblaze power and dispacth assignments at any time.";
+"app.note.3" = "HSR Pizza Helper is an open-source project hosted on [GitHub](https://github.com/pizza-studio/HSRPizzaHelper/).";
 "setting.notification.notpermitted" = "Notification not permitted";
 "setting.notification.navigatetosetting" = "Allow notification";
 "setting.notification.title" = "Notification";
