@@ -48,7 +48,7 @@ extension Account {
 
 extension Account: Identifiable {
     public var id: UUID {
-        uuid
+        uuid ?? UUID()
     }
 }
 
