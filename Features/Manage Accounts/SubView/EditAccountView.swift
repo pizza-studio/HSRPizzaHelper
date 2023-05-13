@@ -11,6 +11,8 @@ import SwiftUI
 // MARK: - EditAccountView
 
 struct EditAccountView: View {
+    // MARK: Internal
+
     @StateObject var account: Account
 
     var accountsForSelected: [FetchedAccount]?
@@ -29,6 +31,7 @@ struct EditAccountView: View {
                 TextField("account.label.nickname", text: accountName)
                     .multilineTextAlignment(.trailing)
             }
+            Toggle("account.setting.allownotification", isOn: allowNotification)
         } header: {
             HStack {
                 Text("UID: " + (account.uid ?? ""))
@@ -56,11 +59,21 @@ struct EditAccountView: View {
         }
     }
 
-    var accountName: Binding<String> {
+    // MARK: Private
+
+    private var accountName: Binding<String> {
         .init {
             account.name ?? ""
         } set: { newValue in
             account.name = newValue
+        }
+    }
+
+    private var allowNotification: Binding<Bool> {
+        .init {
+            account.allowNotification as? Bool ?? true
+        } set: { newValue in
+            account.allowNotification = newValue as NSNumber
         }
     }
 }

@@ -105,6 +105,7 @@ extension DailyNoteTimelineProvider {
                 uid: account.uid ?? "",
                 cookie: account.cookie ?? ""
             )
+            HSRNotificationCenter.scheduleNotification(for: account, dailyNote: dailyNote)
             return .success(dailyNote)
         } catch {
             return .failure(error)
