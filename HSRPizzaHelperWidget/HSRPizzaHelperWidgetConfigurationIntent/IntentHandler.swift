@@ -18,6 +18,8 @@ class IntentHandler: INExtension {
             return SquareWidgetConfigurationIntentHandler()
         case is GIStyleRectangularWidgetConfigurationIntent, is RectangularWidgetConfigurationIntent:
             return RectangularWidgetConfigurationIntentHandler()
+        case is LockscreenWidgetConfigurationIntent:
+            return LockscreenWidgetConfigurationIntentHandler()
         default:
             return nil
         }

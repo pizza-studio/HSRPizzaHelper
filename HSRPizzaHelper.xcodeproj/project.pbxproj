@@ -128,6 +128,8 @@
 		EA8A77452A07661C0005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77422A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition */; };
 		EA8A77472A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */; };
 		EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */; };
+		EA946A8A2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */; };
+		EA946A8B2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */; };
 		EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9D024B2A04BE3800796516 /* AccountDetailView.swift */; };
 		EA9D80A02A08D92C00534237 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898702A06A134000AF830 /* IntentHandler.swift */; };
 		EA9D80A12A08D93900534237 /* SquareWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */; };
@@ -295,6 +297,7 @@
 		EA8A77382A0751980005C511 /* WidgetConfigurationIntentExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationIntentExtension.swift; sourceTree = "<group>"; };
 		EA8A77422A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = HSRPizzaHelperWidget.intentdefinition; sourceTree = "<group>"; };
 		EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainingWidgetBackground.swift; sourceTree = "<group>"; };
+		EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EA9D024B2A04BE3800796516 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		EA9E22102A0B9D47002F3351 /* WidgetExpeditionInformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExpeditionInformationCard.swift; sourceTree = "<group>"; };
 		EA9E22132A0B9E1B002F3351 /* WidgetDailyNoteSuccessLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDailyNoteSuccessLargeView.swift; sourceTree = "<group>"; };
@@ -565,6 +568,7 @@
 				EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */,
 				EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */,
 				EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */,
+				EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */,
 			);
 			path = "Intent Provider";
 			sourceTree = "<group>";
@@ -1066,6 +1070,7 @@
 				EA8A77232A0748150005C511 /* LargeSquareDailyNoteWidget.swift in Sources */,
 				EA8A77342A074C8A0005C511 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
 				EA9E22182A0BA324002F3351 /* SmallSquareDailyNoteWidget.swift in Sources */,
+				EA946A8A2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */,
 				EA068D122A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift in Sources */,
 				EA9E221D2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift in Sources */,
 				EA8A770D2A0735F30005C511 /* Account+CoreDataProperties.swift in Sources */,
@@ -1202,6 +1207,7 @@
 				EA8A77172A0737450005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
 				EA702C0F2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
 				EA8A77442A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
+				EA946A8B2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */,
 				EAE8987E2A06A2A6000AF830 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,
 				EA702C0A2A06B0BA006D3BC9 /* Account+CoreDataClass.swift in Sources */,
 			);
