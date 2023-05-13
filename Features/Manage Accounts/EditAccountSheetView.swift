@@ -53,6 +53,7 @@ struct EditAccountSheetView: View {
                 }
             }
         }
+        .interactiveDismissDisabled()
     }
 
     // MARK: Private

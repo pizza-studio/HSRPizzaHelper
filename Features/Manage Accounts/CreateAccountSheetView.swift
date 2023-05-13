@@ -145,6 +145,7 @@ struct CreateAccountSheetView: View {
                 status = .gotCookie
             }
         }
+        .interactiveDismissDisabled()
     }
 
     @ViewBuilder
