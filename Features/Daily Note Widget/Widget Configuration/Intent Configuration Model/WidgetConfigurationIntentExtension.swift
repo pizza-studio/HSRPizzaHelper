@@ -13,6 +13,15 @@ extension RectangularWidgetConfigurationIntent: StaticContainingProvideWidgetBac
     static let backgroundFolderName = AppConfig.rectangularBackgroundImageFolderName
 }
 
+// MARK: - GIStyleRectangularWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
+
+// swiftlint:disable:next line_length
+
+extension GIStyleRectangularWidgetConfigurationIntent: StaticContainingProvideWidgetBackground,
+    ContainingWidgetBackground {
+    static let backgroundFolderName = AppConfig.rectangularBackgroundImageFolderName
+}
+
 // MARK: - LargeSquareWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
 
 extension LargeSquareWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
@@ -22,6 +31,12 @@ extension LargeSquareWidgetConfigurationIntent: StaticContainingProvideWidgetBac
 // MARK: - SmallSquareWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
 
 extension SmallSquareWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
+    static let backgroundFolderName = AppConfig.squareBackgroundImageFolderName
+}
+
+// MARK: - GIStyleSquareWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
+
+extension GIStyleSquareWidgetConfigurationIntent: StaticContainingProvideWidgetBackground, ContainingWidgetBackground {
     static let backgroundFolderName = AppConfig.squareBackgroundImageFolderName
 }
 
@@ -56,3 +71,19 @@ extension RectangularWidgetConfigurationIntent: RandomBackgroundDrawable {}
 // MARK: - RectangularWidgetConfigurationIntent + DailyNoteWidgetConfigurationErasable
 
 extension RectangularWidgetConfigurationIntent: DailyNoteWidgetConfigurationErasable {}
+
+// MARK: - GIStyleSquareWidgetConfigurationIntent + RandomBackgroundDrawable
+
+extension GIStyleSquareWidgetConfigurationIntent: RandomBackgroundDrawable {}
+
+// MARK: - GIStyleSquareWidgetConfigurationIntent + GIStyleWidgetConfigurationErasable
+
+extension GIStyleSquareWidgetConfigurationIntent: GIStyleWidgetConfigurationErasable {}
+
+// MARK: - GIStyleRectangularWidgetConfigurationIntent + RandomBackgroundDrawable
+
+extension GIStyleRectangularWidgetConfigurationIntent: RandomBackgroundDrawable {}
+
+// MARK: - GIStyleRectangularWidgetConfigurationIntent + GIStyleWidgetConfigurationErasable
+
+extension GIStyleRectangularWidgetConfigurationIntent: GIStyleWidgetConfigurationErasable {}

@@ -25,6 +25,8 @@ enum AppConfig {
 
     static let widgetRefreshFrequencyInHour: Double = 5.0
 
+    static let widgetRefreshWhenErrorMinute: Int = 30
+
     static let enterAppShouldRefreshWidgetAfterMinute: Double = 15.0
 
     // This can be used to add debug statements.

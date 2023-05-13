@@ -8,7 +8,8 @@
 import Foundation
 import Intents
 
-class RectangularWidgetConfigurationIntentHandler: INExtension, RectangularWidgetConfigurationIntentHandling, GIStyleRectangularWidgetConfigurationIntentHandling {
+class RectangularWidgetConfigurationIntentHandler: INExtension, RectangularWidgetConfigurationIntentHandling,
+    GIStyleRectangularWidgetConfigurationIntentHandling {
     func provideAccountOptionsCollection(for intent: RectangularWidgetConfigurationIntent) async throws
         -> INObjectCollection<IntentAccount> {
         try await IntentAccountProvider.provideAccountOptionsCollection()

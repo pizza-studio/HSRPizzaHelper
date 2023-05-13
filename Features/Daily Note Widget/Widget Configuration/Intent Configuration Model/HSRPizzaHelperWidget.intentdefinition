@@ -1416,7 +1416,7 @@
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataDefaultValue</key>
-						<string>followSystem</string>
+						<string>white</string>
 					</dict>
 					<key>INIntentParameterName</key>
 					<string>textColor</string>
@@ -1691,7 +1691,7 @@
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataDefaultValue</key>
-						<string>followSystem</string>
+						<string>white</string>
 					</dict>
 					<key>INIntentParameterName</key>
 					<string>textColor</string>
