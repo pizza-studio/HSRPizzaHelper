@@ -103,7 +103,7 @@ private struct WidgetGIStyleSuccessView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 30, height: 30)
-                                    .shadow(color: Color.primary.opacity(0.5), radius: 3, x: 3, y: 3)
+                                    .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
                                     .background(.thinMaterial, in: Circle())
                             }
                         }
