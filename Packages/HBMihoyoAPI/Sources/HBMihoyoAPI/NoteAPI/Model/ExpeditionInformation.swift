@@ -26,6 +26,8 @@ public struct ExpeditionInformation {
             case finished = "Finished"
         }
 
+        public static let totalTime: TimeInterval = 20 * 60 * 60
+
         @BenchmarkTime public var benchmarkTime: Date
 
         /// The avatars' icons of the expedition

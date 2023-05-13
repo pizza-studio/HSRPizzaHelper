@@ -52,13 +52,14 @@ private struct WidgetGIStyleSuccessView: View {
                     Text(name)
                 }
                 .font(.caption)
+                .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
             }
             HStack(alignment: .firstTextBaseline, spacing: 6) {
                 Text("\(dailyNote.staminaInformation.currentStamina)")
                     .font(.system(size: 50, design: .rounded))
                     .fontWeight(.medium)
                     .minimumScaleFactor(0.8)
-                    .shadow(radius: 1)
+                    .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
                 Image("Item_Trailblaze_Power")
                     .resizable()
                     .scaledToFit()
@@ -66,7 +67,7 @@ private struct WidgetGIStyleSuccessView: View {
                     .alignmentGuide(.firstTextBaseline) { context in
                         context[.bottom] - 0.05 * context.height
                     }
-                    .shadow(radius: 0.8)
+                    .shadow(color: .black.opacity(0.2), radius: 0.5, x: 2, y: 2)
             }
             HStack {
                 Image(systemSymbol: .hourglassCircle)
@@ -93,6 +94,7 @@ private struct WidgetGIStyleSuccessView: View {
                     }
                 }
             }
+            .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
             Spacer()
             VStack(alignment: .leading, spacing: 5) {
                 ForEach(entry.expeditionWithUIImage, id: \.0.name) { expedition, images in
@@ -103,19 +105,48 @@ private struct WidgetGIStyleSuccessView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 30, height: 30)
-                                    .shadow(color: .white, radius: 1)
+                                    .shadow(color: Color.primary.opacity(0.4), radius: 1, x: 2, y: 2)
                                     .background(.thinMaterial, in: Circle())
                             }
                         }
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text(expedition.name)
+                        .layoutPriority(1)
+                        VStack(alignment: .leading, spacing: 3) {
+                            percentageBar(1 - expedition.remainingTime / ExpeditionInformation.Expedition.totalTime)
+                                .frame(maxWidth: 100)
                             Text(timeIntervalFormatter.string(from: expedition.remainingTime)!)
+                                .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
                         }
                         .font(.caption2)
                     }
                 }
             }
         }
+    }
+
+    @ViewBuilder
+    func percentageBar(_ percentage: Double) -> some View {
+        GeometryReader { geo in
+            ZStack(alignment: .leading) {
+                RoundedRectangle(
+                    cornerRadius: 3,
+                    style: .continuous
+                )
+                .frame(width: geo.size.width, height: geo.size.height)
+                .foregroundStyle(.ultraThinMaterial)
+                .opacity(0.6)
+                RoundedRectangle(
+                    cornerRadius: 3,
+                    style: .continuous
+                )
+                .frame(
+                    width: geo.size.width * percentage,
+                    height: geo.size.height
+                )
+                .foregroundStyle(.thickMaterial)
+            }
+            .aspectRatio(30 / 1, contentMode: .fit)
+        }
+        .frame(height: 7)
     }
 }
 
@@ -129,7 +160,8 @@ private let timeIntervalFormatter: DateComponentsFormatter = {
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateStyle = .none
+    formatter.dateStyle = .short
     formatter.timeStyle = .short
+    formatter.doesRelativeDateFormatting = true
     return formatter
 }()
