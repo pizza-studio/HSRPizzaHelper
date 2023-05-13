@@ -29,5 +29,5 @@ struct HomeView: View {
 
     // MARK: Private
 
-    private let dailyNoteRefreshSubject = PassthroughSubject<(), Never>()
+    @State private var dailyNoteRefreshSubject = PassthroughSubject<(), Never>()
 }
