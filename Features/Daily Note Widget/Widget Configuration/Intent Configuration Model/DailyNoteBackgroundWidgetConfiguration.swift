@@ -30,7 +30,7 @@ struct DailyNoteBackgroundWidgetConfiguration {
         backgroundFolderName: String,
         useAccessibilityBackground: Bool,
         textColor: Color,
-        expeditionDisplayMode: ExpeditionDisplayMode,
+        staminaPosition: Self.StaminaPosition,
         showAccountName: Bool
     ) {
         self.background = background
@@ -44,17 +44,11 @@ struct DailyNoteBackgroundWidgetConfiguration {
         self.backgroundFolderName = backgroundFolderName
         self.useAccessibilityBackground = useAccessibilityBackground
         self.textColor = textColor
-        self.expeditionDisplayMode = expeditionDisplayMode
+        self.staminaPosition = staminaPosition
         self.showAccountName = showAccountName
     }
 
     // MARK: Internal
-
-    /// An enum representing the mode for displaying expeditions in the widget.
-    enum ExpeditionDisplayMode {
-        case display
-        case hide(staminaPosition: StaminaPosition)
-    }
 
     /// An enum representing the position of the stamina bar in the widget.
     enum StaminaPosition {
@@ -78,11 +72,10 @@ struct DailyNoteBackgroundWidgetConfiguration {
     /// The color to use for the text in the widget.
     let textColor: Color
 
-    /// The mode for displaying expeditions in the widget.
-    let expeditionDisplayMode: ExpeditionDisplayMode
-
     /// A boolean indicating whether to show the name of the account in the widget.
     let showAccountName: Bool
+
+    let staminaPosition: StaminaPosition
 }
 
 // MARK: CanProvideWidgetBackground
@@ -111,9 +104,6 @@ protocol DailyNoteWidgetConfigurationErasable: HasDefaultBackground, RandomBackg
 
     /// The color to use for the text in the widget.
     var textColor: IntentWidgetTextColor { get }
-
-    /// A boolean indicating whether to show the expedition in the widget.
-    var showExpedition: NSNumber? { get }
 
     /// The position of the stamina bar in the widget.
     var staminaPosition: IntentStaminaPosition { get }
@@ -152,20 +142,14 @@ extension DailyNoteWidgetConfigurationErasable {
                     return .white
                 }
             }(),
-            expeditionDisplayMode: {
-                if showExpedition as? Bool ?? true {
-                    return .display
-                } else {
-                    return .hide(staminaPosition: {
-                        switch staminaPosition {
-                        case .left, .unknown:
-                            return .left
-                        case .right:
-                            return .right
-                        case .center:
-                            return .center
-                        }
-                    }())
+            staminaPosition: {
+                switch staminaPosition {
+                case .left, .unknown:
+                    return .left
+                case .right:
+                    return .right
+                case .center:
+                    return .center
                 }
             }(),
             showAccountName: showAccountName as? Bool ?? true

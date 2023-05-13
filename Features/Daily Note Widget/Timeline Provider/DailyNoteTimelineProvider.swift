@@ -36,7 +36,7 @@ extension DailyNoteTimelineProvider {
             backgroundFolderName: LargeSquareWidgetConfigurationIntent.backgroundFolderName,
             useAccessibilityBackground: true,
             textColor: .primary,
-            expeditionDisplayMode: .display,
+            staminaPosition: .left,
             showAccountName: true
         )
     }

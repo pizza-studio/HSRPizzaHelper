@@ -422,55 +422,11 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Dispatch Assignments</string>
-					<key>INIntentParameterDisplayNameID</key>
-					<string>XUD3Yf</string>
-					<key>INIntentParameterDisplayPriority</key>
-					<integer>7</integer>
-					<key>INIntentParameterMetadata</key>
-					<dict>
-						<key>INIntentParameterMetadataDefaultValue</key>
-						<true/>
-						<key>INIntentParameterMetadataFalseDisplayName</key>
-						<string>false</string>
-						<key>INIntentParameterMetadataFalseDisplayNameID</key>
-						<string>VBT9un</string>
-						<key>INIntentParameterMetadataTrueDisplayName</key>
-						<string>true</string>
-						<key>INIntentParameterMetadataTrueDisplayNameID</key>
-						<string>osQOMd</string>
-					</dict>
-					<key>INIntentParameterName</key>
-					<string>showExpedition</string>
-					<key>INIntentParameterPromptDialogs</key>
-					<array>
-						<dict>
-							<key>INIntentParameterPromptDialogCustom</key>
-							<true/>
-							<key>INIntentParameterPromptDialogType</key>
-							<string>Configuration</string>
-						</dict>
-						<dict>
-							<key>INIntentParameterPromptDialogCustom</key>
-							<true/>
-							<key>INIntentParameterPromptDialogType</key>
-							<string>Primary</string>
-						</dict>
-					</array>
-					<key>INIntentParameterTag</key>
-					<integer>18</integer>
-					<key>INIntentParameterType</key>
-					<string>Boolean</string>
-				</dict>
-				<dict>
-					<key>INIntentParameterConfigurable</key>
-					<true/>
-					<key>INIntentParameterDisplayName</key>
 					<string>Trailblaze Power Position</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>Jvemll</string>
 					<key>INIntentParameterDisplayPriority</key>
-					<integer>8</integer>
+					<integer>7</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>IntentStaminaPosition</string>
 					<key>INIntentParameterEnumTypeNamespace</key>
@@ -519,8 +475,6 @@
 					</array>
 					<key>INIntentParameterRelationship</key>
 					<dict>
-						<key>INIntentParameterRelationshipParentName</key>
-						<string>showExpedition</string>
 						<key>INIntentParameterRelationshipPredicateName</key>
 						<string>BooleanHasExactValue</string>
 					</dict>
@@ -854,55 +808,11 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Dispatch Assignments</string>
-					<key>INIntentParameterDisplayNameID</key>
-					<string>G4xAlP</string>
-					<key>INIntentParameterDisplayPriority</key>
-					<integer>7</integer>
-					<key>INIntentParameterMetadata</key>
-					<dict>
-						<key>INIntentParameterMetadataDefaultValue</key>
-						<true/>
-						<key>INIntentParameterMetadataFalseDisplayName</key>
-						<string>false</string>
-						<key>INIntentParameterMetadataFalseDisplayNameID</key>
-						<string>VBT9un</string>
-						<key>INIntentParameterMetadataTrueDisplayName</key>
-						<string>true</string>
-						<key>INIntentParameterMetadataTrueDisplayNameID</key>
-						<string>osQOMd</string>
-					</dict>
-					<key>INIntentParameterName</key>
-					<string>showExpedition</string>
-					<key>INIntentParameterPromptDialogs</key>
-					<array>
-						<dict>
-							<key>INIntentParameterPromptDialogCustom</key>
-							<true/>
-							<key>INIntentParameterPromptDialogType</key>
-							<string>Configuration</string>
-						</dict>
-						<dict>
-							<key>INIntentParameterPromptDialogCustom</key>
-							<true/>
-							<key>INIntentParameterPromptDialogType</key>
-							<string>Primary</string>
-						</dict>
-					</array>
-					<key>INIntentParameterTag</key>
-					<integer>16</integer>
-					<key>INIntentParameterType</key>
-					<string>Boolean</string>
-				</dict>
-				<dict>
-					<key>INIntentParameterConfigurable</key>
-					<true/>
-					<key>INIntentParameterDisplayName</key>
 					<string>Trailblaze Power Position</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>caHrt7</string>
 					<key>INIntentParameterDisplayPriority</key>
-					<integer>8</integer>
+					<integer>7</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>IntentStaminaPosition</string>
 					<key>INIntentParameterEnumTypeNamespace</key>
@@ -951,8 +861,6 @@
 					</array>
 					<key>INIntentParameterRelationship</key>
 					<dict>
-						<key>INIntentParameterRelationshipParentName</key>
-						<string>showExpedition</string>
 						<key>INIntentParameterRelationshipPredicateName</key>
 						<string>BooleanHasExactValue</string>
 					</dict>
