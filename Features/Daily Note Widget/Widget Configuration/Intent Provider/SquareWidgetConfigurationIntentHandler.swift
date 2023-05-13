@@ -9,7 +9,8 @@ import Foundation
 import Intents
 
 class SquareWidgetConfigurationIntentHandler: INExtension, LargeSquareWidgetConfigurationIntentHandling,
-    SmallSquareWidgetConfigurationIntentHandling {
+    SmallSquareWidgetConfigurationIntentHandling,
+    GIStyleSquareWidgetConfigurationIntentHandling {
     // MARK: Internal
 
     func provideAccountOptionsCollection(for intent: SmallSquareWidgetConfigurationIntent) async throws
@@ -22,12 +23,22 @@ class SquareWidgetConfigurationIntentHandler: INExtension, LargeSquareWidgetConf
         try await IntentAccountProvider.provideAccountOptionsCollection()
     }
 
+    func provideAccountOptionsCollection(for intent: GIStyleSquareWidgetConfigurationIntent) async throws
+        -> INObjectCollection<IntentAccount> {
+        try await IntentAccountProvider.provideAccountOptionsCollection()
+    }
+
     func provideBackgroundOptionsCollection(for intent: SmallSquareWidgetConfigurationIntent) async throws
         -> INObjectCollection<WidgetBackground> {
         try await provideBackgroundOptionsCollection()
     }
 
     func provideBackgroundOptionsCollection(for intent: LargeSquareWidgetConfigurationIntent) async throws
+        -> INObjectCollection<WidgetBackground> {
+        try await provideBackgroundOptionsCollection()
+    }
+
+    func provideBackgroundOptionsCollection(for intent: GIStyleSquareWidgetConfigurationIntent) async throws
         -> INObjectCollection<WidgetBackground> {
         try await provideBackgroundOptionsCollection()
     }

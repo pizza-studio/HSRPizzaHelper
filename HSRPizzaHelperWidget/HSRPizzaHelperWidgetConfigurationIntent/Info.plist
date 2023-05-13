@@ -12,6 +12,8 @@
 			<array/>
 			<key>IntentsSupported</key>
 			<array>
+				<string>GIStyleRectangularWidgetConfigurationIntent</string>
+				<string>GIStyleSquareWidgetConfigurationIntent</string>
 				<string>LargeSquareWidgetConfigurationIntent</string>
 				<string>RectangularWidgetConfigurationIntent</string>
 				<string>SmallSquareWidgetConfigurationIntent</string>

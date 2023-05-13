@@ -90,12 +90,12 @@
 "setting.widget.background.delete.confirmation.title" = "Determine to delete the background?";
 "setting.widget.background.delete.confirmation.delete" = "Delete";
 "account.login.error.no.account.found" = "This HoYoLAB account is not bound to any game character.";
-"widget.rect.display" = "HSR Trailblaze Power Widget";
-"widget.rect.desc" = "Track your trailblaze power and dispacth assignments at any time.";
-"widget.small.display" = "HSR Trailblaze Power Widget";
-"widget.small.desc" = "Track your trailblaze power and dispacth assignments at any time.";
-"widget.large.display" = "HSR Trailblaze Power Widget";
-"widget.large.desc" = "Track your trailblaze power and dispacth assignments at any time.";
+"widget.rect.display" = "Trailblaze Power";
+"widget.rect.desc" = "Track your trailblaze power.";
+"widget.small.display" = "Trailblaze Power";
+"widget.small.desc" = "Track your trailblaze power.";
+"widget.large.display" = "Trailblaze Power";
+"widget.large.desc" = "Track your trailblaze power.";
 "app.note.3" = "HSR Pizza Helper is an open-source project hosted on [GitHub](https://github.com/pizza-studio/HSRPizzaHelper/).";
 "setting.notification.notpermitted" = "Notification not permitted";
 "setting.notification.navigatetosetting" = "Allow notification";
@@ -121,3 +121,7 @@
 "notification.expedition.title" = "Reminder: dispatch assignments for %@";
 "notification.expedition.summary.body" = "All dispatch assignments for %@ have been completed.";
 "notification.expedition.each.body" = "Dispatch assignment '%2$@' for %1$@ has been completed.";
+"widget.gistyle.rect.display" = "Trailblaze Power and Dispatch Assignments";
+"widget.gistyle.rect.desc" = "Status for Trailblaze Power and Dispatch Assignments.";
+"widget.gistyle.square.display" = "Trailblaze Power and Dispatch Assignments";
+"widget.gistyle.square.desc" = "Status for Trailblaze Power and Dispatch Assignments.";

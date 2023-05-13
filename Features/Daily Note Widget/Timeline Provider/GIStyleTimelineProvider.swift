@@ -1,13 +1,14 @@
 //
-//  DailyNoteTimelineProvider.swift
-//  HSRPizzaHelperWidgetExtension
+//  GIStyleTimelineProvider.swift
+//  HSRPizzaHelper
 //
-//  Created by 戴藏龙 on 2023/5/7.
+//  Created by 戴藏龙 on 2023/5/13.
 //
 
 import Foundation
 import HBMihoyoAPI
 import Intents
+import SwiftUI
 import WidgetKit
 
 // MARK: - DailyNoteTimelineProvider
@@ -24,42 +25,62 @@ private var refreshWhenErrorMinute: Int {
 
 private var refreshWhenErrorAfterSecond = TimeInterval(refreshWhenErrorMinute * 60)
 
-// MARK: - DailyNoteTimelineProvider
+// MARK: - GIStyleTimelineProvider
 
-protocol DailyNoteTimelineProvider: IntentTimelineProvider, HasDefaultAccount
-    where Entry == DailyNoteEntry, Intent: DailyNoteWidgetConfigurationErasable {
-    var defaultConfiguration: DailyNoteBackgroundWidgetConfiguration { get }
+protocol GIStyleTimelineProvider: IntentTimelineProvider, HasDefaultAccount
+    where Entry == GIStyleEntry, Intent: GIStyleWidgetConfigurationErasable {
+    var defaultConfiguration: GIStyleWidgetConfiguration { get }
 }
 
-extension DailyNoteTimelineProvider {
-    var defaultConfiguration: DailyNoteBackgroundWidgetConfiguration {
+extension GIStyleTimelineProvider {
+    var defaultConfiguration: GIStyleWidgetConfiguration {
         .init(
             account: defaultAccount,
             background: Intent.defaultBackground,
             backgroundFolderName: LargeSquareWidgetConfigurationIntent.backgroundFolderName,
-            useAccessibilityBackground: true,
-            textColor: .primary,
-            staminaPosition: .left,
+            textColor: .white,
             showAccountName: true
         )
     }
 }
 
-extension DailyNoteTimelineProvider {
-    func placeholder(in context: Context) -> DailyNoteEntry {
-        .init(
+extension GIStyleTimelineProvider {
+    func placeholder(in context: Context) -> GIStyleEntry {
+        var expeditionWithUIImage: [(ExpeditionInformation.Expedition, [UIImage?])] = []
+        expeditionWithUIImage = DailyNote.example().expeditionInformation.expeditions.map { expedition in
+            var images: [UIImage?] = []
+            expedition.avatarIconURLs.forEach { url in
+                if let data = try? Data(contentsOf: url) {
+                    images.append(UIImage(data: data))
+                }
+            }
+            return (expedition, images)
+        }
+        return .init(
             date: Date(),
             dailyNoteResult: .success(.example()),
-            configuration: defaultConfiguration
+            configuration: defaultConfiguration,
+            expeditionWithUIImage: expeditionWithUIImage
         )
     }
 
-    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (DailyNoteEntry) -> ()) {
+    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (GIStyleEntry) -> ()) {
+        var expeditionWithUIImage: [(ExpeditionInformation.Expedition, [UIImage?])] = []
+        expeditionWithUIImage = DailyNote.example().expeditionInformation.expeditions.map { expedition in
+            var images: [UIImage?] = []
+            expedition.avatarIconURLs.forEach { url in
+                if let data = try? Data(contentsOf: url) {
+                    images.append(UIImage(data: data))
+                }
+            }
+            return (expedition, images)
+        }
         completion(
             .init(
                 date: Date(),
                 dailyNoteResult: .success(.example()),
-                configuration: defaultConfiguration
+                configuration: defaultConfiguration,
+                expeditionWithUIImage: expeditionWithUIImage
             )
         )
     }
@@ -67,13 +88,13 @@ extension DailyNoteTimelineProvider {
     func getTimeline(
         for configuration: Intent,
         in context: Context,
-        completion: @escaping (Timeline<DailyNoteEntry>) -> ()
+        completion: @escaping (Timeline<GIStyleEntry>) -> ()
     ) {
         Task {
             var entries: [Entry] = []
 
             let account = configuration
-                .eraseToDailyNoteWidgetConfiguration()
+                .eraseToGIStyleWidgetConfiguration()
                 .account
 
             let dailyNoteResult: Result<DailyNote, Error>
@@ -119,13 +140,29 @@ extension DailyNoteTimelineProvider {
         dailyNoteResult: Result<DailyNote, Error>,
         configuration: Intent
     ) -> [Entry] {
+        var expeditionWithUIImage: [(ExpeditionInformation.Expedition, [UIImage?])] = []
         if case let .success(dailyNote) = dailyNoteResult {
-            var entries: [DailyNoteEntry] = []
+            var entries: [GIStyleEntry] = []
+            switch dailyNoteResult {
+            case let .success(dailyNote):
+                expeditionWithUIImage = dailyNote.expeditionInformation.expeditions.map { expedition in
+                    var images: [UIImage?] = []
+                    expedition.avatarIconURLs.forEach { url in
+                        if let data = try? Data(contentsOf: url) {
+                            images.append(UIImage(data: data))
+                        }
+                    }
+                    return (expedition, images)
+                }
+            case .failure:
+                expeditionWithUIImage = []
+            }
             entries.append(
                 Entry(
                     date: Date(),
                     dailyNoteResult: dailyNoteResult,
-                    configuration: configuration.eraseToDailyNoteWidgetConfiguration()
+                    configuration: configuration.eraseToGIStyleWidgetConfiguration(),
+                    expeditionWithUIImage: expeditionWithUIImage
                 )
             )
 
@@ -140,11 +177,17 @@ extension DailyNoteTimelineProvider {
                         dailyNoteResult: .success(
                             dailyNote
                         ),
-                        configuration: configuration.eraseToDailyNoteWidgetConfiguration()
+                        configuration: configuration.eraseToGIStyleWidgetConfiguration(),
+                        expeditionWithUIImage: expeditionWithUIImage
                     )
                 )
                 loopNextTime = dailyNote.staminaInformation.nextStaminaTime
                 dailyNote = dailyNote.replacingBenchmarkTime(nextTime)
+                expeditionWithUIImage = expeditionWithUIImage.map { expedition, images in
+                    (
+                        expedition.replacingBenchmarkTime(nextTime), images
+                    )
+                }
             }
             return entries
         } else {
@@ -152,7 +195,8 @@ extension DailyNoteTimelineProvider {
                 Entry(
                     date: Date(),
                     dailyNoteResult: dailyNoteResult,
-                    configuration: configuration.eraseToDailyNoteWidgetConfiguration()
+                    configuration: configuration.eraseToGIStyleWidgetConfiguration(),
+                    expeditionWithUIImage: expeditionWithUIImage
                 ),
             ]
         }

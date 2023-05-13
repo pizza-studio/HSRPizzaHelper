@@ -90,12 +90,12 @@
 "setting.widget.background.delete.confirmation.title" = "确认要删除该背景吗？";
 "setting.widget.background.delete.confirmation.delete" = "删除";
 "account.login.error.no.account.found" = "该米游社账号未绑定游戏角色。";
-"widget.rect.display" = "星铁体力小组件";
-"widget.rect.desc" = "立即查看开拓力、派遣委托信息";
-"widget.small.display" = "星铁体力小组件";
-"widget.small.desc" = "立即查看开拓力、派遣委托信息";
-"widget.large.display" = "星铁体力小组件";
-"widget.large.desc" = "立即查看开拓力、派遣委托信息";
+"widget.rect.display" = "开拓力";
+"widget.rect.desc" = "实时开拓力恢复状态。";
+"widget.small.display" = "开拓力";
+"widget.small.desc" = "实时开拓力恢复状态。";
+"widget.large.display" = "开拓力";
+"widget.large.desc" = "实时开拓力恢复状态。";
 "app.note.3" = "「星铁披萨小助手」是一个托管在[GitHub](https://github.com/pizza-studio/HSRPizzaHelper/)上的开源项目。";
 "setting.notification.notpermitted" = "未允许通知";
 "setting.notification.navigatetosetting" = "开启通知";
@@ -121,3 +121,7 @@
 "notification.expedition.title" = "「%@」派遣委托提醒";
 "notification.expedition.summary.body" = "「%@」的派遣委托已全部完成。";
 "notification.expedition.each.body" = "「%1$@」的派遣委托「%2$@」已完成。";
+"widget.gistyle.rect.display" = "开拓力与派遣委托";
+"widget.gistyle.rect.desc" = "开拓力恢复与派遣委托进行状态。";
+"widget.gistyle.square.display" = "开拓力与派遣委托";
+"widget.gistyle.square.desc" = "开拓力恢复与派遣委托进行状态。";

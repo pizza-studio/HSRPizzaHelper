@@ -58,6 +58,17 @@
 		EA4DAC132A0BB1C300D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC122A0BB1C300D2AC5F /* Algorithms */; };
 		EA4DAC152A0BB1C800D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC142A0BB1C800D2AC5F /* Algorithms */; };
 		EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */; };
+		EA56DB7A2A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB792A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift */; };
+		EA56DB7B2A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB792A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift */; };
+		EA56DB7D2A0F5C1900BCF884 /* GIStyleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB7C2A0F5C1900BCF884 /* GIStyleEntry.swift */; };
+		EA56DB7E2A0F5C1900BCF884 /* GIStyleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB7C2A0F5C1900BCF884 /* GIStyleEntry.swift */; };
+		EA56DB842A0F60C500BCF884 /* GIStyleTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB832A0F60C500BCF884 /* GIStyleTimelineProvider.swift */; };
+		EA56DB872A0F625400BCF884 /* RectangularGIStyleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB862A0F625400BCF884 /* RectangularGIStyleWidget.swift */; };
+		EA56DB8A2A0F62A200BCF884 /* GIStyleRectangularTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB892A0F62A200BCF884 /* GIStyleRectangularTimelineProvider.swift */; };
+		EA56DB8D2A0F62DA00BCF884 /* GIStyleSquareTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB8C2A0F62DA00BCF884 /* GIStyleSquareTimelineProvider.swift */; };
+		EA56DB902A0F630A00BCF884 /* SquareGIStyleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB8F2A0F630A00BCF884 /* SquareGIStyleWidget.swift */; };
+		EA56DB932A0F642A00BCF884 /* GIStyleRectangularWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB922A0F642A00BCF884 /* GIStyleRectangularWidgetView.swift */; };
+		EA56DB952A0F749200BCF884 /* GIStyleSquareWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56DB942A0F749200BCF884 /* GIStyleSquareWidgetView.swift */; };
 		EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F23312A0BE87000D6D024 /* OnFocused.swift */; };
 		EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5B2A05053200CBF10B /* AboutView.swift */; };
 		EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5C2A05053200CBF10B /* ThanksView.swift */; };
@@ -245,6 +256,15 @@
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
 		EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocalizedError.swift; sourceTree = "<group>"; };
+		EA56DB792A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIStyleWidgetConfiguration.swift; sourceTree = "<group>"; };
+		EA56DB7C2A0F5C1900BCF884 /* GIStyleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIStyleEntry.swift; sourceTree = "<group>"; };
+		EA56DB832A0F60C500BCF884 /* GIStyleTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIStyleTimelineProvider.swift; sourceTree = "<group>"; };
+		EA56DB862A0F625400BCF884 /* RectangularGIStyleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularGIStyleWidget.swift; sourceTree = "<group>"; };
+		EA56DB892A0F62A200BCF884 /* GIStyleRectangularTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIStyleRectangularTimelineProvider.swift; sourceTree = "<group>"; };
+		EA56DB8C2A0F62DA00BCF884 /* GIStyleSquareTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIStyleSquareTimelineProvider.swift; sourceTree = "<group>"; };
+		EA56DB8F2A0F630A00BCF884 /* SquareGIStyleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareGIStyleWidget.swift; sourceTree = "<group>"; };
+		EA56DB922A0F642A00BCF884 /* GIStyleRectangularWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIStyleRectangularWidgetView.swift; sourceTree = "<group>"; };
+		EA56DB942A0F749200BCF884 /* GIStyleSquareWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIStyleSquareWidgetView.swift; sourceTree = "<group>"; };
 		EA5F23312A0BE87000D6D024 /* OnFocused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFocused.swift; sourceTree = "<group>"; };
 		EA60BE5B2A05053200CBF10B /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		EA60BE5C2A05053200CBF10B /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
@@ -464,6 +484,24 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		EA43EDFC2A0F578C0035977E /* GI Style Rectangular Widget */ = {
+			isa = PBXGroup;
+			children = (
+				EA56DB862A0F625400BCF884 /* RectangularGIStyleWidget.swift */,
+				EA56DB922A0F642A00BCF884 /* GIStyleRectangularWidgetView.swift */,
+			);
+			path = "GI Style Rectangular Widget";
+			sourceTree = "<group>";
+		};
+		EA56DB912A0F63F600BCF884 /* GI Style Square Widget */ = {
+			isa = PBXGroup;
+			children = (
+				EA56DB8F2A0F630A00BCF884 /* SquareGIStyleWidget.swift */,
+				EA56DB942A0F749200BCF884 /* GIStyleSquareWidgetView.swift */,
+			);
+			path = "GI Style Square Widget";
+			sourceTree = "<group>";
+		};
 		EA5F232E2A0BE35600D6D024 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +526,8 @@
 		EA68BC632A065B0200A7FF91 /* Daily Note Widget */ = {
 			isa = PBXGroup;
 			children = (
+				EA56DB912A0F63F600BCF884 /* GI Style Square Widget */,
+				EA43EDFC2A0F578C0035977E /* GI Style Rectangular Widget */,
 				EA8A77122A07364E0005C511 /* Timeline Provider */,
 				EA8A77112A07364B0005C511 /* Entry */,
 				EADA17D12A06C42C00AF9784 /* Widget Configuration */,
@@ -537,6 +577,7 @@
 				EADA17CF2A06C0CB00AF9784 /* WidgetBackgroundExtension.swift */,
 				EA8A77152A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift */,
 				EA8A77382A0751980005C511 /* WidgetConfigurationIntentExtension.swift */,
+				EA56DB792A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift */,
 			);
 			path = "Intent Configuration Model";
 			sourceTree = "<group>";
@@ -592,6 +633,7 @@
 			isa = PBXGroup;
 			children = (
 				EA8A77132A07365D0005C511 /* DailyNoteEntry.swift */,
+				EA56DB7C2A0F5C1900BCF884 /* GIStyleEntry.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -603,6 +645,9 @@
 				EA8A771E2A0743AC0005C511 /* LargeSquareDailyNoteTimelineProvider.swift */,
 				EA8A77202A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift */,
 				EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */,
+				EA56DB832A0F60C500BCF884 /* GIStyleTimelineProvider.swift */,
+				EA56DB892A0F62A200BCF884 /* GIStyleRectangularTimelineProvider.swift */,
+				EA56DB8C2A0F62DA00BCF884 /* GIStyleSquareTimelineProvider.swift */,
 			);
 			path = "Timeline Provider";
 			sourceTree = "<group>";
@@ -1027,6 +1072,7 @@
 				EA8A77432A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
 				EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */,
 				EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */,
+				EA56DB932A0F642A00BCF884 /* GIStyleRectangularWidgetView.swift in Sources */,
 				EA1673F62A063AF300436487 /* HSRPizzaHelperWidgetBundle.swift in Sources */,
 				EA43EDF82A0F38920035977E /* DailyNoteNotification.swift in Sources */,
 				EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */,
@@ -1042,15 +1088,22 @@
 				EA43EDF72A0F38920035977E /* HSRNotificationCenter.swift in Sources */,
 				EA8A77212A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift in Sources */,
 				EADCE9372A0B7859008D81A9 /* EmbedIn.swift in Sources */,
+				EA56DB7D2A0F5C1900BCF884 /* GIStyleEntry.swift in Sources */,
 				EADCE93A2A0B98DD008D81A9 /* OptionalSpacer.swift in Sources */,
 				EA702C102A06B13E006D3BC9 /* UserDefaultKeys.swift in Sources */,
 				EA8A77252A0748AC0005C511 /* LargeSquareDailyNoteWidgetView.swift in Sources */,
+				EA56DB952A0F749200BCF884 /* GIStyleSquareWidgetView.swift in Sources */,
 				EA8A772B2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,
 				EA9E22122A0B9DC0002F3351 /* WidgetExpeditionInformationCard.swift in Sources */,
 				EA9D80A12A08D93900534237 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,
 				EA8A771F2A0743AC0005C511 /* LargeSquareDailyNoteTimelineProvider.swift in Sources */,
 				EA8A771A2A073E500005C511 /* IntentAccountExtension.swift in Sources */,
+				EA56DB7A2A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift in Sources */,
+				EA56DB902A0F630A00BCF884 /* SquareGIStyleWidget.swift in Sources */,
 				EA9D80A22A08D94700534237 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
+				EA56DB8D2A0F62DA00BCF884 /* GIStyleSquareTimelineProvider.swift in Sources */,
+				EA56DB842A0F60C500BCF884 /* GIStyleTimelineProvider.swift in Sources */,
+				EA56DB872A0F625400BCF884 /* RectangularGIStyleWidget.swift in Sources */,
 				EA068D102A080818003C4E69 /* RectangularDailyNoteWidget.swift in Sources */,
 				EA8A77472A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA8A77162A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
@@ -1060,6 +1113,7 @@
 				EA8A77332A074C670005C511 /* WidgetBackgroundExtension.swift in Sources */,
 				EA1673F82A063AF300436487 /* HSRPizzaHelperWidgetLiveActivity.swift in Sources */,
 				EA9D80A02A08D92C00534237 /* IntentHandler.swift in Sources */,
+				EA56DB8A2A0F62A200BCF884 /* GIStyleRectangularTimelineProvider.swift in Sources */,
 				EA8A770E2A0735F70005C511 /* Account+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1126,6 +1180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA56DB7E2A0F5C1900BCF884 /* GIStyleEntry.swift in Sources */,
 				EA702C072A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift in Sources */,
 				EA8A772F2A074AD40005C511 /* HasDefaultBackground.swift in Sources */,
 				EADA17CE2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
@@ -1135,6 +1190,7 @@
 				EAE898812A06A8D3000AF830 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
 				EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */,
+				EA56DB7B2A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift in Sources */,
 				EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */,
 				EA43EDFA2A0F3E080035977E /* DailyNoteNotification.swift in Sources */,
 				EA8A77372A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
