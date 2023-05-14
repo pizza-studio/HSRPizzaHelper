@@ -20,7 +20,7 @@ extension HasDefaultBackground {
     static var defaultBackground: WidgetBackground {
         // swiftlint:disable:next force_try
         try! Self.allAvailableBackgrounds().first(where: { background in
-            background.identifier == "Character_March_7th_Splash_Art.heic"
+            background.identifier == "Marth7th.heic"
         })!
     }
 }

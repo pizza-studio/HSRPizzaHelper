@@ -11,6 +11,7 @@ import SwiftUI
 // MARK: - GIStyleSquareWidgetView
 
 struct GIStyleSquareWidgetView: View {
+    @Environment(\.colorScheme) var colorScheme
     let entry: GIStyleEntry
 
     var body: some View {
@@ -23,6 +24,11 @@ struct GIStyleSquareWidgetView: View {
                 Text(error.localizedDescription)
             }
         }
+        .environment(
+            \.colorScheme,
+            entry.configuration.textColor == .primary ? colorScheme : entry.configuration
+                .textColor == .white ? .light : .dark
+        )
         .foregroundColor(entry.configuration.textColor)
         .padding(20)
         .background {
