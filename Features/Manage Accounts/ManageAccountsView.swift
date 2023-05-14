@@ -117,11 +117,19 @@ struct ManageAccountsView: View {
     }
 
     private func moveItems(from source: IndexSet, to destination: Int) {
-        var revisedAccounts: [Account] = accounts.map { $0 }
-        revisedAccounts.move(fromOffsets: source, toOffset: destination)
+        withAnimation {
+            var revisedAccounts: [Account] = accounts.map { $0 }
+            revisedAccounts.move(fromOffsets: source, toOffset: destination)
 
-        for (index, account) in revisedAccounts.enumerated() {
-            account.priority = index as NSNumber
+            for (index, account) in revisedAccounts.enumerated() {
+                account.priority = index as NSNumber
+            }
+
+            do {
+                try viewContext.save()
+            } catch {
+                print(error)
+            }
         }
     }
 }
