@@ -46,6 +46,7 @@ struct CommonStaminaLockscreenWidget: Widget {
 
 // MARK: - CommonStaminaLockscreenWidgetView
 
+@available(iOSApplicationExtension 16.0, *)
 private struct CommonStaminaLockscreenWidgetView: View {
     @Environment(\.widgetFamily) private var widgetFamily
 
