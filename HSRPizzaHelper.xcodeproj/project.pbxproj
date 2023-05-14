@@ -134,11 +134,12 @@
 		EA946A902A0FF76C003FC598 /* LockscreenEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A8F2A0FF76C003FC598 /* LockscreenEntry.swift */; };
 		EA946A952A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A942A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift */; };
 		EA946A982A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A972A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift */; };
+		EA946A9A2A107FF5003FC598 /* StaminaLockscreenWidgetRectangularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A992A107FF5003FC598 /* StaminaLockscreenWidgetRectangularView.swift */; };
+		EA946A9C2A10851B003FC598 /* StaminaLockscreenWidgetInlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A9B2A10851B003FC598 /* StaminaLockscreenWidgetInlineView.swift */; };
 		EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9D024B2A04BE3800796516 /* AccountDetailView.swift */; };
 		EA9D80A02A08D92C00534237 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE898702A06A134000AF830 /* IntentHandler.swift */; };
 		EA9D80A12A08D93900534237 /* SquareWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */; };
 		EA9D80A22A08D94700534237 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */; };
-		EA9E22122A0B9DC0002F3351 /* WidgetExpeditionInformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E22102A0B9D47002F3351 /* WidgetExpeditionInformationCard.swift */; };
 		EA9E22152A0B9E25002F3351 /* WidgetDailyNoteSuccessLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E22132A0B9E1B002F3351 /* WidgetDailyNoteSuccessLargeView.swift */; };
 		EA9E22182A0BA324002F3351 /* SmallSquareDailyNoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E22162A0BA322002F3351 /* SmallSquareDailyNoteWidget.swift */; };
 		EA9E221B2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */; };
@@ -306,8 +307,9 @@
 		EA946A8F2A0FF76C003FC598 /* LockscreenEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenEntry.swift; sourceTree = "<group>"; };
 		EA946A942A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStaminaLockscreenWidget.swift; sourceTree = "<group>"; };
 		EA946A972A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaminaLockscreenWidgetCircularView.swift; sourceTree = "<group>"; };
+		EA946A992A107FF5003FC598 /* StaminaLockscreenWidgetRectangularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaminaLockscreenWidgetRectangularView.swift; sourceTree = "<group>"; };
+		EA946A9B2A10851B003FC598 /* StaminaLockscreenWidgetInlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaminaLockscreenWidgetInlineView.swift; sourceTree = "<group>"; };
 		EA9D024B2A04BE3800796516 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
-		EA9E22102A0B9D47002F3351 /* WidgetExpeditionInformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExpeditionInformationCard.swift; sourceTree = "<group>"; };
 		EA9E22132A0B9E1B002F3351 /* WidgetDailyNoteSuccessLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDailyNoteSuccessLargeView.swift; sourceTree = "<group>"; };
 		EA9E22162A0BA322002F3351 /* SmallSquareDailyNoteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteWidget.swift; sourceTree = "<group>"; };
 		EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
@@ -563,7 +565,6 @@
 			isa = PBXGroup;
 			children = (
 				EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */,
-				EA9E22102A0B9D47002F3351 /* WidgetExpeditionInformationCard.swift */,
 				EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */,
 				EA9E22132A0B9E1B002F3351 /* WidgetDailyNoteSuccessLargeView.swift */,
 			);
@@ -691,6 +692,8 @@
 			children = (
 				EA946A942A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift */,
 				EA946A972A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift */,
+				EA946A992A107FF5003FC598 /* StaminaLockscreenWidgetRectangularView.swift */,
+				EA946A9B2A10851B003FC598 /* StaminaLockscreenWidgetInlineView.swift */,
 			);
 			path = "Common Stamina Widget";
 			sourceTree = "<group>";
@@ -1123,15 +1126,16 @@
 				EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */,
 				EA43EDF72A0F38920035977E /* HSRNotificationCenter.swift in Sources */,
 				EA8A77212A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift in Sources */,
+				EA946A9A2A107FF5003FC598 /* StaminaLockscreenWidgetRectangularView.swift in Sources */,
 				EADCE9372A0B7859008D81A9 /* EmbedIn.swift in Sources */,
 				EA56DB7D2A0F5C1900BCF884 /* GIStyleEntry.swift in Sources */,
 				EADCE93A2A0B98DD008D81A9 /* OptionalSpacer.swift in Sources */,
+				EA946A9C2A10851B003FC598 /* StaminaLockscreenWidgetInlineView.swift in Sources */,
 				EA946A8D2A0FF706003FC598 /* LockscreenTimelineProvider.swift in Sources */,
 				EA702C102A06B13E006D3BC9 /* UserDefaultKeys.swift in Sources */,
 				EA8A77252A0748AC0005C511 /* LargeSquareDailyNoteWidgetView.swift in Sources */,
 				EA56DB952A0F749200BCF884 /* GIStyleSquareWidgetView.swift in Sources */,
 				EA8A772B2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,
-				EA9E22122A0B9DC0002F3351 /* WidgetExpeditionInformationCard.swift in Sources */,
 				EA9D80A12A08D93900534237 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,
 				EA8A771F2A0743AC0005C511 /* LargeSquareDailyNoteTimelineProvider.swift in Sources */,
 				EA8A771A2A073E500005C511 /* IntentAccountExtension.swift in Sources */,

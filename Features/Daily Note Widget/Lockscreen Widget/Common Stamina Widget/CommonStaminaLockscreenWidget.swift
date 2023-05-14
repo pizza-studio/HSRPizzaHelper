@@ -56,11 +56,12 @@ private struct CommonStaminaLockscreenWidgetView: View {
         case .accessoryCircular:
             StaminaLockscreenWidgetCircularView(entry: entry)
         case .accessoryInline:
-            EmptyView()
+            StaminaLockscreenWidgetInlineView(entry: entry)
         case .accessoryRectangular:
-            EmptyView()
+            StaminaLockscreenWidgetRectangularView(entry: entry)
         #if os(watchOS)
         case .accessoryCorner:
+            // TODO: watch corner widget
             EmptyView()
         #endif
         default:
