@@ -5,6 +5,8 @@
 //  Created by 戴藏龙 on 2023/5/7.
 //
 
+// swiftlint:disable line_length
+
 import Foundation
 
 // MARK: - RectangularWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
@@ -14,8 +16,6 @@ extension RectangularWidgetConfigurationIntent: StaticContainingProvideWidgetBac
 }
 
 // MARK: - GIStyleRectangularWidgetConfigurationIntent + StaticContainingProvideWidgetBackground, ContainingWidgetBackground
-
-// swiftlint:disable:next line_length
 
 extension GIStyleRectangularWidgetConfigurationIntent: StaticContainingProvideWidgetBackground,
     ContainingWidgetBackground {
@@ -87,3 +87,5 @@ extension GIStyleRectangularWidgetConfigurationIntent: RandomBackgroundDrawable 
 // MARK: - GIStyleRectangularWidgetConfigurationIntent + GIStyleWidgetConfigurationErasable
 
 extension GIStyleRectangularWidgetConfigurationIntent: GIStyleWidgetConfigurationErasable {}
+
+// swiftlint:enable line_length
