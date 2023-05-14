@@ -93,6 +93,7 @@ private struct WidgetGIStyleSuccessView: View {
                 }
                 .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
             }
+            Spacer(minLength: 15)
             if entry.configuration.showExpedition {
                 Spacer()
                 VStack(alignment: .leading, spacing: 6) {
@@ -103,7 +104,7 @@ private struct WidgetGIStyleSuccessView: View {
                                     Image(uiImage: uiImage)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 30, height: 30)
+                                        .frame(width: 27, height: 27)
                                         .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
                                         .background(.thinMaterial, in: Circle())
                                 }
