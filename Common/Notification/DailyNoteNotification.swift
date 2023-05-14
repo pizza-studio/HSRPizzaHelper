@@ -160,7 +160,7 @@ private struct DailyNoteNotificationSender {
         )
         content.badge = 1
 
-        let timeInterval = information.remainingTime - Double(staminaNumber) * StaminaInformation
+        let timeInterval = information.remainingTime - Double(information.maxStamina - staminaNumber) * StaminaInformation
             .eachStaminaRecoveryTime
         guard timeInterval > 0 else { return }
 
