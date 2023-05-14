@@ -41,6 +41,7 @@ struct ManageAccountsView: View {
                     }
                 }
                 .onDelete(perform: deleteItems)
+                .onMove(perform: moveItems)
             }
         }
         .navigationTitle("account.manage.title")
@@ -60,6 +61,9 @@ struct ManageAccountsView: View {
                     try? viewContext.save()
                 }
             }
+        }
+        .toolbar {
+            EditButton()
         }
     }
 
@@ -109,6 +113,15 @@ struct ManageAccountsView: View {
             } catch {
                 print(error)
             }
+        }
+    }
+
+    private func moveItems(from source: IndexSet, to destination: Int) {
+        var revisedAccounts: [Account] = accounts.map { $0 }
+        revisedAccounts.move(fromOffsets: source, toOffset: destination)
+
+        for (index, account) in revisedAccounts.enumerated() {
+            account.priority = index as NSNumber
         }
     }
 }
