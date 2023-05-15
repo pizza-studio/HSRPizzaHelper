@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 // MARK: - EditAccountSheetView
 
@@ -33,6 +34,7 @@ struct EditAccountSheetView: View {
                             do {
                                 try viewContext.save()
                                 isShown.toggle()
+                                WidgetCenter.shared.reloadAllTimelines()
                             } catch {
                                 saveAccountError = .saveDataError(error)
                                 isSaveAccountFailAlertShown.toggle()
