@@ -39,3 +39,16 @@ enum GetDailyNoteTimelineError: Error {
     case foundNoAccount
     case fetchDailyNoteError(MiHoYoAPIError)
 }
+
+// MARK: LocalizedError
+
+extension GetDailyNoteTimelineError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .foundNoAccount:
+            return "widget.dailynote.timeline.error.noaccount".localized()
+        case let .fetchDailyNoteError(error):
+            return error.localizedDescription
+        }
+    }
+}

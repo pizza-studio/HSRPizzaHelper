@@ -125,3 +125,5 @@
 "widget.gistyle.rect.desc" = "开拓力恢复与派遣委托进行状态。";
 "widget.gistyle.square.display" = "开拓力与派遣委托";
 "widget.gistyle.square.desc" = "开拓力恢复与派遣委托进行状态。";
+"mihoyoapi.error.errdesc" = "错误（%lld）：%@";
+"widget.dailynote.timeline.error.noaccount" = "错误：未找到账号";

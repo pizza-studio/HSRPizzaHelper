@@ -183,6 +183,8 @@
 		EAE898812A06A8D3000AF830 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */; };
 		EAEC11E72A023E130024314D /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = EAEC11E62A023E130024314D /* SwiftyUserDefaults */; };
 		EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */; };
+		EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
+		EAF286522A124F5000F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -353,6 +355,7 @@
 		EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EAE898822A06A908000AF830 /* IntentAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentAccountExtension.swift; sourceTree = "<group>"; };
 		EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppDailyNoteCardView.swift; sourceTree = "<group>"; };
+		EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiHoYoAPIError+LocalizedError.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -839,6 +842,7 @@
 		EAE519C82A0178AD00EF23B7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EAF286512A124ABA00F876B6 /* Extension */,
 				EA09B1932A09180200986D46 /* View */,
 				EA09B19E2A091DFE00986D46 /* Model */,
 				EA60BE602A050C4000CBF10B /* View Modifier */,
@@ -886,6 +890,14 @@
 				EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EAF286512A124ABA00F876B6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1110,6 +1122,7 @@
 				EA8A77232A0748150005C511 /* LargeSquareDailyNoteWidget.swift in Sources */,
 				EA946A952A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift in Sources */,
 				EA8A77342A074C8A0005C511 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
+				EAF286522A124F5000F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */,
 				EA9E22182A0BA324002F3351 /* SmallSquareDailyNoteWidget.swift in Sources */,
 				EA946A8A2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */,
 				EA068D122A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift in Sources */,
@@ -1182,6 +1195,7 @@
 				EA80CFEC2A0E9E9A00002B53 /* DailyNoteNotification.swift in Sources */,
 				EADCE9362A0B7857008D81A9 /* EmbedIn.swift in Sources */,
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
+				EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
 				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,
 				EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */,
