@@ -125,3 +125,5 @@
 "widget.gistyle.rect.desc" = "Status for Trailblaze Power and Dispatch Assignments.";
 "widget.gistyle.square.display" = "Trailblaze Power and Dispatch Assignments";
 "widget.gistyle.square.desc" = "Status for Trailblaze Power and Dispatch Assignments.";
+"mihoyoapi.error.errdesc" = "Error (%lld) : %@";
+"widget.dailynote.timeline.error.noaccount" = "Error: Found no account. ";

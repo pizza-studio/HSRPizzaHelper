@@ -25,8 +25,3 @@ public struct MiHoYoAPIError: Error {
     /// The message returned by miHoYo API
     public let message: String
 }
-
-// MARK: LocalizedError
-
-// TODO: implement this protocol
-extension MiHoYoAPIError: LocalizedError {}

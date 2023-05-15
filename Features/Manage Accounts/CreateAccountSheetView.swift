@@ -7,6 +7,7 @@
 
 import HBMihoyoAPI
 import SwiftUI
+import WidgetKit
 
 // MARK: - CreateAccountSheetView
 
@@ -85,6 +86,7 @@ struct CreateAccountSheetView: View {
                         print(error)
                     }
                 }
+                WidgetCenter.shared.reloadAllTimelines()
             } catch {
                 saveAccountError = .saveDataError(error)
                 isSaveAccountFailAlertShown.toggle()
