@@ -102,10 +102,8 @@ enum URLRequestHelperConfiguration {
 
 private func getDeviceFingerPrint() -> String {
     if let uuidString = UIDevice.current.identifierForVendor?.uuidString {
-        print("DEVICE FINGER PRINT: \(uuidString.md5.prefix(13))")
         return String(uuidString.md5.prefix(13))
     } else {
-        print("DEVICE FINGER PRINT: EMPTY")
         return ""
     }
 }
