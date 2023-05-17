@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import UIKit
+
+// MARK: - URLRequestHelperConfiguration
 
 /// Abstract class storing salt, version, etc for API.
 enum URLRequestHelperConfiguration {
@@ -53,7 +56,7 @@ enum URLRequestHelperConfiguration {
     static func xRpcAppVersion(region: Region) -> String {
         switch region {
         case .china:
-            return "2.37.1"
+            return "2.50.1"
         case .global:
             return "2.9.0"
         }
@@ -92,6 +95,17 @@ enum URLRequestHelperConfiguration {
             "Accept-Language": "zh-CN,zh-Hans;q=0.9",
             "Accept": "application/json, text/plain, */*",
             "Connection": "keep-alive",
+            "x-rpc-device_fp": getDeviceFingerPrint(),
         ]
+    }
+}
+
+private func getDeviceFingerPrint() -> String {
+    if let uuidString = UIDevice.current.identifierForVendor?.uuidString {
+        print("DEVICE FINGER PRINT: \(uuidString.md5.prefix(13))")
+        return String(uuidString.md5.prefix(13))
+    } else {
+        print("DEVICE FINGER PRINT: EMPTY")
+        return ""
     }
 }
