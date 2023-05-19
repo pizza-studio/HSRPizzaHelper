@@ -48,6 +48,22 @@ enum AppConfig {
         }
     }
 
+    static var appLanguage: AppLanguage {
+        print("App Language Localization: \(Bundle.main.preferredLocalizations.first ?? "unknown")")
+        switch Bundle.main.preferredLocalizations.first {
+        case "zh-Hans":
+            return .zhcn
+        case "zh-Hant":
+            return .zhtw
+        case "en":
+            return .en
+        case "ja":
+            return .ja
+        default:
+            return .en
+        }
+    }
+
     // MARK: Private
 
     // This is private because the use of 'appConfiguration' is preferred.
@@ -61,4 +77,18 @@ enum AppConfiguration {
     case debug
     case testFlight
     case appStore
+}
+
+// MARK: - AppLanguage
+
+// swiftlint:disable identifier_name
+enum AppLanguage {
+    /// Simplified Chinese
+    case zhcn
+    /// Traditional Chinese
+    case zhtw
+    /// English
+    case en
+    /// Japanese
+    case ja
 }
