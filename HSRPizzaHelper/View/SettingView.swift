@@ -68,14 +68,17 @@ struct SettingView: View {
                             Image(systemSymbol: .globe)
                         }
                     }
-                    let url: String = {
-                        switch Bundle.main.preferredLocalizations.first {
-                        case "zh-Hans", "zh-Hant", "zh-HK":
-                            return "https://hsr.ophelper.top/static/faq.html"
-                        default:
-                            return "https://hsr.ophelper.top/static/faq_en.html"
+
+                    var url: String {
+                        switch AppConfig.appLanguage {
+                        case .en:
+                            return "https://hsr.ophelper.top/static/faq_en"
+                        case .zhcn, .zhtw:
+                            return "https://hsr.ophelper.top/static/faq"
+                        case .ja:
+                            return "https://hsr.ophelper.top/static/faq_ja"
                         }
-                    }()
+                    }
                     NavigationLink(
                         destination: WebBrowserView(url: url)
                             .navigationTitle("sys.faq.title")
@@ -144,7 +147,17 @@ private struct OtherSettingsView: View {
 
             Section {
                 NavigationLink("app.userpolicy.title") {
-                    WebBrowserView(url: "https://hsr.ophelper.top/static/policy")
+                    var url: String {
+                        switch AppConfig.appLanguage {
+                        case .en:
+                            return "https://hsr.ophelper.top/static/policy_en"
+                        case .zhcn, .zhtw:
+                            return "https://hsr.ophelper.top/static/policy"
+                        case .ja:
+                            return "https://hsr.ophelper.top/static/policy_ja"
+                        }
+                    }
+                    WebBrowserView(url: url)
                         .navigationTitle("app.userpolicy.title")
                         .navigationBarTitleDisplayMode(.inline)
                 }

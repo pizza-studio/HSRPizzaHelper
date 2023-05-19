@@ -48,7 +48,17 @@ private struct UserPolicyView: View {
 
     var body: some View {
         NavigationView {
-            WebBrowserView(url: "https://hsr.ophelper.top/static/policy.html")
+            var url: String {
+                switch AppConfig.appLanguage {
+                case .en:
+                    return "https://hsr.ophelper.top/static/policy_en"
+                case .zhcn, .zhtw:
+                    return "https://hsr.ophelper.top/static/policy"
+                case .ja:
+                    return "https://hsr.ophelper.top/static/policy_ja"
+                }
+            }
+            WebBrowserView(url: url)
                 .ignoresSafeArea()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
