@@ -15,6 +15,8 @@ import SwiftUI
 struct ContentView: View {
     // MARK: Internal
 
+    @StateObject var storeManager: StoreManager
+
     var body: some View {
         TabView(selection: $selection) {
             HomeView()
@@ -22,7 +24,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("tab.home", systemSymbol: .listBullet)
                 }
-            SettingView()
+            SettingView(storeManager: storeManager)
                 .tag(1)
                 .tabItem {
                     Label("tab.settings", systemSymbol: .gear)

@@ -117,7 +117,7 @@
 "setting.notification.expedition.method.each" = "任意一个完成时";
 "notification.stamina.title" = "「%@」开拓力提醒";
 "notification.stamina.full.body" = "「%@」的开拓力已回满。";
-"notification.stamina.customize.body" = "「%@」现有%lld开拓力，将在%@ 回满";
+"notification.stamina.customize.body" = "「%@」现有%lld开拓力，将在%@回满";
 "notification.expedition.title" = "「%@」派遣委托提醒";
 "notification.expedition.summary.body" = "「%@」的派遣委托已全部完成。";
 "notification.expedition.each.body" = "「%1$@」的派遣委托「%2$@」已完成。";
@@ -127,3 +127,6 @@
 "widget.gistyle.square.desc" = "开拓力恢复与派遣委托进行状态。";
 "mihoyoapi.error.errdesc" = "错误（%lld）：%@";
 "widget.dailynote.timeline.error.noaccount" = "错误：未找到账号";
+"sys.donate.notes" = "请注意，以下内容为无偿捐赠，我们不会为您提供任何额外的服务。\n我们承诺，您对「星铁披萨小助手」的捐赠仅用于覆盖App开发过程中的直接成本，包括但不限于苹果开发者计划会员资格的年费和服务器、域名开支等。我们不会借此项目盈利，多余的部分将会捐助给需要帮助的人。感谢您对我们的支持。";
+"sys.donate.items.title" = "捐赠项目";
+"sys.label.pay" = "支付";

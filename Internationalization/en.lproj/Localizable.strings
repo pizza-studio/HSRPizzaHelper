@@ -127,3 +127,6 @@
 "widget.gistyle.square.desc" = "Status for Trailblaze Power and Dispatch Assignments.";
 "mihoyoapi.error.errdesc" = "Error (%lld) : %@";
 "widget.dailynote.timeline.error.noaccount" = "Error: Found no account. ";
+"sys.donate.notes" = "Please note that the following content is a free donation, and we will not provide you with any additional services. \nWe promise that your donation to \"HSR Pizza Helper\" will only be used to cover the direct costs during the App development process, including but not limited to the annual fee of the Apple Developer Program membership, server and domain name expenses, etc. We will not make any profit from this project, the excess will be donated to those in need. Thank you for supporting us.";
+"sys.donate.items.title" = "Optional Donations";
+"sys.label.pay" = "Pay";
