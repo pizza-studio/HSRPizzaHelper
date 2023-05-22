@@ -160,3 +160,11 @@
 "sys.contact.hakubill.twitter" = "Twitter Account";
 "sys.contact.hakubill.twitter.header" = "Developer (Bill Haku)'s personal SNS";
 "sys.contact.hakubill.twitter.footer" = "I usually tweet in Japanese. Thanks for following my account.";
+"widget.lockscreen.common.display" = "Trailblaze Power";
+"widget.lockscreen.common.desc" = "Track your trailblaze power.";
+"widget.lockscreen.largeicon.display" = "Trailblaze Power";
+"widget.lockscreen.largeicon.desc" = "Track your trailblaze power.";
+"widget.lockscreen.timer.display" = "Trailblaze Power Timer";
+"widget.lockscreen.timer.desc" = "Countdown to full recovery of trailblaze power.";
+"widget.lockscreen.fulltime.display" = "Trailblaze Power Clock";
+"widget.lockscreen.fulltime.desc" = "Time to full recovery of trailblaze power.";

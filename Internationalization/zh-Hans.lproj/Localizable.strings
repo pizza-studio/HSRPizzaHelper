@@ -160,5 +160,11 @@
 "sys.contact.hakubill.twitter" = "Twitter帐号";
 "sys.contact.hakubill.twitter.header" = "开发者（水里的碳酸钙）的个人社交媒体";
 "sys.contact.hakubill.twitter.footer" = "我通常使用日语发推。诚挚邀请您关注我的帐号。";
-"" = "";
-"" = "";
+"widget.lockscreen.common.display" = "开拓力";
+"widget.lockscreen.common.desc" = "实时开拓力恢复状态。";
+"widget.lockscreen.largeicon.display" = "开拓力";
+"widget.lockscreen.largeicon.desc" = "实时开拓力恢复状态。";
+"widget.lockscreen.timer.display" = "开拓力计时器";
+"widget.lockscreen.timer.desc" = "开拓力完全恢复的倒计时。";
+"widget.lockscreen.fulltime.display" = "开拓力时钟";
+"widget.lockscreen.fulltime.desc" = "开拓力回满的时间。";

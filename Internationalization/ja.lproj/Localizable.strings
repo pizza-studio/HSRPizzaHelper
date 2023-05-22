@@ -160,3 +160,11 @@
 "sys.contact.hakubill.twitter" = "Twitterアカウント";
 "sys.contact.hakubill.twitter.header" = "開発者(Bill Haku)の個人SNS";
 "sys.contact.hakubill.twitter.footer" = "僕は通常、日本語でツイートを投稿しています。ぜひ、僕のアカウントをフォローしていただけると嬉しいです。";
+"widget.lockscreen.common.display" = "Trailblaze Power";
+"widget.lockscreen.common.desc" = "Track your trailblaze power.";
+"widget.lockscreen.largeicon.display" = "Trailblaze Power";
+"widget.lockscreen.largeicon.desc" = "Track your trailblaze power.";
+"widget.lockscreen.timer.display" = "Trailblaze Power Timer";
+"widget.lockscreen.timer.desc" = "Countdown to full recovery of trailblaze power.";
+"widget.lockscreen.fulltime.display" = "Trailblaze Power Clock";
+"widget.lockscreen.fulltime.desc" = "Time to full recovery of trailblaze power.";
