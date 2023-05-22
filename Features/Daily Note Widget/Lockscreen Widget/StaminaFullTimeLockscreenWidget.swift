@@ -26,8 +26,8 @@ struct StaminaFullTimeLockscreenWidget: Widget {
         ) { entry in
             StaminaFullTimeLockscreenWidgetView(entry: entry)
         }
-        .configurationDisplayName("widget.gistyle.square.display".localized())
-        .description("widget.gistyle.square.desc".localized())
+        .configurationDisplayName("widget.lockscreen.fulltime.display".localized())
+        .description("widget.lockscreen.fulltime.desc".localized())
         .supportedFamilies([
             .accessoryCircular,
         ])

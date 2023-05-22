@@ -160,3 +160,11 @@
 "sys.contact.hakubill.twitter" = "Twitterアカウント";
 "sys.contact.hakubill.twitter.header" = "開発者(Bill Haku)の個人SNS";
 "sys.contact.hakubill.twitter.footer" = "僕は通常、日本語でツイートを投稿しています。ぜひ、僕のアカウントをフォローしていただけると嬉しいです。";
+"widget.lockscreen.common.display" = "開拓力";
+"widget.lockscreen.common.desc" = "開拓力を追跡";
+"widget.lockscreen.largeicon.display" = "開拓力";
+"widget.lockscreen.largeicon.desc" = "開拓力を追跡";
+"widget.lockscreen.timer.display" = "開拓力タイマー";
+"widget.lockscreen.timer.desc" = "開拓力の完全回復までのカウントダウン。";
+"widget.lockscreen.fulltime.display" = "開拓力時計";
+"widget.lockscreen.fulltime.desc" = "開拓力の完全回復までの時間。";

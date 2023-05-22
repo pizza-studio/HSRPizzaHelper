@@ -26,8 +26,8 @@ struct LargeIconStaminaLockscreenWidget: Widget {
         ) { entry in
             LargeIconStaminaLockscreenWidgetView(entry: entry)
         }
-        .configurationDisplayName("widget.gistyle.square.display".localized())
-        .description("widget.gistyle.square.desc".localized())
+        .configurationDisplayName("widget.lockscreen.largeicon.display".localized())
+        .description("widget.lockscreen.largeicon.desc".localized())
         .supportedFamilies([
             .accessoryCircular,
         ])
