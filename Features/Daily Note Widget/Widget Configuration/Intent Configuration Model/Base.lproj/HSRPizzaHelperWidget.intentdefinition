@@ -126,6 +126,8 @@
 		<dict>
 			<key>INIntentCategory</key>
 			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>Description Placeholder</string>
 			<key>INIntentDescriptionID</key>
 			<string>tVvJ9c</string>
 			<key>INIntentEligibleForWidgets</key>
@@ -900,6 +902,8 @@
 		<dict>
 			<key>INIntentCategory</key>
 			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>Description Placeholder</string>
 			<key>INIntentDescriptionID</key>
 			<string>LMxlQO</string>
 			<key>INIntentEligibleForWidgets</key>
@@ -1221,6 +1225,8 @@
 		<dict>
 			<key>INIntentCategory</key>
 			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>Description Placeholder</string>
 			<key>INIntentDescriptionID</key>
 			<string>pYKNQo</string>
 			<key>INIntentEligibleForWidgets</key>
@@ -1540,6 +1546,8 @@
 		<dict>
 			<key>INIntentCategory</key>
 			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>Description Placeholder</string>
 			<key>INIntentDescriptionID</key>
 			<string>gZuokv</string>
 			<key>INIntentEligibleForWidgets</key>
@@ -1859,6 +1867,8 @@
 		<dict>
 			<key>INIntentCategory</key>
 			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>Description Placeholder</string>
 			<key>INIntentDescriptionID</key>
 			<string>UBxo0N</string>
 			<key>INIntentEligibleForWidgets</key>
