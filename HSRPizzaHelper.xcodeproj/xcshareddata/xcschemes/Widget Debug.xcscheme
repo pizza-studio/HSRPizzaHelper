@@ -90,7 +90,7 @@
          <EnvironmentVariable
             key = "_XCWidgetFamily"
             value = "Small"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
