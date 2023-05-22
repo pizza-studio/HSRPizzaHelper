@@ -67,9 +67,8 @@ private struct UserPolicyView: View {
                         }
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("sys.accept") {
-                            Defaults[\.isPolicyShown] = true
-                            isShow.toggle()
+                        NavigationLink(destination: ContactInfoForWelcomeView(isShow: $isShow)) {
+                            Text("sys.accept")
                         }
                     }
                 }

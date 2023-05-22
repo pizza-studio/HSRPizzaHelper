@@ -409,8 +409,10 @@ private struct CaptionLabelStyle: LabelStyle {
     }
 }
 
+// MARK: - ContactInfoForWelcomeView
+
 struct ContactInfoForWelcomeView: View {
-    // MARK: Internal
+    @Binding var isShow: Bool
 
     var groupFooterText: String {
         var text = ""
@@ -537,9 +539,40 @@ struct ContactInfoForWelcomeView: View {
                     }
                 }
             }
+
+            if AppConfig.appLanguage == .ja {
+                Section(
+                    header: Text("sys.contact.hakubill.twitter.header").textCase(.none),
+                    footer: Text("sys.contact.hakubill.twitter.footer").textCase(.none)
+                ) {
+                    Link(
+                        destination: isInstallation(urlString: "twitter://") ?
+                            URL(
+                                string: "twitter://user?id=890517369637847040"
+                            )! :
+                            URL(string: "https://twitter.com/Haku_Bill")!
+                    ) {
+                        Label {
+                            Text("sys.contact.hakubill.twitter")
+                        } icon: {
+                            Image("icon.twitter")
+                                .resizable()
+                                .scaledToFit()
+                        }
+                    }
+                }
+            }
         }
         .navigationTitle("sys.label.contact.welcome")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("sys.done") {
+                    Defaults[\.isPolicyShown] = true
+                    isShow.toggle()
+                }
+            }
+        }
     }
 
     func isInstallation(urlString: String?) -> Bool {

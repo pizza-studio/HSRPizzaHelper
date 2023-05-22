@@ -153,12 +153,12 @@
 "sys.contact.opensource.title" = "其他参与贡献的开发者";
 "sys.contact.github" = "GitHub仓库";
 "sys.contact.opensource.footer" = "本项目以GPL-3协议开源。欢迎和感谢所有参与贡献的开发者。您也可以在GitHub参与开发讨论和提出issue.";
-"sys.label.contact.welcome" = "感谢您下载星铁披萨小助手";
+"sys.label.contact.welcome" = "感谢您的下载";
 "sys.contact.opensource.footer.2" = "本项目以GPL-3协议开源，代码的安全性和可靠性接受所有人的监督。欢迎您在GitHub提出issue或参与贡献。";
 "sys.contact.opensource.title" = "项目代码托管地址";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"sys.contact.opensource.title.2" = "项目源代码";
+"sys.contact.hakubill.twitter" = "Twitter帐号";
+"sys.contact.hakubill.twitter.header" = "开发者（水里的碳酸钙）的个人社交媒体";
+"sys.contact.hakubill.twitter.footer" = "我通常使用日语发推。诚挚邀请您关注我的帐号。";
 "" = "";
 "" = "";
