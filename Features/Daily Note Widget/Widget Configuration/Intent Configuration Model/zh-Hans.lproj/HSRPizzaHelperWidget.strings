@@ -1,4 +1,4 @@
-"0rNkHx" = "Account";
+"0rNkHx" = "帐号";
 
 "1DtUon-cFdBqE" = "Just to confirm, you wanted ‘right’?";
 
@@ -6,15 +6,15 @@
 
 "1DtUon-iE7nDM" = "Just to confirm, you wanted ‘center’?";
 
-"1w9NA8" = "Random Background";
+"1w9NA8" = "随机背景";
 
-"4ZaQIc" = "Random Background";
+"4ZaQIc" = "随机背景";
 
-"69mJG9" = "Account";
+"69mJG9" = "帐号";
 
-"6SYcJR" = "Random Background";
+"6SYcJR" = "随机背景";
 
-"9chCSz" = "Account Name";
+"9chCSz" = "帐号名称";
 
 "AUMByJ-NWki8q" = "Just to confirm, you wanted ‘white’?";
 
@@ -28,27 +28,27 @@
 
 "D03W2X-gsFyad" = "There are ${count} options matching ‘black’.";
 
-"D4zvc6" = "Account";
+"D4zvc6" = "帐号";
 
-"Dh4tO1" = "Text Color";
+"Dh4tO1" = "文字颜色";
 
-"DwhB9D" = "Background";
+"DwhB9D" = "背景";
 
 "EJECgP" = "Intent Widget Text Color";
 
-"Jvemll" = "Trailblaze Power Position";
+"Jvemll" = "开拓力显示位置";
 
-"KQrTm1" = "Random Background";
+"KQrTm1" = "随机背景";
 
-"KXq17m" = "Text Color";
+"KXq17m" = "文字颜色";
 
 "NEvAFC" = "Lockscreen Widget Configuration";
 
-"NWki8q" = "white";
+"NWki8q" = "白色";
 
-"NoSQ0J" = "Text Color";
+"NoSQ0J" = "文字颜色";
 
-"ObEQoc" = "false";
+"ObEQoc" = "否";
 
 "QJoMh9" = "GI Style Rectangular Widget Configuration";
 
@@ -58,21 +58,21 @@
 
 "RbYjoT-iE7nDM" = "There are ${count} options matching ‘center’.";
 
-"Rd7wVz" = "true";
+"Rd7wVz" = "是";
 
-"RucQ8Q" = "Accessibility Background";
+"RucQ8Q" = "文本易读背景";
 
-"SXQ4o6" = "true";
+"SXQ4o6" = "是";
 
-"SYPBuX" = "Account";
+"SYPBuX" = "帐号";
 
 "So12Qp" = "GI Style Square Widget Configuration";
 
-"TRxGSH" = "follow system";
+"TRxGSH" = "跟随系统";
 
-"UKnmzD" = "Accessibility Background";
+"UKnmzD" = "文本易读背景";
 
-"UqxBnR" = "Text Color";
+"UqxBnR" = "文字颜色";
 
 "UtOPE2-NWki8q" = "Just to confirm, you wanted ‘white’?";
 
@@ -90,15 +90,15 @@
 
 "X3BEWY" = "Intent Stamina Position";
 
-"XiMrNA" = "Accessibility Background";
+"XiMrNA" = "文本易读背景";
 
-"XypIQU" = "true";
+"XypIQU" = "是";
 
-"Y0pdjz" = "Text Color";
+"Y0pdjz" = "文字颜色";
 
-"YIpCby" = "true";
+"YIpCby" = "是";
 
-"a4bqAf" = "Background";
+"a4bqAf" = "背景";
 
 "aV09WP-NWki8q" = "There are ${count} options matching ‘white’.";
 
@@ -106,53 +106,53 @@
 
 "aV09WP-gsFyad" = "There are ${count} options matching ‘black’.";
 
-"cFdBqE" = "right";
+"cFdBqE" = "右侧";
 
-"caHrt7" = "Trailblaze Power Position";
+"caHrt7" = "开拓力显示位置";
 
-"cfp269" = "Account Name";
+"cfp269" = "帐号名称";
 
-"cqJzBX" = "left";
+"cqJzBX" = "左侧";
 
-"dJqFOZ" = "Account Name";
+"dJqFOZ" = "帐号名称";
 
-"eNPXAH" = "Account Name";
+"eNPXAH" = "帐号名称";
 
-"eRct2w" = "Show Expedition";
+"eRct2w" = "展示派遣委托";
 
-"fOhgy6" = "false";
+"fOhgy6" = "否";
 
 "gIq270" = "Rectangular Widget Configuration";
 
-"gYNxA8" = "Show Expedition";
+"gYNxA8" = "展示派遣委托";
 
 "gpCwrM" = "Large Square Widget Configuration";
 
-"gsFyad" = "black";
+"gsFyad" = "黑色";
 
-"h3jLAU" = "Background";
+"h3jLAU" = "背景";
 
-"iE7nDM" = "center";
+"iE7nDM" = "中间";
 
 "il3ooe" = "Intent Account";
 
-"jdxY0i" = "false";
+"jdxY0i" = "否";
 
-"lAOtVt" = "Background";
+"lAOtVt" = "背景";
 
-"pDSxjk" = "Background";
+"pDSxjk" = "背景";
 
-"qUsPBs" = "Widget Background";
+"qUsPBs" = "小组件背景";
 
-"rFuyNu" = "Random Background";
+"rFuyNu" = "随机背景";
 
-"rZX0Hm" = "Account";
+"rZX0Hm" = "帐号";
 
-"tUadZm" = "Account";
+"tUadZm" = "帐号";
 
-"tgZ9ty" = "false";
+"tgZ9ty" = "否";
 
-"uNSxVK" = "Account Name";
+"uNSxVK" = "帐号名称";
 
 "yd55oz-cFdBqE" = "There are ${count} options matching ‘right’.";
 
