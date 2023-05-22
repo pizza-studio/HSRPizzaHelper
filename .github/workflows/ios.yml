@@ -14,7 +14,7 @@ jobs:
         - name: SwiftLint
           uses: norio-nomura/action-swiftlint@3.2.1
   build:
-    name: Build and Test default scheme using any available iPhone simulator
+    name: Analyze
     runs-on: macos-latest
     needs: SwiftLint
     steps:
@@ -36,7 +36,7 @@ jobs:
           if [ $scheme = default ]; then scheme=$(cat default); fi
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+          xcodebuild analyze -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       # - name: Test
       #   env:
       #     scheme: ${{ 'default' }}
