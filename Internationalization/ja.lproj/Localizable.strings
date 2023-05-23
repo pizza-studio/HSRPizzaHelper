@@ -168,3 +168,4 @@
 "widget.lockscreen.timer.desc" = "開拓力の完全回復までのカウントダウン。";
 "widget.lockscreen.fulltime.display" = "開拓力時計";
 "widget.lockscreen.fulltime.desc" = "開拓力の完全回復までの時間。";
+"account.create.server.os.notsupport" = "国際サーバー（現在は対応していません）";

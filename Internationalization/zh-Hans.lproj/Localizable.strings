@@ -168,3 +168,4 @@
 "widget.lockscreen.timer.desc" = "开拓力完全恢复的倒计时。";
 "widget.lockscreen.fulltime.display" = "开拓力时钟";
 "widget.lockscreen.fulltime.desc" = "开拓力回满的时间。";
+"account.create.server.os.notsupport" = "国际服（暂不支持）";

@@ -168,3 +168,4 @@
 "widget.lockscreen.timer.desc" = "Countdown to full recovery of trailblaze power.";
 "widget.lockscreen.fulltime.display" = "Trailblaze Power Clock";
 "widget.lockscreen.fulltime.desc" = "Time to full recovery of trailblaze power.";
+"account.create.server.os.notsupport" = "Global Servers (not supported yet)";
