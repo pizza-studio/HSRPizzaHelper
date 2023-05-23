@@ -168,3 +168,4 @@
 "widget.lockscreen.timer.desc" = "开拓力完全恢复的倒计时。";
 "widget.lockscreen.fulltime.display" = "开拓力时钟";
 "widget.lockscreen.fulltime.desc" = "开拓力回满的时间。";
+"sys.userpolicy.guide" = "若要使用本App，请阅读并同意我们的[用户协议](https://hsr.ophelper.top/static/policy)";

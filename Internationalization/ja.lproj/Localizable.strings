@@ -53,7 +53,7 @@
 "update.thank" = "Appは最新です";
 "update.found" = "新バージョン";
 "update.read" = "了解";
-"sys.refuse" = "拒絶";
+"sys.refuse" = "拒否";
 "sys.accept" = "同意";
 "app.userpolicy.title" = "ユーザー協議";
 "setting.widget.background.destination.square" = "正方形ウィジェットの背景";
@@ -168,3 +168,4 @@
 "widget.lockscreen.timer.desc" = "開拓力の完全回復までのカウントダウン。";
 "widget.lockscreen.fulltime.display" = "開拓力時計";
 "widget.lockscreen.fulltime.desc" = "開拓力の完全回復までの時間。";
+"sys.userpolicy.guide" = "このアプリを使用する前に、[ユーザーポリシー](https://hsr.ophelper.top/static/policy_ja)をお読みいただき、同意してください。";

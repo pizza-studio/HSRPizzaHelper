@@ -58,22 +58,25 @@ private struct UserPolicyView: View {
                     return "https://hsr.ophelper.top/static/policy_ja"
                 }
             }
-            WebBrowserView(url: url)
-                .ignoresSafeArea()
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button("sys.refuse") {
-                            exit(1)
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: ContactInfoForWelcomeView(isShow: $isShow)) {
-                            Text("sys.accept")
-                        }
+//            WebBrowserView(url: url)
+            VStack {
+                Text("sys.userpolicy.guide")
+            }
+            .ignoresSafeArea()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("sys.refuse") {
+                        exit(1)
                     }
                 }
-                .navigationTitle("app.userpolicy.title")
-                .navigationBarTitleDisplayMode(.inline)
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: ContactInfoForWelcomeView(isShow: $isShow)) {
+                        Text("sys.accept")
+                    }
+                }
+            }
+            .navigationTitle("app.userpolicy.title")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
