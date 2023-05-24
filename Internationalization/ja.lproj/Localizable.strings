@@ -77,7 +77,7 @@
 "setting.widget.refresh.frequency.everyvalue" = "%lld時間ごとに";
 "setting.widget.title" = "ウィジェット";
 "setting.widget.refresh.manually" = "全てのウィジェットを同期";
-"setting.widget.refresh.footer" = "上のボタンをタップするかプルダウンしてホーム ページを更新し、ウィジェットを手動で同期できます。";
+"setting.widget.refresh.footer" = "ウィジェットは6分ごとにリフレッシュされ、4時間ごとに同期されます。また、アプリに入るか、ホームページで下にスワイプして手動でウィジェットを同期することもできます。";
 "ophelper.intro" = "原神のゲームツール";
 "account.new.test" = "アカウントをテスト";
 "setting.widget.background.manage.add.edit" = "画像を編集";

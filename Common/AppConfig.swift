@@ -23,7 +23,7 @@ enum AppConfig {
 
     static let squareBackgroundImageFolderName: String = "square_widget_background"
 
-    static let widgetRefreshFrequencyInHour: Double = 5.0
+    static let widgetRefreshFrequencyInHour: Double = 4.0
 
     static let widgetRefreshWhenErrorMinute: Int = 30
 
