@@ -203,10 +203,11 @@ private struct RequireLoginView: View {
                 getCookieWebViewRegion = .china
                 region = .china
             }
-            Button("sys.server.os") {
+            Button("account.create.server.os.notsupport") {
                 getCookieWebViewRegion = .global
                 region = .global
             }
+            .disabled(true)
         } label: {
             Group {
                 if unsavedCookie == "" || unsavedCookie == nil {
