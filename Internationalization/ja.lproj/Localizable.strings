@@ -168,3 +168,5 @@
 "widget.lockscreen.timer.desc" = "開拓力の完全回復までのカウントダウン。";
 "widget.lockscreen.fulltime.display" = "開拓力時計";
 "widget.lockscreen.fulltime.desc" = "開拓力の完全回復までの時間。";
+"account.create.server.os.notsupport" = "グローバルプレーヤー（国際サーバーには現在対応しておりません）";
+"sys.warning.osservers" = "**注意**：HoYoLABが国際サーバー（Asia、America、Europe、TW/HK/MOサーバー）のアカウントに対するAPIを提供していないため、国際サーバーのプレイヤーは現時点ではこのアプリの主要な機能を利用することができません。HoYoLABがAPIを提供した場合、私たちはすぐに対応いたします。";

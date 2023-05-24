@@ -168,3 +168,5 @@
 "widget.lockscreen.timer.desc" = "Countdown to full recovery of trailblaze power.";
 "widget.lockscreen.fulltime.display" = "Trailblaze Power Clock";
 "widget.lockscreen.fulltime.desc" = "Time to full recovery of trailblaze power.";
+"account.create.server.os.notsupport" = "Global Servers (not supported yet)";
+"sys.warning.osservers" = "**Note**: Due to the lack of API support from HoYoLAB for international servers (America, Asia, Europe, TW/HK/MO servers), players on international servers are currently unable to use the main features of this app. We will adapt the app as soon as HoYoLAB provides the API for international servers.";

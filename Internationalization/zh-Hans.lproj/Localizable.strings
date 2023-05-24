@@ -168,3 +168,5 @@
 "widget.lockscreen.timer.desc" = "开拓力完全恢复的倒计时。";
 "widget.lockscreen.fulltime.display" = "开拓力时钟";
 "widget.lockscreen.fulltime.desc" = "开拓力回满的时间。";
+"account.create.server.os.notsupport" = "国际服（暂不支持）";
+"sys.warning.osservers" = "**注意**：由于HoYoLAB未提供对国际服（America, Asia, Europe, TW/HK/MO服务器）帐号的API，因此国际服玩家暂时无法使用本App的主要功能。我们将在HoYoLAB提供API后第一时间适配。";
