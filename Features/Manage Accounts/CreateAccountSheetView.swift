@@ -303,6 +303,10 @@ private struct ExplanationView: View {
         Group {
             Divider()
                 .padding(.vertical)
+            Text("sys.warning.osservers")
+                .font(.footnote)
+            Text("\n")
+                .font(.footnote)
             Text("account.explanation.title.1")
                 .font(.footnote)
                 .bold()
@@ -313,10 +317,8 @@ private struct ExplanationView: View {
             Text("account.explanation.title.2")
                 .font(.footnote)
                 .bold()
-            Text(
-                "account.explanation.2"
-            )
-            .font(.footnote)
+            Text("account.explanation.2")
+                .font(.footnote)
         }
     }
 }
