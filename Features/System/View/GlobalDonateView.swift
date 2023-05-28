@@ -11,8 +11,34 @@ import SwiftUI
 struct GlobalDonateView: View {
     // MARK: Internal
 
-    @StateObject var storeManager: StoreManager
     let locale = Locale.current
+
+    @StateObject var storeManager = StoreManager()
+
+    let productIDs = {
+        print("Apple ID Region: \(SKPaymentQueue.default().storefront?.countryCode ?? "unknown")")
+        switch SKPaymentQueue.default().storefront?.countryCode {
+        case "CHN":
+            return [
+                "Canglong.HSRPizzaHelper.IAP.1",
+                "Canglong.HSRPizzaHelper.IAP.6",
+                "Canglong.HSRPizzaHelper.IAP.30",
+                "Canglong.HSRPizzaHelper.IAP.98",
+                "Canglong.HSRPizzaHelper.IAP.198",
+                "Canglong.HSRPizzaHelper.IAP.328",
+                "Canglong.HSRPizzaHelper.IAP.648",
+            ]
+        default:
+            return [
+                "Canglong.HSRPizzaHelper.IAP.6",
+                "Canglong.HSRPizzaHelper.IAP.30",
+                "Canglong.HSRPizzaHelper.IAP.98",
+                "Canglong.HSRPizzaHelper.IAP.198",
+                "Canglong.HSRPizzaHelper.IAP.328",
+                "Canglong.HSRPizzaHelper.IAP.648",
+            ]
+        }
+    }()
 
     var body: some View {
         List {
@@ -33,7 +59,7 @@ struct GlobalDonateView: View {
                 ForEach(storeManager.myProducts, id: \.self) { product in
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(product.localizedTitle)
+                            Text(String(format: "sys.donate.title %@".localized(), product.localizedPrice ?? "Unknwon"))
                                 .font(.headline)
                             Text(product.localizedDescription)
                                 .font(.caption2)
@@ -54,6 +80,10 @@ struct GlobalDonateView: View {
         }
         .navigationTitle("sys.label.support")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            SKPaymentQueue.default().add(storeManager)
+            storeManager.getProducts(productIDs: productIDs)
+        }
     }
 
     // MARK: Private
