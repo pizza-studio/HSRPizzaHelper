@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import SwiftyUserDefaults
+
+// MARK: - AboutView
 
 struct AboutView: View {
     let appVersion = (
@@ -13,6 +16,8 @@ struct AboutView: View {
             .infoDictionary?["CFBundleShortVersionString"] as? String
     ) ?? ""
     let buildVersion = (Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? ""
+
+    @State var isDevelopSettingsShow = false
 
     var body: some View {
         VStack {
@@ -22,6 +27,9 @@ struct AboutView: View {
                 .cornerRadius(10)
                 .padding()
                 .padding(.top, 50)
+                .onTapGesture(count: 5) {
+                    isDevelopSettingsShow.toggle()
+                }
             Text("app.name")
                 .font(.title3)
                 .fontWeight(.regular)
@@ -43,6 +51,34 @@ struct AboutView: View {
                 .font(.caption2)
             Text("app.note.2")
                 .font(.caption2)
+        }
+        .sheet(isPresented: $isDevelopSettingsShow) {
+            DevelopSettings(isShow: $isDevelopSettingsShow)
+        }
+    }
+}
+
+// MARK: - DevelopSettings
+
+struct DevelopSettings: View {
+    @Binding var isShow: Bool
+
+    var body: some View {
+        NavigationView {
+            List {
+                Button("Clean All User Defaults Key") {
+                    Defaults.removeAll()
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("sys.done") {
+                        isShow.toggle()
+                    }
+                }
+            }
+            .navigationTitle("Develop Settings")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
