@@ -57,7 +57,11 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
                     )
                     .contextMenu {
                         Button("setting.widget.background.context.menu.delete", role: .destructive) {
-                            alert = .deletingConfirmation(url)
+                            if #available(iOS 16, *) {
+                                alert = .deletingConfirmation(url)
+                            } else {
+                                deleteSelectedBackground(url: url)
+                            }
                         }
                         Button("setting.widget.background.context.menu.rename") {
                             alert = .renaming(url, newName: "")
@@ -135,16 +139,25 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
             reloadImage()
             alert = .notShowing
         }
-        switch alert {
-        case let .deletingConfirmation(url):
+        if #available(iOS 16, *) {
+            switch alert {
+            case let .deletingConfirmation(url):
+                do {
+                    try FileManager.default.removeItem(at: url)
+                } catch {
+                    self.error = .init(source: error)
+                    isErrorAlertShow.toggle()
+                }
+            default:
+                return
+            }
+        } else {
             do {
                 try FileManager.default.removeItem(at: url)
             } catch {
                 self.error = .init(source: error)
                 isErrorAlertShow.toggle()
             }
-        default:
-            return
         }
     }
 
