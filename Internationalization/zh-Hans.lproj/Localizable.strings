@@ -153,7 +153,7 @@
 "sys.contact.opensource.title" = "其他参与贡献的开发者";
 "sys.contact.github" = "GitHub仓库";
 "sys.contact.opensource.footer" = "本项目以GPL-3协议开源。欢迎和感谢所有参与贡献的开发者。您也可以在GitHub参与开发讨论和提出issue.";
-"sys.label.contact.welcome" = "感谢您的下载";
+"sys.label.contact.welcome" = "欢迎使用！";
 "sys.contact.opensource.footer.2" = "本项目以GPL-3协议开源，代码的安全性和可靠性接受所有人的监督。欢迎您在GitHub提出issue或参与贡献。";
 "sys.contact.opensource.title" = "项目代码托管地址";
 "sys.contact.opensource.title.2" = "项目源代码";
@@ -176,9 +176,9 @@
 "boarding.feature.notification.title" = "通知";
 "boarding.feature.notification.detail" = "在您的开拓力回满时，或派遣委托完成时，向您推送通知。";
 "boarding.feature.background.title" = "自定义小组件背景";
-"boarding.feature.background.detail" = "您可以从相册中添加自定义的小组件背景。";
+"boarding.feature.background.detail" = "您可以选择您相册中的图片以自定义小组件背景。";
 "boarding.feature.customize.title" = "更多小组件设置";
 "boarding.feature.customize.detail" = "长按小组件以找到更多个性化设置。";
-"boarding.protocol.link" = "在开始前，请同意我们的[用户协议](https://github.com/pizza-studio/HSRPizzaHelper/)。";
+"boarding.protocol.link" = "在开始前，请阅读并同意我们的[用户协议](https://hsr.ophelper.top/static/policy)。";
 "boarding.protocol.agree" = "我同意 **用户协议**";
 "boarding.contact.group.footer" = "您可以在遇到问题时使用以上联系方式与开发者取得联系，并且收到来自开发者的最新消息。";
