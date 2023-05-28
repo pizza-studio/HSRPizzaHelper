@@ -12,7 +12,6 @@ import SwiftUI
 // MARK: - SettingView
 
 struct SettingView: View {
-    @StateObject var storeManager: StoreManager
 
     var body: some View {
         NavigationView {
@@ -47,9 +46,7 @@ struct SettingView: View {
                         Label("sys.label.rate", systemSymbol: .starBubble)
                     }
                     NavigationLink(
-                        destination: GlobalDonateView(
-                            storeManager: storeManager
-                        )
+                        destination: GlobalDonateView()
                     ) {
                         Label("sys.label.support", systemSymbol: .giftcard)
                     }

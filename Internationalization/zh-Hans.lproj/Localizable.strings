@@ -182,3 +182,4 @@
 "boarding.protocol.link" = "在开始前，请阅读并同意我们的[用户协议](https://hsr.ophelper.top/static/policy)。";
 "boarding.protocol.agree" = "我同意 **用户协议**";
 "boarding.contact.group.footer" = "您可以在遇到问题时使用以上联系方式与开发者取得联系，并且收到来自开发者的最新消息。";
+"sys.donate.title %@" = "捐赠%@";
