@@ -46,6 +46,7 @@
 		EA1674032A063AF400436487 /* HSRPizzaHelperWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EA1673EF2A063AF300436487 /* HSRPizzaHelperWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA1DE41E2A08B78500CFB37C /* WidgetBackgroundSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1DE41D2A08B78500CFB37C /* WidgetBackgroundSettingView.swift */; };
 		EA1DE41F2A08C4DB00CFB37C /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA17CD2A06BAF400AF9784 /* WidgetBackgroundOptionsCollectionProvider.swift */; };
+		EA1F6F8C2A2347C9000CEDAC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1F6F8B2A2347C9000CEDAC /* OnBoardingView.swift */; };
 		EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
 		EA2C064F2A04AAE000A328E6 /* EditAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064E2A04AAE000A328E6 /* EditAccountView.swift */; };
@@ -153,6 +154,7 @@
 		EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
+		EAC3243D2A1F584D007075D7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC3243C2A1F584D007075D7 /* StoreKit.framework */; };
 		EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */; };
 		EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */; };
 		EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */; };
@@ -270,6 +272,7 @@
 		EA1673F92A063AF300436487 /* HSRPizzaHelperWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperWidget.swift; sourceTree = "<group>"; };
 		EA1673FE2A063AF400436487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA1DE41D2A08B78500CFB37C /* WidgetBackgroundSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundSettingView.swift; sourceTree = "<group>"; };
+		EA1F6F8B2A2347C9000CEDAC /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EA2C064E2A04AAE000A328E6 /* EditAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountView.swift; sourceTree = "<group>"; };
@@ -332,6 +335,7 @@
 		EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
 		EA9E221C2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteWidgetView.swift; sourceTree = "<group>"; };
 		EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteCards.swift; sourceTree = "<group>"; };
+		EAC3243C2A1F584D007075D7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimelineReloader.swift; sourceTree = "<group>"; };
 		EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingView.swift; sourceTree = "<group>"; };
 		EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAccountCard.swift; sourceTree = "<group>"; };
@@ -387,6 +391,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC3243D2A1F584D007075D7 /* StoreKit.framework in Frameworks */,
 				BFDF6A802A08C32200048FF9 /* HBPizzaHelperAPI in Frameworks */,
 				EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */,
 				EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */,
@@ -458,6 +463,7 @@
 		EA143BC62A01808200AE1FCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAC3243C2A1F584D007075D7 /* StoreKit.framework */,
 				EA8A77312A074BB30005C511 /* CloudKit.framework */,
 				EA1673F02A063AF300436487 /* WidgetKit.framework */,
 				EA1673F22A063AF300436487 /* SwiftUI.framework */,
@@ -481,6 +487,7 @@
 				EA60BE5C2A05053200CBF10B /* ThanksView.swift */,
 				BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */,
 				BFBF6DCF2A18C4A7009C684B /* ContactInfoView.swift */,
+				EA1F6F8B2A2347C9000CEDAC /* OnBoardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1090,7 +1097,7 @@
 		EA60BE632A0510BC00CBF10B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1101,7 +1108,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
@@ -1237,6 +1244,7 @@
 				EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */,
 				EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */,
 				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
+				EA1F6F8C2A2347C9000CEDAC /* OnBoardingView.swift in Sources */,
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
 				BFBA361A2A17496D00E0142A /* StoreManager.swift in Sources */,
 				EA80CFE32A0E8FFF00002B53 /* HSRNotificationCenter.swift in Sources */,

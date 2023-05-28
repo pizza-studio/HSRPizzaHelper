@@ -13,7 +13,7 @@ import SwiftUI
 private struct AppInitializer: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .checkAndPopPolicySheet()
+            .checkAndPopOnBoardingView()
             .cleanApplicationIconBadgeNumber()
             .checkAndPopLatestVersionSheet()
             .checkAndReloadWidgetTimeline()
