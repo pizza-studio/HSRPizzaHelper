@@ -168,4 +168,17 @@
 "widget.lockscreen.timer.desc" = "開拓力の完全回復までのカウントダウン。";
 "widget.lockscreen.fulltime.display" = "開拓力時計";
 "widget.lockscreen.fulltime.desc" = "開拓力の完全回復までの時間。";
-"sys.userpolicy.guide" = "このアプリを使用する前に、[ユーザーポリシー](https://hsr.ophelper.top/static/policy_ja)をお読みいただき、同意してください。";
+"account.create.server.os.notsupport" = "Global Servers (not supported yet)";
+"sys.warning.osservers" = "**Note**: Due to the lack of API support from HoYoLAB for international servers (America, Asia, Europe, TW/HK/MO servers), players on international servers are currently unable to use the main features of this app. We will adapt the app as soon as HoYoLAB provides the API for international servers.";
+"boarding.feature.widget.title" = "Widgets";
+"boarding.feature.widget.detail" = "Two styles of main screen widgets. Multiple styles of lock screen widgets.";
+"boarding.feature.notification.title" = "Notification";
+"boarding.feature.notification.detail" = "Notify when your trailblaze power is full or assignments are done. ";
+"boarding.feature.background.title" = "Widgets Background Customizable";
+"boarding.feature.background.detail" = "Use images from your photo gallery as backgrounds for the widgets.";
+"boarding.feature.customize.title" = "More Settings for Widget";
+"boarding.feature.customize.detail" = "Long-press the widget to access more customization options.";
+"boarding.protocol.link" = "Before starting, please agree to our [User Agreement](https://github.com/pizza-studio/HSRPizzaHelper/).";
+"boarding.protocol.agree" = "I agree to the **User Agreement**";
+"boarding.contact.group.footer" = "You can use the contact information provided above to reach out to the developer in case of any issues and receive the latest updates from them.";
+

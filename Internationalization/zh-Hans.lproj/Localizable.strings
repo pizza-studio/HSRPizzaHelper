@@ -149,7 +149,7 @@
 "sys.contact.i18n.zhtw" = "繁体中文翻译提供";
 "sys.contact.tao" = "たお👻🍑";
 "sys.contact.shikisuen" = "ShikiSuen";
-"sys.contact.qq.group.footer" = "我们推荐您加入QQ频道。在QQ频道你可以与更多朋友们交流，第一时间获取来自开发者的消息，同时还有官方消息的转发和其他更多功能！";
+"sys.contact.qq.group.footer" = "您可以在遇到问题时使用以上联系方式与开发者取得联系，并且收到来自开发者的最新消息。我们推荐您加入QQ频道，以便更好地与我们交流和订阅开发动态，与找到更多同好。";
 "sys.contact.opensource.title" = "其他参与贡献的开发者";
 "sys.contact.github" = "GitHub仓库";
 "sys.contact.opensource.footer" = "本项目以GPL-3协议开源。欢迎和感谢所有参与贡献的开发者。您也可以在GitHub参与开发讨论和提出issue.";
@@ -168,4 +168,17 @@
 "widget.lockscreen.timer.desc" = "开拓力完全恢复的倒计时。";
 "widget.lockscreen.fulltime.display" = "开拓力时钟";
 "widget.lockscreen.fulltime.desc" = "开拓力回满的时间。";
+"account.create.server.os.notsupport" = "国际服（暂不支持）";
+"sys.warning.osservers" = "**注意**：因为HoYoLAB暂未开放相关API，国际服用户暂时不能使用本App的主要功能。我们会在其开放后第一时间适配，敬请谅解。";
 "sys.userpolicy.guide" = "若要使用本App，请阅读并同意我们的[用户协议](https://hsr.ophelper.top/static/policy)";
+"boarding.feature.widget.title" = "小组件";
+"boarding.feature.widget.detail" = "我们提供了两种风格的主屏幕小组件和数种风格的锁定屏幕小组件。";
+"boarding.feature.notification.title" = "通知";
+"boarding.feature.notification.detail" = "在您的开拓力回满时，或派遣委托完成时，向您推送通知。";
+"boarding.feature.background.title" = "自定义小组件背景";
+"boarding.feature.background.detail" = "您可以从相册中添加自定义的小组件背景。";
+"boarding.feature.customize.title" = "更多小组件设置";
+"boarding.feature.customize.detail" = "长按小组件以找到更多个性化设置。";
+"boarding.protocol.link" = "在开始前，请同意我们的[用户协议](https://github.com/pizza-studio/HSRPizzaHelper/)。";
+"boarding.protocol.agree" = "我同意 **用户协议**";
+"boarding.contact.group.footer" = "您可以在遇到问题时使用以上联系方式与开发者取得联系，并且收到来自开发者的最新消息。";

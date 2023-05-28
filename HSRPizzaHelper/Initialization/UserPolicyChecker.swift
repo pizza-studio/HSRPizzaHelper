@@ -81,7 +81,7 @@ struct OnBoardingView: View {
                 )
                 FeatureBar(
                     icon: Image(
-                        systemSymbol: .gear
+                        systemSymbol: .photoOnRectangle
                     ),
                     title: "boarding.feature.background.title",
                     detail: "boarding.feature.background.detail",
@@ -147,6 +147,8 @@ private struct ContactInfoForWelcomeView: View {
         var text = ""
         if AppConfig.appLanguage == .zhcn {
             text = "sys.contact.qq.group.footer".localized()
+        } else {
+            text = "boarding.contact.group.footer".localized()
         }
         return text
     }
