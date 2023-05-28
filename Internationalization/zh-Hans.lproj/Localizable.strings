@@ -77,7 +77,7 @@
 "setting.widget.refresh.frequency.everyvalue" = "每%lld小时";
 "setting.widget.title" = "小组件";
 "setting.widget.refresh.manually" = "使所有小组件同步";
-"setting.widget.refresh.footer" = "小组件每6分钟刷新一次，每5小时同步一次。也可以通过进入App或在主页下拉刷新手动同步小组件。";
+"setting.widget.refresh.footer" = "小组件每6分钟刷新一次，每4小时同步一次。也可以通过进入App或在主页下拉刷新手动同步小组件。";
 "ophelper.intro" = "原神游戏助手工具全家桶";
 "account.new.test" = "测试帐号连接";
 "setting.widget.background.manage.add.edit" = "裁剪图片";
@@ -169,7 +169,7 @@
 "widget.lockscreen.fulltime.display" = "开拓力时钟";
 "widget.lockscreen.fulltime.desc" = "开拓力回满的时间。";
 "account.create.server.os.notsupport" = "国际服（暂不支持）";
-"sys.warning.osservers" = "**注意**：因为HoYoLAB暂未开放相关API，国际服用户暂时不能使用本App的主要功能。我们会在其开放后第一时间适配，敬请谅解。";
+"sys.warning.osservers" = "**注意**：由于HoYoLAB未提供对国际服（America, Asia, Europe, TW/HK/MO服务器）帐号的API，因此国际服玩家暂时无法使用本App的主要功能。我们将在HoYoLAB提供API后第一时间适配。";
 "sys.userpolicy.guide" = "若要使用本App，请阅读并同意我们的[用户协议](https://hsr.ophelper.top/static/policy)";
 "boarding.feature.widget.title" = "小组件";
 "boarding.feature.widget.detail" = "我们提供了两种风格的主屏幕小组件和数种风格的锁定屏幕小组件。";

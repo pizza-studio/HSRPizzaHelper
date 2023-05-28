@@ -52,33 +52,38 @@ private struct AddNewAccountButton: View {
     @Binding var isNewAccountSheetShow: Bool
 
     var body: some View {
-        HStack {
-            Spacer()
-            Label("account.new", systemSymbol: .plusCircle)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(.blue, lineWidth: 4)
-                )
-                .background(
-                    .regularMaterial,
-                    in: RoundedRectangle(cornerRadius: 20, style: .continuous)
-                )
-                .contentShape(RoundedRectangle(
-                    cornerRadius: 20,
-                    style: .continuous
-                ))
-                .clipShape(RoundedRectangle(
-                    cornerRadius: 20,
-                    style: .continuous
-                ))
-                .onTapGesture {
-                    isNewAccountSheetShow.toggle()
-                }
-                .sheet(isPresented: $isNewAccountSheetShow) {
-                    CreateAccountSheetView(account: Account(context: viewContext), isShown: $isNewAccountSheetShow)
-                }
-            Spacer()
+        VStack {
+            HStack {
+                Spacer()
+                Label("account.new", systemSymbol: .plusCircle)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.blue, lineWidth: 4)
+                    )
+                    .background(
+                        .regularMaterial,
+                        in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    )
+                    .contentShape(RoundedRectangle(
+                        cornerRadius: 20,
+                        style: .continuous
+                    ))
+                    .clipShape(RoundedRectangle(
+                        cornerRadius: 20,
+                        style: .continuous
+                    ))
+                    .onTapGesture {
+                        isNewAccountSheetShow.toggle()
+                    }
+                    .sheet(isPresented: $isNewAccountSheetShow) {
+                        CreateAccountSheetView(account: Account(context: viewContext), isShown: $isNewAccountSheetShow)
+                    }
+                Spacer()
+            }
+            Text("sys.warning.osservers")
+                .font(.footnote)
+                .padding(.top)
         }
     }
 
