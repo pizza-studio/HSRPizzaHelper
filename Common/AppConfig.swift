@@ -49,7 +49,6 @@ enum AppConfig {
     }
 
     static var appLanguage: AppLanguage {
-        print("App Language Localization: \(Bundle.main.preferredLocalizations.first ?? "unknown")")
         switch Bundle.main.preferredLocalizations.first {
         case "zh-Hans":
             return .zhcn
