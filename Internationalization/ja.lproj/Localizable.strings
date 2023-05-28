@@ -182,3 +182,4 @@
 "boarding.protocol.agree" = "**利用規約** に同意します。";
 "boarding.contact.group.footer" = "問題が発生した場合や最新のアップデート情報を受け取るために、上記の連絡先情報を使用して開発者に連絡することができます。";
 "sys.donate.title %@" = "%@を寄付します";
+"setting.widget.background.manage.add.duplicatedname" = "背景画像の名前が重複しています。別の名前を入力してください。";
