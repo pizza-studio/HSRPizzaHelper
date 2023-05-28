@@ -290,6 +290,14 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
                 isAskForNameAlertShow.toggle()
             }
         })
+        .alert("setting.widget.background.manage.add.duplicatedname",
+               isPresented: $isNameDuplicatedAlertShow,
+               actions: {
+            Button("sys.ok") {
+                isNameDuplicatedAlertShow.toggle()
+                isAskForNameAlertShow.toggle()
+            }
+        })
         .alert(isPresented: $isErrorAlertShow, error: error) { _ in
             Button("sys.ok") {
                 isErrorAlertShow.toggle()
@@ -313,7 +321,19 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
                 }
                 let data = image!.resized()!.jpegData(compressionQuality: 0.8)!
                 do {
-                    let fileUrl = try getFolderUrl().appendingPathComponent(backgroundName, conformingTo: .png)
+                    // Check if name is existed
+                    let fileManager = FileManager.default
+                    let folderURL = try getFolderUrl()
+                    let contents = try fileManager.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
+                    guard contents.allSatisfy({ fileUrl in
+                        fileUrl.lastPathComponent.deletingPathExtension != backgroundName
+                    }) else {
+                        isNameDuplicatedAlertShow.toggle()
+                        return
+                    }
+
+                    // Save image data
+                    let fileUrl = folderURL.appendingPathComponent(backgroundName, conformingTo: .png)
                     try data.write(to: fileUrl)
                     isShow.toggle()
                 } catch {
@@ -365,6 +385,7 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
     @State private var isAskForNameAlertShow: Bool = false
 
     @State private var isNeedNameAlertShow: Bool = false
+    @State private var isNameDuplicatedAlertShow: Bool = false
 
     private var ratio: Double {
         switch backgroundType {
