@@ -19,6 +19,7 @@
 "err.mfe" = "缺失字段";
 "account.login.manual.1" = "你也可以";
 "account.login.manual.2" = "手动配置你的帐号";
+"account.added.success" = "添加成功";
 "account.label.nickname" = "昵称";
 "account.label.select" = "选择你的帐号";
 "account.label.detail" = "帐号详情";

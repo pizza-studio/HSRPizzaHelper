@@ -5,6 +5,7 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
+import AlertToast
 import HBMihoyoAPI
 import SwiftUI
 import WidgetKit
@@ -18,6 +19,8 @@ struct CreateAccountSheetView: View {
         self._isShown = isShown
         self._account = StateObject(wrappedValue: account)
     }
+    @State
+    var isAlertToastShow = false
 
     // MARK: Internal
 
@@ -38,6 +41,7 @@ struct CreateAccountSheetView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
+                        isAlertToastShow.toggle()
                         saveAccount()
                     }
                 }
@@ -57,6 +61,13 @@ struct CreateAccountSheetView: View {
                 Button("sys.ok") {
                     isGetAccountFailAlertShown.toggle()
                 }
+            }
+            .toast(isPresenting: $isAlertToastShow) {
+                AlertToast(
+                    displayMode: .alert,
+                    type: .complete(.green),
+                    title: "account.added.success"
+                )
             }
             .onChange(of: status) { newValue in
                 switch newValue {

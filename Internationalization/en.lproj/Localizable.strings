@@ -12,6 +12,7 @@
 "settings.title" = "Settings";
 "account.manage.title" = "Account";
 "account.new" = "New Account";
+"account.added.success" = "Account added";
 "account.login.title" = "Please Finish Login";
 "sys.done" = "Done";
 "sys.cancel" = "Cancel";
