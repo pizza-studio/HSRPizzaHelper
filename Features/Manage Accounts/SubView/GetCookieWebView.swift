@@ -18,6 +18,8 @@ struct GetCookieWebView: View {
 
     @Binding var cookie: String!
 
+    @EnvironmentObject var alertToastVariable: AlertToastVariable
+
     let region: Region
 
     var dataStore: WKWebsiteDataStore = .default()
@@ -37,6 +39,7 @@ struct GetCookieWebView: View {
                         Task(priority: .userInitiated) {
                             await getCookieFromDataStore()
                         }
+                        alertToastVariable.isDoneButtonTap.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {

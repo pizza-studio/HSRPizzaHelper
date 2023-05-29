@@ -59,6 +59,7 @@
 "app.userpolicy.title" = "ユーザー協議";
 "setting.widget.background.destination.square" = "正方形ウィジェットの背景";
 "setting.widget.background.destination.rectangular" = "長方形ウィジェットの背景";
+"setting.widget.holdon.tips" = "ウィジェット画面でウィジェットを長押しすると、詳細なウィジェット編集が可能です";
 "setting.widget.background.manage.add.title" = "背景イメージを追加";
 "setting.widget.background.manage.reselect" = "イメージを選択";
 "setting.widget.background.title" = "ウィジェットの背景";

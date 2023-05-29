@@ -14,14 +14,19 @@ import SwiftUI
 struct WidgetBackgroundSettingView: View {
     var body: some View {
         List {
-            NavigationLink("setting.widget.background.destination.square") {
-                ManageWidgetBackgroundView(backgroundType: .square)
-                    .navigationTitle("setting.widget.background.destination.square")
-            }
-            NavigationLink("setting.widget.background.destination.rectangular") {
-                ManageWidgetBackgroundView(backgroundType: .rectangular)
-                    .navigationTitle("setting.widget.background.destination.rectangular")
-            }
+            Section {
+                NavigationLink("setting.widget.background.destination.square") {
+                    ManageWidgetBackgroundView(backgroundType: .square)
+                        .navigationTitle("setting.widget.background.destination.square")
+                }
+                NavigationLink("setting.widget.background.destination.rectangular") {
+                    ManageWidgetBackgroundView(backgroundType: .rectangular)
+                        .navigationTitle("setting.widget.background.destination.rectangular")
+                }
+                
+                } footer: {
+                    Text("setting.widget.holdon.tips")
+                }
         }
         .navigationTitle("setting.widget.background.title")
         .navigationBarTitleDisplayMode(.inline)

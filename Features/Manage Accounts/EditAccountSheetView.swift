@@ -5,6 +5,7 @@
 //  Created by 戴藏龙 on 2023/5/5.
 //
 
+import AlertToast
 import SwiftUI
 import WidgetKit
 
@@ -17,7 +18,8 @@ struct EditAccountSheetView: View {
         self._account = StateObject(wrappedValue: account)
         self._isShown = isShown
     }
-
+    @EnvironmentObject var alertToastVariable: AlertToastVariable
+    
     // MARK: Internal
 
     var body: some View {
@@ -25,6 +27,7 @@ struct EditAccountSheetView: View {
             List {
                 EditAccountView(account: account)
             }
+            .environmentObject(alertToastVariable)
             .navigationTitle("account.edit.title")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -48,6 +51,13 @@ struct EditAccountSheetView: View {
                         isShown.toggle()
                     }
                 }
+            }
+            .toast(isPresenting: $alertToastVariable.isDoneButtonTap) {
+                AlertToast(
+                    displayMode: .alert,
+                    type: .complete(.green),
+                    title: "account.added.success"
+                )
             }
             .alert(isPresented: $isSaveAccountFailAlertShown, error: saveAccountError) {
                 Button("sys.ok") {

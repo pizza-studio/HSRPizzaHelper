@@ -14,13 +14,13 @@ import WidgetKit
 
 struct CreateAccountSheetView: View {
     // MARK: Lifecycle
+    
+    @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     init(account: Account, isShown: Binding<Bool>) {
         self._isShown = isShown
         self._account = StateObject(wrappedValue: account)
     }
-    @State
-    var isAlertToastShow = false
 
     // MARK: Internal
 
@@ -41,7 +41,6 @@ struct CreateAccountSheetView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
-                        isAlertToastShow.toggle()
                         saveAccount()
                     }
                 }
@@ -61,13 +60,6 @@ struct CreateAccountSheetView: View {
                 Button("sys.ok") {
                     isGetAccountFailAlertShown.toggle()
                 }
-            }
-            .toast(isPresenting: $isAlertToastShow) {
-                AlertToast(
-                    displayMode: .alert,
-                    type: .complete(.green),
-                    title: "account.added.success"
-                )
             }
             .onChange(of: status) { newValue in
                 switch newValue {
@@ -131,6 +123,7 @@ struct CreateAccountSheetView: View {
     func pendingView() -> some View {
         Section {
             RequireLoginView(unsavedCookie: $account.cookie, region: $region)
+                .environmentObject(alertToastVariable)
         } footer: {
             VStack(alignment: .leading) {
                 HStack {
@@ -204,6 +197,7 @@ struct CreateAccountSheetView: View {
 
 private struct RequireLoginView: View {
     @State var getCookieWebViewRegion: Region?
+    @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     @Binding var unsavedCookie: String?
     @Binding var region: Region
@@ -244,6 +238,7 @@ private struct RequireLoginView: View {
                 cookie: $unsavedCookie,
                 region: region
             )
+            .environmentObject(alertToastVariable)
         })
     }
 }

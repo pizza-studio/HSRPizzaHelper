@@ -59,6 +59,7 @@
 "app.userpolicy.title" = "User Policy";
 "setting.widget.background.destination.square" = "Square Background";
 "setting.widget.background.destination.rectangular" = "Rectangular Background";
+"setting.widget.holdon.tips" = "Long-pressing a widget on the widget interface allows for detailed widget editing";
 "setting.widget.background.manage.add.title" = "New background";
 "setting.widget.background.manage.reselect" = "Select another image";
 "setting.widget.background.title" = "Widget Background";

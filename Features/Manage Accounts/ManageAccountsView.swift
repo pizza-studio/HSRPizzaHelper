@@ -6,9 +6,19 @@
 //
 
 import SwiftUI
+import AlertToast
+
+// MARK: Environment Variable for AlertToast
+
+class AlertToastVariable: ObservableObject {
+    @Published var isDoneButtonTap: Bool = false
+    @Published var isLoginSuccessed: Bool = false
+}
 
 struct ManageAccountsView: View {
     // MARK: Internal
+    
+    @StateObject private var alertToastVariable = AlertToastVariable()
 
     var body: some View {
         List {
@@ -49,9 +59,9 @@ struct ManageAccountsView: View {
         .sheet(item: $sheetType, content: { type in
             switch type {
             case let .createNewAccount(newAccount):
-                CreateAccountSheetView(account: newAccount, isShown: isShown)
+                CreateAccountSheetView(account: newAccount, isShown: isShown).environmentObject(alertToastVariable)
             case let .editExistedAccount(account):
-                EditAccountSheetView(account: account, isShown: isShown)
+                EditAccountSheetView(account: account, isShown: isShown).environmentObject(alertToastVariable)
             }
         })
         .onAppear {
@@ -64,6 +74,13 @@ struct ManageAccountsView: View {
         }
         .toolbar {
             EditButton()
+        }
+        .toast(isPresenting: $alertToastVariable.isDoneButtonTap) {
+            AlertToast(
+                displayMode: .alert,
+                type: .complete(.green),
+                title: "account.added.success"
+            )
         }
     }
 

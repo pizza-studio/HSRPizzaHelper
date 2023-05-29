@@ -59,6 +59,7 @@
 "app.userpolicy.title" = "用户协议";
 "setting.widget.background.destination.square" = "正方形小组件背景";
 "setting.widget.background.destination.rectangular" = "长方形小组件背景";
+"setting.widget.holdon.tips" = "在小组件界面长按小组件可以详细编辑小组件";
 "setting.widget.background.manage.add.title" = "添加背景";
 "setting.widget.background.manage.reselect" = "选择图片";
 "setting.widget.background.title" = "小组件背景";
