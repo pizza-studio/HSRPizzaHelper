@@ -40,7 +40,7 @@ struct EditAccountSheetView: View {
                                 isSaveAccountFailAlertShown.toggle()
                             }
                         }
-                        alertToastVariable.isDoneButtonTap.toggle()
+                        alertToastVariable.isDoneButtonTapped.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {

@@ -25,7 +25,7 @@ struct HomeView: View {
                 dailyNoteRefreshSubject.send()
                 WidgetCenter.shared.reloadAllTimelines()
             }
-            .toast(isPresenting: $alertToastVariable.isDoneButtonTap) {
+            .toast(isPresenting: $alertToastVariable.isDoneButtonTapped) {
                 AlertToast(
                     displayMode: .alert,
                     type: .complete(.green),

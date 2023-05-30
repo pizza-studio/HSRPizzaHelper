@@ -39,7 +39,7 @@ struct CreateAccountSheetView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
                         saveAccount()
-                        alertToastVariable.isDoneButtonTap.toggle()
+                        alertToastVariable.isDoneButtonTapped.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {

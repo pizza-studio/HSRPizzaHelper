@@ -75,7 +75,7 @@ struct ManageAccountsView: View {
         .toolbar {
             EditButton()
         }
-        .toast(isPresenting: $alertToastVariable.isDoneButtonTap) {
+        .toast(isPresenting: $alertToastVariable.isDoneButtonTapped) {
             AlertToast(
                 displayMode: .alert,
                 type: .complete(.green),
