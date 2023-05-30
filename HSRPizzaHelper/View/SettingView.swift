@@ -12,7 +12,6 @@ import SwiftUI
 // MARK: - SettingView
 
 struct SettingView: View {
-    @StateObject var storeManager: StoreManager
 
     var body: some View {
         NavigationView {
@@ -47,11 +46,12 @@ struct SettingView: View {
                         Label("sys.label.rate", systemSymbol: .starBubble)
                     }
                     NavigationLink(
-                        destination: GlobalDonateView(
-                            storeManager: storeManager
-                        )
+                        destination: GlobalDonateView()
                     ) {
                         Label("sys.label.support", systemSymbol: .giftcard)
+                    }
+                    NavigationLink(destination: ContactInfoView()) {
+                        Label("sys.label.contact", systemSymbol: .bubbleLeftAndBubbleRight)
                     }
                 }
                 Section {
@@ -64,7 +64,6 @@ struct SettingView: View {
                     } label: {
                         Label {
                             Text("sys.label.preferredlang")
-//                                .foregroundColor(.primary)
                         } icon: {
                             Image(systemSymbol: .globe)
                         }

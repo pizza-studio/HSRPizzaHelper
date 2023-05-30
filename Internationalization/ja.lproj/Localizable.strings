@@ -1,9 +1,9 @@
-/* 
+/*
   Localizable.strings
   HSRPizzaHelper
 
   Created by Bill Haku on 2023/5/5.
-  
+
 */
 
 "tab.home" = "ホーム";
@@ -53,7 +53,7 @@
 "update.thank" = "Appは最新です";
 "update.found" = "新バージョン";
 "update.read" = "了解";
-"sys.refuse" = "拒絶";
+"sys.refuse" = "拒否";
 "sys.accept" = "同意";
 "app.userpolicy.title" = "ユーザー協議";
 "setting.widget.background.destination.square" = "正方形ウィジェットの背景";
@@ -77,7 +77,7 @@
 "setting.widget.refresh.frequency.everyvalue" = "%lld時間ごとに";
 "setting.widget.title" = "ウィジェット";
 "setting.widget.refresh.manually" = "全てのウィジェットを同期";
-"setting.widget.refresh.footer" = "上のボタンをタップするかプルダウンしてホーム ページを更新し、ウィジェットを手動で同期できます。";
+"setting.widget.refresh.footer" = "ウィジェットは6分ごとにリフレッシュされ、4時間ごとに同期されます。また、アプリに入るか、ホームページで下にスワイプして手動でウィジェットを同期することもできます。";
 "ophelper.intro" = "原神のゲームツール";
 "account.new.test" = "アカウントをテスト";
 "setting.widget.background.manage.add.edit" = "画像を編集";
@@ -130,3 +130,61 @@
 "sys.donate.notes" = "以下のコンテンツは無料の寄付であり、追加のサービスは提供されませんのでご了承ください。 \n「崩スタピザ助手」への寄付は、Apple Developer Program メンバーシップの年会費、サーバーおよびドメイン名の費用などを含むがこれらに限定されない、アプリ開発プロセス中の直接費用をカバーするためにのみ使用されることをお約束します。 このプロジェクトからは一切の利益は得られず、余剰分は困っている人たちに寄付されます。 ご支援いただきありがとうございます。";
 "sys.donate.items.title" = "寄付アイテム";
 "sys.label.pay" = "支払い";
+"sys.label.contact" = "開発者と連絡先";
+"sys.contact.title.developer" = "開発者";
+"sys.contact.lava" = "Lava";
+"sys.contact.title.bilibili" = "ビリビリHP";
+"sys.contact.title.github" = "GitHub HP";
+"sys.contact.hakubill" = "Bill Haku";
+"sys.contact.title.homepage" = "個人HP";
+"sys.contact.title.twitter" = "Twitter HP";
+"sys.contact.title.youtube" = "YouTubeチャンネル";
+"sys.contact.title.groups" = "ユーザー交流グループ";
+"sys.contact.qq.channel" = "QQチャンネルに参加";
+"sys.contact.qq.group" = "QQチャンネルまたはグルプに参加";
+"sys.contact.discord" = "Discordに参加";
+"sys.contact.telegram" = "Telegramチャンネルにフォロー";
+"sys.contact.i18n.en" = "英語翻訳提供";
+"sys.contact.i18n.ja" = "日本語翻訳提供";
+"sys.contact.i18n.zhtw" = "繁体字中国語翻訳提供";
+"sys.contact.tao" = "たお👻🍑";
+"sys.contact.shikisuen" = "ShikiSuen";
+"sys.contact.qq.group.footer" = "私たちは、QQチャネルへの参加をおすすめします。QQチャネルでは、より多くの友達と交流することができ、開発者からの最新情報をいち早く入手することができます。また、公式のニュースの転送やその他の多くの機能も提供されています！";
+"sys.contact.opensource.title" = "他の開発者も貢献している人々";
+"sys.contact.github" = "GitHubのリポジトリ";
+"sys.contact.opensource.footer" = "このプロジェクトはGPL-3ライセンスのもとでオープンソース化されています。参加してくれたすべての開発者に感謝し、歓迎します。また、GitHubで開発のディスカッションに参加したり、問題を提起したりすることもできます。";
+"sys.label.contact.welcome" = "こんにちは！";
+"sys.contact.opensource.footer.2" = "このプロジェクトはGPL-3ライセンスのもとでオープンソース化されています。コードのセキュリティと信頼性は、誰もが監視することができます。GitHubでissueを提出したり、貢献したりすることを歓迎します。";
+"sys.contact.opensource.title" = "プロジェクトのコードリポジトリの托管先";
+"sys.contact.opensource.title.2" = "プロジェクトのソースコード";
+"sys.contact.hakubill.twitter" = "Twitterアカウント";
+"sys.contact.hakubill.twitter.header" = "開発者(Bill Haku)の個人SNS";
+"sys.contact.hakubill.twitter.footer" = "僕は通常、日本語でツイートを投稿しています。ぜひ、僕のアカウントをフォローしていただけると嬉しいです。";
+"widget.lockscreen.common.display" = "開拓力";
+"widget.lockscreen.common.desc" = "開拓力を追跡";
+"widget.lockscreen.largeicon.display" = "開拓力";
+"widget.lockscreen.largeicon.desc" = "開拓力を追跡";
+"widget.lockscreen.timer.display" = "開拓力タイマー";
+"widget.lockscreen.timer.desc" = "開拓力の完全回復までのカウントダウン。";
+"widget.lockscreen.fulltime.display" = "開拓力時計";
+"widget.lockscreen.fulltime.desc" = "開拓力の完全回復までの時間。";
+"account.create.server.os.notsupport" = "グローバルプレーヤー（国際サーバーには現在対応しておりません）";
+"sys.warning.osservers" = "**注意**：HoYoLABが国際サーバー（Asia、America、Europe、TW/HK/MOサーバー）のアカウントに対するAPIを提供していないため、国際サーバーのプレイヤーは現時点ではこのアプリの主要な機能を利用することができません。HoYoLABがAPIを提供した場合、私たちはすぐに対応いたします。";
+"boarding.feature.widget.title" = "ウィジェット";
+"boarding.feature.widget.detail" = "メイン画面ウィジェットには2つのスタイルがあります。ロック画面ウィジェットには複数のスタイルがあります。";
+"boarding.feature.notification.title" = "通知";
+"boarding.feature.notification.detail" = "開拓力が満タンになったり、派遣依頼が完了した際に通知します。";
+"boarding.feature.background.title" = "ウィジェットの背景はカスタマイズ可能";
+"boarding.feature.background.detail" = "ウィジェットの背景には、写真アルバムから画像を使用することができます。";
+"boarding.feature.customize.title" = "ウィジェットにはさらに設定があります";
+"boarding.feature.customize.detail" = "ウィジェットを長押しすると、さらなるカスタマイズオプションにアクセスできます。";
+"boarding.protocol.link" = "始める前に、[利用規約](https://hsr.ophelper.top/static/policy_ja)をお読みいただき、同意してください。";
+"boarding.protocol.agree" = "**利用規約** に同意します。";
+"boarding.contact.group.footer" = "問題が発生した場合や最新のアップデート情報を受け取るために、上記の連絡先情報を使用して開発者に連絡することができます。";
+"sys.donate.title %@" = "%@を寄付します";
+"setting.widget.background.manage.add.duplicatedname" = "背景画像の名前が重複しています。別の名前を入力してください。";
+"Widget_Background_Marth7th" = "三月なのか";
+"Widget_Background_Kafka" = "カフカ";
+"Widget_Background_Luocha" = "羅刹";
+"Widget_Background_Party" = "開拓者たちのパーティ";
+"Widget_Background_Seele" = "ゼーレ";

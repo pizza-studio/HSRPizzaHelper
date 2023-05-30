@@ -26,8 +26,8 @@ struct TimerStaminaLockscreenWidget: Widget {
         ) { entry in
             TimerStaminaLockscreenWidgetView(entry: entry)
         }
-        .configurationDisplayName("widget.gistyle.square.display".localized())
-        .description("widget.gistyle.square.desc".localized())
+        .configurationDisplayName("widget.lockscreen.timer.display".localized())
+        .description("widget.lockscreen.timer.desc".localized())
         .supportedFamilies([
             .accessoryCircular,
         ])

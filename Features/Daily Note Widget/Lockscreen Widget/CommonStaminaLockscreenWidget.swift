@@ -25,8 +25,8 @@ struct CommonStaminaLockscreenWidget: Widget {
         ) { entry in
             CommonStaminaLockscreenWidgetView(entry: entry)
         }
-        .configurationDisplayName("widget.gistyle.square.display".localized())
-        .description("widget.gistyle.square.desc".localized())
+        .configurationDisplayName("widget.lockscreen.common.display".localized())
+        .description("widget.lockscreen.common.desc".localized())
         #if !os(watchOS)
             .supportedFamilies([
                 .accessoryCircular,

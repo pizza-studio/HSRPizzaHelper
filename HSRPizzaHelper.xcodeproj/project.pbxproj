@@ -16,6 +16,10 @@
 		BFBA36182A0CDD6100E0142A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BFBA361A2A17496D00E0142A /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA36192A17496D00E0142A /* StoreManager.swift */; };
 		BFBA361C2A1749AE00E0142A /* GlobalDonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */; };
+		BFBF6DD02A18C4A7009C684B /* ContactInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBF6DCF2A18C4A7009C684B /* ContactInfoView.swift */; };
+		BFBF6DD82A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BFBF6DDC2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition */; };
+		BFBF6DD92A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BFBF6DDC2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition */; };
+		BFBF6DDA2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BFBF6DDC2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition */; };
 		BFCACD102A0491E9009B0B85 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BFCACD0F2A0491E9009B0B85 /* LICENSE */; };
 		BFD051D32A08B999008343E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D52A08B999008343E8 /* InfoPlist.strings */; };
 		BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */; };
@@ -128,9 +132,6 @@
 		EA8A773A2A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77382A0751980005C511 /* WidgetConfigurationIntentExtension.swift */; };
 		EA8A773C2A0755EF0005C511 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = EA8A773B2A0755EF0005C511 /* SFSafeSymbols */; };
 		EA8A773E2A0756390005C511 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA8A773D2A0756390005C511 /* SwifterSwift */; };
-		EA8A77432A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77422A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition */; };
-		EA8A77442A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77422A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition */; };
-		EA8A77452A07661C0005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77422A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition */; };
 		EA8A77472A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */; };
 		EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */; };
 		EA946A8A2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */; };
@@ -152,6 +153,7 @@
 		EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
+		EAC3243D2A1F584D007075D7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC3243C2A1F584D007075D7 /* StoreKit.framework */; };
 		EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */; };
 		EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */; };
 		EAD3C0972A081E43007B51AE /* WidgetAccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */; };
@@ -240,6 +242,11 @@
 		BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroper.swift; sourceTree = "<group>"; };
 		BFBA36192A17496D00E0142A /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDonateView.swift; sourceTree = "<group>"; };
+		BFBF6DCF2A18C4A7009C684B /* ContactInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoView.swift; sourceTree = "<group>"; };
+		BFBF6DDB2A1B35FA009C684B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/HSRPizzaHelperWidget.intentdefinition; sourceTree = "<group>"; };
+		BFBF6DDE2A1B3600009C684B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
+		BFBF6DE02A1B360E009C684B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
+		BFBF6DE22A1B360F009C684B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
 		BFCACD0F2A0491E9009B0B85 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BFCACD112A04922E009B0B85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BFD051D42A08B999008343E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -312,7 +319,6 @@
 		EA8A77312A074BB30005C511 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		EA8A77352A074D290005C511 /* RandomBackgroundDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBackgroundDrawable.swift; sourceTree = "<group>"; };
 		EA8A77382A0751980005C511 /* WidgetConfigurationIntentExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationIntentExtension.swift; sourceTree = "<group>"; };
-		EA8A77422A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = HSRPizzaHelperWidget.intentdefinition; sourceTree = "<group>"; };
 		EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainingWidgetBackground.swift; sourceTree = "<group>"; };
 		EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EA946A8C2A0FF706003FC598 /* LockscreenTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenTimelineProvider.swift; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 		EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
 		EA9E221C2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteWidgetView.swift; sourceTree = "<group>"; };
 		EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteCards.swift; sourceTree = "<group>"; };
+		EAC3243C2A1F584D007075D7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimelineReloader.swift; sourceTree = "<group>"; };
 		EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingView.swift; sourceTree = "<group>"; };
 		EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAccountCard.swift; sourceTree = "<group>"; };
@@ -382,6 +389,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC3243D2A1F584D007075D7 /* StoreKit.framework in Frameworks */,
 				BFDF6A802A08C32200048FF9 /* HBPizzaHelperAPI in Frameworks */,
 				EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */,
 				EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */,
@@ -453,6 +461,7 @@
 		EA143BC62A01808200AE1FCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAC3243C2A1F584D007075D7 /* StoreKit.framework */,
 				EA8A77312A074BB30005C511 /* CloudKit.framework */,
 				EA1673F02A063AF300436487 /* WidgetKit.framework */,
 				EA1673F22A063AF300436487 /* SwiftUI.framework */,
@@ -475,6 +484,7 @@
 				EA60BE5B2A05053200CBF10B /* AboutView.swift */,
 				EA60BE5C2A05053200CBF10B /* ThanksView.swift */,
 				BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */,
+				BFBF6DCF2A18C4A7009C684B /* ContactInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -610,7 +620,7 @@
 		EA68BC682A065BBF00A7FF91 /* Intent Configuration Model */ = {
 			isa = PBXGroup;
 			children = (
-				EA8A77422A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition */,
+				BFBF6DDC2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition */,
 				EAE898822A06A908000AF830 /* IntentAccountExtension.swift */,
 				EADA17CF2A06C0CB00AF9784 /* WidgetBackgroundExtension.swift */,
 				EA8A77152A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift */,
@@ -1084,7 +1094,7 @@
 		EA60BE632A0510BC00CBF10B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1095,7 +1105,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
@@ -1135,7 +1145,7 @@
 				EA9E221D2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift in Sources */,
 				EA946A902A0FF76C003FC598 /* LockscreenEntry.swift in Sources */,
 				EA8A770D2A0735F30005C511 /* Account+CoreDataProperties.swift in Sources */,
-				EA8A77432A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
+				BFBF6DD92A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */,
 				EA4E80072A10AD7100B97204 /* LargeIconStaminaLockscreenWidget.swift in Sources */,
 				EA8A77192A0739B10005C511 /* DailyNoteTimelineProvider.swift in Sources */,
 				EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */,
@@ -1241,8 +1251,9 @@
 				EAE37EBF2A0206AC00154432 /* SettingView.swift in Sources */,
 				EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */,
 				EA9D024C2A04BE3800796516 /* AccountDetailView.swift in Sources */,
-				EA8A77452A07661C0005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
+				BFBF6DD82A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */,
 				EA80CFEA2A0E9E2E00002B53 /* RequestAuthorization.swift in Sources */,
+				BFBF6DD02A18C4A7009C684B /* ContactInfoView.swift in Sources */,
 				EA09B1972A0918B200986D46 /* UserPolicyChecker.swift in Sources */,
 				BFBA361C2A1749AE00E0142A /* GlobalDonateView.swift in Sources */,
 				EA80CFE82A0E983C00002B53 /* InlineNavigationTitle.swift in Sources */,
@@ -1276,7 +1287,7 @@
 				EA702C0B2A06B0BC006D3BC9 /* Account+CoreDataProperties.swift in Sources */,
 				EA8A77172A0737450005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
 				EA702C0F2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
-				EA8A77442A0764D50005C511 /* HSRPizzaHelperWidget.intentdefinition in Sources */,
+				BFBF6DDA2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */,
 				EA946A8B2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */,
 				EAE8987E2A06A2A6000AF830 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,
 				EA702C0A2A06B0BA006D3BC9 /* Account+CoreDataClass.swift in Sources */,
@@ -1309,6 +1320,17 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		BFBF6DDC2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFBF6DDB2A1B35FA009C684B /* Base */,
+				BFBF6DDE2A1B3600009C684B /* en */,
+				BFBF6DE02A1B360E009C684B /* zh-Hans */,
+				BFBF6DE22A1B360F009C684B /* ja */,
+			);
+			name = HSRPizzaHelperWidget.intentdefinition;
+			sourceTree = "<group>";
+		};
 		BFD051D52A08B999008343E8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1329,7 +1351,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 95;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/Info.plist;
@@ -1359,7 +1381,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 95;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/Info.plist;
@@ -1506,12 +1528,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 95;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelper/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = permission.photo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1543,12 +1566,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 95;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelper/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = permission.photo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1577,7 +1601,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/HSRPizzaHelperWidgetConfigurationIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 95;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/Info.plist;
@@ -1605,7 +1629,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/HSRPizzaHelperWidgetConfigurationIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 95;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/Info.plist;
