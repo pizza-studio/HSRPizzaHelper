@@ -39,6 +39,7 @@ struct CreateAccountSheetView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
                         saveAccount()
+                        alertToastVariable.isDoneButtonTap.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -162,6 +163,8 @@ struct CreateAccountSheetView: View {
 
     // MARK: Private
 
+    @EnvironmentObject private var alertToastVariable: AlertToastVariable
+
     @Binding private var isShown: Bool
 
     @StateObject private var account: Account
@@ -193,7 +196,6 @@ struct CreateAccountSheetView: View {
 
 private struct RequireLoginView: View {
     @State var getCookieWebViewRegion: Region?
-
     @Binding var unsavedCookie: String?
     @Binding var region: Region
 

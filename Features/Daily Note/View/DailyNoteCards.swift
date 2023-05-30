@@ -38,6 +38,8 @@ struct DailyNoteCards: View {
 
     @Environment(\.managedObjectContext) private var viewContext
 
+    @EnvironmentObject private var alertToastVariable: AlertToastVariable
+
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
         animation: .default

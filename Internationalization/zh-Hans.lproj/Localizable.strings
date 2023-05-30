@@ -19,6 +19,7 @@
 "err.mfe" = "缺失字段";
 "account.login.manual.1" = "你也可以";
 "account.login.manual.2" = "手动配置你的帐号";
+"account.added.success" = "添加成功";
 "account.label.nickname" = "昵称";
 "account.label.select" = "选择你的帐号";
 "account.label.detail" = "帐号详情";
@@ -58,9 +59,11 @@
 "app.userpolicy.title" = "用户协议";
 "setting.widget.background.destination.square" = "正方形小组件背景";
 "setting.widget.background.destination.rectangular" = "长方形小组件背景";
+"setting.widget.holdon.tips" = "在小组件界面长按小组件可以详细编辑小组件";
 "setting.widget.background.manage.add.title" = "添加背景";
 "setting.widget.background.manage.reselect" = "选择图片";
 "setting.widget.background.title" = "小组件背景";
+"setting.widget.Background.delete.tips" = "长按已添加的背景可以重命名或删除已添加的背景";
 "sys.save" = "保存";
 "setting.widget.background.manage.add.preview" = "预览";
 "setting.widget.background.manage.add.name" = "名称";
@@ -133,9 +136,10 @@
 "sys.label.contact" = "开发者与联系方式";
 "sys.contact.title.developer" = "开发者";
 "sys.contact.lava" = "Lava";
+"sys.contact.hakubill" = "水里的碳酸钙";
+"sys.contact.whiteblock" = "WhiteBlock 白块";
 "sys.contact.title.bilibili" = "Bilibili主页";
 "sys.contact.title.github" = "GitHub主页";
-"sys.contact.hakubill" = "水里的碳酸钙";
 "sys.contact.title.homepage" = "个人主页";
 "sys.contact.title.twitter" = "Twitter主页";
 "sys.contact.title.youtube" = "YouTube频道";

@@ -40,6 +40,7 @@ struct EditAccountSheetView: View {
                                 isSaveAccountFailAlertShown.toggle()
                             }
                         }
+                        alertToastVariable.isDoneButtonTap.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -59,6 +60,8 @@ struct EditAccountSheetView: View {
     }
 
     // MARK: Private
+
+    @EnvironmentObject private var alertToastVariable: AlertToastVariable
 
     @Environment(\.managedObjectContext) private var viewContext
 

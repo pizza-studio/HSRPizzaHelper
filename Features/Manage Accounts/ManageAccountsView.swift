@@ -5,7 +5,17 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
+import AlertToast
 import SwiftUI
+
+// MARK: - AlertToastVariable
+
+class AlertToastVariable: ObservableObject {
+    @Published var isDoneButtonTapped: Bool = false
+    @Published var isLoginSucceeded: Bool = false
+}
+
+// MARK: - ManageAccountsView
 
 struct ManageAccountsView: View {
     // MARK: Internal
@@ -65,6 +75,14 @@ struct ManageAccountsView: View {
         .toolbar {
             EditButton()
         }
+        .toast(isPresenting: $alertToastVariable.isDoneButtonTap) {
+            AlertToast(
+                displayMode: .alert,
+                type: .complete(.green),
+                title: "account.added.success"
+            )
+        }
+        .environmentObject(alertToastVariable)
     }
 
     var isShown: Binding<Bool> {
@@ -92,6 +110,8 @@ struct ManageAccountsView: View {
             }
         }
     }
+
+    @StateObject private var alertToastVariable = AlertToastVariable()
 
     @Environment(\.managedObjectContext) private var viewContext
 

@@ -181,6 +181,20 @@ struct ContactInfoView: View {
                         }
                     }
                 }
+                HStack {
+                    Image("avatar.whiteblock")
+                        .resizable()
+                        .clipShape(Circle())
+                        .frame(width: 50, height: 50)
+                    VStack(alignment: .leading) {
+                        Text("sys.contact.whiteblock")
+                            .bold()
+                            .padding(.vertical, 5)
+                    }
+                    Spacer()
+//                    Image(systemSymbol: .chevronRight)
+//                        .rotationEffect(.degrees(isWhiteBlockDetailShow ? 90 : 0))
+                }
             }
 
             Section(
@@ -394,6 +408,7 @@ struct ContactInfoView: View {
     // MARK: Private
 
     @State private var isHakubillDetailShow = false
+    @State private var isWhiteBlockDetailShow = false
     @State private var isLavaDetailShow = false
     @State private var isShikiDetailShow = false
 }
@@ -408,4 +423,3 @@ private struct CaptionLabelStyle: LabelStyle {
         }
     }
 }
-

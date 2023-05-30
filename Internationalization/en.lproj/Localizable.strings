@@ -19,6 +19,7 @@
 "err.mfe" = "Missing Field";
 "account.login.manual.1" = "You can also";
 "account.login.manual.2" = "manually config your account";
+"account.added.success" = "Account added";
 "account.label.nickname" = "Nickname";
 "account.label.select" = "Select Your Account";
 "account.label.detail" = "Account Detail";
@@ -58,9 +59,11 @@
 "app.userpolicy.title" = "User Policy";
 "setting.widget.background.destination.square" = "Square Background";
 "setting.widget.background.destination.rectangular" = "Rectangular Background";
+"setting.widget.holdon.tips" = "Long-pressing a widget on the widget interface allows for detailed widget editing";
 "setting.widget.background.manage.add.title" = "New background";
 "setting.widget.background.manage.reselect" = "Select another image";
 "setting.widget.background.title" = "Widget Background";
+"setting.widget.Background.delete.tips" = "To rename or delete a background that has been added, long-press on it";
 "sys.save" = "Save";
 "setting.widget.background.manage.add.preview" = "Preview";
 "setting.widget.background.manage.add.name" = "Name";
@@ -133,9 +136,10 @@
 "sys.label.contact" = "Developers & Contact Info";
 "sys.contact.title.developer" = "Developers";
 "sys.contact.lava" = "Lava";
+"sys.contact.hakubill" = "Bill Haku";
+"sys.contact.whiteblock" = "WhiteBlock";
 "sys.contact.title.bilibili" = "Bilibili Homepage";
 "sys.contact.title.github" = "GitHub Homepage";
-"sys.contact.hakubill" = "Bill Haku";
 "sys.contact.title.homepage" = "Personal Homepage";
 "sys.contact.title.twitter" = "Twitter Homepage";
 "sys.contact.title.youtube" = "YouTube Channel";

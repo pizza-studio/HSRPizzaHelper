@@ -86,7 +86,6 @@ struct TestAccountView: View {
             case .testing:
                 return 1
             case .succeeded:
-                // swiftlint:disable:next no_magic_numbers
                 return 2
             case let .failure(error):
                 return error.localizedDescription.hashValue
