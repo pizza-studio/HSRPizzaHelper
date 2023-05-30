@@ -63,6 +63,7 @@
 "setting.widget.background.manage.add.title" = "背景イメージを追加";
 "setting.widget.background.manage.reselect" = "イメージを選択";
 "setting.widget.background.title" = "ウィジェットの背景";
+"setting.widget.Background.delete.tips" = "追加された背景をリネームまたは削除するには、それを長押ししてください";
 "sys.save" = "セーブ";
 "setting.widget.background.manage.add.preview" = "プレビュー";
 "setting.widget.background.manage.add.name" = "背景名";

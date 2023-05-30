@@ -63,6 +63,7 @@
 "setting.widget.background.manage.add.title" = "New background";
 "setting.widget.background.manage.reselect" = "Select another image";
 "setting.widget.background.title" = "Widget Background";
+"setting.widget.Background.delete.tips" = "To rename or delete a background that has been added, long-press on it";
 "sys.save" = "Save";
 "setting.widget.background.manage.add.preview" = "Preview";
 "setting.widget.background.manage.add.name" = "Name";

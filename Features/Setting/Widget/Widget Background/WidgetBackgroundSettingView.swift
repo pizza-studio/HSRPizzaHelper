@@ -52,27 +52,31 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
                     AddWidgetBackgroundCover(backgroundType: backgroundType, isShow: $isAddBackgroundSheetShow)
                 }
             }
-            ForEach(imageUrls, id: \.self) { url in
-                if let data = try? Data(contentsOf: url),
-                   let uiImage = UIImage(data: data) {
-                    BackgroundPreviewView(
-                        imageName: url.lastPathComponent.deletingPathExtension,
-                        image: uiImage,
-                        backgroundType: backgroundType
-                    )
-                    .contextMenu {
-                        Button("setting.widget.background.context.menu.delete", role: .destructive) {
-                            if #available(iOS 16, *) {
-                                alert = .deletingConfirmation(url)
-                            } else {
-                                deleteSelectedBackground(url: url)
+            Section {
+                ForEach(imageUrls, id: \.self) { url in
+                    if let data = try? Data(contentsOf: url),
+                       let uiImage = UIImage(data: data) {
+                        BackgroundPreviewView(
+                            imageName: url.lastPathComponent.deletingPathExtension,
+                            image: uiImage,
+                            backgroundType: backgroundType
+                        )
+                        .contextMenu {
+                            Button("setting.widget.background.context.menu.delete", role: .destructive) {
+                                if #available(iOS 16, *) {
+                                    alert = .deletingConfirmation(url)
+                                } else {
+                                    deleteSelectedBackground(url: url)
+                                }
                             }
-                        }
-                        Button("setting.widget.background.context.menu.rename") {
-                            alert = .renaming(url, newName: "")
+                            Button("setting.widget.background.context.menu.rename") {
+                                alert = .renaming(url, newName: "")
+                            }
                         }
                     }
                 }
+            } footer: {
+                Text("setting.widget.Background.delete.tips")
             }
         }
         .navigationBarTitleDisplayMode(.inline)

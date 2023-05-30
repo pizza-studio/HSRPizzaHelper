@@ -63,6 +63,7 @@
 "setting.widget.background.manage.add.title" = "添加背景";
 "setting.widget.background.manage.reselect" = "选择图片";
 "setting.widget.background.title" = "小组件背景";
+"setting.widget.Background.delete.tips" = "长按已添加的背景可以重命名或删除已添加的背景";
 "sys.save" = "保存";
 "setting.widget.background.manage.add.preview" = "预览";
 "setting.widget.background.manage.add.name" = "名称";
