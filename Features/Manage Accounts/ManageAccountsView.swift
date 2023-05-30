@@ -11,8 +11,8 @@ import SwiftUI
 // MARK: - AlertToastVariable
 
 class AlertToastVariable: ObservableObject {
-    @Published var isDoneButtonTap: Bool = false
-    @Published var isLoginSuccessed: Bool = false
+    @Published var isDoneButtonTapped: Bool = false
+    @Published var isLoginSucceeded: Bool = false
 }
 
 // MARK: - ManageAccountsView
