@@ -13,7 +13,6 @@ import WidgetKit
 
 struct CreateAccountSheetView: View {
     // MARK: Lifecycle
-    @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     init(account: Account, isShown: Binding<Bool>) {
         self._isShown = isShown
@@ -163,6 +162,8 @@ struct CreateAccountSheetView: View {
     }
 
     // MARK: Private
+
+    @EnvironmentObject private var alertToastVariable: AlertToastVariable
 
     @Binding private var isShown: Bool
 

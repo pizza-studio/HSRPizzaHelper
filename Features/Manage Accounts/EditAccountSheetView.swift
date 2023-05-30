@@ -17,7 +17,6 @@ struct EditAccountSheetView: View {
         self._account = StateObject(wrappedValue: account)
         self._isShown = isShown
     }
-    @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     // MARK: Internal
 
@@ -61,6 +60,8 @@ struct EditAccountSheetView: View {
     }
 
     // MARK: Private
+
+    @EnvironmentObject private var alertToastVariable: AlertToastVariable
 
     @Environment(\.managedObjectContext) private var viewContext
 

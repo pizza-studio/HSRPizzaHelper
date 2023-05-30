@@ -14,7 +14,6 @@ struct DailyNoteCards: View {
     // MARK: Internal
 
     @State var isNewAccountSheetShow = false
-    @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     let refreshSubject: PassthroughSubject<(), Never>
 
@@ -31,7 +30,6 @@ struct DailyNoteCards: View {
             AddNewAccountButton(
                 isNewAccountSheetShow: $isNewAccountSheetShow
             )
-            .environmentObject(alertToastVariable)
             .listRowBackground(Color.white.opacity(0))
         }
     }
@@ -39,6 +37,8 @@ struct DailyNoteCards: View {
     // MARK: Private
 
     @Environment(\.managedObjectContext) private var viewContext
+
+    @EnvironmentObject private var alertToastVariable: AlertToastVariable
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
@@ -52,7 +52,6 @@ private struct AddNewAccountButton: View {
     // MARK: Internal
 
     @Binding var isNewAccountSheetShow: Bool
-    @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     var body: some View {
         VStack {
@@ -80,7 +79,7 @@ private struct AddNewAccountButton: View {
                         isNewAccountSheetShow.toggle()
                     }
                     .sheet(isPresented: $isNewAccountSheetShow) {
-                        CreateAccountSheetView(account: Account(context: viewContext), isShown: $isNewAccountSheetShow).environmentObject(alertToastVariable)
+                        CreateAccountSheetView(account: Account(context: viewContext), isShown: $isNewAccountSheetShow)
                     }
                 Spacer()
             }

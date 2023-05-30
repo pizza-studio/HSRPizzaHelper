@@ -23,9 +23,9 @@ struct WidgetBackgroundSettingView: View {
                     ManageWidgetBackgroundView(backgroundType: .rectangular)
                         .navigationTitle("setting.widget.background.destination.rectangular")
                 }
-                } footer: {
-                    Text("setting.widget.holdon.tips")
-                }
+            } footer: {
+                Text("setting.widget.holdon.tips")
+            }
         }
         .navigationTitle("setting.widget.background.title")
         .navigationBarTitleDisplayMode(.inline)
@@ -311,14 +311,16 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
                 isAskForNameAlertShow.toggle()
             }
         })
-        .alert("setting.widget.background.manage.add.duplicatedname",
-               isPresented: $isNameDuplicatedAlertShow,
-               actions: {
-            Button("sys.ok") {
-                isNameDuplicatedAlertShow.toggle()
-                isAskForNameAlertShow.toggle()
+        .alert(
+            "setting.widget.background.manage.add.duplicatedname",
+            isPresented: $isNameDuplicatedAlertShow,
+            actions: {
+                Button("sys.ok") {
+                    isNameDuplicatedAlertShow.toggle()
+                    isAskForNameAlertShow.toggle()
+                }
             }
-        })
+        )
         .alert(isPresented: $isErrorAlertShow, error: error) { _ in
             Button("sys.ok") {
                 isErrorAlertShow.toggle()

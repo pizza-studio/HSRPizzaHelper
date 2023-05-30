@@ -14,12 +14,11 @@ import WidgetKit
 
 struct HomeView: View {
     // MARK: Internal
-    @StateObject private var alertToastVariable = AlertToastVariable()
 
     var body: some View {
         NavigationView {
             List {
-                DailyNoteCards(refreshSubject: dailyNoteRefreshSubject).environmentObject(alertToastVariable)
+                DailyNoteCards(refreshSubject: dailyNoteRefreshSubject)
             }
             .navigationTitle("home.title")
             .refreshable {
@@ -33,10 +32,14 @@ struct HomeView: View {
                     title: "account.added.success"
                 )
             }
-        }.navigationViewStyle(.stack)
+        }
+        .navigationViewStyle(.stack)
+        .environmentObject(alertToastVariable)
     }
 
     // MARK: Private
+
+    @StateObject private var alertToastVariable = AlertToastVariable()
 
     @State private var dailyNoteRefreshSubject = PassthroughSubject<(), Never>()
 }

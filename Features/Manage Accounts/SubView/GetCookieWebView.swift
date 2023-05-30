@@ -17,7 +17,6 @@ struct GetCookieWebView: View {
 
     @Binding var cookie: String!
 
-
     let region: Region
 
     var dataStore: WKWebsiteDataStore = .default()
