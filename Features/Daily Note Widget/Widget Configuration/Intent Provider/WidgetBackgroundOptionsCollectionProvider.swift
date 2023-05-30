@@ -91,7 +91,7 @@ enum WidgetBackgroundOptionsProvider {
             WidgetBackground(
                 identifier: url.lastPathComponent,
                 display: url.deletingPathExtension().lastPathComponent
-                    .localized(comment: "key like: widget.background.filename")
+                    .localized(comment: "key is the file name: Widget_Background_xxx")
             )
         }
         return widgetBackgroundOptionsCollection

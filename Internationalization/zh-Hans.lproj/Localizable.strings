@@ -170,7 +170,6 @@
 "widget.lockscreen.fulltime.desc" = "开拓力回满的时间。";
 "account.create.server.os.notsupport" = "国际服（暂不支持）";
 "sys.warning.osservers" = "**注意**：由于HoYoLAB未提供对国际服（America, Asia, Europe, TW/HK/MO服务器）帐号的API，因此国际服玩家暂时无法使用本App的主要功能。我们将在HoYoLAB提供API后第一时间适配。";
-"sys.userpolicy.guide" = "若要使用本App，请阅读并同意我们的[用户协议](https://hsr.ophelper.top/static/policy)";
 "boarding.feature.widget.title" = "小组件";
 "boarding.feature.widget.detail" = "我们提供了两种风格的主屏幕小组件和数种风格的锁定屏幕小组件。";
 "boarding.feature.notification.title" = "通知";
@@ -184,3 +183,8 @@
 "boarding.contact.group.footer" = "您可以在遇到问题时使用以上联系方式与开发者取得联系，并且收到来自开发者的最新消息。";
 "sys.donate.title %@" = "捐赠%@";
 "setting.widget.background.manage.add.duplicatedname" = "背景图片名重复，请换一个名称。";
+"Widget_Background_Marth7th" = "三月七";
+"Widget_Background_Kafka" = "卡夫卡";
+"Widget_Background_Luocha" = "罗刹";
+"Widget_Background_Party" = "开拓者们的派对";
+"Widget_Background_Seele" = "希儿";
