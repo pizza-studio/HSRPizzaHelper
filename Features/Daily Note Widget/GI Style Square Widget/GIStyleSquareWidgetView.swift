@@ -98,7 +98,7 @@ private struct WidgetGIStyleSuccessView: View {
                             .multilineTextAlignment(.leading)
                             .font(.caption2)
                         } else {
-                            Text("FULL")
+                            Text("100%")
                         }
                     }
                 }

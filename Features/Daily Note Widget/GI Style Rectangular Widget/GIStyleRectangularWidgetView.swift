@@ -94,7 +94,7 @@ private struct WidgetGIStyleSuccessView: View {
                         .multilineTextAlignment(.leading)
                         .font(.caption2)
                     } else {
-                        Text("FULL")
+                        Text("100%")
                     }
                 }
                 .shadow(color: .black.opacity(0.3), radius: 0.3, x: 1, y: 1)
