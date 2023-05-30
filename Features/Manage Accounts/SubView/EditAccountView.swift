@@ -14,7 +14,6 @@ struct EditAccountView: View {
     // MARK: Internal
 
     @StateObject var account: Account
-
     var accountsForSelected: [FetchedAccount]?
 
     var body: some View {
