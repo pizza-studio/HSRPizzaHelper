@@ -183,3 +183,8 @@
 "boarding.contact.group.footer" = "You can use the contact information provided above to reach out to the developer in case of any issues and receive the latest updates from them.";
 "sys.donate.title %@" = "Donate %@";
 "setting.widget.background.manage.add.duplicatedname" = "Background image name is duplicated. Please enter a different name.";
+"Widget_Background_Marth7th" = "Marth 7th";
+"Widget_Background_Kafka" = "Kafka";
+"Widget_Background_Luocha" = "Luocha";
+"Widget_Background_Party" = "Trailblazers' Party";
+"Widget_Background_Seele" = "Seele";
