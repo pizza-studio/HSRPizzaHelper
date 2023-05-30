@@ -136,9 +136,10 @@
 "sys.label.contact" = "开发者与联系方式";
 "sys.contact.title.developer" = "开发者";
 "sys.contact.lava" = "Lava";
+"sys.contact.hakubill" = "水里的碳酸钙";
+"sys.contact.whiteblock" = "WhiteBlock 白块";
 "sys.contact.title.bilibili" = "Bilibili主页";
 "sys.contact.title.github" = "GitHub主页";
-"sys.contact.hakubill" = "水里的碳酸钙";
 "sys.contact.title.homepage" = "个人主页";
 "sys.contact.title.twitter" = "Twitter主页";
 "sys.contact.title.youtube" = "YouTube频道";

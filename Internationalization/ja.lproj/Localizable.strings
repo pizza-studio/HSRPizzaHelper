@@ -136,9 +136,10 @@
 "sys.label.contact" = "開発者と連絡先";
 "sys.contact.title.developer" = "開発者";
 "sys.contact.lava" = "Lava";
+"sys.contact.hakubill" = "Bill Haku";
+"sys.contact.whiteblock" = "WhiteBlock";
 "sys.contact.title.bilibili" = "ビリビリHP";
 "sys.contact.title.github" = "GitHub HP";
-"sys.contact.hakubill" = "Bill Haku";
 "sys.contact.title.homepage" = "個人HP";
 "sys.contact.title.twitter" = "Twitter HP";
 "sys.contact.title.youtube" = "YouTubeチャンネル";

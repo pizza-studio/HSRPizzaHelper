@@ -136,9 +136,10 @@
 "sys.label.contact" = "Developers & Contact Info";
 "sys.contact.title.developer" = "Developers";
 "sys.contact.lava" = "Lava";
+"sys.contact.hakubill" = "Bill Haku";
+"sys.contact.whiteblock" = "WhiteBlock";
 "sys.contact.title.bilibili" = "Bilibili Homepage";
 "sys.contact.title.github" = "GitHub Homepage";
-"sys.contact.hakubill" = "Bill Haku";
 "sys.contact.title.homepage" = "Personal Homepage";
 "sys.contact.title.twitter" = "Twitter Homepage";
 "sys.contact.title.youtube" = "YouTube Channel";
