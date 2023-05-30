@@ -5,7 +5,6 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
-import AlertToast
 import HBMihoyoAPI
 import SwiftUI
 import WidgetKit
@@ -42,6 +41,7 @@ struct CreateAccountSheetView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
                         saveAccount()
+                        alertToastVariable.isDoneButtonTap.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -123,7 +123,6 @@ struct CreateAccountSheetView: View {
     func pendingView() -> some View {
         Section {
             RequireLoginView(unsavedCookie: $account.cookie, region: $region)
-                .environmentObject(alertToastVariable)
         } footer: {
             VStack(alignment: .leading) {
                 HStack {
@@ -197,8 +196,7 @@ struct CreateAccountSheetView: View {
 
 private struct RequireLoginView: View {
     @State var getCookieWebViewRegion: Region?
-    @EnvironmentObject var alertToastVariable: AlertToastVariable
-
+    
     @Binding var unsavedCookie: String?
     @Binding var region: Region
 
@@ -238,7 +236,6 @@ private struct RequireLoginView: View {
                 cookie: $unsavedCookie,
                 region: region
             )
-            .environmentObject(alertToastVariable)
         })
     }
 }

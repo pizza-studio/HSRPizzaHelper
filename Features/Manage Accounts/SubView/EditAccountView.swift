@@ -15,7 +15,6 @@ struct EditAccountView: View {
 
     @StateObject var account: Account
     
-    @EnvironmentObject var alertToastVariable: AlertToastVariable
 
 
     var accountsForSelected: [FetchedAccount]?
@@ -25,7 +24,7 @@ struct EditAccountView: View {
             RequireLoginView(
                 unsavedCookie: $account.cookie,
                 region: account.server.region
-            ).environmentObject(alertToastVariable)
+            )
         }
         Section {
             HStack {

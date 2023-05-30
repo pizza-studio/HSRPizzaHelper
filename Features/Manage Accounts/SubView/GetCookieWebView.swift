@@ -5,7 +5,6 @@
 //  Created by 戴藏龙 on 2022/8/16.
 //  获取Cookie的网页View
 
-import AlertToast
 import HBMihoyoAPI
 import SafariServices
 import SwiftUI
@@ -18,7 +17,6 @@ struct GetCookieWebView: View {
 
     @Binding var cookie: String!
 
-    @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     let region: Region
 
@@ -39,7 +37,6 @@ struct GetCookieWebView: View {
                         Task(priority: .userInitiated) {
                             await getCookieFromDataStore()
                         }
-                        alertToastVariable.isDoneButtonTap.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
