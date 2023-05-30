@@ -12,7 +12,6 @@
 "settings.title" = "Settings";
 "account.manage.title" = "Account";
 "account.new" = "New Account";
-"account.added.success" = "Account added";
 "account.login.title" = "Please Finish Login";
 "sys.done" = "Done";
 "sys.cancel" = "Cancel";
@@ -20,6 +19,7 @@
 "err.mfe" = "Missing Field";
 "account.login.manual.1" = "You can also";
 "account.login.manual.2" = "manually config your account";
+"account.added.success" = "Account added";
 "account.label.nickname" = "Nickname";
 "account.label.select" = "Select Your Account";
 "account.label.detail" = "Account Detail";
