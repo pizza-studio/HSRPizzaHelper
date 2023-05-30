@@ -13,7 +13,6 @@ import WidgetKit
 
 struct CreateAccountSheetView: View {
     // MARK: Lifecycle
-    
     @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     init(account: Account, isShown: Binding<Bool>) {
@@ -196,7 +195,6 @@ struct CreateAccountSheetView: View {
 
 private struct RequireLoginView: View {
     @State var getCookieWebViewRegion: Region?
-    
     @Binding var unsavedCookie: String?
     @Binding var region: Region
 

@@ -23,7 +23,6 @@ struct WidgetBackgroundSettingView: View {
                     ManageWidgetBackgroundView(backgroundType: .rectangular)
                         .navigationTitle("setting.widget.background.destination.rectangular")
                 }
-                
                 } footer: {
                     Text("setting.widget.holdon.tips")
                 }

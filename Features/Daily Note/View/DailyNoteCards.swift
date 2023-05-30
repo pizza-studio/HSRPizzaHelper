@@ -14,7 +14,6 @@ struct DailyNoteCards: View {
     // MARK: Internal
 
     @State var isNewAccountSheetShow = false
-    
     @EnvironmentObject var alertToastVariable: AlertToastVariable
 
     let refreshSubject: PassthroughSubject<(), Never>
@@ -53,9 +52,7 @@ private struct AddNewAccountButton: View {
     // MARK: Internal
 
     @Binding var isNewAccountSheetShow: Bool
-    
     @EnvironmentObject var alertToastVariable: AlertToastVariable
-
 
     var body: some View {
         VStack {

@@ -17,7 +17,6 @@ class AlertToastVariable: ObservableObject {
 
 struct ManageAccountsView: View {
     // MARK: Internal
-    
     @StateObject private var alertToastVariable = AlertToastVariable()
 
     var body: some View {

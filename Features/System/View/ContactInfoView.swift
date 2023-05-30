@@ -423,4 +423,3 @@ private struct CaptionLabelStyle: LabelStyle {
         }
     }
 }
-

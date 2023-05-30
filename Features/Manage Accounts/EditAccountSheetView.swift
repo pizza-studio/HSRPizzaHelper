@@ -19,7 +19,6 @@ struct EditAccountSheetView: View {
     }
     @EnvironmentObject var alertToastVariable: AlertToastVariable
 
-
     // MARK: Internal
 
     var body: some View {
