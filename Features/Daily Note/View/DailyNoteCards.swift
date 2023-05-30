@@ -80,7 +80,9 @@ private struct AddNewAccountButton: View {
                         isNewAccountSheetShow.toggle()
                     }
                     .sheet(isPresented: $isNewAccountSheetShow) {
-                        CreateAccountSheetView(account: Account(context: viewContext), isShown: $isNewAccountSheetShow).environmentObject(alertToastVariable)
+                        CreateAccountSheetView(account: Account(context: viewContext),
+                                               isShown: $isNewAccountSheetShow)
+                        .environmentObject(alertToastVariable)
                     }
                 Spacer()
             }

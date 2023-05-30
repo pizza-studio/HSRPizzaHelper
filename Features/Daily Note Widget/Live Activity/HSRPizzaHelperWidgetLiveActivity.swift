@@ -33,7 +33,7 @@ struct HSRPizzaHelperWidgetAttributes: ActivityAttributes {
 @available(iOSApplicationExtension 16.1, *)
 struct DailyNoteCountDownLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: HSRPizzaHelperWidgetAttributes.self) { context in
+        ActivityConfiguration(for: HSRPizzaHelperWidgetAttributes.self) { _ in
             // Lock screen/banner UI goes here
             VStack {
                 Text("Hello")
@@ -41,7 +41,7 @@ struct DailyNoteCountDownLiveActivity: Widget {
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
 
-        } dynamicIsland: { context in
+        } dynamicIsland: { _ in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom

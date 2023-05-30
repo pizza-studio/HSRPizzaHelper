@@ -19,7 +19,6 @@ enum URLRequestHelper {
         let salt: String = URLRequestHelperConfiguration.salt(region: region)
 
         let time = String(Int(Date().timeIntervalSince1970))
-        // swiftlint:disable:next no_magic_numbers
         let randomNumber = String(Int.random(in: 100_000 ..< 200_000))
 
         let bodyString: String
