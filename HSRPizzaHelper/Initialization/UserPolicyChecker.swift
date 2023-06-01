@@ -21,7 +21,7 @@ private struct OnBoardingViewShower: ViewModifier {
             .fullScreenCover(isPresented: $isOnBoardingViewShow, onDismiss: {
                 isContactUsViewShow.toggle()
             }, content: {
-                OnBoardingView()
+                OnBoardingView(isShow: $isOnBoardingViewShow)
             })
             .sheet(isPresented: $isContactUsViewShow) {
                 ContactInfoForWelcomeView()
@@ -47,7 +47,7 @@ extension View {
 }
 
 struct OnBoardingView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Binding var isShow: Bool
 
     var body: some View {
         VStack {
@@ -102,7 +102,7 @@ struct OnBoardingView: View {
                 .font(.footnote)
             Button("boarding.protocol.agree") {
                 Defaults[\.isPolicyShown] = true
-                dismiss()
+                isShow.toggle()
             }
             .buttonStyle(.borderedProminent)
             .padding(.bottom)
@@ -134,7 +134,7 @@ private struct FeatureBar: View {
 
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingView()
+        OnBoardingView(isShow: .init(get: { true }, set: { _ in }))
     }
 }
 
