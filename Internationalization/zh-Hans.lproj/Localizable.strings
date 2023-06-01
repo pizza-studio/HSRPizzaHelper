@@ -30,14 +30,14 @@
 "account.explanation.title.1" = "关于我们的工作原理";
 "account.explanation.title.2" = "关于您的帐号安全";
 "account.explanation.1" = "为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，这是获取数据的必要参数。您在接下来的网页登录后，我们会在您的本地和iCloud存储您的个人数据。然后我们通过类似米游社的方式获取您的游戏内的数据信息。您的个人信息不会发送给任何人，包括我们自己。您的个人信息将会是非常安全的。本程序是开源程序，每个人都可以检查和监督本程序的全部底层行为。";
-"account.explanation.2" = "本程序不属于外挂等违法程序。本程序遵守米哈游二次创作规则的相关内容。本程序是开源程序，每个人都可以检查和监督本程序的全部底层行为。具体内容参见设置 - FAQ.";
+"account.explanation.2" = "本程序不属于外挂等违法程序。本程序遵守米哈游二次创作规则的相关内容。本程序是开源程序，每个人都可以检查和监督本程序的全部底层行为。具体内容参见「设置 - FAQ」章节。";
 "sys.label.server" = "服务器";
 "sys.label.cookie" = "Cookie";
 "sys.about.title" = "关于星铁披萨小助手";
 "sys.more.title" = "更多";
 "app.name" = "星铁披萨小助手";
 "app.note.1" = "「星铁披萨小助手」与上海米哈游网络科技股份有限公司及其子公司无关。";
-"app.note.2" = "崩坏：星穹铁道的游戏内容和各种游戏内素材与商标的版权都属于米哈游。";
+"app.note.2" = "《崩坏：星穹铁道》的游戏内容和各种游戏内素材与商标的版权都属于米哈游。";
 "sys.thank.title" = "开源组件与第三方API致谢";
 "sys.thank.headline" = "我们的App使用了以下开源组件和第三方API，在此向其作者表示感谢。";
 "account.edit.title" = "编辑帐号信息";
@@ -92,7 +92,7 @@
 "setting.widget.background.alert.rename.button.save" = "保存";
 "setting.widget.background.delete.confirmation.title" = "确认要删除该背景吗？";
 "setting.widget.background.delete.confirmation.delete" = "删除";
-"account.login.error.no.account.found" = "该米游社账号未绑定游戏角色。";
+"account.login.error.no.account.found" = "该米游社帐号未绑定游戏角色。";
 "widget.rect.display" = "开拓力";
 "widget.rect.desc" = "实时开拓力恢复状态。";
 "widget.small.display" = "开拓力";
@@ -104,7 +104,7 @@
 "setting.notification.navigatetosetting" = "开启通知";
 "setting.notification.title" = "通知";
 "account.setting.allownotification" = "允许通知";
-"setting.notification.eachaccountssetting.title" = "允许通知的账号";
+"setting.notification.eachaccountssetting.title" = "允许通知的帐号";
 "setting.notification.stamina.header" = "开拓力";
 "setting.notification.stamina.allow" = "允许开拓力通知";
 "setting.notification.stamina.footer" = "除了自定义的通知外，开拓力回满时也会推送通知。";
@@ -129,7 +129,7 @@
 "widget.gistyle.square.display" = "开拓力与派遣委托";
 "widget.gistyle.square.desc" = "开拓力恢复与派遣委托进行状态。";
 "mihoyoapi.error.errdesc" = "错误（%lld）：%@";
-"widget.dailynote.timeline.error.noaccount" = "错误：未找到账号";
+"widget.dailynote.timeline.error.noaccount" = "错误：未找到帐号";
 "sys.donate.notes" = "请注意，以下内容为无偿捐赠，我们不会为您提供任何额外的服务。\n我们承诺，您对「星铁披萨小助手」的捐赠仅用于覆盖App开发过程中的直接成本，包括但不限于苹果开发者计划会员资格的年费和服务器、域名开支等。我们不会借此项目盈利，多余的部分将会捐助给需要帮助的人。感谢您对我们的支持。";
 "sys.donate.items.title" = "捐赠项目";
 "sys.label.pay" = "支付";

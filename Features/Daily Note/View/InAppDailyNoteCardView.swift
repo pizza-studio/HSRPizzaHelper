@@ -129,6 +129,7 @@ private struct NoteView: View {
                             }
                         }
                         // Expedition Name
+                        // TODO: Need to get translations from the backend for this string.
                         Text("\(expedition.name)")
                             .font(.footnote)
                             .foregroundColor(.secondary)
