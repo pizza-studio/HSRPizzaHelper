@@ -68,7 +68,7 @@ struct SettingView: View {
                         }
                     }
 
-                    var url: String = {
+                    let url: String = {
                         switch AppConfig.appLanguage {
                         case .en:
                             return "https://hsr.ophelper.top/static/faq_en"
@@ -146,7 +146,7 @@ private struct OtherSettingsView: View {
 
             Section {
                 NavigationLink("app.userpolicy.title") {
-                    var url: String = {
+                    let url: String = {
                         switch AppConfig.appLanguage {
                         case .en:
                             return "https://hsr.ophelper.top/static/policy_en"
