@@ -129,8 +129,7 @@ private struct NoteView: View {
                             }
                         }
                         // Expedition Name
-                        // TODO: 回头得加装 String Extension 来处理自动简繁转换（以及与此有关的个例纠正）。
-                        // 可以考虑引入基于纯 Swift 的 Hotenak 步天歌转换引擎：https://github.com/vChewing/Hotenka
+                        // TODO: Need to get translations from the backend for this string.
                         Text("\(expedition.name)")
                             .font(.footnote)
                             .foregroundColor(.secondary)
