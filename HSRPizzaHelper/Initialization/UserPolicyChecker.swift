@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-// MARK: - PolicyChecker
+// MARK: - OnBoardingViewShower
 
 private struct OnBoardingViewShower: ViewModifier {
     // MARK: Internal
@@ -46,7 +46,10 @@ extension View {
     }
 }
 
+// MARK: - OnBoardingView
+
 struct OnBoardingView: View {
+    // MARK: Internal
     @Binding var isShow: Bool
 
     var body: some View {
@@ -108,9 +111,13 @@ struct OnBoardingView: View {
             .padding(.bottom)
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.dismiss) private var dismiss
 }
 
-// MARK: - FeatureBa
+// MARK: - FeatureBar
 
 private struct FeatureBar: View {
     let icon: Image
@@ -132,6 +139,8 @@ private struct FeatureBar: View {
     }
 }
 
+// MARK: - OnBoardingView_Previews
+
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnBoardingView(isShow: .init(get: { true }, set: { _ in }))
@@ -141,7 +150,7 @@ struct OnBoardingView_Previews: PreviewProvider {
 // MARK: - ContactInfoForWelcomeView
 
 private struct ContactInfoForWelcomeView: View {
-    @Environment(\.dismiss) private var dismiss
+    // MARK: Internal
 
     var groupFooterText: String {
         var text = ""
@@ -305,7 +314,6 @@ private struct ContactInfoForWelcomeView: View {
                 }
             }
         }
-
     }
 
     func isInstallation(urlString: String?) -> Bool {
@@ -318,4 +326,8 @@ private struct ContactInfoForWelcomeView: View {
         }
         return false
     }
+
+    // MARK: Private
+
+    @Environment(\.dismiss) private var dismiss
 }
