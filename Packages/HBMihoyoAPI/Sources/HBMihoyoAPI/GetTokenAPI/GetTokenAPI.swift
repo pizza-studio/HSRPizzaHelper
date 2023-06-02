@@ -26,7 +26,7 @@ extension MiHoYoAPI {
             URLQueryItem(name: "uid", value: loginUid),
         ]
 
-        let request = try Self.generateAccountAPIRequest(
+        let request = try await Self.generateAccountAPIRequest(
             region: .china,
             path: "/auth/api/getMultiTokenByLoginTicket",
             queryItems: queryItems,

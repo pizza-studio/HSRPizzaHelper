@@ -26,7 +26,7 @@ extension MiHoYoAPI {
             .init(name: "role_id", value: uid),
             .init(name: "server", value: server.rawValue),
         ]
-        let request = try Self.generateRecordAPIRequest(
+        let request = try await Self.generateRecordAPIRequest(
             region: server.region,
             path: "/game_record/app/hkrpg/api/note",
             queryItems: queryItems,

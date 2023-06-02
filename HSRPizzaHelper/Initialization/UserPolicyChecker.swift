@@ -50,6 +50,7 @@ extension View {
 
 struct OnBoardingView: View {
     // MARK: Internal
+
     @Binding var isShow: Bool
 
     var body: some View {

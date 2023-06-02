@@ -8,6 +8,7 @@
 import Foundation
 
 /// Abstract class help generate api url request
+@available(iOS 15.0, *)
 enum URLRequestHelper {
     /// Calculate the DS used in url request headers
     /// - Parameters:
