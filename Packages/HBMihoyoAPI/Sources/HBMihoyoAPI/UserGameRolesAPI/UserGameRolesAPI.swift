@@ -14,7 +14,7 @@ extension MiHoYoAPI {
             .init(name: "game_biz", value: region.rawValue),
         ]
 
-        let request = try Self.generateAccountAPIRequest(
+        let request = try await Self.generateAccountAPIRequest(
             region: region,
             path: "/binding/api/getUserGameRolesByCookie",
             queryItems: queryItems,

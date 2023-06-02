@@ -10,8 +10,10 @@ import Foundation
 // MARK: - MiHoYoAPI
 
 /// Abstract class for MiHoYoAPI. Add new features by `extension`ing it.
+@available(iOS 15.0, *)
 public enum MiHoYoAPI {}
 
+@available(iOS 15.0, *)
 extension MiHoYoAPI {
     /// Generate `api-takumi-record.mihoyo.com` / `bbs-api-os.mihoyo.com` request for miHoYo API
     /// - Parameters:
@@ -29,9 +31,9 @@ extension MiHoYoAPI {
         queryItems: [URLQueryItem],
         body: Data? = nil,
         cookie: String? = nil
-    ) throws
+    ) async throws
         -> URLRequest {
-        try generateRequest(
+        try await generateRequest(
             httpMethod: httpMethod,
             region: region,
             host: URLRequestHelperConfiguration.recordURLAPIHost(region: region),
@@ -58,9 +60,9 @@ extension MiHoYoAPI {
         queryItems: [URLQueryItem],
         body: Data? = nil,
         cookie: String? = nil
-    ) throws
+    ) async throws
         -> URLRequest {
-        try generateRequest(
+        try await generateRequest(
             httpMethod: httpMethod,
             region: region,
             host: URLRequestHelperConfiguration.accountAPIURLHost(region: region),
@@ -89,7 +91,7 @@ extension MiHoYoAPI {
         queryItems: [URLQueryItem],
         body: Data? = nil,
         cookie: String? = nil
-    ) throws
+    ) async throws
         -> URLRequest {
         var components = URLComponents()
 
@@ -112,7 +114,7 @@ extension MiHoYoAPI {
 
         request.httpMethod = httpMethod.rawValue
 
-        request.allHTTPHeaderFields = URLRequestHelperConfiguration.defaultHeaders(region: region)
+        request.allHTTPHeaderFields = try await URLRequestHelperConfiguration.defaultHeaders(region: region)
 
         if let cookie = cookie {
             request.setValue(cookie, forHTTPHeaderField: "Cookie")
