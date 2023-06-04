@@ -192,3 +192,5 @@
 "Widget_Background_Luocha" = "Luocha";
 "Widget_Background_Party" = "Trailblazers' Party";
 "Widget_Background_Seele" = "Seele";
+"account.fp.label" = "Device FP";
+"account.fp.footer" = "By entering the same device fingerprint stored in the HoYoLAB App, you can avoid encountering Error 1034. The device fingerprint needs to be obtained by capturing the network requests of the HoYoLAB App. We have provided a [tutorial](https://hsr.ophelper.top/static/fp_tutorial_en) to guide you through the process.";
