@@ -41,6 +41,7 @@ struct AccountDetailView: View {
     @Binding var unsavedUid: String
     @Binding var unsavedCookie: String
     @Binding var unsavedServer: Server
+    @AppStorage("device_finger_print", store: UserDefaults(suiteName: AppConfig.appGroupID)!) var deviceFp: String = ""
 
     var body: some View {
         List {
@@ -64,12 +65,25 @@ struct AccountDetailView: View {
                     }
                 }
             }
+
             Section {
-                let cookieTextEditorFrame: CGFloat = 350
+                let cookieTextEditorFrame: CGFloat = 150
                 TextEditor(text: $unsavedCookie)
                     .frame(height: cookieTextEditorFrame)
             } header: {
                 Text("sys.label.cookie")
+                    .textCase(.none)
+            }
+
+            Section {
+                TextField("account.fp.label", text: $deviceFp)
+                    .multilineTextAlignment(.leading)
+            } header: {
+                Text("account.fp.label")
+                    .textCase(.none)
+            } footer: {
+                Text("account.fp.footer")
+                    .textCase(.none)
             }
         }
         .navigationBarTitle("account.label.detail", displayMode: .inline)

@@ -154,7 +154,6 @@ enum URLRequestHelperConfiguration {
         request.httpMethod = "POST"
         let (data, _) = try await URLSession.shared.data(for: request)
         let fingerPrint = try DeviceFingerPrintResult.decodeFromMiHoYoAPIJSONResult(data: data).device_fp
-        userDefaults.set(fingerPrint, forKey: "device_finger_print")
         return fingerPrint
     }
 }
