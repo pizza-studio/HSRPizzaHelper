@@ -20,6 +20,7 @@ public class Account: NSManagedObject {
         setPrimitiveValue("", forKey: #keyPath(Account.cookie))
         setPrimitiveValue("", forKey: #keyPath(Account.uid))
         setPrimitiveValue(true as NSNumber, forKey: #keyPath(Account.allowNotification))
+        setPrimitiveValue("", forKey: #keyPath(Account.deviceFingerPrintInner))
     }
 
     public override func didSave() {

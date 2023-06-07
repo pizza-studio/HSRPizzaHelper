@@ -15,7 +15,8 @@ struct AccountDetailView: View {
         unsavedName: Binding<String?>,
         unsavedUid: Binding<String?>,
         unsavedCookie: Binding<String?>,
-        unsavedServer: Binding<Server>
+        unsavedServer: Binding<Server>,
+        unsavedDeviceFingerPrint: Binding<String>
     ) {
         _unsavedName = .init(get: {
             unsavedName.wrappedValue ?? ""
@@ -33,6 +34,7 @@ struct AccountDetailView: View {
             unsavedCookie.wrappedValue = newValue
         })
         _unsavedServer = unsavedServer
+        _deviceFingerPrint = unsavedDeviceFingerPrint
     }
 
     // MARK: Internal
@@ -41,7 +43,7 @@ struct AccountDetailView: View {
     @Binding var unsavedUid: String
     @Binding var unsavedCookie: String
     @Binding var unsavedServer: Server
-    @AppStorage("device_finger_print", store: UserDefaults(suiteName: AppConfig.appGroupID)!) var deviceFp: String = ""
+    @Binding var deviceFingerPrint: String
 
     var body: some View {
         List {
@@ -74,9 +76,8 @@ struct AccountDetailView: View {
                 Text("sys.label.cookie")
                     .textCase(.none)
             }
-
             Section {
-                TextField("account.fp.label", text: $deviceFp)
+                TextField("account.fp.label", text: $deviceFingerPrint)
                     .multilineTextAlignment(.leading)
             } header: {
                 Text("account.fp.label")

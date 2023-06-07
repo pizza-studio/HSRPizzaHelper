@@ -47,7 +47,8 @@ struct EditAccountView: View {
                     unsavedName: $account.name,
                     unsavedUid: $account.uid,
                     unsavedCookie: $account.cookie,
-                    unsavedServer: $account.server
+                    unsavedServer: $account.server,
+                    unsavedDeviceFingerPrint: $account.deviceFingerPrint
                 )
             } label: {
                 Text("account.label.detail")

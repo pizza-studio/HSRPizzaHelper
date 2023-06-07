@@ -131,7 +131,8 @@ struct CreateAccountSheetView: View {
                             unsavedName: $account.name,
                             unsavedUid: $account.uid,
                             unsavedCookie: $account.cookie,
-                            unsavedServer: $account.server
+                            unsavedServer: $account.server,
+                            unsavedDeviceFingerPrint: $account.deviceFingerPrint
                         )
                     } label: {
                         Text("account.login.manual.2")
@@ -209,7 +210,6 @@ private struct RequireLoginView: View {
                 getCookieWebViewRegion = .global
                 region = .global
             }
-            .disabled(true)
         } label: {
             Group {
                 if unsavedCookie == "" || unsavedCookie == nil {
