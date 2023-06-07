@@ -38,7 +38,8 @@ struct TestAccountView: View {
                 _ = try await MiHoYoAPI.note(
                     server: account.server,
                     uid: account.uid ?? "",
-                    cookie: account.cookie ?? ""
+                    cookie: account.cookie ?? "",
+                    deviceFingerPrint: account.deviceFingerPrint
                 )
                 withAnimation {
                     status = .succeeded

@@ -128,7 +128,8 @@ extension GIStyleTimelineProvider {
             let dailyNote = try await MiHoYoAPI.note(
                 server: account.server,
                 uid: account.uid ?? "",
-                cookie: account.cookie ?? ""
+                cookie: account.cookie ?? "",
+                deviceFingerPrint: account.deviceFingerPrint
             )
             HSRNotificationCenter.scheduleNotification(for: account, dailyNote: dailyNote)
             return .success(dailyNote)

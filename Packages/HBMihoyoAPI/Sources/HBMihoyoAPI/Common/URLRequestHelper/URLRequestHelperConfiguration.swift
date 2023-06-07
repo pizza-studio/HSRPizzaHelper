@@ -26,7 +26,7 @@ enum URLRequestHelperConfiguration {
         case .china:
             return "api-takumi-record.mihoyo.com"
         case .global:
-            return "bbs-api-os.mihoyo.com"
+            return "bbs-api-os.hoyolab.com"
         }
     }
 
@@ -62,7 +62,7 @@ enum URLRequestHelperConfiguration {
         case .china:
             return "2.51.1"
         case .global:
-            return "2.9.0"
+            return "2.33.0"
         }
     }
 
@@ -88,8 +88,8 @@ enum URLRequestHelperConfiguration {
     /// You need to add `DS` field using `URLRequestHelper.getDS` manually
     /// - Parameter region: the region of the account
     /// - Returns: http request headers
-    static func defaultHeaders(region: Region) async throws -> [String: String] {
-        await [
+    static func defaultHeaders(region: Region, additionalHeaders: [String: String]?) async throws -> [String: String] {
+        var headers = await [
             "User-Agent": userAgent,
             "Referer": referer(region: region),
             "Origin": referer(region: region),
@@ -103,11 +103,17 @@ enum URLRequestHelperConfiguration {
             "x-rpc-device_fp": try await getDeviceFingerPrint(region: region),
             "x-rpc-page": "3.1.3_#/rpg",
             "x-rpc-device_id": (UIDevice.current.identifierForVendor ?? UUID()).uuidString,
+            // TODO: language
+            "x-rpc-language": "ja-jp",
 
             "Sec-Fetch-Dest": "empty",
             "Sec-Fetch-Site": "same-site",
             "Sec-Fetch-Mode": "cors",
         ]
+        if let additionalHeaders {
+            headers.merge(additionalHeaders, uniquingKeysWith: { $1 })
+        }
+        return headers
     }
 
     // MARK: Fileprivate

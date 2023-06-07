@@ -30,7 +30,8 @@ extension MiHoYoAPI {
         path: String,
         queryItems: [URLQueryItem],
         body: Data? = nil,
-        cookie: String? = nil
+        cookie: String? = nil,
+        additionalHeaders: [String: String]? = nil
     ) async throws
         -> URLRequest {
         try await generateRequest(
@@ -40,7 +41,8 @@ extension MiHoYoAPI {
             path: path,
             queryItems: queryItems,
             body: body,
-            cookie: cookie
+            cookie: cookie,
+            additionalHeaders: additionalHeaders
         )
     }
 
@@ -59,7 +61,8 @@ extension MiHoYoAPI {
         path: String,
         queryItems: [URLQueryItem],
         body: Data? = nil,
-        cookie: String? = nil
+        cookie: String? = nil,
+        additionalHeaders: [String: String]? = nil
     ) async throws
         -> URLRequest {
         try await generateRequest(
@@ -69,7 +72,8 @@ extension MiHoYoAPI {
             path: path,
             queryItems: queryItems,
             body: body,
-            cookie: cookie
+            cookie: cookie,
+            additionalHeaders: additionalHeaders
         )
     }
 
@@ -90,7 +94,8 @@ extension MiHoYoAPI {
         path: String,
         queryItems: [URLQueryItem],
         body: Data? = nil,
-        cookie: String? = nil
+        cookie: String? = nil,
+        additionalHeaders: [String: String]?
     ) async throws
         -> URLRequest {
         var components = URLComponents()
@@ -114,7 +119,10 @@ extension MiHoYoAPI {
 
         request.httpMethod = httpMethod.rawValue
 
-        request.allHTTPHeaderFields = try await URLRequestHelperConfiguration.defaultHeaders(region: region)
+        request.allHTTPHeaderFields = try await URLRequestHelperConfiguration.defaultHeaders(
+            region: region,
+            additionalHeaders: additionalHeaders
+        )
 
         if let cookie = cookie {
             request.setValue(cookie, forHTTPHeaderField: "Cookie")
