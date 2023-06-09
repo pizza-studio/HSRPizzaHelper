@@ -19,7 +19,7 @@
 "err.mfe" = "エラー：コンテンツが欠落しています";
 "account.login.manual.1" = "または";
 "account.login.manual.2" = "アカウントを手動で配置する";
-"account.added.success" = "追加完了";
+"account.added.success" = "完了";
 "account.label.nickname" = "ニックネーム";
 "account.label.select" = "アカウントを選択";
 "account.label.detail" = "アカウントの詳細情報";

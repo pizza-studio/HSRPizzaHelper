@@ -19,7 +19,7 @@
 "err.mfe" = "Missing Field";
 "account.login.manual.1" = "You can also";
 "account.login.manual.2" = "manually config your account";
-"account.added.success" = "Account added";
+"account.added.success" = "Done";
 "account.label.nickname" = "Nickname";
 "account.label.select" = "Select Your Account";
 "account.label.detail" = "Account Detail";
