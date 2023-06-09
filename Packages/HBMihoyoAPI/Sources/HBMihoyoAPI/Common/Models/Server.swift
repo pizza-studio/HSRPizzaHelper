@@ -14,7 +14,7 @@ public enum Server: String, CaseIterable {
     case china = "prod_gf_cn"
     case bilibili = "prod_qd_cn"
     case unitedStates = "prod_official_usa"
-    case europe = "prod_official_euro"
+    case europe = "prod_official_eur"
     case asia = "prod_official_asia"
     case hongKongMacauTaiwan = "prod_official_cht"
 }
