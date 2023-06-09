@@ -83,9 +83,6 @@ private struct AddNewAccountButton: View {
                     }
                 Spacer()
             }
-            Text("sys.warning.osservers")
-                .font(.footnote)
-                .padding(.top)
         }
     }
 

@@ -206,7 +206,7 @@ private struct RequireLoginView: View {
                 getCookieWebViewRegion = .china
                 region = .china
             }
-            Button("account.create.server.os.notsupport") {
+            Button("sys.server.os") {
                 getCookieWebViewRegion = .global
                 region = .global
             }
@@ -305,10 +305,6 @@ private struct ExplanationView: View {
         Group {
             Divider()
                 .padding(.vertical)
-            Text("sys.warning.osservers")
-                .font(.footnote)
-            Text("\n")
-                .font(.footnote)
             Text("account.explanation.title.1")
                 .font(.footnote)
                 .bold()

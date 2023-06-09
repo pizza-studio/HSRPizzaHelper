@@ -103,8 +103,7 @@ enum URLRequestHelperConfiguration {
             "x-rpc-device_fp": try await getDeviceFingerPrint(region: region),
             "x-rpc-page": "3.1.3_#/rpg",
             "x-rpc-device_id": (UIDevice.current.identifierForVendor ?? UUID()).uuidString,
-            // TODO: language
-            "x-rpc-language": "ja-jp",
+            "x-rpc-language": Locale.langCodeForAPI,
 
             "Sec-Fetch-Dest": "empty",
             "Sec-Fetch-Site": "same-site",

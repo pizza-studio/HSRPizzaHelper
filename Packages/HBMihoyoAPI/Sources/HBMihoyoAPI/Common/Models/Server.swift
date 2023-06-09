@@ -12,7 +12,7 @@ import Foundation
 /// The server of an StarRail account.
 public enum Server: String, CaseIterable {
     case china = "prod_gf_cn"
-    case bilibili = "世界树" // TODO: still unknown.
+    case bilibili = "prod_qd_cn"
     case unitedStates = "prod_official_usa"
     case europe = "prod_official_euro"
     case asia = "prod_official_asia"
