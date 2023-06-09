@@ -192,5 +192,6 @@
 "Widget_Background_Luocha" = "羅剎";
 "Widget_Background_Party" = "開拓者們的派對";
 "Widget_Background_Seele" = "希兒";
-"account.fp.label" = "";
-"account.fp.footer" = "";
+"account.fp.label" = "設備指紋";
+"account.fp.footer" = "（僅限中國大陸伺服器帳號）填入與米游社App中儲存的相同設備指紋，可以避免出現1034問題。設備指紋需要透過抓包米游社的網路請求獲取。我們為您提供了[教程](https://hsr.ophelper.top/static/fp_tutorial)。";
+"account.fp.guide" = "我們建議您在這裡配置好設備指紋以避免頻繁出現1034問題。";

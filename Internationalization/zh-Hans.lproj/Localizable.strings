@@ -19,7 +19,7 @@
 "err.mfe" = "缺失字段";
 "account.login.manual.1" = "你也可以";
 "account.login.manual.2" = "手动配置你的帐号";
-"account.added.success" = "添加成功";
+"account.added.success" = "完成";
 "account.label.nickname" = "昵称";
 "account.label.select" = "选择你的帐号";
 "account.label.detail" = "帐号详情";
@@ -188,9 +188,10 @@
 "sys.donate.title %@" = "捐赠%@";
 "setting.widget.background.manage.add.duplicatedname" = "背景图片名重复，请换一个名称。";
 "Widget_Background_Marth7th" = "三月七";
-"Widget_Background_Kafka" = "卡夫卡";
+"Widget_Background_Kafka" = "卡芙卡";
 "Widget_Background_Luocha" = "罗刹";
 "Widget_Background_Party" = "开拓者们的派对";
 "Widget_Background_Seele" = "希儿";
 "account.fp.label" = "设备指纹";
-"account.fp.footer" = "填入与米游社App中存储的相同的设备指纹，可以避免出现1034问题。设备指纹需要通过抓包米游社的网络请求获取。我们为您提供了[教程](https://hsr.ophelper.top/static/fp_tutorial)。";
+"account.fp.footer" = "（仅限中国大陆服务器帐号）填入与米游社App中存储的相同的设备指纹，可以避免出现1034问题。设备指纹需要通过抓包米游社的网络请求获取。我们为您提供了[教程](https://hsr.ophelper.top/static/fp_tutorial)。";
+"account.fp.guide" = "我们建议你在这里配置好设备指纹以避免频繁出现1034问题。";

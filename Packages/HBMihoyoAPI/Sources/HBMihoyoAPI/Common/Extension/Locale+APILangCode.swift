@@ -10,13 +10,17 @@ import Foundation
 extension Locale {
     /// Get the language code used for miHoYo API according to current preferred localization.
     public static var langCodeForAPI: String {
-        let languageCode = Bundle.main.preferredLocalizations.first ?? "en-us"
-        switch languageCode.prefix(2) {
-        case "zh": return "zh-cn"
-        case "ja": return "ja-jp"
-        case "ru": return "ru-ru"
-        case "en": return "en-us"
-        default: return languageCode
+        switch Bundle.main.preferredLocalizations.first {
+        case "zh-Hans":
+            return "zh-cn"
+        case "zh-Hant":
+            return "zh-tw"
+        case "en":
+            return "en-us"
+        case "ja":
+            return "ja-jp"
+        default:
+            return "en-us"
         }
     }
 }

@@ -19,7 +19,7 @@
 "err.mfe" = "Missing Field";
 "account.login.manual.1" = "You can also";
 "account.login.manual.2" = "manually config your account";
-"account.added.success" = "Account added";
+"account.added.success" = "Done";
 "account.label.nickname" = "Nickname";
 "account.label.select" = "Select Your Account";
 "account.label.detail" = "Account Detail";
@@ -193,4 +193,5 @@
 "Widget_Background_Party" = "Trailblazers' Party";
 "Widget_Background_Seele" = "Seele";
 "account.fp.label" = "Device FP";
-"account.fp.footer" = "By entering the same device fingerprint stored in the HoYoLAB App, you can avoid encountering Error 1034. The device fingerprint needs to be obtained by capturing the network requests of the HoYoLAB App. We have provided a [tutorial](https://hsr.ophelper.top/static/fp_tutorial_en) to guide you through the process.";
+"account.fp.footer" = "(For Accounts of China Mainland Servers) By entering the same device fingerprint stored in the HoYoLAB App, you can avoid encountering Error 1034. The device fingerprint needs to be obtained by capturing the network requests of the HoYoLAB App. We have provided a [tutorial](https://hsr.ophelper.top/static/fp_tutorial_en) to guide you through the process.";
+"account.fp.guide" = "You are suggested to add your device fingerprint here to avoid encountering 1034 error frequently.";

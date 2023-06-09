@@ -19,7 +19,7 @@
 "err.mfe" = "エラー：コンテンツが欠落しています";
 "account.login.manual.1" = "または";
 "account.login.manual.2" = "アカウントを手動で配置する";
-"account.added.success" = "追加完了";
+"account.added.success" = "完了";
 "account.label.nickname" = "ニックネーム";
 "account.label.select" = "アカウントを選択";
 "account.label.detail" = "アカウントの詳細情報";
@@ -193,4 +193,5 @@
 "Widget_Background_Party" = "開拓者たちのパーティ";
 "Widget_Background_Seele" = "ゼーレ";
 "account.fp.label" = "デバイス指紋";
-"account.fp.footer" = "HoYoLABに保存されている同じデバイス指紋を入力することで、エラー1034の発生を回避することができます。デバイス指紋は、HoYoLABのネットワークリクエストをキャプチャすることで取得する必要があります。[チュートリアル](https://hsr.ophelper.top/static/fp_tutorial_ja)をご提供していますので、参考にしてください。";
+"account.fp.footer" = "（中国本土サーバーのアカンウトに限定）HoYoLABに保存されている同じデバイス指紋を入力することで、エラー1034の発生を回避することができます。デバイス指紋は、HoYoLABのネットワークリクエストをキャプチャすることで取得する必要があります。[チュートリアル](https://hsr.ophelper.top/static/fp_tutorial_ja)をご提供していますので、参考にしてください。";
+"account.fp.guide" = "頻繁に1034エラーに遭遇しないように、こちらにデバイスの指紋を追加することをおすすめします。";
