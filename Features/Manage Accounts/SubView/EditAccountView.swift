@@ -15,6 +15,7 @@ struct EditAccountView: View {
 
     @StateObject var account: Account
     var accountsForSelected: [FetchedAccount]?
+    @State var validate: String = ""
 
     var body: some View {
         Section {
@@ -58,6 +59,15 @@ struct EditAccountView: View {
                 Text("account.fp.guide")
             }
         }
+
+        Section {
+            NavigationLink {
+                GeetestValidateView(validate: $validate)
+            } label: {
+                Text("account.label.validate \nValidate: \(validate)")
+            }
+        }
+
         Section {
             TestAccountView(account: account)
         }
