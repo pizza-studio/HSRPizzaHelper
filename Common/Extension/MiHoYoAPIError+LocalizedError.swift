@@ -10,6 +10,17 @@ import HBMihoyoAPI
 
 extension MiHoYoAPIError: LocalizedError {
     public var errorDescription: String? {
-        String(format: "mihoyoapi.error.errdesc".localized(comment: "Error(retcode): message"), retcode, message)
+        switch self {
+        case let .other(retcode: retcode, message: message):
+            return String(
+                format: "mihoyoapi.error.errdesc"
+                    .localized(comment: "Error(retcode): message"),
+                retcode,
+                message
+            )
+        case .verificationNeeded:
+            // TODO: replace prompt
+            return "Validation Needed"
+        }
     }
 }
