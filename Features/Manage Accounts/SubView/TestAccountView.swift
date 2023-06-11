@@ -140,10 +140,20 @@ struct TestAccountView: View {
         let shouldRefreshAccountSubject: PassthroughSubject<(), Never>
 
         var body: some View {
-            Button("account.test.verify.button") {
+            Button {
                 status = .progressing
                 popVerificationWebSheet()
+            } label: {
+                switch status {
+                case .pending:
+                    Text("account.test.verify.button")
+                default:
+                    ProgressView()
+                }
             }
+            .disabled({
+                if case .progressing = status { return true } else { return false }
+            }())
             .onAppear {
                 popVerificationWebSheet()
             }

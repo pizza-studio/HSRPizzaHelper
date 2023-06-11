@@ -205,12 +205,20 @@ private struct ErrorView: View {
                 popVerificationWebSheet()
             } label: {
                 Label {
-                    Text("app.dailynote.card.error.need_verification.button")
+                    switch status {
+                    case .progressing:
+                        ProgressView()
+                    default:
+                        Text("app.dailynote.card.error.need_verification.button")
+                    }
                 } icon: {
                     Image(systemSymbol: .questionmarkCircle)
                         .foregroundColor(.yellow)
                 }
             }
+            .disabled({
+                if case .progressing = status { return true } else { return false }
+            }())
             .sheet(item: $sheetItem, content: { item in
                 switch item {
                 case let .gotVerification(verification):
@@ -264,8 +272,10 @@ private struct ErrorView: View {
                         cookie: account.cookie,
                         deviceFingerPrint: account.deviceFingerPrint
                     )
-                    withAnimation {
-                        shouldRefreshAccountSubject.send(())
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            shouldRefreshAccountSubject.send(())
+                        }
                     }
                 } catch {
                     status = .fail(error)
@@ -295,7 +305,7 @@ private struct ErrorView: View {
             }
         }
 
-        @State private var status: Status = .progressing
+        @State private var status: Status = .pending
 
         @State private var sheetItem: SheetItem?
     }
