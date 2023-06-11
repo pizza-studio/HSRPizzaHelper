@@ -140,7 +140,7 @@ struct TestAccountView: View {
         let shouldRefreshAccountSubject: PassthroughSubject<(), Never>
 
         var body: some View {
-            Button("Verify") {
+            Button("account.test.verify.button") {
                 status = .progressing
                 popVerificationWebSheet()
             }
@@ -167,7 +167,7 @@ struct TestAccountView: View {
                                 }
                             }
                         }
-                        .navigationTitle("account.test.verify.web_sheet.title")
+                        .inlineNavigationTitle("account.test.verify.web_sheet.title")
                     }
                 }
             })
