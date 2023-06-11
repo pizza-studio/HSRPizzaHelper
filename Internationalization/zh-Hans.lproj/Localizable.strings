@@ -195,3 +195,9 @@
 "account.fp.label" = "设备指纹";
 "account.fp.footer" = "（仅限中国大陆服务器帐号）填入与米游社App中存储的相同的设备指纹，可以避免出现1034问题。设备指纹需要通过抓包米游社的网络请求获取。我们为您提供了[教程](https://hsr.ophelper.top/static/fp_tutorial)。";
 "account.fp.guide" = "我们建议你在这里配置好设备指纹以避免频繁出现1034问题。";
+"account.test.verify.web_sheet.title" = "验证";
+"account.test.verify.button" = "请点击这里输入验证码";
+"app.dailynote.card.error.need_verification.button" = "需要验证";
+"mihoyoapi.error.verification_needed.description" = "需要验证";
+"mihoyoapi.error.general_error.recovery_suggestion" = "请进入App查看详情。";
+"mihoyoapi.error.verification_needed.recovery_suggestion" = "请进入App输入验证码。";
