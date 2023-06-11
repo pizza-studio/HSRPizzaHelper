@@ -42,4 +42,56 @@ extension MiHoYoAPI {
 
         return try .decodeFromMiHoYoAPIJSONResult(data: data)
     }
+
+    public static func verifyVerification(
+        challenge: String,
+        validate: String,
+        cookie: String,
+        deviceFingerPrint: String?
+    ) async throws
+        -> VerifyVerification {
+        let additionalHeaders: [String: String]? = {
+            if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
+                return ["x-rpc-device_fp": deviceFingerPrint]
+            } else {
+                return nil
+            }
+        }()
+
+        struct VerifyVerificationBody: Encodable {
+            let geetestChallenge: String
+            let geetestValidate: String
+            let geetestSeccode: String
+            init(challenge: String, validate: String) {
+                self.geetestChallenge = challenge
+                self.geetestValidate = validate
+                self.geetestSeccode = "\(validate)|jordan"
+            }
+        }
+        let body = VerifyVerificationBody(challenge: challenge, validate: validate)
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        let bodyData = try encoder.encode(body)
+
+        var urlComponents =
+            URLComponents(string: "https://api-takumi-record.mihoyo.com/game_record/app/card/wapi/verifyVerification")!
+        let url = urlComponents.url!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = try await URLRequestHelperConfiguration.defaultHeaders(
+            region: .china,
+            additionalHeaders: additionalHeaders
+        )
+        request.setValue(cookie, forHTTPHeaderField: "Cookie")
+        request.setValue(
+            URLRequestHelper.getDS(region: .china, query: url.query ?? "", body: bodyData),
+            forHTTPHeaderField: "DS"
+        )
+        request.httpBody = bodyData
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+
+        return try .decodeFromMiHoYoAPIJSONResult(data: data)
+    }
 }

@@ -30,7 +30,7 @@ struct TestAccountView: View {
             if case let .failure(error) = status {
                 FailureView(error: error)
             } else if status == .verificationNeeded {
-                VerificationNeededView(account: account, shouldTestAccountSubject: shouldTestAccountSubject)
+                VerificationNeededView(account: account, shouldRefreshAccountSubject: shouldTestAccountSubject)
             }
         }
         .onReceive(shouldTestAccountSubject) { _ in
@@ -137,11 +137,11 @@ struct TestAccountView: View {
         // MARK: Internal
 
         let account: Account
-        let shouldTestAccountSubject: PassthroughSubject<(), Never>
+        let shouldRefreshAccountSubject: PassthroughSubject<(), Never>
 
         var body: some View {
             Button("Verify") {
-                status = .gettingVerification
+                status = .progressing
                 Task(priority: .userInitiated) {
                     do {
                         let verification = try await MiHoYoAPI.createVerification(
@@ -163,21 +163,38 @@ struct TestAccountView: View {
                         gt: verification.gt,
                         completion: { validate in
                             status = .pending
-                            verifyValidate(validate: validate)
+                            verifyValidate(challenge: verification.challenge, validate: validate)
                             sheetItem = nil
                         }
                     )
                 }
             })
+            if case let .fail(error) = status {
+                Text("Error: \(error.localizedDescription)")
+            }
         }
 
-        func verifyValidate(validate: String) {}
+        func verifyValidate(challenge: String, validate: String) {
+            Task {
+                do {
+                    let _ = try await MiHoYoAPI.verifyVerification(
+                        challenge: challenge,
+                        validate: validate,
+                        cookie: account.cookie,
+                        deviceFingerPrint: account.deviceFingerPrint
+                    )
+                    shouldRefreshAccountSubject.send(())
+                } catch {
+                    status = .fail(error)
+                }
+            }
+        }
 
         // MARK: Private
 
         private enum Status: CustomStringConvertible {
             case pending
-            case gettingVerification
+            case progressing
             case gotVerification(Verification)
             case fail(Error)
 
@@ -187,7 +204,7 @@ struct TestAccountView: View {
                 switch self {
                 case let .fail(error):
                     return "ERROR: \(error.localizedDescription)"
-                case .gettingVerification:
+                case .progressing:
                     return "gettingVerification"
                 case let .gotVerification(verification):
                     return "Challenge: \(verification.challenge)"
@@ -210,7 +227,7 @@ struct TestAccountView: View {
             }
         }
 
-        @State private var status: Status = .gettingVerification
+        @State private var status: Status = .progressing
 
         @State private var sheetItem: SheetItem?
     }

@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Verification
+
 public struct Verification: Decodable, DecodableFromMiHoYoAPIJSONResult {
     // MARK: Lifecycle
 
@@ -35,4 +37,10 @@ public struct Verification: Decodable, DecodableFromMiHoYoAPIJSONResult {
         case newCaptcha = "new_captcha"
         case success
     }
+}
+
+// MARK: - VerifyVerification
+
+public struct VerifyVerification: Decodable, DecodableFromMiHoYoAPIJSONResult {
+    let challenge: String
 }
