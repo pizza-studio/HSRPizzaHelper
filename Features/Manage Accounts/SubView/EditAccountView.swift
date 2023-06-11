@@ -63,14 +63,6 @@ struct EditAccountView: View {
         }
 
         Section {
-            NavigationLink {
-                GeetestValidateView(validate: $validate)
-            } label: {
-                Text("account.label.validate \nValidate: \(validate)")
-            }
-        }
-
-        Section {
             TestAccountView(account: account, shouldTestAccountSubject: shouldTestAccountSubject)
                 .onAppear {
                     shouldTestAccountSubject.send(())

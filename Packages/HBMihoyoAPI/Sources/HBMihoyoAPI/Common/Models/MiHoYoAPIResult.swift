@@ -22,7 +22,7 @@ extension DecodableFromMiHoYoAPIJSONResult {
             // swiftlint:disable:next force_unwrapping
             return result.data!
         } else {
-            throw try await MiHoYoAPIError(retcode: result.retcode, message: result.message, request: request)
+            throw MiHoYoAPIError(retcode: result.retcode, message: result.message)
         }
     }
 

@@ -5,6 +5,7 @@
 //  Created by Bill Haku on 2023/6/10.
 //
 
+import HBMihoyoAPI
 import SwiftUI
 import WebKit
 
@@ -36,7 +37,8 @@ struct GeetestValidateView: UIViewRepresentable {
                     if let validate = result as? String, !validate.isEmpty {
                         // 在这里处理获取到的 validate.value 内容
                         print("validate: " + validate)
-                        self.parent.validate = validate
+//                        self.parent.validate = validate
+                        self.parent.finishWithValidate(validate)
                         self.parent.isValidationObtained = true // 设置标识为已获取
                         shouldBreak = true
                     }
@@ -58,9 +60,13 @@ struct GeetestValidateView: UIViewRepresentable {
         }
     }
 
+    let challenge: String
+    let gt: String
+
     let webView = WKWebView()
-    var isValidationObtained = false // 标识是否已获取到 validate.value 的内容
-    @Binding var validate: String
+    @State private var isValidationObtained = false // 标识是否已获取到 validate.value 的内容
+
+    @State var completion: (String) -> ()
 
     func makeUIView(context: Context) -> WKWebView {
         webView.navigationDelegate = context.coordinator
@@ -69,13 +75,21 @@ struct GeetestValidateView: UIViewRepresentable {
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
         let urlStr =
-            "http://127.0.0.1:4000/geetest/?challenge=e95c1a43471095ffb08126df7ca0de2b&gt=729c3ab3d3b312bbda50e5f2ad7b6c7e"
+            // swiftlint:disable:next line_length
+            "https://ophelper.top/geetest/?challenge=\(challenge)&gt=\(gt)"
         let url = URL(string: urlStr)
-        let request = URLRequest(url: url!)
+        var request = URLRequest(url: url!)
+        request.allHTTPHeaderFields = [
+            "Referer": "https://webstatic.mihoyo.com",
+        ]
         uiView.load(request)
     }
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
+    }
+
+    func finishWithValidate(_ validate: String) {
+        completion(validate)
     }
 }

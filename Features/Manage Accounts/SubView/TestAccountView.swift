@@ -29,8 +29,8 @@ struct TestAccountView: View {
             .disabled(status == .testing)
             if case let .failure(error) = status {
                 FailureView(error: error)
-            } else if case let .verificationNeeded(verification) = status {
-                VerificationNeededView(account: account, verification: verification)
+            } else if status == .verificationNeeded {
+                VerificationNeededView(account: account, shouldTestAccountSubject: shouldTestAccountSubject)
             }
         }
         .onReceive(shouldTestAccountSubject) { _ in
@@ -53,9 +53,9 @@ struct TestAccountView: View {
                 withAnimation {
                     status = .succeeded
                 }
-            } catch let MiHoYoAPIError.verificationNeeded(verification: verification) {
+            } catch MiHoYoAPIError.verificationNeeded {
                 withAnimation {
-                    status = .verificationNeeded(verification)
+                    status = .verificationNeeded
                 }
             } catch {
                 withAnimation {
@@ -93,7 +93,7 @@ struct TestAccountView: View {
         case testing
         case succeeded
         case failure(Error)
-        case verificationNeeded(Verification)
+        case verificationNeeded
 
         // MARK: Internal
 
@@ -107,8 +107,8 @@ struct TestAccountView: View {
                 return 2
             case let .failure(error):
                 return error.localizedDescription.hashValue
-            case let .verificationNeeded(verification):
-                return verification.challenge.hashValue
+            case .verificationNeeded:
+                return 4
             }
         }
 
@@ -134,13 +134,83 @@ struct TestAccountView: View {
     }
 
     private struct VerificationNeededView: View {
+        // MARK: Internal
+
         let account: Account
-        let verification: Verification
+        let shouldTestAccountSubject: PassthroughSubject<(), Never>
 
         var body: some View {
-            Text("Challenge: \(verification.challenge)")
-            Text("Gt: \(verification.gt)")
+            Button("Verify") {
+                status = .gettingVerification
+                Task(priority: .userInitiated) {
+                    do {
+                        let verification = try await MiHoYoAPI.createVerification(
+                            cookie: account.cookie,
+                            deviceFingerPrint: account.deviceFingerPrint
+                        )
+                        status = .gotVerification(verification)
+                        sheetItem = .gotVerification(verification)
+                    } catch {
+                        status = .fail(error)
+                    }
+                }
+            }
+            .sheet(item: $sheetItem, content: { item in
+                switch item {
+                case let .gotVerification(verification):
+                    GeetestValidateView(
+                        challenge: verification.challenge,
+                        gt: verification.gt,
+                        completion: { validate in
+                            status = .pending
+                            verifyValidate(validate: validate)
+                            sheetItem = nil
+                        }
+                    )
+                }
+            })
         }
+
+        func verifyValidate(validate: String) {}
+
+        // MARK: Private
+
+        private enum Status: CustomStringConvertible {
+            case pending
+            case gettingVerification
+            case gotVerification(Verification)
+            case fail(Error)
+
+            // MARK: Internal
+
+            var description: String {
+                switch self {
+                case let .fail(error):
+                    return "ERROR: \(error.localizedDescription)"
+                case .gettingVerification:
+                    return "gettingVerification"
+                case let .gotVerification(verification):
+                    return "Challenge: \(verification.challenge)"
+                case .pending:
+                    return "PENDING"
+                }
+            }
+        }
+
+        private enum SheetItem: Identifiable {
+            case gotVerification(Verification)
+
+            // MARK: Internal
+
+            var id: Int { switch self {
+            case let .gotVerification(verification):
+                return verification.challenge.hashValue
+            }}
+        }
+
+        @State private var status: Status = .gettingVerification
+
+        @State private var sheetItem: SheetItem?
     }
 
     @State private var status: TestStatus = .pending
