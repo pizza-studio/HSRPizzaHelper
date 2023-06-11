@@ -33,7 +33,7 @@ extension MiHoYoAPIError: LocalizedError {
                 message
             )
         case .verificationNeeded:
-            return "mihoyo_api.error.verification_needed.description".localized()
+            return "mihoyoapi.error.verification_needed.recovery_suggestion".localized()
         }
     }
 }

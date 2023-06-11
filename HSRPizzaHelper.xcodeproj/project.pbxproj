@@ -190,6 +190,7 @@
 		EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */; };
 		EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
 		EAF286522A124F5000F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
+		EAFC5B502A35D29600598F2F /* WidgetErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +373,7 @@
 		EAE898822A06A908000AF830 /* IntentAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentAccountExtension.swift; sourceTree = "<group>"; };
 		EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppDailyNoteCardView.swift; sourceTree = "<group>"; };
 		EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiHoYoAPIError+LocalizedError.swift"; sourceTree = "<group>"; };
+		EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,6 +608,7 @@
 				EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */,
 				EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */,
 				EA9E22132A0B9E1B002F3351 /* WidgetDailyNoteSuccessLargeView.swift */,
+				EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */,
 			);
 			path = "Common View";
 			sourceTree = "<group>";
@@ -1164,6 +1167,7 @@
 				EA1673FA2A063AF300436487 /* HSRPizzaHelperWidget.swift in Sources */,
 				EA8A77362A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
 				EA8A771C2A0741220005C511 /* WidgetConfigurationIntentHandler.swift in Sources */,
+				EAFC5B502A35D29600598F2F /* WidgetErrorView.swift in Sources */,
 				EA702C0E2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
 				EA8A77392A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
 				EA946A982A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift in Sources */,

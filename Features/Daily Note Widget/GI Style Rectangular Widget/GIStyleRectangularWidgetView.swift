@@ -25,7 +25,7 @@ struct GIStyleRectangularWidgetView: View {
                             .textColor == .white ? .light : .dark
                     )
             case let .failure(error):
-                Text(error.localizedDescription)
+                WidgetErrorView(error: error)
             }
         }
         .foregroundColor(entry.configuration.textColor)

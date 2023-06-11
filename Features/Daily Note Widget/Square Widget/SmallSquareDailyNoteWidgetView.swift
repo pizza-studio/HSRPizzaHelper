@@ -37,7 +37,7 @@ struct SmallSquareDailyNoteWidgetView: View {
                 case let .success(dailyNote):
                     SmallSquareDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
                 case let .failure(error):
-                    Text(error.localizedDescription)
+                    WidgetErrorView(error: error)
                 }
             }
         }

@@ -37,7 +37,7 @@ struct RectangularDailyNoteWidgetView: View {
                     WidgetDailyNoteSuccessLargeView(entry: entry, dailyNote: dailyNote)
                         .embed(in: .bottom)
                 case let .failure(error):
-                    Text(error.localizedDescription)
+                    WidgetErrorView(error: error)
                 }
             }
         }
