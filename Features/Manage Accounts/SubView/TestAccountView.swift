@@ -16,23 +16,25 @@ struct TestAccountView: View {
     let shouldTestAccountSubject: PassthroughSubject<(), Never>
 
     var body: some View {
-        Button {
-            doTest()
-        } label: {
-            HStack {
-                Text("account.new.test")
-                Spacer()
-                buttonIcon()
+        Group {
+            Button {
+                doTest()
+            } label: {
+                HStack {
+                    Text("account.new.test")
+                    Spacer()
+                    buttonIcon()
+                }
+            }
+            .disabled(status == .testing)
+            if case let .failure(error) = status {
+                FailureView(error: error)
+            } else if case let .verificationNeeded(verification) = status {
+                VerificationNeededView(account: account, verification: verification)
             }
         }
-        .disabled(status == .testing)
         .onReceive(shouldTestAccountSubject) { _ in
             doTest()
-        }
-        if case let .failure(error) = status {
-            FailureView(error: error)
-        } else if case let .verificationNeeded(verification) = status {
-            VerificationNeededView(account: account, verification: verification)
         }
     }
 
