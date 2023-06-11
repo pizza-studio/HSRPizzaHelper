@@ -46,7 +46,11 @@ struct GeetestValidateView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> WKWebView {
         webView.navigationDelegate = context.coordinator
+        webView.configuration.userContentController.removeAllScriptMessageHandlers()
         webView.configuration.userContentController.add(context.coordinator, name: "callbackHandler")
+        webView.customUserAgent = """
+        Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+        """
         return webView
     }
 
