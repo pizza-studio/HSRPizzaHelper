@@ -5,6 +5,7 @@
 //  Created by 戴藏龙 on 2023/5/5.
 //
 
+import Combine
 import HBMihoyoAPI
 import SwiftUI
 
@@ -14,6 +15,7 @@ struct EditAccountView: View {
     // MARK: Internal
 
     @StateObject var account: Account
+
     var accountsForSelected: [FetchedAccount]?
     @State var validate: String = ""
 
@@ -69,11 +71,16 @@ struct EditAccountView: View {
         }
 
         Section {
-            TestAccountView(account: account)
+            TestAccountView(account: account, shouldTestAccountSubject: shouldTestAccountSubject)
+                .onAppear {
+                    shouldTestAccountSubject.send(())
+                }
         }
     }
 
     // MARK: Private
+
+    @State private var shouldTestAccountSubject: PassthroughSubject<(), Never> = .init()
 
     private var accountName: Binding<String> {
         .init {

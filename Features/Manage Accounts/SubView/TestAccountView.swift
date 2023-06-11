@@ -5,6 +5,7 @@
 //  Created by 戴藏龙 on 2023/5/5.
 //
 
+import Combine
 import HBMihoyoAPI
 import SwiftUI
 
@@ -12,6 +13,7 @@ struct TestAccountView: View {
     // MARK: Internal
 
     let account: Account
+    let shouldTestAccountSubject: PassthroughSubject<(), Never>
 
     var body: some View {
         Button {
@@ -24,6 +26,9 @@ struct TestAccountView: View {
             }
         }
         .disabled(status == .testing)
+        .onReceive(shouldTestAccountSubject) { _ in
+            doTest()
+        }
         if case let .failure(error) = status {
             FailureView(error: error)
         } else if case let .verificationNeeded(verification) = status {
