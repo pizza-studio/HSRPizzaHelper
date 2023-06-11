@@ -202,10 +202,12 @@ struct TestAccountView: View {
 
             // MARK: Internal
 
-            var id: Int { switch self {
-            case let .gotVerification(verification):
-                return verification.challenge.hashValue
-            }}
+            var id: Int {
+                switch self {
+                case let .gotVerification(verification):
+                    return verification.challenge.hashValue
+                }
+            }
         }
 
         @State private var status: Status = .gettingVerification
