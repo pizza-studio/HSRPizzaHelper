@@ -37,7 +37,7 @@ struct LargeSquareDailyNoteWidgetView: View {
                 case let .success(dailyNote):
                     LargeSquareDailyNoteSuccessView(entry: entry, dailyNote: dailyNote)
                 case let .failure(error):
-                    Text(error.localizedDescription)
+                    WidgetErrorView(error: error)
                 }
             }
         }

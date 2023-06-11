@@ -15,7 +15,8 @@ struct AccountDetailView: View {
         unsavedName: Binding<String?>,
         unsavedUid: Binding<String?>,
         unsavedCookie: Binding<String?>,
-        unsavedServer: Binding<Server>
+        unsavedServer: Binding<Server>,
+        unsavedDeviceFingerPrint: Binding<String>
     ) {
         _unsavedName = .init(get: {
             unsavedName.wrappedValue ?? ""
@@ -33,6 +34,7 @@ struct AccountDetailView: View {
             unsavedCookie.wrappedValue = newValue
         })
         _unsavedServer = unsavedServer
+        _deviceFingerPrint = unsavedDeviceFingerPrint
     }
 
     // MARK: Internal
@@ -41,6 +43,7 @@ struct AccountDetailView: View {
     @Binding var unsavedUid: String
     @Binding var unsavedCookie: String
     @Binding var unsavedServer: Server
+    @Binding var deviceFingerPrint: String
 
     var body: some View {
         List {
@@ -64,12 +67,21 @@ struct AccountDetailView: View {
                     }
                 }
             }
+
             Section {
-                let cookieTextEditorFrame: CGFloat = 350
+                let cookieTextEditorFrame: CGFloat = 150
                 TextEditor(text: $unsavedCookie)
                     .frame(height: cookieTextEditorFrame)
             } header: {
                 Text("sys.label.cookie")
+                    .textCase(.none)
+            }
+            Section {
+                TextField("account.fp.label", text: $deviceFingerPrint)
+                    .multilineTextAlignment(.leading)
+            } header: {
+                Text("account.fp.label")
+                    .textCase(.none)
             }
         }
         .navigationBarTitle("account.label.detail", displayMode: .inline)

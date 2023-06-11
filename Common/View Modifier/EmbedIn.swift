@@ -41,7 +41,7 @@ struct EmbedIn: ViewModifier {
         case topRight
         case bottomLeft
         case bottomRight
-        case center
+        case middleCenter
 
         // MARK: Fileprivate
 

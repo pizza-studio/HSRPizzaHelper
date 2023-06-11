@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-// MARK: - PolicyChecker
+// MARK: - OnBoardingViewShower
 
 private struct OnBoardingViewShower: ViewModifier {
     // MARK: Internal
@@ -21,7 +21,7 @@ private struct OnBoardingViewShower: ViewModifier {
             .fullScreenCover(isPresented: $isOnBoardingViewShow, onDismiss: {
                 isContactUsViewShow.toggle()
             }, content: {
-                OnBoardingView()
+                OnBoardingView(isShow: $isOnBoardingViewShow)
             })
             .sheet(isPresented: $isContactUsViewShow) {
                 ContactInfoForWelcomeView()
@@ -46,8 +46,12 @@ extension View {
     }
 }
 
+// MARK: - OnBoardingView
+
 struct OnBoardingView: View {
-    @Environment(\.dismiss) private var dismiss
+    // MARK: Internal
+
+    @Binding var isShow: Bool
 
     var body: some View {
         VStack {
@@ -102,15 +106,19 @@ struct OnBoardingView: View {
                 .font(.footnote)
             Button("boarding.protocol.agree") {
                 Defaults[\.isPolicyShown] = true
-                dismiss()
+                isShow.toggle()
             }
             .buttonStyle(.borderedProminent)
             .padding(.bottom)
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.dismiss) private var dismiss
 }
 
-// MARK: - FeatureBa
+// MARK: - FeatureBar
 
 private struct FeatureBar: View {
     let icon: Image
@@ -132,16 +140,18 @@ private struct FeatureBar: View {
     }
 }
 
+// MARK: - OnBoardingView_Previews
+
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingView()
+        OnBoardingView(isShow: .init(get: { true }, set: { _ in }))
     }
 }
 
 // MARK: - ContactInfoForWelcomeView
 
 private struct ContactInfoForWelcomeView: View {
-    @Environment(\.dismiss) private var dismiss
+    // MARK: Internal
 
     var groupFooterText: String {
         var text = ""
@@ -305,7 +315,6 @@ private struct ContactInfoForWelcomeView: View {
                 }
             }
         }
-
     }
 
     func isInstallation(urlString: String?) -> Bool {
@@ -318,4 +327,8 @@ private struct ContactInfoForWelcomeView: View {
         }
         return false
     }
+
+    // MARK: Private
+
+    @Environment(\.dismiss) private var dismiss
 }

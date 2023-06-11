@@ -21,7 +21,7 @@ struct GIStyleSquareWidgetView: View {
                 WidgetGIStyleSuccessView(entry: entry, dailyNote: dailyNote)
                     .embed(in: .left)
             case let .failure(error):
-                Text(error.localizedDescription)
+                WidgetErrorView(error: error)
             }
         }
         .environment(
@@ -98,7 +98,7 @@ private struct WidgetGIStyleSuccessView: View {
                             .multilineTextAlignment(.leading)
                             .font(.caption2)
                         } else {
-                            Text("FULL")
+                            Text("100%")
                         }
                     }
                 }

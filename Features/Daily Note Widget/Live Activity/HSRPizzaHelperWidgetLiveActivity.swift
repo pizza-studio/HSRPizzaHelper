@@ -33,7 +33,7 @@ struct HSRPizzaHelperWidgetAttributes: ActivityAttributes {
 @available(iOSApplicationExtension 16.1, *)
 struct DailyNoteCountDownLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: HSRPizzaHelperWidgetAttributes.self) { context in
+        ActivityConfiguration(for: HSRPizzaHelperWidgetAttributes.self) { _ in
             // Lock screen/banner UI goes here
             VStack {
                 Text("Hello")
@@ -41,7 +41,7 @@ struct DailyNoteCountDownLiveActivity: Widget {
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
 
-        } dynamicIsland: { context in
+        } dynamicIsland: { _ in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
@@ -64,29 +64,6 @@ struct DailyNoteCountDownLiveActivity: Widget {
             }
             .keylineTint(Color.red)
         }
-    }
-}
-
-// MARK: - HSRPizzaHelperWidgetLiveActivity_Previews
-
-@available(iOSApplicationExtension 16.2, *)
-struct HSRPizzaHelperWidgetLiveActivity_Previews: PreviewProvider {
-    static let attributes = HSRPizzaHelperWidgetAttributes(name: "Me")
-    static let contentState = HSRPizzaHelperWidgetAttributes.ContentState(value: 3)
-
-    static var previews: some View {
-        attributes
-            .previewContext(contentState, viewKind: .dynamicIsland(.compact))
-            .previewDisplayName("Island Compact")
-        attributes
-            .previewContext(contentState, viewKind: .dynamicIsland(.expanded))
-            .previewDisplayName("Island Expanded")
-        attributes
-            .previewContext(contentState, viewKind: .dynamicIsland(.minimal))
-            .previewDisplayName("Minimal")
-        attributes
-            .previewContext(contentState, viewKind: .content)
-            .previewDisplayName("Notification")
     }
 }
 

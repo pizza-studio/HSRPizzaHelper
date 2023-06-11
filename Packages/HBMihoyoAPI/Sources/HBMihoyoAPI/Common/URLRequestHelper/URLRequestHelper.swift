@@ -8,6 +8,7 @@
 import Foundation
 
 /// Abstract class help generate api url request
+@available(iOS 15.0, *)
 enum URLRequestHelper {
     /// Calculate the DS used in url request headers
     /// - Parameters:
@@ -19,7 +20,6 @@ enum URLRequestHelper {
         let salt: String = URLRequestHelperConfiguration.salt(region: region)
 
         let time = String(Int(Date().timeIntervalSince1970))
-        // swiftlint:disable:next no_magic_numbers
         let randomNumber = String(Int.random(in: 100_000 ..< 200_000))
 
         let bodyString: String

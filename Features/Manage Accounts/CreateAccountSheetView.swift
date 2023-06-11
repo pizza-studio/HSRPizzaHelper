@@ -39,6 +39,8 @@ struct CreateAccountSheetView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
                         saveAccount()
+                        globalDailyNoteCardRefreshSubject.send(())
+                        alertToastVariable.isDoneButtonTapped.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -106,6 +108,10 @@ struct CreateAccountSheetView: View {
                     } else {
                         getAccountError = .customize("account.login.error.no.account.found")
                     }
+                    // Get device finger print
+                    if account.server.region == .china {
+                        account.deviceFingerPrint = try await MiHoYoAPI.getDeviceFingerPrint(region: region)
+                    }
                     status = .gotAccount
                 } catch {
                     getAccountError = .source(error)
@@ -130,7 +136,8 @@ struct CreateAccountSheetView: View {
                             unsavedName: $account.name,
                             unsavedUid: $account.uid,
                             unsavedCookie: $account.cookie,
-                            unsavedServer: $account.server
+                            unsavedServer: $account.server,
+                            unsavedDeviceFingerPrint: $account.deviceFingerPrint
                         )
                     } label: {
                         Text("account.login.manual.2")
@@ -161,6 +168,8 @@ struct CreateAccountSheetView: View {
     }
 
     // MARK: Private
+
+    @EnvironmentObject private var alertToastVariable: AlertToastVariable
 
     @Binding private var isShown: Bool
 
@@ -193,7 +202,6 @@ struct CreateAccountSheetView: View {
 
 private struct RequireLoginView: View {
     @State var getCookieWebViewRegion: Region?
-
     @Binding var unsavedCookie: String?
     @Binding var region: Region
 
@@ -203,11 +211,10 @@ private struct RequireLoginView: View {
                 getCookieWebViewRegion = .china
                 region = .china
             }
-            Button("account.create.server.os.notsupport") {
+            Button("sys.server.os") {
                 getCookieWebViewRegion = .global
                 region = .global
             }
-            .disabled(true)
         } label: {
             Group {
                 if unsavedCookie == "" || unsavedCookie == nil {
@@ -303,10 +310,6 @@ private struct ExplanationView: View {
         Group {
             Divider()
                 .padding(.vertical)
-            Text("sys.warning.osservers")
-                .font(.footnote)
-            Text("\n")
-                .font(.footnote)
             Text("account.explanation.title.1")
                 .font(.footnote)
                 .bold()

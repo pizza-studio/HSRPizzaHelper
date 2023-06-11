@@ -10,8 +10,10 @@ import Foundation
 // MARK: - MiHoYoAPI
 
 /// Abstract class for MiHoYoAPI. Add new features by `extension`ing it.
+@available(iOS 15.0, *)
 public enum MiHoYoAPI {}
 
+@available(iOS 15.0, *)
 extension MiHoYoAPI {
     /// Generate `api-takumi-record.mihoyo.com` / `bbs-api-os.mihoyo.com` request for miHoYo API
     /// - Parameters:
@@ -28,17 +30,19 @@ extension MiHoYoAPI {
         path: String,
         queryItems: [URLQueryItem],
         body: Data? = nil,
-        cookie: String? = nil
-    ) throws
+        cookie: String? = nil,
+        additionalHeaders: [String: String]? = nil
+    ) async throws
         -> URLRequest {
-        try generateRequest(
+        try await generateRequest(
             httpMethod: httpMethod,
             region: region,
             host: URLRequestHelperConfiguration.recordURLAPIHost(region: region),
             path: path,
             queryItems: queryItems,
             body: body,
-            cookie: cookie
+            cookie: cookie,
+            additionalHeaders: additionalHeaders
         )
     }
 
@@ -57,17 +61,19 @@ extension MiHoYoAPI {
         path: String,
         queryItems: [URLQueryItem],
         body: Data? = nil,
-        cookie: String? = nil
-    ) throws
+        cookie: String? = nil,
+        additionalHeaders: [String: String]? = nil
+    ) async throws
         -> URLRequest {
-        try generateRequest(
+        try await generateRequest(
             httpMethod: httpMethod,
             region: region,
             host: URLRequestHelperConfiguration.accountAPIURLHost(region: region),
             path: path,
             queryItems: queryItems,
             body: body,
-            cookie: cookie
+            cookie: cookie,
+            additionalHeaders: additionalHeaders
         )
     }
 
@@ -88,8 +94,9 @@ extension MiHoYoAPI {
         path: String,
         queryItems: [URLQueryItem],
         body: Data? = nil,
-        cookie: String? = nil
-    ) throws
+        cookie: String? = nil,
+        additionalHeaders: [String: String]?
+    ) async throws
         -> URLRequest {
         var components = URLComponents()
 
@@ -112,7 +119,10 @@ extension MiHoYoAPI {
 
         request.httpMethod = httpMethod.rawValue
 
-        request.allHTTPHeaderFields = URLRequestHelperConfiguration.defaultHeaders(region: region)
+        request.allHTTPHeaderFields = try await URLRequestHelperConfiguration.defaultHeaders(
+            region: region,
+            additionalHeaders: additionalHeaders
+        )
 
         if let cookie = cookie {
             request.setValue(cookie, forHTTPHeaderField: "Cookie")

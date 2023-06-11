@@ -10,18 +10,18 @@ import Foundation
 // MARK: - MiHoYoAPIError
 
 /// The error returned by miHoYo when `retcode != 0`
-public struct MiHoYoAPIError: Error {
+@available(iOS 15.0, *)
+public enum MiHoYoAPIError: Error {
+    case verificationNeeded
+    case other(retcode: Int, message: String)
+
     // MARK: Lifecycle
 
     public init(retcode: Int, message: String) {
-        self.retcode = retcode
-        self.message = message
+        if retcode == 1034 {
+            self = .verificationNeeded
+        } else {
+            self = .other(retcode: retcode, message: message)
+        }
     }
-
-    // MARK: Public
-
-    /// The retcode returned by miHoYo API
-    public let retcode: Int
-    /// The message returned by miHoYo API
-    public let message: String
 }

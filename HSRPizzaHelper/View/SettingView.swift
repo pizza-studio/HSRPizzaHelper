@@ -12,7 +12,6 @@ import SwiftUI
 // MARK: - SettingView
 
 struct SettingView: View {
-
     var body: some View {
         NavigationView {
             List {
@@ -69,7 +68,7 @@ struct SettingView: View {
                         }
                     }
 
-                    var url: String {
+                    let url: String = {
                         switch AppConfig.appLanguage {
                         case .en:
                             return "https://hsr.ophelper.top/static/faq_en"
@@ -78,7 +77,7 @@ struct SettingView: View {
                         case .ja:
                             return "https://hsr.ophelper.top/static/faq_ja"
                         }
-                    }
+                    }()
                     NavigationLink(
                         destination: WebBrowserView(url: url)
                             .navigationTitle("sys.faq.title")
@@ -147,7 +146,7 @@ private struct OtherSettingsView: View {
 
             Section {
                 NavigationLink("app.userpolicy.title") {
-                    var url: String {
+                    let url: String = {
                         switch AppConfig.appLanguage {
                         case .en:
                             return "https://hsr.ophelper.top/static/policy_en"
@@ -156,7 +155,7 @@ private struct OtherSettingsView: View {
                         case .ja:
                             return "https://hsr.ophelper.top/static/policy_ja"
                         }
-                    }
+                    }()
                     WebBrowserView(url: url)
                         .navigationTitle("app.userpolicy.title")
                         .navigationBarTitleDisplayMode(.inline)

@@ -5,6 +5,7 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
+import AlertToast
 import Combine
 import CoreData
 import HBMihoyoAPI
@@ -17,17 +18,26 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                DailyNoteCards(refreshSubject: dailyNoteRefreshSubject)
+                DailyNoteCards()
             }
             .navigationTitle("home.title")
             .refreshable {
-                dailyNoteRefreshSubject.send()
+                globalDailyNoteCardRefreshSubject.send(())
                 WidgetCenter.shared.reloadAllTimelines()
             }
-        }.navigationViewStyle(.stack)
+            .toast(isPresenting: $alertToastVariable.isDoneButtonTapped) {
+                AlertToast(
+                    displayMode: .alert,
+                    type: .complete(.green),
+                    title: "account.added.success"
+                )
+            }
+        }
+        .navigationViewStyle(.stack)
+        .environmentObject(alertToastVariable)
     }
 
     // MARK: Private
 
-    @State private var dailyNoteRefreshSubject = PassthroughSubject<(), Never>()
+    @StateObject private var alertToastVariable = AlertToastVariable()
 }

@@ -17,11 +17,10 @@ struct InAppDailyNoteCardView: View {
     // MARK: Lifecycle
 
     init(
-        account: Account,
-        refreshSubject: PassthroughSubject<(), Never>
+        account: Account
     ) {
         self._dailyNoteViewModel = StateObject(wrappedValue: DailyNoteViewModel(account: account))
-        self.refreshSubject = refreshSubject
+        self.refreshSubject = globalDailyNoteCardRefreshSubject
     }
 
     // MARK: Internal
@@ -159,21 +158,32 @@ private struct ErrorView: View {
     // MARK: Internal
 
     let account: Account
-    let error: Error
+    var error: Error
 
     var body: some View {
-        HStack {
-            Spacer()
-            Image(systemSymbol: .exclamationmarkCircle)
-                .foregroundColor(.red)
-            Spacer()
-        }
-        .onTapGesture {
+        Button {
             isEditAccountSheetShown.toggle()
+        } label: {
+            switch error {
+            case MiHoYoAPIError.verificationNeeded:
+                Label {
+                    Text("app.dailynote.card.error.need_verification.button")
+                } icon: {
+                    Image(systemSymbol: .questionmarkCircle)
+                        .foregroundColor(.yellow)
+                }
+            default:
+                Label {
+                    Text("app.dailynote.card.error.other_error.button")
+                } icon: {
+                    Image(systemSymbol: .exclamationmarkCircle)
+                        .foregroundColor(.red)
+                }
+            }
         }
-        .sheet(isPresented: $isEditAccountSheetShown) {
+        .sheet(isPresented: $isEditAccountSheetShown, content: {
             EditAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
-        }
+        })
     }
 
     // MARK: Private

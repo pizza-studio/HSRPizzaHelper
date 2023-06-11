@@ -14,13 +14,17 @@ import SwiftUI
 struct WidgetBackgroundSettingView: View {
     var body: some View {
         List {
-            NavigationLink("setting.widget.background.destination.square") {
-                ManageWidgetBackgroundView(backgroundType: .square)
-                    .navigationTitle("setting.widget.background.destination.square")
-            }
-            NavigationLink("setting.widget.background.destination.rectangular") {
-                ManageWidgetBackgroundView(backgroundType: .rectangular)
-                    .navigationTitle("setting.widget.background.destination.rectangular")
+            Section {
+                NavigationLink("setting.widget.background.destination.square") {
+                    ManageWidgetBackgroundView(backgroundType: .square)
+                        .navigationTitle("setting.widget.background.destination.square")
+                }
+                NavigationLink("setting.widget.background.destination.rectangular") {
+                    ManageWidgetBackgroundView(backgroundType: .rectangular)
+                        .navigationTitle("setting.widget.background.destination.rectangular")
+                }
+            } footer: {
+                Text("setting.widget.holdon.tips")
             }
         }
         .navigationTitle("setting.widget.background.title")
@@ -47,27 +51,31 @@ private struct ManageWidgetBackgroundView: View, ContainBackgroundType {
                     AddWidgetBackgroundCover(backgroundType: backgroundType, isShow: $isAddBackgroundSheetShow)
                 }
             }
-            ForEach(imageUrls, id: \.self) { url in
-                if let data = try? Data(contentsOf: url),
-                   let uiImage = UIImage(data: data) {
-                    BackgroundPreviewView(
-                        imageName: url.lastPathComponent.deletingPathExtension,
-                        image: uiImage,
-                        backgroundType: backgroundType
-                    )
-                    .contextMenu {
-                        Button("setting.widget.background.context.menu.delete", role: .destructive) {
-                            if #available(iOS 16, *) {
-                                alert = .deletingConfirmation(url)
-                            } else {
-                                deleteSelectedBackground(url: url)
+            Section {
+                ForEach(imageUrls, id: \.self) { url in
+                    if let data = try? Data(contentsOf: url),
+                       let uiImage = UIImage(data: data) {
+                        BackgroundPreviewView(
+                            imageName: url.lastPathComponent.deletingPathExtension,
+                            image: uiImage,
+                            backgroundType: backgroundType
+                        )
+                        .contextMenu {
+                            Button("setting.widget.background.context.menu.delete", role: .destructive) {
+                                if #available(iOS 16, *) {
+                                    alert = .deletingConfirmation(url)
+                                } else {
+                                    deleteSelectedBackground(url: url)
+                                }
                             }
-                        }
-                        Button("setting.widget.background.context.menu.rename") {
-                            alert = .renaming(url, newName: "")
+                            Button("setting.widget.background.context.menu.rename") {
+                                alert = .renaming(url, newName: "")
+                            }
                         }
                     }
                 }
+            } footer: {
+                Text("setting.widget.Background.delete.tips")
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -303,14 +311,16 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
                 isAskForNameAlertShow.toggle()
             }
         })
-        .alert("setting.widget.background.manage.add.duplicatedname",
-               isPresented: $isNameDuplicatedAlertShow,
-               actions: {
-            Button("sys.ok") {
-                isNameDuplicatedAlertShow.toggle()
-                isAskForNameAlertShow.toggle()
+        .alert(
+            "setting.widget.background.manage.add.duplicatedname",
+            isPresented: $isNameDuplicatedAlertShow,
+            actions: {
+                Button("sys.ok") {
+                    isNameDuplicatedAlertShow.toggle()
+                    isAskForNameAlertShow.toggle()
+                }
             }
-        })
+        )
         .alert(isPresented: $isErrorAlertShow, error: error) { _ in
             Button("sys.ok") {
                 isErrorAlertShow.toggle()

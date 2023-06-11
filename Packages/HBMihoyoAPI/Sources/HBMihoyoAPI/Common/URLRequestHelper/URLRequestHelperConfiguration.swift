@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 
 // MARK: - URLRequestHelperConfiguration
 
 /// Abstract class storing salt, version, etc for API.
+@available(iOS 15.0, *)
 enum URLRequestHelperConfiguration {
     static let userAgent: String = """
     Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) \
-    AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.37.1
+    AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.51.1
     """
 
     static func recordURLAPIHost(region: Region) -> String {
@@ -22,7 +24,7 @@ enum URLRequestHelperConfiguration {
         case .china:
             return "api-takumi-record.mihoyo.com"
         case .global:
-            return "bbs-api-os.mihoyo.com"
+            return "bbs-api-os.hoyolab.com"
         }
     }
 
@@ -56,9 +58,9 @@ enum URLRequestHelperConfiguration {
     static func xRpcAppVersion(region: Region) -> String {
         switch region {
         case .china:
-            return "2.50.1"
+            return "2.51.1"
         case .global:
-            return "2.9.0"
+            return "2.33.0"
         }
     }
 
@@ -84,10 +86,8 @@ enum URLRequestHelperConfiguration {
     /// You need to add `DS` field using `URLRequestHelper.getDS` manually
     /// - Parameter region: the region of the account
     /// - Returns: http request headers
-    static func defaultHeaders(region: Region) -> [String: String] {
-        [
-            "x-rpc-app_version": xRpcAppVersion(region: region),
-            "x-rpc-client_type": xRpcClientType(region: region),
+    static func defaultHeaders(region: Region, additionalHeaders: [String: String]?) async throws -> [String: String] {
+        var headers = await [
             "User-Agent": userAgent,
             "Referer": referer(region: region),
             "Origin": referer(region: region),
@@ -95,15 +95,20 @@ enum URLRequestHelperConfiguration {
             "Accept-Language": "zh-CN,zh-Hans;q=0.9",
             "Accept": "application/json, text/plain, */*",
             "Connection": "keep-alive",
-            "x-rpc-device_fp": getDeviceFingerPrint(),
-        ]
-    }
-}
 
-private func getDeviceFingerPrint() -> String {
-    if let uuidString = UIDevice.current.identifierForVendor?.uuidString {
-        return String(uuidString.md5.prefix(13))
-    } else {
-        return ""
+            "x-rpc-app_version": xRpcAppVersion(region: region),
+            "x-rpc-client_type": xRpcClientType(region: region),
+            "x-rpc-page": "3.1.3_#/rpg",
+            "x-rpc-device_id": (UIDevice.current.identifierForVendor ?? UUID()).uuidString,
+            "x-rpc-language": Locale.langCodeForAPI,
+
+            "Sec-Fetch-Dest": "empty",
+            "Sec-Fetch-Site": "same-site",
+            "Sec-Fetch-Mode": "cors",
+        ]
+        if let additionalHeaders {
+            headers.merge(additionalHeaders, uniquingKeysWith: { $1 })
+        }
+        return headers
     }
 }

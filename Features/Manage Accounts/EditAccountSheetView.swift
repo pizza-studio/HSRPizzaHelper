@@ -35,11 +35,13 @@ struct EditAccountSheetView: View {
                                 try viewContext.save()
                                 isShown.toggle()
                                 WidgetCenter.shared.reloadAllTimelines()
+                                globalDailyNoteCardRefreshSubject.send(())
                             } catch {
                                 saveAccountError = .saveDataError(error)
                                 isSaveAccountFailAlertShown.toggle()
                             }
                         }
+                        alertToastVariable.isDoneButtonTapped.toggle()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -59,6 +61,8 @@ struct EditAccountSheetView: View {
     }
 
     // MARK: Private
+
+    @EnvironmentObject private var alertToastVariable: AlertToastVariable
 
     @Environment(\.managedObjectContext) private var viewContext
 

@@ -19,6 +19,7 @@
 "err.mfe" = "エラー：コンテンツが欠落しています";
 "account.login.manual.1" = "または";
 "account.login.manual.2" = "アカウントを手動で配置する";
+"account.added.success" = "完了";
 "account.label.nickname" = "ニックネーム";
 "account.label.select" = "アカウントを選択";
 "account.label.detail" = "アカウントの詳細情報";
@@ -58,9 +59,11 @@
 "app.userpolicy.title" = "ユーザー協議";
 "setting.widget.background.destination.square" = "正方形ウィジェットの背景";
 "setting.widget.background.destination.rectangular" = "長方形ウィジェットの背景";
+"setting.widget.holdon.tips" = "ウィジェット画面でウィジェットを長押しすると、詳細なウィジェット編集が可能です。";
 "setting.widget.background.manage.add.title" = "背景イメージを追加";
 "setting.widget.background.manage.reselect" = "イメージを選択";
 "setting.widget.background.title" = "ウィジェットの背景";
+"setting.widget.Background.delete.tips" = "追加した背景を長押しすると、名前の変更や削除ができます。";
 "sys.save" = "セーブ";
 "setting.widget.background.manage.add.preview" = "プレビュー";
 "setting.widget.background.manage.add.name" = "背景名";
@@ -133,9 +136,10 @@
 "sys.label.contact" = "開発者と連絡先";
 "sys.contact.title.developer" = "開発者";
 "sys.contact.lava" = "Lava";
+"sys.contact.hakubill" = "Bill Haku";
+"sys.contact.whiteblock" = "WhiteBlock";
 "sys.contact.title.bilibili" = "ビリビリHP";
 "sys.contact.title.github" = "GitHub HP";
-"sys.contact.hakubill" = "Bill Haku";
 "sys.contact.title.homepage" = "個人HP";
 "sys.contact.title.twitter" = "Twitter HP";
 "sys.contact.title.youtube" = "YouTubeチャンネル";
@@ -188,3 +192,6 @@
 "Widget_Background_Luocha" = "羅刹";
 "Widget_Background_Party" = "開拓者たちのパーティ";
 "Widget_Background_Seele" = "ゼーレ";
+"account.fp.label" = "デバイス指紋";
+"account.fp.footer" = "（中国本土サーバーのアカンウトに限定）HoYoLABに保存されている同じデバイス指紋を入力することで、エラー1034の発生を回避することができます。デバイス指紋は、HoYoLABのネットワークリクエストをキャプチャすることで取得する必要があります。[チュートリアル](https://hsr.ophelper.top/static/fp_tutorial_ja)をご提供していますので、参考にしてください。";
+"account.fp.guide" = "頻繁に1034エラーに遭遇しないように、こちらにデバイスの指紋を追加することをおすすめします。";

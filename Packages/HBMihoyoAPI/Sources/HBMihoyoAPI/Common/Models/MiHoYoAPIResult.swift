@@ -12,8 +12,20 @@ import Foundation
 /// A protocol that enables decoding from MiHoYoAPI JSON results
 protocol DecodableFromMiHoYoAPIJSONResult: Decodable {}
 
+@available(iOS 15.0, *)
 extension DecodableFromMiHoYoAPIJSONResult {
     /// Decodes data from MiHoYoAPI JSON results
+    static func decodeFromMiHoYoAPIJSONResult(data: Data, with request: URLRequest) async throws -> Self {
+        let decoder = JSONDecoder()
+        let result = try decoder.decode(MiHoYoAPIJSONResult<Self>.self, from: data)
+        if result.retcode == 0 {
+            // swiftlint:disable:next force_unwrapping
+            return result.data!
+        } else {
+            throw MiHoYoAPIError(retcode: result.retcode, message: result.message)
+        }
+    }
+
     static func decodeFromMiHoYoAPIJSONResult(data: Data) throws -> Self {
         let decoder = JSONDecoder()
         let result = try decoder.decode(MiHoYoAPIJSONResult<Self>.self, from: data)

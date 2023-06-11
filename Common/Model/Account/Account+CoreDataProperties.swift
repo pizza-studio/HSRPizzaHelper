@@ -42,6 +42,17 @@ extension Account {
     @NSManaged public var uuid: UUID!
 
     @NSManaged public var allowNotification: NSNumber!
+
+    /// The UID of the account.
+    @NSManaged public var deviceFingerPrintInner: String?
+
+    var deviceFingerPrint: String {
+        get {
+            deviceFingerPrintInner ?? ""
+        } set {
+            deviceFingerPrintInner = newValue
+        }
+    }
 }
 
 // MARK: - Account + Identifiable

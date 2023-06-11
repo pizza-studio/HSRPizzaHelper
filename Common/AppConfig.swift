@@ -91,3 +91,5 @@ enum AppLanguage {
     /// Japanese
     case ja
 }
+
+// swiftlint:enable identifier_name
