@@ -10,7 +10,7 @@ import SwiftUI
 import WebKit
 
 struct GeetestValidateView: UIViewRepresentable {
-    class Coordinator: NSObject, WKNavigationDelegate {
+    class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         // MARK: Lifecycle
 
         init(_ parent: GeetestValidateView) {
@@ -21,46 +21,22 @@ struct GeetestValidateView: UIViewRepresentable {
 
         var parent: GeetestValidateView
 
-        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            // 检查标识，确保只获取一次 validate.value 的内容
-            guard !parent.isValidationObtained else {
-                return
-            }
-
-            // 执行 JavaScript 代码获取 validate.value 的内容
-            var shouldBreak = false
-
-            // 创建一个 Timer，每隔 1 秒执行一次代码
-            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-                // 在这里编写你要执行的代码
-                webView.evaluateJavaScript("document.getElementById('validate').value") { result, _ in
-                    if let validate = result as? String, !validate.isEmpty {
-                        // 在这里处理获取到的 validate.value 内容
-                        print("validate: " + validate)
-//                        self.parent.validate = validate
-                        self.parent.finishWithValidate(validate)
-                        self.parent.isValidationObtained = true // 设置标识为已获取
-                        shouldBreak = true
-                    }
+        // Receive message from website
+        func userContentController(
+            _ userContentController: WKUserContentController,
+            didReceive message: WKScriptMessage
+        ) {
+            if message.name == "callbackHandler" {
+                if let messageBody = message.body as? String {
+                    print("validate: \(messageBody)")
+                    parent.finishWithValidate(messageBody)
                 }
-
-                // 检查特定条件，满足条件时设置 shouldBreak 为 true，退出循环
-                if shouldBreak {
-                    timer.invalidate() // 停止 Timer
-                }
-            }
-
-            // 将 Timer 添加到当前运行循环中
-            RunLoop.current.add(timer, forMode: .common)
-
-            // 进入循环，直到 Timer 停止或满足特定条件时退出
-            while timer.isValid, !shouldBreak {
-                RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
             }
         }
     }
 
     let challenge: String
+    // swiftlint:disable:next identifier_name
     let gt: String
 
     let webView = WKWebView()
@@ -70,18 +46,26 @@ struct GeetestValidateView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> WKWebView {
         webView.navigationDelegate = context.coordinator
+        webView.configuration.userContentController.add(context.coordinator, name: "callbackHandler")
         return webView
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        let urlStr =
-            // swiftlint:disable:next line_length
-            "https://ophelper.top/geetest/?challenge=\(challenge)&gt=\(gt)"
-        let url = URL(string: urlStr)
-        var request = URLRequest(url: url!)
+        let url = URL(string: "https://ophelper.top/geetest/")!
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        components?.queryItems = [
+            URLQueryItem(name: "challenge", value: challenge),
+            URLQueryItem(name: "gt", value: gt),
+        ]
+        guard let finalURL = components?.url else {
+            return
+        }
+
+        var request = URLRequest(url: finalURL)
         request.allHTTPHeaderFields = [
             "Referer": "https://webstatic.mihoyo.com",
         ]
+
         uiView.load(request)
     }
 
