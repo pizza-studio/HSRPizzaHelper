@@ -70,7 +70,7 @@ struct TestAccountView: View {
                     .foregroundColor(.red)
             case .testing:
                 ProgressView()
-            case .verificationNeeded(_):
+            case .verificationNeeded:
                 Image(systemSymbol: .questionmarkCircle)
                     .foregroundColor(.yellow)
             default:
