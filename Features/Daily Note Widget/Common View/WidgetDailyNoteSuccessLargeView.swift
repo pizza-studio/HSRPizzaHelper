@@ -23,7 +23,7 @@ struct WidgetDailyNoteSuccessLargeView: View {
             switch entry.configuration.staminaPosition {
             case .left: return .left
             case .right: return .right
-            case .center: return .center
+            case .center: return .middleCenter
             }
         }())
     }

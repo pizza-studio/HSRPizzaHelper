@@ -82,9 +82,6 @@ struct AccountDetailView: View {
             } header: {
                 Text("account.fp.label")
                     .textCase(.none)
-            } footer: {
-                Text("account.fp.footer")
-                    .textCase(.none)
             }
         }
         .navigationBarTitle("account.label.detail", displayMode: .inline)

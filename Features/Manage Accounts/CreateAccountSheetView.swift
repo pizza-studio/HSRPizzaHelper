@@ -39,6 +39,7 @@ struct CreateAccountSheetView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
                         saveAccount()
+                        globalDailyNoteCardRefreshSubject.send(())
                         alertToastVariable.isDoneButtonTapped.toggle()
                     }
                 }
@@ -106,6 +107,10 @@ struct CreateAccountSheetView: View {
                         self.account.server = Server(rawValue: account.region) ?? .china
                     } else {
                         getAccountError = .customize("account.login.error.no.account.found")
+                    }
+                    // Get device finger print
+                    if account.server.region == .china {
+                        account.deviceFingerPrint = try await MiHoYoAPI.getDeviceFingerPrint(region: region)
                     }
                     status = .gotAccount
                 } catch {

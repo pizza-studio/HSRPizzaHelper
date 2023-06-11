@@ -195,3 +195,9 @@
 "account.fp.label" = "Device FP";
 "account.fp.footer" = "(For Accounts of China Mainland Servers) By entering the same device fingerprint stored in the HoYoLAB App, you can avoid encountering Error 1034. The device fingerprint needs to be obtained by capturing the network requests of the HoYoLAB App. We have provided a [tutorial](https://hsr.ophelper.top/static/fp_tutorial_en) to guide you through the process.";
 "account.fp.guide" = "You are suggested to add your device fingerprint here to avoid encountering 1034 error frequently.";
+"account.test.verify.web_sheet.title" = "Verification";
+"account.test.verify.button" = "Please tap here to enter the verification code. ";
+"app.dailynote.card.error.need_verification.button" = "Verification Needed";
+"mihoyoapi.error.verification_needed.description" = "Verification Needed";
+"mihoyoapi.error.general_error.recovery_suggestion" = "Please enter the app to see more. ";
+"mihoyoapi.error.verification_needed.recovery_suggestion" = "Please enter the app to pass the verification. ";

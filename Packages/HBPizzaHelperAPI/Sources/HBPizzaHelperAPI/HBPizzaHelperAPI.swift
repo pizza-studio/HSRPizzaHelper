@@ -1,7 +1,7 @@
 import Foundation
 import HBMihoyoAPI
 
-@available(iOS 13, watchOS 7, *)
+@available(iOS 15, watchOS 7, *)
 public enum PizzaHelperAPI {
     // MARK: Public
 

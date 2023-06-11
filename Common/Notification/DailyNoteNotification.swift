@@ -25,7 +25,7 @@ extension HSRNotificationCenter {
                 withIdentifiers: requests
                     .map(\.identifier)
                     .filter { id in
-                        id.contains(account.uuid.uuidString)
+                        id.contains(account.uuid?.uuidString ?? "")
                     }
             )
         }

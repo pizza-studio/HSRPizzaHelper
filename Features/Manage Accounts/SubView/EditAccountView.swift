@@ -5,6 +5,7 @@
 //  Created by 戴藏龙 on 2023/5/5.
 //
 
+import Combine
 import HBMihoyoAPI
 import SwiftUI
 
@@ -14,7 +15,9 @@ struct EditAccountView: View {
     // MARK: Internal
 
     @StateObject var account: Account
+
     var accountsForSelected: [FetchedAccount]?
+    @State var validate: String = ""
 
     var body: some View {
         Section {
@@ -53,11 +56,8 @@ struct EditAccountView: View {
             } label: {
                 Text("account.label.detail")
             }
-        } footer: {
-            if account.server.region == .china {
-                Text("account.fp.guide")
-            }
         }
+
         Section {
             TestAccountView(account: account)
         }

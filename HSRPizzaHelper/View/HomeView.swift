@@ -18,11 +18,11 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                DailyNoteCards(refreshSubject: dailyNoteRefreshSubject)
+                DailyNoteCards()
             }
             .navigationTitle("home.title")
             .refreshable {
-                dailyNoteRefreshSubject.send()
+                globalDailyNoteCardRefreshSubject.send(())
                 WidgetCenter.shared.reloadAllTimelines()
             }
             .toast(isPresenting: $alertToastVariable.isDoneButtonTapped) {
@@ -40,6 +40,4 @@ struct HomeView: View {
     // MARK: Private
 
     @StateObject private var alertToastVariable = AlertToastVariable()
-
-    @State private var dailyNoteRefreshSubject = PassthroughSubject<(), Never>()
 }
