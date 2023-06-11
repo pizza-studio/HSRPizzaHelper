@@ -201,3 +201,4 @@
 "mihoyoapi.error.verification_needed.description" = "Verification Needed";
 "mihoyoapi.error.general_error.recovery_suggestion" = "Please enter the app to see more. ";
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "Please enter the app to pass the verification. ";
+"app.dailynote.card.error.other_error.button" = "An Error Occurs";

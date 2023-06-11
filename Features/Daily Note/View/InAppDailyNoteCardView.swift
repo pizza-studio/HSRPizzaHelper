@@ -174,7 +174,7 @@ private struct ErrorView: View {
                 }
             default:
                 Label {
-                    Text("app.dailynote.card.error.need_verification.button")
+                    Text("app.dailynote.card.error.other_error.button")
                 } icon: {
                     Image(systemSymbol: .exclamationmarkCircle)
                         .foregroundColor(.red)
