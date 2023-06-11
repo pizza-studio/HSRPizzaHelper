@@ -142,35 +142,52 @@ struct TestAccountView: View {
         var body: some View {
             Button("Verify") {
                 status = .progressing
-                Task(priority: .userInitiated) {
-                    do {
-                        let verification = try await MiHoYoAPI.createVerification(
-                            cookie: account.cookie,
-                            deviceFingerPrint: account.deviceFingerPrint
-                        )
-                        status = .gotVerification(verification)
-                        sheetItem = .gotVerification(verification)
-                    } catch {
-                        status = .fail(error)
-                    }
-                }
+                popVerificationWebSheet()
+            }
+            .onAppear {
+                popVerificationWebSheet()
             }
             .sheet(item: $sheetItem, content: { item in
                 switch item {
                 case let .gotVerification(verification):
-                    GeetestValidateView(
-                        challenge: verification.challenge,
-                        gt: verification.gt,
-                        completion: { validate in
-                            status = .pending
-                            verifyValidate(challenge: verification.challenge, validate: validate)
-                            sheetItem = nil
+                    NavigationView {
+                        GeetestValidateView(
+                            challenge: verification.challenge,
+                            gt: verification.gt,
+                            completion: { validate in
+                                status = .pending
+                                verifyValidate(challenge: verification.challenge, validate: validate)
+                                sheetItem = nil
+                            }
+                        )
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button("sys.cancel") {
+                                    sheetItem = nil
+                                }
+                            }
                         }
-                    )
+                        .navigationTitle("account.test.verify.web_sheet.title")
+                    }
                 }
             })
             if case let .fail(error) = status {
                 Text("Error: \(error.localizedDescription)")
+            }
+        }
+
+        func popVerificationWebSheet() {
+            Task(priority: .userInitiated) {
+                do {
+                    let verification = try await MiHoYoAPI.createVerification(
+                        cookie: account.cookie,
+                        deviceFingerPrint: account.deviceFingerPrint
+                    )
+                    status = .gotVerification(verification)
+                    sheetItem = .gotVerification(verification)
+                } catch {
+                    status = .fail(error)
+                }
             }
         }
 
@@ -183,7 +200,9 @@ struct TestAccountView: View {
                         cookie: account.cookie,
                         deviceFingerPrint: account.deviceFingerPrint
                     )
-                    shouldRefreshAccountSubject.send(())
+                    withAnimation {
+                        shouldRefreshAccountSubject.send(())
+                    }
                 } catch {
                     status = .fail(error)
                 }
