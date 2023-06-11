@@ -74,7 +74,7 @@ extension MiHoYoAPI {
         encoder.keyEncodingStrategy = .convertToSnakeCase
         let bodyData = try encoder.encode(body)
 
-        var urlComponents =
+        let urlComponents =
             URLComponents(string: "https://api-takumi-record.mihoyo.com/game_record/app/card/wapi/verifyVerification")!
         let url = urlComponents.url!
 
