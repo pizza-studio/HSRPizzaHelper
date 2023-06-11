@@ -108,7 +108,7 @@ struct CreateAccountSheetView: View {
                         getAccountError = .customize("account.login.error.no.account.found")
                     }
                     // Get device finger print
-                    if self.account.server.region == .china {
+                    if account.server.region == .china {
                         account.deviceFingerPrint = try await MiHoYoAPI.getDeviceFingerPrint(region: region)
                     }
                     status = .gotAccount
