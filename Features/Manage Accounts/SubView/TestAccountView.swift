@@ -171,6 +171,7 @@ struct TestAccountView: View {
                             }
                         }
                         .inlineNavigationTitle("account.test.verify.web_sheet.title")
+                        .navigationViewStyle(.stack)
                     }
                 }
             })
