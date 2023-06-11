@@ -19,8 +19,21 @@ extension MiHoYoAPIError: LocalizedError {
                 message
             )
         case .verificationNeeded:
-            // TODO: replace prompt
-            return "Validation Needed"
+            return "mihoyoapi.error.verification_needed.description".localized()
+        }
+    }
+
+    public var recoverySuggestion: String? {
+        switch self {
+        case let .other(retcode: retcode, message: message):
+            return String(
+                format: "mihoyoapi.error.errdesc"
+                    .localized(comment: "Error(retcode): message"),
+                retcode,
+                message
+            )
+        case .verificationNeeded:
+            return "mihoyo_api.error.verification_needed.description".localized()
         }
     }
 }

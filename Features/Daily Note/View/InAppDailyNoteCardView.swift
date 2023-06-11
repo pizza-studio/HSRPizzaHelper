@@ -36,7 +36,7 @@ struct InAppDailyNoteCardView: View {
                 case let .success(note):
                     NoteView(account: account, note: note)
                 case let .failure(error):
-                    ErrorView(account: account, error: error)
+                    ErrorView(account: account, error: error, refreshSubject: thisAccountRefreshSubject)
                 }
             }
         } header: {
@@ -45,6 +45,11 @@ struct InAppDailyNoteCardView: View {
             }
         }
         .onReceive(refreshSubject, perform: { _ in
+            Task {
+                await dailyNoteViewModel.getDailyNoteUncheck()
+            }
+        })
+        .onReceive(thisAccountRefreshSubject, perform: { _ in
             Task {
                 await dailyNoteViewModel.getDailyNoteUncheck()
             }
@@ -59,6 +64,8 @@ struct InAppDailyNoteCardView: View {
     // MARK: Private
 
     private let refreshSubject: PassthroughSubject<(), Never>
+
+    @State private var thisAccountRefreshSubject = PassthroughSubject<(), Never>()
 
     @StateObject private var dailyNoteViewModel: DailyNoteViewModel
 
@@ -161,22 +168,137 @@ private struct ErrorView: View {
     let account: Account
     let error: Error
 
+    let refreshSubject: PassthroughSubject<(), Never>
+
     var body: some View {
-        HStack {
-            Spacer()
-            Image(systemSymbol: .exclamationmarkCircle)
-                .foregroundColor(.red)
-            Spacer()
-        }
-        .onTapGesture {
-            isEditAccountSheetShown.toggle()
-        }
-        .sheet(isPresented: $isEditAccountSheetShown) {
-            EditAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
+        switch error {
+        case MiHoYoAPIError.verificationNeeded:
+            VerificationNeededView(account: account, shouldRefreshAccountSubject: refreshSubject)
+        default:
+            Button {
+                isEditAccountSheetShown.toggle()
+            } label: {
+                HStack {
+                    Spacer()
+                    Image(systemSymbol: .exclamationmarkCircle)
+                        .foregroundColor(.red)
+                    Spacer()
+                }
+            }
+            .sheet(isPresented: $isEditAccountSheetShown) {
+                EditAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
+            }
         }
     }
 
     // MARK: Private
+
+    private struct VerificationNeededView: View {
+        // MARK: Internal
+
+        let account: Account
+        let shouldRefreshAccountSubject: PassthroughSubject<(), Never>
+
+        var body: some View {
+            Button {
+                status = .progressing
+                popVerificationWebSheet()
+            } label: {
+                Label {
+                    Text("app.dailynote.card.error.need_verification.button")
+                } icon: {
+                    Image(systemSymbol: .questionmarkCircle)
+                        .foregroundColor(.yellow)
+                }
+            }
+            .sheet(item: $sheetItem, content: { item in
+                switch item {
+                case let .gotVerification(verification):
+                    NavigationView {
+                        GeetestValidateView(
+                            challenge: verification.challenge,
+                            gt: verification.gt,
+                            completion: { validate in
+                                status = .pending
+                                verifyValidate(challenge: verification.challenge, validate: validate)
+                                sheetItem = nil
+                            }
+                        )
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button("sys.cancel") {
+                                    sheetItem = nil
+                                }
+                            }
+                        }
+                        .inlineNavigationTitle("account.test.verify.web_sheet.title")
+                    }
+                }
+            })
+            if case let .fail(error) = status {
+                Text("Error: \(error.localizedDescription)")
+            }
+        }
+
+        func popVerificationWebSheet() {
+            Task(priority: .userInitiated) {
+                do {
+                    let verification = try await MiHoYoAPI.createVerification(
+                        cookie: account.cookie,
+                        deviceFingerPrint: account.deviceFingerPrint
+                    )
+                    status = .gotVerification(verification)
+                    sheetItem = .gotVerification(verification)
+                } catch {
+                    status = .fail(error)
+                }
+            }
+        }
+
+        func verifyValidate(challenge: String, validate: String) {
+            Task {
+                do {
+                    _ = try await MiHoYoAPI.verifyVerification(
+                        challenge: challenge,
+                        validate: validate,
+                        cookie: account.cookie,
+                        deviceFingerPrint: account.deviceFingerPrint
+                    )
+                    withAnimation {
+                        shouldRefreshAccountSubject.send(())
+                    }
+                } catch {
+                    status = .fail(error)
+                }
+            }
+        }
+
+        // MARK: Private
+
+        private enum Status {
+            case pending
+            case progressing
+            case gotVerification(Verification)
+            case fail(Error)
+        }
+
+        private enum SheetItem: Identifiable {
+            case gotVerification(Verification)
+
+            // MARK: Internal
+
+            var id: Int {
+                switch self {
+                case let .gotVerification(verification):
+                    return verification.challenge.hashValue
+                }
+            }
+        }
+
+        @State private var status: Status = .progressing
+
+        @State private var sheetItem: SheetItem?
+    }
 
     @State private var isEditAccountSheetShown: Bool = false
 }
