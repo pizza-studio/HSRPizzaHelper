@@ -59,16 +59,11 @@ struct EditAccountView: View {
         }
 
         Section {
-            TestAccountView(account: account, shouldTestAccountSubject: shouldTestAccountSubject)
-                .onAppear {
-                    shouldTestAccountSubject.send(())
-                }
+            TestAccountView(account: account)
         }
     }
 
     // MARK: Private
-
-    @State private var shouldTestAccountSubject: PassthroughSubject<(), Never> = .init()
 
     private var accountName: Binding<String> {
         .init {

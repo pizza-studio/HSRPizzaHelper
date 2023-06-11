@@ -10,19 +10,20 @@ import SwiftUI
 
 // MARK: - DailyNoteCards
 
+let globalDailyNoteCardRefreshSubject: PassthroughSubject<(), Never> = .init()
+
+// MARK: - DailyNoteCards
+
 struct DailyNoteCards: View {
     // MARK: Internal
 
     @State var isNewAccountSheetShow = false
 
-    let refreshSubject: PassthroughSubject<(), Never>
-
     var body: some View {
         ForEach(accounts) { account in
             if account.isValid() {
                 InAppDailyNoteCardView(
-                    account: account,
-                    refreshSubject: refreshSubject
+                    account: account
                 )
             }
         }
@@ -35,6 +36,8 @@ struct DailyNoteCards: View {
     }
 
     // MARK: Private
+
+    private let refreshSubject: PassthroughSubject<(), Never> = globalDailyNoteCardRefreshSubject
 
     @Environment(\.managedObjectContext) private var viewContext
 

@@ -13,7 +13,6 @@ struct TestAccountView: View {
     // MARK: Internal
 
     let account: Account
-    let shouldTestAccountSubject: PassthroughSubject<(), Never>
 
     var body: some View {
         Group {
@@ -30,10 +29,12 @@ struct TestAccountView: View {
             if case let .failure(error) = status {
                 FailureView(error: error)
             } else if status == .verificationNeeded {
-                VerificationNeededView(account: account, shouldRefreshAccountSubject: shouldTestAccountSubject)
+                VerificationNeededView(account: account) {
+                    doTest()
+                }
             }
         }
-        .onReceive(shouldTestAccountSubject) { _ in
+        .onAppear {
             doTest()
         }
     }
@@ -137,23 +138,15 @@ struct TestAccountView: View {
         // MARK: Internal
 
         let account: Account
-        let shouldRefreshAccountSubject: PassthroughSubject<(), Never>
+        @State var shouldRefreshAccount: () -> ()
 
         var body: some View {
             Button {
                 status = .progressing
                 popVerificationWebSheet()
             } label: {
-                switch status {
-                case .pending:
-                    Text("account.test.verify.button")
-                default:
-                    ProgressView()
-                }
+                Text("account.test.verify.button")
             }
-            .disabled({
-                if case .progressing = status { return true } else { return false }
-            }())
             .onAppear {
                 popVerificationWebSheet()
             }
@@ -211,7 +204,7 @@ struct TestAccountView: View {
                         deviceFingerPrint: account.deviceFingerPrint
                     )
                     withAnimation {
-                        shouldRefreshAccountSubject.send(())
+                        shouldRefreshAccount()
                     }
                 } catch {
                     status = .fail(error)

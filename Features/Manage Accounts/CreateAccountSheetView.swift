@@ -39,6 +39,7 @@ struct CreateAccountSheetView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
                         saveAccount()
+                        globalDailyNoteCardRefreshSubject.send(())
                         alertToastVariable.isDoneButtonTapped.toggle()
                     }
                 }
