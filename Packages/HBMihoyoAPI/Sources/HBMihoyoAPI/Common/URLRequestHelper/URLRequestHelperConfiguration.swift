@@ -100,7 +100,6 @@ enum URLRequestHelperConfiguration {
 
             "x-rpc-app_version": xRpcAppVersion(region: region),
             "x-rpc-client_type": xRpcClientType(region: region),
-            "x-rpc-device_fp": try await getDeviceFingerPrint(region: region),
             "x-rpc-page": "3.1.3_#/rpg",
             "x-rpc-device_id": (UIDevice.current.identifierForVendor ?? UUID()).uuidString,
             "x-rpc-language": Locale.langCodeForAPI,
@@ -158,7 +157,8 @@ enum URLRequestHelperConfiguration {
         request.httpBody = try JSONEncoder().encode(body)
         request.httpMethod = "POST"
         let (data, _) = try await URLSession.shared.data(for: request)
-        let fingerPrint = try DeviceFingerPrintResult.decodeFromMiHoYoAPIJSONResult(data: data).device_fp
+        let fingerPrint = try await DeviceFingerPrintResult.decodeFromMiHoYoAPIJSONResult(data: data, with: request)
+            .device_fp
         return fingerPrint
     }
 }

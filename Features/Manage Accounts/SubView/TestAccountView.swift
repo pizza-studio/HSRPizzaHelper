@@ -26,6 +26,8 @@ struct TestAccountView: View {
         .disabled(status == .testing)
         if case let .failure(error) = status {
             FailureView(error: error)
+        } else if case let .verificationNeeded(verification) = status {
+            VerificationNeededView(account: account, verification: verification)
         }
     }
 
@@ -43,6 +45,10 @@ struct TestAccountView: View {
                 )
                 withAnimation {
                     status = .succeeded
+                }
+            } catch let MiHoYoAPIError.verificationNeeded(verification: verification) {
+                withAnimation {
+                    status = .verificationNeeded(verification)
                 }
             } catch {
                 withAnimation {
@@ -64,6 +70,9 @@ struct TestAccountView: View {
                     .foregroundColor(.red)
             case .testing:
                 ProgressView()
+            case .verificationNeeded(_):
+                Image(systemSymbol: .questionmarkCircle)
+                    .foregroundColor(.yellow)
             default:
                 EmptyView()
             }
@@ -77,6 +86,7 @@ struct TestAccountView: View {
         case testing
         case succeeded
         case failure(Error)
+        case verificationNeeded(Verification)
 
         // MARK: Internal
 
@@ -90,6 +100,8 @@ struct TestAccountView: View {
                 return 2
             case let .failure(error):
                 return error.localizedDescription.hashValue
+            case let .verificationNeeded(verification):
+                return verification.challenge.hashValue
             }
         }
 
@@ -111,6 +123,16 @@ struct TestAccountView: View {
                     Text(recoverySuggestion)
                 }
             }
+        }
+    }
+
+    private struct VerificationNeededView: View {
+        let account: Account
+        let verification: Verification
+
+        var body: some View {
+            Text("Challenge: \(verification.challenge)")
+            Text("Gt: \(verification.gt)")
         }
     }
 

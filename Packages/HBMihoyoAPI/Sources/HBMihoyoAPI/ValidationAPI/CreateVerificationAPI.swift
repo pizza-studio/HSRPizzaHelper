@@ -1,6 +1,6 @@
 //
 //  CreateVerificationAPI.swift
-//  
+//
 //
 //  Created by 戴藏龙 on 2023/6/11.
 //
@@ -9,7 +9,7 @@ import Foundation
 
 @available(iOS 15.0, *)
 extension MiHoYoAPI {
-    public func createVerification(cookie: String, deviceFingerPrint: String?) async throws -> Verification {
+    public static func createVerification(cookie: String, deviceFingerPrint: String?) async throws -> Verification {
         let queryItems: [URLQueryItem] = [
             .init(name: "is_high", value: "true"),
         ]
@@ -21,9 +21,10 @@ extension MiHoYoAPI {
             }
         }()
 
-        var urlComponents = URLComponents(string: "https://api-takumi-record.mihoyo.com/game_record/app/card/wapi/createVerification")!
+        var urlComponents =
+            URLComponents(string: "https://api-takumi-record.mihoyo.com/game_record/app/card/wapi/createVerification")!
         urlComponents.queryItems = queryItems
-        var url = urlComponents.url!
+        let url = urlComponents.url!
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

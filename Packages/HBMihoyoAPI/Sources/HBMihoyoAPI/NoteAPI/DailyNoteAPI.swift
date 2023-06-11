@@ -49,7 +49,7 @@ extension MiHoYoAPI {
 
         let (data, _) = try await URLSession.shared.data(for: request)
 
-        return try .decodeFromMiHoYoAPIJSONResult(data: data)
+        return try await .decodeFromMiHoYoAPIJSONResult(data: data, with: request)
 //        #endif
     }
 }
