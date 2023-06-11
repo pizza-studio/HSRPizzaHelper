@@ -56,10 +56,6 @@ struct EditAccountView: View {
             } label: {
                 Text("account.label.detail")
             }
-        } footer: {
-            if account.server.region == .china {
-                Text("account.fp.guide")
-            }
         }
 
         Section {
