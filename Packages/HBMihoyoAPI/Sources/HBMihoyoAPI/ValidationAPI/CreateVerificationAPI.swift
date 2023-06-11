@@ -13,13 +13,14 @@ extension MiHoYoAPI {
         let queryItems: [URLQueryItem] = [
             .init(name: "is_high", value: "true"),
         ]
-        let additionalHeaders: [String: String]? = {
-            if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
-                return ["x-rpc-device_fp": deviceFingerPrint]
-            } else {
-                return nil
-            }
-        }()
+
+        var additionalHeaders: [String: String] = [:]
+        if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
+            additionalHeaders["x-rpc-device_fp"] = deviceFingerPrint
+        }
+        additionalHeaders["x-rpc-challenge_path"] =
+            "https://api-takumi-record.mihoyo.com/game_record/app/hkrpg/api/note"
+        additionalHeaders["x-rpc-challenge_game"] = "6"
 
         var urlComponents =
             URLComponents(string: "https://api-takumi-record.mihoyo.com/game_record/app/card/wapi/createVerification")!
@@ -50,13 +51,13 @@ extension MiHoYoAPI {
         deviceFingerPrint: String?
     ) async throws
         -> VerifyVerification {
-        let additionalHeaders: [String: String]? = {
-            if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
-                return ["x-rpc-device_fp": deviceFingerPrint]
-            } else {
-                return nil
-            }
-        }()
+        var additionalHeaders: [String: String] = [:]
+        if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
+            additionalHeaders["x-rpc-device_fp"] = deviceFingerPrint
+        }
+        additionalHeaders["x-rpc-challenge_path"] =
+            "https://api-takumi-record.mihoyo.com/game_record/app/hkrpg/api/note"
+        additionalHeaders["x-rpc-challenge_game"] = "6"
 
         struct VerifyVerificationBody: Encodable {
             let geetestChallenge: String

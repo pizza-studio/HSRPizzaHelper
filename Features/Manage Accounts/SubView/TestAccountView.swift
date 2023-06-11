@@ -177,7 +177,7 @@ struct TestAccountView: View {
         func verifyValidate(challenge: String, validate: String) {
             Task {
                 do {
-                    let _ = try await MiHoYoAPI.verifyVerification(
+                    _ = try await MiHoYoAPI.verifyVerification(
                         challenge: challenge,
                         validate: validate,
                         cookie: account.cookie,
