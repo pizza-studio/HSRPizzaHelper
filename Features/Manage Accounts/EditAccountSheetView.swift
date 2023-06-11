@@ -35,6 +35,7 @@ struct EditAccountSheetView: View {
                                 try viewContext.save()
                                 isShown.toggle()
                                 WidgetCenter.shared.reloadAllTimelines()
+                                globalDailyNoteCardRefreshSubject.send(())
                             } catch {
                                 saveAccountError = .saveDataError(error)
                                 isSaveAccountFailAlertShown.toggle()

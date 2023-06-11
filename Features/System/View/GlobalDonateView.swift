@@ -9,6 +9,14 @@ import StoreKit
 import SwiftUI
 
 struct GlobalDonateView: View {
+    // MARK: Lifecycle
+
+    init(storeManager: StoreManager = StoreManager()) {
+        self._storeManager = StateObject(wrappedValue: storeManager)
+        SKPaymentQueue.default().add(storeManager)
+        storeManager.getProducts(productIDs: productIDs)
+    }
+
     // MARK: Internal
 
     let locale = Locale.current
@@ -80,10 +88,6 @@ struct GlobalDonateView: View {
         }
         .navigationTitle("sys.label.support")
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            SKPaymentQueue.default().add(storeManager)
-            storeManager.getProducts(productIDs: productIDs)
-        }
     }
 
     // MARK: Private
