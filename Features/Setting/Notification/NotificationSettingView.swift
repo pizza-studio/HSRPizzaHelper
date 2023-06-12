@@ -173,7 +173,9 @@ private struct CustomizeStaminaNotificationSettingView: View {
                             .foregroundColor(newNumberIsValid ? .primary : .red)
                     }
                     .onTapGesture {
-                        isActivated.toggle()
+                        withAnimation {
+                            isActivated.toggle()
+                        }
                     }
                     Slider(value: $newNumber, in: 10.0 ... 179.0, step: 5.0) {
                         Text("\(numberToSave)")
@@ -204,12 +206,16 @@ private struct CustomizeStaminaNotificationSettingView: View {
                 }
             }
             Section {
-                ForEach(setting.staminaAdditionalNotificationNumbers, id: \.self) { number in
+                ForEach(setting.staminaAdditionalNotificationNumbers.sorted(by: <), id: \.self) { number in
                     Text("\(number)")
                 }
                 .onDelete(perform: deleteItems)
             } header: {
                 Text("setting.notification.stamina.customize.numbers.header")
+                    .textCase(.none)
+            } footer: {
+                Text("setting.notification.stamina.customize.numbers.footer")
+                    .textCase(.none)
             }
         }
         .toolbar {

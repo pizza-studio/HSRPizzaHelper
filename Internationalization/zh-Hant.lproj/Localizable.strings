@@ -115,6 +115,7 @@
 "setting.notification.stamina.customize.numexisterr" = "通知閾值已存在";
 "setting.notification.stamina.customize.add.title" = "新增通知閾值";
 "setting.notification.stamina.customize.numbers.header" = "通知閾值";
+"setting.notification.stamina.customize.numbers.footer" = "App會在您的開拓力達到這些數值時向您發送通知。";
 "setting.notification.account.header" = "帳號";
 "setting.notification.expedition.method.summary" = "全部完成時";
 "setting.notification.expedition.method.each" = "任意一個完成時";
