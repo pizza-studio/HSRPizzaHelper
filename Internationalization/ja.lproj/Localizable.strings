@@ -111,10 +111,11 @@
 "setting.notification.expedition.header" = "派遣依頼";
 "setting.notification.expedition.allow" = "派遣依頼の通知を許可";
 "setting.notification.expedition.method" = "派遣依頼の通知時間";
-"setting.notification.stamina.customize.title" = "カスタム通知閾値";
-"setting.notification.stamina.customize.numexisterr" = "通知の閾値は既に存在しています。";
-"setting.notification.stamina.customize.add.title" = "通知の閾値を追加します";
-"setting.notification.stamina.customize.numbers.header" = "通知の閾値";
+"setting.notification.stamina.customize.title" = "カスタム通知タイミング";
+"setting.notification.stamina.customize.numexisterr" = "通知のタイミングは既に存在しています。";
+"setting.notification.stamina.customize.add.title" = "通知のタイミングを追加します";
+"setting.notification.stamina.customize.numbers.header" = "通知のタイミング";
+"setting.notification.stamina.customize.numbers.footer" = "Appは、あなたの開拓力がこれらの値に達した時に通知を送信します。";
 "setting.notification.account.header" = "アカウント";
 "setting.notification.expedition.method.summary" = "全て完了したの時";
 "setting.notification.expedition.method.each" = "任意の1つが完了したの時";

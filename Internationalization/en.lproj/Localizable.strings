@@ -114,7 +114,8 @@
 "setting.notification.stamina.customize.title" = "Customize notification threshold";
 "setting.notification.stamina.customize.numexisterr" = "Notification threshold already exists";
 "setting.notification.stamina.customize.add.title" = "Add notification threshold";
-"setting.notification.stamina.customize.numbers.header" = "Notification threshold";
+"setting.notification.stamina.customize.numbers.header" = "Notification Threshold";
+"setting.notification.stamina.customize.numbers.footer" = "App will send you notifications when your trailblaze power reaches these values.";
 "setting.notification.account.header" = "Account";
 "setting.notification.expedition.method.summary" = "All completed";
 "setting.notification.expedition.method.each" = "Each completed";
