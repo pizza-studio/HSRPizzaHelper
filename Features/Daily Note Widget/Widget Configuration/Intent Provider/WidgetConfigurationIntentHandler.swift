@@ -18,7 +18,7 @@ enum IntentAccountProvider {
         let request = Account.fetchRequest()
         let accounts = try viewContext.fetch(request)
         return .init(
-            items: accounts.map { .fromAccount($0) }
+            items: accounts.filter { $0.isValid() }.map { .fromAccount($0) }
         )
     }
 
@@ -29,10 +29,6 @@ enum IntentAccountProvider {
         let viewContext = persistenceController.container.viewContext
         let request = Account.fetchRequest()
         let accounts = try? viewContext.fetch(request)
-        if let account = accounts?.first {
-            return account
-        } else {
-            return nil
-        }
+        return accounts?.filter { $0.isValid() }.first
     }
 }
