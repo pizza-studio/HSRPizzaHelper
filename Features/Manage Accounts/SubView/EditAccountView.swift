@@ -58,9 +58,7 @@ struct EditAccountView: View {
             }
         }
 
-        Section {
-            TestAccountView(account: account)
-        }
+        TestAccountSectionView(account: account)
     }
 
     // MARK: Private
