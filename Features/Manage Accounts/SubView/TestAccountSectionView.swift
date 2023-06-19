@@ -9,13 +9,13 @@ import Combine
 import HBMihoyoAPI
 import SwiftUI
 
-struct TestAccountView: View {
+struct TestAccountSectionView: View {
     // MARK: Internal
 
     let account: Account
 
     var body: some View {
-        Group {
+        Section {
             Button {
                 doTest()
             } label: {
@@ -32,6 +32,10 @@ struct TestAccountView: View {
                 VerificationNeededView(account: account) {
                     doTest()
                 }
+            }
+        } footer: {
+            if verificationErrorHasOccurred {
+                Text("account.test.footer.recommend_device_fp")
             }
         }
         .onAppear {
@@ -57,6 +61,7 @@ struct TestAccountView: View {
             } catch MiHoYoAPIError.verificationNeeded {
                 withAnimation {
                     status = .verificationNeeded
+                    verificationErrorHasOccurred = true
                 }
             } catch {
                 withAnimation {
@@ -113,7 +118,7 @@ struct TestAccountView: View {
             }
         }
 
-        static func == (lhs: TestAccountView.TestStatus, rhs: TestAccountView.TestStatus) -> Bool {
+        static func == (lhs: TestAccountSectionView.TestStatus, rhs: TestAccountSectionView.TestStatus) -> Bool {
             lhs.id == rhs.id
         }
     }
@@ -256,4 +261,6 @@ struct TestAccountView: View {
     }
 
     @State private var status: TestStatus = .pending
+
+    @State private var verificationErrorHasOccurred: Bool = false
 }

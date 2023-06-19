@@ -50,7 +50,7 @@
 		EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
 		EA2C064F2A04AAE000A328E6 /* EditAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064E2A04AAE000A328E6 /* EditAccountView.swift */; };
-		EA2C06522A04AC5A00A328E6 /* TestAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C06512A04AC5A00A328E6 /* TestAccountView.swift */; };
+		EA2C06522A04AC5A00A328E6 /* TestAccountSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C06512A04AC5A00A328E6 /* TestAccountSectionView.swift */; };
 		EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */; };
 		EA32764F2A03852C00774126 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
 		EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA37AEB32A02CDB900E4AADA /* SwifterSwift */; };
@@ -280,7 +280,7 @@
 		EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EA2C064E2A04AAE000A328E6 /* EditAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountView.swift; sourceTree = "<group>"; };
-		EA2C06512A04AC5A00A328E6 /* TestAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountView.swift; sourceTree = "<group>"; };
+		EA2C06512A04AC5A00A328E6 /* TestAccountSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountSectionView.swift; sourceTree = "<group>"; };
 		EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountSheetView.swift; sourceTree = "<group>"; };
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
@@ -522,7 +522,7 @@
 			children = (
 				EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */,
 				EA2C064E2A04AAE000A328E6 /* EditAccountView.swift */,
-				EA2C06512A04AC5A00A328E6 /* TestAccountView.swift */,
+				EA2C06512A04AC5A00A328E6 /* TestAccountSectionView.swift */,
 				EA9D024B2A04BE3800796516 /* AccountDetailView.swift */,
 			);
 			path = SubView;
@@ -956,7 +956,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAE519A62A01738600EF23B7 /* Build configuration list for PBXNativeTarget "HSRPizzaHelper" */;
 			buildPhases = (
-				EA60BE632A0510BC00CBF10B /* ShellScript */,
+				EA60BE632A0510BC00CBF10B /* Run Script */,
 				EAF431162A02B7E4009B3C0D /* SwiftLintCheck */,
 				EAE519782A01738600EF23B7 /* Sources */,
 				EAE519792A01738600EF23B7 /* Frameworks */,
@@ -1101,7 +1101,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EA60BE632A0510BC00CBF10B /* ShellScript */ = {
+		EA60BE632A0510BC00CBF10B /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 12;
@@ -1111,6 +1111,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1240,7 +1241,7 @@
 				EA09B19D2A091B0200986D46 /* LatestVersionInformationChecker.swift in Sources */,
 				EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */,
 				EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */,
-				EA2C06522A04AC5A00A328E6 /* TestAccountView.swift in Sources */,
+				EA2C06522A04AC5A00A328E6 /* TestAccountSectionView.swift in Sources */,
 				EAE519822A01738600EF23B7 /* ContentView.swift in Sources */,
 				EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */,
 				BFDF6A862A08D6C000048FF9 /* TapticSupport.swift in Sources */,

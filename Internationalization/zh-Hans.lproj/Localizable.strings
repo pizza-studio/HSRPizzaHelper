@@ -202,3 +202,5 @@
 "mihoyoapi.error.verification_needed.description" = "需要验证";
 "mihoyoapi.error.general_error.recovery_suggestion" = "请进入App查看详情。";
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "请进入App输入验证码。";
+"app.dailynote.card.error.other_error.button" = "出现错误";
+"account.test.footer.recommend_device_fp" = "如果持续要求输入验证码，建议参考[本教程](https://hsr.ophelper.top/static/fp_tutorial)抓包填入设备指纹以规避。";
