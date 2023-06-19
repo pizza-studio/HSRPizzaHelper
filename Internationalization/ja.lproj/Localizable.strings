@@ -194,5 +194,10 @@
 "Widget_Background_Party" = "開拓者たちのパーティ";
 "Widget_Background_Seele" = "ゼーレ";
 "account.fp.label" = "デバイス指紋";
-"account.fp.footer" = "（中国本土サーバーのアカンウトに限定）HoYoLABに保存されている同じデバイス指紋を入力することで、エラー1034の発生を回避することができます。デバイス指紋は、HoYoLABのネットワークリクエストをキャプチャすることで取得する必要があります。[チュートリアル](https://hsr.ophelper.top/static/fp_tutorial_ja)をご提供していますので、参考にしてください。";
-"account.fp.guide" = "頻繁に1034エラーに遭遇しないように、こちらにデバイスの指紋を追加することをおすすめします。";
+"account.test.verify.web_sheet.title" = "人間認証";
+"account.test.verify.button" = "ここをタップして人間認証";
+"app.dailynote.card.error.need_verification.button" = "人間認証が必要";
+"mihoyoapi.error.verification_needed.description" = "人間認証が必要";
+"mihoyoapi.error.verification_needed.recovery_suggestion" = "アプリでの人間認証をお待ちしております。";
+"app.dailynote.card.error.other_error.button" = "エラーが出た";
+"account.test.footer.recommend_device_fp" = "人間認証要求が何度も出まくっている場合、[この説明文章](https://hsr.ophelper.top/static/fp_tutorial)の方法に沿って、ご自分でデバイス指紋を取ってご記入ください。そうすれば、この支障を避けることはできます。";
