@@ -176,8 +176,8 @@ struct TestAccountSectionView: View {
                             }
                         }
                         .inlineNavigationTitle("account.test.verify.web_sheet.title")
-                        .navigationViewStyle(.stack)
                     }
+                    .navigationViewStyle(.stack)
                 }
             })
             if case let .fail(error) = status {
