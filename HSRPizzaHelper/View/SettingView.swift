@@ -92,8 +92,15 @@ struct SettingView: View {
                     }
                 }
             }
+            .listStyle(.insetGrouped)
             .navigationTitle("settings.title")
+            #if os(iOS)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                ManageAccountsView()
+            }
+            #endif
         }
+        .navigationViewStyle(.columns)
     }
 }
 

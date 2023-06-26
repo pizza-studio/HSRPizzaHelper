@@ -155,7 +155,6 @@
 "sys.contact.tao" = "たお👻🍑";
 "sys.contact.shikisuen" = "ShikiSuen";
 "sys.contact.qq.group.footer" = "您可以在遇到问题时使用以上联系方式与开发者取得联系，并且收到来自开发者的最新消息。我们推荐您加入QQ频道，以便更好地与我们交流和订阅开发动态，与找到更多同好。";
-"sys.contact.opensource.title" = "其他参与贡献的开发者";
 "sys.contact.github" = "GitHub仓库";
 "sys.contact.opensource.footer" = "本项目以GPL-3协议开源。欢迎和感谢所有参与贡献的开发者。您也可以在GitHub参与开发讨论和提出issue.";
 "sys.label.contact.welcome" = "欢迎使用！";
