@@ -155,7 +155,6 @@
 "sys.contact.tao" = "Hatti";
 "sys.contact.shikisuen" = "ShikiSuen";
 "sys.contact.qq.group.footer" = "We welcome you to join the QQ Channel. You can use the contact information provided above to reach out to the developer in case of any issues and receive the latest updates from them.";
-"sys.contact.opensource.title" = "Other Contributed Developers";
 "sys.contact.github" = "GitHub Repository";
 "sys.contact.opensource.footer" = "This project is opensourced under GPL-3 License. Thanks for all the developers contributed to this project. You can also join our discussion on GitHub or raise an issue.";
 "sys.label.contact.welcome" = "Welcome!";

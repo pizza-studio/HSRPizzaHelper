@@ -155,7 +155,6 @@
 "sys.contact.tao" = "たお👻🍑";
 "sys.contact.shikisuen" = "ShikiSuen";
 "sys.contact.qq.group.footer" = "私たちは、QQチャネルへの参加をおすすめします。QQチャネルでは、より多くの友達と交流することができ、開発者からの最新情報をいち早く入手することができます。また、公式のニュースの転送やその他の多くの機能も提供されています！";
-"sys.contact.opensource.title" = "他の開発者も貢献している人々";
 "sys.contact.github" = "GitHubのリポジトリ";
 "sys.contact.opensource.footer" = "このプロジェクトはGPL-3ライセンスのもとでオープンソース化されています。参加してくれたすべての開発者に感謝し、歓迎します。また、GitHubで開発のディスカッションに参加したり、問題を提起したりすることもできます。";
 "sys.label.contact.welcome" = "こんにちは！";
