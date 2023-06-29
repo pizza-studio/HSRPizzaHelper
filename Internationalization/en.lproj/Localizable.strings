@@ -200,3 +200,5 @@
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "Please enter the app to pass the verification. ";
 "app.dailynote.card.error.other_error.button" = "An Error Occurs";
 "account.test.footer.recommend_device_fp" = "To avoid consistently being requested for verification, please set up device finger print according to [this tutorial](https://hsr.ophelper.top/static/fp_tutorial).";
+"sys.manage_hoyolab_account" = "Manage your HoYoLAB account";
+"sys.manage_hoyolab_account.footer" = "You can delete your HoYoLAB account here.";
