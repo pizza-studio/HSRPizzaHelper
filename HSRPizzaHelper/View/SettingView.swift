@@ -152,6 +152,22 @@ private struct OtherSettingsView: View {
             }
 
             Section {
+                Menu {
+                    Link(destination: URL(string: "https://user.mihoyo.com/")!) {
+                        Text("sys.server.cn")
+                    }
+                    Link(destination: URL(string: "https://account.hoyoverse.com/")!) {
+                        Text("sys.server.os")
+                    }
+                } label: {
+                    Text("sys.manage_hoyolab_account")
+                }
+            } footer: {
+                Text("sys.manage_hoyolab_account.footer")
+                    .textCase(.none)
+            }
+
+            Section {
                 NavigationLink("app.userpolicy.title") {
                     let url: String = {
                         switch AppConfig.appLanguage {

@@ -200,3 +200,5 @@
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "アプリでの人間認証をお待ちしております。";
 "app.dailynote.card.error.other_error.button" = "エラーが出た";
 "account.test.footer.recommend_device_fp" = "人間認証要求が何度も出まくっている場合、[この説明文章](https://hsr.ophelper.top/static/fp_tutorial)の方法に沿って、ご自分でデバイス指紋を取ってご記入ください。そうすれば、この支障を避けることはできます。";
+"sys.manage_hoyolab_account" = "HoYoLABアカウントを管理";
+"sys.manage_hoyolab_account.footer" = "ここでHoYoLABアカウントを削除することができます。";

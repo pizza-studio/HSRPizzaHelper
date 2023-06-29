@@ -200,3 +200,5 @@
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "請進入App完成真人認證。";
 "app.dailynote.card.error.other_error.button" = "出現錯誤";
 "account.test.footer.recommend_device_fp" = "如果持續要求真人認證的話，建議參考[該教學指引](https://hsr.ophelper.top/static/fp_tutorial)抓包填入裝置指紋、以規避該故障。";
+"sys.manage_hoyolab_account" = "管理HoYoLAB通行證";
+"sys.manage_hoyolab_account.footer" = "你可以在此處刪除HoYoLAB通行證。";
