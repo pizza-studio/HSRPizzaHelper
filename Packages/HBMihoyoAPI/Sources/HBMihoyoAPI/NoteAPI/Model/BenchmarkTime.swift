@@ -27,10 +27,21 @@ extension ReferencingBenchmarkTime {
     }
 }
 
-// MARK: - DailyNote + BenchmarkTimeEditable
+// MARK: - GeneralDailyNote + BenchmarkTimeEditable
 
-extension DailyNote: BenchmarkTimeEditable {
-    public func replacingBenchmarkTime(_ newBenchmarkTime: Date) -> DailyNote {
+extension GeneralDailyNote: BenchmarkTimeEditable {
+    public func replacingBenchmarkTime(_ newBenchmarkTime: Date) -> GeneralDailyNote {
+        var newDailyNote = self
+        newDailyNote.staminaInformation = staminaInformation.replacingBenchmarkTime(newBenchmarkTime)
+        newDailyNote.expeditionInformation = expeditionInformation.replacingBenchmarkTime(newBenchmarkTime)
+        return newDailyNote
+    }
+}
+
+// MARK: - WidgetDailyNote + BenchmarkTimeEditable
+
+extension WidgetDailyNote: BenchmarkTimeEditable {
+    public func replacingBenchmarkTime(_ newBenchmarkTime: Date) -> WidgetDailyNote {
         var newDailyNote = self
         newDailyNote.staminaInformation = staminaInformation.replacingBenchmarkTime(newBenchmarkTime)
         newDailyNote.expeditionInformation = expeditionInformation.replacingBenchmarkTime(newBenchmarkTime)

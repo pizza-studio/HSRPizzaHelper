@@ -11,6 +11,6 @@ final class HBMihoyoAPITests: XCTestCase {
     func dailyNoteDecodeTest() throws {
         let exampleURL = Bundle.module.url(forResource: "daily_note_example", withExtension: "json")!
         let exampleData = try Data(contentsOf: exampleURL)
-        _ = try DailyNote.decodeFromMiHoYoAPIJSONResult(data: exampleData)
+        _ = try GeneralDailyNote.decodeFromMiHoYoAPIJSONResult(data: exampleData)
     }
 }

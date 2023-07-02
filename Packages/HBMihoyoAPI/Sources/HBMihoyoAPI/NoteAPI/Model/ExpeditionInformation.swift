@@ -90,6 +90,8 @@ public struct ExpeditionInformation {
         case expeditions
         case totalExpeditionNumber = "total_expedition_num"
         case acceptedExpeditionNumber = "accepted_epedition_num"
+        // Mihoyo's api has a spell error here. So there are 2 keys for this field.
+        case alterKeyForAcceptedExpeditionNumber = "accepted_expedition_num"
     }
 }
 
@@ -100,7 +102,11 @@ extension ExpeditionInformation: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.expeditions = try container.decode([ExpeditionInformation.Expedition].self, forKey: .expeditions)
         self.totalExpeditionNumber = try container.decode(Int.self, forKey: .totalExpeditionNumber)
-        self.acceptedExpeditionNumber = try container.decode(Int.self, forKey: .acceptedExpeditionNumber)
+        if let acceptedExpeditionNumber = try? container.decode(Int.self, forKey: .acceptedExpeditionNumber) {
+            self.acceptedExpeditionNumber = acceptedExpeditionNumber
+        } else {
+            self.acceptedExpeditionNumber = try container.decode(Int.self, forKey: .alterKeyForAcceptedExpeditionNumber)
+        }
     }
 }
 

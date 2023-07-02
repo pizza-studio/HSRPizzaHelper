@@ -202,3 +202,5 @@
 "account.test.footer.recommend_device_fp" = "To avoid consistently being requested for verification, please set up device finger print according to [this tutorial](https://hsr.ophelper.top/static/fp_tutorial).";
 "sys.manage_hoyolab_account" = "Manage your HoYoLAB account";
 "sys.manage_hoyolab_account.footer" = "You can delete your HoYoLAB account here.";
+"app.dailynote.card.daily_training.label" = "Daily Training";
+"app.dailynote.card.simulated_universe.label" = "Simulated Universe";
