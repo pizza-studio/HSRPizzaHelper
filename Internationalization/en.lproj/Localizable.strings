@@ -204,3 +204,5 @@
 "sys.manage_hoyolab_account.footer" = "You can delete your HoYoLAB account here.";
 "app.dailynote.card.daily_training.label" = "Daily Training";
 "app.dailynote.card.simulated_universe.label" = "Simulated Universe";
+"notification.daily_training.title" = "Reminder: daily training for %@";
+"notification.daily_training.body" = "The daily training score for %@ are not fully utilized. The current count is %lld.";
