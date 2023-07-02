@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - DailyNote
 
+/// Daily note protocol. The result from 2 kind of note api use this protocol.
 public protocol DailyNote: BenchmarkTimeEditable {
     /// Stamina information
     var staminaInformation: StaminaInformation { get }

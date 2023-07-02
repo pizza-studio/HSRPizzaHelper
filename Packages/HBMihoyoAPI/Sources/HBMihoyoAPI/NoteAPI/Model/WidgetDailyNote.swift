@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Daily note data from widget api. Contain more data than the `GeneralDailyNote`
 public struct WidgetDailyNote: DecodableFromMiHoYoAPIJSONResult, DailyNote {
     // MARK: Lifecycle
 

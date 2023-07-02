@@ -9,6 +9,15 @@ import Foundation
 
 @available(iOS 15.0, *)
 extension MiHoYoAPI {
+    /// Fetches the daily note of the specified user.
+    ///
+    /// - Parameter server: The server where the user's account exists.
+    /// - Parameter uid: The uid of the user whose daily note to fetch.
+    /// - Parameter cookie: The cookie of the user. This is used for authentication purposes.
+    ///
+    /// - Throws: An error of type `MiHoYoAPIError` if an error occurs while making the API request.
+    ///
+    /// - Returns: An instance of `DailyNote` that represents the user's daily note.
     public static func note(
         server: Server,
         uid: String,
@@ -37,8 +46,8 @@ extension MiHoYoAPI {
     ///
     /// - Throws: An error of type `MiHoYoAPI.Error` if an error occurs while making the API request.
     ///
-    /// - Returns: An instance of `DailyNote` that represents the user's daily note.
-    public static func generalDailyNote(
+    /// - Returns: An instance of `GeneralDailyNote` that represents the user's daily note.
+    static func generalDailyNote(
         server: Server,
         uid: String,
         cookie: String,
@@ -73,7 +82,11 @@ extension MiHoYoAPI {
 //        #endif
     }
 
-    public static func widgetNote(
+    /// Fetches the daily note of the specified user. Using widget api.
+    /// - Parameters:
+    ///   - cookie: The cookie of the user.
+    ///   - deviceFingerPrint: The device finger print of the user.
+    static func widgetNote(
         cookie: String,
         deviceFingerPrint: String?
     ) async throws
