@@ -62,6 +62,7 @@ private class NotificationSettingViewModel: ObservableObject {
         self.staminaAdditionalNotificationNumbers = Defaults[\.staminaAdditionalNotificationNumbers]
         self.allowExpeditionNotification = Defaults[\.allowExpeditionNotification]
         self.expeditionNotificationSetting = Defaults[\.expeditionNotificationSetting]
+        self.dailyTrainingNotificationSetting = Defaults[\.dailyTrainingNotificationSetting]
     }
 
     // MARK: Internal
@@ -98,6 +99,13 @@ private class NotificationSettingViewModel: ObservableObject {
             Defaults[\.allowStaminaNotification] = allowStaminaNotification
             HSRNotificationCenter.deleteDailyNoteNotification(for: .stamina)
             HSRNotificationCenter.deleteDailyNoteNotification(for: .staminaFull)
+        }
+    }
+
+    @Published var dailyTrainingNotificationSetting: DailyNoteNotificationSetting.DailyTrainingNotificationSetting {
+        didSet {
+            Defaults[\.dailyTrainingNotificationSetting] = dailyTrainingNotificationSetting
+            HSRNotificationCenter.deleteDailyNoteNotification(for: .dailyTraining)
         }
     }
 }
@@ -148,11 +156,59 @@ private struct NotificationSettingDetailView: View {
         } header: {
             Text("setting.notification.expedition.header")
         }
+
+        Section {
+            Toggle("setting.notification.daily_training.toggle", isOn: allowDailyTrainingNotification)
+            if let bindingDate = Binding(dailyTrainingNotificationTime) {
+                DatePicker(
+                    "setting.notification.daily_training.date_picker",
+                    selection: bindingDate,
+                    displayedComponents: .hourAndMinute
+                )
+            }
+        } header: {
+            Text("setting.notification.daily_training.header")
+        } footer: {
+            Text("setting.notification.daily_training.footer")
+        }
     }
 
     // MARK: Private
 
     @StateObject private var setting: NotificationSettingViewModel = .init()
+
+    private var dailyTrainingNotificationTime: Binding<Date?> {
+        .init {
+            switch setting.dailyTrainingNotificationSetting {
+            case let .notifyAt(hour, minute):
+                return Calendar.current.nextDate(
+                    after: Date(),
+                    matching: DateComponents(hour: hour, minute: minute),
+                    matchingPolicy: .nextTime
+                )!
+            case .disallowed:
+                return nil
+            }
+        } set: { date in
+            setting.dailyTrainingNotificationSetting = .notifyAt(hour: date!.hour, minute: date!.minute)
+        }
+    }
+
+    private var allowDailyTrainingNotification: Binding<Bool> {
+        .init {
+            if case .disallowed = setting.dailyTrainingNotificationSetting {
+                return false
+            } else {
+                return true
+            }
+        } set: { newValue in
+            if !newValue {
+                setting.dailyTrainingNotificationSetting = .disallowed
+            } else {
+                setting.dailyTrainingNotificationSetting = .notifyAt(hour: 19, minute: 0)
+            }
+        }
+    }
 }
 
 // MARK: - CustomizeStaminaNotificationSettingView

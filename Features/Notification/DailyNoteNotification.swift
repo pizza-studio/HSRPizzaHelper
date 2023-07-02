@@ -327,6 +327,6 @@ extension DefaultsKeys {
     }
 
     var dailyTrainingNotificationSetting: DefaultsKey<DailyNoteNotificationSetting.DailyTrainingNotificationSetting> {
-        .init("dailyTrainingNotificationSetting", defaultValue: .notifyAt(hour: 8, minute: 0))
+        .init("dailyTrainingNotificationSetting", defaultValue: .notifyAt(hour: 19, minute: 0))
     }
 }
