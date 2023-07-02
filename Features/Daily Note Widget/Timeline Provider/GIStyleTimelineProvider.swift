@@ -48,7 +48,7 @@ extension GIStyleTimelineProvider {
 extension GIStyleTimelineProvider {
     func placeholder(in context: Context) -> GIStyleEntry {
         var expeditionWithUIImage: [(ExpeditionInformation.Expedition, [UIImage?])] = []
-        expeditionWithUIImage = DailyNote.example().expeditionInformation.expeditions.map { expedition in
+        expeditionWithUIImage = GeneralDailyNote.example().expeditionInformation.expeditions.map { expedition in
             var images: [UIImage?] = []
             expedition.avatarIconURLs.forEach { url in
                 if let data = try? Data(contentsOf: url) {
@@ -59,7 +59,7 @@ extension GIStyleTimelineProvider {
         }
         return .init(
             date: Date(),
-            dailyNoteResult: .success(.example()),
+            dailyNoteResult: .success(GeneralDailyNote.example()),
             configuration: defaultConfiguration,
             expeditionWithUIImage: expeditionWithUIImage
         )
@@ -67,7 +67,7 @@ extension GIStyleTimelineProvider {
 
     func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (GIStyleEntry) -> ()) {
         var expeditionWithUIImage: [(ExpeditionInformation.Expedition, [UIImage?])] = []
-        expeditionWithUIImage = DailyNote.example().expeditionInformation.expeditions.map { expedition in
+        expeditionWithUIImage = GeneralDailyNote.example().expeditionInformation.expeditions.map { expedition in
             var images: [UIImage?] = []
             expedition.avatarIconURLs.forEach { url in
                 if let data = try? Data(contentsOf: url) {
@@ -79,7 +79,7 @@ extension GIStyleTimelineProvider {
         completion(
             .init(
                 date: Date(),
-                dailyNoteResult: .success(.example()),
+                dailyNoteResult: .success(GeneralDailyNote.example()),
                 configuration: defaultConfiguration,
                 expeditionWithUIImage: expeditionWithUIImage
             )

@@ -42,7 +42,7 @@ struct LockscreenTimelineProvider: IntentTimelineProvider, HasDefaultAccount {
         .init(
             date: Date(),
             configuration: defaultConfiguration,
-            dailyNoteResult: .success(.example())
+            dailyNoteResult: .success(GeneralDailyNote.example())
         )
     }
 
@@ -51,7 +51,7 @@ struct LockscreenTimelineProvider: IntentTimelineProvider, HasDefaultAccount {
             .init(
                 date: Date(),
                 configuration: defaultConfiguration,
-                dailyNoteResult: .success(.example())
+                dailyNoteResult: .success(GeneralDailyNote.example())
             )
         )
     }

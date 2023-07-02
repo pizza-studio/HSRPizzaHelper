@@ -49,7 +49,7 @@ extension DailyNoteTimelineProvider {
     func placeholder(in context: Context) -> DailyNoteEntry {
         .init(
             date: Date(),
-            dailyNoteResult: .success(.example()),
+            dailyNoteResult: .success(GeneralDailyNote.example()),
             configuration: defaultConfiguration
         )
     }
@@ -58,7 +58,7 @@ extension DailyNoteTimelineProvider {
         completion(
             .init(
                 date: Date(),
-                dailyNoteResult: .success(.example()),
+                dailyNoteResult: .success(GeneralDailyNote.example()),
                 configuration: defaultConfiguration
             )
         )

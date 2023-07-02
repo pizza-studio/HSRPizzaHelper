@@ -9,6 +9,26 @@ import Foundation
 
 @available(iOS 15.0, *)
 extension MiHoYoAPI {
+    public static func note(
+        server: Server,
+        uid: String,
+        cookie: String,
+        deviceFingerPrint: String?
+    ) async throws
+        -> DailyNote {
+        switch server.region {
+        case .china:
+            return try await widgetNote(cookie: cookie, deviceFingerPrint: deviceFingerPrint)
+        case .global:
+            return try await generalDailyNote(
+                server: server,
+                uid: uid,
+                cookie: cookie,
+                deviceFingerPrint: deviceFingerPrint
+            )
+        }
+    }
+
     /// Fetches the daily note of the specified user.
     ///
     /// - Parameter server: The server where the user's account exists.
@@ -18,13 +38,13 @@ extension MiHoYoAPI {
     /// - Throws: An error of type `MiHoYoAPI.Error` if an error occurs while making the API request.
     ///
     /// - Returns: An instance of `DailyNote` that represents the user's daily note.
-    public static func note(
+    public static func generalDailyNote(
         server: Server,
         uid: String,
         cookie: String,
         deviceFingerPrint: String?
     ) async throws
-        -> DailyNote {
+        -> GeneralDailyNote {
 //        #if DEBUG
 //        return .example()
 //        #else
@@ -51,5 +71,29 @@ extension MiHoYoAPI {
 
         return try await .decodeFromMiHoYoAPIJSONResult(data: data, with: request)
 //        #endif
+    }
+
+    public static func widgetNote(
+        cookie: String,
+        deviceFingerPrint: String?
+    ) async throws
+        -> WidgetDailyNote {
+        let additionalHeaders: [String: String]? = {
+            if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
+                return ["x-rpc-device_fp": deviceFingerPrint]
+            } else {
+                return nil
+            }
+        }()
+        let request = try await Self.generateRecordAPIRequest(
+            region: .china,
+            path: "/game_record/app/hkrpg/aapi/widget",
+            queryItems: [],
+            cookie: cookie,
+            additionalHeaders: additionalHeaders
+        )
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+        return try await .decodeFromMiHoYoAPIJSONResult(data: data, with: request)
     }
 }
