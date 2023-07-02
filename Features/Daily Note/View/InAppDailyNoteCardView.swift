@@ -103,6 +103,23 @@ private struct NoteView: View {
                 }
             }
         }
+        // Daily Training & Simulated Universe (China mainland user only)
+        if let dailyNote = note as? WidgetDailyNote {
+            HStack {
+                Text("app.dailynote.card.daily_training.label").bold()
+                Spacer()
+                let currentScore = dailyNote.dailyTrainingInformation.currentScore
+                let maxScore = dailyNote.dailyTrainingInformation.maxScore
+                Text("\(currentScore)/\(maxScore)")
+            }
+            HStack {
+                Text("app.dailynote.card.simulated_universe.label").bold()
+                Spacer()
+                let currentScore = dailyNote.simulatedUniverseInformation.currentScore
+                let maxScore = dailyNote.simulatedUniverseInformation.maxScore
+                Text("\(currentScore)/\(maxScore)")
+            }
+        }
         // Dispatch
         VStack {
             HStack {
