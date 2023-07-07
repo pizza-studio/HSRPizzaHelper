@@ -21,14 +21,8 @@ struct WatchContentView: View {
             .alert(item: $connectivityManager.notificationMessage) { message in
                 Alert(
                     title: Text(message.text),
-                    dismissButton: .default(Text("Dismiss"))
+                    dismissButton: .default(Text("sys.done"))
                 )
-            }
-            .onChange(of: connectivityManager.sharedAccounts) { newAccounts in
-                print("Received account (\(newAccounts.count): ")
-                for account in newAccounts {
-                    print("\(account.name!): \(account.uid!) \(account.cookie!)")
-                }
             }
         }
     }

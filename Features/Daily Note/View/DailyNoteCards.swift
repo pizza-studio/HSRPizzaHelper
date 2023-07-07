@@ -27,17 +27,6 @@ struct DailyNoteCards: View {
                 )
             }
         }
-        Button("Sync to Watch") {
-            var accountInfo = "Accounts:\n"
-            for account in accounts {
-                accountInfo += "\(String(describing: account.name!)) \(String(describing: account.uid!))\n"
-            }
-//            WatchConnectivityManager.shared.send(accountInfo)
-//            WatchConnectivityManager.shared.sendAccounts(Array(accounts), accountInfo)
-            for account in accounts {
-                WatchConnectivityManager.shared.sendAccounts(account, accountInfo)
-            }
-        }
         if accounts.filter({ $0.isValid() }).isEmpty {
             AddNewAccountButton(
                 isNewAccountSheetShow: $isNewAccountSheetShow
