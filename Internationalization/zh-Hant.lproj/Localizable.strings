@@ -202,3 +202,5 @@
 "account.test.footer.recommend_device_fp" = "如果持續要求真人認證的話，建議參考[該教學指引](https://hsr.ophelper.top/static/fp_tutorial)抓包填入裝置指紋、以規避該故障。";
 "sys.manage_hoyolab_account" = "管理HoYoLAB通行證";
 "sys.manage_hoyolab_account.footer" = "你可以在此處刪除HoYoLAB通行證。";
+"app.dailynote.card.daily_training.label" = "每日實訓";
+"app.dailynote.card.simulated_universe.label" = "模擬宇宙";
