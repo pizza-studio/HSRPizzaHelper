@@ -208,7 +208,7 @@
 "sys.account.force_push.received" = "以下のアカウントがiPhoneから受信されました:\n";
 "sys.account.force_push.footer" = "この機能は、Apple WatchでのiCloudアカウント同期が利用できない場合にのみ使用できます。";
 "watch.account.empty" = "iCloudから同期中";
-"notification.daily_training.title" = "お知らせ：デイリー訓練 %@";
+"notification.daily_training.title" = "「%@」のデイリー訓練";
 "notification.daily_training.body" = "「%@」のデイリー訓練はまだこなしていません。完成した項目数：%lld。";
 "setting.notification.daily_training.toggle" = "デイリー訓練のお知らせをONにする";
 "setting.notification.daily_training.header" = "デイリー訓練";
