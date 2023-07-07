@@ -204,3 +204,7 @@
 "sys.manage_hoyolab_account.footer" = "You can delete your HoYoLAB account here.";
 "app.dailynote.card.daily_training.label" = "Daily Training";
 "app.dailynote.card.simulated_universe.label" = "Simulated Universe";
+"sys.account.force_push" = "Force to push your accounts to paired Apple Watch";
+"sys.account.force_push.received" = "Received these accounts from your iPhone:\n";
+"sys.account.force_push.footer" = "This is prepared when syncing via iCloud is not working on your Apple Watch.";
+"watch.account.empty" = "Syncing from iCloud";

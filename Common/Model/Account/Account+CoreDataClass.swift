@@ -26,7 +26,9 @@ public class Account: NSManagedObject {
     public override func didSave() {
         super.didSave()
         if !(allowNotification as? Bool ?? true) {
+            #if os(iOS)
             HSRNotificationCenter.deleteDailyNoteNotification(for: self)
+            #endif
         }
     }
 }

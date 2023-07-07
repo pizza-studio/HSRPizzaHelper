@@ -202,3 +202,9 @@
 "account.test.footer.recommend_device_fp" = "人間認証要求が何度も出まくっている場合、[この説明文章](https://hsr.ophelper.top/static/fp_tutorial)の方法に沿って、ご自分でデバイス指紋を取ってご記入ください。そうすれば、この支障を避けることはできます。";
 "sys.manage_hoyolab_account" = "HOYOVERSE通行証の管理";
 "sys.manage_hoyolab_account.footer" = "ここでHOYOVERSE通行証の記録の取り除きはできます。";
+"app.dailynote.card.daily_training.label" = "デイリー訓練";
+"app.dailynote.card.simulated_universe.label" = "模擬宇宙";
+"sys.account.force_push" = "強制的にすべてのアカウントをApple Watchにプッシュします";
+"sys.account.force_push.received" = "以下のアカウントがiPhoneから受信されました:\n";
+"sys.account.force_push.footer" = "この機能は、Apple WatchでのiCloudアカウント同期が利用できない場合にのみ使用できます。";
+"watch.account.empty" = "iCloudから同期中";

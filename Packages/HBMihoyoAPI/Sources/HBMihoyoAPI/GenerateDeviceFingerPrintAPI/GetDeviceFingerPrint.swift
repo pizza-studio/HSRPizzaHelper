@@ -34,9 +34,14 @@ extension MiHoYoAPI {
         }
 
         let url = URL(string: "https://public-data-api.mihoyo.com/device-fp/api/getFp")!
-        let body: [String: String] = await [
+        #if os(iOS)
+        let deviceId = await (UIDevice.current.identifierForVendor ?? UUID()).uuidString
+        #else
+        let deviceId = UUID().uuidString
+        #endif
+        let body: [String: String] = [
             "seed_id": generateSeed(),
-            "device_id": (UIDevice.current.identifierForVendor ?? UUID()).uuidString,
+            "device_id": deviceId,
             "platform": "5",
             "seed_time": "\(Int(Date().timeIntervalSince1970) * 1000)",
             // swiftlint:disable line_length
