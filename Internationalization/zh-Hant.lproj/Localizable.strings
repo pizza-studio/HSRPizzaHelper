@@ -202,3 +202,9 @@
 "account.test.footer.recommend_device_fp" = "如果持續要求真人認證的話，建議參考[該教學指引](https://hsr.ophelper.top/static/fp_tutorial)抓包填入裝置指紋、以規避該故障。";
 "sys.manage_hoyolab_account" = "管理HoYoLAB通行證";
 "sys.manage_hoyolab_account.footer" = "你可以在此處刪除HoYoLAB通行證。";
+"app.dailynote.card.daily_training.label" = "每日實訓";
+"app.dailynote.card.simulated_universe.label" = "模擬宇宙";
+"sys.account.force_push" = "強制推送您的所有帳號到Apple Watch";
+"sys.account.force_push.received" = "從您的iPhone收到了以下帳號:\n";
+"sys.account.force_push.footer" = "本功能僅當在您的Apple Watch上通過iCloud同步帳號功能不可用時使用。";
+"watch.account.empty" = "等待從iCloud同步";
