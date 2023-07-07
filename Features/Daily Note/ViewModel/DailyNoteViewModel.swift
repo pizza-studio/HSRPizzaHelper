@@ -60,7 +60,9 @@ class DailyNoteViewModel: ObservableObject {
                 cookie: account.cookie ?? "",
                 deviceFingerPrint: account.deviceFingerPrint
             )
+            #if os(iOS)
             HSRNotificationCenter.scheduleNotification(for: account, dailyNote: data)
+            #endif
             withAnimation {
                 dailyNote = .finished(.success(data))
             }

@@ -11,6 +11,27 @@
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
 		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BF33C17B2A344DF0009D1E5D /* GeetestValidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33C17A2A344DF0009D1E5D /* GeetestValidateView.swift */; };
+		BF58D23C2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */; };
+		BF58D23E2A579D5000CC0DC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23D2A579D5000CC0DC6 /* ContentView.swift */; };
+		BF58D2402A579D5100CC0DC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF58D23F2A579D5100CC0DC6 /* Assets.xcassets */; };
+		BF58D2432A579D5100CC0DC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF58D2422A579D5100CC0DC6 /* Preview Assets.xcassets */; };
+		BF58D2462A579D5100CC0DC6 /* HSRPizzaHelper.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BF58D24F2A57A01100CC0DC6 /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D24E2A57A01100CC0DC6 /* HBMihoyoAPI */; };
+		BF58D2512A57A16900CC0DC6 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D2502A57A16900CC0DC6 /* SFSafeSymbols */; };
+		BF58D2522A57A30C00CC0DC6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
+		BF58D2542A57A32400CC0DC6 /* DailyNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */; };
+		BF58D2582A57A34200CC0DC6 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D2572A57A34200CC0DC6 /* SwiftyUserDefaults */; };
+		BF58D25A2A57A34200CC0DC6 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D2592A57A34200CC0DC6 /* SwifterSwift */; };
+		BF58D25B2A57A3E200CC0DC6 /* FetchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */; };
+		BF58D25C2A57A48100CC0DC6 /* HSRPizzaHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */; };
+		BF58D2602A57A58E00CC0DC6 /* WatchHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D25F2A57A58E00CC0DC6 /* WatchHomeView.swift */; };
+		BF58D2612A57A66F00CC0DC6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
+		BF58D2622A57A68800CC0DC6 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */; };
+		BF58D2632A57A74200CC0DC6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
+		BF58D2642A57A74400CC0DC6 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
+		BF58D2652A57A9D700CC0DC6 /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
+		BF58D2662A57AAF800CC0DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
+		BF58D2672A57AAFF00CC0DC6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D52A08B999008343E8 /* InfoPlist.strings */; };
 		BFA4A8492A0BD07400239BB0 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = BFA4A8482A0BD07400239BB0 /* Mantis */; };
 		BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */; };
 		BFBA36172A0CDD5E00E0142A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
@@ -194,6 +215,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BF58D2442A579D5100CC0DC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAE519742A01738600EF23B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF58D2382A579D5000CC0DC6;
+			remoteInfo = "HSRPizzaHelperWatch Watch App";
+		};
 		EA1674012A063AF400436487 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EAE519742A01738600EF23B7 /* Project object */;
@@ -211,6 +239,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		BF58D2472A579D5100CC0DC6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				BF58D2462A579D5100CC0DC6 /* HSRPizzaHelper.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA1674042A063AF400436487 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +284,13 @@
 		BF14CFAB2A049ADE00E437C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BF14CFAC2A049AE000E437C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF33C17A2A344DF0009D1E5D /* GeetestValidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeetestValidateView.swift; sourceTree = "<group>"; };
+		BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSRPizzaHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperWatchApp.swift; sourceTree = "<group>"; };
+		BF58D23D2A579D5000CC0DC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BF58D23F2A579D5100CC0DC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF58D2422A579D5100CC0DC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BF58D25F2A57A58E00CC0DC6 /* WatchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeView.swift; sourceTree = "<group>"; };
+		BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HSRPizzaHelperWatch-Watch-App-Info.plist"; sourceTree = "<group>"; };
 		BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroper.swift; sourceTree = "<group>"; };
 		BFBA36192A17496D00E0142A /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDonateView.swift; sourceTree = "<group>"; };
@@ -377,6 +423,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BF58D2362A579D5000CC0DC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF58D2512A57A16900CC0DC6 /* SFSafeSymbols in Frameworks */,
+				BF58D24F2A57A01100CC0DC6 /* HBMihoyoAPI in Frameworks */,
+				BF58D25A2A57A34200CC0DC6 /* SwifterSwift in Frameworks */,
+				BF58D2582A57A34200CC0DC6 /* SwiftyUserDefaults in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA1673EC2A063AF300436487 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,6 +487,26 @@
 				BFD051D52A08B999008343E8 /* InfoPlist.strings */,
 			);
 			path = Internationalization;
+			sourceTree = "<group>";
+		};
+		BF58D23A2A579D5000CC0DC6 /* HSRPizzaHelper Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */,
+				BF58D23D2A579D5000CC0DC6 /* ContentView.swift */,
+				BF58D23F2A579D5100CC0DC6 /* Assets.xcassets */,
+				BF58D2412A579D5100CC0DC6 /* Preview Content */,
+				BF58D25F2A57A58E00CC0DC6 /* WatchHomeView.swift */,
+			);
+			path = "HSRPizzaHelper Watch App";
+			sourceTree = "<group>";
+		};
+		BF58D2412A579D5100CC0DC6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BF58D2422A579D5100CC0DC6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		EA09B1932A09180200986D46 /* View */ = {
@@ -764,6 +841,7 @@
 		EAE519732A01738600EF23B7 = {
 			isa = PBXGroup;
 			children = (
+				BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */,
 				BFCACD112A04922E009B0B85 /* README.md */,
 				BFCACD0F2A0491E9009B0B85 /* LICENSE */,
 				EAE519C82A0178AD00EF23B7 /* Common */,
@@ -773,6 +851,7 @@
 				EAE519B72A01757400EF23B7 /* Packages */,
 				EAE5197E2A01738600EF23B7 /* HSRPizzaHelper */,
 				EA1673F42A063AF300436487 /* HSRPizzaHelperWidget */,
+				BF58D23A2A579D5000CC0DC6 /* HSRPizzaHelper Watch App */,
 				EAE5197D2A01738600EF23B7 /* Products */,
 				EA143BC62A01808200AE1FCA /* Frameworks */,
 			);
@@ -784,6 +863,7 @@
 				EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */,
 				EA1673EF2A063AF300436487 /* HSRPizzaHelperWidgetExtension.appex */,
 				EAE8986C2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent.appex */,
+				BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -928,6 +1008,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BF58D2382A579D5000CC0DC6 /* HSRPizzaHelperWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF58D24A2A579D5100CC0DC6 /* Build configuration list for PBXNativeTarget "HSRPizzaHelperWatch Watch App" */;
+			buildPhases = (
+				BF58D2352A579D5000CC0DC6 /* Sources */,
+				BF58D2362A579D5000CC0DC6 /* Frameworks */,
+				BF58D2372A579D5000CC0DC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HSRPizzaHelperWatch Watch App";
+			packageProductDependencies = (
+				BF58D24E2A57A01100CC0DC6 /* HBMihoyoAPI */,
+				BF58D2502A57A16900CC0DC6 /* SFSafeSymbols */,
+				BF58D2572A57A34200CC0DC6 /* SwiftyUserDefaults */,
+				BF58D2592A57A34200CC0DC6 /* SwifterSwift */,
+			);
+			productName = "HSRPizzaHelperWatch Watch App";
+			productReference = BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
 		EA1673EE2A063AF300436487 /* HSRPizzaHelperWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA1674072A063AF400436487 /* Build configuration list for PBXNativeTarget "HSRPizzaHelperWidgetExtension" */;
@@ -963,12 +1066,14 @@
 				EAE5197A2A01738600EF23B7 /* Resources */,
 				EA1674042A063AF400436487 /* Embed Foundation Extensions */,
 				EA68BC822A069F4100A7FF91 /* Embed ExtensionKit Extensions */,
+				BF58D2472A579D5100CC0DC6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				EA1674022A063AF400436487 /* PBXTargetDependency */,
 				EAE898742A06A134000AF830 /* PBXTargetDependency */,
+				BF58D2452A579D5100CC0DC6 /* PBXTargetDependency */,
 			);
 			name = HSRPizzaHelper;
 			packageProductDependencies = (
@@ -1018,6 +1123,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					BF58D2382A579D5000CC0DC6 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					EA1673EE2A063AF300436487 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -1056,11 +1164,23 @@
 				EAE5197B2A01738600EF23B7 /* HSRPizzaHelper */,
 				EA1673EE2A063AF300436487 /* HSRPizzaHelperWidgetExtension */,
 				EAE8986B2A06A134000AF830 /* HSRPizzaHelperWidgetConfigurationIntent */,
+				BF58D2382A579D5000CC0DC6 /* HSRPizzaHelperWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BF58D2372A579D5000CC0DC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF58D2432A579D5100CC0DC6 /* Preview Assets.xcassets in Resources */,
+				BF58D2672A57AAFF00CC0DC6 /* InfoPlist.strings in Resources */,
+				BF58D2662A57AAF800CC0DC6 /* Localizable.strings in Resources */,
+				BF58D2402A579D5100CC0DC6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA1673ED2A063AF300436487 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1142,6 +1262,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BF58D2352A579D5000CC0DC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF58D2602A57A58E00CC0DC6 /* WatchHomeView.swift in Sources */,
+				BF58D2542A57A32400CC0DC6 /* DailyNoteViewModel.swift in Sources */,
+				BF58D2642A57A74400CC0DC6 /* AccountExtension.swift in Sources */,
+				BF58D2622A57A68800CC0DC6 /* AppConfig.swift in Sources */,
+				BF58D25C2A57A48100CC0DC6 /* HSRPizzaHelper.xcdatamodeld in Sources */,
+				BF58D25B2A57A3E200CC0DC6 /* FetchStatus.swift in Sources */,
+				BF58D2632A57A74200CC0DC6 /* Account+CoreDataProperties.swift in Sources */,
+				BF58D2522A57A30C00CC0DC6 /* Account+CoreDataClass.swift in Sources */,
+				BF58D23E2A579D5000CC0DC6 /* ContentView.swift in Sources */,
+				BF58D2652A57A9D700CC0DC6 /* ScenePhaseOnChange.swift in Sources */,
+				BF58D23C2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift in Sources */,
+				BF58D2612A57A66F00CC0DC6 /* Persistence.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA1673EB2A063AF300436487 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1310,6 +1449,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BF58D2452A579D5100CC0DC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF58D2382A579D5000CC0DC6 /* HSRPizzaHelperWatch Watch App */;
+			targetProxy = BF58D2442A579D5100CC0DC6 /* PBXContainerItemProxy */;
+		};
 		EA1674022A063AF400436487 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EA1673EE2A063AF300436487 /* HSRPizzaHelperWidgetExtension */;
@@ -1360,6 +1504,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BF58D2482A579D5100CC0DC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 45Z6V4YD5U;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HSRPizzaHelperWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Canglong.HSRPizzaHelper;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper.watchkitapp;
+				PRODUCT_NAME = HSRPizzaHelper;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		BF58D2492A579D5100CC0DC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 45Z6V4YD5U;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HSRPizzaHelperWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Canglong.HSRPizzaHelper;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper.watchkitapp;
+				PRODUCT_NAME = HSRPizzaHelper;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		EA1674052A063AF400436487 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1671,6 +1875,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF58D24A2A579D5100CC0DC6 /* Build configuration list for PBXNativeTarget "HSRPizzaHelperWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF58D2482A579D5100CC0DC6 /* Debug */,
+				BF58D2492A579D5100CC0DC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EA1674072A063AF400436487 /* Build configuration list for PBXNativeTarget "HSRPizzaHelperWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1761,6 +1974,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BF58D24E2A57A01100CC0DC6 /* HBMihoyoAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HBMihoyoAPI;
+		};
+		BF58D2502A57A16900CC0DC6 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAE519AF2A0174D800EF23B7 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
+		BF58D2572A57A34200CC0DC6 /* SwiftyUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAEC11E52A023E130024314D /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
+			productName = SwiftyUserDefaults;
+		};
+		BF58D2592A57A34200CC0DC6 /* SwifterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */;
+			productName = SwifterSwift;
+		};
 		BFA4A8482A0BD07400239BB0 /* Mantis */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BFA4A8472A0BD07400239BB0 /* XCRemoteSwiftPackageReference "Mantis" */;
