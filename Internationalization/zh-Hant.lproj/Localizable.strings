@@ -208,3 +208,9 @@
 "sys.account.force_push.received" = "從您的iPhone收到了以下帳號:\n";
 "sys.account.force_push.footer" = "本功能僅當在您的Apple Watch上通過iCloud同步帳號功能不可用時使用。";
 "watch.account.empty" = "等待從iCloud同步";
+"notification.daily_training.title" = "提醒：每日實訓 %@";
+"notification.daily_training.body" = "「%@」的每日實訓尚未充分活用。目前完成的項目數：%lld。";
+"setting.notification.daily_training.toggle" = "啟用每日實訓通知";
+"setting.notification.daily_training.header" = "每日實訓";
+"setting.notification.daily_training.date_picker" = "在這個時候知會我：";
+"setting.notification.daily_training.footer" = "僅限中國內地伺服器。";
