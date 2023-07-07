@@ -254,7 +254,7 @@ private struct DailyNoteNotificationSender {
         let dailyTraining = dailyNote.dailyTrainingInformation
         let content = UNMutableNotificationContent()
         content.title = String(
-            format: "notification.expedition.title"
+            format: "notification.daily_training.title"
                 .localized(comment: "%@'s ..."),
             account.name
         )
