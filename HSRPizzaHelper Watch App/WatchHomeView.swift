@@ -105,14 +105,14 @@ private struct NoteView: View {
 
     var body: some View {
         // Trailblaze_Power
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Text("sys.label.trailblaze").bold()
                 Spacer()
             }
             HStack(spacing: 10) {
                 let iconFrame: CGFloat = 40
-                Image("Item_Trailblaze_Power")
+                Image("trailblaze")
                     .resizable()
                     .scaledToFit()
                     .frame(height: iconFrame)
@@ -122,16 +122,16 @@ private struct NoteView: View {
                     Text(" / \(note.staminaInformation.maxStamina)")
                         .font(.caption)
                     Spacer()
-                    if note.staminaInformation.fullTime > Date() {
-                        (
-                            Text(note.staminaInformation.fullTime, style: .relative)
-                                + Text("\n")
-                                + Text(dateFormatter.string(from: note.staminaInformation.fullTime))
-                        )
-                        .multilineTextAlignment(.trailing)
-                        .font(.caption2)
-                    }
                 }
+            }
+            if note.staminaInformation.fullTime > Date() {
+                (
+                    Text(note.staminaInformation.fullTime, style: .relative)
+                        + Text("\n")
+                        + Text(dateFormatter.string(from: note.staminaInformation.fullTime))
+                )
+                .multilineTextAlignment(.leading)
+                .font(.caption2)
             }
         }
         // Daily Training & Simulated Universe (China mainland user only)
@@ -162,36 +162,38 @@ private struct NoteView: View {
             }
             VStack(spacing: 15) {
                 ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
-                    HStack(alignment: .bottom) {
-                        // Avatar Icon
-                        HStack {
-                            let imageFrame: CGFloat = 40
-                            ForEach(expedition.avatarIconURLs, id: \.self) { url in
-                                AsyncImage(url: url) { image in
-                                    image.resizable().scaledToFit()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .frame(height: imageFrame)
-                            }
-                        }
+                    VStack(alignment: .leading) {
                         // Expedition Name
                         Text("\(expedition.name)")
                             .font(.footnote)
                             .foregroundColor(.secondary)
-                        Spacer()
-                        // Time
-                        if expedition.remainingTime > 0 {
-                            (
-                                Text(expedition.finishedTime, style: .relative)
-                                    + Text("\n")
-                                    + Text(dateFormatter.string(from: expedition.finishedTime))
-                            )
-                            .multilineTextAlignment(.trailing)
-                            .font(.caption2)
-                        } else {
-                            Image(systemSymbol: .checkmarkCircle)
-                                .foregroundColor(.green)
+                        HStack(alignment: .bottom) {
+                            // Avatar Icon
+                            HStack {
+                                let imageFrame: CGFloat = 40
+                                ForEach(expedition.avatarIconURLs, id: \.self) { url in
+                                    AsyncImage(url: url) { image in
+                                        image.resizable().scaledToFit()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(height: imageFrame)
+                                }
+                            }
+                            Spacer()
+                            // Time
+                            if expedition.remainingTime > 0 {
+                                (
+                                    Text(expedition.finishedTime, style: .relative)
+                                        + Text("\n")
+                                        + Text(dateFormatter.string(from: expedition.finishedTime))
+                                )
+                                .multilineTextAlignment(.trailing)
+                                .font(.caption2)
+                            } else {
+                                Image(systemSymbol: .checkmarkCircle)
+                                    .foregroundColor(.green)
+                            }
                         }
                     }
                 }

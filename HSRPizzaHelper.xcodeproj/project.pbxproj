@@ -12,8 +12,7 @@
 		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BF33C17B2A344DF0009D1E5D /* GeetestValidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33C17A2A344DF0009D1E5D /* GeetestValidateView.swift */; };
 		BF58D23C2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */; };
-		BF58D23E2A579D5000CC0DC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23D2A579D5000CC0DC6 /* ContentView.swift */; };
-		BF58D2402A579D5100CC0DC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF58D23F2A579D5100CC0DC6 /* Assets.xcassets */; };
+		BF58D23E2A579D5000CC0DC6 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23D2A579D5000CC0DC6 /* WatchContentView.swift */; };
 		BF58D2432A579D5100CC0DC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF58D2422A579D5100CC0DC6 /* Preview Assets.xcassets */; };
 		BF58D2462A579D5100CC0DC6 /* HSRPizzaHelper.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF58D24F2A57A01100CC0DC6 /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D24E2A57A01100CC0DC6 /* HBMihoyoAPI */; };
@@ -32,6 +31,9 @@
 		BF58D2652A57A9D700CC0DC6 /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
 		BF58D2662A57AAF800CC0DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BF58D2672A57AAFF00CC0DC6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D52A08B999008343E8 /* InfoPlist.strings */; };
+		BF58D26A2A57AD4300CC0DC6 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */; };
+		BF58D26B2A57AE0800CC0DC6 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */; };
+		BF58D26F2A57F84600CC0DC6 /* WatchAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF58D23F2A579D5100CC0DC6 /* WatchAssets.xcassets */; };
 		BFA4A8492A0BD07400239BB0 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = BFA4A8482A0BD07400239BB0 /* Mantis */; };
 		BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */; };
 		BFBA36172A0CDD5E00E0142A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
@@ -286,11 +288,13 @@
 		BF33C17A2A344DF0009D1E5D /* GeetestValidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeetestValidateView.swift; sourceTree = "<group>"; };
 		BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSRPizzaHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperWatchApp.swift; sourceTree = "<group>"; };
-		BF58D23D2A579D5000CC0DC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BF58D23F2A579D5100CC0DC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF58D23D2A579D5000CC0DC6 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
+		BF58D23F2A579D5100CC0DC6 /* WatchAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WatchAssets.xcassets; sourceTree = "<group>"; };
 		BF58D2422A579D5100CC0DC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF58D25F2A57A58E00CC0DC6 /* WatchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeView.swift; sourceTree = "<group>"; };
 		BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HSRPizzaHelperWatch-Watch-App-Info.plist"; sourceTree = "<group>"; };
+		BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		BF58D26C2A57F19B00CC0DC6 /* HSRPizzaHelperWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HSRPizzaHelperWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroper.swift; sourceTree = "<group>"; };
 		BFBA36192A17496D00E0142A /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDonateView.swift; sourceTree = "<group>"; };
@@ -493,10 +497,10 @@
 			isa = PBXGroup;
 			children = (
 				BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */,
-				BF58D23D2A579D5000CC0DC6 /* ContentView.swift */,
-				BF58D23F2A579D5100CC0DC6 /* Assets.xcassets */,
-				BF58D2412A579D5100CC0DC6 /* Preview Content */,
+				BF58D23D2A579D5000CC0DC6 /* WatchContentView.swift */,
+				BF58D23F2A579D5100CC0DC6 /* WatchAssets.xcassets */,
 				BF58D25F2A57A58E00CC0DC6 /* WatchHomeView.swift */,
+				BF58D2412A579D5100CC0DC6 /* Preview Content */,
 			);
 			path = "HSRPizzaHelper Watch App";
 			sourceTree = "<group>";
@@ -841,6 +845,7 @@
 		EAE519732A01738600EF23B7 = {
 			isa = PBXGroup;
 			children = (
+				BF58D26C2A57F19B00CC0DC6 /* HSRPizzaHelperWatch Watch App.entitlements */,
 				BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */,
 				BFCACD112A04922E009B0B85 /* README.md */,
 				BFCACD0F2A0491E9009B0B85 /* LICENSE */,
@@ -876,6 +881,7 @@
 				EAE519C22A01771F00EF23B7 /* HSRPizzaHelper.entitlements */,
 				EAE5197F2A01738600EF23B7 /* HSRPizzaHelperApp.swift */,
 				EAE519812A01738600EF23B7 /* ContentView.swift */,
+				BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */,
 				EAE5198D2A01738600EF23B7 /* Info.plist */,
 				EAE519852A01738600EF23B7 /* Preview Content */,
 			);
@@ -1177,7 +1183,7 @@
 				BF58D2432A579D5100CC0DC6 /* Preview Assets.xcassets in Resources */,
 				BF58D2672A57AAFF00CC0DC6 /* InfoPlist.strings in Resources */,
 				BF58D2662A57AAF800CC0DC6 /* Localizable.strings in Resources */,
-				BF58D2402A579D5100CC0DC6 /* Assets.xcassets in Resources */,
+				BF58D26F2A57F84600CC0DC6 /* WatchAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,9 +1278,10 @@
 				BF58D2622A57A68800CC0DC6 /* AppConfig.swift in Sources */,
 				BF58D25C2A57A48100CC0DC6 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				BF58D25B2A57A3E200CC0DC6 /* FetchStatus.swift in Sources */,
+				BF58D26B2A57AE0800CC0DC6 /* WatchConnectivityManager.swift in Sources */,
 				BF58D2632A57A74200CC0DC6 /* Account+CoreDataProperties.swift in Sources */,
 				BF58D2522A57A30C00CC0DC6 /* Account+CoreDataClass.swift in Sources */,
-				BF58D23E2A579D5000CC0DC6 /* ContentView.swift in Sources */,
+				BF58D23E2A579D5000CC0DC6 /* WatchContentView.swift in Sources */,
 				BF58D2652A57A9D700CC0DC6 /* ScenePhaseOnChange.swift in Sources */,
 				BF58D23C2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift in Sources */,
 				BF58D2612A57A66F00CC0DC6 /* Persistence.swift in Sources */,
@@ -1410,6 +1417,7 @@
 				BFBA361C2A1749AE00E0142A /* GlobalDonateView.swift in Sources */,
 				EA80CFE82A0E983C00002B53 /* InlineNavigationTitle.swift in Sources */,
 				EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */,
+				BF58D26A2A57AD4300CC0DC6 /* WatchConnectivityManager.swift in Sources */,
 				EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1509,6 +1517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelperWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
@@ -1539,6 +1548,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelperWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct HSRPizzaHelperWatchWatchApp: App {
+    let persistenceController = PersistenceController.shared
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WatchContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
