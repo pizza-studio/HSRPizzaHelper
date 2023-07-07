@@ -26,7 +26,26 @@ struct DailyNoteCards: View {
                 InAppDailyNoteCardView(
                     account: account
                 )
+//                .onAppear {
+//                    PersistenceController.shared.container.viewContext.delete(account)
+//                    do {
+//                        try PersistenceController.shared.container.viewContext.save()
+//                    } catch {}
+//                }
             }
+        }
+        if accounts.filter({ $0.isValid() }).isEmpty {
+            VStack {
+                Image(systemSymbol: .icloudAndArrowDown)
+                    .resizable()
+                    .frame(width: 45, height: 40)
+                ProgressView()
+                    .padding()
+                Text("watch.account.empty")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+            .padding()
         }
     }
 

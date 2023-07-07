@@ -207,3 +207,4 @@
 "sys.account.force_push" = "強制的にすべてのアカウントをApple Watchにプッシュします";
 "sys.account.force_push.received" = "以下のアカウントがiPhoneから受信されました:\n";
 "sys.account.force_push.footer" = "この機能は、Apple WatchでのiCloudアカウント同期が利用できない場合にのみ使用できます。";
+"watch.account.empty" = "iCloudから同期中";

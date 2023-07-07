@@ -7,8 +7,8 @@
 
 import HBMihoyoAPI
 import Mantis
-import SwiftUI
 import SwifterSwift
+import SwiftUI
 
 // MARK: - SettingView
 
@@ -108,10 +108,7 @@ struct SettingView: View {
 // MARK: - OtherSettingsView
 
 private struct OtherSettingsView: View {
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
-        animation: .default
-    ) private var accounts: FetchedResults<Account>
+    // MARK: Internal
 
     var body: some View {
         List {
@@ -177,7 +174,7 @@ private struct OtherSettingsView: View {
                 Button("sys.account.force_push") {
                     var accountInfo = "sys.account.force_push.received".localized()
                     for account in accounts {
-                        accountInfo += "\(String(describing: account.name!)) \(String(describing: account.uid!))\n"
+                        accountInfo += "\(String(describing: account.name!)) (\(String(describing: account.uid!)))\n"
                     }
                     for account in accounts {
                         WatchConnectivityManager.shared.sendAccounts(account, accountInfo)
@@ -212,4 +209,11 @@ private struct OtherSettingsView: View {
         .navigationTitle("sys.more.title")
         .navigationBarTitleDisplayMode(.inline)
     }
+
+    // MARK: Private
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
+        animation: .default
+    ) private var accounts: FetchedResults<Account>
 }

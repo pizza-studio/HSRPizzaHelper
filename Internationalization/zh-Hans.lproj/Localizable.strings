@@ -206,4 +206,5 @@
 "app.dailynote.card.simulated_universe.label" = "模拟宇宙";
 "sys.account.force_push" = "强制推送您的所有帐号到Apple Watch";
 "sys.account.force_push.received" = "从您的iPhone收到了以下帐号:\n";
-"sys.account.force_push.footer" = "本功能僅當在您的Apple Watch上通過iCloud同步帳號功能不可用時使用。";
+"sys.account.force_push.footer" = "本功能仅当在您的Apple Watch上通过iCloud同步帐号功能不可用时使用。";
+"watch.account.empty" = "等待从iCloud同步";

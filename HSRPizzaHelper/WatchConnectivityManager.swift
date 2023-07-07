@@ -122,7 +122,6 @@ extension WatchConnectivityManager: WCSessionDelegate {
             accountReceived.uid = uid
             do {
                 try accountReceived.managedObjectContext?.save()
-                print("save account succeed: \(accountReceived.name!)(\(accountReceived.uid!))")
             } catch {
                 print("save account failed: \(error)")
             }
