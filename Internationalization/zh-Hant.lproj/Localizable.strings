@@ -80,7 +80,7 @@
 "setting.widget.refresh.frequency.everyvalue" = "每%lld小時";
 "setting.widget.title" = "小組件";
 "setting.widget.refresh.manually" = "使所有小組件同步";
-"setting.widget.refresh.footer" = "小組件每6分鐘重新載入一次，每4小時同步一次。也可以通過進入App或在主頁下拉重新載入手動同步小組件。";
+"setting.widget.refresh.footer" = "小組件每6分鐘重新載入一次，每2小時同步一次。也可以通過進入App或在主頁下拉重新載入手動同步小組件。";
 "ophelper.intro" = "原神遊戲助手工具全家桶";
 "account.new.test" = "測試帳號連接";
 "setting.widget.background.manage.add.edit" = "裁剪圖片";
