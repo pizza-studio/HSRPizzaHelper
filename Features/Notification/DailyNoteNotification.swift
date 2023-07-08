@@ -88,6 +88,10 @@ private struct DailyNoteNotificationSender {
         Defaults[\.dailyTrainingNotificationSetting]
     }
 
+    var simulatedUniverseNotificationSetting: DailyNoteNotificationSetting.SimulatedUniverseNotificationSetting {
+        Defaults[\.simulatedUniverseNotificationSetting]
+    }
+
     func send() {
         guard (account.allowNotification as? Bool) ?? false else { return }
         if allowStaminaNotification {
@@ -109,6 +113,14 @@ private struct DailyNoteNotificationSender {
         if let dailyNote = dailyNote as? WidgetDailyNote {
             if case let .notifyAt(hour, minute) = dailyTrainingNotificationSetting {
                 scheduleDailyTrainingNotification(hour: hour, minute: minute, dailyNote: dailyNote)
+            }
+            if case let .notifyAt(weekday, hour, minute) = simulatedUniverseNotificationSetting {
+                scheduleSimulatedUniverseNotification(
+                    weekday: weekday,
+                    hour: hour,
+                    minute: minute,
+                    dailyNote: dailyNote
+                )
             }
         }
     }

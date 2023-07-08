@@ -14,7 +14,7 @@
 		BF58D23C2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */; };
 		BF58D23E2A579D5000CC0DC6 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23D2A579D5000CC0DC6 /* WatchContentView.swift */; };
 		BF58D2432A579D5100CC0DC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF58D2422A579D5100CC0DC6 /* Preview Assets.xcassets */; };
-		BF58D2462A579D5100CC0DC6 /* HSRPizzaHelper.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BF58D2462A579D5100CC0DC6 /* HSRPizzaHelper.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF58D24F2A57A01100CC0DC6 /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D24E2A57A01100CC0DC6 /* HBMihoyoAPI */; };
 		BF58D2512A57A16900CC0DC6 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D2502A57A16900CC0DC6 /* SFSafeSymbols */; };
 		BF58D2522A57A30C00CC0DC6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
@@ -1467,6 +1467,7 @@
 /* Begin PBXTargetDependency section */
 		BF58D2452A579D5100CC0DC6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = BF58D2382A579D5000CC0DC6 /* HSRPizzaHelperWatch Watch App */;
 			targetProxy = BF58D2442A579D5100CC0DC6 /* PBXContainerItemProxy */;
 		};
