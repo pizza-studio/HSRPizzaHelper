@@ -5,9 +5,7 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
-#if os(iOS)
 import AlertToast
-#endif
 import SwiftUI
 
 // MARK: - AlertToastVariable
@@ -77,7 +75,6 @@ struct ManageAccountsView: View {
         .toolbar {
             EditButton()
         }
-        #if os(iOS)
         .toast(isPresenting: $alertToastVariable.isDoneButtonTapped) {
             AlertToast(
                 displayMode: .alert,
@@ -85,7 +82,6 @@ struct ManageAccountsView: View {
                 title: "account.added.success"
             )
         }
-        #endif
         .environmentObject(alertToastVariable)
     }
 

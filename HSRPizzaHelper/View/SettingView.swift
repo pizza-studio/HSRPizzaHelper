@@ -137,6 +137,24 @@ private struct OtherSettingsView: View {
                         Image(systemSymbol: .chevronForward)
                     }
                 }
+                Link(destination: URL(string: "https://apps.apple.com/cn/app/id6450712191")!) {
+                    HStack {
+                        Image("icon.herta_terminal")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(10)
+                        VStack(alignment: .leading) {
+                            Text("herta_terminal.name")
+                                .foregroundColor(.primary)
+                            Text("herta_terminal.intro")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                        }
+
+                        Spacer()
+                        Image(systemSymbol: .chevronForward)
+                    }
+                }
             } header: {
                 Text("sys.about.otherapp.title")
             }

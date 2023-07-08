@@ -228,3 +228,5 @@
 "setting.notification.simulated_universe.date_picker" = "Notify me at";
 "setting.notification.simulated_universe.footer" = "China mainland server user only. ";
 "setting.notification.simulated_universe.weekday_picker" = "Notify me on";
+"herta_terminal.name" = "Herta Terminal";
+"herta_terminal.intro" = "Chat with waifus in HSR.";
