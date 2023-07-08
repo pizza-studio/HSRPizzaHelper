@@ -77,6 +77,9 @@
 		EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */; };
 		EA32764F2A03852C00774126 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
 		EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA37AEB32A02CDB900E4AADA /* SwifterSwift */; };
+		EA4025922A5904C800D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
+		EA4025932A59078400D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
+		EA4025942A59078500D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
 		EA43EDF72A0F38920035977E /* HSRNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */; };
 		EA43EDF82A0F38920035977E /* DailyNoteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */; };
 		EA43EDF92A0F3E060035977E /* HSRNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */; };
@@ -333,6 +336,7 @@
 		EA2C06512A04AC5A00A328E6 /* TestAccountSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountSectionView.swift; sourceTree = "<group>"; };
 		EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountSheetView.swift; sourceTree = "<group>"; };
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
+		EA4025912A5904C800D60D62 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
 		EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocalizedError.swift; sourceTree = "<group>"; };
 		EA4E80062A10AD7100B97204 /* LargeIconStaminaLockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeIconStaminaLockscreenWidget.swift; sourceTree = "<group>"; };
@@ -542,6 +546,7 @@
 				EAE519BE2A0175E600EF23B7 /* Account */,
 				EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */,
 				EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */,
+				EA4025912A5904C800D60D62 /* Weekday.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -908,6 +913,7 @@
 		EAE519BA2A0175C200EF23B7 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				EA80CFDF2A0E8CDF00002B53 /* Notification */,
 				EA14BF922A04C595002EDBB4 /* System */,
 				EAC9E4122A09F70B00011E1F /* Setting */,
 				EA742BFA2A02389A00ACB8E4 /* Daily Note */,
@@ -956,7 +962,6 @@
 				EA09B1932A09180200986D46 /* View */,
 				EA09B19E2A091DFE00986D46 /* Model */,
 				EA60BE602A050C4000CBF10B /* View Modifier */,
-				EA80CFDF2A0E8CDF00002B53 /* Notification */,
 				EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */,
 				EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */,
 				BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */,
@@ -1342,6 +1347,7 @@
 				EA56DB902A0F630A00BCF884 /* SquareGIStyleWidget.swift in Sources */,
 				EA9D80A22A08D94700534237 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
 				EA56DB8D2A0F62DA00BCF884 /* GIStyleSquareTimelineProvider.swift in Sources */,
+				EA4025932A59078400D60D62 /* Weekday.swift in Sources */,
 				EA56DB842A0F60C500BCF884 /* GIStyleTimelineProvider.swift in Sources */,
 				EA56DB872A0F625400BCF884 /* RectangularGIStyleWidget.swift in Sources */,
 				EA068D102A080818003C4E69 /* RectangularDailyNoteWidget.swift in Sources */,
@@ -1365,6 +1371,7 @@
 				EA1DE41E2A08B78500CFB37C /* WidgetBackgroundSettingView.swift in Sources */,
 				EA09B1992A091A1F00986D46 /* AppInitializer.swift in Sources */,
 				EAE37EC12A0206BC00154432 /* ManageAccountsView.swift in Sources */,
+				EA4025922A5904C800D60D62 /* Weekday.swift in Sources */,
 				EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */,
 				EA80CFEC2A0E9E9A00002B53 /* DailyNoteNotification.swift in Sources */,
 				EADCE9362A0B7857008D81A9 /* EmbedIn.swift in Sources */,
@@ -1434,6 +1441,7 @@
 				EA702C112A06B13E006D3BC9 /* UserDefaultKeys.swift in Sources */,
 				EA702C0C2A06B0BF006D3BC9 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EAE898812A06A8D3000AF830 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
+				EA4025942A59078500D60D62 /* Weekday.swift in Sources */,
 				EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA56DB7B2A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift in Sources */,
@@ -1519,7 +1527,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelperWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -1550,7 +1558,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelperWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -1581,7 +1589,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/Info.plist;
@@ -1611,7 +1619,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/Info.plist;
@@ -1758,7 +1766,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -1796,7 +1804,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -1831,7 +1839,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/HSRPizzaHelperWidgetConfigurationIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/Info.plist;
@@ -1859,7 +1867,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/HSRPizzaHelperWidgetConfigurationIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 144;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/Info.plist;

@@ -62,6 +62,8 @@ private class NotificationSettingViewModel: ObservableObject {
         self.staminaAdditionalNotificationNumbers = Defaults[\.staminaAdditionalNotificationNumbers]
         self.allowExpeditionNotification = Defaults[\.allowExpeditionNotification]
         self.expeditionNotificationSetting = Defaults[\.expeditionNotificationSetting]
+        self.dailyTrainingNotificationSetting = Defaults[\.dailyTrainingNotificationSetting]
+        self.simulatedUniverseNotificationSetting = Defaults[\.simulatedUniverseNotificationSetting]
     }
 
     // MARK: Internal
@@ -98,6 +100,21 @@ private class NotificationSettingViewModel: ObservableObject {
             Defaults[\.allowStaminaNotification] = allowStaminaNotification
             HSRNotificationCenter.deleteDailyNoteNotification(for: .stamina)
             HSRNotificationCenter.deleteDailyNoteNotification(for: .staminaFull)
+        }
+    }
+
+    @Published var dailyTrainingNotificationSetting: DailyNoteNotificationSetting.DailyTrainingNotificationSetting {
+        didSet {
+            Defaults[\.dailyTrainingNotificationSetting] = dailyTrainingNotificationSetting
+            HSRNotificationCenter.deleteDailyNoteNotification(for: .dailyTraining)
+        }
+    }
+
+    @Published var simulatedUniverseNotificationSetting: DailyNoteNotificationSetting
+        .SimulatedUniverseNotificationSetting {
+        didSet {
+            Defaults[\.simulatedUniverseNotificationSetting] = simulatedUniverseNotificationSetting
+            HSRNotificationCenter.deleteDailyNoteNotification(for: .simulatedUniverse)
         }
     }
 }
@@ -148,11 +165,132 @@ private struct NotificationSettingDetailView: View {
         } header: {
             Text("setting.notification.expedition.header")
         }
+
+        Section {
+            Toggle("setting.notification.simulated_universe.toggle", isOn: allowSimulatedUniverseNotification)
+            if let bindingDate = Binding(simulatedUniverseNotificationTime),
+               let bindingWeekday = Binding(simulatedUniverseNotificationWeekday) {
+                DatePicker(
+                    "setting.notification.simulated_universe.date_picker",
+                    selection: bindingDate,
+                    displayedComponents: .hourAndMinute
+                )
+                Picker(selection: bindingWeekday) {
+                    ForEach(Weekday.allCases, id: \.rawValue) { weekday in
+                        Text(weekday.description)
+                            .tag(weekday)
+                    }
+                } label: {
+                    Text("setting.notification.simulated_universe.weekday_picker")
+                }
+            }
+        } header: {
+            Text("setting.notification.simulated_universe.header")
+        } footer: {
+            Text("setting.notification.simulated_universe.footer")
+        }
     }
 
     // MARK: Private
 
     @StateObject private var setting: NotificationSettingViewModel = .init()
+
+    private var dailyTrainingNotificationTime: Binding<Date?> {
+        .init {
+            switch setting.dailyTrainingNotificationSetting {
+            case let .notifyAt(hour, minute):
+                return Calendar.current.nextDate(
+                    after: Date(),
+                    matching: DateComponents(hour: hour, minute: minute),
+                    matchingPolicy: .nextTime
+                )!
+            case .disallowed:
+                return nil
+            }
+        } set: { date in
+            setting.dailyTrainingNotificationSetting = .notifyAt(hour: date!.hour, minute: date!.minute)
+        }
+    }
+
+    private var allowDailyTrainingNotification: Binding<Bool> {
+        .init {
+            if case .disallowed = setting.dailyTrainingNotificationSetting {
+                return false
+            } else {
+                return true
+            }
+        } set: { newValue in
+            if !newValue {
+                setting.dailyTrainingNotificationSetting = .disallowed
+            } else {
+                setting.dailyTrainingNotificationSetting = .notifyAt(hour: 19, minute: 0)
+            }
+        }
+    }
+
+    private var simulatedUniverseNotificationTime: Binding<Date?> {
+        .init {
+            switch setting.simulatedUniverseNotificationSetting {
+            case let .notifyAt(weekday: _, hour: hour, minute: minute):
+                return Calendar.current.nextDate(
+                    after: Date(),
+                    matching: DateComponents(hour: hour, minute: minute),
+                    matchingPolicy: .nextTime
+                )!
+            case .disallowed:
+                return nil
+            }
+        } set: { date in
+            switch setting.simulatedUniverseNotificationSetting {
+            case let .notifyAt(weekday: weekday, hour: _, minute: _):
+                setting.simulatedUniverseNotificationSetting = .notifyAt(
+                    weekday: weekday,
+                    hour: date!.hour,
+                    minute: date!.minute
+                )
+            case .disallowed:
+                break
+            }
+        }
+    }
+
+    private var simulatedUniverseNotificationWeekday: Binding<Weekday?> {
+        .init {
+            switch setting.simulatedUniverseNotificationSetting {
+            case let .notifyAt(weekday: weekday, hour: _, minute: _):
+                return Weekday(rawValue: weekday)
+            case .disallowed:
+                return nil
+            }
+        } set: { weekday in
+            switch setting.simulatedUniverseNotificationSetting {
+            case let .notifyAt(weekday: _, hour: hour, minute: minute):
+                setting.simulatedUniverseNotificationSetting = .notifyAt(
+                    weekday: weekday!.rawValue,
+                    hour: hour,
+                    minute: minute
+                )
+            case .disallowed:
+                break
+            }
+        }
+    }
+
+    private var allowSimulatedUniverseNotification: Binding<Bool> {
+        .init {
+            if case .disallowed = setting.simulatedUniverseNotificationSetting {
+                return false
+            } else {
+                return true
+            }
+        } set: { newValue in
+            if !newValue {
+                setting.simulatedUniverseNotificationSetting = .disallowed
+            } else {
+                setting.simulatedUniverseNotificationSetting = .notifyAt(weekday: 7, hour: 19, minute: 0)
+            }
+        }
+    }
 }
 
 // MARK: - CustomizeStaminaNotificationSettingView
