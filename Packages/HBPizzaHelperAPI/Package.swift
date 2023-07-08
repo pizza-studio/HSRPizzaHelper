@@ -7,6 +7,7 @@ let package = Package(
     name: "HBPizzaHelperAPI",
     platforms: [
         .iOS(.v15),
+        .watchOS(.v9)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.

@@ -295,7 +295,7 @@
 		BF58D23F2A579D5100CC0DC6 /* WatchAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WatchAssets.xcassets; sourceTree = "<group>"; };
 		BF58D2422A579D5100CC0DC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF58D25F2A57A58E00CC0DC6 /* WatchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeView.swift; sourceTree = "<group>"; };
-		BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "HSRPizzaHelperWatch-Watch-App-Info.plist"; sourceTree = "<group>"; };
+		BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HSRPizzaHelperWatch-Watch-App-Info.plist"; sourceTree = "<group>"; };
 		BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		BF58D26C2A57F19B00CC0DC6 /* HSRPizzaHelperWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HSRPizzaHelperWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroper.swift; sourceTree = "<group>"; };
@@ -500,6 +500,8 @@
 		BF58D23A2A579D5000CC0DC6 /* HSRPizzaHelper Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				BF58D26C2A57F19B00CC0DC6 /* HSRPizzaHelperWatch Watch App.entitlements */,
+				BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */,
 				BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */,
 				BF58D23D2A579D5000CC0DC6 /* WatchContentView.swift */,
 				BF58D23F2A579D5100CC0DC6 /* WatchAssets.xcassets */,
@@ -850,8 +852,6 @@
 		EAE519732A01738600EF23B7 = {
 			isa = PBXGroup;
 			children = (
-				BF58D26C2A57F19B00CC0DC6 /* HSRPizzaHelperWatch Watch App.entitlements */,
-				BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */,
 				BFCACD112A04922E009B0B85 /* README.md */,
 				BFCACD0F2A0491E9009B0B85 /* LICENSE */,
 				EAE519C82A0178AD00EF23B7 /* Common */,
@@ -1526,14 +1526,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelperWatch Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelper Watch App/HSRPizzaHelperWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 148;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HSRPizzaHelperWatch-Watch-App-Info.plist";
+				INFOPLIST_FILE = "HSRPizzaHelper Watch App/HSRPizzaHelperWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Canglong.HSRPizzaHelper;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1557,14 +1557,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelperWatch Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelper Watch App/HSRPizzaHelperWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 148;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HSRPizzaHelperWatch-Watch-App-Info.plist";
+				INFOPLIST_FILE = "HSRPizzaHelper Watch App/HSRPizzaHelperWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Canglong.HSRPizzaHelper;
 				LD_RUNPATH_SEARCH_PATHS = (
