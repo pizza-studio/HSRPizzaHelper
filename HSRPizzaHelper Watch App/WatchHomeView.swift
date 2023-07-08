@@ -16,6 +16,8 @@ let globalDailyNoteCardRefreshSubject: PassthroughSubject<(), Never> = .init()
 // MARK: - DailyNoteCards
 
 struct DailyNoteCards: View {
+    // MARK: Internal
+
     var body: some View {
         ForEach(accounts) { account in
             if account.isValid() {

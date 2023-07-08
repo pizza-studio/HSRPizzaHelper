@@ -228,3 +228,5 @@
 "setting.notification.simulated_universe.date_picker" = "提醒时间";
 "setting.notification.simulated_universe.footer" = "仅中国大陆服务器用户。";
 "setting.notification.simulated_universe.weekday_picker" = "提醒日期";
+"herta_terminal.name" = "黑塔终端";
+"herta_terminal.intro" = "与“老婆”们聊天！";

@@ -228,3 +228,5 @@
 "setting.notification.simulated_universe.date_picker" = "通知の時間：";
 "setting.notification.simulated_universe.footer" = "中国大陸サーバーのユーザーのみ";
 "setting.notification.simulated_universe.weekday_picker" = "通知の曜日：";
+"herta_terminal.name" = "ヘルタ端末";
+"herta_terminal.intro" = "好きなキャラとお喋り！";
