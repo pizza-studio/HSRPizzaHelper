@@ -214,3 +214,17 @@
 "setting.notification.daily_training.header" = "デイリー訓練";
 "setting.notification.daily_training.date_picker" = "お知らせの時間のご指定：";
 "setting.notification.daily_training.footer" = "中国大陸サーバー限定機能である。";
+"sys.weekday.sunday" = "Sunday";
+"sys.weekday.monday" = "Monday";
+"sys.weekday.tuesday" = "Tuesday";
+"sys.weekday.wednesday" = "Wednesday";
+"sys.weekday.thursday" = "Thursday";
+"sys.weekday.friday" = "Friday";
+"sys.weekday.saturday" = "Saturday";
+"notification.simulated_universe.title" = "Reminder: simulated universe for %@";
+"notification.simulated_universe.body" = "The simulated universe score for %@ are not full. The current count is %lld.";
+"setting.notification.simulated_universe.toggle" = "Allow Simulated Universe notifications";
+"setting.notification.simulated_universe.header" = "Simulated Universe";
+"setting.notification.simulated_universe.date_picker" = "Notify me at";
+"setting.notification.simulated_universe.footer" = "China mainland server user only. ";
+"setting.notification.simulated_universe.weekday_picker" = "Notify me on";

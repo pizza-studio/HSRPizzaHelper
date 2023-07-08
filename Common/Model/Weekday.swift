@@ -16,22 +16,24 @@ enum Weekday: Int, CaseIterable, CustomStringConvertible {
     case friday = 6
     case saturday = 7
 
+    // MARK: Internal
+
     var description: String {
         switch self {
         case .sunday:
-            return "sys.weekday.sunday"
+            return "sys.weekday.sunday".localized()
         case .monday:
-            return "sys.weekday.monday"
+            return "sys.weekday.monday".localized()
         case .tuesday:
-            return "sys.weekday.tuesday"
+            return "sys.weekday.tuesday".localized()
         case .wednesday:
-            return "sys.weekday.wednesday"
+            return "sys.weekday.wednesday".localized()
         case .thursday:
-            return "sys.weekday.thursday"
+            return "sys.weekday.thursday".localized()
         case .friday:
-            return "sys.weekday.friday"
+            return "sys.weekday.friday".localized()
         case .saturday:
-            return "sys.weekday.saturday"
+            return "sys.weekday.saturday".localized()
         }
     }
 }

@@ -214,3 +214,17 @@
 "setting.notification.daily_training.header" = "每日实训";
 "setting.notification.daily_training.date_picker" = "提醒于";
 "setting.notification.daily_training.footer" = "仅中国大陆服务器用户。";
+"sys.weekday.sunday" = "星期日";
+"sys.weekday.monday" = "星期一";
+"sys.weekday.tuesday" = "星期二";
+"sys.weekday.wednesday" = "星期三";
+"sys.weekday.thursday" = "星期四";
+"sys.weekday.friday" = "星期五";
+"sys.weekday.saturday" = "星期六";
+"notification.simulated_universe.title" = "「%@」模拟宇宙提醒";
+"notification.simulated_universe.body" = "%@的模拟宇宙积分未满，现为%lld。";
+"setting.notification.simulated_universe.toggle" = "允许模拟宇宙通知";
+"setting.notification.simulated_universe.header" = "模拟宇宙";
+"setting.notification.simulated_universe.date_picker" = "提醒时间";
+"setting.notification.simulated_universe.footer" = "仅中国大陆服务器用户。";
+"setting.notification.simulated_universe.weekday_picker" = "提醒日期";

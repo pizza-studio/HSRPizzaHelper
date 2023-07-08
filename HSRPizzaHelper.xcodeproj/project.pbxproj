@@ -78,6 +78,8 @@
 		EA32764F2A03852C00774126 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
 		EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA37AEB32A02CDB900E4AADA /* SwifterSwift */; };
 		EA4025922A5904C800D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
+		EA4025932A59078400D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
+		EA4025942A59078500D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
 		EA43EDF72A0F38920035977E /* HSRNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */; };
 		EA43EDF82A0F38920035977E /* DailyNoteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */; };
 		EA43EDF92A0F3E060035977E /* HSRNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */; };
@@ -1345,6 +1347,7 @@
 				EA56DB902A0F630A00BCF884 /* SquareGIStyleWidget.swift in Sources */,
 				EA9D80A22A08D94700534237 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
 				EA56DB8D2A0F62DA00BCF884 /* GIStyleSquareTimelineProvider.swift in Sources */,
+				EA4025932A59078400D60D62 /* Weekday.swift in Sources */,
 				EA56DB842A0F60C500BCF884 /* GIStyleTimelineProvider.swift in Sources */,
 				EA56DB872A0F625400BCF884 /* RectangularGIStyleWidget.swift in Sources */,
 				EA068D102A080818003C4E69 /* RectangularDailyNoteWidget.swift in Sources */,
@@ -1438,6 +1441,7 @@
 				EA702C112A06B13E006D3BC9 /* UserDefaultKeys.swift in Sources */,
 				EA702C0C2A06B0BF006D3BC9 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EAE898812A06A8D3000AF830 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */,
+				EA4025942A59078500D60D62 /* Weekday.swift in Sources */,
 				EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA56DB7B2A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift in Sources */,

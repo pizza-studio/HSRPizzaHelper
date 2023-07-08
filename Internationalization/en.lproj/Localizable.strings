@@ -221,3 +221,10 @@
 "sys.weekday.thursday" = "Thursday";
 "sys.weekday.friday" = "Friday";
 "sys.weekday.saturday" = "Saturday";
+"notification.simulated_universe.title" = "Reminder: simulated universe for %@";
+"notification.simulated_universe.body" = "The simulated universe score for %@ are not full. The current count is %lld.";
+"setting.notification.simulated_universe.toggle" = "Allow Simulated Universe notifications";
+"setting.notification.simulated_universe.header" = "Simulated Universe";
+"setting.notification.simulated_universe.date_picker" = "Notify me at";
+"setting.notification.simulated_universe.footer" = "China mainland server user only. ";
+"setting.notification.simulated_universe.weekday_picker" = "Notify me on";

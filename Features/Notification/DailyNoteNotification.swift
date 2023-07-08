@@ -252,6 +252,8 @@ private struct DailyNoteNotificationSender {
 
     private func scheduleDailyTrainingNotification(hour: Int, minute: Int, dailyNote: WidgetDailyNote) {
         let dailyTraining = dailyNote.dailyTrainingInformation
+        guard dailyTraining.currentScore < dailyTraining.maxScore else { return }
+
         let content = UNMutableNotificationContent()
         content.title = String(
             format: "notification.daily_training.title"
@@ -269,6 +271,42 @@ private struct DailyNoteNotificationSender {
 
         let trigger = UNCalendarNotificationTrigger(
             dateMatching: DateComponents(hour: hour, minute: minute),
+            repeats: false
+        )
+
+        let id = getId(for: .expeditionEach)
+
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+
+        center.add(request)
+    }
+
+    private func scheduleSimulatedUniverseNotification(
+        weekday: Int,
+        hour: Int,
+        minute: Int,
+        dailyNote: WidgetDailyNote
+    ) {
+        let simulatedUniverse = dailyNote.simulatedUniverseInformation
+        guard simulatedUniverse.currentScore < simulatedUniverse.maxScore else { return }
+
+        let content = UNMutableNotificationContent()
+        content.title = String(
+            format: "notification.simulated_universe.title"
+                .localized(comment: "%@'s ..."),
+            account.name
+        )
+        content.body = String(
+            format: "notification.simulated_universe.body"
+                .localized(comment: "%@'s score... / current is %lld"),
+            account.name,
+            simulatedUniverse.currentScore
+        )
+
+        content.badge = 1
+
+        let trigger = UNCalendarNotificationTrigger(
+            dateMatching: DateComponents(hour: hour, minute: minute, weekday: weekday),
             repeats: false
         )
 
@@ -307,6 +345,11 @@ enum DailyNoteNotificationSetting {
         case disallowed
         case notifyAt(hour: Int, minute: Int)
     }
+
+    enum SimulatedUniverseNotificationSetting: Codable, DefaultsSerializable {
+        case disallowed
+        case notifyAt(weekday: Int, hour: Int, minute: Int)
+    }
 }
 
 extension DefaultsKeys {
@@ -328,5 +371,12 @@ extension DefaultsKeys {
 
     var dailyTrainingNotificationSetting: DefaultsKey<DailyNoteNotificationSetting.DailyTrainingNotificationSetting> {
         .init("dailyTrainingNotificationSetting", defaultValue: .notifyAt(hour: 19, minute: 0))
+    }
+
+    var simulatedUniverseNotificationSetting: DefaultsKey<
+        DailyNoteNotificationSetting
+            .SimulatedUniverseNotificationSetting
+    > {
+        .init("simulatedUniverseNotificationSetting", defaultValue: .notifyAt(weekday: 7, hour: 19, minute: 0))
     }
 }
