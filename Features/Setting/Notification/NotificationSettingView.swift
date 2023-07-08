@@ -167,6 +167,21 @@ private struct NotificationSettingDetailView: View {
         }
 
         Section {
+            Toggle("setting.notification.daily_training.toggle", isOn: allowDailyTrainingNotification)
+            if let bindingDate = Binding(dailyTrainingNotificationTime) {
+                DatePicker(
+                    "setting.notification.daily_training.date_picker",
+                    selection: bindingDate,
+                    displayedComponents: .hourAndMinute
+                )
+            }
+        } header: {
+            Text("setting.notification.daily_training.header")
+        } footer: {
+            Text("setting.notification.daily_training.footer")
+        }
+
+        Section {
             Toggle("setting.notification.simulated_universe.toggle", isOn: allowSimulatedUniverseNotification)
             if let bindingDate = Binding(simulatedUniverseNotificationTime),
                let bindingWeekday = Binding(simulatedUniverseNotificationWeekday) {
