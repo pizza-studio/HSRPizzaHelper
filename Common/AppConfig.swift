@@ -23,11 +23,11 @@ enum AppConfig {
 
     static let squareBackgroundImageFolderName: String = "square_widget_background"
 
-    static let widgetRefreshFrequencyInHour: Double = 4.0
+    static let widgetRefreshFrequencyInHour: Double = 2.0
 
-    static let widgetRefreshWhenErrorMinute: Int = 30
+    static let widgetRefreshWhenErrorMinute: Int = 15
 
-    static let enterAppShouldRefreshWidgetAfterMinute: Double = 15.0
+    static let enterAppShouldRefreshWidgetAfterMinute: Double = 5.0
 
     // This can be used to add debug statements.
     static var isDebug: Bool {
