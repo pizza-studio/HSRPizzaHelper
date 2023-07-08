@@ -209,7 +209,7 @@
 "sys.account.force_push.footer" = "This is prepared when syncing via iCloud is not working on your Apple Watch.";
 "watch.account.empty" = "Syncing from iCloud";
 "notification.daily_training.title" = "Reminder: daily training for %@";
-"notification.daily_training.body" = "The daily training for %@ is yet completed. The current progress is %lld/%lld.";
+"notification.daily_training.body" = "The daily training for %@ is not yet completed. The current progress is %lld/%lld.";
 "setting.notification.daily_training.toggle" = "Allow Daily Training notifications";
 "setting.notification.daily_training.header" = "Daily Training";
 "setting.notification.daily_training.date_picker" = "Notify me at";
@@ -222,7 +222,7 @@
 "sys.weekday.friday" = "Friday";
 "sys.weekday.saturday" = "Saturday";
 "notification.simulated_universe.title" = "Reminder: simulated universe for %@";
-"notification.simulated_universe.body" = "The simulated universe score for %@ is yet full. The current progress is %lld/%lld.";
+"notification.simulated_universe.body" = "The simulated universe score for %@ is not yet full. The current progress is %lld/%lld.";
 "setting.notification.simulated_universe.toggle" = "Allow Simulated Universe notifications";
 "setting.notification.simulated_universe.header" = "Simulated Universe";
 "setting.notification.simulated_universe.date_picker" = "Notify me at";
