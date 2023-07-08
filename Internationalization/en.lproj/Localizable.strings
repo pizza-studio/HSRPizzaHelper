@@ -214,3 +214,10 @@
 "setting.notification.daily_training.header" = "Daily Training";
 "setting.notification.daily_training.date_picker" = "Notify me at";
 "setting.notification.daily_training.footer" = "China mainland server user only. ";
+"sys.weekday.sunday" = "Sunday";
+"sys.weekday.monday" = "Monday";
+"sys.weekday.tuesday" = "Tuesday";
+"sys.weekday.wednesday" = "Wednesday";
+"sys.weekday.thursday" = "Thursday";
+"sys.weekday.friday" = "Friday";
+"sys.weekday.saturday" = "Saturday";
