@@ -274,9 +274,10 @@ private struct DailyNoteNotificationSender {
         )
         content.body = String(
             format: "notification.daily_training.body"
-                .localized(comment: "%@'s score... / current is %lld"),
+                .localized(comment: "%@'s score... / current progress is %lld/%lld"),
             account.name,
-            dailyTraining.currentScore
+            dailyTraining.currentScore,
+            dailyTraining.maxScore
         )
 
         content.badge = 1
@@ -310,9 +311,10 @@ private struct DailyNoteNotificationSender {
         )
         content.body = String(
             format: "notification.simulated_universe.body"
-                .localized(comment: "%@'s score... / current is %lld"),
+                .localized(comment: "%@'s score... / current is %lld/%lld"),
             account.name,
-            simulatedUniverse.currentScore
+            simulatedUniverse.currentScore,
+            simulatedUniverse.maxScore
         )
 
         content.badge = 1

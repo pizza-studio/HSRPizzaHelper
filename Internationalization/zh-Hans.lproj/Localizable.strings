@@ -209,7 +209,7 @@
 "sys.account.force_push.footer" = "本功能仅当在您的Apple Watch上通过iCloud同步帐号功能不可用时使用。";
 "watch.account.empty" = "等待从iCloud同步";
 "notification.daily_training.title" = "「%@」每日实训提醒";
-"notification.daily_training.body" = "%@的每日实训积分未满，现为%lld。";
+"notification.daily_training.body" = "%@的每日实训尚未完成，当前进度为%lld/%lld。";
 "setting.notification.daily_training.toggle" = "允许每日实训通知";
 "setting.notification.daily_training.header" = "每日实训";
 "setting.notification.daily_training.date_picker" = "提醒于";
@@ -222,7 +222,7 @@
 "sys.weekday.friday" = "星期五";
 "sys.weekday.saturday" = "星期六";
 "notification.simulated_universe.title" = "「%@」模拟宇宙提醒";
-"notification.simulated_universe.body" = "%@的模拟宇宙积分未满，现为%lld。";
+"notification.simulated_universe.body" = "%@的模拟宇宙积分未满，当前进度为%lld/%lld。";
 "setting.notification.simulated_universe.toggle" = "允许模拟宇宙通知";
 "setting.notification.simulated_universe.header" = "模拟宇宙";
 "setting.notification.simulated_universe.date_picker" = "提醒时间";
