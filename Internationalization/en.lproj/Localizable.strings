@@ -33,10 +33,10 @@
 "account.explanation.2" = "This procedure is not an illegal procedure such as plug-ins. This program abides by the relevant content of miHoYo's secondary creation rules. This App is an opensource project. Everyone can check and supervise all the underlying behaviors of this program. For details, see Settings - FAQ.";
 "sys.label.server" = "Server";
 "sys.label.cookie" = "Cookie";
-"sys.about.title" = "About HSR Pizza Helper";
+"sys.about.title" = "About Pizza Helper for HSR";
 "sys.more.title" = "More";
-"app.name" = "HSR Pizza Helper";
-"app.note.1" = "HSR Pizza Helper is not affiliated with miHoYo Co., Ltd. and its subsidiaries.";
+"app.name" = "Pizza Helper for HSR";
+"app.note.1" = "Pizza Helper for HSR is not affiliated with miHoYo Co., Ltd. and its subsidiaries.";
 "app.note.2" = "Honkai: Star Rail, game content and materials are trademarks and copyrights of HoYoverse.";
 "sys.thank.title" = "Acknowledgement for open source components and third-party APIs";
 "sys.thank.headline" = "Our app uses the following open source components and third-party APIs, and we would like to thank their authors.";
@@ -99,7 +99,7 @@
 "widget.small.desc" = "Track your trailblaze power.";
 "widget.large.display" = "Trailblaze Power";
 "widget.large.desc" = "Track your trailblaze power.";
-"app.note.3" = "HSR Pizza Helper is an open-source project hosted on [GitHub](https://github.com/pizza-studio/HSRPizzaHelper/).";
+"app.note.3" = "Pizza Helper for HSR is an open-source project hosted on [GitHub](https://github.com/pizza-studio/HSRPizzaHelper/).";
 "setting.notification.notpermitted" = "Notification not permitted";
 "setting.notification.navigatetosetting" = "Allow notification";
 "setting.notification.title" = "Notification";
@@ -131,7 +131,7 @@
 "widget.gistyle.square.desc" = "Status for Trailblaze Power and Dispatch Assignments.";
 "mihoyoapi.error.errdesc" = "Error (%lld) : %@";
 "widget.dailynote.timeline.error.noaccount" = "Error: Found no account. ";
-"sys.donate.notes" = "Please note that the following content is a free donation, and we will not provide you with any additional services. \nWe promise that your donation to \"HSR Pizza Helper\" will only be used to cover the direct costs during the App development process, including but not limited to the annual fee of the Apple Developer Program membership, server and domain name expenses, etc. We will not make any profit from this project, the excess will be donated to those in need. Thank you for supporting us.";
+"sys.donate.notes" = "Please note that the following content is a free donation, and we will not provide you with any additional services. \nWe promise that your donation to \"Pizza Helper for HSR\" will only be used to cover the direct costs during the App development process, including but not limited to the annual fee of the Apple Developer Program membership, server and domain name expenses, etc. We will not make any profit from this project, the excess will be donated to those in need. Thank you for supporting us.";
 "sys.donate.items.title" = "Optional Donations";
 "sys.label.pay" = "Pay";
 "sys.label.contact" = "Developers & Contact Info";
