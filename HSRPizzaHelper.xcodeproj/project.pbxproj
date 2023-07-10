@@ -315,6 +315,9 @@
 		BFDF6A832A08CAE200048FF9 /* AutoSheetDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSheetDismiss.swift; sourceTree = "<group>"; };
 		BFDF6A852A08D6C000048FF9 /* TapticSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticSupport.swift; sourceTree = "<group>"; };
 		BFDF6A872A08D84200048FF9 /* DeviceRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRecognizer.swift; sourceTree = "<group>"; };
+		BFFAA0662A5BA4B90095314C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
+		BFFAA0672A5BA4B90095314C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFFAA0682A5BA4B90095314C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA068D0E2A0807F3003C4E69 /* RectangularDailyNoteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteWidget.swift; sourceTree = "<group>"; };
 		EA068D112A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteWidgetView.swift; sourceTree = "<group>"; };
 		EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStaminaInformationCard.swift; sourceTree = "<group>"; };
@@ -1158,6 +1161,7 @@
 				"zh-Hans",
 				ja,
 				"zh-Hant",
+				ru,
 			);
 			mainGroup = EAE519732A01738600EF23B7;
 			packageReferences = (
@@ -1491,6 +1495,7 @@
 				BF14CFAB2A049ADE00E437C6 /* zh-Hans */,
 				BF14CFAC2A049AE000E437C6 /* ja */,
 				5B0BAC852A265E5700B0B8F8 /* zh-Hant */,
+				BFFAA0672A5BA4B90095314C /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1503,6 +1508,7 @@
 				BFBF6DE02A1B360E009C684B /* zh-Hans */,
 				BFBF6DE22A1B360F009C684B /* ja */,
 				5B0BAC842A265E5700B0B8F8 /* zh-Hant */,
+				BFFAA0662A5BA4B90095314C /* ru */,
 			);
 			name = HSRPizzaHelperWidget.intentdefinition;
 			sourceTree = "<group>";
@@ -1514,6 +1520,7 @@
 				BFD051D62A08B99D008343E8 /* zh-Hans */,
 				BFD051D72A08B9A0008343E8 /* ja */,
 				5B0BAC862A265E5700B0B8F8 /* zh-Hant */,
+				BFFAA0682A5BA4B90095314C /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
