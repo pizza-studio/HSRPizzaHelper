@@ -61,6 +61,11 @@ struct AboutView: View {
 // MARK: - DevelopSettings
 
 struct DevelopSettings: View {
+    let appVersion = (
+        Bundle.main
+            .infoDictionary?["CFBundleShortVersionString"] as? String
+    ) ?? ""
+    let buildVersion = (Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? ""
     @Binding var isShow: Bool
     @State var isAlertShow = false
     @State var alertMessage = ""
@@ -68,28 +73,28 @@ struct DevelopSettings: View {
     var body: some View {
         NavigationView {
             List {
-                Button("Clean All User Defaults Key") {
-                    Defaults.removeAll()
-                }
-                .buttonStyle(.borderless)
+                Section {
+                    Button("Clean All User Defaults Key") {
+                        Defaults.removeAll()
+                    }
+                    .buttonStyle(.borderless)
 
-//                Button("Print all notification") {
-//                }
-//                .buttonStyle(.borderless)
-
-                NavigationLink("All Notifications") {
-                    ScrollView {
-                        Text(alertMessage)
-                            .font(.footnote)
-                            .padding()
-                            .onAppear {
-                                Task {
-                                    for message in await HSRNotificationCenter.getAllNotificationsDescriptions() {
-                                        alertMessage += message + "\n"
+                    NavigationLink("Arranged Notifications") {
+                        ScrollView {
+                            Text(alertMessage)
+                                .font(.footnote)
+                                .padding()
+                                .onAppear {
+                                    Task {
+                                        for message in await HSRNotificationCenter.getAllNotificationsDescriptions() {
+                                            alertMessage += message + "\n"
+                                        }
                                     }
                                 }
-                            }
+                        }
                     }
+                } footer: {
+                    Text("Pizza Helper for HSR v\(appVersion) (\(buildVersion))")
                 }
             }
             .toolbar {

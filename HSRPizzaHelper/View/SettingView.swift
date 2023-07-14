@@ -115,7 +115,7 @@ private struct OtherSettingsView: View {
     var body: some View {
         List {
             if AppConfig.isDebug {
-                Button("Develope Settings") {
+                Button("Develop Settings") {
                     isDevelopSettingsShow.toggle()
                 }
             }

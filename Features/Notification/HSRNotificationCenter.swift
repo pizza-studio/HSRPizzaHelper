@@ -27,7 +27,7 @@ enum HSRNotificationCenter {
         var strings = [String]()
         await center.pendingNotificationRequests().forEach { request in
             let description =
-            "[\(request.content.title)]\n\(request.content.body)\n(\(request.trigger?.description))\n"
+                "[\(request.content.title)]\n\(request.content.body)\n(\(request.trigger?.description))\n"
             strings.append(description)
         }
         return strings
