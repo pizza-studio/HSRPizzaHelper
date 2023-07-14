@@ -62,12 +62,34 @@ struct AboutView: View {
 
 struct DevelopSettings: View {
     @Binding var isShow: Bool
+    @State var isAlertShow = false
+    @State var alertMessage = ""
 
     var body: some View {
         NavigationView {
             List {
                 Button("Clean All User Defaults Key") {
                     Defaults.removeAll()
+                }
+                .buttonStyle(.borderless)
+
+//                Button("Print all notification") {
+//                }
+//                .buttonStyle(.borderless)
+
+                NavigationLink("All Notifications") {
+                    ScrollView {
+                        Text(alertMessage)
+                            .font(.footnote)
+                            .padding()
+                            .onAppear {
+                                Task {
+                                    for message in await HSRNotificationCenter.getAllNotificationsDescriptions() {
+                                        alertMessage += message + "\n"
+                                    }
+                                }
+                            }
+                    }
                 }
             }
             .toolbar {
