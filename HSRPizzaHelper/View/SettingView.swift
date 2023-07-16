@@ -110,8 +110,16 @@ struct SettingView: View {
 private struct OtherSettingsView: View {
     // MARK: Internal
 
+    @State var isDevelopSettingsShow = false
+
     var body: some View {
         List {
+            if AppConfig.isDebug {
+                Button("Develop Settings") {
+                    isDevelopSettingsShow.toggle()
+                }
+            }
+
             Section {
                 NavigationLink("update.history.title") {
                     HistoryVersionInfoView()
@@ -224,6 +232,7 @@ private struct OtherSettingsView: View {
                 }
             }
         }
+        .sheet(isPresented: $isDevelopSettingsShow, content: { DevelopSettings(isShow: $isDevelopSettingsShow) })
         .navigationTitle("sys.more.title")
         .navigationBarTitleDisplayMode(.inline)
     }

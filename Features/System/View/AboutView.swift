@@ -61,13 +61,40 @@ struct AboutView: View {
 // MARK: - DevelopSettings
 
 struct DevelopSettings: View {
+    let appVersion = (
+        Bundle.main
+            .infoDictionary?["CFBundleShortVersionString"] as? String
+    ) ?? ""
+    let buildVersion = (Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? ""
     @Binding var isShow: Bool
+    @State var isAlertShow = false
+    @State var alertMessage = ""
 
     var body: some View {
         NavigationView {
             List {
-                Button("Clean All User Defaults Key") {
-                    Defaults.removeAll()
+                Section {
+                    Button("Clean All User Defaults Key") {
+                        Defaults.removeAll()
+                    }
+                    .buttonStyle(.borderless)
+
+                    NavigationLink("Arranged Notifications") {
+                        ScrollView {
+                            Text(alertMessage)
+                                .font(.footnote)
+                                .padding()
+                                .onAppear {
+                                    Task {
+                                        for message in await HSRNotificationCenter.getAllNotificationsDescriptions() {
+                                            alertMessage += message + "\n"
+                                        }
+                                    }
+                                }
+                        }
+                    }
+                } footer: {
+                    Text("Pizza Helper for HSR v\(appVersion) (\(buildVersion))")
                 }
             }
             .toolbar {
