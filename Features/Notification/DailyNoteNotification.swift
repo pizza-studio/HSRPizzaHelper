@@ -283,11 +283,11 @@ private struct DailyNoteNotificationSender {
         content.badge = 1
 
         let trigger = UNCalendarNotificationTrigger(
-            dateMatching: DateComponents(hour: hour, minute: minute),
+            dateMatching: DateComponents(calendar: .current, hour: hour, minute: minute),
             repeats: false
         )
 
-        let id = getId(for: .expeditionEach)
+        let id = getId(for: .dailyTraining)
 
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
 
@@ -324,7 +324,7 @@ private struct DailyNoteNotificationSender {
             repeats: false
         )
 
-        let id = getId(for: .expeditionEach)
+        let id = getId(for: .simulatedUniverse)
 
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
 
