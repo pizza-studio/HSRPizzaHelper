@@ -6,4 +6,5 @@
   
 */
 
-"CFBundleDisplayName" = "HSR Pizza";
+"CFBundleDisplayName" = "Pizza for HSR";
+"CFBundleName" = "Pizza for HSR";
