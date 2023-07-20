@@ -14,7 +14,7 @@
 
 "6SYcJR" = "Random Background";
 
-"9chCSz" = "Account Name";
+"9chCSz" = "Show Account Name";
 
 "AUMByJ-NWki8q" = "Just to confirm, you wanted ‘white’?";
 
@@ -42,8 +42,6 @@
 
 "KXq17m" = "Text Color";
 
-"LMxlQO" = "Description Placeholder";
-
 "NEvAFC" = "Lockscreen Widget Configuration";
 
 "NWki8q" = "white";
@@ -62,7 +60,7 @@
 
 "Rd7wVz" = "true";
 
-"RucQ8Q" = "Accessibility Background";
+"RucQ8Q" = "Text Readability Background";
 
 "SXQ4o6" = "true";
 
@@ -72,9 +70,7 @@
 
 "TRxGSH" = "follow system";
 
-"UBxo0N" = "Description Placeholder";
-
-"UKnmzD" = "Accessibility Background";
+"UKnmzD" = "Text Readability Background";
 
 "UqxBnR" = "Text Color";
 
@@ -94,7 +90,7 @@
 
 "X3BEWY" = "Intent Stamina Position";
 
-"XiMrNA" = "Accessibility Background";
+"XiMrNA" = "Text Readability Background";
 
 "XypIQU" = "true";
 
@@ -114,23 +110,21 @@
 
 "caHrt7" = "Trailblaze Power Position";
 
-"cfp269" = "Account Name";
+"cfp269" = "Show Account Name";
 
 "cqJzBX" = "left";
 
-"dJqFOZ" = "Account Name";
+"dJqFOZ" = "Show Account Name";
 
-"eNPXAH" = "Account Name";
+"eNPXAH" = "Show Account Name";
 
-"eRct2w" = "Show Expedition";
+"eRct2w" = "Show Dispatch Assignments";
 
 "fOhgy6" = "false";
 
 "gIq270" = "Rectangular Widget Configuration";
 
-"gYNxA8" = "Show Expedition";
-
-"gZuokv" = "Description Placeholder";
+"gYNxA8" = "Show Dispatch Assignments";
 
 "gpCwrM" = "Large Square Widget Configuration";
 
@@ -148,8 +142,6 @@
 
 "pDSxjk" = "Background";
 
-"pYKNQo" = "Description Placeholder";
-
 "qUsPBs" = "Widget Background";
 
 "rFuyNu" = "Random Background";
@@ -158,17 +150,12 @@
 
 "tUadZm" = "Account";
 
-"tVvJ9c" = "Description Placeholder";
-
 "tgZ9ty" = "false";
 
-"uNSxVK" = "Account Name";
-
-"xDVzIO" = "Description Placeholder";
+"uNSxVK" = "Show Account Name";
 
 "yd55oz-cFdBqE" = "There are ${count} options matching ‘right’.";
 
 "yd55oz-cqJzBX" = "There are ${count} options matching ‘left’.";
 
 "yd55oz-iE7nDM" = "There are ${count} options matching ‘center’.";
-

@@ -298,6 +298,12 @@
 		BF58D2682A57ABCF00CC0DC6 /* HSRPizzaHelperWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HSRPizzaHelperWatch-Watch-App-Info.plist"; sourceTree = "<group>"; };
 		BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		BF58D26C2A57F19B00CC0DC6 /* HSRPizzaHelperWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HSRPizzaHelperWatch Watch App.entitlements"; sourceTree = "<group>"; };
+		BF8D7FFE2A68C329002E5593 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
+		BF8D7FFF2A68C329002E5593 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BF8D80002A68C329002E5593 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF8D80012A68C336002E5593 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
+		BF8D80022A68C336002E5593 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BF8D80032A68C337002E5593 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroper.swift; sourceTree = "<group>"; };
 		BFBA36192A17496D00E0142A /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDonateView.swift; sourceTree = "<group>"; };
@@ -1162,6 +1168,8 @@
 				ja,
 				"zh-Hant",
 				ru,
+				vi,
+				es,
 			);
 			mainGroup = EAE519732A01738600EF23B7;
 			packageReferences = (
@@ -1496,6 +1504,8 @@
 				BF14CFAC2A049AE000E437C6 /* ja */,
 				5B0BAC852A265E5700B0B8F8 /* zh-Hant */,
 				BFFAA0672A5BA4B90095314C /* ru */,
+				BF8D7FFF2A68C329002E5593 /* vi */,
+				BF8D80022A68C336002E5593 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1509,6 +1519,8 @@
 				BFBF6DE22A1B360F009C684B /* ja */,
 				5B0BAC842A265E5700B0B8F8 /* zh-Hant */,
 				BFFAA0662A5BA4B90095314C /* ru */,
+				BF8D7FFE2A68C329002E5593 /* vi */,
+				BF8D80012A68C336002E5593 /* es */,
 			);
 			name = HSRPizzaHelperWidget.intentdefinition;
 			sourceTree = "<group>";
@@ -1521,6 +1533,8 @@
 				BFD051D72A08B9A0008343E8 /* ja */,
 				5B0BAC862A265E5700B0B8F8 /* zh-Hant */,
 				BFFAA0682A5BA4B90095314C /* ru */,
+				BF8D80002A68C329002E5593 /* vi */,
+				BF8D80032A68C337002E5593 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

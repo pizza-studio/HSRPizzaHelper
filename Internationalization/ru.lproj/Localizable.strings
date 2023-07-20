@@ -80,7 +80,7 @@
 "setting.widget.refresh.frequency.everyvalue" = "Каждые %lld ч";
 "setting.widget.title" = "Виджет";
 "setting.widget.refresh.manually" = "Синхронизировать все виджеты";
-"setting.widget.refresh.footer" = "Виджеты обновляются каждые 6 минут и синхронизируются каждые 4 часа. Синхронизация виджетов может быть достигнута либо через кнопку в приложении, либо свайпом вниз для обновления на главной странице.";
+"setting.widget.refresh.footer" = "Виджеты обновляются каждые 6 минут и синхронизируются каждые 2 часа. Синхронизация виджетов может быть достигнута либо через кнопку в приложении, либо свайпом вниз для обновления на главной странице.";
 "ophelper.intro" = "Инструмент для Genshin Impact";
 "account.new.test" = "Проверить соединение";
 "setting.widget.background.manage.add.edit" = "Обрезать изображение";
@@ -122,7 +122,7 @@
 "notification.stamina.title" = "Напоминание: энергия Освоения для %@";
 "notification.stamina.full.body" = "Энергия Освоения для %@ полностью восстановлена.";
 "notification.stamina.customize.body" = "У %@ %lld энергии Освоения. 180 будет в %@.";
-"notification.expedition.title" = "Напоминаем: отправьте поручения для %@";
+"notification.expedition.title" = "Напоминаем: начните поручения для %@";
 "notification.expedition.summary.body" = "Все поручения для %@ завершены.";
 "notification.expedition.each.body" = "Поручения '%2$@' для %1$@ завершены.";
 "widget.gistyle.rect.display" = "Энергия Освоения и поручения";
@@ -202,6 +202,7 @@
 "account.test.footer.recommend_device_fp" = "Во избежание повторного запроса на верификацию, пожалуйста, настройте отпечаток пальца устройства в соответствии с [этим руководством] (https://hsr.ophelper.top/static/fp_tutorial).";
 "sys.manage_hoyolab_account" = "Управление моей учетной записью HoYoLAB";
 "sys.manage_hoyolab_account.footer" = "Вы можете удалить свой аккаунт HoYoLAB здесь.";
+"app.dailynote.card.daily_training.label" = "Daily Training";
 "app.dailynote.card.simulated_universe.label" = "Simulated Universe";
 "sys.account.force_push" = "Force to push your accounts to paired Apple Watch";
 "sys.account.force_push.received" = "Received these accounts from your iPhone:\n";
