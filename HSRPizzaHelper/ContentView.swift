@@ -22,8 +22,13 @@ struct ContentView: View {
                 .tabItem {
                     Label("tab.home", systemSymbol: .listBullet)
                 }
-            SettingView()
+            ToolView()
                 .tag(1)
+                .tabItem {
+                    Label("tab.tool", systemSymbol: .shippingboxFill)
+                }
+            SettingView()
+                .tag(2)
                 .tabItem {
                     Label("tab.settings", systemSymbol: .gear)
                 }
