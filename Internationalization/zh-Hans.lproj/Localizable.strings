@@ -252,4 +252,4 @@
 "tool.dictionary.language.traditional_chinese" = "繁体中文";
 "tool.dictionary.language.spanish" = "西班牙语";
 "tool.dictionary.language.vietnamese" = "越南语";
-"tool.dictionary.detail.copy_succeeded" = "已复制到剪切板";
+"tool.dictionary.detail.copy_succeeded" = "已复制到剪贴板";

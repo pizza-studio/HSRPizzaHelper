@@ -232,9 +232,9 @@
 "herta_terminal.intro" = "與“老婆”們聊天！";
 "tab.tool" = "工具";
 "app.tool.title" = "工具";
-"app.tool.dictionary" = "崩壞：星穹鐵道詞典";
-"tool.dictionary.title" = "詞典";
-"tool.dictionary.search.prompt" = "搜索（區分大小寫）";
+"app.tool.dictionary" = "崩壞：星穹鐵道辭典";
+"tool.dictionary.title" = "辭典";
+"tool.dictionary.search.prompt" = "搜尋（區分大小寫）";
 "tool.dictionary.not_fount" = "沒有結果。換一個詞試試。";
 "tool.dictionary.detail.title" = "詳情";
 "tool.dictionary.detail.target.header" = "命中詞";
@@ -252,4 +252,4 @@
 "tool.dictionary.language.traditional_chinese" = "繁體中文";
 "tool.dictionary.language.spanish" = "西班牙語";
 "tool.dictionary.language.vietnamese" = "越南語";
-"tool.dictionary.detail.copy_succeeded" = "已複製到剪切板";
+"tool.dictionary.detail.copy_succeeded" = "已複製到剪貼簿";
