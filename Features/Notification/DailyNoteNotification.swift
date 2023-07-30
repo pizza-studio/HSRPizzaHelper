@@ -43,6 +43,19 @@ extension HSRNotificationCenter {
             )
         }
     }
+
+    static func deleteDailyNoteNotification(account: Account, type: DailyNoteNotificationType) {
+        Task {
+            let requests = await center.pendingNotificationRequests()
+            center.removePendingNotificationRequests(
+                withIdentifiers: requests
+                    .map(\.identifier)
+                    .filter { id in
+                        id.starts(with: type.rawValue) && id.contains(account.uuid?.uuidString ?? "")
+                    }
+            )
+        }
+    }
 }
 
 // MARK: - DailyNoteNotificationType
@@ -264,7 +277,10 @@ private struct DailyNoteNotificationSender {
 
     private func scheduleDailyTrainingNotification(hour: Int, minute: Int, dailyNote: WidgetDailyNote) {
         let dailyTraining = dailyNote.dailyTrainingInformation
-        guard dailyTraining.currentScore < dailyTraining.maxScore else { return }
+        guard dailyTraining.currentScore < dailyTraining.maxScore else {
+            HSRNotificationCenter.deleteDailyNoteNotification(account: account, type: .dailyTraining)
+            return
+        }
 
         let content = UNMutableNotificationContent()
         content.title = String(
@@ -301,7 +317,10 @@ private struct DailyNoteNotificationSender {
         dailyNote: WidgetDailyNote
     ) {
         let simulatedUniverse = dailyNote.simulatedUniverseInformation
-        guard simulatedUniverse.currentScore < simulatedUniverse.maxScore else { return }
+        guard simulatedUniverse.currentScore < simulatedUniverse.maxScore else {
+            HSRNotificationCenter.deleteDailyNoteNotification(account: account, type: .simulatedUniverse)
+            return
+        }
 
         let content = UNMutableNotificationContent()
         content.title = String(
