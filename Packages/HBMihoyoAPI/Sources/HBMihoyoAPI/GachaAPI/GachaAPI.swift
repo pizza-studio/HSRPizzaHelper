@@ -12,6 +12,10 @@ extension MiHoYoAPI {
     func getGachaLog() {}
 }
 
+class GachaClient {
+
+}
+
 private func generateGachaRequest(
     basicParam: GachaRequestBasicParameter,
     page: Int,
@@ -50,11 +54,11 @@ private func generateGachaRequest(
         .init(name: "plat_type", value: "ios"),
         .init(name: "page", value: "\(page)"),
         .init(name: "size", value: "\(size)"),
-        .init(name: "gacha_type", value: "\(gachaType.rawValue)"),
+        .init(name: "gacha_type", value: gachaType.rawValue),
         .init(name: "end_id", value: "\(endID)"),
     ]
 
-    return URLRequest(url: URL(string: "")!)
+    return URLRequest(url: components.url!)
 }
 
 private func parseGachaURL(by gachaURLString: String) throws -> GachaRequestBasicParameter {
@@ -109,6 +113,34 @@ enum ParseGachaURLError: Error {
 
 // MARK: - GachaType
 
-enum GachaType: Int {
-    case standard = 11
+enum GachaType: String, Codable {
+    case regularWarp = "1"
+    case characterEventWarp = "11"
+    case lightConeEventWarp = "12"
+}
+
+// MARK: - GachaItem
+
+struct GachaItem: Codable {
+    enum RankType: String, Codable {
+        case three = "3"
+        case four = "4"
+        case five = "5"
+    }
+
+    enum ItemType: String, Codable {
+        case lightCones = "光锥"
+        case characters = "角色"
+    }
+
+    let uid: String
+    let time: Date
+    let gachaID: String
+    let gachaType: GachaType
+    let itemID: String
+    let count: Int
+    let name: String
+    let itemType: ItemType
+    let rankType: RankType
+    let id: String
 }
