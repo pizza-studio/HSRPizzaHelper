@@ -12,9 +12,9 @@ import SwiftUI
 // MARK: - GetGachaRecordView
 
 struct GetGachaRecordView: View {
-    @StateObject var viewModel: GachaViewModel = .init()
+    // MARK: Internal
 
-    var status: GachaViewModel.Status {
+    var status: GetGachaViewModel.Status {
         viewModel.status
     }
 
@@ -38,6 +38,10 @@ struct GetGachaRecordView: View {
             }
         }
     }
+
+    // MARK: Private
+
+    @StateObject private var viewModel: GetGachaViewModel = .init()
 }
 
 // MARK: - WaitingForURLView
@@ -129,7 +133,7 @@ private struct GotSomeItemView: View {
 struct FailFetchingView: View {
     let page: Int
     let gachaType: GachaType
-    let error: LocalizedError
+    let error: Error
     let retry: () -> ()
 
     var body: some View {

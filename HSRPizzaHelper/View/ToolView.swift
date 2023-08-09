@@ -16,7 +16,7 @@ struct ToolView: View {
                     HSRDictionaryView()
                 }
                 NavigationLink("gacha") {
-                    GetGachaRecordView()
+                    GachaView()
                 }
             }
             .navigationTitle("app.tool.title")

@@ -38,6 +38,9 @@ struct SettingView: View {
                             Image(systemSymbol: .bellBadgeFill)
                         }
                     }
+                    NavigationLink("Gacha") {
+                        GachaSettingView()
+                    }
                 }
                 Section {
                     Button {

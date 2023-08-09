@@ -26,9 +26,15 @@ public class GachaClient {
         if task == nil {
             task = Task(priority: .high) {
                 while case let .currentPagination(pagination) = status {
+                    try? await Task
+                        .sleep(nanoseconds: UInt64(
+                            Double
+                                .random(in: GachaClient.GET_GACHA_DELAY_RANDOM_RANGE) * 1_000_000_000
+                        ))
                     do {
                         let result = try await fetchData(pagination: pagination)
                         publisher.send((gachaType: pagination.gachaType, result: result))
+                        status.switchToNextPage(endID: result.list.last?.id)
                     } catch {
                         status = .finished
                         publisher.send(completion: .failure(GachaError.fetchDataError(
@@ -38,12 +44,9 @@ public class GachaClient {
                             error: error
                         )))
                     }
-                    try? await Task
-                        .sleep(nanoseconds: UInt64(
-                            Double
-                                .random(in: GachaClient.GET_GACHA_DELAY_RANDOM_RANGE) * 1_000_000_000
-                        ))
                 }
+                status = .finished
+                publisher.send(completion: .finished)
             }
         }
     }
@@ -134,15 +137,10 @@ public class GachaClient {
             gachaType: pagination.gachaType,
             endID: pagination.endID
         )
-        print(request.url?.absoluteString)
 
         let (data, _) = try await URLSession.shared.data(for: request)
 
-        print(String(data: data, encoding: .utf8))
-
         let result = try GachaResult.decodeFromMiHoYoAPIJSONResult(data: data)
-
-        status.switchToNextPage(endID: result.list.last?.id)
 
         return result
     }
