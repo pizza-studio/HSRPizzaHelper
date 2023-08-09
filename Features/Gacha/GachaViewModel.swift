@@ -55,10 +55,10 @@ class GachaViewModel: ObservableObject {
                 case let .fetchDataError(page: page, size: _, gachaType: gachaType, error: error):
                     DispatchQueue.main.async { [self] in
                         print(error)
-                        // swiftlint:disable:next force_cast
                         status = .failFetching(
                             page: page,
                             gachaType: gachaType,
+                            // swiftlint:disable:next force_cast
                             error: error as! LocalizedError,
                             retry: {
                                 self.initialize()
@@ -68,7 +68,9 @@ class GachaViewModel: ObservableObject {
                 }
             }
         } receiveValue: { [self] page, gachaType, result in
-            status = .got(page: page, gachaType: gachaType, items: result.list, cancel: { self.cancel() })
+            DispatchQueue.main.async { [self] in
+                status = .got(page: page, gachaType: gachaType, items: result.list, cancel: { self.cancel() })
+            }
             result.list.forEach { item in
                 insert(item)
             }

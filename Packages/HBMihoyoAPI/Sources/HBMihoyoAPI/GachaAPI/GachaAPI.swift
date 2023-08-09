@@ -43,6 +43,11 @@ public class GachaClient {
                             error: error
                         )))
                     }
+                    try? await Task
+                        .sleep(nanoseconds: UInt64(
+                            Double
+                                .random(in: GachaClient.GET_GACHA_DELAY_RANDOM_RANGE) * 1_000_000_000
+                        ))
                 }
             }
         }
@@ -53,6 +58,11 @@ public class GachaClient {
         status = .finished
         publisher.send(completion: .finished)
     }
+
+    // MARK: Internal
+
+    // swiftlint:disable:next identifier_name
+    static let GET_GACHA_DELAY_RANDOM_RANGE: Range<Double> = 0.8 ..< 1.5
 
     // MARK: Private
 
