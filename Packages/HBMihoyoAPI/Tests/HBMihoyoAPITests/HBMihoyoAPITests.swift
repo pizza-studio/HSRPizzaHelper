@@ -23,6 +23,9 @@ final class HBMihoyoAPITests: XCTestCase {
         let basicParam = try parseGachaURL(by: urlString)
         print(basicParam)
 
-        print(generateGachaRequest(basicParam: basicParam, page: 1, size: 5, gachaType: .characterEventWarp, endID: 0).url!)
+        print(
+            generateGachaRequest(basicParam: basicParam, page: 1, size: 5, gachaType: .characterEventWarp, endID: 0)
+                .url!
+        )
     }
 }
