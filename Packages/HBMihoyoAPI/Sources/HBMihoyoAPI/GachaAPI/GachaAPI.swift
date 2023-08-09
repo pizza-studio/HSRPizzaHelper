@@ -24,7 +24,8 @@ public class GachaClient {
 
     // MARK: Public
 
-    public let publisher: PassthroughSubject<GachaResult, GachaError> = .init()
+    public let publisher: PassthroughSubject<(page: Int, gachaType: GachaType, result: GachaResult), GachaError> =
+        .init()
 
     public func start() {
         if task == nil {
@@ -32,7 +33,7 @@ public class GachaClient {
                 while case let .currentPagination(pagination) = status {
                     do {
                         let result = try await fetchData(pagination: pagination)
-                        publisher.send(result)
+                        publisher.send((page: pagination.page, gachaType: pagination.gachaType, result: result))
                     } catch {
                         status = .finished
                         publisher.send(completion: .failure(GachaError.fetchDataError(
@@ -128,8 +129,11 @@ public class GachaClient {
             gachaType: pagination.gachaType,
             endID: pagination.endID
         )
+        print(request.url?.absoluteString)
 
         let (data, _) = try await URLSession.shared.data(for: request)
+
+        print(String(data: data, encoding: .utf8))
 
         let result = try GachaResult.decodeFromMiHoYoAPIJSONResult(data: data)
 
@@ -207,89 +211,4 @@ func parseGachaURL(by gachaURLString: String) throws -> GachaRequestAuthenticati
         signType: signType,
         server: server
     )
-}
-
-// MARK: - GachaRequestAuthentication
-
-struct GachaRequestAuthentication {
-    let authenticationKey: String
-    let authenticationKeyVersion: String
-    let signType: String
-    let server: Server
-}
-
-// MARK: - GachaError
-
-public enum GachaError: Error {
-    case parseURLError(ParseGachaURLError)
-    case fetchDataError(page: Int, size: Int, gachaType: GachaType, error: Error)
-}
-
-// MARK: - ParseGachaURLError
-
-public enum ParseGachaURLError: Error {
-    case invalidURL
-    case noAuthenticationKey
-    case noAuthenticationKeyVersion
-    case noServer
-    case invalidServer
-    case noSignType
-}
-
-// MARK: - GachaType
-
-public enum GachaType: String, Codable, CaseIterable {
-    case regularWarp = "1"
-    case characterEventWarp = "11"
-    case lightConeEventWarp = "12"
-
-    // MARK: Public
-
-    public func next() -> Self? {
-        switch self {
-        case .regularWarp:
-            return .characterEventWarp
-        case .characterEventWarp:
-            return .lightConeEventWarp
-        case .lightConeEventWarp:
-            return nil
-        }
-    }
-}
-
-// MARK: - GachaResult
-
-public struct GachaResult: DecodableFromMiHoYoAPIJSONResult {
-    public let page: Int
-    public let size: Int
-    public let region: Server
-    public let regionTimeZone: Int
-    public let list: [GachaItem]
-}
-
-// MARK: - GachaItem
-
-public struct GachaItem: Codable {
-    public enum Rank: String, Codable {
-        case three = "3"
-        case four = "4"
-        case five = "5"
-    }
-
-    public enum ItemType: String, Codable {
-        case lightCones = "光锥"
-        case characters = "角色"
-    }
-
-    public let uid: String
-    public let time: Date
-    public let gachaID: String
-    public let gachaType: GachaType
-    public let itemID: String
-    public let count: Int
-    public let name: String
-    public let itemType: ItemType
-    public let rankType: Rank
-    public let id: String
-    public let lang: String
 }

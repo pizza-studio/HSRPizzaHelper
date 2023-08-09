@@ -61,6 +61,8 @@
 		EA09B1992A091A1F00986D46 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09B1982A091A1F00986D46 /* AppInitializer.swift */; };
 		EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09B19A2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift */; };
 		EA09B19D2A091B0200986D46 /* LatestVersionInformationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09B19C2A091B0200986D46 /* LatestVersionInformationChecker.swift */; };
+		EA120C3C2A8386DA0069BE1D /* GachaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA120C3B2A8386DA0069BE1D /* GachaViewModel.swift */; };
+		EA120C3E2A8396620069BE1D /* GetGachaRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA120C3D2A8396620069BE1D /* GetGachaRecordView.swift */; };
 		EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA143BC72A01808200AE1FCA /* HBMihoyoAPI */; };
 		EA1673F12A063AF300436487 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1673F02A063AF300436487 /* WidgetKit.framework */; };
 		EA1673F32A063AF300436487 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1673F22A063AF300436487 /* SwiftUI.framework */; };
@@ -335,6 +337,8 @@
 		EA09B1982A091A1F00986D46 /* AppInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		EA09B19A2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationIconBadgeNumberCleaner.swift; sourceTree = "<group>"; };
 		EA09B19C2A091B0200986D46 /* LatestVersionInformationChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestVersionInformationChecker.swift; sourceTree = "<group>"; };
+		EA120C3B2A8386DA0069BE1D /* GachaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaViewModel.swift; sourceTree = "<group>"; };
+		EA120C3D2A8396620069BE1D /* GetGachaRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGachaRecordView.swift; sourceTree = "<group>"; };
 		EA1673EF2A063AF300436487 /* HSRPizzaHelperWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HSRPizzaHelperWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1673F02A063AF300436487 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EA1673F22A063AF300436487 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -568,6 +572,15 @@
 				EA4025912A5904C800D60D62 /* Weekday.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EA120C3A2A8386CC0069BE1D /* Gacha */ = {
+			isa = PBXGroup;
+			children = (
+				EA120C3B2A8386DA0069BE1D /* GachaViewModel.swift */,
+				EA120C3D2A8396620069BE1D /* GetGachaRecordView.swift */,
+			);
+			path = Gacha;
 			sourceTree = "<group>";
 		};
 		EA143BC62A01808200AE1FCA /* Frameworks */ = {
@@ -940,6 +953,7 @@
 		EAE519BA2A0175C200EF23B7 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				EA120C3A2A8386CC0069BE1D /* Gacha */,
 				EA1D52362A7625C000FA66A9 /* HSRDictionary */,
 				EA80CFDF2A0E8CDF00002B53 /* Notification */,
 				EA14BF922A04C595002EDBB4 /* System */,
@@ -1421,6 +1435,7 @@
 				EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */,
 				EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA1D52382A7625D400FA66A9 /* HSRDictionaryAPI.swift in Sources */,
+				EA120C3C2A8386DA0069BE1D /* GachaViewModel.swift in Sources */,
 				EA742BF72A020A3300ACB8E4 /* CreateAccountSheetView.swift in Sources */,
 				EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */,
 				EA80CFE12A0E8F2700002B53 /* RequestNotification.swift in Sources */,
@@ -1459,6 +1474,7 @@
 				EA09B1972A0918B200986D46 /* UserPolicyChecker.swift in Sources */,
 				BFBA361C2A1749AE00E0142A /* GlobalDonateView.swift in Sources */,
 				EA80CFE82A0E983C00002B53 /* InlineNavigationTitle.swift in Sources */,
+				EA120C3E2A8396620069BE1D /* GetGachaRecordView.swift in Sources */,
 				EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */,
 				BF58D26A2A57AD4300CC0DC6 /* WatchConnectivityManager.swift in Sources */,
 				EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */,
