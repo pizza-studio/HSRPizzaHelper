@@ -42,7 +42,21 @@ class GachaViewModel: ObservableObject {
     private var client: GachaClient?
     private var cancellable: AnyCancellable?
 
-    private func insert(_ gachaItem: GachaItem) {}
+    private func insert(_ gachaItem: GachaItem) {
+        let context = PersistenceController.shared.container.viewContext
+        let persistedItem = GachaItemMO(context: context)
+        persistedItem.id = gachaItem.id
+        persistedItem.count = Int32(gachaItem.count)
+        persistedItem.gachaID = gachaItem.gachaID
+        persistedItem.gachaType = gachaItem.gachaType
+        persistedItem.itemID = gachaItem.itemID
+        persistedItem.itemType = gachaItem.itemType
+        persistedItem.lang = gachaItem.lang
+        persistedItem.name = gachaItem.name
+        persistedItem.rank = gachaItem.rank
+        persistedItem.time = gachaItem.time
+        persistedItem.uid = gachaItem.uid
+    }
 
     private func startFetching() {
         status = .inProgress(cancel: { self.cancel() })
@@ -67,9 +81,9 @@ class GachaViewModel: ObservableObject {
                     }
                 }
             }
-        } receiveValue: { [self] page, gachaType, result in
+        } receiveValue: { [self] gachaType, result in
             DispatchQueue.main.async { [self] in
-                status = .got(page: page, gachaType: gachaType, items: result.list, cancel: { self.cancel() })
+                status = .got(page: result.page, gachaType: gachaType, items: result.list, cancel: { self.cancel() })
             }
             result.list.forEach { item in
                 insert(item)

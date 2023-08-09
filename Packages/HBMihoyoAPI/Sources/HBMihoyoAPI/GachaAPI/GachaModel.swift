@@ -105,7 +105,7 @@ public struct GachaItem: Codable {
         self.count = Int(try container.decode(String.self, forKey: .count))!
         self.name = try container.decode(String.self, forKey: .name)
         self.itemType = try container.decode(GachaItem.ItemType.self, forKey: .itemType)
-        self.rankType = try container.decode(GachaItem.Rank.self, forKey: .rankType)
+        self.rank = try container.decode(GachaItem.Rank.self, forKey: .rank)
         self.id = try container.decode(String.self, forKey: .id)
         self.lang = try container.decode(String.self, forKey: .lang)
     }
@@ -131,7 +131,7 @@ public struct GachaItem: Codable {
     public let count: Int
     public let name: String
     public let itemType: ItemType
-    public let rankType: Rank
+    public let rank: Rank
     public let id: String
     public let lang: String
 
@@ -146,7 +146,7 @@ public struct GachaItem: Codable {
         case count
         case name
         case itemType = "item_type"
-        case rankType = "rank_type"
+        case rank = "rank_type"
         case id
         case lang
     }

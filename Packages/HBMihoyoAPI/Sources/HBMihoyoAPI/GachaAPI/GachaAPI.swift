@@ -8,11 +8,6 @@
 import Combine
 import Foundation
 
-@available(iOS 15.0, *)
-extension MiHoYoAPI {
-    func getGachaLog() {}
-}
-
 // MARK: - GachaClient
 
 public class GachaClient {
@@ -24,7 +19,7 @@ public class GachaClient {
 
     // MARK: Public
 
-    public let publisher: PassthroughSubject<(page: Int, gachaType: GachaType, result: GachaResult), GachaError> =
+    public let publisher: PassthroughSubject<(gachaType: GachaType, result: GachaResult), GachaError> =
         .init()
 
     public func start() {
@@ -33,7 +28,7 @@ public class GachaClient {
                 while case let .currentPagination(pagination) = status {
                     do {
                         let result = try await fetchData(pagination: pagination)
-                        publisher.send((page: pagination.page, gachaType: pagination.gachaType, result: result))
+                        publisher.send((gachaType: pagination.gachaType, result: result))
                     } catch {
                         status = .finished
                         publisher.send(completion: .failure(GachaError.fetchDataError(
