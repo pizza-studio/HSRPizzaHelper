@@ -12,17 +12,17 @@ extension MiHoYoAPI {
     func getGachaLog() {}
 }
 
-class GachaClient {
+// MARK: - GachaClient
 
-}
+class GachaClient {}
 
-private func generateGachaRequest(
+func generateGachaRequest(
     basicParam: GachaRequestBasicParameter,
     page: Int,
     size: Int,
     gachaType: GachaType,
     endID: Int
-) throws
+) 
     -> URLRequest {
     var components = URLComponents()
 
@@ -35,7 +35,7 @@ private func generateGachaRequest(
         components.host = "api-account-os.hoyolab.com"
     }
 
-    components.path = "common/gacha_record/api/getGachaLog"
+    components.path = "/common/gacha_record/api/getGachaLog"
 
     components.queryItems = [
         .init(name: "authkey_ver", value: basicParam.authenticationKeyVersion),
@@ -47,7 +47,6 @@ private func generateGachaRequest(
         .init(name: "region", value: basicParam.server.rawValue),
         .init(name: "default_gacha_type", value: "11"),
         .init(name: "lang", value: "zh-cn"),
-        .init(name: "authkey", value: basicParam.authenticationKey),
         .init(name: "game_biz", value: basicParam.server.region.rawValue),
         .init(name: "os_system", value: "iOS 16.6"),
         .init(name: "device_model", value: "iPhone15.2"),
@@ -57,11 +56,11 @@ private func generateGachaRequest(
         .init(name: "gacha_type", value: gachaType.rawValue),
         .init(name: "end_id", value: "\(endID)"),
     ]
-
-    return URLRequest(url: components.url!)
+        let urlString = components.url!.absoluteString + "&authkey=\(basicParam.authenticationKey.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)"
+        return URLRequest(url: URL(string: urlString)!)
 }
 
-private func parseGachaURL(by gachaURLString: String) throws -> GachaRequestBasicParameter {
+func parseGachaURL(by gachaURLString: String) throws -> GachaRequestBasicParameter {
     guard let url = URL(string: gachaURLString),
           let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
     else { throw ParseGachaURLError.invalidURL }
