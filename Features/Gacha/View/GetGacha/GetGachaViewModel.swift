@@ -59,7 +59,7 @@ class GetGachaViewModel: ObservableObject {
                 persistedItem.gachaType = gachaItem.gachaType
                 persistedItem.itemID = gachaItem.itemID
                 persistedItem.itemType = gachaItem.itemType
-                persistedItem.lang = gachaItem.lang
+                persistedItem.language = gachaItem.lang
                 persistedItem.name = gachaItem.name
                 persistedItem.rank = gachaItem.rank
                 persistedItem.time = gachaItem.time
@@ -77,28 +77,34 @@ class GetGachaViewModel: ObservableObject {
         cancellable = client!.publisher.sink { [self] completion in
             switch completion {
             case .finished:
-                status = .finished(initialize: { DispatchQueue.main.async { self.initialize() } })
+                DispatchQueue.main.async {
+                    self.status = .finished(initialize: { DispatchQueue.main.async { self.initialize() } })
+                }
             case let .failure(error):
                 switch error {
                 case let .fetchDataError(page: page, size: _, gachaType: gachaType, error: error):
-                    status = .failFetching(
-                        page: page,
-                        gachaType: gachaType,
-                        error: error,
-                        retry: {
-                            DispatchQueue.main.async {
-                                self.initialize()
+                    DispatchQueue.main.async {
+                        self.status = .failFetching(
+                            page: page,
+                            gachaType: gachaType,
+                            error: error,
+                            retry: {
+                                DispatchQueue.main.async {
+                                    self.initialize()
+                                }
                             }
-                        }
-                    )
+                        )
+                    }
                 }
             }
         } receiveValue: { [self] gachaType, result in
-            status = .got(page: result.page, gachaType: gachaType, items: result.list, cancel: {
-                DispatchQueue.main.async {
-                    self.cancel()
-                }
-            })
+            DispatchQueue.main.async {
+                self.status = .got(page: result.page, gachaType: gachaType, items: result.list, cancel: {
+                    DispatchQueue.main.async {
+                        self.cancel()
+                    }
+                })
+            }
             Task(priority: .medium) {
                 self.insert(result.list)
             }

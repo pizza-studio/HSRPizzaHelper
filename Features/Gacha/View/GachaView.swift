@@ -45,11 +45,10 @@ struct GachaView: View {
         request.resultType = .dictionaryResultType
         request.returnsDistinctResults = true
         request.propertiesToFetch = ["uid"]
-        var result: [(String, String?)] = []
         if let fetchResult = try? viewContext
             .fetch(request) as? [[String: String]] {
             let uids = fetchResult.compactMap { $0["uid"] }
-            result = uids.map { uid in
+            return uids.map { uid in
                 let request = Account.fetchRequest()
                 request.predicate = NSPredicate(format: "uid = %@", uid)
                 let accounts = try? viewContext.fetch(request)
@@ -59,8 +58,9 @@ struct GachaView: View {
                     return (uid, nil)
                 }
             }
+        } else {
+            return []
         }
-        return result
     }
 
     // MARK: Private

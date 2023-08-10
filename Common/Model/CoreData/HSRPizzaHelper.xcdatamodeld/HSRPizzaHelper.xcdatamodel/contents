@@ -17,7 +17,7 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="itemID" optional="YES" attributeType="String"/>
         <attribute name="itemTypeRawValue" optional="YES" attributeType="String"/>
-        <attribute name="lang" optional="YES" attributeType="String"/>
+        <attribute name="langRawValue" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rankRawValue" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

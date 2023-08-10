@@ -104,10 +104,10 @@ public struct GachaItem: Codable {
         self.itemID = try container.decode(String.self, forKey: .itemID)
         self.count = Int(try container.decode(String.self, forKey: .count))!
         self.name = try container.decode(String.self, forKey: .name)
-        self.itemType = try container.decode(GachaItem.ItemType.self, forKey: .itemType)
+        self.itemType = try container.decode(ItemType.self, forKey: .itemType)
         self.rank = try container.decode(GachaItem.Rank.self, forKey: .rank)
         self.id = try container.decode(String.self, forKey: .id)
-        self.lang = try container.decode(String.self, forKey: .lang)
+        self.lang = try container.decode(MiHoYoAPILanguage.self, forKey: .lang)
     }
 
     // MARK: Public
@@ -119,8 +119,22 @@ public struct GachaItem: Codable {
     }
 
     public enum ItemType: String, Codable {
-        case lightCones = "光锥"
-        case characters = "角色"
+        case lightCones
+        case characters
+
+        // MARK: Lifecycle
+
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            switch try container.decode(String.self) {
+            case "角色", "Character", "Figur", "Karakter", "Nhân Vật", "Personagens", "Personajes", "Personnages",
+                 "Персонажи", "ตัวละคร", "캐릭터", "キャラクター": self = .characters
+            case "光円錐", "光锥", "光錐", "cônes de lumière", "Cones de Luz", "Conos de luz", "Lichtkegel", "Light Cone",
+                 "Nón Ánh Sáng", "Световые конусы", "광추": self = .lightCones
+            default:
+                self = .lightCones
+            }
+        }
     }
 
     public let uid: String
@@ -133,7 +147,7 @@ public struct GachaItem: Codable {
     public let itemType: ItemType
     public let rank: Rank
     public let id: String
-    public let lang: String
+    public let lang: MiHoYoAPILanguage
 
     // MARK: Internal
 

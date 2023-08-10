@@ -585,11 +585,8 @@
 		EA120C3A2A8386CC0069BE1D /* Gacha */ = {
 			isa = PBXGroup;
 			children = (
-				EA3BDCA32A83D20A001C3C6C /* GachaView.swift */,
+				EAB7F1EE2A8494DD00010726 /* View */,
 				EA3BDC9D2A83A93B001C3C6C /* Model */,
-				EA120C3B2A8386DA0069BE1D /* GetGachaViewModel.swift */,
-				EA120C3D2A8396620069BE1D /* GetGachaRecordView.swift */,
-				EA3BDCA52A83D4B0001C3C6C /* GachaSettingView.swift */,
 			);
 			path = Gacha;
 			sourceTree = "<group>";
@@ -888,6 +885,25 @@
 				EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EAB7F1EE2A8494DD00010726 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAB7F1EF2A8494EA00010726 /* GetGacha */,
+				EA3BDCA32A83D20A001C3C6C /* GachaView.swift */,
+				EA3BDCA52A83D4B0001C3C6C /* GachaSettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAB7F1EF2A8494EA00010726 /* GetGacha */ = {
+			isa = PBXGroup;
+			children = (
+				EA120C3D2A8396620069BE1D /* GetGachaRecordView.swift */,
+				EA120C3B2A8386DA0069BE1D /* GetGachaViewModel.swift */,
+			);
+			path = GetGacha;
 			sourceTree = "<group>";
 		};
 		EAC9E4122A09F70B00011E1F /* Setting */ = {

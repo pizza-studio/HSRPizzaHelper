@@ -22,7 +22,7 @@ extension GachaItemMO {
     @NSManaged public var id: String!
     @NSManaged public var itemID: String!
     @NSManaged public var itemTypeRawValue: String!
-    @NSManaged public var lang: String!
+    @NSManaged public var langRawValue: String!
     @NSManaged public var name: String!
     @NSManaged public var rankRawValue: String!
     @NSManaged public var time: Date!
@@ -49,6 +49,14 @@ extension GachaItemMO {
             .init(rawValue: rankRawValue)!
         } set {
             rankRawValue = newValue.rawValue
+        }
+    }
+
+    var language: MiHoYoAPILanguage {
+        get {
+            .init(rawValue: langRawValue)!
+        } set {
+            langRawValue = newValue.rawValue
         }
     }
 }
