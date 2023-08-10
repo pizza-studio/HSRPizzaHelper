@@ -9,18 +9,24 @@ import Foundation
 
 extension Locale {
     /// Get the language code used for miHoYo API according to current preferred localization.
-    public static var langCodeForAPI: String {
+    public static var miHoYoAPILanguage: MiHoYoAPILanguage {
         switch Bundle.main.preferredLocalizations.first {
         case "zh-Hans":
-            return "zh-cn"
+            return .chineseSimplified
         case "zh-Hant":
-            return "zh-tw"
+            return .chineseTraditional
         case "en":
-            return "en-us"
+            return .englishUS
         case "ja":
-            return "ja-jp"
+            return .japanese
+        case "ru":
+            return .russian
+        case "vi":
+            return .vietnamese
+        case "es":
+            return .spanish
         default:
-            return "en-us"
+            return .englishUS
         }
     }
 }

@@ -176,7 +176,7 @@ func generateGachaRequest(
         .init(name: "timestamp", value: "\(Int(Date().timeIntervalSince1970))"),
         .init(name: "region", value: basicParam.server.rawValue),
         .init(name: "default_gacha_type", value: "11"),
-        .init(name: "lang", value: "zh-cn"),
+        .init(name: "lang", value: Locale.miHoYoAPILanguage.rawValue),
         .init(name: "game_biz", value: basicParam.server.region.rawValue),
         .init(name: "os_system", value: "iOS 16.6"),
         .init(name: "device_model", value: "iPhone15.2"),

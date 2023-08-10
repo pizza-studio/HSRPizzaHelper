@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum MiHoYoAPILanguage: String, Codable {
+public enum MiHoYoAPILanguage: String, Codable, CaseIterable {
     case thailand = "th-th"
     case korean = "ko-kr"
     case spanish = "es-es"
