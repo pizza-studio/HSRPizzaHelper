@@ -28,7 +28,7 @@ def get_data_and_update(lang: str, update_dict: dict, type: Literal["characters"
         update_dict.setdefault(id, {})
         update_dict[id].setdefault("name_localization_map", {})
         update_dict[id]["icon_file_path"] = meta["icon"]
-        update_dict[id]["rank"] = meta["rarity"]
+        update_dict[id]["rank"] = str(meta["rarity"])
         update_dict[id]["name_localization_map"][api_lang] = meta["name"]
 
 def get_character_data() -> dict:

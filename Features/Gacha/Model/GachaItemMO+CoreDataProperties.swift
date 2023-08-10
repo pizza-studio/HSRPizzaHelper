@@ -9,6 +9,7 @@
 import CoreData
 import Foundation
 import HBMihoyoAPI
+import UIKit
 
 extension GachaItemMO {
     @nonobjc
@@ -64,3 +65,13 @@ extension GachaItemMO {
 // MARK: - GachaItemMO + Identifiable
 
 extension GachaItemMO: Identifiable {}
+
+extension GachaItemMO {
+    var localizedName: String {
+        GachaMetaManager.shared.getLocalizedName(id: itemID, type: itemType) ?? name
+    }
+
+    var icon: UIImage? {
+        GachaMetaManager.shared.getIcon(id: itemID, type: itemType)
+    }
+}

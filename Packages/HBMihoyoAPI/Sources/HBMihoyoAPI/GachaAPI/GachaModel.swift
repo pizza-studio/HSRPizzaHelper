@@ -112,10 +112,16 @@ public struct GachaItem: Codable {
 
     // MARK: Public
 
-    public enum Rank: String, Codable {
+    public enum Rank: String, Codable, Comparable {
         case three = "3"
         case four = "4"
         case five = "5"
+
+        // MARK: Public
+
+        public static func < (lhs: GachaItem.Rank, rhs: GachaItem.Rank) -> Bool {
+            Int(lhs.rawValue)! < Int(rhs.rawValue)!
+        }
     }
 
     public enum ItemType: String, Codable {

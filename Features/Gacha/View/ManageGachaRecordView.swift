@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GachaSettingView: View {
+struct ManageGachaRecordView: View {
     // MARK: Internal
 
     var body: some View {

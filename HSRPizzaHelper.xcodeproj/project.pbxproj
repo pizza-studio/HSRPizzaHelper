@@ -86,7 +86,7 @@
 		EA3BDCA02A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BDC9E2A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift */; };
 		EA3BDCA12A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BDC9F2A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift */; };
 		EA3BDCA42A83D20A001C3C6C /* GachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BDCA32A83D20A001C3C6C /* GachaView.swift */; };
-		EA3BDCA62A83D4B0001C3C6C /* GachaSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BDCA52A83D4B0001C3C6C /* GachaSettingView.swift */; };
+		EA3BDCA62A83D4B0001C3C6C /* ManageGachaRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BDCA52A83D4B0001C3C6C /* ManageGachaRecordView.swift */; };
 		EA4025922A5904C800D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
 		EA4025932A59078400D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
 		EA4025942A59078500D60D62 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4025912A5904C800D60D62 /* Weekday.swift */; };
@@ -226,6 +226,7 @@
 		EAEC11E72A023E130024314D /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = EAEC11E62A023E130024314D /* SwiftyUserDefaults */; };
 		EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */; };
 		EAEF1ABB2A84F4E90013AD48 /* gacha_meta in Resources */ = {isa = PBXBuildFile; fileRef = EAEF1ABA2A84F4E90013AD48 /* gacha_meta */; };
+		EAEF1ABD2A8533A20013AD48 /* GachaItem.Rank+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */; };
 		EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
 		EAF286522A124F5000F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
 		EAFC5B502A35D29600598F2F /* WidgetErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */; };
@@ -366,7 +367,7 @@
 		EA3BDC9E2A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GachaItemMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EA3BDC9F2A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GachaItemMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EA3BDCA32A83D20A001C3C6C /* GachaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaView.swift; sourceTree = "<group>"; };
-		EA3BDCA52A83D4B0001C3C6C /* GachaSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaSettingView.swift; sourceTree = "<group>"; };
+		EA3BDCA52A83D4B0001C3C6C /* ManageGachaRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageGachaRecordView.swift; sourceTree = "<group>"; };
 		EA4025912A5904C800D60D62 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
 		EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocalizedError.swift; sourceTree = "<group>"; };
@@ -459,6 +460,7 @@
 		EAE898822A06A908000AF830 /* IntentAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentAccountExtension.swift; sourceTree = "<group>"; };
 		EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppDailyNoteCardView.swift; sourceTree = "<group>"; };
 		EAEF1ABA2A84F4E90013AD48 /* gacha_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gacha_meta; sourceTree = "<group>"; };
+		EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GachaItem.Rank+Background.swift"; sourceTree = "<group>"; };
 		EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiHoYoAPIError+LocalizedError.swift"; sourceTree = "<group>"; };
 		EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -674,6 +676,7 @@
 				EA3BDC9E2A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift */,
 				EA3BDC9F2A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift */,
 				EA8630492A84CDC5001E484B /* GachaMeta.swift */,
+				EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -897,7 +900,7 @@
 			children = (
 				EAB7F1EF2A8494EA00010726 /* GetGacha */,
 				EA3BDCA32A83D20A001C3C6C /* GachaView.swift */,
-				EA3BDCA52A83D4B0001C3C6C /* GachaSettingView.swift */,
+				EA3BDCA52A83D4B0001C3C6C /* ManageGachaRecordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1469,6 +1472,7 @@
 				EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
 				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,
+				EAEF1ABD2A8533A20013AD48 /* GachaItem.Rank+Background.swift in Sources */,
 				EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */,
 				EA1D523C2A76267600FA66A9 /* HSRDictionaryModel.swift in Sources */,
 				BFDF6A842A08CAE200048FF9 /* AutoSheetDismiss.swift in Sources */,
@@ -1480,7 +1484,7 @@
 				EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA3BDCA42A83D20A001C3C6C /* GachaView.swift in Sources */,
 				EA1D52382A7625D400FA66A9 /* HSRDictionaryAPI.swift in Sources */,
-				EA3BDCA62A83D4B0001C3C6C /* GachaSettingView.swift in Sources */,
+				EA3BDCA62A83D4B0001C3C6C /* ManageGachaRecordView.swift in Sources */,
 				EA120C3C2A8386DA0069BE1D /* GetGachaViewModel.swift in Sources */,
 				EA742BF72A020A3300ACB8E4 /* CreateAccountSheetView.swift in Sources */,
 				EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */,
