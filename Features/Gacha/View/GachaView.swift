@@ -102,17 +102,46 @@ private struct AccountGachaView: View {
                         Text("\(filter.rawValue)").tag(filter)
                     }
                 }
+            } footer: {
+                HStack {
+                    Spacer()
+                    Button("Display Option") {
+                        isDisplayOptionShow.toggle()
+                    }
+                }
+                .font(.footnote)
             }
             Section {
-                GachaItemDetail(uid: uid, gachaType: gachaType, rankFilter: rankFilter)
+                GachaItemDetail(uid: uid, gachaType: gachaType, rankFilter: rankFilter, showTime: showTime)
             }
         }
+        .sheet(isPresented: $isDisplayOptionShow) {
+            displayOptionSheet()
+        }
+    }
+
+    @ViewBuilder
+    func displayOptionSheet() -> some View {
+        NavigationView {
+            List {
+                Toggle("Show time", isOn: $showTime)
+            }
+            .toolbar {
+                Button("sys.done") {
+                    isDisplayOptionShow.toggle()
+                }
+            }
+        }
+        .inlineNavigationTitle("Display Option")
     }
 
     // MARK: Private
 
     @State private var gachaType: GachaType = .characterEventWarp
     @State private var rankFilter: RankFilter = .fiveOnly
+
+    @State private var isDisplayOptionShow: Bool = false
+    @State private var showTime: Bool = false
 
     private let uid: String
     private let name: String?
@@ -131,13 +160,14 @@ private enum RankFilter: Int, CaseIterable {
 private struct GachaItemDetail: View {
     // MARK: Lifecycle
 
-    init(uid: String, gachaType: GachaType, rankFilter: RankFilter) {
+    init(uid: String, gachaType: GachaType, rankFilter: RankFilter, showTime: Bool) {
         self.rankFilter = rankFilter
         self._gachaItemsResult = .init(
             sortDescriptors: [.init(keyPath: \GachaItemMO.time, ascending: false)],
             predicate: NSPredicate(format: "uid = %@ AND gachaTypeRawValue = %@", uid, gachaType.rawValue),
             animation: .default
         )
+        self.showTime = showTime
     }
 
     // MARK: Internal
@@ -147,10 +177,20 @@ private struct GachaItemDetail: View {
             ForEach(gachaItemsWithRank, id: \.0.id) { item, drawCount in
                 HStack {
                     ItemIcon(item: item)
-                    Text(item.localizedName)
-                    Spacer()
-                    if item.rank != .three {
-                        Text("\(drawCount)")
+                    HStack {
+                        Text(item.localizedName)
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            if item.rank != .three {
+                                Text("\(drawCount)")
+                                    .font(showTime ? .caption2 : .body)
+                            }
+                            if showTime {
+                                Text(dateFormatter.string(from: item.time))
+                                    .foregroundColor(.secondary)
+                                    .font(.caption2)
+                            }
+                        }
                     }
                 }
             }
@@ -187,6 +227,8 @@ private struct GachaItemDetail: View {
 
     // MARK: Private
 
+    private var showTime: Bool
+
     @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
     private let rankFilter: RankFilter
 }
@@ -215,3 +257,10 @@ private struct ItemIcon: View {
         .frame(width: 35, height: 35)
     }
 }
+
+private var dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .short
+    dateFormatter.timeStyle = .short
+    return dateFormatter
+}()
