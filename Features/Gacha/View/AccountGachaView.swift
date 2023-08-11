@@ -66,7 +66,7 @@ private struct GachaSmallChart: View {
 
     init(uid: String, gachaType: GachaType) {
         self._gachaItemsResult = .init(
-            sortDescriptors: [.init(keyPath: \GachaItemMO.time, ascending: false)],
+            sortDescriptors: [.init(keyPath: \GachaItemMO.id, ascending: false)],
             predicate: NSPredicate(format: "uid = %@ AND gachaTypeRawValue = %@", uid, gachaType.rawValue),
             animation: .default
         )
@@ -191,7 +191,7 @@ private struct GachaStatisticSectionView: View {
 
     init(uid: String, gachaType: GachaType) {
         self._gachaItemsResult = .init(
-            sortDescriptors: [.init(keyPath: \GachaItemMO.time, ascending: false)],
+            sortDescriptors: [.init(keyPath: \GachaItemMO.id, ascending: false)],
             predicate: NSPredicate(format: "uid = %@ AND gachaTypeRawValue = %@", uid, gachaType.rawValue),
             animation: .default
         )
@@ -344,15 +344,15 @@ extension GachaStatisticSectionView.Rank {
     func image() -> Image {
         switch self {
         case .one:
-            return Image("UI_EmotionIcon5")
+            return Image("Pom-Pom_Sticker_21")
         case .two:
-            return Image("UI_EmotionIcon4")
+            return Image("Pom-Pom_Sticker_32")
         case .three:
-            return Image("UI_EmotionIcon6")
+            return Image("Pom-Pom_Sticker_18")
         case .four:
-            return Image("UI_EmotionIcon2")
+            return Image("Pom-Pom_Sticker_24")
         case .five:
-            return Image("UI_EmotionIcon1")
+            return Image("Pom-Pom_Sticker_30")
         }
     }
 

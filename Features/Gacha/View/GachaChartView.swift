@@ -59,10 +59,11 @@ private struct GachaItemChart: View {
 
     init(uid: String, gachaType: GachaType) {
         self._gachaItemsResult = .init(
-            sortDescriptors: [.init(keyPath: \GachaItemMO.time, ascending: false)],
+            sortDescriptors: [.init(keyPath: \GachaItemMO.id, ascending: false)],
             predicate: NSPredicate(format: "uid = %@ AND gachaTypeRawValue = %@", uid, gachaType.rawValue),
             animation: .default
         )
+        self.gachaType = gachaType
     }
 
     // MARK: Internal
@@ -128,8 +129,8 @@ private struct GachaItemChart: View {
                         let frame: CGFloat = 35
                         Text("\(item.count)").foregroundColor(.gray)
                             .font(.caption)
-                        if item.0.isLose5050 {
-                            Image("UI_EmotionIcon5").resizable().scaledToFit()
+                        if gachaType != .regularWarp, item.0.isLose5050 {
+                            Image("Pom-Pom_Sticker_23").resizable().scaledToFit()
                                 .frame(width: frame, height: frame)
                                 .offset(y: -5)
                         } else {
@@ -201,6 +202,8 @@ private struct GachaItemChart: View {
     }
 
     // MARK: Private
+
+    private let gachaType: GachaType
 
     @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
 }

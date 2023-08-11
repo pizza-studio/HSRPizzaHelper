@@ -87,7 +87,7 @@ private struct GachaItemDetail: View {
     init(uid: String, gachaType: GachaType, rankFilter: RankFilter, showTime: Bool) {
         self.rankFilter = rankFilter
         self._gachaItemsResult = .init(
-            sortDescriptors: [.init(keyPath: \GachaItemMO.time, ascending: false)],
+            sortDescriptors: [.init(keyPath: \GachaItemMO.id, ascending: false)],
             predicate: NSPredicate(format: "uid = %@ AND gachaTypeRawValue = %@", uid, gachaType.rawValue),
             animation: .default
         )
