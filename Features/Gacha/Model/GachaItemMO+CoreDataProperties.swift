@@ -74,4 +74,14 @@ extension GachaItemMO {
     var icon: UIImage? {
         GachaMetaManager.shared.getIcon(id: itemID, type: itemType)
     }
+
+    var isLose5050: Bool {
+        guard rank == .five else { return true }
+        switch itemID {
+        case "1003", "1004", "1101", "1104", "1107", "1211":
+            return true
+        default:
+            return false
+        }
+    }
 }

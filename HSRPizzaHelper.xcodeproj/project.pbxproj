@@ -173,6 +173,9 @@
 		EA8A773E2A0756390005C511 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA8A773D2A0756390005C511 /* SwifterSwift */; };
 		EA8A77472A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */; };
 		EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */; };
+		EA8D287E2A86012000B47869 /* AccountGachaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8D287D2A86012000B47869 /* AccountGachaDetailView.swift */; };
+		EA8D28802A8601B600B47869 /* AccountGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8D287F2A8601B600B47869 /* AccountGachaView.swift */; };
+		EA8D28822A86182E00B47869 /* GachaChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8D28812A86182E00B47869 /* GachaChartView.swift */; };
 		EA946A8A2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */; };
 		EA946A8B2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */; };
 		EA946A8D2A0FF706003FC598 /* LockscreenTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946A8C2A0FF706003FC598 /* LockscreenTimelineProvider.swift */; };
@@ -415,6 +418,9 @@
 		EA8A77352A074D290005C511 /* RandomBackgroundDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBackgroundDrawable.swift; sourceTree = "<group>"; };
 		EA8A77382A0751980005C511 /* WidgetConfigurationIntentExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationIntentExtension.swift; sourceTree = "<group>"; };
 		EA8A77462A0769AF0005C511 /* ContainingWidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainingWidgetBackground.swift; sourceTree = "<group>"; };
+		EA8D287D2A86012000B47869 /* AccountGachaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGachaDetailView.swift; sourceTree = "<group>"; };
+		EA8D287F2A8601B600B47869 /* AccountGachaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGachaView.swift; sourceTree = "<group>"; };
+		EA8D28812A86182E00B47869 /* GachaChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaChartView.swift; sourceTree = "<group>"; };
 		EA946A892A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EA946A8C2A0FF706003FC598 /* LockscreenTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenTimelineProvider.swift; sourceTree = "<group>"; };
 		EA946A8F2A0FF76C003FC598 /* LockscreenEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenEntry.swift; sourceTree = "<group>"; };
@@ -904,6 +910,9 @@
 				EAB7F1EF2A8494EA00010726 /* GetGacha */,
 				EA3BDCA32A83D20A001C3C6C /* GachaView.swift */,
 				EA3BDCA52A83D4B0001C3C6C /* ManageGachaRecordView.swift */,
+				EA8D287D2A86012000B47869 /* AccountGachaDetailView.swift */,
+				EA8D287F2A8601B600B47869 /* AccountGachaView.swift */,
+				EA8D28812A86182E00B47869 /* GachaChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1511,11 +1520,13 @@
 				EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */,
 				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
 				EA1D523A2A76262B00FA66A9 /* HSRDictionaryView.swift in Sources */,
+				EA8D28802A8601B600B47869 /* AccountGachaView.swift in Sources */,
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
 				EA3BDCA02A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift in Sources */,
 				BFBA361A2A17496D00E0142A /* StoreManager.swift in Sources */,
 				EA80CFE32A0E8FFF00002B53 /* HSRNotificationCenter.swift in Sources */,
 				BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */,
+				EA8D28822A86182E00B47869 /* GachaChartView.swift in Sources */,
 				EADCE9392A0B985F008D81A9 /* OptionalSpacer.swift in Sources */,
 				EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */,
 				EA80CFE62A0E928B00002B53 /* NotificationSettingView.swift in Sources */,
@@ -1532,6 +1543,7 @@
 				EA3BDCA12A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift in Sources */,
 				EA120C3E2A8396620069BE1D /* GetGachaRecordView.swift in Sources */,
 				EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */,
+				EA8D287E2A86012000B47869 /* AccountGachaDetailView.swift in Sources */,
 				BF58D26A2A57AD4300CC0DC6 /* WatchConnectivityManager.swift in Sources */,
 				EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */,
 			);
