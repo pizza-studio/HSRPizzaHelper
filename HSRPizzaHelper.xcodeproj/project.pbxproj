@@ -97,6 +97,7 @@
 		EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF82A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
+		EA47FE812A85E12300344A8A /* GachaItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47FE802A85E12300344A8A /* GachaItemExtension.swift */; };
 		EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC102A0BB1AD00D2AC5F /* Algorithms */; };
 		EA4DAC132A0BB1C300D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC122A0BB1C300D2AC5F /* Algorithms */; };
 		EA4DAC152A0BB1C800D2AC5F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EA4DAC142A0BB1C800D2AC5F /* Algorithms */; };
@@ -370,6 +371,7 @@
 		EA3BDCA52A83D4B0001C3C6C /* ManageGachaRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageGachaRecordView.swift; sourceTree = "<group>"; };
 		EA4025912A5904C800D60D62 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 		EA477FF62A08899C0082D211 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
+		EA47FE802A85E12300344A8A /* GachaItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaItemExtension.swift; sourceTree = "<group>"; };
 		EA4DAC162A0BBA0A00D2AC5F /* SourceLocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocalizedError.swift; sourceTree = "<group>"; };
 		EA4E80062A10AD7100B97204 /* LargeIconStaminaLockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeIconStaminaLockscreenWidget.swift; sourceTree = "<group>"; };
 		EA4E800A2A10AF5400B97204 /* TimerStaminaLockscreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStaminaLockscreenWidget.swift; sourceTree = "<group>"; };
@@ -677,6 +679,7 @@
 				EA3BDC9F2A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift */,
 				EA8630492A84CDC5001E484B /* GachaMeta.swift */,
 				EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */,
+				EA47FE802A85E12300344A8A /* GachaItemExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1523,6 +1526,7 @@
 				EA80CFEA2A0E9E2E00002B53 /* RequestAuthorization.swift in Sources */,
 				BFBF6DD02A18C4A7009C684B /* ContactInfoView.swift in Sources */,
 				EA09B1972A0918B200986D46 /* UserPolicyChecker.swift in Sources */,
+				EA47FE812A85E12300344A8A /* GachaItemExtension.swift in Sources */,
 				BFBA361C2A1749AE00E0142A /* GlobalDonateView.swift in Sources */,
 				EA80CFE82A0E983C00002B53 /* InlineNavigationTitle.swift in Sources */,
 				EA3BDCA12A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift in Sources */,
