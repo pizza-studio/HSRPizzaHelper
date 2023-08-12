@@ -14,6 +14,8 @@ import SwiftUI
 struct GachaView: View {
     // MARK: Internal
 
+    @State var availableUIDAndNames: [(String, String?)] = []
+
     var body: some View {
         List {
             Section {
@@ -45,9 +47,16 @@ struct GachaView: View {
             }
         }
         .inlineNavigationTitle("Gacha Record")
+        .onAppear {
+            availableUIDAndNames = getAvailableUIDAndNames()
+        }
     }
 
-    var availableUIDAndNames: [(String, String?)] {
+    // MARK: Private
+
+    @Environment(\.managedObjectContext) private var viewContext
+
+    private func getAvailableUIDAndNames() -> [(String, String?)] {
         let request =
             NSFetchRequest<NSFetchRequestResult>(entityName: "GachaItemMO")
         request.resultType = .dictionaryResultType
@@ -70,10 +79,6 @@ struct GachaView: View {
             return []
         }
     }
-
-    // MARK: Private
-
-    @Environment(\.managedObjectContext) private var viewContext
 }
 
 // MARK: - AccountGachaView

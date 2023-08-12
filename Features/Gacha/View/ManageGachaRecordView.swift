@@ -17,6 +17,7 @@ struct ManageGachaRecordView: View {
                 items?.forEach { item in
                     viewContext.delete(item)
                 }
+                try? viewContext.save()
             }
         }
     }
