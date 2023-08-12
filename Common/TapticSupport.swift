@@ -24,9 +24,9 @@ enum SimpleTapticType {
 }
 
 // swiftlint:disable:next cyclomatic_complexity
-func simpleTaptic(type: SimpleTapticType) {
+func simpleTaptic(gachaType: SimpleTapticType) {
     let feedbackGenerator = UINotificationFeedbackGenerator()
-    switch type {
+    switch gachaType {
     case .success:
         feedbackGenerator.notificationOccurred(.success)
     case .warning:
@@ -60,7 +60,7 @@ func simpleTaptic(type: SimpleTapticType) {
     if UIDevice.modelName == "iPhone 6s" || UIDevice
         .modelName == "iPhone 6s Plus" || UIDevice
         .modelName == "iPhone SE" {
-        switch type {
+        switch gachaType {
         case .error, .heavy, .medium, .rigid, .success, .warning:
             AudioServicesPlaySystemSound(1519) // Actuate `Peek` feedback (weak boom)
         case .light, .selection, .soft:

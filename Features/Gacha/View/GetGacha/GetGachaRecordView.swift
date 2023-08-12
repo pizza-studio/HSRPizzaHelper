@@ -40,14 +40,13 @@ struct GetGachaRecordView: View {
 
             switch viewModel.status {
             case .failFetching, .finished, .got, .inProgress:
-
                 if #available(iOS 16.0, *) {
                     Section {
                         GetGachaChart(data: $viewModel.gachaTypeDateCounts)
                     }
                 } else {
                     Section {
-                        ForEach(viewModel.itemFetchedCount.sorted(by: \.key), id: \.key) { key, value in
+                        ForEach(viewModel.typeFetchedCount.sorted(by: \.key), id: \.key) { key, value in
                             HStack {
                                 Text(key.rawValue)
                                 Spacer()
@@ -263,7 +262,7 @@ private struct GetGachaChart: View {
                 x: .value("日期", $0.date),
                 y: .value("抽数", $0.count)
             )
-            .foregroundStyle(by: .value("祈愿类型", $0.type.rawValue))
+            .foregroundStyle(by: .value("祈愿类型", $0.gachaType.rawValue))
         }
         .chartForegroundStyleScale([
             GachaType.regularWarp.rawValue: .green,

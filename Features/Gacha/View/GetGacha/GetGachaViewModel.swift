@@ -18,7 +18,7 @@ class GetGachaViewModel: ObservableObject {
     struct GachaTypeDateCount: Hashable, Identifiable {
         let date: Date
         var count: Int
-        let type: GachaType
+        let gachaType: GachaType
 
         var id: Int {
             hashValue
@@ -26,7 +26,7 @@ class GetGachaViewModel: ObservableObject {
 
         func hash(into hasher: inout Hasher) {
             hasher.combine(date)
-            hasher.combine(type)
+            hasher.combine(gachaType)
         }
     }
 
@@ -39,7 +39,7 @@ class GetGachaViewModel: ObservableObject {
         case finished(initialize: () -> ())
     }
 
-    @Published var itemFetchedCount: [GachaType: Int] = Dictionary(
+    @Published var typeFetchedCount: [GachaType: Int] = Dictionary(
         uniqueKeysWithValues: GachaType.allCases
             .map { gachaType in
                 (gachaType, 0)
@@ -68,18 +68,18 @@ class GetGachaViewModel: ObservableObject {
 
     func updateGachaDateCounts(_ item: GachaItem) {
         if gachaTypeDateCounts
-            .filter({ ($0.date == item.time) && ($0.type == item.gachaType) }).isEmpty {
+            .filter({ ($0.date == item.time) && ($0.gachaType == item.gachaType) }).isEmpty {
             let count = GachaTypeDateCount(
                 date: item.time,
                 count: gachaTypeDateCounts.filter { data in
-                    (data.date < item.time) && (data.type == item.gachaType)
+                    (data.date < item.time) && (data.gachaType == item.gachaType)
                 }.map(\.count).sum(),
-                type: item.gachaType
+                gachaType: item.gachaType
             )
             gachaTypeDateCounts.append(count)
         }
         gachaTypeDateCounts.indices { element in
-            (element.date >= item.time) && (element.type == item.gachaType)
+            (element.date >= item.time) && (element.gachaType == item.gachaType)
         }?.forEach { index in
             self.gachaTypeDateCounts[index].count += 1
         }
@@ -110,7 +110,7 @@ class GetGachaViewModel: ObservableObject {
             persistedItem.time = gachaItem.time
             persistedItem.uid = gachaItem.uid
             withAnimation {
-                itemFetchedCount[gachaItem.gachaType]! += 1
+                typeFetchedCount[gachaItem.gachaType]! += 1
             }
         }
     }
@@ -177,7 +177,7 @@ class GetGachaViewModel: ObservableObject {
     private func initialize() {
         client = nil
         status = .waitingForURL
-        itemFetchedCount = Dictionary(
+        typeFetchedCount = Dictionary(
             uniqueKeysWithValues: GachaType.allCases
                 .map { gachaType in
                     (gachaType, 0)
