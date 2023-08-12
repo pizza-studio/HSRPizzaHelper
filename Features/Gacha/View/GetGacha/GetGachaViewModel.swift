@@ -32,14 +32,14 @@ class GetGachaViewModel: ObservableObject {
 
     enum Status {
         case waitingForURL
-        case pending(start: () -> ())
+        case pending(start: () -> (), initialize: () -> ())
         case inProgress(cancel: () -> ())
-        case got(page: Int, gachaType: GachaType, cancel: () -> ())
+        case got(page: Int, gachaType: GachaType, newItemCount: Int, cancel: () -> ())
         case failFetching(page: Int, gachaType: GachaType, error: Error, retry: () -> ())
-        case finished(initialize: () -> ())
+        case finished(typeFetchedCount: [GachaType: Int], initialize: () -> ())
     }
 
-    @Published var typeFetchedCount: [GachaType: Int] = Dictionary(
+    @Published var savedTypeFetchedCount: [GachaType: Int] = Dictionary(
         uniqueKeysWithValues: GachaType.allCases
             .map { gachaType in
                 (gachaType, 0)
@@ -54,9 +54,7 @@ class GetGachaViewModel: ObservableObject {
 
     func load(urlString: String) throws {
         try client = .init(gachaURLString: urlString)
-        DispatchQueue.main.async { [self] in
-            status = .pending(start: { self.startFetching() })
-        }
+        setPending()
     }
 
     func updateCachedItems(_ item: GachaItem) {
@@ -90,6 +88,56 @@ class GetGachaViewModel: ObservableObject {
     private var client: GachaClient?
     private var cancellables: [AnyCancellable] = []
 
+    private func setFinished() {
+        withAnimation {
+            self.status = .finished(typeFetchedCount: self.savedTypeFetchedCount, initialize: { self.initialize() })
+        }
+    }
+
+    private func setFailFetching(page: Int, gachaType: GachaType, error: Error) {
+        withAnimation {
+            self.status = .failFetching(
+                page: page,
+                gachaType: gachaType,
+                error: error,
+                retry: {
+                    self.initialize()
+                }
+            )
+        }
+    }
+
+    private func setGot(page: Int, gachaType: GachaType) {
+        withAnimation {
+            self.status = .got(
+                page: page,
+                gachaType: gachaType,
+                newItemCount: savedTypeFetchedCount.values.sum(),
+                cancel: {
+                    self.cancel()
+                }
+            )
+        }
+    }
+
+    private func setWaitingForURL() {
+        withAnimation {
+            self.status = .waitingForURL
+        }
+    }
+
+    private func setPending() {
+        withAnimation {
+            self.status = .pending(start: { self.startFetching() }, initialize: { self.initialize() })
+        }
+    }
+
+    private func setInProgress() {
+        withAnimation {
+            self.status = .inProgress(cancel: { self.cancel() })
+        }
+    }
+
     private func insert(_ gachaItem: GachaItem) {
         let context = PersistenceController.shared.container.viewContext
 
@@ -110,37 +158,25 @@ class GetGachaViewModel: ObservableObject {
             persistedItem.time = gachaItem.time
             persistedItem.uid = gachaItem.uid
             withAnimation {
-                typeFetchedCount[gachaItem.gachaType]! += 1
+                savedTypeFetchedCount[gachaItem.gachaType]! += 1
             }
         }
     }
 
     private func startFetching() {
-        status = .inProgress(cancel: { self.cancel() })
+        setInProgress()
         cancellables.append(client!.publisher.sink { [self] completion in
             switch completion {
             case .finished:
-                DispatchQueue.main.async {
-                    self.status = .finished(initialize: { DispatchQueue.main.async { self.initialize() } })
-                }
+                setFinished()
             case let .failure(error):
                 switch error {
                 case let .fetchDataError(page: page, size: _, gachaType: gachaType, error: error):
-                    DispatchQueue.main.async {
-                        self.status = .failFetching(
-                            page: page,
-                            gachaType: gachaType,
-                            error: error,
-                            retry: {
-                                DispatchQueue.main.async {
-                                    self.initialize()
-                                }
-                            }
-                        )
-                    }
+                    setFailFetching(page: page, gachaType: gachaType, error: error)
                 }
             }
         } receiveValue: { [self] gachaType, result in
+            setGot(page: result.page, gachaType: gachaType)
             cancellables.append(
                 Publishers.Zip(
                     result.list.publisher,
@@ -163,21 +199,31 @@ class GetGachaViewModel: ObservableObject {
                     insert(item)
                 })
             )
-            DispatchQueue.main.async {
-                self.status = .got(page: result.page, gachaType: gachaType, cancel: {
-                    DispatchQueue.main.async {
-                        self.cancel()
-                    }
-                })
-            }
+
         })
         client?.start()
     }
 
     private func initialize() {
         client = nil
-        status = .waitingForURL
-        typeFetchedCount = Dictionary(
+        setWaitingForURL()
+        savedTypeFetchedCount = Dictionary(
+            uniqueKeysWithValues: GachaType.allCases
+                .map { gachaType in
+                    (gachaType, 0)
+                }
+        )
+        cancellables.forEach { cancellable in
+            cancellable.cancel()
+        }
+        cancellables = []
+        cachedItems = []
+        gachaTypeDateCounts = []
+    }
+
+    private func retry() {
+        setPending()
+        savedTypeFetchedCount = Dictionary(
             uniqueKeysWithValues: GachaType.allCases
                 .map { gachaType in
                     (gachaType, 0)

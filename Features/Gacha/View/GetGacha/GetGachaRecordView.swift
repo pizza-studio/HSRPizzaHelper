@@ -26,27 +26,27 @@ struct GetGachaRecordView: View {
                 WaitingForURLView { urlString in
                     try viewModel.load(urlString: urlString)
                 }
-            case let .pending(start: start):
-                WaitingForStartView(start: start)
+            case let .pending(start: start, initialize: initialize):
+                WaitingForStartView(start: start, initialize: initialize)
             case let .inProgress(cancel: cancel):
                 InProgressView(cancel: cancel)
-            case let .got(page: page, gachaType: gachaType, cancel: cancel):
-                GotSomeItemView(page: page, gachaType: gachaType, cancel: cancel)
+            case let .got(page: page, gachaType: gachaType, newItemCount: newItemCount, cancel: cancel):
+                GotSomeItemView(page: page, gachaType: gachaType, newItemCount: newItemCount, cancel: cancel)
             case let .failFetching(page: page, gachaType: gachaType, error: error, retry: retry):
                 FailFetchingView(page: page, gachaType: gachaType, error: error, retry: retry)
-            case let .finished(initialize: initialize):
-                FinishedView(initialize: initialize)
+            case let .finished(typeFetchedCount: typeFetchedCount, initialize: initialize):
+                FinishedView(typeFetchedCount: typeFetchedCount, initialize: initialize)
             }
 
             switch viewModel.status {
-            case .failFetching, .finished, .got, .inProgress:
+            case .failFetching, .finished, .got:
                 if #available(iOS 16.0, *) {
                     Section {
                         GetGachaChart(data: $viewModel.gachaTypeDateCounts)
                     }
                 } else {
                     Section {
-                        ForEach(viewModel.typeFetchedCount.sorted(by: \.key), id: \.key) { key, value in
+                        ForEach(viewModel.savedTypeFetchedCount.sorted(by: \.key), id: \.key) { key, value in
                             HStack {
                                 Text(key.rawValue)
                                 Spacer()
@@ -86,24 +86,40 @@ private struct WaitingForURLView: View {
     let completion: (String) throws -> ()
 
     var body: some View {
-        Button("Read from clipboard") {
-            if let urlString = UIPasteboard.general.string {
-                do {
-                    try completion(urlString)
-                } catch let error as ParseGachaURLError {
-                    self.error = error
-                    self.isErrorAlertShow.toggle()
-                } catch {
-                    fatalError()
+        Section {
+            Button {
+                if let urlString = UIPasteboard.general.string {
+                    do {
+                        try completion(urlString)
+                    } catch let error as ParseGachaURLError {
+                        self.error = error
+                        self.isErrorAlertShow.toggle()
+                    } catch {
+                        fatalError()
+                    }
+                } else {
+                    isPasteBoardNoDataAlertShow.toggle()
                 }
-            } else {
-                isPasteBoardNoDataAlertShow.toggle()
+            } label: {
+                Label("Read from clipboard", systemSymbol: .docOnClipboard)
+            }
+            .alert(isPresented: $isErrorAlertShow, error: error) {
+                Button("OK") {
+                    isErrorAlertShow.toggle()
+                }
             }
         }
-        .alert(isPresented: $isErrorAlertShow, error: error) {
-            Button("OK") {
-                isErrorAlertShow.toggle()
+        Section {
+            Section {
+                Link(
+                    "由paimon.moe提供的获取祈愿链接的方法",
+                    destination: URL(
+                        string: "https://paimon.moe/wish/import"
+                    )!
+                )
             }
+        } header: {
+            Text("help")
         }
     }
 
@@ -119,10 +135,18 @@ private struct WaitingForURLView: View {
 
 private struct WaitingForStartView: View {
     let start: () -> ()
+    let initialize: () -> ()
 
     var body: some View {
-        Button("Start") {
+        Button {
             start()
+        } label: {
+            Label("Start", systemSymbol: .playCircle)
+        }
+        Button {
+            initialize()
+        } label: {
+            Label("Initialize", systemSymbol: .arrowClockwiseCircle)
         }
     }
 }
@@ -133,8 +157,17 @@ private struct InProgressView: View {
     let cancel: () -> ()
 
     var body: some View {
-        Button("cancel") {
-            cancel()
+        Section {
+            Label {
+                Text("Obtaining")
+            } icon: {
+                ProgressView().id(UUID())
+            }
+            Button {
+                cancel()
+            } label: {
+                Label("Cancel", systemSymbol: .stopCircle)
+            }
         }
     }
 }
@@ -144,14 +177,28 @@ private struct InProgressView: View {
 private struct GotSomeItemView: View {
     let page: Int
     let gachaType: GachaType
+    let newItemCount: Int
     let cancel: () -> ()
 
     var body: some View {
         Section {
-            Text("Page: \(page)")
-            Text("Gacha Type: \(gachaType.rawValue)")
-            Button("cancel") {
+            Label {
+                Text("Obtaining")
+            } icon: {
+                ProgressView().id(UUID())
+            }
+            Button {
                 cancel()
+            } label: {
+                Label("Cancel", systemSymbol: .stopCircle)
+            }
+        } footer: {
+            HStack {
+                Text("Pool: \(gachaType.rawValue)")
+                Spacer()
+                Text("Page: \(page)")
+                Spacer()
+                Text("New count: \(newItemCount)")
             }
         }
     }
@@ -189,21 +236,47 @@ struct FailFetchingView: View {
     let retry: () -> ()
 
     var body: some View {
-        Button("retry") {
-            retry()
+        Label {
+            Text(error.localizedDescription)
+        } icon: {
+            Image(systemSymbol: .exclamationmarkCircle)
+                .foregroundColor(.red)
         }
-        Text(error.localizedDescription)
+        Button {
+            retry()
+        } label: {
+            Label("retry", systemSymbol: .arrowClockwiseCircle)
+        }
     }
 }
 
 // MARK: - FinishedView
 
 struct FinishedView: View {
+    let typeFetchedCount: [GachaType: Int]
     let initialize: () -> ()
 
     var body: some View {
-        Button("Initialize") {
-            initialize()
+        Section {
+            Label {
+                Text("Succeed")
+            } icon: {
+                Image(systemSymbol: .checkmarkCircle)
+                    .foregroundColor(.green)
+            }
+            Button {
+                initialize()
+            } label: {
+                Label("Initialize", systemSymbol: .arrowClockwiseCircle)
+            }
+        } footer: {
+            VStack(alignment: .leading) {
+                Text("New Record Count: ") + Text(
+                    typeFetchedCount.sorted(by: \.key).map { gachaType, count in
+                        "\(gachaType.rawValue) - \(count); "
+                    }.reduce("") { $0 + $1 }
+                )
+            }
         }
     }
 }
@@ -269,6 +342,7 @@ private struct GetGachaChart: View {
             GachaType.characterEventWarp.rawValue: .blue,
             GachaType.lightConeEventWarp.rawValue: .yellow,
         ])
+        .padding(.vertical)
     }
 
     // MARK: Private
