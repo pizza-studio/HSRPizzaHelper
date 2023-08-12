@@ -162,7 +162,7 @@ func generateGachaRequest(
     case .china:
         components.host = "api-takumi.mihoyo.com"
     case .global:
-        components.host = "api-account-os.hoyolab.com"
+        components.host = "api-os-takumi.mihoyo.com"
     }
 
     components.path = "/common/gacha_record/api/getGachaLog"
