@@ -35,12 +35,16 @@ public enum ParseGachaURLError: Error {
 
 // MARK: - GachaType
 
-public enum GachaType: String, Codable, CaseIterable {
-    case regularWarp = "1"
+public enum GachaType: String, Codable, CaseIterable, Comparable {
     case characterEventWarp = "11"
     case lightConeEventWarp = "12"
+    case regularWarp = "1"
 
     // MARK: Public
+
+    public static func < (lhs: GachaType, rhs: GachaType) -> Bool {
+        Self.allCases.firstIndex(of: lhs)! < Self.allCases.firstIndex(of: rhs)!
+    }
 
     public func next() -> Self? {
         switch self {

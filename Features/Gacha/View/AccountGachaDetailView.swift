@@ -157,6 +157,8 @@ private struct GachaItemBar: View {
             }
         }
     }
+
+    // MARK: Private
 }
 
 // MARK: - ItemIcon
@@ -183,6 +185,8 @@ private struct ItemIcon: View {
         .frame(width: 35, height: 35)
     }
 }
+
+// MARK: - ItemIcon
 
 private var dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()

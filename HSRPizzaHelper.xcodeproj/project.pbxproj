@@ -195,6 +195,7 @@
 		EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
+		EABA18082A87A908005A639E /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = EABA18072A87A908005A639E /* Collections */; };
 		EAC3243D2A1F584D007075D7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC3243C2A1F584D007075D7 /* StoreKit.framework */; };
 		EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */; };
 		EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */; };
@@ -506,6 +507,7 @@
 			files = (
 				EAC3243D2A1F584D007075D7 /* StoreKit.framework in Frameworks */,
 				BFDF6A802A08C32200048FF9 /* HBPizzaHelperAPI in Frameworks */,
+				EABA18082A87A908005A639E /* Collections in Frameworks */,
 				EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */,
 				EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */,
 				EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */,
@@ -1196,6 +1198,7 @@
 				BFDF6A7F2A08C32200048FF9 /* HBPizzaHelperAPI */,
 				BFA4A8482A0BD07400239BB0 /* Mantis */,
 				EA4DAC102A0BB1AD00D2AC5F /* Algorithms */,
+				EABA18072A87A908005A639E /* Collections */,
 			);
 			productName = HSRPizzaHelper;
 			productReference = EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */;
@@ -1270,6 +1273,7 @@
 				EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				BFA4A8472A0BD07400239BB0 /* XCRemoteSwiftPackageReference "Mantis" */,
 				EA4DAC0F2A0BB1AD00D2AC5F /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				EABA18062A87A8E7005A639E /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = EAE5197D2A01738600EF23B7 /* Products */;
 			projectDirPath = "";
@@ -2095,6 +2099,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		EABA18062A87A8E7005A639E /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		EAE519AF2A0174D800EF23B7 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols.git";
@@ -2201,6 +2213,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */;
 			productName = SwifterSwift;
+		};
+		EABA18072A87A908005A639E /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EABA18062A87A8E7005A639E /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
 		};
 		EADA17C92A06B87600AF9784 /* SwifterSwift */ = {
 			isa = XCSwiftPackageProductDependency;
