@@ -79,6 +79,21 @@ private enum RankFilter: Int, CaseIterable {
     case all
 }
 
+// MARK: CustomStringConvertible
+
+extension RankFilter: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .fiveOnly:
+            return "gacha.rank_filter.five_only".localized()
+        case .fourAndFive:
+            return "gacha.rank_filter.four_and_five".localized()
+        case .all:
+            return "gacha.rank_filter.all".localized()
+        }
+    }
+}
+
 // MARK: - GachaItemDetail
 
 private struct GachaItemDetail: View {

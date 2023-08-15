@@ -101,10 +101,10 @@ private struct WaitingForURLView: View {
                     isPasteBoardNoDataAlertShow.toggle()
                 }
             } label: {
-                Label("Read from clipboard", systemSymbol: .docOnClipboard)
+                Label("gacha.get_record.waiting_url.read_clipboard", systemSymbol: .docOnClipboard)
             }
             .alert(isPresented: $isErrorAlertShow, error: error) {
-                Button("OK") {
+                Button("sys.ok") {
                     isErrorAlertShow.toggle()
                 }
             }
@@ -112,14 +112,14 @@ private struct WaitingForURLView: View {
         Section {
             Section {
                 Link(
-                    "由paimon.moe提供的获取祈愿链接的方法",
+                    "gacha.get_record.waiting_url.help.method1",
                     destination: URL(
                         string: "https://paimon.moe/wish/import"
                     )!
                 )
             }
         } header: {
-            Text("help")
+            Text("gacha.get_record.waiting_url.help.header")
         }
     }
 
@@ -141,12 +141,12 @@ private struct WaitingForStartView: View {
         Button {
             start()
         } label: {
-            Label("Start", systemSymbol: .playCircle)
+            Label("gacha.get_record.ready_start.start", systemSymbol: .playCircle)
         }
         Button {
             initialize()
         } label: {
-            Label("Initialize", systemSymbol: .arrowClockwiseCircle)
+            Label("gacha.get_record.ready_start.initialize", systemSymbol: .arrowClockwiseCircle)
         }
     }
 }
@@ -159,14 +159,14 @@ private struct InProgressView: View {
     var body: some View {
         Section {
             Label {
-                Text("Obtaining")
+                Text("gacha.get_record.in_progress.obtaining")
             } icon: {
                 ProgressView().id(UUID())
             }
             Button {
                 cancel()
             } label: {
-                Label("Cancel", systemSymbol: .stopCircle)
+                Label("gacha.get_record.in_progress.cancel", systemSymbol: .stopCircle)
             }
         }
     }
@@ -194,11 +194,11 @@ private struct GotSomeItemView: View {
             }
         } footer: {
             HStack {
-                Text("Pool: \(gachaType.rawValue)")
+                Text(String(format: "gacha.get_record.got_some.pool", gachaType.description))
                 Spacer()
-                Text("Page: \(page)")
+                Text(String(format: "gacha.get_record.got_some.page", page))
                 Spacer()
-                Text("New count: \(newItemCount)")
+                Text(String(format: "gacha.get_record.got_some.got_new_records", newItemCount))
             }
         }
     }
@@ -245,7 +245,7 @@ struct FailFetchingView: View {
         Button {
             retry()
         } label: {
-            Label("retry", systemSymbol: .arrowClockwiseCircle)
+            Label("gacha.get_record.fail_fetch.retry", systemSymbol: .arrowClockwiseCircle)
         }
     }
 }
@@ -259,7 +259,7 @@ struct FinishedView: View {
     var body: some View {
         Section {
             Label {
-                Text("Succeed")
+                Text("gacha.get_record.finished.succeeded")
             } icon: {
                 Image(systemSymbol: .checkmarkCircle)
                     .foregroundColor(.green)
@@ -267,7 +267,7 @@ struct FinishedView: View {
             Button {
                 initialize()
             } label: {
-                Label("Initialize", systemSymbol: .arrowClockwiseCircle)
+                Label("gacha.get_record.finished.initialize", systemSymbol: .arrowClockwiseCircle)
             }
         } footer: {
             VStack(alignment: .leading) {
@@ -280,14 +280,6 @@ struct FinishedView: View {
         }
     }
 }
-
-// MARK: - ParseGachaURLError + LocalizedError
-
-extension ParseGachaURLError: LocalizedError {}
-
-// MARK: - GachaError + LocalizedError
-
-extension GachaError: LocalizedError {}
 
 // MARK: - ItemIcon
 
@@ -332,15 +324,15 @@ private struct GetGachaChart: View {
     var body: some View {
         Chart(data) {
             LineMark(
-                x: .value("日期", $0.date),
-                y: .value("抽数", $0.count)
+                x: .value("gacha.get_record.chart.date", $0.date),
+                y: .value("gacha.get_record.chart.count", $0.count)
             )
-            .foregroundStyle(by: .value("祈愿类型", $0.gachaType.rawValue))
+            .foregroundStyle(by: .value("gacha.get_record.chart.gacha_type", $0.gachaType.description))
         }
         .chartForegroundStyleScale([
-            GachaType.regularWarp.rawValue: .green,
-            GachaType.characterEventWarp.rawValue: .blue,
-            GachaType.lightConeEventWarp.rawValue: .yellow,
+            GachaType.regularWarp.description: .green,
+            GachaType.characterEventWarp.description: .blue,
+            GachaType.lightConeEventWarp.description: .yellow,
         ])
         .padding(.vertical)
     }

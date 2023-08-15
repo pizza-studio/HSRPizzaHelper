@@ -17,12 +17,14 @@ struct GachaView: View {
     var body: some View {
         List {
             Section {
-                NavigationLink("Get Gacha Record") {
+                NavigationLink("gacha.home.get_gacha_record") {
                     GetGachaRecordView()
                 }
-                NavigationLink("Manage Gacha Record") {
+                NavigationLink("gacha.home.manage_gacha_record") {
                     ManageGachaRecordView()
                 }
+            } header: {
+                Text("gacha.home.io")
             }
             Section {
                 if !availableUIDAndNames.isEmpty {
@@ -40,12 +42,14 @@ struct GachaView: View {
                         }
                     }
                 } else {
-                    Text("No data. get gacha record first. ")
+                    Text("gacha.home.no_data")
                         .foregroundColor(.secondary)
                 }
+            } header: {
+                Text("gacha.home.analysis")
             }
         }
-        .inlineNavigationTitle("Gacha Record")
+        .inlineNavigationTitle("gacha.home.title")
         .onAppear {
             availableUIDAndNames = getAvailableUIDAndNames()
         }
