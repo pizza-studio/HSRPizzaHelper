@@ -14,8 +14,6 @@ import SwiftUI
 struct GachaView: View {
     // MARK: Internal
 
-    @State var availableUIDAndNames: [(String, String?)] = []
-
     var body: some View {
         List {
             Section {
@@ -43,6 +41,7 @@ struct GachaView: View {
                     }
                 } else {
                     Text("No data. get gacha record first. ")
+                        .foregroundColor(.secondary)
                 }
             }
         }
@@ -53,6 +52,8 @@ struct GachaView: View {
     }
 
     // MARK: Private
+
+    @State private var availableUIDAndNames: [(String, String?)] = []
 
     @Environment(\.managedObjectContext) private var viewContext
 
