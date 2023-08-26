@@ -23,8 +23,6 @@ struct GachaView: View {
                 NavigationLink("gacha.home.manage_gacha_record") {
                     ManageGachaRecordView()
                 }
-            } header: {
-                Text("gacha.home.io")
             }
             Section {
                 if !availableUIDAndNames.isEmpty {
