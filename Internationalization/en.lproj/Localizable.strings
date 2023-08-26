@@ -325,3 +325,12 @@
 "gacha.account_detail.detail.no_data" = "No data here";
 "gacha.account_detail.chart.title" = "Charts";
 "gacha.account_detail.chart.gacha_type" = "Warp Type";
+"gacha.manage.select_account" = "Select Account";
+"gacha.manage.not_selected" = "Not selected";
+"gacha.manage.delete_all" = "Delete all records";
+"gacha.manage.clean_duplicate" = "Clean duplicate records";
+"gacha.manage.clean_duplicate.instruction" = "Clean up duplicate records caused by iCloud synchronization";
+"gacha.manage.delete.confirm" = "Are you sure you want to delete all records?";
+"gacha.manage.delete.confirm_delete" = "Delete all records of %@";
+"gacha.manage.clean_duplicate.alert.title" = "Successfully cleaned. ";
+"gacha.manage.clean_duplicate.alert.message" = "Deleted %lld duplicate record(s). ";

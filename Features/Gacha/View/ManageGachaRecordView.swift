@@ -31,9 +31,9 @@ struct ManageGachaRecordView: View {
     var body: some View {
         List {
             Section {
-                Picker("选择帐号", selection: $selectedUIDAndName) {
+                Picker("gacha.manage.select_account", selection: $selectedUIDAndName) {
                     Group {
-                        Text("未选择").tag(UIDAndName?.none)
+                        Text("gacha.manage.not_selected").tag(UIDAndName?.none)
                         ForEach(
                             availableUIDAndNames,
                             id: \.hashValue
@@ -43,24 +43,31 @@ struct ManageGachaRecordView: View {
                         }
                     }
                 }
-                Button("Delete all records") {
+                Button("gacha.manage.delete_all") {
                     isDeleteConfirmDialogueShow.toggle()
                 }
                 .disabled(selectedUIDAndName == nil)
             }
             Section {
-                Button("清理重复数据") {
+                Button("gacha.manage.clean_duplicate") {
                     cleanedDuplicateItemCount = cleanDuplicatedItems()
                 }
             } footer: {
-                Text("清理因iCloud同步导致出现的重复祈愿记录")
+                Text("gacha.manage.clean_duplicate.instruction")
             }
         }
         .onAppear {
             refreshAvailableUIDAndNames()
         }
-        .confirmationDialog("Confirm?", isPresented: $isDeleteConfirmDialogueShow) {
-            Button("Delete", role: .destructive) {
+        .confirmationDialog(
+            "gacha.manage.delete.confirm",
+            isPresented: $isDeleteConfirmDialogueShow,
+            titleVisibility: .visible
+        ) {
+            Button(
+                String(format: "gacha.manage.delete.confirm_delete".localized(), selectedUIDAndName?.description ?? ""),
+                role: .destructive
+            ) {
                 guard let selectedUIDAndName else { return }
                 let request = GachaItemMO.fetchRequest()
                 request.predicate = NSPredicate(format: "uid = %@", selectedUIDAndName.uid)
@@ -77,7 +84,7 @@ struct ManageGachaRecordView: View {
                 isDeleteConfirmDialogueShow.toggle()
             }
         }
-        .alert("Successfully cleaned. ", isPresented: Binding(get: {
+        .alert("gacha.manage.clean_duplicate.alert.title", isPresented: Binding(get: {
             cleanedDuplicateItemCount != nil
         }, set: { newValue in
             if !newValue {
@@ -88,7 +95,10 @@ struct ManageGachaRecordView: View {
                 cleanedDuplicateItemCount = nil
             }
         } message: {
-            Text("Cleaned \(cleanedDuplicateItemCount ?? 0) duplicate record(s). ")
+            Text(String(
+                format: "gacha.manage.clean_duplicate.alert.message".localized(),
+                cleanedDuplicateItemCount ?? 0
+            ))
         }
     }
 
