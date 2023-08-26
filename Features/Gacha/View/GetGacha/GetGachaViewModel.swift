@@ -89,21 +89,25 @@ class GetGachaViewModel: ObservableObject {
     private var cancellables: [AnyCancellable] = []
 
     private func setFinished() {
-        withAnimation {
-            self.status = .finished(typeFetchedCount: self.savedTypeFetchedCount, initialize: { self.initialize() })
+        DispatchQueue.main.async {
+            withAnimation {
+                self.status = .finished(typeFetchedCount: self.savedTypeFetchedCount, initialize: { self.initialize() })
+            }
         }
     }
 
     private func setFailFetching(page: Int, gachaType: GachaType, error: Error) {
-        withAnimation {
-            self.status = .failFetching(
-                page: page,
-                gachaType: gachaType,
-                error: error,
-                retry: {
-                    self.initialize()
-                }
-            )
+        DispatchQueue.main.async {
+            withAnimation {
+                self.status = .failFetching(
+                    page: page,
+                    gachaType: gachaType,
+                    error: error,
+                    retry: {
+                        self.initialize()
+                    }
+                )
+            }
         }
     }
 
@@ -123,20 +127,26 @@ class GetGachaViewModel: ObservableObject {
     }
 
     private func setWaitingForURL() {
-        withAnimation {
-            self.status = .waitingForURL
+        DispatchQueue.main.async {
+            withAnimation {
+                self.status = .waitingForURL
+            }
         }
     }
 
     private func setPending() {
-        withAnimation {
-            self.status = .pending(start: { self.startFetching() }, initialize: { self.initialize() })
+        DispatchQueue.main.async {
+            withAnimation {
+                self.status = .pending(start: { self.startFetching() }, initialize: { self.initialize() })
+            }
         }
     }
 
     private func setInProgress() {
-        withAnimation {
-            self.status = .inProgress(cancel: { self.cancel() })
+        DispatchQueue.main.async {
+            withAnimation {
+                self.status = .inProgress(cancel: { self.cancel() })
+            }
         }
     }
 

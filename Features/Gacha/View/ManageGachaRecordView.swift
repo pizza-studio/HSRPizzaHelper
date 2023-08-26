@@ -100,6 +100,7 @@ struct ManageGachaRecordView: View {
                 cleanedDuplicateItemCount ?? 0
             ))
         }
+        .inlineNavigationTitle("gacha.manage.title")
     }
 
     func cleanDuplicatedItems() -> Int {

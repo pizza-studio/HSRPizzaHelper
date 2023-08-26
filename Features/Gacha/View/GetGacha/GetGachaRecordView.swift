@@ -71,6 +71,7 @@ struct GetGachaRecordView: View {
                 }
             }
         }
+        .inlineNavigationTitle("gacha.get_record.title")
     }
 
     // MARK: Private

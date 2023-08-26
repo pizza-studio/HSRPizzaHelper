@@ -334,3 +334,6 @@
 "gacha.manage.delete.confirm_delete" = "Delete all records of %@";
 "gacha.manage.clean_duplicate.alert.title" = "Successfully cleaned. ";
 "gacha.manage.clean_duplicate.alert.message" = "Deleted %lld duplicate record(s). ";
+"gacha.get_record.title" = "Get Record";
+"gacha.manage.title" = "Manage Data";
+"app.tool.warp_analysis" = "Warp Analysis";
