@@ -183,22 +183,22 @@ private struct GotSomeItemView: View {
     var body: some View {
         Section {
             Label {
-                Text("Obtaining")
+                Text("gacha.get_record.got_some.obtaining")
             } icon: {
                 ProgressView().id(UUID())
             }
             Button {
                 cancel()
             } label: {
-                Label("Cancel", systemSymbol: .stopCircle)
+                Label("sys.cancel", systemSymbol: .stopCircle)
             }
         } footer: {
             HStack {
-                Text(String(format: "gacha.get_record.got_some.pool", gachaType.description))
+                Text(String(format: "gacha.get_record.got_some.pool".localized(), gachaType.description))
                 Spacer()
-                Text(String(format: "gacha.get_record.got_some.page", page))
+                Text(String(format: "gacha.get_record.got_some.page".localized(), page))
                 Spacer()
-                Text(String(format: "gacha.get_record.got_some.got_new_records", newItemCount))
+                Text(String(format: "gacha.get_record.got_some.got_new_records".localized(), newItemCount))
             }
         }
     }
@@ -273,7 +273,7 @@ struct FinishedView: View {
             VStack(alignment: .leading) {
                 Text("New Record Count: ") + Text(
                     typeFetchedCount.sorted(by: \.key).map { gachaType, count in
-                        "\(gachaType.rawValue) - \(count); "
+                        "\(gachaType.description) - \(count); "
                     }.reduce("") { $0 + $1 }
                 )
             }
@@ -334,7 +334,7 @@ private struct GetGachaChart: View {
             GachaType.characterEventWarp.description: .blue,
             GachaType.lightConeEventWarp.description: .yellow,
         ])
-        .padding(.vertical)
+        .padding(.top)
     }
 
     // MARK: Private
