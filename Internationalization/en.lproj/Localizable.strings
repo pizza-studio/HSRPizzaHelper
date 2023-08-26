@@ -266,7 +266,7 @@
 "gacha.gacha_item.item_type.light_cones" = "Light Cone";
 "gacha.gacha_item.item_type.characters" = "Character";
 "gacha.rank_filter.five_only" = "Five only";
-"gacha.rank_filter.four_and_five" = "Five only";
+"gacha.rank_filter.four_and_five" = "Four and five";
 "gacha.rank_filter.all" = "All";
 "gacha.home.get_gacha_record" = "Get Warp Record";
 "gacha.home.manage_gacha_record" = "Manage Warp Data";
