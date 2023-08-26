@@ -20,9 +20,9 @@ struct AccountGachaView: View {
     var body: some View {
         List {
             Section {
-                Picker("Gacha Type", selection: $gachaType) {
+                Picker("gacha.account_detail.gacha_type", selection: $gachaType) {
                     ForEach(GachaType.allCases, id: \.rawValue) { type in
-                        Text(type.rawValue).tag(type)
+                        Text(type.description).tag(type)
                     }
                 }
             }
@@ -32,19 +32,19 @@ struct AccountGachaView: View {
                     NavigationLink {
                         GachaChartView(uid: uid, gachaType: gachaType)
                     } label: {
-                        Label("更多图表", systemSymbol: .chartBarXaxis)
+                        Label("gacha.account_detail.chart.more", systemSymbol: .chartBarXaxis)
                     }
                 }
             } header: {
-                Text("chart")
+                Text("gacha.account_detail.chart.header")
             }
             Section {
                 GachaStatisticSectionView(uid: uid, gachaType: gachaType)
             } header: {
-                Text("statistic")
+                Text("gacha.account_detail.statistic.header")
             }
             Section {
-                NavigationLink("Detail") {
+                NavigationLink("gacha.account_detail.detail") {
                     AccountGachaDetailView(uid: uid, gachaType: gachaType)
                 }
             }
@@ -84,7 +84,7 @@ private struct GachaSmallChart: View {
 
     var body: some View {
         if fiveStarItems.isEmpty {
-            Text("No data. ")
+            Text("gacha.account_detail.small_chart.no_data")
         } else {
             chart()
         }
@@ -109,18 +109,18 @@ private struct GachaSmallChart: View {
             Chart {
                 ForEach(fiveStarItems, id: \.0.id) { item in
                     BarMark(
-                        x: .value("角色", item.0.id),
-                        y: .value("抽数", item.drawCount)
+                        x: .value("gacha.account_detail.small_chart.character", item.0.id),
+                        y: .value("gacha.account_detail.small_chart.pull_count", item.drawCount)
                     )
                     .annotation(position: .top) {
                         Text("\(item.drawCount)").foregroundColor(.gray)
                             .font(.caption)
                     }
-                    .foregroundStyle(by: .value("抽数", item.0.id))
+                    .foregroundStyle(by: .value("gacha.account_detail.small_chart.pull_count", item.0.id))
                 }
                 if !fiveStarItems.isEmpty {
                     RuleMark(y: .value(
-                        "平均",
+                        "gacha.account_detail.small_chart.average",
                         fiveStarItems.map { $0.drawCount }
                             .reduce(0) { $0 + $1 } / max(fiveStarItems.count, 1)
                     ))
@@ -253,15 +253,18 @@ private struct GachaStatisticSectionView: View {
     var body: some View {
         Section {
             HStack {
-                Label("当前已垫", systemSymbol: .flagFill)
+                Label("gacha.account_detail.statistic.after_last_5_star", systemSymbol: .flagFill)
                 Spacer()
                 Text(
-                    "\(itemsWithDrawCount.firstIndex(where: { $0.0.rank == .five }) ?? itemsWithDrawCount.count)抽"
+                    String(
+                        format: "gacha.account_detail.statistic.pull".localized(),
+                        itemsWithDrawCount.firstIndex(where: { $0.0.rank == .five }) ?? itemsWithDrawCount.count
+                    )
                 )
             }
             HStack {
                 Label(
-                    "总抽数",
+                    "gacha.account_detail.statistic.total_pull",
                     systemSymbol: .handTapFill
                 )
                 Spacer()
@@ -269,7 +272,7 @@ private struct GachaStatisticSectionView: View {
             }
             HStack {
                 Label(
-                    "五星平均抽数",
+                    "gacha.account_detail.statistic.5_star_avg_pull",
                     systemSymbol: .star
                 )
                 Spacer()
@@ -278,7 +281,7 @@ private struct GachaStatisticSectionView: View {
             if gachaType != .regularWarp {
                 HStack {
                     Label(
-                        "限定五星平均抽数",
+                        "gacha.account_detail.statistic.limited_5_star_avg_pull",
                         systemSymbol: .starFill
                     )
                     Spacer()
@@ -294,7 +297,7 @@ private struct GachaStatisticSectionView: View {
                         return fmt
                     }()
 
-                    Label("不歪率", systemSymbol: .chartPieFill)
+                    Label("gacha.account_detail.statistic.won_5050", systemSymbol: .chartPieFill)
                     Spacer()
                     Text(
                         "\(fmt.string(from: lose5050percentage as NSNumber)!)"
@@ -304,7 +307,7 @@ private struct GachaStatisticSectionView: View {
             if gachaType != .regularWarp {
                 VStack {
                     HStack {
-                        Text("派蒙的评价")
+                        Text("gacha.account_detail.statistic.pom_pom_review")
                             .font(.caption)
                             .foregroundColor(.secondary)
                         Spacer()

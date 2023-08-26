@@ -27,27 +27,19 @@ struct GachaChartView: View {
     var body: some View {
         List {
             Section {
+                Picker("gacha.account_detail.chart.gacha_type", selection: $gachaType) {
+                    ForEach(GachaType.allCases, id: \.rawValue) { type in
+                        Text(type.description).tag(type)
+                    }
+                }
+            }
+            Section {
                 GachaItemChart(
                     uid: uid, gachaType: gachaType
                 )
-            } header: {
-                HStack {
-                    Text(
-                        gachaType.rawValue
-                    )
-                    Spacer()
-                    Button(
-                        "切换为\(nextGachaType.rawValue)"
-                    ) {
-                        withAnimation {
-                            gachaType = nextGachaType
-                        }
-                    }
-                    .font(.caption)
-                }
-                .textCase(.none)
             }
         }
+        .inlineNavigationTitle("gacha.account_detail.chart.title")
     }
 }
 
@@ -94,7 +86,8 @@ private struct GachaItemChart: View {
                 }
             }
         } else {
-            Text("No five star. ")
+            Text("gacha.account_detail.chart.no_five_star")
+                .foregroundColor(.secondary)
         }
     }
 
@@ -120,8 +113,8 @@ private struct GachaItemChart: View {
         Chart {
             ForEach(items, id: \.0.id) { item in
                 BarMark(
-                    x: .value("抽数", item.count),
-                    y: .value("角色", item.0.id),
+                    x: .value("gacha.account_detail.chart.pull_count", item.count),
+                    y: .value("gacha.account_detail.chart.character", item.0.id),
                     width: 20
                 )
                 .annotation(position: .trailing) {
@@ -138,11 +131,11 @@ private struct GachaItemChart: View {
                         }
                     }
                 }
-                .foregroundStyle(by: .value("抽数", item.0.id))
+                .foregroundStyle(by: .value("gacha.account_detail.chart.pull_count", item.0.id))
             }
             if !fiveStarItems.isEmpty {
                 RuleMark(x: .value(
-                    "平均",
+                    "gacha.account_detail.chart.average",
                     fiveStarItems.map { $0.count }
                         .reduce(0, +) / max(fiveStarItems.count, 1)
                 ))
@@ -151,7 +144,7 @@ private struct GachaItemChart: View {
                 .annotation(alignment: .topLeading) {
                     if isFirst {
                         Text(
-                            "平均抽数："
+                            "gacha.account_detail.chart.avg_pull_count"
                                 .localized() + averagePullsCount.description
                         )
                         .font(.caption).foregroundColor(.gray)

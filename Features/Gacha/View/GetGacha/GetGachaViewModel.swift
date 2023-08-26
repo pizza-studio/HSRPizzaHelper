@@ -108,15 +108,17 @@ class GetGachaViewModel: ObservableObject {
     }
 
     private func setGot(page: Int, gachaType: GachaType) {
-        withAnimation {
-            self.status = .got(
-                page: page,
-                gachaType: gachaType,
-                newItemCount: savedTypeFetchedCount.values.sum(),
-                cancel: {
-                    self.cancel()
-                }
-            )
+        DispatchQueue.main.async { [self] in
+            withAnimation {
+                self.status = .got(
+                    page: page,
+                    gachaType: gachaType,
+                    newItemCount: savedTypeFetchedCount.values.sum(),
+                    cancel: {
+                        self.cancel()
+                    }
+                )
+            }
         }
     }
 

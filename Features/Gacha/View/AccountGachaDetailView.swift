@@ -20,20 +20,22 @@ struct AccountGachaDetailView: View {
     var body: some View {
         List {
             Section {
-                Picker("Gacha Type", selection: $gachaType) {
+                Picker("gacha.account_detail.detail.filter.gacha_type", selection: $gachaType) {
                     ForEach(GachaType.allCases, id: \.rawValue) { type in
-                        Text(type.rawValue).tag(type)
+                        Text(type.description).tag(type)
                     }
                 }
-                Picker("Rank", selection: $rankFilter) {
+                Picker("gacha.account_detail.detail.filter.rank", selection: $rankFilter) {
                     ForEach(RankFilter.allCases, id: \.rawValue) { filter in
-                        Text("\(filter.rawValue)").tag(filter)
+                        Text("\(filter.description)").tag(filter)
                     }
                 }
+            } header: {
+                Text("gacha.account_detail.detail.filter.header")
             } footer: {
                 HStack {
                     Spacer()
-                    Button("Display Option") {
+                    Button("gacha.account_detail.detail.filter.display_option.button") {
                         isDisplayOptionShow.toggle()
                     }
                 }
@@ -46,13 +48,14 @@ struct AccountGachaDetailView: View {
         .sheet(isPresented: $isDisplayOptionShow) {
             displayOptionSheet()
         }
+        .inlineNavigationTitle("gacha.account_detail.detail.title")
     }
 
     @ViewBuilder
     func displayOptionSheet() -> some View {
         NavigationView {
             List {
-                Toggle("Show time", isOn: $showTime)
+                Toggle("gacha.account_detail.detail.filter.display_option.show_time", isOn: $showTime)
             }
             .toolbar {
                 Button("sys.done") {
@@ -60,7 +63,7 @@ struct AccountGachaDetailView: View {
                 }
             }
         }
-        .inlineNavigationTitle("Display Option")
+        .inlineNavigationTitle("gacha.account_detail.detail.filter.display_option.title")
     }
 
     // MARK: Private
@@ -117,7 +120,7 @@ private struct GachaItemDetail: View {
                 GachaItemBar(item: item, drawCount: drawCount, showTime: showTime)
             }
         } else {
-            Text("No data. ")
+            Text("gacha.account_detail.detail.no_data")
                 .foregroundColor(.secondary)
         }
     }
