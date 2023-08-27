@@ -38,16 +38,6 @@ jobs:
                   echo "::set-output name=commit_sha_updated::false"
                 fi
 
-            - name: Create branch and commit changes
-              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
-              run: |
-                git config user.name "GitHub Action"
-                git config user.email "action@github.com"
-                git checkout -b update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
-                git add .
-                git commit -m "Update gacha meta"
-                git push origin update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
-
             - name: Create pull request
               if: steps.compare_shas.outputs.commit_sha_updated == 'true'
               uses: peter-evans/create-pull-request@v3
