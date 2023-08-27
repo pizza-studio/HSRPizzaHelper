@@ -1,0 +1,58 @@
+name: Update Gacha Meta
+
+on:
+    workflow_dispatch: {}
+    schedule:
+        - cron: '0 12 * * *'
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: 3.10
+
+            - name: Install dependencies
+              run: pip install -r Script/requirements.txt
+
+            - name: Fetch latest commit SHA
+              id: latest_sha
+              run: echo "::set-output name=sha::$(git ls-remote https://github.com/Mar-7th/StarRailRes.git HEAD | cut -f1)"
+
+            - name: Compare commit SHAs
+              id: compare_shas
+              run: |
+                if [ "${{ steps.latest_sha.outputs.sha }}" != "${{ vars.RES_LATEST_UPDATE_COMMIT_SHA }}" ]; then
+                  echo "Commit SHAs are different. Running the Python script..."
+                  python Script/update_gacha_meta.py
+                  echo "::set-output name=commit_sha_updated::true"
+                else
+                  echo "Commit SHAs are the same. No action needed."
+                  echo "::set-output name=commit_sha_updated::false"
+                fi
+
+            - name: Create branch and commit changes
+              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
+              run: |
+                git config user.name "GitHub Action"
+                git config user.email "action@github.com"
+                git checkout -b update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
+                git add .
+                git commit -m "Update gacha meta"
+                git push origin update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
+
+            - name: Create pull request
+              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
+              uses: peter-evans/create-pull-request@v3
+              with:
+                token: ${{ secrets.GITHUB_TOKEN }}
+                branch: update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
+                commit-message: "Update gacha meta"
+                title: "Update Gacha Meta"
+                body: "Automated pull request to update gacha meta."
