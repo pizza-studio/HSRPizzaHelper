@@ -78,7 +78,8 @@ extension GachaItemMO {
     var isLose5050: Bool {
         guard rank == .five else { return true }
         switch itemID {
-        case "1003", "1004", "1101", "1104", "1107", "1211":
+        case "1003", "1004", "1101", "1104", "1107", "1209", "1211",
+             "23000", "23002", "23003", "23004", "23005", "23012", "23013":
             return true
         default:
             return false
