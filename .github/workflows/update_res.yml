@@ -57,3 +57,9 @@ jobs:
                 commit-message: "Update gacha meta"
                 title: "Update Gacha Meta"
                 body: "Automated pull request to update gacha meta."
+                delete-branch: true
+                base: "dev"
+
+            - name: Update SHA Variable
+              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
+              run: echo "RES_LATEST_UPDATE_COMMIT_SHA=${{ steps.latest_sha.outputs.sha }}" >> $GITHUB_ENV
