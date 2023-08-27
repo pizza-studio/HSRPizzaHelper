@@ -57,7 +57,6 @@ jobs:
                 commit-message: "Update gacha meta"
                 title: "Update Gacha Meta"
                 body: "Automated pull request to update gacha meta."
-                delete-branch: true
                 base: "dev"
 
             - name: Update SHA Variable
