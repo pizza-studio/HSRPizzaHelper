@@ -47,6 +47,7 @@ jobs:
                 commit-message: "Update gacha meta"
                 title: "Update Gacha Meta"
                 body: "Automated pull request to update gacha meta."
+                base: dev
 
             - name: Update SHA Variable
               if: steps.compare_shas.outputs.commit_sha_updated == 'true'
