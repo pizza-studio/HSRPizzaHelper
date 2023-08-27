@@ -287,7 +287,7 @@
 "gacha.get_record.got_some.page" = "Page: %lld";
 "gacha.get_record.got_some.got_new_records" = "New: %lld";
 "gacha.get_record.fail_fetch.retry" = "Retry";
-"gacha.get_record.finished.succeeded" = "Succeeded get gacha records";
+"gacha.get_record.finished.succeeded" = "Succeeded get warp records";
 "gacha.get_record.finished.initialize" = "Initialize";
 "gacha.get_record.finished.new_record_count" = "New Record Count: ";
 "gacha.get_record.chart.date" = "Date";
