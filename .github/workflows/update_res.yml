@@ -4,7 +4,6 @@ on:
     workflow_dispatch: {}
     schedule:
         - cron: '0 12 * * *'
-    pull_request: {}
 
 jobs:
     update:
@@ -26,7 +25,7 @@ jobs:
               id: latest_sha
               run: echo "::set-output name=sha::$(git ls-remote https://github.com/Mar-7th/StarRailRes.git HEAD | cut -f1)"
 
-            - name: Compare commit SHAs
+            - name: Compare commit SHAs and run
               id: compare_shas
               run: |
                 if [ "${{ steps.latest_sha.outputs.sha }}" != "${{ vars.RES_LATEST_UPDATE_COMMIT_SHA }}" ]; then
@@ -47,7 +46,7 @@ jobs:
                 commit-message: "Update gacha meta"
                 title: "Update Gacha Meta"
                 body: "Automated pull request to update gacha meta."
-                base: dev
+                base: "lava/gacha"
 
             - name: Update SHA Variable
               if: steps.compare_shas.outputs.commit_sha_updated == 'true'
