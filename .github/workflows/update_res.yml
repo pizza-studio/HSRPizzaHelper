@@ -49,15 +49,12 @@ jobs:
                 git push origin update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
 
             - name: Create pull request
-              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
-              uses: peter-evans/create-pull-request@v3
+              uses: devops-infra/action-pull-request@v0.5.5
               with:
-                token: ${{ secrets.GITHUB_TOKEN }}
-                branch: update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
-                commit-message: "Update gacha meta"
-                title: "Update Gacha Meta"
-                body: "Automated pull request to update gacha meta."
-                base: "lava/gacha"
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                source_branch: update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
+                target_branch: lava/gacha
+                title: Update Gacha Meta
 
             - name: Update SHA Variable
               if: steps.compare_shas.outputs.commit_sha_updated == 'true'
