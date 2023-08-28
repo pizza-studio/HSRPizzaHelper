@@ -26,7 +26,7 @@ jobs:
               id: latest_sha
               run: echo "::set-output name=sha::$(git ls-remote https://github.com/Mar-7th/StarRailRes.git HEAD | cut -f1)"
 
-            - name: Compare commit SHAs and run
+            - name: Compare commit SHAs and run update script
               id: compare_shas
               run: |
                 if [ "${{ steps.latest_sha.outputs.sha }}" != "${{ vars.RES_LATEST_UPDATE_COMMIT_SHA }}" ]; then
@@ -55,6 +55,7 @@ jobs:
                 source_branch: update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
                 target_branch: lava/gacha
                 title: Update Gacha Meta
+                allow_no_diff: true
 
             - name: Update SHA Variable
               if: steps.compare_shas.outputs.commit_sha_updated == 'true'
