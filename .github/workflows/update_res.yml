@@ -4,7 +4,6 @@ on:
     workflow_dispatch: {}
     schedule:
         - cron: '0 12 * * *'
-    pull_request: {}
 
 jobs:
     update:
@@ -36,7 +35,7 @@ jobs:
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 branch: update-gacha-meta-${{ github.run_number }}
-                base: lava/gacha
+                base: dev
                 title: "Update Gacha Meta"
                 body: |
                   This PR updates the gacha meta.
