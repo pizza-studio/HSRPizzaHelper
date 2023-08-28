@@ -26,30 +26,18 @@ jobs:
               id: latest_sha
               run: echo "::set-output name=sha::$(git ls-remote https://github.com/Mar-7th/StarRailRes.git HEAD | cut -f1)"
 
-            - name: Compare commit SHAs and run update script
+            - name: Run Python update gacha meta script
               id: compare_shas
               run: |
-                if [ "${{ steps.latest_sha.outputs.sha }}" != "${{ vars.RES_LATEST_UPDATE_COMMIT_SHA }}" ]; then
-                  echo "Commit SHAs are different. Running the Python script..."
-                  python Script/update_gacha_meta.py
-                  echo "::set-output name=commit_sha_updated::true"
-                else
-                  echo "Commit SHAs are the same. No action needed."
-                  echo "::set-output name=commit_sha_updated::false"
-                fi
+                python Script/update_gacha_meta.py
 
             - name: Create Pull Request
-              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
               uses: peter-evans/create-pull-request@v3
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
-                base: lava/gacha
                 branch: update-gacha-meta-${{ github.run_number }}
                 title: "Update Gacha Meta"
                 body: |
                   This PR updates the gacha meta.
                 labels: "auto-update"
-
-            - name: Update SHA Variable
-              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
-              run: echo "RES_LATEST_UPDATE_COMMIT_SHA=${{ steps.latest_sha.outputs.sha }}" >> $GITHUB_ENV
+                delete-branch: true
