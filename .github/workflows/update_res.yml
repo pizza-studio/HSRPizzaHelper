@@ -39,5 +39,9 @@ jobs:
                 title: "Update Gacha Meta"
                 body: |
                   This PR updates the gacha meta.
-                labels: "auto-update"
                 delete-branch: true
+                assignees: CanglongCl
+                reviewers: CanglongCl
+                team-reviewers: |
+                  owners
+                  maintainers
