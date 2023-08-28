@@ -19,6 +19,8 @@ enum AppConfig {
     /// The name of folder which stores all background image
     static let backgroundImageFolderName: String = "background_image"
 
+    static let gachaMetaFolderName: String = "gacha_meta"
+
     static let rectangularBackgroundImageFolderName: String = "rectangular_widget_background"
 
     static let squareBackgroundImageFolderName: String = "square_widget_background"

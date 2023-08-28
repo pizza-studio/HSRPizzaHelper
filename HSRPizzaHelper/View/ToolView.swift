@@ -15,6 +15,9 @@ struct ToolView: View {
                 NavigationLink("app.tool.dictionary") {
                     HSRDictionaryView()
                 }
+                NavigationLink("app.tool.warp_analysis") {
+                    GachaView()
+                }
             }
             .navigationTitle("app.tool.title")
         }

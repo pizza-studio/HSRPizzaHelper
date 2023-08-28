@@ -1,0 +1,47 @@
+name: Update Gacha Meta
+
+on:
+    workflow_dispatch: {}
+    schedule:
+        - cron: '0 12 * * *'
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: "3.10"
+
+            - name: Install dependencies
+              run: pip install -r Script/requirements.txt
+
+            - name: Fetch latest commit SHA
+              id: latest_sha
+              run: echo "::set-output name=sha::$(git ls-remote https://github.com/Mar-7th/StarRailRes.git HEAD | cut -f1)"
+
+            - name: Run Python update gacha meta script
+              id: compare_shas
+              run: |
+                python Script/update_gacha_meta.py
+
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v3
+              with:
+                token: ${{ secrets.GITHUB_TOKEN }}
+                branch: update-gacha-meta-${{ github.run_number }}
+                base: dev
+                title: "Update Gacha Meta"
+                body: |
+                  This PR updates the gacha meta.
+                delete-branch: true
+                assignees: CanglongCl
+                reviewers: CanglongCl
+                team-reviewers: |
+                  owners
+                  maintainers

@@ -105,7 +105,7 @@ enum URLRequestHelperConfiguration {
             "x-rpc-client_type": xRpcClientType(region: region),
             "x-rpc-page": "3.1.3_#/rpg",
             "x-rpc-device_id": deviceId,
-            "x-rpc-language": Locale.langCodeForAPI,
+            "x-rpc-language": Locale.miHoYoAPILanguage.rawValue,
 
             "Sec-Fetch-Dest": "empty",
             "Sec-Fetch-Site": "same-site",
