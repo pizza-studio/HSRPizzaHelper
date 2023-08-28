@@ -57,7 +57,7 @@ jobs:
               uses: peter-evans/create-pull-request@v3
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
-                base: main
+                base: lava/gacha
                 branch: update-gacha-meta-${{ github.run_number }}
                 title: "Update Gacha Meta"
                 body: |
