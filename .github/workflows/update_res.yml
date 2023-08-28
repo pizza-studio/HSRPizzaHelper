@@ -36,6 +36,7 @@ jobs:
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 branch: update-gacha-meta-${{ github.run_number }}
+                base: lava/gacha
                 title: "Update Gacha Meta"
                 body: |
                   This PR updates the gacha meta.
