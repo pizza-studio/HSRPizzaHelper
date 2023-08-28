@@ -38,24 +38,31 @@ jobs:
                   echo "::set-output name=commit_sha_updated::false"
                 fi
 
-            # - name: Create branch and commit changes
-            #   if: steps.compare_shas.outputs.commit_sha_updated == 'true'
-            #   run: |
-            #     git config user.name "GitHub Action"
-            #     git config user.email "action@github.com"
-            #     git checkout -b update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
-            #     git add .
-            #     git commit -m "Update gacha meta"
-            #     git push origin update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
+            - name: Configure Git
+              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
+              run: |
+                git config --global user.email "actions@github.com"
+                git config --global user.name "GitHub Actions"
 
-            - name: Create pull request
-              uses: devops-infra/action-pull-request@v0.5.5
+            - name: Create New Branch and Commit Changes
+              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
+              run: |
+                git checkout -b update-gacha-meta-${{ github.run_number }}
+                git add .
+                git commit -m "Update gacha meta"
+                git push origin update-gacha-meta-${{ github.run_number }}
+
+            - name: Create Pull Request
+              if: steps.compare_shas.outputs.commit_sha_updated == 'true'
+              uses: peter-evans/create-pull-request@v3
               with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                source_branch: update-gacha-meta-${{ steps.latest_sha.outputs.sha }}
-                target_branch: lava/gacha
-                title: Update Gacha Meta
-                allow_no_diff: true
+                token: ${{ secrets.GITHUB_TOKEN }}
+                base: main
+                branch: update-gacha-meta-${{ github.run_number }}
+                title: "Update Gacha Meta"
+                body: |
+                  This PR updates the gacha meta.
+                labels: "auto-update"
 
             - name: Update SHA Variable
               if: steps.compare_shas.outputs.commit_sha_updated == 'true'
