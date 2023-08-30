@@ -336,4 +336,4 @@
 "gacha.manage.clean_duplicate.alert.message" = "成功清理了%lld条重复的记录。";
 "gacha.get_record.title" = "获取跃迁记录";
 "gacha.manage.title" = "管理数据";
-"app.tool.warp_analysis" = "跃迁分析"
+"app.tool.warp_analysis" = "跃迁分析";
