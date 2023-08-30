@@ -502,9 +502,9 @@ private struct BackgroundPreviewView: View, ContainBackgroundType {
                                 .font(.title)
                                 .shadow(radius: 10)
                             (
-                                Text(Date(timeIntervalSinceNow: (180 - 60) * 6 * 60), style: .time)
+                                Text(Date(timeIntervalSinceNow: (240 - 60) * 6 * 60), style: .time)
                                     + Text("\n")
-                                    + Text(Date(timeIntervalSinceNow: (180 - 60) * 6 * 60), style: .relative)
+                                    + Text(Date(timeIntervalSinceNow: (240 - 60) * 6 * 60), style: .relative)
                             )
                             .lineLimit(2)
                             .multilineTextAlignment(.leading)

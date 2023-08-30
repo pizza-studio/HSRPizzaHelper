@@ -40,7 +40,7 @@ struct WidgetStaminaInformationCard: View {
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
                     } else {
-                        Text(" / 180")
+                        Text(" / 240")
                     }
                 }
                 .minimumScaleFactor(0.5)
