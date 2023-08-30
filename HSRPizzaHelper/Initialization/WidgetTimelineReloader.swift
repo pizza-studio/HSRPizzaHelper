@@ -21,18 +21,19 @@ private struct WidgetTimelineReloader: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onAppBecomeActive {
-                guard let latestRefreshTime = Defaults[\.widgetTimelineLatestStartAppRefreshTime] else {
-                    reloadAllTimelines()
-                    return
-                }
-                let hoursSinceLatestRefresh = Date()
-                    .minutesSince(
-                        latestRefreshTime
-                    )
-                let shouldRefreshAfterMinute = AppConfig.enterAppShouldRefreshWidgetAfterMinute
-                if hoursSinceLatestRefresh > shouldRefreshAfterMinute {
-                    reloadAllTimelines()
-                }
+                reloadAllTimelines()
+//                guard let latestRefreshTime = Defaults[\.widgetTimelineLatestStartAppRefreshTime] else {
+//                    reloadAllTimelines()
+//                    return
+//                }
+//                let hoursSinceLatestRefresh = Date()
+//                    .minutesSince(
+//                        latestRefreshTime
+//                    )
+//                let shouldRefreshAfterMinute = AppConfig.enterAppShouldRefreshWidgetAfterMinute
+//                if hoursSinceLatestRefresh > shouldRefreshAfterMinute {
+//                    reloadAllTimelines()
+//                }
             }
     }
 
