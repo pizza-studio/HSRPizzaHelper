@@ -121,7 +121,7 @@
 "setting.notification.expedition.method.each" = "Каждое завершено";
 "notification.stamina.title" = "Напоминание: энергия Освоения для %@";
 "notification.stamina.full.body" = "Энергия Освоения для %@ полностью восстановлена.";
-"notification.stamina.customize.body" = "У %@ %lld энергии Освоения. 180 будет в %@.";
+"notification.stamina.customize.body" = "У %@ %lld энергии Освоения. 240 будет в %@.";
 "notification.expedition.title" = "Напоминаем: начните поручения для %@";
 "notification.expedition.summary.body" = "Все поручения для %@ завершены.";
 "notification.expedition.each.body" = "Поручения '%2$@' для %1$@ завершены.";
