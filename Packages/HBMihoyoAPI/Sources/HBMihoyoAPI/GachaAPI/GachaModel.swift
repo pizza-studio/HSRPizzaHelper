@@ -47,14 +47,7 @@ public enum GachaType: String, Codable, CaseIterable, Comparable {
     }
 
     public func next() -> Self? {
-        switch self {
-        case .regularWarp:
-            return .characterEventWarp
-        case .characterEventWarp:
-            return .lightConeEventWarp
-        case .lightConeEventWarp:
-            return nil
-        }
+        Self.allCases.first { self < $0 }
     }
 }
 
