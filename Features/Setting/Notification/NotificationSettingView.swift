@@ -330,7 +330,7 @@ private struct CustomizeStaminaNotificationSettingView: View {
                             isActivated.toggle()
                         }
                     }
-                    Slider(value: $newNumber, in: 10.0 ... 179.0, step: 5.0) {
+                    Slider(value: $newNumber, in: 10.0 ... 239.0, step: 5.0) {
                         Text("\(numberToSave)")
                             .foregroundColor(newNumberIsValid ? .primary : .red)
                     }
