@@ -117,9 +117,9 @@ enum HostType {
     var hostBase: String {
         switch self {
         case .generalHost:
-            return "https://hsr.ophelper.top/"
+            return "https://hsr.pizzastudio.org/"
         case .artifactRatingHost:
-            return "https://artifact-rating.ophelper.top/"
+            return "https://artifact-rating.pizzastudio.org/"
         case .abyssHost:
             return "http://81.70.76.222/"
         }

@@ -182,7 +182,7 @@
 "boarding.feature.background.detail" = "您可以選擇您相冊中的圖片以自訂小組件背景。";
 "boarding.feature.customize.title" = "更多小組件設定";
 "boarding.feature.customize.detail" = "長按小組件以找到更多個性化設定。";
-"boarding.protocol.link" = "在開始前，請閱讀並同意我們的[使用者授權合約](https://hsr.ophelper.top/static/policy)。";
+"boarding.protocol.link" = "在開始前，請閱讀並同意我們的[使用者授權合約](https://hsr.pizzastudio.org/static/policy)。";
 "boarding.protocol.agree" = "我同意 **使用者授權合約**";
 "boarding.contact.group.footer" = "您可以在遇到問題時使用以上聯絡方式與開發者取得聯絡，並且收到來自開發者的最新消息。";
 "sys.donate.title %@" = "捐贈%@";
@@ -199,7 +199,7 @@
 "mihoyoapi.error.verification_needed.description" = "需要認證";
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "請進入App完成真人認證。";
 "app.dailynote.card.error.other_error.button" = "出現錯誤";
-"account.test.footer.recommend_device_fp" = "如果持續要求真人認證的話，建議參考[該教學指引](https://hsr.ophelper.top/static/fp_tutorial)抓包填入裝置指紋、以規避該故障。";
+"account.test.footer.recommend_device_fp" = "如果持續要求真人認證的話，建議參考[該教學指引](https://hsr.pizzastudio.org/static/fp_tutorial)抓包填入裝置指紋、以規避該故障。";
 "sys.manage_hoyolab_account" = "管理HoYoLAB通行證";
 "sys.manage_hoyolab_account.footer" = "你可以在此處刪除HoYoLAB通行證。";
 "app.dailynote.card.daily_training.label" = "每日實訓";
