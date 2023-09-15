@@ -182,7 +182,7 @@
 "boarding.feature.background.detail" = "您可以选择您相册中的图片以自定义小组件背景。";
 "boarding.feature.customize.title" = "更多小组件设置";
 "boarding.feature.customize.detail" = "长按小组件以找到更多个性化设置。";
-"boarding.protocol.link" = "在开始前，请阅读并同意我们的[用户协议](https://hsr.ophelper.top/static/policy)。";
+"boarding.protocol.link" = "在开始前，请阅读并同意我们的[用户协议](https://hsr.pizzastudio.org/static/policy)。";
 "boarding.protocol.agree" = "我同意 **用户协议**";
 "boarding.contact.group.footer" = "您可以在遇到问题时使用以上联系方式与开发者取得联系，并且收到来自开发者的最新消息。";
 "sys.donate.title %@" = "捐赠%@";
@@ -199,7 +199,7 @@
 "mihoyoapi.error.verification_needed.description" = "需要验证";
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "请进入App输入验证码。";
 "app.dailynote.card.error.other_error.button" = "出现错误";
-"account.test.footer.recommend_device_fp" = "如果持续要求输入验证码，建议参考[本教程](https://hsr.ophelper.top/static/fp_tutorial)抓包填入设备指纹以规避。";
+"account.test.footer.recommend_device_fp" = "如果持续要求输入验证码，建议参考[本教程](https://hsr.pizzastudio.org/static/fp_tutorial)抓包填入设备指纹以规避。";
 "sys.manage_hoyolab_account" = "管理米游社通行证";
 "sys.manage_hoyolab_account.footer" = "你可以在此注销你的米游社通行证。";
 "app.dailynote.card.daily_training.label" = "每日实训";

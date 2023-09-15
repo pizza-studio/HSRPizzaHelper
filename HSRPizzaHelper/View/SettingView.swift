@@ -72,11 +72,11 @@ struct SettingView: View {
                     let url: String = {
                         switch AppConfig.appLanguage {
                         case .en:
-                            return "https://hsr.ophelper.top/static/faq_en"
+                            return "https://hsr.pizzastudio.org/static/faq_en"
                         case .zhcn, .zhtw:
-                            return "https://hsr.ophelper.top/static/faq"
+                            return "https://hsr.pizzastudio.org/static/faq"
                         case .ja:
-                            return "https://hsr.ophelper.top/static/faq_ja"
+                            return "https://hsr.pizzastudio.org/static/faq_ja"
                         }
                     }()
                     NavigationLink(
@@ -216,11 +216,11 @@ private struct OtherSettingsView: View {
                     let url: String = {
                         switch AppConfig.appLanguage {
                         case .en:
-                            return "https://hsr.ophelper.top/static/policy_en"
+                            return "https://hsr.pizzastudio.org/static/policy_en"
                         case .zhcn, .zhtw:
-                            return "https://hsr.ophelper.top/static/policy"
+                            return "https://hsr.pizzastudio.org/static/policy"
                         case .ja:
-                            return "https://hsr.ophelper.top/static/policy_ja"
+                            return "https://hsr.pizzastudio.org/static/policy_ja"
                         }
                     }()
                     WebBrowserView(url: url)

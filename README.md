@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://github.com/pizza-studio/HSRPizzaHelper"><img src="https://hsr.ophelper.top/img/hsrhelper_headline.png" width="720"alt="HSRPizzaHelper"></a>
+  <a href="https://github.com/pizza-studio/HSRPizzaHelper"><img src="https://hsr.pizzastudio.org/img/hsrhelper_headline.png" width="720"alt="HSRPizzaHelper"></a>
 </p>
 
 <h1 align = "center">HSR Pizza Helper</h1>
 <h4 align = "center">A game tool for Honkai: Star Rail on Apple platforms</h4>
 <div align = "center">
         <a href="https://github.com/pizza-studio/hsrpizzahelper/blob/dev/READNE_zh.md">简体中文</a> &nbsp; · &nbsp;
-        <a href="https://hsr.ophelper.top">Official Website</a> &nbsp; · &nbsp;
+        <a href="https://hsr.pizzastudio.org">Official Website</a> &nbsp; · &nbsp;
         <a href="https://github.com/pizza-studio/hsrpizzahelper/blob/dev/CONTRIBUTING.md">Contribution Guide</a>
 </div>
 
@@ -25,8 +25,8 @@ Welcome to the public repository for **HSR Pizza Helper**, a game tool app for H
 
 The app is currently still in development and has not been uploaded to the app store.
 
-<a href="https://apps.apple.com/app/id6448894222"><img src="https://hsr.ophelper.top/img/app_store.svg" alt="HSRPizzaHelper"></a>
-<a href="https://apps.apple.com/app/id6448894222"><img src="https://hsr.ophelper.top/img/app_store_mac.svg" alt="HSRPizzaHelper"></a>
+<a href="https://apps.apple.com/app/id6448894222"><img src="https://hsr.pizzastudio.org/img/app_store.svg" alt="HSRPizzaHelper"></a>
+<a href="https://apps.apple.com/app/id6448894222"><img src="https://hsr.pizzastudio.org/img/app_store_mac.svg" alt="HSRPizzaHelper"></a>
 
 ## Introduction
 

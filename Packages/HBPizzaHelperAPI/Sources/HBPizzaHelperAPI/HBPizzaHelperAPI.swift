@@ -21,7 +21,7 @@ public enum PizzaHelperAPI {
             NewestVersion
         ) -> ()
     ) async throws {
-        var url = URL(string: "https://hsr.ophelper.top")!
+        var url = URL(string: "https://hsr.pizzastudio.org")!
 
         var path: String
         if isBeta {
