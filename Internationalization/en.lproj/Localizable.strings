@@ -182,7 +182,7 @@
 "boarding.feature.background.detail" = "Use images from your photo album as backgrounds for the widgets.";
 "boarding.feature.customize.title" = "More Settings for Widget";
 "boarding.feature.customize.detail" = "Long-press the widget to access more customization options.";
-"boarding.protocol.link" = "Before starting, please read and agree to our [User Agreement](https://hsr.ophelper.top/static/policy_en).";
+"boarding.protocol.link" = "Before starting, please read and agree to our [User Agreement](https://hsr.pizzastudio.org/static/policy_en).";
 "boarding.protocol.agree" = "I agree to the **User Agreement**";
 "boarding.contact.group.footer" = "You can use the contact information provided above to reach out to the developer in case of any issues and receive the latest updates from them.";
 "sys.donate.title %@" = "Donate %@";
@@ -199,7 +199,7 @@
 "mihoyoapi.error.verification_needed.description" = "Verification Needed";
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "Please enter the app to pass the verification. ";
 "app.dailynote.card.error.other_error.button" = "An Error Occurs";
-"account.test.footer.recommend_device_fp" = "To avoid consistently being requested for verification, please set up device finger print according to [this tutorial](https://hsr.ophelper.top/static/fp_tutorial).";
+"account.test.footer.recommend_device_fp" = "To avoid consistently being requested for verification, please set up device finger print according to [this tutorial](https://hsr.pizzastudio.org/static/fp_tutorial).";
 "sys.manage_hoyolab_account" = "Manage your HoYoLAB account";
 "sys.manage_hoyolab_account.footer" = "You can delete your HoYoLAB account here.";
 "app.dailynote.card.daily_training.label" = "Daily Training";

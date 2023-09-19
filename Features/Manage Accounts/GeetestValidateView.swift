@@ -55,7 +55,7 @@ struct GeetestValidateView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        let url = URL(string: "https://ophelper.top/geetest/")!
+        let url = URL(string: "https://gi.pizzastudio.org/geetest/")!
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         components?.queryItems = [
             URLQueryItem(name: "challenge", value: challenge),

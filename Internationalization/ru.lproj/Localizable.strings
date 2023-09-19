@@ -182,7 +182,7 @@
 "boarding.feature.background.detail" = "Использовать изображения из вашей галереи в качестве фона для виджетов.";
 "boarding.feature.customize.title" = "Дополнительные настройки для виджета";
 "boarding.feature.customize.detail" = "Удерживайте палец на виджете для доступа к дополнительным параметрам внешнего вида.";
-"boarding.protocol.link" = "Перед началом, пожалуйста, прочитайте и примите наше [Пользовательским соглашением] (https://hsr.ophelper.top/static/policy_en).";
+"boarding.protocol.link" = "Перед началом, пожалуйста, прочитайте и примите наше [Пользовательским соглашением] (https://hsr.pizzastudio.org/static/policy_en).";
 "boarding.protocol.agree" = "Я согласен с **Пользовательским соглашением**";
 "boarding.contact.group.footer" = "Вы можете использовать указанную выше контактную информацию, чтобы связаться с разработчиком при возникновении каких-либо проблем и получать от него последние обновления.";
 "sys.donate.title %@" = "Поддержи нас %@";
@@ -199,7 +199,7 @@
 "mihoyoapi.error.verification_needed.description" = "Требуется подтверждение";
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "Войдите в приложение, для прохождения верификации. ";
 "app.dailynote.card.error.other_error.button" = "Произошла ошибка";
-"account.test.footer.recommend_device_fp" = "Во избежание повторного запроса на верификацию, пожалуйста, настройте отпечаток пальца устройства в соответствии с [этим руководством] (https://hsr.ophelper.top/static/fp_tutorial).";
+"account.test.footer.recommend_device_fp" = "Во избежание повторного запроса на верификацию, пожалуйста, настройте отпечаток пальца устройства в соответствии с [этим руководством] (https://hsr.pizzastudio.org/static/fp_tutorial).";
 "sys.manage_hoyolab_account" = "Управление моей учетной записью HoYoLAB";
 "sys.manage_hoyolab_account.footer" = "Вы можете удалить свой аккаунт HoYoLAB здесь.";
 "app.dailynote.card.daily_training.label" = "Daily Training";

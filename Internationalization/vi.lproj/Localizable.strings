@@ -182,7 +182,7 @@
 "boarding.feature.background.detail" = "Dùng hình ảnh từ album ảnh của bạn làm hình nền cho các tiện ích .";
 "boarding.feature.customize.title" = "Cài đặt khác cho Tiện ";
 "boarding.feature.customize.detail" = "Nhấn và giữ tiện ích để truy cập nhiều tùy chọn tùy chỉnh hơn .";
-"boarding.protocol.link" = "Trước khi bắt đầu, vui lòng đọc và đồng ý với [ Thỏa thuận người dùng ] của chúng tôi (https://hsr.ophelper.top/static/policy_en) .";
+"boarding.protocol.link" = "Trước khi bắt đầu, vui lòng đọc và đồng ý với [ Thỏa thuận người dùng ] của chúng tôi (https://hsr.pizzastudio.org/static/policy_en) .";
 "boarding.protocol.agree" = "Tôi đồng ý với ** Thỏa thuận người dùng **";
 "boarding.contact.group.footer" = "Bạn có thể sử dụng thông tin liên hệ được cung cấp ở trên để liên hệ với nhà phát triển trong trường hợp có bất kỳ sự cố nào và nhận các bản cập nhật mới nhất từ họ .";
 "sys.donate.title %@" = "Ủng hộ chúng tôi %@";
@@ -199,7 +199,7 @@
 "mihoyoapi.error.verification_needed.description" = "Cần Được Xác Minh";
 "mihoyoapi.error.verification_needed.recovery_suggestion" = "Vui lòng nhập ứng dụng để vượt qua xác minh. ";
 "app.dailynote.card.error.other_error.button" = "Đã xảy ra lỗi";
-"account.test.footer.recommend_device_fp" = "Để tránh liên tục bị yêu cầu xác minh, vui lòng thiết lập vân tay của thiết bị theo [hướng dẫn này](https://hsr.ophelper.top/static/fp_tutorial).";
+"account.test.footer.recommend_device_fp" = "Để tránh liên tục bị yêu cầu xác minh, vui lòng thiết lập vân tay của thiết bị theo [hướng dẫn này](https://hsr.pizzastudio.org/static/fp_tutorial).";
 "sys.manage_hoyolab_account" = "Quản lý tài khoản HoYoLAB của bạn";
 "sys.manage_hoyolab_account.footer" = "Bạn có thể xóa tài khoản HoYoLAB của mình tại đây.";
 "app.dailynote.card.daily_training.label" = "Nhiệm Vụ Hàng Ngày";
