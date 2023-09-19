@@ -121,6 +121,13 @@
 		EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE5C2A05053200CBF10B /* ThanksView.swift */; };
 		EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
 		EA664C742A092E3A00DCEAC1 /* WidgetAccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */; };
+		EA68B2A62AB9575E00D39095 /* GeneralWidgetRefreshIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68B2A42AB9575B00D39095 /* GeneralWidgetRefreshIntent.swift */; };
+		EA68B2A72AB9575F00D39095 /* GeneralWidgetRefreshIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68B2A42AB9575B00D39095 /* GeneralWidgetRefreshIntent.swift */; };
+		EA68B2A92AB95A2300D39095 /* ContainerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68B2A82AB95A2300D39095 /* ContainerBackground.swift */; };
+		EA68B2AA2AB95A2300D39095 /* ContainerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68B2A82AB95A2300D39095 /* ContainerBackground.swift */; };
+		EA68B2AB2AB95A2300D39095 /* ContainerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68B2A82AB95A2300D39095 /* ContainerBackground.swift */; };
+		EA68B2AE2AB95F2100D39095 /* AsWidgetRefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68B2AC2AB95F2100D39095 /* AsWidgetRefreshButton.swift */; };
+		EA68B2AF2AB95F2100D39095 /* AsWidgetRefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68B2AC2AB95F2100D39095 /* AsWidgetRefreshButton.swift */; };
 		EA68BC6A2A06986D00A7FF91 /* HBMihoyoAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EA68BC692A06986D00A7FF91 /* HBMihoyoAPI */; };
 		EA68BC6C2A06987300A7FF91 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = EA68BC6B2A06987300A7FF91 /* SwiftyUserDefaults */; };
 		EA702C072A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */; };
@@ -394,6 +401,9 @@
 		EA60BE5B2A05053200CBF10B /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		EA60BE5C2A05053200CBF10B /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhaseOnChange.swift; sourceTree = "<group>"; };
+		EA68B2A42AB9575B00D39095 /* GeneralWidgetRefreshIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralWidgetRefreshIntent.swift; sourceTree = "<group>"; };
+		EA68B2A82AB95A2300D39095 /* ContainerBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerBackground.swift; sourceTree = "<group>"; };
+		EA68B2AC2AB95F2100D39095 /* AsWidgetRefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsWidgetRefreshButton.swift; sourceTree = "<group>"; };
 		EA68BC842A069FA400A7FF91 /* HSRPizzaHelperWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HSRPizzaHelperWidgetExtension.entitlements; sourceTree = "<group>"; };
 		EA702C062A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EA742BF62A020A3300ACB8E4 /* CreateAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountSheetView.swift; sourceTree = "<group>"; };
@@ -740,13 +750,23 @@
 				EADCE9352A0B7857008D81A9 /* EmbedIn.swift */,
 				EA5F23312A0BE87000D6D024 /* OnFocused.swift */,
 				EA80CFE72A0E983C00002B53 /* InlineNavigationTitle.swift */,
+				EA68B2A82AB95A2300D39095 /* ContainerBackground.swift */,
 			);
 			path = "View Modifier";
+			sourceTree = "<group>";
+		};
+		EA68B2A32AB9574300D39095 /* App Intent */ = {
+			isa = PBXGroup;
+			children = (
+				EA68B2A42AB9575B00D39095 /* GeneralWidgetRefreshIntent.swift */,
+			);
+			path = "App Intent";
 			sourceTree = "<group>";
 		};
 		EA68BC632A065B0200A7FF91 /* Daily Note Widget */ = {
 			isa = PBXGroup;
 			children = (
+				EA68B2A32AB9574300D39095 /* App Intent */,
 				EA946A922A0FF856003FC598 /* Lockscreen Widget */,
 				EA56DB912A0F63F600BCF884 /* GI Style Square Widget */,
 				EA43EDFC2A0F578C0035977E /* GI Style Rectangular Widget */,
@@ -776,6 +796,7 @@
 				EAD3C0962A081E43007B51AE /* WidgetAccountCard.swift */,
 				EA9E22132A0B9E1B002F3351 /* WidgetDailyNoteSuccessLargeView.swift */,
 				EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */,
+				EA68B2AC2AB95F2100D39095 /* AsWidgetRefreshButton.swift */,
 			);
 			path = "Common View";
 			sourceTree = "<group>";
@@ -1436,6 +1457,7 @@
 				EA946A982A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift in Sources */,
 				EA8A772E2A074AD40005C511 /* HasDefaultBackground.swift in Sources */,
 				EA9E221B2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift in Sources */,
+				EA68B2A62AB9575E00D39095 /* GeneralWidgetRefreshIntent.swift in Sources */,
 				EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */,
 				EA43EDF72A0F38920035977E /* HSRNotificationCenter.swift in Sources */,
 				EA8A77212A0743B70005C511 /* RectangularDailyNoteTimelineProvider.swift in Sources */,
@@ -1464,10 +1486,12 @@
 				EA068D102A080818003C4E69 /* RectangularDailyNoteWidget.swift in Sources */,
 				EA8A77472A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA8A77162A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
+				EA68B2AE2AB95F2100D39095 /* AsWidgetRefreshButton.swift in Sources */,
 				EA8A77142A07365D0005C511 /* DailyNoteEntry.swift in Sources */,
 				EA9E22152A0B9E25002F3351 /* WidgetDailyNoteSuccessLargeView.swift in Sources */,
 				EA477FF82A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA8A77332A074C670005C511 /* WidgetBackgroundExtension.swift in Sources */,
+				EA68B2AA2AB95A2300D39095 /* ContainerBackground.swift in Sources */,
 				EA1673F82A063AF300436487 /* HSRPizzaHelperWidgetLiveActivity.swift in Sources */,
 				EA9D80A02A08D92C00534237 /* IntentHandler.swift in Sources */,
 				EA56DB8A2A0F62A200BCF884 /* GIStyleRectangularTimelineProvider.swift in Sources */,
@@ -1486,6 +1510,7 @@
 				EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */,
 				EA80CFEC2A0E9E9A00002B53 /* DailyNoteNotification.swift in Sources */,
 				EADCE9362A0B7857008D81A9 /* EmbedIn.swift in Sources */,
+				EA68B2A92AB95A2300D39095 /* ContainerBackground.swift in Sources */,
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
 				EA86304A2A84CDC5001E484B /* GachaMeta.swift in Sources */,
 				EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */,
@@ -1561,6 +1586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA68B2AF2AB95F2100D39095 /* AsWidgetRefreshButton.swift in Sources */,
 				EA56DB7E2A0F5C1900BCF884 /* GIStyleEntry.swift in Sources */,
 				EA702C072A06AE0E006D3BC9 /* WidgetConfigurationIntentHandler.swift in Sources */,
 				EA8A772F2A074AD40005C511 /* HasDefaultBackground.swift in Sources */,
@@ -1576,11 +1602,13 @@
 				EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */,
 				EA43EDFA2A0F3E080035977E /* DailyNoteNotification.swift in Sources */,
 				EA8A77372A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
+				EA68B2AB2AB95A2300D39095 /* ContainerBackground.swift in Sources */,
 				EA8A773A2A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
 				EA43EDF92A0F3E060035977E /* HSRNotificationCenter.swift in Sources */,
 				EAE898712A06A134000AF830 /* IntentHandler.swift in Sources */,
 				EA8A772C2A074AB70005C511 /* HasDefaultAccount.swift in Sources */,
 				EA702C0B2A06B0BC006D3BC9 /* Account+CoreDataProperties.swift in Sources */,
+				EA68B2A72AB9575F00D39095 /* GeneralWidgetRefreshIntent.swift in Sources */,
 				EA8A77172A0737450005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
 				EA702C0F2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
 				BFBF6DDA2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */,

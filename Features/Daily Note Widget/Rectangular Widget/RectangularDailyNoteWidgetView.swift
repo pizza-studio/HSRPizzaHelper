@@ -40,9 +40,9 @@ struct RectangularDailyNoteWidgetView: View {
                     WidgetErrorView(error: error)
                 }
             }
+            .asWidgetRefreshButton()
         }
-        .padding(mainViewPadding)
-        .background {
+        .myWidgetContainerBackground(withPadding: mainViewPadding) {
             Group {
                 if let image = entry.configuration.backgroundImage() {
                     image.resizable().scaledToFill()
