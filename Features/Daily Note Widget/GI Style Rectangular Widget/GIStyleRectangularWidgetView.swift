@@ -29,8 +29,7 @@ struct GIStyleRectangularWidgetView: View {
             }
         }
         .foregroundColor(entry.configuration.textColor)
-        .padding(20)
-        .background {
+        .myWidgetContainerBackground(withPadding: 20) {
             Group {
                 if let image = entry.configuration.backgroundImage() {
                     image.resizable().scaledToFill()
@@ -77,10 +76,19 @@ private struct WidgetGIStyleSuccessView: View {
                 }
                 Spacer()
                 HStack {
-                    if dailyNote.staminaInformation.currentStamina != dailyNote.staminaInformation
-                        .maxStamina {
+                    if #available(iOSApplicationExtension 17.0, *) {
+                        Button(intent: GeneralWidgetRefreshIntent()) {
+                            Image(systemSymbol: .arrowClockwiseCircle)
+                                .font(.title3)
+                                .clipShape(.circle)
+                        }
+                        .buttonStyle(.plain)
+                    } else {
                         Image(systemSymbol: .hourglassCircle)
                             .font(.title3)
+                    }
+                    if dailyNote.staminaInformation.currentStamina != dailyNote.staminaInformation
+                        .maxStamina {
                         (
                             Text(dateFormatter.string(from: dailyNote.staminaInformation.fullTime))
                                 + Text("\n")

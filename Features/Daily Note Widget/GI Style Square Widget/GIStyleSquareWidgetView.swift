@@ -30,8 +30,7 @@ struct GIStyleSquareWidgetView: View {
                 .textColor == .white ? .light : .dark
         )
         .foregroundColor(entry.configuration.textColor)
-        .padding(20)
-        .background {
+        .myWidgetContainerBackground(withPadding: 20) {
             Group {
                 if let image = entry.configuration.backgroundImage() {
                     image.resizable().scaledToFill()
@@ -79,8 +78,17 @@ private struct WidgetGIStyleSuccessView: View {
                     .shadow(color: .black.opacity(0.2), radius: 0.5, x: 2, y: 2)
             }
             HStack {
-                Image(systemSymbol: .hourglassCircle)
-                    .font(.title3)
+                if #available(iOSApplicationExtension 17.0, *) {
+                    Button(intent: GeneralWidgetRefreshIntent()) {
+                        Image(systemSymbol: .arrowClockwiseCircle)
+                            .font(.title3)
+                            .clipShape(.circle)
+                    }
+                    .buttonStyle(.plain)
+                } else {
+                    Image(systemSymbol: .hourglassCircle)
+                        .font(.title3)
+                }
                 if dailyNote.staminaInformation.remainingTime >= 0 {
                     Group {
                         if dailyNote.staminaInformation.currentStamina != dailyNote.staminaInformation
