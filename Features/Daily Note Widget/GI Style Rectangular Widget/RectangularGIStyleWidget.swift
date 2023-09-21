@@ -23,5 +23,6 @@ struct RectangularGIStyleWidget: Widget {
         .configurationDisplayName("widget.gistyle.rect.display".localized())
         .description("widget.gistyle.rect.desc".localized())
         .supportedFamilies([.systemMedium])
+        .widgetContainerBackgroundRemovable(false)
     }
 }

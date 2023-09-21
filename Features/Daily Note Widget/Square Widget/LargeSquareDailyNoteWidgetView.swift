@@ -42,7 +42,7 @@ struct LargeSquareDailyNoteWidgetView: View {
             }
             .asWidgetRefreshButton()
         }
-        .myWidgetContainerBackground(withPadding: mainViewPadding) {
+        .widgetContainerBackground(withPaddingUnderIOS17: mainViewPadding) {
             Group {
                 if let image = entry.configuration.backgroundImage() {
                     image.resizable().scaledToFill()

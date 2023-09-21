@@ -83,6 +83,9 @@
 		EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */; };
 		EA32764F2A03852C00774126 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA32764E2A03852C00774126 /* Icon.xcassets */; };
 		EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA37AEB32A02CDB900E4AADA /* SwifterSwift */; };
+		EA39D0972ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39D0962ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift */; };
+		EA39D0982ABBE8DD008F93CF /* WidgetContainerBackgroundRemovable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39D0962ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift */; };
+		EA39D0992ABBE8DD008F93CF /* WidgetContainerBackgroundRemovable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39D0962ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift */; };
 		EA3BDCA02A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BDC9E2A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift */; };
 		EA3BDCA12A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BDC9F2A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift */; };
 		EA3BDCA42A83D20A001C3C6C /* GachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3BDCA32A83D20A001C3C6C /* GachaView.swift */; };
@@ -377,6 +380,7 @@
 		EA2C06512A04AC5A00A328E6 /* TestAccountSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountSectionView.swift; sourceTree = "<group>"; };
 		EA2C06542A04ACE200A328E6 /* EditAccountSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountSheetView.swift; sourceTree = "<group>"; };
 		EA32764E2A03852C00774126 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
+		EA39D0962ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContainerBackgroundRemovable.swift; sourceTree = "<group>"; };
 		EA3BDC9E2A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GachaItemMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EA3BDC9F2A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GachaItemMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EA3BDCA32A83D20A001C3C6C /* GachaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaView.swift; sourceTree = "<group>"; };
@@ -751,6 +755,7 @@
 				EA5F23312A0BE87000D6D024 /* OnFocused.swift */,
 				EA80CFE72A0E983C00002B53 /* InlineNavigationTitle.swift */,
 				EA68B2A82AB95A2300D39095 /* ContainerBackground.swift */,
+				EA39D0962ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift */,
 			);
 			path = "View Modifier";
 			sourceTree = "<group>";
@@ -1452,6 +1457,7 @@
 				EA8A77362A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
 				EA8A771C2A0741220005C511 /* WidgetConfigurationIntentHandler.swift in Sources */,
 				EAFC5B502A35D29600598F2F /* WidgetErrorView.swift in Sources */,
+				EA39D0982ABBE8DD008F93CF /* WidgetContainerBackgroundRemovable.swift in Sources */,
 				EA702C0E2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
 				EA8A77392A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
 				EA946A982A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift in Sources */,
@@ -1503,6 +1509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA39D0972ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift in Sources */,
 				EA1DE41E2A08B78500CFB37C /* WidgetBackgroundSettingView.swift in Sources */,
 				EA09B1992A091A1F00986D46 /* AppInitializer.swift in Sources */,
 				EAE37EC12A0206BC00154432 /* ManageAccountsView.swift in Sources */,
@@ -1599,6 +1606,7 @@
 				EA8A77482A0769AF0005C511 /* ContainingWidgetBackground.swift in Sources */,
 				EA477FF92A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA56DB7B2A0F5A4100BCF884 /* GIStyleWidgetConfiguration.swift in Sources */,
+				EA39D0992ABBE8DD008F93CF /* WidgetContainerBackgroundRemovable.swift in Sources */,
 				EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */,
 				EA43EDFA2A0F3E080035977E /* DailyNoteNotification.swift in Sources */,
 				EA8A77372A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,

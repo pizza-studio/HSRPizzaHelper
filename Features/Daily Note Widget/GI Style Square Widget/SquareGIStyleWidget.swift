@@ -23,5 +23,6 @@ struct SquareGIStyleWidget: Widget {
         .configurationDisplayName("widget.gistyle.square.display".localized())
         .description("widget.gistyle.square.desc".localized())
         .supportedFamilies([.systemLarge])
+        .widgetContainerBackgroundRemovable(false)
     }
 }

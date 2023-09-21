@@ -23,5 +23,6 @@ struct LargeSquareDailyNoteWidget: Widget {
         .configurationDisplayName("widget.large.display".localized())
         .description("widget.large.desc".localized())
         .supportedFamilies([.systemLarge])
+        .widgetContainerBackgroundRemovable(false)
     }
 }
