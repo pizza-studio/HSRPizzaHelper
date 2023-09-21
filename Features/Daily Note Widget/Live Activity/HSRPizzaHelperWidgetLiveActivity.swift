@@ -64,6 +64,7 @@ struct DailyNoteCountDownLiveActivity: Widget {
             }
             .keylineTint(Color.red)
         }
+        .widgetContainerBackgroundRemovable(false)
     }
 }
 

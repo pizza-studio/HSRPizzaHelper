@@ -29,7 +29,7 @@ struct GIStyleRectangularWidgetView: View {
             }
         }
         .foregroundColor(entry.configuration.textColor)
-        .myWidgetContainerBackground(withPadding: 20) {
+        .widgetContainerBackground(withPaddingUnderIOS17: 20) {
             Group {
                 if let image = entry.configuration.backgroundImage() {
                     image.resizable().scaledToFill()

@@ -24,5 +24,6 @@ struct SmallSquareDailyNoteWidget: Widget {
         .configurationDisplayName("widget.small.display".localized())
         .description("widget.small.desc".localized())
         .supportedFamilies([.systemSmall])
+        .widgetContainerBackgroundRemovable(false)
     }
 }

@@ -23,5 +23,6 @@ struct RectangularDailyNoteWidget: Widget {
         .configurationDisplayName("widget.rect.display".localized())
         .description("widget.rect.desc".localized())
         .supportedFamilies([.systemMedium, .systemExtraLarge])
+        .widgetContainerBackgroundRemovable(false)
     }
 }
