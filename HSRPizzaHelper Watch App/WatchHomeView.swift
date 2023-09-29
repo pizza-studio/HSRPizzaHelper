@@ -128,11 +128,11 @@ private struct NoteView: View {
                 Spacer()
             }
             HStack(spacing: 10) {
-                let iconFrame: CGFloat = 40
-                Image("trailblaze")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: iconFrame)
+//                let iconFrame: CGFloat = 40
+//                Image("trailblaze")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(height: iconFrame)
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
                     Text("\(note.staminaInformation.currentStamina)")
                         .font(.title)
