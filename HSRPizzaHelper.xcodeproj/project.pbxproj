@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
-		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BF33C17B2A344DF0009D1E5D /* GeetestValidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33C17A2A344DF0009D1E5D /* GeetestValidateView.swift */; };
 		BF58D23C2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */; };
 		BF58D23E2A579D5000CC0DC6 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D23D2A579D5000CC0DC6 /* WatchContentView.swift */; };
@@ -29,15 +28,11 @@
 		BF58D2632A57A74200CC0DC6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
 		BF58D2642A57A74400CC0DC6 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA477FF62A08899C0082D211 /* AccountExtension.swift */; };
 		BF58D2652A57A9D700CC0DC6 /* ScenePhaseOnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */; };
-		BF58D2662A57AAF800CC0DC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
-		BF58D2672A57AAFF00CC0DC6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D52A08B999008343E8 /* InfoPlist.strings */; };
 		BF58D26A2A57AD4300CC0DC6 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */; };
 		BF58D26B2A57AE0800CC0DC6 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */; };
 		BF58D26F2A57F84600CC0DC6 /* WatchAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF58D23F2A579D5100CC0DC6 /* WatchAssets.xcassets */; };
 		BFA4A8492A0BD07400239BB0 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = BFA4A8482A0BD07400239BB0 /* Mantis */; };
 		BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */; };
-		BFBA36172A0CDD5E00E0142A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
-		BFBA36182A0CDD6100E0142A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
 		BFBA361A2A17496D00E0142A /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA36192A17496D00E0142A /* StoreManager.swift */; };
 		BFBA361C2A1749AE00E0142A /* GlobalDonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */; };
 		BFBF6DD02A18C4A7009C684B /* ContactInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBF6DCF2A18C4A7009C684B /* ContactInfoView.swift */; };
@@ -45,7 +40,6 @@
 		BFBF6DD92A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BFBF6DDC2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition */; };
 		BFBF6DDA2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BFBF6DDC2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition */; };
 		BFCACD102A0491E9009B0B85 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BFCACD0F2A0491E9009B0B85 /* LICENSE */; };
-		BFD051D32A08B999008343E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D52A08B999008343E8 /* InfoPlist.strings */; };
 		BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */; };
 		BFD051DA2A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */; };
 		BFD051DB2A08C2EA008343E8 /* HBPizzaHelperAPI in Resources */ = {isa = PBXBuildFile; fileRef = BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */; };
@@ -53,6 +47,12 @@
 		BFDF6A842A08CAE200048FF9 /* AutoSheetDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDF6A832A08CAE200048FF9 /* AutoSheetDismiss.swift */; };
 		BFDF6A862A08D6C000048FF9 /* TapticSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDF6A852A08D6C000048FF9 /* TapticSupport.swift */; };
 		BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDF6A872A08D84200048FF9 /* DeviceRecognizer.swift */; };
+		BFFFCA042AC6BB6F007CC0A4 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BFFFCA032AC6BB6E007CC0A4 /* InfoPlist.xcstrings */; };
+		BFFFCA052AC6BB6F007CC0A4 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BFFFCA032AC6BB6E007CC0A4 /* InfoPlist.xcstrings */; };
+		BFFFCA072AC6BB7D007CC0A4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BFFFCA062AC6BB7D007CC0A4 /* Localizable.xcstrings */; };
+		BFFFCA082AC6BB7D007CC0A4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BFFFCA062AC6BB7D007CC0A4 /* Localizable.xcstrings */; };
+		BFFFCA092AC6BB7D007CC0A4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BFFFCA062AC6BB7D007CC0A4 /* Localizable.xcstrings */; };
+		BFFFCA0A2AC6BB7D007CC0A4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BFFFCA062AC6BB7D007CC0A4 /* Localizable.xcstrings */; };
 		EA068D102A080818003C4E69 /* RectangularDailyNoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA068D0E2A0807F3003C4E69 /* RectangularDailyNoteWidget.swift */; };
 		EA068D122A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA068D112A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift */; };
 		EA068D142A0813D6003C4E69 /* WidgetStaminaInformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */; };
@@ -310,13 +310,8 @@
 
 /* Begin PBXFileReference section */
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
-		5B0BAC852A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		5B0BAC862A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
-		BF14CFA92A049ADB00E437C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BF14CFAB2A049ADE00E437C6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		BF14CFAC2A049AE000E437C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF33C17A2A344DF0009D1E5D /* GeetestValidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeetestValidateView.swift; sourceTree = "<group>"; };
 		BF58D2392A579D5000CC0DC6 /* HSRPizzaHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSRPizzaHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF58D23B2A579D5000CC0DC6 /* HSRPizzaHelperWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRPizzaHelperWatchApp.swift; sourceTree = "<group>"; };
@@ -328,11 +323,7 @@
 		BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		BF58D26C2A57F19B00CC0DC6 /* HSRPizzaHelperWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HSRPizzaHelperWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		BF8D7FFE2A68C329002E5593 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
-		BF8D7FFF2A68C329002E5593 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BF8D80002A68C329002E5593 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF8D80012A68C336002E5593 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
-		BF8D80022A68C336002E5593 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BF8D80032A68C337002E5593 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BFA4A84A2A0BD0AA00239BB0 /* ImageCroper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroper.swift; sourceTree = "<group>"; };
 		BFBA36192A17496D00E0142A /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		BFBA361B2A1749AE00E0142A /* GlobalDonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDonateView.swift; sourceTree = "<group>"; };
@@ -343,16 +334,13 @@
 		BFBF6DE22A1B360F009C684B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
 		BFCACD0F2A0491E9009B0B85 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BFCACD112A04922E009B0B85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BFD051D42A08B999008343E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BFD051D62A08B99D008343E8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		BFD051D72A08B9A0008343E8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBPizzaHelperAPI; path = Packages/HBPizzaHelperAPI; sourceTree = "<group>"; };
 		BFDF6A832A08CAE200048FF9 /* AutoSheetDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSheetDismiss.swift; sourceTree = "<group>"; };
 		BFDF6A852A08D6C000048FF9 /* TapticSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticSupport.swift; sourceTree = "<group>"; };
 		BFDF6A872A08D84200048FF9 /* DeviceRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRecognizer.swift; sourceTree = "<group>"; };
 		BFFAA0662A5BA4B90095314C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
-		BFFAA0672A5BA4B90095314C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BFFAA0682A5BA4B90095314C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFFFCA032AC6BB6E007CC0A4 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		BFFFCA062AC6BB7D007CC0A4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EA068D0E2A0807F3003C4E69 /* RectangularDailyNoteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteWidget.swift; sourceTree = "<group>"; };
 		EA068D112A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDailyNoteWidgetView.swift; sourceTree = "<group>"; };
 		EA068D132A0813D6003C4E69 /* WidgetStaminaInformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStaminaInformationCard.swift; sourceTree = "<group>"; };
@@ -552,8 +540,8 @@
 		BF14CFA72A049AC100E437C6 /* Internationalization */ = {
 			isa = PBXGroup;
 			children = (
-				BF14CFAA2A049ADB00E437C6 /* Localizable.strings */,
-				BFD051D52A08B999008343E8 /* InfoPlist.strings */,
+				BFFFCA062AC6BB7D007CC0A4 /* Localizable.xcstrings */,
+				BFFFCA032AC6BB6E007CC0A4 /* InfoPlist.xcstrings */,
 			);
 			path = Internationalization;
 			sourceTree = "<group>";
@@ -1322,8 +1310,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF58D2432A579D5100CC0DC6 /* Preview Assets.xcassets in Resources */,
-				BF58D2672A57AAFF00CC0DC6 /* InfoPlist.strings in Resources */,
-				BF58D2662A57AAF800CC0DC6 /* Localizable.strings in Resources */,
+				BFFFCA0A2AC6BB7D007CC0A4 /* Localizable.xcstrings in Resources */,
+				BFFFCA052AC6BB6F007CC0A4 /* InfoPlist.xcstrings in Resources */,
 				BF58D26F2A57F84600CC0DC6 /* WatchAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1332,8 +1320,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFBA36172A0CDD5E00E0142A /* Localizable.strings in Resources */,
 				EADA17CC2A06B88400AF9784 /* background_image in Resources */,
+				BFFFCA082AC6BB7D007CC0A4 /* Localizable.xcstrings in Resources */,
 				EA068D152A08169D003C4E69 /* Assets.xcassets in Resources */,
 				BFD051DA2A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */,
 				EADA17C62A06B76700AF9784 /* Icon.xcassets in Resources */,
@@ -1346,10 +1334,10 @@
 			files = (
 				EAEF1ABB2A84F4E90013AD48 /* gacha_meta in Resources */,
 				EADA17C82A06B7BE00AF9784 /* background_image in Resources */,
-				BFD051D32A08B999008343E8 /* InfoPlist.strings in Resources */,
 				BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */,
 				EAE519872A01738600EF23B7 /* Preview Assets.xcassets in Resources */,
-				BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */,
+				BFFFCA042AC6BB6F007CC0A4 /* InfoPlist.xcstrings in Resources */,
+				BFFFCA072AC6BB7D007CC0A4 /* Localizable.xcstrings in Resources */,
 				EAE519842A01738600EF23B7 /* Assets.xcassets in Resources */,
 				EA32764F2A03852C00774126 /* Icon.xcassets in Resources */,
 				BFCACD102A0491E9009B0B85 /* LICENSE in Resources */,
@@ -1361,7 +1349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD051DB2A08C2EA008343E8 /* HBPizzaHelperAPI in Resources */,
-				BFBA36182A0CDD6100E0142A /* Localizable.strings in Resources */,
+				BFFFCA092AC6BB7D007CC0A4 /* Localizable.xcstrings in Resources */,
 				EADA17CB2A06B88000AF9784 /* background_image in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1648,20 +1636,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BF14CFAA2A049ADB00E437C6 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF14CFA92A049ADB00E437C6 /* en */,
-				BF14CFAB2A049ADE00E437C6 /* zh-Hans */,
-				BF14CFAC2A049AE000E437C6 /* ja */,
-				5B0BAC852A265E5700B0B8F8 /* zh-Hant */,
-				BFFAA0672A5BA4B90095314C /* ru */,
-				BF8D7FFF2A68C329002E5593 /* vi */,
-				BF8D80022A68C336002E5593 /* es */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		BFBF6DDC2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1675,20 +1649,6 @@
 				BF8D80012A68C336002E5593 /* es */,
 			);
 			name = HSRPizzaHelperWidget.intentdefinition;
-			sourceTree = "<group>";
-		};
-		BFD051D52A08B999008343E8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BFD051D42A08B999008343E8 /* en */,
-				BFD051D62A08B99D008343E8 /* zh-Hans */,
-				BFD051D72A08B9A0008343E8 /* ja */,
-				5B0BAC862A265E5700B0B8F8 /* zh-Hant */,
-				BFFAA0682A5BA4B90095314C /* ru */,
-				BF8D80002A68C329002E5593 /* vi */,
-				BF8D80032A68C337002E5593 /* es */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
