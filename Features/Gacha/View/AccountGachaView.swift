@@ -344,18 +344,18 @@ private struct GachaStatisticSectionView: View {
 }
 
 extension GachaStatisticSectionView.Rank {
-    func image() -> Image {
+    func image(neighborGame: Bool = false) -> Image {
         switch self {
         case .one:
-            return Image("Pom-Pom_Sticker_21")
+            return neighborGame ? Image("UI_EmotionIcon5") : Image("Pom-Pom_Sticker_21")
         case .two:
-            return Image("Pom-Pom_Sticker_32")
+            return neighborGame ? Image("UI_EmotionIcon4") : Image("Pom-Pom_Sticker_32")
         case .three:
-            return Image("Pom-Pom_Sticker_18")
+            return neighborGame ? Image("UI_EmotionIcon6") : Image("Pom-Pom_Sticker_18")
         case .four:
-            return Image("Pom-Pom_Sticker_24")
+            return neighborGame ? Image("UI_EmotionIcon2") : Image("Pom-Pom_Sticker_24")
         case .five:
-            return Image("Pom-Pom_Sticker_30")
+            return neighborGame ? Image("UI_EmotionIcon1") : Image("Pom-Pom_Sticker_30")
         }
     }
 
