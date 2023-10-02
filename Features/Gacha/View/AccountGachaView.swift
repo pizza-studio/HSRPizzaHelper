@@ -307,7 +307,9 @@ private struct GachaStatisticSectionView: View {
             if gachaType != .regularWarp {
                 VStack {
                     HStack {
-                        Text("gacha.account_detail.statistic.pom_pom_review")
+                        let keyPaimon = "gacha.account_detail.statistic.paimon_review"
+                        let keyPomPom = "gacha.account_detail.statistic.pom_pom_review"
+                        Text(Defaults[\.useGuestGachaEvaluator] ? keyPaimon : keyPomPom)
                             .font(.caption)
                             .foregroundColor(.secondary)
                         Spacer()
@@ -321,10 +323,10 @@ private struct GachaStatisticSectionView: View {
                         ForEach(Rank.allCases, id: \.rawValue) { rank in
                             Group {
                                 if judgedRank == rank {
-                                    rank.image().resizable()
+                                    rank.image(neighborGame: Defaults[\.useGuestGachaEvaluator]).resizable()
                                         .scaledToFit()
                                 } else {
-                                    rank.image().resizable()
+                                    rank.image(neighborGame: Defaults[\.useGuestGachaEvaluator]).resizable()
                                         .scaledToFit()
                                         .opacity(0.25)
                                 }
@@ -351,7 +353,7 @@ extension GachaStatisticSectionView.Rank {
         case .two:
             return neighborGame ? Image("UI_EmotionIcon4") : Image("Pom-Pom_Sticker_32")
         case .three:
-            return neighborGame ? Image("UI_EmotionIcon6") : Image("Pom-Pom_Sticker_18")
+            return neighborGame ? Image("UI_EmotionIcon3") : Image("Pom-Pom_Sticker_18")
         case .four:
             return neighborGame ? Image("UI_EmotionIcon2") : Image("Pom-Pom_Sticker_24")
         case .five:

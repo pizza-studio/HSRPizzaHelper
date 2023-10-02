@@ -38,6 +38,15 @@ struct SettingView: View {
                             Image(systemSymbol: .bellBadgeFill)
                         }
                     }
+                    NavigationLink {
+                        DisplayOptionsView()
+                    } label: {
+                        Label {
+                            Text("setting.uirelated.title")
+                        } icon: {
+                            Image(systemSymbol: .uiwindowSplit2x1)
+                        }
+                    }
                 }
                 Section {
                     Button {
