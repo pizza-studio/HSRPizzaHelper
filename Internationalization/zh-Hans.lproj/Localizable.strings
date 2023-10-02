@@ -214,6 +214,8 @@
 "setting.notification.daily_training.header" = "每日实训";
 "setting.notification.daily_training.date_picker" = "提醒于";
 "setting.notification.daily_training.footer" = "仅中国大陆服务器用户。";
+"setting.uirelated.title" = "界面设置";
+"setting.uirelated.useguestgachaevaluator" = "改由派蒙评价跃迁";
 "sys.weekday.sunday" = "星期日";
 "sys.weekday.monday" = "星期一";
 "sys.weekday.tuesday" = "星期二";
@@ -314,6 +316,7 @@
 "gacha.account_detail.statistic.5_star_avg_pull" = "五星平均抽数";
 "gacha.account_detail.statistic.limited_5_star_avg_pull" = "限定五星平均抽数";
 "gacha.account_detail.statistic.won_5050" = "不歪率";
+"gacha.account_detail.statistic.paimon_review" = "派蒙的评价";
 "gacha.account_detail.statistic.pom_pom_review" = "帕姆的评价";
 "gacha.account_detail.detail.title" = "详细记录";
 "gacha.account_detail.detail.filter.header" = "筛选";

@@ -314,6 +314,7 @@
 "gacha.account_detail.statistic.5_star_avg_pull" = "5-star Average Pulls";
 "gacha.account_detail.statistic.limited_5_star_avg_pull" = "Limited 5-star Average Pulls";
 "gacha.account_detail.statistic.won_5050" = "Won 50/50";
+"gacha.account_detail.statistic.paimon_review" = "Paimon's Review";
 "gacha.account_detail.statistic.pom_pom_review" = "Pom-Pom's Review";
 "gacha.account_detail.detail.title" = "Detail";
 "gacha.account_detail.detail.filter.header" = "Filter";
