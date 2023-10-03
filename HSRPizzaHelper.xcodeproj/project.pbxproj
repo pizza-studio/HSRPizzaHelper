@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
 		BF14CFA82A049ADB00E437C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF14CFAA2A049ADB00E437C6 /* Localizable.strings */; };
@@ -312,6 +313,7 @@
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
 		5B0BAC852A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5B0BAC862A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
 		BF14CFA92A049ADB00E437C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -549,6 +551,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BB6BD6E2ACAC514001D6847 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		BF14CFA72A049AC100E437C6 /* Internationalization */ = {
 			isa = PBXGroup;
 			children = (
@@ -1105,6 +1115,7 @@
 		EAE519CA2A0178D100EF23B7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5BB6BD6E2ACAC514001D6847 /* SubViews */,
 				EADA63762A0201B200BF070F /* HomeView.swift */,
 				EAE37EBE2A0206AC00154432 /* SettingView.swift */,
 				EA1D523D2A76521E00FA66A9 /* ToolView.swift */,
@@ -1545,6 +1556,7 @@
 				EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */,
 				EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */,
 				EA2C06522A04AC5A00A328E6 /* TestAccountSectionView.swift in Sources */,
+				5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */,
 				EAE519822A01738600EF23B7 /* ContentView.swift in Sources */,
 				EA1D523E2A76521E00FA66A9 /* ToolView.swift in Sources */,
 				EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */,

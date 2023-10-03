@@ -214,6 +214,8 @@
 "setting.notification.daily_training.header" = "デイリー訓練";
 "setting.notification.daily_training.date_picker" = "通知の時間：";
 "setting.notification.daily_training.footer" = "中国大陸サーバー限定機能である。";
+"setting.uirelated.title" = "操作画面設定";
+"setting.uirelated.useguestgachaevaluator" = "パイモンに跳躍の評価を";
 "sys.weekday.sunday" = "日曜日";
 "sys.weekday.monday" = "月曜日";
 "sys.weekday.tuesday" = "火曜日";
@@ -314,6 +316,7 @@
 "gacha.account_detail.statistic.5_star_avg_pull" = "星５平均ガチャ回數";
 "gacha.account_detail.statistic.limited_5_star_avg_pull" = "限定星５平均ガチャ回數";
 "gacha.account_detail.statistic.won_5050" = "すり抜け回避率";
+"gacha.account_detail.statistic.paimon_review" = "パイモンの評価";
 "gacha.account_detail.statistic.pom_pom_review" = "パムの評価";
 "gacha.account_detail.detail.title" = "詳細記録";
 "gacha.account_detail.detail.filter.header" = "フィルター";

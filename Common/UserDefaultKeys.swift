@@ -44,6 +44,11 @@ extension DefaultsKeys {
         .init("checkedUpdateVersions", defaultValue: [])
     }
 
+    /// Whether using Paimon to evaluate the gacha records.
+    var useGuestGachaEvaluator: DefaultsKey<Bool> {
+        .init("useGuestGachaEvaluator", defaultValue: false)
+    }
+
     // MARK: - For widgets
 
     var widgetTimelineLatestStartAppRefreshTime: DefaultsKey<Date?> {
