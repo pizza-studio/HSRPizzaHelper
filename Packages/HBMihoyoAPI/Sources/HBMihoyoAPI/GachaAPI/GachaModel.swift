@@ -95,11 +95,26 @@ public struct GachaItem: Codable {
         let timeString = try container.decode(String.self, forKey: .time)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        self.time = dateFormatter.date(from: timeString)!
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        if let time = dateFormatter.date(from: timeString) {
+            self.time = time
+        } else {
+            throw DecodingError.typeMismatch(
+                Date.self,
+                .init(codingPath: [CodingKeys.time], debugDescription: "unable to decode time")
+            )
+        }
         self.gachaID = try container.decode(String.self, forKey: .gachaID)
         self.gachaType = try container.decode(GachaType.self, forKey: .gachaType)
         self.itemID = try container.decode(String.self, forKey: .itemID)
-        self.count = Int(try container.decode(String.self, forKey: .count))!
+        if let count = Int(try container.decode(String.self, forKey: .count)) {
+            self.count = count
+        } else {
+            throw DecodingError.typeMismatch(
+                Int.self,
+                .init(codingPath: [CodingKeys.count], debugDescription: "unable to decode count")
+            )
+        }
         self.name = try container.decode(String.self, forKey: .name)
         self.itemType = try container.decode(ItemType.self, forKey: .itemType)
         self.rank = try container.decode(GachaItem.Rank.self, forKey: .rank)

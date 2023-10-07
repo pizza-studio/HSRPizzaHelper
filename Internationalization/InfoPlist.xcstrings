@@ -3,7 +3,7 @@
   "strings" : {
     "CFBundleDisplayName" : {
       "comment" : "InfoPlist.strings\n  HSRPizzaHelper\n\n  Created by Bill Haku on 2023/5/8.",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -50,7 +50,7 @@
       }
     },
     "CFBundleName" : {
-      "extractionState" : "migrated",
+      "comment" : "Bundle name",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -92,6 +92,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "星鐵披薩小助手"
+          }
+        }
+      }
+    },
+    "NSPhotoLibraryAddUsageDescription" : {
+      "comment" : "Privacy - Photo Library Additions Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "permission.photo"
           }
         }
       }
