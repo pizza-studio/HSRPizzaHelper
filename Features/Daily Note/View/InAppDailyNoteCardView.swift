@@ -86,15 +86,15 @@ private struct NoteView: View {
                     .scaledToFit()
                     .frame(height: iconFrame)
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
-                    Text("\(note.staminaInformation.currentStamina)")
+                    Text(verbatim: "\(note.staminaInformation.currentStamina)")
                         .font(.title)
-                    Text(" / \(note.staminaInformation.maxStamina)")
+                    Text(verbatim: " / \(note.staminaInformation.maxStamina)")
                         .font(.caption)
                     Spacer()
                     if note.staminaInformation.fullTime > Date() {
                         (
                             Text(note.staminaInformation.fullTime, style: .relative)
-                                + Text("\n")
+                                + Text(verbatim: "\n")
                                 + Text(dateFormatter.string(from: note.staminaInformation.fullTime))
                         )
                         .multilineTextAlignment(.trailing)
@@ -110,14 +110,14 @@ private struct NoteView: View {
                 Spacer()
                 let currentScore = dailyNote.dailyTrainingInformation.currentScore
                 let maxScore = dailyNote.dailyTrainingInformation.maxScore
-                Text("\(currentScore)/\(maxScore)")
+                Text(verbatim: "\(currentScore)/\(maxScore)")
             }
             HStack {
                 Text("app.dailynote.card.simulated_universe.label").bold()
                 Spacer()
                 let currentScore = dailyNote.simulatedUniverseInformation.currentScore
                 let maxScore = dailyNote.simulatedUniverseInformation.maxScore
-                Text("\(currentScore)/\(maxScore)")
+                Text(verbatim: "\(currentScore)/\(maxScore)")
             }
         }
         // Dispatch
@@ -127,7 +127,7 @@ private struct NoteView: View {
                 Spacer()
                 let onGoingExpeditionNumber = note.expeditionInformation.onGoingExpeditionNumber
                 let totalExpeditionNumber = note.expeditionInformation.totalExpeditionNumber
-                Text("\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
+                Text(verbatim: "\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
             }
             VStack(spacing: 15) {
                 ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in

@@ -16,7 +16,8 @@ struct NotificationSettingView: View {
     var body: some View {
         List {
             if AppConfig.isDebug {
-                Button("*DEBUG* Print all notification") {
+                let buttonText = "*DEBUG* Print all notification"
+                Button(buttonText) {
                     Task {
                         await HSRNotificationCenter.printAllNotifications()
                     }

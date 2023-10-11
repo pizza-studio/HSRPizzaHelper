@@ -212,7 +212,7 @@ private struct ContactInfoForWelcomeView: View {
                             )!
                         ) {
                             Label {
-                                Text("794277219")
+                                Text(verbatim: "794277219")
                             } icon: {
                                 Image("icon.qq")
                                     .resizable()
@@ -249,7 +249,7 @@ private struct ContactInfoForWelcomeView: View {
                                 )!
                             ) {
                                 Label {
-                                    Text("中文频道")
+                                    Text(verbatim: "中文频道")
                                 } icon: {
                                     Image("telegram")
                                         .resizable()
@@ -263,7 +263,7 @@ private struct ContactInfoForWelcomeView: View {
                                 )!
                             ) {
                                 Label {
-                                    Text("English Channel")
+                                    Text(verbatim: "English Channel")
                                 } icon: {
                                     Image("telegram")
                                         .resizable()
