@@ -17,10 +17,10 @@ struct StaminaLockscreenWidgetInlineView: View {
         switch entry.dailyNoteResult {
         case let .success(dailyNote):
             Text("\(dailyNote.staminaInformation.currentStamina)")
-                + Text(", ")
+                + Text(verbatim: ", ")
                 + Text(timeIntervalFormatter.string(from: dailyNote.staminaInformation.remainingTime)!)
         case .failure:
-            Text("…")
+            Text(verbatim: "…")
         }
     }
 }
