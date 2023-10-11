@@ -307,8 +307,8 @@ private struct GachaStatisticSectionView: View {
             if gachaType != .regularWarp {
                 VStack {
                     HStack {
-                        let keyPaimon = "gacha.account_detail.statistic.paimon_review"
-                        let keyPomPom = "gacha.account_detail.statistic.pom_pom_review"
+                        let keyPaimon: LocalizedStringKey = "gacha.account_detail.statistic.paimon_review"
+                        let keyPomPom: LocalizedStringKey = "gacha.account_detail.statistic.pom_pom_review"
                         Text(Defaults[\.useGuestGachaEvaluator] ? keyPaimon : keyPomPom)
                             .font(.caption)
                             .foregroundColor(.secondary)
