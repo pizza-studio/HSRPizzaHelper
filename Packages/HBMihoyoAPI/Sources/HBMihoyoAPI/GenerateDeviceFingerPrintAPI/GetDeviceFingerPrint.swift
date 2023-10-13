@@ -34,7 +34,7 @@ extension MiHoYoAPI {
         }
 
         let url = URL(string: "https://public-data-api.mihoyo.com/device-fp/api/getFp")!
-        #if os(iOS)
+        #if !os(watchOS)
         let deviceId = await (UIDevice.current.identifierForVendor ?? UUID()).uuidString
         #else
         let deviceId = UUID().uuidString

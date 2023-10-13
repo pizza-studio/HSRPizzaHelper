@@ -85,7 +85,7 @@ extension UIDevice {
 
         // swiftlint:disable:next cyclomatic_complexity
         func mapToDevice(identifier: String) -> String {
-            #if os(iOS)
+            #if !os(watchOS)
             switch identifier {
             case "iPod5,1": return "iPod touch (5th generation)"
             case "iPod7,1": return "iPod touch (6th generation)"

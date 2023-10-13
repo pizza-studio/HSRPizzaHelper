@@ -87,7 +87,7 @@ enum URLRequestHelperConfiguration {
     /// - Parameter region: the region of the account
     /// - Returns: http request headers
     static func defaultHeaders(region: Region, additionalHeaders: [String: String]?) async throws -> [String: String] {
-        #if os(iOS)
+        #if !os(watchOS)
         let deviceId = await (UIDevice.current.identifierForVendor ?? UUID()).uuidString
         #else
         let deviceId = UUID().uuidString

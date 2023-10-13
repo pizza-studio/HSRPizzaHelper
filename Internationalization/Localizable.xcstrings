@@ -3591,7 +3591,6 @@
       }
     },
     "gacha.account_detail.statistic.paimon_review" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3638,7 +3637,6 @@
       }
     },
     "gacha.account_detail.statistic.pom_pom_review" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
