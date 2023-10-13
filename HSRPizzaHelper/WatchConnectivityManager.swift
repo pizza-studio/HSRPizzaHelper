@@ -42,7 +42,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         guard WCSession.default.activationState == .activated else {
             return
         }
-        #if os(iOS)
+        #if !os(watchOS)
         guard WCSession.default.isWatchAppInstalled else {
             return
         }
@@ -62,7 +62,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         guard WCSession.default.activationState == .activated else {
             return
         }
-        #if os(iOS)
+        #if !os(watchOS)
         guard WCSession.default.isWatchAppInstalled else {
             return
         }
@@ -137,7 +137,7 @@ extension WatchConnectivityManager: WCSessionDelegate {
         error: Error?
     ) {}
 
-    #if os(iOS)
+    #if !os(watchOS)
     func sessionDidBecomeInactive(_ session: WCSession) {}
     func sessionDidDeactivate(_ session: WCSession) {
         session.activate()
