@@ -5,6 +5,8 @@
 //  Created by 戴藏龙 on 2023/5/8.
 //
 
+import Defaults
+import DefaultsKeys
 import Foundation
 import SwiftUI
 
@@ -29,7 +31,7 @@ private struct OnBoardingViewShower: ViewModifier {
     }
 
     func popPolicySheetIfHasNotShown() {
-        if !Defaults[\.isPolicyShown] {
+        if !Defaults[.isPolicyShown] {
             isOnBoardingViewShow.toggle()
         }
     }
@@ -105,7 +107,7 @@ struct OnBoardingView: View {
             Text("boarding.protocol.link")
                 .font(.footnote)
             Button("boarding.protocol.agree") {
-                Defaults[\.isPolicyShown] = true
+                Defaults[.isPolicyShown] = true
                 isShow.toggle()
             }
             .buttonStyle(.borderedProminent)

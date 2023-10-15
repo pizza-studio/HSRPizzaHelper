@@ -5,8 +5,9 @@
 //  Created by Bill Haku on 2023/5/5.
 //
 
+import Defaults
+import DefaultsKeys
 import SwiftUI
-import SwiftyUserDefaults
 
 // MARK: - AboutView
 

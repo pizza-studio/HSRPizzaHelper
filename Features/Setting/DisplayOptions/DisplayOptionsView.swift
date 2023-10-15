@@ -5,18 +5,12 @@
 //  Created by ShikiSuen on 2023/10/2.
 //
 
+import Defaults
+import DefaultsKeys
 import SwiftUI
-import SwiftyUserDefaults
 
 struct DisplayOptionsView: View {
-    @State var useGuestGachaEvaluator = Binding(
-        get: {
-            Defaults[\.useGuestGachaEvaluator]
-        },
-        set: {
-            Defaults[\.useGuestGachaEvaluator] = $0
-        }
-    )
+    @Default(.useGuestGachaEvaluator) var useGuestGachaEvaluator
 
     var body: some View {
         Group {
@@ -29,7 +23,7 @@ struct DisplayOptionsView: View {
     func mainView() -> some View {
         List {
             Section {
-                Toggle(isOn: useGuestGachaEvaluator) {
+                Toggle(isOn: $useGuestGachaEvaluator) {
                     Text("setting.uirelated.useguestgachaevaluator")
                 }
             }

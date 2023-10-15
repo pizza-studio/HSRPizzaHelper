@@ -4,34 +4,32 @@
 import PackageDescription
 
 let package = Package(
-    name: "HBMihoyoAPI",
+    name: "DefaultsKeys",
     platforms: [
         .iOS(.v15), .watchOS(.v9), .macOS(.v12),
     ],
     products: [
+        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "HBMihoyoAPI",
-            targets: ["HBMihoyoAPI"]
+            name: "DefaultsKeys",
+            targets: ["DefaultsKeys"]
         ),
     ],
     dependencies: [
         .package(url: "https://github.com/sindresorhus/Defaults", from: "7.3.1"),
-        .package(url: "./Dependences/DefaultsKeys", from: "1.0.0"),
     ],
     targets: [
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "HBMihoyoAPI",
+            name: "DefaultsKeys",
             dependencies: [
                 .product(name: "Defaults", package: "Defaults"),
-                .product(name: "DefaultsKeys", package: "DefaultsKeys"),
-            ],
-            resources: [
-                .process("Resources"),
             ]
         ),
         .testTarget(
-            name: "HBMihoyoAPITests",
-            dependencies: ["HBMihoyoAPI"]
+            name: "DefaultsKeysTests",
+            dependencies: ["DefaultsKeys"]
         ),
     ]
 )
