@@ -5,8 +5,9 @@
 //  Created by 戴藏龙 on 2023/5/12.
 //
 
+import Defaults
+import DefaultsKeys
 import SwiftUI
-import SwiftyUserDefaults
 
 // MARK: - NotificationSettingView
 
@@ -59,25 +60,25 @@ private class NotificationSettingViewModel: ObservableObject {
     // MARK: Lifecycle
 
     init() {
-        self.allowStaminaNotification = Defaults[\.allowStaminaNotification]
-        self.staminaAdditionalNotificationNumbers = Defaults[\.staminaAdditionalNotificationNumbers]
-        self.allowExpeditionNotification = Defaults[\.allowExpeditionNotification]
-        self.expeditionNotificationSetting = Defaults[\.expeditionNotificationSetting]
-        self.dailyTrainingNotificationSetting = Defaults[\.dailyTrainingNotificationSetting]
-        self.simulatedUniverseNotificationSetting = Defaults[\.simulatedUniverseNotificationSetting]
+        self.allowStaminaNotification = Defaults[.allowStaminaNotification]
+        self.staminaAdditionalNotificationNumbers = Defaults[.staminaAdditionalNotificationNumbers]
+        self.allowExpeditionNotification = Defaults[.allowExpeditionNotification]
+        self.expeditionNotificationSetting = Defaults[.expeditionNotificationSetting]
+        self.dailyTrainingNotificationSetting = Defaults[.dailyTrainingNotificationSetting]
+        self.simulatedUniverseNotificationSetting = Defaults[.simulatedUniverseNotificationSetting]
     }
 
     // MARK: Internal
 
     @Published var staminaAdditionalNotificationNumbers: [Int] {
         didSet {
-            Defaults[\.staminaAdditionalNotificationNumbers] = staminaAdditionalNotificationNumbers
+            Defaults[.staminaAdditionalNotificationNumbers] = staminaAdditionalNotificationNumbers
         }
     }
 
     @Published var allowExpeditionNotification: Bool {
         didSet {
-            Defaults[\.allowExpeditionNotification] = allowExpeditionNotification
+            Defaults[.allowExpeditionNotification] = allowExpeditionNotification
             if !allowStaminaNotification {
                 HSRNotificationCenter.deleteDailyNoteNotification(for: .expeditionEach)
                 HSRNotificationCenter.deleteDailyNoteNotification(for: .expeditionSummary)
@@ -87,7 +88,7 @@ private class NotificationSettingViewModel: ObservableObject {
 
     @Published var expeditionNotificationSetting: DailyNoteNotificationSetting.ExpeditionNotificationSetting {
         didSet {
-            Defaults[\.expeditionNotificationSetting] = expeditionNotificationSetting
+            Defaults[.expeditionNotificationSetting] = expeditionNotificationSetting
             HSRNotificationCenter
                 .deleteDailyNoteNotification(
                     for: expeditionNotificationSetting == .forEachExpedition ?
@@ -98,7 +99,7 @@ private class NotificationSettingViewModel: ObservableObject {
 
     @Published var allowStaminaNotification: Bool {
         didSet {
-            Defaults[\.allowStaminaNotification] = allowStaminaNotification
+            Defaults[.allowStaminaNotification] = allowStaminaNotification
             HSRNotificationCenter.deleteDailyNoteNotification(for: .stamina)
             HSRNotificationCenter.deleteDailyNoteNotification(for: .staminaFull)
         }
@@ -106,7 +107,7 @@ private class NotificationSettingViewModel: ObservableObject {
 
     @Published var dailyTrainingNotificationSetting: DailyNoteNotificationSetting.DailyTrainingNotificationSetting {
         didSet {
-            Defaults[\.dailyTrainingNotificationSetting] = dailyTrainingNotificationSetting
+            Defaults[.dailyTrainingNotificationSetting] = dailyTrainingNotificationSetting
             HSRNotificationCenter.deleteDailyNoteNotification(for: .dailyTraining)
         }
     }
@@ -114,7 +115,7 @@ private class NotificationSettingViewModel: ObservableObject {
     @Published var simulatedUniverseNotificationSetting: DailyNoteNotificationSetting
         .SimulatedUniverseNotificationSetting {
         didSet {
-            Defaults[\.simulatedUniverseNotificationSetting] = simulatedUniverseNotificationSetting
+            Defaults[.simulatedUniverseNotificationSetting] = simulatedUniverseNotificationSetting
             HSRNotificationCenter.deleteDailyNoteNotification(for: .simulatedUniverse)
         }
     }

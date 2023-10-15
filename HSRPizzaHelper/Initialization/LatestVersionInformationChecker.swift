@@ -5,6 +5,8 @@
 //  Created by 戴藏龙 on 2023/5/8.
 //
 
+import Defaults
+import DefaultsKeys
 import Foundation
 import HBPizzaHelperAPI
 import SwiftUI
@@ -40,7 +42,7 @@ private struct LatestVersionInformationChecker: ViewModifier {
     }
 
     func checkNewestVersion() async {
-        guard Defaults[\.isPolicyShown] == true else {
+        guard Defaults[.isPolicyShown] == true else {
             return
         }
         let isBeta: Bool
@@ -57,14 +59,14 @@ private struct LatestVersionInformationChecker: ViewModifier {
                     return
                 }
                 if buildVersion < newestVersionInfos.buildVersion,
-                   !Defaults[\.checkedUpdateVersions]
+                   !Defaults[.checkedUpdateVersions]
                    .contains(newestVersionInfos.buildVersion) {
                     isSheetShow.toggle()
-                } else if Defaults[\.checkedNewestVersion] < newestVersionInfos
+                } else if Defaults[.checkedNewestVersion] < newestVersionInfos
                     .buildVersion {
                     isJustUpdated = true
                     isSheetShow.toggle()
-                    Defaults[\.checkedNewestVersion] = newestVersionInfos.buildVersion
+                    Defaults[.checkedNewestVersion] = newestVersionInfos.buildVersion
                 }
             }
         } catch {}
@@ -164,10 +166,10 @@ struct LatestVersionInfoView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("update.read") {
-                        var checkedUpdateVersions = Defaults[\.checkedUpdateVersions]
+                        var checkedUpdateVersions = Defaults[.checkedUpdateVersions]
                         checkedUpdateVersions
                             .append(newestVersionInfos!.buildVersion)
-                        Defaults[\.checkedUpdateVersions] = checkedUpdateVersions
+                        Defaults[.checkedUpdateVersions] = checkedUpdateVersions
                         if isJustUpdated {
                             let showRate = Bool.random()
                             if showRate {

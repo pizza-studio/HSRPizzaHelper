@@ -75,14 +75,14 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate,
             case .purchasing:
                 transactionState = .purchasing
             case .purchased:
-                UserDefaults.standard.setValue(
+                UserDefaults.hsrSuite.setValue(
                     true,
                     forKey: transaction.payment.productIdentifier
                 )
                 queue.finishTransaction(transaction)
                 transactionState = .purchased
             case .restored:
-                UserDefaults.standard.setValue(
+                UserDefaults.hsrSuite.setValue(
                     true,
                     forKey: transaction.payment.productIdentifier
                 )

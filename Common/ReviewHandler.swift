@@ -5,10 +5,11 @@
 //  Created by Bill Haku on 2023/5/5.
 //  用于弹出App Store评分弹窗
 
+import Defaults
+import DefaultsKeys
 import Foundation
 import StoreKit
 import SwiftUI
-import SwiftyUserDefaults
 
 class ReviewHandler {
     // MARK: Lifecycle
@@ -28,11 +29,11 @@ class ReviewHandler {
 
     static func requestReview() {
         #if DEBUG
-        Defaults[\.lastVersionPromptedForReview] = nil
+        Defaults[.lastVersionPromptedForReview] = nil
         #endif
         DispatchQueue.main.async {
             // Keep track of the most recent app version that prompts the user for a review.
-            let lastVersionPromptedForReview = Defaults[\.lastVersionPromptedForReview]
+            let lastVersionPromptedForReview = Defaults[.lastVersionPromptedForReview]
 
             // Get the current bundle version for the app.
             let infoDictionaryKey = kCFBundleVersionKey as String
@@ -44,14 +45,14 @@ class ReviewHandler {
                     .first(where: { $0.activationState == .foregroundActive
                     }) as? UIWindowScene {
                     SKStoreReviewController.requestReview(in: windowScene)
-                    Defaults[\.lastVersionPromptedForReview] = currentVersion
+                    Defaults[.lastVersionPromptedForReview] = currentVersion
                 }
             }
         }
     }
 
     static func requestReviewIfNotRequestedElseNavigateToAppStore() {
-        let lastVersionPromptedForReview = Defaults[\.lastVersionPromptedForReview]
+        let lastVersionPromptedForReview = Defaults[.lastVersionPromptedForReview]
         let infoDictionaryKey = kCFBundleVersionKey as String
         guard let currentVersion = Bundle.main
             .object(forInfoDictionaryKey: infoDictionaryKey) as? String

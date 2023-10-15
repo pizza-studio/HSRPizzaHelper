@@ -5,6 +5,8 @@
 //  Created by 戴藏龙 on 2023/5/9.
 //
 
+import Defaults
+import DefaultsKeys
 import Foundation
 import SwiftUI
 import WidgetKit
@@ -22,7 +24,7 @@ private struct WidgetTimelineReloader: ViewModifier {
         content
             .onAppBecomeActive {
                 reloadAllTimelines()
-//                guard let latestRefreshTime = Defaults[\.widgetTimelineLatestStartAppRefreshTime] else {
+//                guard let latestRefreshTime = Defaults[.widgetTimelineLatestStartAppRefreshTime] else {
 //                    reloadAllTimelines()
 //                    return
 //                }
@@ -39,6 +41,6 @@ private struct WidgetTimelineReloader: ViewModifier {
 
     func reloadAllTimelines() {
         WidgetCenter.shared.reloadAllTimelines()
-        Defaults[\.widgetTimelineLatestStartAppRefreshTime] = Date()
+        Defaults[.widgetTimelineLatestStartAppRefreshTime] = Date()
     }
 }

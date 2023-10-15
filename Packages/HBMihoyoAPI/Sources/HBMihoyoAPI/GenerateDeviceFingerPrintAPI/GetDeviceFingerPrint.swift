@@ -5,14 +5,15 @@
 //  Created by 戴藏龙 on 2023/6/11.
 //
 
+import Defaults
+import DefaultsKeys
 import Foundation
 import UIKit
 
 @available(iOS 15.0, *)
 extension MiHoYoAPI {
     public static func getDeviceFingerPrint(region: Region) async throws -> String {
-        let userDefaults = UserDefaults(suiteName: "group.Canglong.HSRPizzaHelper")!
-        if let fingerPrint = userDefaults.string(forKey: "device_finger_print"), fingerPrint != "" {
+        if let fingerPrint = Defaults[.deviceFingerPrint], !fingerPrint.isEmpty {
             return fingerPrint
         }
         func generateSeed() -> String {

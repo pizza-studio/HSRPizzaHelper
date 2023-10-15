@@ -6,8 +6,7 @@ import PackageDescription
 let package = Package(
     name: "HBPizzaHelperAPI",
     platforms: [
-        .iOS(.v15),
-        .watchOS(.v9),
+        .iOS(.v15), .watchOS(.v9), .macOS(.v12),
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -19,6 +18,8 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/sindresorhus/Defaults", from: "7.3.1"),
+        .package(url: "./Dependences/DefaultsKeys", from: "1.0.0"),
         .package(url: "./Dependences/HBMihoyoAPI", from: "1.0.0"),
     ],
     targets: [
@@ -26,7 +27,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "HBPizzaHelperAPI",
-            dependencies: ["HBMihoyoAPI"]
+            dependencies: [
+                .product(name: "Defaults", package: "Defaults"),
+                .product(name: "DefaultsKeys", package: "DefaultsKeys"),
+                .product(name: "HBMihoyoAPI", package: "HBMihoyoAPI"),
+            ]
         ),
         .testTarget(
             name: "HBPizzaHelperAPITests",

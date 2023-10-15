@@ -5,9 +5,10 @@
 //  Created by 戴藏龙 on 2023/5/13.
 //
 
+import Defaults
+import DefaultsKeys
 import Foundation
 import HBMihoyoAPI
-import SwiftyUserDefaults
 import UserNotifications
 
 private var center: UNUserNotificationCenter { HSRNotificationCenter.center }
@@ -81,29 +82,22 @@ private struct DailyNoteNotificationSender {
 
     // MARK: Internal
 
-    var allowStaminaNotification: Bool {
-        Defaults[\.allowStaminaNotification]
-    }
+    @Default(.allowStaminaNotification) var allowStaminaNotification: Bool
 
-    var staminaAdditionalNotificationNumbers: [Int] {
-        Defaults[\.staminaAdditionalNotificationNumbers]
-    }
+    @Default(.staminaAdditionalNotificationNumbers) var staminaAdditionalNotificationNumbers: [Int]
 
-    var allowExpeditionNotification: Bool {
-        Defaults[\.allowExpeditionNotification]
-    }
+    @Default(.allowExpeditionNotification) var allowExpeditionNotification: Bool
 
-    var expeditionNotificationSetting: DailyNoteNotificationSetting.ExpeditionNotificationSetting {
-        Defaults[\.expeditionNotificationSetting]
-    }
+    @Default(.expeditionNotificationSetting) var expeditionNotificationSetting: DailyNoteNotificationSetting
+        .ExpeditionNotificationSetting
 
-    var dailyTrainingNotificationSetting: DailyNoteNotificationSetting.DailyTrainingNotificationSetting {
-        Defaults[\.dailyTrainingNotificationSetting]
-    }
+    @Default(.dailyTrainingNotificationSetting) var dailyTrainingNotificationSetting: DailyNoteNotificationSetting
+        .DailyTrainingNotificationSetting
 
-    var simulatedUniverseNotificationSetting: DailyNoteNotificationSetting.SimulatedUniverseNotificationSetting {
-        Defaults[\.simulatedUniverseNotificationSetting]
-    }
+    @Default(
+        .simulatedUniverseNotificationSetting
+    ) var simulatedUniverseNotificationSetting: DailyNoteNotificationSetting
+        .SimulatedUniverseNotificationSetting
 
     func send() {
         guard (account.allowNotification as? Bool) ?? false else { return }
@@ -358,7 +352,7 @@ private struct DailyNoteNotificationSender {
 // MARK: - DailyNoteNotificationSetting
 
 enum DailyNoteNotificationSetting {
-    enum ExpeditionNotificationSetting: String, DefaultsSerializable, CustomStringConvertible, CaseIterable {
+    enum ExpeditionNotificationSetting: String, _DefaultsSerializable, CustomStringConvertible, CaseIterable {
         case onlySummary
         case forEachExpedition
 
@@ -374,42 +368,44 @@ enum DailyNoteNotificationSetting {
         }
     }
 
-    enum DailyTrainingNotificationSetting: Codable, DefaultsSerializable {
+    enum DailyTrainingNotificationSetting: Codable, _DefaultsSerializable {
         case disallowed
         case notifyAt(hour: Int, minute: Int)
     }
 
-    enum SimulatedUniverseNotificationSetting: Codable, DefaultsSerializable {
+    enum SimulatedUniverseNotificationSetting: Codable, _DefaultsSerializable {
         case disallowed
         case notifyAt(weekday: Int, hour: Int, minute: Int)
     }
 }
 
-extension DefaultsKeys {
-    var allowStaminaNotification: DefaultsKey<Bool> {
-        .init("allowStaminaNotification", defaultValue: true)
-    }
+extension Defaults.Keys {
+    static let allowStaminaNotification = Key<Bool>("allowStaminaNotification", default: true, suite: .hsrSuite)
 
-    var staminaAdditionalNotificationNumbers: DefaultsKey<[Int]> {
-        .init("staminaAdditionalNotificationNumber", defaultValue: [150])
-    }
+    static let staminaAdditionalNotificationNumbers = Key<[Int]>(
+        "staminaAdditionalNotificationNumber",
+        default: [150],
+        suite: .hsrSuite
+    )
 
-    var expeditionNotificationSetting: DefaultsKey<DailyNoteNotificationSetting.ExpeditionNotificationSetting> {
-        .init("expeditionNotificationSetting", defaultValue: .onlySummary)
-    }
+    static let expeditionNotificationSetting = Key<DailyNoteNotificationSetting.ExpeditionNotificationSetting>(
+        "expeditionNotificationSetting",
+        default: .onlySummary,
+        suite: .hsrSuite
+    )
 
-    var allowExpeditionNotification: DefaultsKey<Bool> {
-        .init("allowExpeditionNotification", defaultValue: true)
-    }
+    static let allowExpeditionNotification = Key<Bool>("allowExpeditionNotification", default: true, suite: .hsrSuite)
 
-    var dailyTrainingNotificationSetting: DefaultsKey<DailyNoteNotificationSetting.DailyTrainingNotificationSetting> {
-        .init("dailyTrainingNotificationSetting", defaultValue: .notifyAt(hour: 19, minute: 0))
-    }
+    static let dailyTrainingNotificationSetting = Key<DailyNoteNotificationSetting.DailyTrainingNotificationSetting>(
+        "dailyTrainingNotificationSetting",
+        default: .notifyAt(hour: 19, minute: 0),
+        suite: .hsrSuite
+    )
 
-    var simulatedUniverseNotificationSetting: DefaultsKey<
-        DailyNoteNotificationSetting
-            .SimulatedUniverseNotificationSetting
-    > {
-        .init("simulatedUniverseNotificationSetting", defaultValue: .notifyAt(weekday: 7, hour: 19, minute: 0))
-    }
+    static let simulatedUniverseNotificationSetting =
+        Key<DailyNoteNotificationSetting.SimulatedUniverseNotificationSetting>(
+            "simulatedUniverseNotificationSetting",
+            default: .notifyAt(weekday: 7, hour: 19, minute: 0),
+            suite: .hsrSuite
+        )
 }
