@@ -31,7 +31,6 @@ extension Server {
 
     /// The timezone of the server.
     public var timeZone: TimeZone {
-        // swiftlint: disable no_magic_numbers
         switch self {
         case .asia, .bilibili, .china, .hongKongMacauTaiwan:
             return .init(secondsFromGMT: 8 * 60 * 60) ?? .current
@@ -40,7 +39,6 @@ extension Server {
         case .europe:
             return .init(secondsFromGMT: 1 * 60 * 60) ?? .current
         }
-        // swiftlint: enable no_magic_numbers
     }
 }
 
