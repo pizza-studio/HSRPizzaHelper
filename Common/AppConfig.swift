@@ -51,11 +51,10 @@ enum AppConfig {
     }
 
     static var appLanguage: AppLanguage {
-        switch Bundle.main.preferredLocalizations.first {
-        case "zh-Hans":
-            return .zhcn
-        case "zh-Hant":
-            return .zhtw
+        guard let strFirst = Bundle.main.preferredLocalizations.first else { return .en }
+        switch strFirst.prefix(2) {
+        case "zh":
+            return (strFirst.contains("CN") || strFirst.contains("Hans")) ? .zhcn : .zhtw
         case "en":
             return .en
         case "ja":
