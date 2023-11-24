@@ -52,6 +52,8 @@ struct AboutView: View {
                 .font(.caption2)
             Text("app.note.2")
                 .font(.caption2)
+            Text(verbatim: "桂ICP备2023009538号-3A")
+                .font(.caption2)
         }
         .sheet(isPresented: $isDevelopSettingsShow) {
             DevelopSettings(isShow: $isDevelopSettingsShow)
