@@ -91,13 +91,14 @@ extension MiHoYoAPI {
         deviceFingerPrint: String?
     ) async throws
         -> WidgetDailyNote {
-        let additionalHeaders: [String: String]? = {
-            if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
-                return ["x-rpc-device_fp": deviceFingerPrint]
-            } else {
-                return nil
-            }
-        }()
+        var additionalHeaders = [
+            "User-Agent": "WidgetExtension/434 CFNetwork/1492.0.1 Darwin/23.3.0",
+        ]
+
+        if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
+            additionalHeaders.updateValue(deviceFingerPrint, forKey: "x-rpc-device_fp")
+        }
+
         let request = try await Self.generateRecordAPIRequest(
             region: .china,
             path: "/game_record/app/hkrpg/aapi/widget",
