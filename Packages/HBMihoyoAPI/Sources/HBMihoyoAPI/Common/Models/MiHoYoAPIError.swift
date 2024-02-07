@@ -18,7 +18,7 @@ public enum MiHoYoAPIError: Error {
     // MARK: Lifecycle
 
     public init(retcode: Int, message: String) {
-        if retcode == 1034 {
+        if retcode == 1034 || retcode == 10035 {
             self = .verificationNeeded
         } else {
             self = .other(retcode: retcode, message: message)
