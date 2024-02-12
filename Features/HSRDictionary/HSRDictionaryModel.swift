@@ -59,34 +59,30 @@ struct HSRDictionaryTranslationResult: Decodable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case total
-        case page
-        case pageSize = "page_size"
-        case translations
+        case totalPage = "total_page"
+        case translations = "results"
     }
 
-    var total: Int
-    var page: Int
-    var pageSize: Int
+    var totalPage: Int
     var translations: [Translation]
 }
 
 // MARK: - DictionaryLanguage
 
 enum DictionaryLanguage: String, Decodable {
-    case english = "En"
-    case portuguese = "Pt"
-    case japanese = "Jp"
-    case indonesian = "Id"
-    case korean = "Kr"
-    case thai = "Th"
-    case french = "Fr"
-    case simplifiedChinese = "Chs"
-    case russian = "Ru"
-    case german = "De"
-    case traditionalChinese = "Cht"
-    case spanish = "Es"
-    case vietnamese = "Vi"
+    case english = "en"
+    case portuguese = "pt"
+    case japanese = "jp"
+    case indonesian = "id"
+    case korean = "kr"
+    case thai = "th"
+    case french = "fr"
+    case simplifiedChinese = "chs"
+    case russian = "ru"
+    case german = "de"
+    case traditionalChinese = "cht"
+    case spanish = "es"
+    case vietnamese = "vi"
 }
 
 // MARK: CustomStringConvertible

@@ -6,33 +6,49 @@
 //
 
 import AlertToast
+import Combine
 import SwiftUI
 
 // MARK: - HSRDictionaryViewModel
 
 private class HSRDictionaryViewModel: ObservableObject {
-    @Published var queryStatus: QueryStatus = .pending
+    // MARK: Lifecycle
 
+    init() {
+        self.cancellable = debouncedSearchSubject
+            .debounce(for: .seconds(1), scheduler: DispatchQueue.main) // Adjust debounce time as needed
+            .sink(receiveValue: { [weak self] query in
+                guard let self else { return }
+                // Perform search operation here with the debounced query
+                guard query != "" else { return }
+                self.nextPage = 1
+                if case let .fetching(task) = queryStatus {
+                    task.cancel()
+                }
+                self.currentResult = nil
+                self.queryStatus = .fetching(Task(priority: .high) {
+                    do {
+                        let result = try await HSRDictionaryAPI.translation(query: query, page: 1, pageSize: 20)
+                        DispatchQueue.main.async {
+                            self.currentResult = result
+                            self.queryStatus = .pending
+                        }
+                    } catch {
+                        print(error)
+                    }
+                })
+            })
+    }
+
+    // MARK: Internal
+
+    @Published var queryStatus: QueryStatus = .pending
+    var nextPage: Int = 1
     @Published var currentResult: CurrentResult?
 
     @Published var query: String = "" {
         didSet {
-            guard query != "" else { return }
-            if case let .fetching(task) = queryStatus {
-                task.cancel()
-            }
-            currentResult = nil
-            queryStatus = .fetching(Task(priority: .high) {
-                do {
-                    let result = try await HSRDictionaryAPI.translation(query: query, page: 1, pageSize: 20)
-                    DispatchQueue.main.async {
-                        self.currentResult = result
-                        self.queryStatus = .pending
-                    }
-                } catch {
-                    print(error)
-                }
-            })
+            debouncedSearchSubject.send(query)
         }
     }
 
@@ -41,21 +57,25 @@ private class HSRDictionaryViewModel: ObservableObject {
             do {
                 let result = try await HSRDictionaryAPI.translation(
                     query: query,
-                    page: currentResult!.page + 1,
+                    page: nextPage,
                     pageSize: 20
                 )
                 DispatchQueue.main.async {
-                    self.currentResult?.page = result.page
-                    self.currentResult?.pageSize = result.pageSize
-                    self.currentResult?.total = result.total
+                    self.currentResult?.totalPage = result.totalPage
                     self.currentResult?.translations.append(contentsOf: result.translations)
                     self.queryStatus = .pending
+                    self.nextPage += 1
                 }
             } catch {
                 print(error)
             }
         })
     }
+
+    // MARK: Private
+
+    private let debouncedSearchSubject = PassthroughSubject<String, Never>()
+    private var cancellable: AnyCancellable?
 }
 
 private typealias CurrentResult = HSRDictionaryTranslationResult
@@ -92,7 +112,7 @@ struct HSRDictionaryView: View {
                             }
                         }
                     }
-                    if currentResult.page < currentResult.total,
+                    if viewModel.nextPage <= currentResult.totalPage,
                        case .pending = viewModel.queryStatus {
                         Button("tool.dictionary.fetch_more") {
                             viewModel.fetchMore()
