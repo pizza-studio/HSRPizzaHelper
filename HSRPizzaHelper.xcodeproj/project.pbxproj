@@ -11,6 +11,7 @@
 		5B1033782ADC312900B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033772ADC312900B1DA08 /* Defaults */; };
 		5B10337A2ADC312F00B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033792ADC312F00B1DA08 /* Defaults */; };
 		5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B10337B2ADC313400B1DA08 /* Defaults */; };
+		5B7CE2B82BCD2EAE0053FD7D /* HBEnkaAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7CE2B72BCD2EAE0053FD7D /* HBEnkaAPI */; };
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
@@ -312,6 +313,7 @@
 /* Begin PBXFileReference section */
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
 		5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DefaultsKeys; path = Packages/DefaultsKeys; sourceTree = "<group>"; };
+		5B7CE2B62BCD2DAF0053FD7D /* HBEnkaAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBEnkaAPI; path = Packages/HBEnkaAPI; sourceTree = "<group>"; };
 		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */,
 				EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */,
 				BFA4A8492A0BD07400239BB0 /* Mantis in Frameworks */,
+				5B7CE2B82BCD2EAE0053FD7D /* HBEnkaAPI in Frameworks */,
 				EAE519B42A01752A00EF23B7 /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1033,6 +1036,7 @@
 			isa = PBXGroup;
 			children = (
 				5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */,
+				5B7CE2B62BCD2DAF0053FD7D /* HBEnkaAPI */,
 				EAE519B92A01759D00EF23B7 /* HBMihoyoAPI */,
 				BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */,
 			);
@@ -1230,6 +1234,7 @@
 				EA4DAC102A0BB1AD00D2AC5F /* Algorithms */,
 				EABA18072A87A908005A639E /* Collections */,
 				5B1033752ADC309F00B1DA08 /* Defaults */,
+				5B7CE2B72BCD2EAE0053FD7D /* HBEnkaAPI */,
 			);
 			productName = HSRPizzaHelper;
 			productReference = EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */;
@@ -2170,6 +2175,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B1033742ADC309F00B1DA08 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
+		};
+		5B7CE2B72BCD2EAE0053FD7D /* HBEnkaAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HBEnkaAPI;
 		};
 		BF58D24E2A57A01100CC0DC6 /* HBMihoyoAPI */ = {
 			isa = XCSwiftPackageProductDependency;

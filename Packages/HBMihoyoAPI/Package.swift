@@ -16,7 +16,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/sindresorhus/Defaults", from: "7.3.1"),
-        .package(url: "./Dependences/DefaultsKeys", from: "1.0.0"),
+        .package(url: "./Packages/DefaultsKeys", from: "1.0.0"),
     ],
     targets: [
         .target(
