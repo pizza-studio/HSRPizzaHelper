@@ -11,6 +11,20 @@ private let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(
 
 private let testDataPath: String = packageRootPath + "/Tests/TestData/"
 
+// MARK: - Utility Functions
+
+func getBundledCharTable() -> EnkaHSR.DBModels.CharacterDict? {
+    let testData = EnkaHSR.JSONTypes.characters.bundledJSONData
+    guard let testData = testData else { return nil }
+    return try? JSONDecoder().decode(EnkaHSR.DBModels.CharacterDict.self, from: testData)
+}
+
+func getBundledLocTable() -> EnkaHSR.DBModels.RawLocTables? {
+    let testData = EnkaHSR.JSONTypes.locTable.bundledJSONData
+    guard let testData = testData else { return nil }
+    return try? JSONDecoder().decode(EnkaHSR.DBModels.RawLocTables.self, from: testData)
+}
+
 // MARK: - HBEnkaAPITests
 
 final class HBEnkaAPITests: XCTestCase {
@@ -29,5 +43,13 @@ final class HBEnkaAPITests: XCTestCase {
             assertionFailure(error.localizedDescription)
         }
         XCTAssertEqual(uid, "114514810")
+    }
+
+    func testPrintAllCharacterNames() throws {
+        guard let locTable = getBundledLocTable()?["zh-tw"], let charTable = getBundledCharTable() else { return }
+        charTable.forEach { charId, character in
+            guard let nameLocalized = locTable[character.avatarName.hash.description] else { return }
+            print("\(nameLocalized) \(charId)")
+        }
     }
 }

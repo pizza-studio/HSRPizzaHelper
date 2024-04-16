@@ -36,7 +36,7 @@ extension EnkaHSR.DBModels {
         public let avatarFullName: AvatarFullName
         public let rarity: Int
         public let element: Element
-        public let avatarBaseType: String
+        public let avatarBaseType: LifePath
         public let avatarSideIconPath: String
         public let actionAvatarHeadIconPath: String
         public let avatarCutinFrontImgPath: String

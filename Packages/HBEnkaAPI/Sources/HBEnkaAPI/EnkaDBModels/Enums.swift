@@ -4,6 +4,7 @@
 
 extension EnkaHSR.DBModels {
     /// Elements used in HSR, using Ancient Greek namings (same as Genshin).
+    /// - remark: Typealiased as `EnkaHSR.Element`.`
     public enum Element: String, Codable {
         case physico = "Physical"
         case anemo = "Wind"
@@ -12,6 +13,16 @@ extension EnkaHSR.DBModels {
         case posesto = "Quantum"
         case pyro = "Fire"
         case cryo = "Ice"
+    }
+
+    public enum LifePath: String, Codable {
+        case destruction = "Warrior"
+        case hunt = "Rogue"
+        case erudition = "Mage"
+        case harmony = "Shaman"
+        case nihility = "Warlock"
+        case preservation = "Knight"
+        case abundance = "Priest"
     }
 
     public enum PropType: String, Codable {
@@ -69,5 +80,13 @@ extension EnkaHSR.DBModels {
         case statusProbabilityBase = "StatusProbabilityBase"
         case statusResistance = "StatusResistance"
         case statusResistanceBase = "StatusResistanceBase"
+    }
+}
+
+// MARK: - Implementations (Static)
+
+extension EnkaHSR.DBModels.LifePath {
+    public var iconFileName: String {
+        "IconProfession\(rawValue)Small.png"
     }
 }

@@ -17,7 +17,20 @@ public enum EnkaHSR {
     public static let enkaQueryURLPrefix = "https://enka.network/hsr/api/uid/"
 }
 
-// MARK: EnkaHSR.JSONTypes
+// MARK: - Global Level TypeAliases
+
+extension EnkaHSR {
+    /// Elements used in HSR, using Ancient Greek namings (same as Genshin).
+    ///
+    /// 1. HSR doesn't have Dendro and Hydro element as of v2.2 update.
+    /// 2. Elements in this SPM are named using Ancient Greek namings (same as Genshin).
+    /// e.g.: Posesto = Quantum, Fantastico = Imaginary, Pyro = Ice, etc.
+    public typealias Element = DBModels.Element
+    public typealias PropType = DBModels.PropType
+    public typealias LifePath = DBModels.LifePath
+}
+
+// MARK: - EnkaHSR.JSONTypes
 
 extension EnkaHSR {
     public enum JSONTypes: String {
