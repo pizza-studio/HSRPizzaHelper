@@ -27,11 +27,30 @@ let package = Package(
             dependencies: [
                 .product(name: "Defaults", package: "Defaults"),
                 .product(name: "DefaultsKeys", package: "DefaultsKeys"),
+            ],
+            resources: [
+                .process("EnkaAssets/hsr_jsons/honker_avatars.json"),
+                .process("EnkaAssets/hsr_jsons/honker_characters.json"),
+                .process("EnkaAssets/hsr_jsons/honker_meta.json"),
+                .process("EnkaAssets/hsr_jsons/honker_ranks.json"),
+                .process("EnkaAssets/hsr_jsons/honker_relics.json"),
+                .process("EnkaAssets/hsr_jsons/honker_skills.json"),
+                .process("EnkaAssets/hsr_jsons/honker_skilltree.json"),
+                .process("EnkaAssets/hsr_jsons/honker_weps.json"),
+                .process("EnkaAssets/hsr_jsons/hsr.json"),
+            ]
+        ),
+        .target(
+            name: "EnkaSwiftUIViews",
+            dependencies: [
+                "HBEnkaAPI",
+                .product(name: "Defaults", package: "Defaults"),
+                .product(name: "DefaultsKeys", package: "DefaultsKeys"),
             ]
         ),
         .testTarget(
             name: "HBEnkaAPITests",
-            dependencies: ["HBEnkaAPI"]
+            dependencies: ["HBEnkaAPI", "EnkaSwiftUIViews"]
         ),
     ]
 )
