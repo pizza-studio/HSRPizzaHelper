@@ -8,11 +8,24 @@ extension EnkaHSR.DBModels.Meta {
     public typealias RawEquipmentMetaDict = [String: [String: EquipmentMeta]]
 
     public struct EquipmentMeta: Codable {
-        public let BaseHP: Double
-        public let HPAdd: Double
-        public let BaseAttack: Double
-        public let AttackAdd: Double
-        public let BaseDefence: Double
-        public let DefenceAdd: Double
+        // MARK: Public
+
+        public let baseHP: Double
+        public let hpAdd: Double
+        public let baseAttack: Double
+        public let attackAdd: Double
+        public let baseDefence: Double
+        public let defenceAdd: Double
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case baseHP = "BaseHP"
+            case hpAdd = "HPAdd"
+            case baseAttack = "BaseAttack"
+            case attackAdd = "AttackAdd"
+            case baseDefence = "BaseDefence"
+            case defenceAdd = "DefenceAdd"
+        }
     }
 }

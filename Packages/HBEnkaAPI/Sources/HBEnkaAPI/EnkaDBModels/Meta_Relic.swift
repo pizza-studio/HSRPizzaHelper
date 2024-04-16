@@ -2,6 +2,8 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+// MARK: - EnkaHSR.DBModels.Meta.RawRelicDB
+
 // Relic = Artifact
 
 extension EnkaHSR.DBModels.Meta {
@@ -16,15 +18,27 @@ extension EnkaHSR.DBModels.Meta {
 
 extension EnkaHSR.DBModels.Meta.RawRelicDB {
     public struct MainAffix: Codable {
-        let Property: EnkaHSR.DBModels.PropType
-        let BaseValue: Double
-        let LevelAdd: Double
+        enum CodingKeys: String, CodingKey {
+            case property = "Property"
+            case baseValue = "BaseValue"
+            case levelAdd = "LevelAdd"
+        }
+
+        let property: EnkaHSR.DBModels.PropType
+        let baseValue: Double
+        let levelAdd: Double
     }
 
     public struct SubAffix: Codable {
-        let Property: EnkaHSR.DBModels.PropType
-        let BaseValue: Double
-        let StepValue: Double
+        enum CodingKeys: String, CodingKey {
+            case property = "Property"
+            case baseValue = "BaseValue"
+            case stepValue = "StepValue"
+        }
+
+        let property: EnkaHSR.DBModels.PropType
+        let baseValue: Double
+        let stepValue: Double
     }
 
     public typealias MainAffixTable = [String: [String: MainAffix]]

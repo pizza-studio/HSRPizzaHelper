@@ -14,14 +14,14 @@ extension EnkaHSR.DBModels {
     }
 }
 
-// MARK: - Dictionary Aliases
+// MARK: - EnkaHSR.DBModels.Meta.NestedPropValueMap
 
 extension EnkaHSR.DBModels.Meta {
     public typealias NestedPropValueMap = [String: [String: [String: [String: Double]]]]
 }
 
 extension EnkaHSR.DBModels.Meta.NestedPropValueMap {
-    public func query(id: any StringProtocol) -> [EnkaHSR.DBModels.PropType: Double] {
+    public func query(id: some StringProtocol) -> [EnkaHSR.DBModels.PropType: Double] {
         let rawResult = self[id.description]?.first?.value.first?.value ?? [:]
         var results = [EnkaHSR.DBModels.PropType: Double]()
         for (key, value) in rawResult {

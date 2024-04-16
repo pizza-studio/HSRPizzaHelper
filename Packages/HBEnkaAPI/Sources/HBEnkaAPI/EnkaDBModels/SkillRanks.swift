@@ -6,7 +6,16 @@ extension EnkaHSR.DBModels {
     public typealias SkillRanksDict = [String: SkillRank]
 
     public struct SkillRank: Codable {
-        public let IconPath: String
-        public let SkillAddLevelList: [String: Int]
+        // MARK: Public
+
+        public let iconPath: String
+        public let skillAddLevelList: [String: Int]
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case iconPath = "IconPath"
+            case skillAddLevelList = "SkillAddLevelList"
+        }
     }
 }

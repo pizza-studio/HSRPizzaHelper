@@ -6,13 +6,32 @@ extension EnkaHSR.DBModels {
     public typealias WeaponsDict = [String: Weapon]
 
     public struct Weapon: Codable {
+        // MARK: Public
+
         public struct EquipmentName: Codable {
-            public let Hash: Int
+            // MARK: Public
+
+            public let hash: Int
+
+            // MARK: Internal
+
+            enum CodingKeys: String, CodingKey {
+                case hash = "Hash"
+            }
         }
 
-        public let Rarity: Int
-        public let AvatarBaseType: String
-        public let EquipmentName: EquipmentName
-        public let ImagePath: String
+        public let rarity: Int
+        public let avatarBaseType: String
+        public let equipmentName: EquipmentName
+        public let imagePath: String
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case rarity = "Rarity"
+            case avatarBaseType = "AvatarBaseType"
+            case equipmentName = "EquipmentName"
+            case imagePath = "ImagePath"
+        }
     }
 }

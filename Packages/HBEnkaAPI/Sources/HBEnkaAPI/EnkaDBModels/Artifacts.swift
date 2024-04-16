@@ -8,11 +8,24 @@ extension EnkaHSR.DBModels {
     public typealias ArtifactsDict = [String: Artifact]
 
     public struct Artifact: Codable {
-        public let Rarity: Int
-        public let `Type`: String
-        public let MainAffixGroup: Int
-        public let SubAffixGroup: Int
-        public let Icon: String
-        public let SetID: Int
+        // MARK: Public
+
+        public let rarity: Int
+        public let type: String
+        public let mainAffixGroup: Int
+        public let subAffixGroup: Int
+        public let icon: String
+        public let setID: Int
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case rarity = "Rarity"
+            case type = "Type"
+            case mainAffixGroup = "MainAffixGroup"
+            case subAffixGroup = "SubAffixGroup"
+            case icon = "Icon"
+            case setID = "SetID"
+        }
     }
 }

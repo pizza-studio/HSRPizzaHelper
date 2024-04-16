@@ -8,6 +8,14 @@ extension EnkaHSR.DBModels {
     public typealias ProfileAvatarDict = [String: ProfileAvatar]
 
     public struct ProfileAvatar: Codable {
-        public let Icon: String
+        // MARK: Public
+
+        public let icon: String
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case icon = "Icon"
+        }
     }
 }

@@ -8,19 +8,19 @@ extension EnkaHSR.DBModels {
     public typealias SkillTree = [String: [SkillInTree]]
 
     public enum SkillInTree: Codable {
-        case BaseSkill(String)
-        case ExtendedSkills([String])
+        case baseSkill(String)
+        case extendedSkills([String])
 
         // MARK: Lifecycle
 
         public init(from decoder: Decoder) throws {
             let container = try decoder.singleValueContainer()
             if let x = try? container.decode([String].self) {
-                self = .ExtendedSkills(x)
+                self = .extendedSkills(x)
                 return
             }
             if let x = try? container.decode(String.self) {
-                self = .BaseSkill(x)
+                self = .baseSkill(x)
                 return
             }
             throw DecodingError.typeMismatch(
@@ -34,9 +34,9 @@ extension EnkaHSR.DBModels {
         public func encode(to encoder: Encoder) throws {
             var container = encoder.singleValueContainer()
             switch self {
-            case let .BaseSkill(x):
+            case let .baseSkill(x):
                 try container.encode(x)
-            case let .ExtendedSkills(x):
+            case let .extendedSkills(x):
                 try container.encode(x)
             }
         }

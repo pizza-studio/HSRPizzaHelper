@@ -6,8 +6,9 @@ extension EnkaHSR.QueryRelated {
     // MARK: - QueriedProfile
 
     public struct QueriedProfile: Codable {
-        public let detailInfo: DetailInfo
+        public let detailInfo: DetailInfo?
         public let uid: String
+        public let message: String?
     }
 
     // MARK: - DetailInfo
@@ -28,21 +29,49 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     // MARK: - Avatar
 
     public struct Avatar: Codable {
+        // MARK: Public
+
         public let level, avatarId: Int
         public let equipment: Equipment
         public let relicList: [RelicList]
         public let promotion: Int
         public let skillTreeList: [SkillTreeList]
         public let rank: Int?
-        public let _assist: Bool?
+        public let assist: Bool?
         public let pos: Int?
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case level
+            case avatarId
+            case equipment
+            case relicList
+            case promotion
+            case skillTreeList
+            case rank
+            case assist = "_assist"
+            case pos
+        }
     }
 
     // MARK: - Equipment
 
     public struct Equipment: Codable {
+        // MARK: Public
+
         public let rank, level, tid, promotion: Int
-        public let _flat: EquipmentFlat
+        public let flat: EquipmentFlat
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case rank
+            case level
+            case tid
+            case promotion
+            case flat = "_flat"
+        }
     }
 
     // MARK: - EquipmentFlat
@@ -62,12 +91,26 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     // MARK: - RelicList
 
     public struct RelicList: Codable {
+        // MARK: Public
+
         public let type: Int
         public let level: Int?
         public let subAffixList: [SubAffixList]
         public let mainAffixId, tid: Int
-        public let _flat: RelicListFlat
+        public let flat: RelicListFlat
         public let exp: Int?
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case type
+            case level
+            case subAffixList
+            case mainAffixId
+            case tid
+            case flat = "_flat"
+            case exp
+        }
     }
 
     // MARK: - RelicListFlat

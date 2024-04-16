@@ -17,6 +17,8 @@ public enum EnkaHSR {
     public static let enkaQueryURLPrefix = "https://enka.network/hsr/api/uid/"
 }
 
+// MARK: EnkaHSR.JSONTypes
+
 extension EnkaHSR {
     public enum JSONTypes: String {
         case profileAvatarIcons = "honker_avatars" // Player Account Profile Picture

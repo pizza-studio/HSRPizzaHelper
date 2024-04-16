@@ -8,15 +8,32 @@ extension EnkaHSR.DBModels.Meta {
     public typealias RawAvatarMetaDict = [String: [String: AvatarMeta]]
 
     public struct AvatarMeta: Codable {
-        public let HPBase: Double
-        public let HPAdd: Double
-        public let AttackBase: Double
-        public let AttackAdd: Double
-        public let DefenceBase: Double
-        public let DefenceAdd: Double
-        public let SpeedBase: Double
-        public let CriticalChance: Double
-        public let CriticalDamage: Double
-        public let BaseAggro: Double
+        // MARK: Public
+
+        public let hpBase: Double
+        public let hpAdd: Double
+        public let attackBase: Double
+        public let attackAdd: Double
+        public let defenceBase: Double
+        public let defenceAdd: Double
+        public let speedBase: Double
+        public let criticalChance: Double
+        public let criticalDamage: Double
+        public let baseAggro: Double
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case hpBase = "HPBase"
+            case hpAdd = "HPAdd"
+            case attackBase = "AttackBase"
+            case attackAdd = "AttackAdd"
+            case defenceBase = "DefenceBase"
+            case defenceAdd = "DefenceAdd"
+            case speedBase = "SpeedBase"
+            case criticalChance = "CriticalChance"
+            case criticalDamage = "CriticalDamage"
+            case baseAggro = "BaseAggro"
+        }
     }
 }

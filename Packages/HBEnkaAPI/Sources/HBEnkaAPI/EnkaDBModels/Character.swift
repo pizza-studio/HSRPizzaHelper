@@ -6,23 +6,56 @@ extension EnkaHSR.DBModels {
     public typealias CharacterDict = [String: Character]
 
     public struct Character: Codable {
+        // MARK: Public
+
         public struct AvatarFullName: Codable {
-            public let Hash: Int64
+            // MARK: Public
+
+            public let hash: Int64
+
+            // MARK: Internal
+
+            enum CodingKeys: String, CodingKey {
+                case hash = "Hash"
+            }
         }
 
         public struct AvatarName: Codable {
-            public let Hash: Int64
+            // MARK: Public
+
+            public let hash: Int64
+
+            // MARK: Internal
+
+            enum CodingKeys: String, CodingKey {
+                case hash = "Hash"
+            }
         }
 
-        public let AvatarName: AvatarName
-        public let AvatarFullName: AvatarFullName
-        public let Rarity: Int
-        public let Element: Element
-        public let AvatarBaseType: String
-        public let AvatarSideIconPath: String
-        public let ActionAvatarHeadIconPath: String
-        public let AvatarCutinFrontImgPath: String
-        public let RankIDList: [Int]
-        public let SkillList: [Int]
+        public let avatarName: AvatarName
+        public let avatarFullName: AvatarFullName
+        public let rarity: Int
+        public let element: Element
+        public let avatarBaseType: String
+        public let avatarSideIconPath: String
+        public let actionAvatarHeadIconPath: String
+        public let avatarCutinFrontImgPath: String
+        public let rankIDList: [Int]
+        public let skillList: [Int]
+
+        // MARK: Internal
+
+        enum CodingKeys: String, CodingKey {
+            case avatarName = "AvatarName"
+            case avatarFullName = "AvatarFullName"
+            case rarity = "Rarity"
+            case element = "Element"
+            case avatarBaseType = "AvatarBaseType"
+            case avatarSideIconPath = "AvatarSideIconPath"
+            case actionAvatarHeadIconPath = "ActionAvatarHeadIconPath"
+            case avatarCutinFrontImgPath = "AvatarCutinFrontImgPath"
+            case rankIDList = "RankIDList"
+            case skillList = "SkillList"
+        }
     }
 }
