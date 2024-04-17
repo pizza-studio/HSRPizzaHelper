@@ -21,7 +21,7 @@ language_map = {
     "vi": "vi-vn"
 }
 
-def get_data_and_update(lang: str, update_dict: dict, type: Literal["avatars", "elements", "relics", "properties", "paths"]):
+def get_data_and_update(lang: str, update_dict: dict, type: Literal["avatars", "elements", "relics", "properties", "paths", "character_skill_trees"]):
     url = f"https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/index_new/{lang}/{type}.json"
     api_lang = language_map[lang]
     res = requests.get(url)
@@ -63,6 +63,12 @@ def get_path_data() -> dict:
         get_data_and_update(lang, result, type="paths")
     return result
 
+def get_skill_data() -> dict:
+    result = {}
+    for lang in language_map.keys():
+        get_data_and_update(lang, result, type="character_skill_trees")
+    return result
+
 def get_data() -> dict:
     result = {}
     result["avatar"] = get_avatar_data()
@@ -70,6 +76,7 @@ def get_data() -> dict:
     result["relic"] = get_relic_data()
     result["property"] = get_property_data()
     result["path"] = get_path_data()
+    result["skill"] = get_skill_data()
     return result
 
 def download_image(relative_url_path: str):
