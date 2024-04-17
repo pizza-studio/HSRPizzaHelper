@@ -85,6 +85,17 @@ extension EnkaHSR.DBModels {
 
 // MARK: - Implementations (Static)
 
+extension EnkaHSR.DBModels.Element {
+    public var iconFileName: String {
+        var result = "\(rawValue).png"
+        switch self {
+        case .electro: result = "Lightning.png"
+        default: break
+        }
+        return result
+    }
+}
+
 extension EnkaHSR.DBModels.LifePath {
     public var iconFileName: String {
         "IconProfession\(rawValue)Small.png"

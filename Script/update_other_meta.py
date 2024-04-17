@@ -26,11 +26,8 @@ def get_data_and_update(lang: str, update_dict: dict, type: Literal["avatars", "
     api_lang = language_map[lang]
     res = requests.get(url)
     for id, meta in res.json().items():
-        if type == "avatars":
-            if not (meta["icon"][:1].isdigit()):
-                continue
-            if meta["icon"].len() > 6:
-                continue
+        if (type == "avatars") and (int(meta["id"]) < 1000):
+            continue
         update_dict.setdefault(id, {})
         update_dict[id].setdefault("name_localization_map", {})
         update_dict[id]["icon_file_path"] = meta["icon"]
