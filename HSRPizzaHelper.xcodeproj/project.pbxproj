@@ -11,6 +11,7 @@
 		5B1033782ADC312900B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033772ADC312900B1DA08 /* Defaults */; };
 		5B10337A2ADC312F00B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033792ADC312F00B1DA08 /* Defaults */; };
 		5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B10337B2ADC313400B1DA08 /* Defaults */; };
+		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
 		5B7CE2B82BCD2EAE0053FD7D /* HBEnkaAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7CE2B72BCD2EAE0053FD7D /* HBEnkaAPI */; };
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
@@ -313,6 +314,7 @@
 /* Begin PBXFileReference section */
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
 		5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DefaultsKeys; path = Packages/DefaultsKeys; sourceTree = "<group>"; };
+		5B5D9BC62BCFF50B0085E728 /* other_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = other_meta; sourceTree = "<group>"; };
 		5B7CE2B62BCD2DAF0053FD7D /* HBEnkaAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBEnkaAPI; path = Packages/HBEnkaAPI; sourceTree = "<group>"; };
 		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
@@ -1083,6 +1085,7 @@
 		EAE519C12A0175F800EF23B7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5B5D9BC62BCFF50B0085E728 /* other_meta */,
 				EAEF1ABA2A84F4E90013AD48 /* gacha_meta */,
 				EAE519832A01738600EF23B7 /* Assets.xcassets */,
 				EA32764E2A03852C00774126 /* Icon.xcassets */,
@@ -1352,6 +1355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */,
 				EAEF1ABB2A84F4E90013AD48 /* gacha_meta in Resources */,
 				EADA17C82A06B7BE00AF9784 /* background_image in Resources */,
 				BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */,
