@@ -39,7 +39,7 @@ jobs:
                 base: dev
                 title: "Update Asset Meta"
                 body: |
-                  This PR updates the gacha meta.
+                  This PR updates the gacha meta and other assets (see update_other_meta.py for details).
                 delete-branch: true
                 assignees: CanglongCl
                 reviewers: CanglongCl
