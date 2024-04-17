@@ -15,6 +15,10 @@ public enum EnkaHSR {
 
     /// The URL Prefix for Querying Enka Profile Data.
     public static let enkaQueryURLPrefix = "https://enka.network/hsr/api/uid/"
+
+    /// Root Asset Path without ending slash. Can be overridable.
+    /// - remark: You have to manually add the ending slash when using this variable.
+    public static var assetPathRoot = Bundle.main.bundlePath
 }
 
 // MARK: - Global Level TypeAliases
@@ -26,14 +30,14 @@ extension EnkaHSR {
     /// 2. Elements in this SPM are named using Ancient Greek namings (same as Genshin).
     /// e.g.: Posesto = Quantum, Fantastico = Imaginary, Pyro = Ice, etc.
     public typealias Element = DBModels.Element
-    public typealias PropType = DBModels.PropType
+    public typealias PropertyType = DBModels.PropertyType
     public typealias LifePath = DBModels.LifePath
 }
 
 // MARK: - EnkaHSR.JSONTypes
 
 extension EnkaHSR {
-    public enum JSONTypes: String {
+    public enum JSONTypes: String, CaseIterable {
         case profileAvatarIcons = "honker_avatars" // Player Account Profile Picture
         case characters = "honker_characters"
         case metadata = "honker_meta"
@@ -58,5 +62,25 @@ extension EnkaHSR {
                 return nil
             }
         }
+    }
+}
+
+// MARK: - Data Implementation
+
+extension Data {
+    public func parseAs<T: Decodable>(_ type: T.Type) throws -> T {
+        try JSONDecoder().decode(T.self, from: self)
+    }
+}
+
+extension Data? {
+    public func parseAs<T: Decodable>(_ type: T.Type) throws -> T? {
+        guard let this = self else { return nil }
+        return try JSONDecoder().decode(T.self, from: this)
+    }
+
+    public func assertedParseAs<T: Decodable>(_ type: T.Type) throws -> T {
+        guard let this = self else { throw NSError() }
+        return try JSONDecoder().decode(T.self, from: this)
     }
 }

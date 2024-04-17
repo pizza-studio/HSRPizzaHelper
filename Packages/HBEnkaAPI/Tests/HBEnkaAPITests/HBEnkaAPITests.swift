@@ -52,4 +52,8 @@ final class HBEnkaAPITests: XCTestCase {
             print("\(nameLocalized) \(charId)")
         }
     }
+
+    func testLifePathFileName() throws {
+        XCTAssertEqual(EnkaHSR.LifePath.nihility.iconFileName, "Nihility.png")
+    }
 }
