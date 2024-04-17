@@ -47,7 +47,7 @@ final class HBEnkaAPITests: XCTestCase {
         XCTAssertEqual(uid, "114514810")
         guard let profile = profile, let detailInfo = profile.detailInfo else { return }
         guard let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-tw") else { return }
-        let summarized = detailInfo.avatarDetailList.first?.summarize(db: enkaDatabase)
+        let summarized = detailInfo.avatarDetailList.first?.summarize(theDB: enkaDatabase)
         XCTAssertNotNil(summarized)
         guard let summarized = summarized else { return }
         XCTAssertEqual(summarized.mainInfo.localizedName, "黃泉")

@@ -19,20 +19,20 @@ extension EnkaHSR.AvatarSummarized {
         // MARK: Lifecycle
 
         public init?(
-            db: EnkaHSR.EnkaDB,
+            theDB: EnkaHSR.EnkaDB,
             charId: Int,
             avatarLevel avatarLv: Int,
             constellation constellationLevel: Int,
             baseSkills baseSkillSet: BaseSkillSet
         ) {
-            guard let theCommonInfo = db.characters[charId.description] else { return nil }
+            guard let theCommonInfo = theDB.characters[charId.description] else { return nil }
             self.avatarLevel = avatarLv
             self.constellation = constellationLevel
             self.baseSkills = baseSkillSet
             self.uniqueCharId = charId
             self.element = theCommonInfo.element
             self.lifePath = theCommonInfo.avatarBaseType
-            self.localizedName = db.locTable[theCommonInfo.avatarName.hash.description] ?? theCommonInfo.avatarName.hash
+            self.localizedName = theDB.locTable[theCommonInfo.avatarName.hash.description] ?? theCommonInfo.avatarName.hash
                 .description
         }
 
@@ -123,10 +123,10 @@ extension EnkaHSR.AvatarSummarized {
     public struct PropertyPair: Codable {
         // MARK: Lifecycle
 
-        public init(db: EnkaHSR.EnkaDB, type: EnkaHSR.PropertyType, value: Double) {
+        public init(theDB: EnkaHSR.EnkaDB, type: EnkaHSR.PropertyType, value: Double) {
             self.type = type
             self.value = value
-            self.localizedTitle = db.locTable[type.rawValue] ?? type.rawValue
+            self.localizedTitle = theDB.locTable[type.rawValue] ?? type.rawValue
         }
 
         // MARK: Public
@@ -158,17 +158,17 @@ extension EnkaHSR.AvatarSummarized {
         // MARK: Lifecycle
 
         public init?(
-            db: EnkaHSR.EnkaDB,
+            theDB: EnkaHSR.EnkaDB,
             fetched: EnkaHSR.QueryRelated.DetailInfo.Equipment
         ) {
-            guard let theCommonInfo = db.weapons[fetched.tid.description] else { return nil }
+            guard let theCommonInfo = theDB.weapons[fetched.tid.description] else { return nil }
             self.enkaId = fetched.tid
             self.commonInfo = theCommonInfo
             self.paramDataFetched = fetched
-            self.localizedName = db.locTable[fetched.tid.description] ?? "EnkaId: \(fetched.tid)"
+            self.localizedName = theDB.locTable[fetched.tid.description] ?? "EnkaId: \(fetched.tid)"
             self.props = fetched.flat.props.compactMap { currentRecord in
                 if let theType = EnkaHSR.PropertyType(rawValue: currentRecord.type) {
-                    return PropertyPair(db: db, type: theType, value: currentRecord.value)
+                    return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value)
                 }
                 return nil
             }
@@ -203,14 +203,14 @@ extension EnkaHSR.AvatarSummarized {
     public struct ArtifactInfo: Codable {
         // MARK: Lifecycle
 
-        public init?(db: EnkaHSR.EnkaDB, fetched: EnkaHSR.QueryRelated.DetailInfo.ArtifactItem) {
-            guard let theCommonInfo = db.artifacts[fetched.tid.description] else { return nil }
+        public init?(theDB: EnkaHSR.EnkaDB, fetched: EnkaHSR.QueryRelated.DetailInfo.ArtifactItem) {
+            guard let theCommonInfo = theDB.artifacts[fetched.tid.description] else { return nil }
             self.enkaId = fetched.tid
             self.commonInfo = theCommonInfo
             self.paramDataFetched = fetched
             let props: [PropertyPair] = fetched.flat.props.compactMap { currentRecord in
                 if let theType = EnkaHSR.PropertyType(rawValue: currentRecord.type) {
-                    return PropertyPair(db: db, type: theType, value: currentRecord.value)
+                    return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value)
                 }
                 return nil
             }
