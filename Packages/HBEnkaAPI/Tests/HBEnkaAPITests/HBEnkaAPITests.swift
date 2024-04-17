@@ -36,13 +36,25 @@ final class HBEnkaAPITests: XCTestCase {
             return
         }
         var uid = "0"
+        var profile: EnkaHSR.QueryRelated.QueriedProfile?
         do {
             let obj = try JSONDecoder().decode(EnkaHSR.QueryRelated.QueriedProfile.self, from: jsonData)
             uid = obj.uid
+            profile = obj
         } catch {
             assertionFailure(error.localizedDescription)
         }
         XCTAssertEqual(uid, "114514810")
+        guard let profile = profile, let detailInfo = profile.detailInfo else { return }
+        guard let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-tw") else { return }
+        let summarized = detailInfo.avatarDetailList.first?.summarize(db: enkaDatabase)
+        XCTAssertNotNil(summarized)
+        guard let summarized = summarized else { return }
+        XCTAssertEqual(summarized.mainInfo.localizedName, "黃泉")
+        XCTAssertEqual(summarized.mainInfo.constellation, 2)
+        XCTAssertEqual(summarized.equippedWeapon.enkaId, 23024)
+        XCTAssertEqual(summarized.equippedWeapon.props[0].localizedTitle, "基礎生命值")
+        XCTAssertEqual(summarized.artifacts[0].enkaId, 61171)
     }
 
     func testPrintAllCharacterNames() throws {
