@@ -21,7 +21,7 @@ language_map = {
     "vi": "vi-vn"
 }
 
-def get_data_and_update(lang: str, update_dict: dict, type: Literal["avatars", "relics", "properties", "paths"]):
+def get_data_and_update(lang: str, update_dict: dict, type: Literal["avatars", "elements", "relics", "properties", "paths"]):
     url = f"https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/index_new/{lang}/{type}.json"
     api_lang = language_map[lang]
     res = requests.get(url)
@@ -40,6 +40,12 @@ def get_avatar_data() -> dict:
     result = {}
     for lang in language_map.keys():
         get_data_and_update(lang, result, type="avatars")
+    return result
+
+def get_element_data() -> dict:
+    result = {}
+    for lang in language_map.keys():
+        get_data_and_update(lang, result, type="elements")
     return result
 
 def get_relic_data() -> dict:
@@ -63,6 +69,7 @@ def get_path_data() -> dict:
 def get_data() -> dict:
     result = {}
     result["avatar"] = get_avatar_data()
+    result["element"] = get_element_data()
     result["relic"] = get_relic_data()
     result["property"] = get_property_data()
     result["path"] = get_path_data()
