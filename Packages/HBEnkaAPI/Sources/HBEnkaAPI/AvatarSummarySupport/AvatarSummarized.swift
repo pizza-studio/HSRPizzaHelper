@@ -33,7 +33,7 @@ extension EnkaHSR.AvatarSummarized {
             self.element = theCommonInfo.element
             self.lifePath = theCommonInfo.avatarBaseType
             let charNameHash = theCommonInfo.avatarName.hash.description
-            self.localizedName = theDB.locTable[charNameHash] ?? charNameHash
+            self.localizedName = theDB.locTable[charNameHash] ?? "EnkaId: \(charId)"
         }
 
         // MARK: Public
@@ -177,7 +177,8 @@ extension EnkaHSR.AvatarSummarized {
             self.enkaId = fetched.tid
             self.commonInfo = theCommonInfo
             self.paramDataFetched = fetched
-            self.localizedName = theDB.locTable[fetched.tid.description] ?? "EnkaId: \(fetched.tid)"
+            let nameHash = theCommonInfo.equipmentName.hash.description
+            self.localizedName = theDB.locTable[nameHash] ?? "EnkaId: \(fetched.tid)"
             self.trainedLevel = fetched.level
             self.refinement = fetched.rank
             self.props = fetched.flat.props.compactMap { currentRecord in
