@@ -76,7 +76,7 @@ extension EnkaHSR.AvatarSummarized {
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo: View {
     public var body: some View {
         HStack(spacing: 2) {
-            AsyncImage(url: URL(fileURLWithPath: avatarFilePath)) { imageObj in
+            AsyncImage(url: URL(fileURLWithPath: self.photoFilePath)) { imageObj in
                 imageObj
                     .resizable()
                     .aspectRatio(contentMode: .fit)
