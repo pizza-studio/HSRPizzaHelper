@@ -32,8 +32,8 @@ extension EnkaHSR.AvatarSummarized {
             self.uniqueCharId = charId
             self.element = theCommonInfo.element
             self.lifePath = theCommonInfo.avatarBaseType
-            self.localizedName = theDB.locTable[theCommonInfo.avatarName.hash.description] ?? theCommonInfo.avatarName.hash
-                .description
+            let charNameHash = theCommonInfo.avatarName.hash.description
+            self.localizedName = theDB.locTable[charNameHash] ?? charNameHash
         }
 
         // MARK: Public
