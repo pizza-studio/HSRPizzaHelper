@@ -74,7 +74,7 @@ extension EnkaHSR.AvatarSummarized {
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo: View {
     public var body: some View {
-        HStack {
+        HStack(spacing: 2) {
             AsyncImage(url: URL(fileURLWithPath: avatarFilePath)) { imageObj in
                 imageObj
                     .resizable()
@@ -130,7 +130,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo: View {
                     }
                 }
                 .shadow(radius: 5)
-                HStack(spacing: 0) {
+                HStack {
                     VStack(spacing: 4) {
                         AttributeTagPair(
                             title: "等级", valueStr: self.avatarLevel.description,
@@ -140,7 +140,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo: View {
                             title: "命之座", valueStr: "C\(self.constellation)",
                             fontSize: baseFontSize * 0.9, dash: false
                         )
-                    }.frame(maxWidth: 100, maxHeight: .infinity)
+                    }.frame(maxWidth: 120, maxHeight: .infinity)
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     HStack(alignment: .lastTextBaseline, spacing: 0) {
                         ForEach(baseSkills.toArray, id: \.type) { skill in
@@ -178,8 +178,8 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill: View {
                     .clipShape(Circle())
                     .scaleEffect(0.8)
                 }.frame(
-                    width: baseFontSize * 2.6,
-                    height: baseFontSize * 2.6
+                    width: baseFontSize * 2.2,
+                    height: baseFontSize * 2.2
                 )
                 Spacer()
             }
