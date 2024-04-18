@@ -67,7 +67,8 @@ extension EnkaHSR.DBModels {
         case defenceAddedRatio = "DefenceAddedRatio"
         case defenceDelta = "DefenceDelta"
         case energyLimit = "EnergyLimit"
-        case energyRecovery = "EnergyRecovery"
+        case energyRecovery = "SPRatio"
+        case energyRecoveryBase = "SPRatioBase"
         case healRatio = "HealRatio"
         case healRatioBase = "HealRatioBase"
         case healTakenRatio = "HealTakenRatio"
@@ -78,8 +79,6 @@ extension EnkaHSR.DBModels {
         case speed = "Speed"
         case speedAddedRatio = "SpeedAddedRatio"
         case speedDelta = "SpeedDelta"
-        case spRatio = "SPRatio"
-        case spRatioBase = "SPRatioBase"
         case statusProbability = "StatusProbability"
         case statusProbabilityBase = "StatusProbabilityBase"
         case statusResistance = "StatusResistance"
@@ -101,6 +100,18 @@ extension EnkaHSR.DBModels.Element {
 
     public var iconFilePath: String {
         "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.element.rawValue)/\(iconFileName)"
+    }
+
+    public var damageAddedRatioProperty: EnkaHSR.PropertyType {
+        switch self {
+        case .physico: return .physicoAddedRatio
+        case .anemo: return .anemoAddedRatio
+        case .electro: return .electroAddedRatio
+        case .fantastico: return .fantasticoAddedRatio
+        case .posesto: return .posestoAddedRatio
+        case .pyro: return .pyroAddedRatio
+        case .cryo: return .cryoAddedRatio
+        }
     }
 }
 
@@ -145,7 +156,8 @@ extension EnkaHSR.PropertyType {
         case .criticalChanceBase: nameStem = "CriticalChance"
         case .statusProbabilityBase: nameStem = "StatusProbability"
         case .speedDelta: nameStem = "Speed"
-        case .spRatioBase: nameStem = "StatusProbability"
+        case .energyRecovery: nameStem = "EnergyRecovery"
+        case .energyRecoveryBase: nameStem = "EnergyRecovery"
         case .criticalDamageBase: nameStem = "CriticalDamage"
         default: break
         }
@@ -198,7 +210,7 @@ extension EnkaHSR.PropertyType {
         case .breakDamageAddedRatio: return true
         case .statusProbabilityBase: return true
         case .speedDelta: return true
-        case .spRatioBase: return true
+        case .energyRecoveryBase: return true
         case .criticalDamageBase: return true
 
         default:
@@ -207,5 +219,34 @@ extension EnkaHSR.PropertyType {
             let condition2 = rawValue.prefix(9) != "AllDamage"
             return condition1 && condition2
         }
+    }
+
+    public static func getAvatarProperties(
+        element: EnkaHSR.Element
+    ) -> [EnkaHSR.PropertyType] {
+        var results: [EnkaHSR.PropertyType] = [
+            .maxHP,
+            .attack,
+            .defence,
+            .speed,
+            .criticalChance,
+            .criticalDamage,
+            .breakUp,
+            .energyRecovery,
+            .statusProbability,
+            .statusResistance,
+            .healRatio,
+        ]
+        switch element {
+        case .physico: results.append(.physicoAddedRatio)
+        case .anemo: results.append(.anemoAddedRatio)
+        case .electro: results.append(.electroAddedRatio)
+        case .fantastico: results.append(.fantasticoAddedRatio)
+        case .posesto: results.append(.posestoAddedRatio)
+        case .pyro: results.append(.pyroAddedRatio)
+        case .cryo: results.append(.cryoAddedRatio)
+        }
+
+        return results
     }
 }
