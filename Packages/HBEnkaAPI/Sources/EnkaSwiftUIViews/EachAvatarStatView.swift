@@ -18,7 +18,7 @@ public struct EachAvatarStatView: View {
     public var body: some View {
         VStack(spacing: 6) {
             data.mainInfo
-            VStack {
+            VStack(spacing: 2) {
                 data.equippedWeapon
                 VStack(spacing: 0) {
                     ForEach(data.avatarProperties, id: \.type) { property in
@@ -217,19 +217,19 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel: View {
                 verbatim: "Lv.\(trainedLevel) ★\(rarityStars)",
                 alignment: .bottom, textSize: baseFontSize * 0.8
             )
-            VStack(alignment: .leading, spacing: 1) {
+            VStack(alignment: .leading, spacing: 2) {
                 Text(localizedName)
                     .fontWeight(.bold)
                     .fontWidth(.condensed)
                 Divider().overlay {
                     Color.primary.opacity(0.6)
-                }
+                }.padding(.vertical, 2)
                 ForEach(props, id: \.type) { propUnit in
                     AttributeTagPair(
                         icon: propUnit.iconFilePath,
                         title: propUnit.localizedTitle,
                         valueStr: propUnit.valueString,
-                        fontSize: baseFontSize * 0.93,
+                        fontSize: baseFontSize * 0.9,
                         dash: false
                     )
                 }
