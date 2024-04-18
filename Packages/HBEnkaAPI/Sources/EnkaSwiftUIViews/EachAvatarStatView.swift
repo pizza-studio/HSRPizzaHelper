@@ -48,7 +48,7 @@ public struct EachAvatarStatView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .blur(radius: 60)
-                    .contrast(2)
+                    .saturation(3)
                     .opacity(0.47)
             } placeholder: {
                 Color.clear
