@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "HBMihoyoAPI",
     platforms: [
-        .iOS(.v15), .watchOS(.v9), .macOS(.v12),
+        .iOS(.v16), .watchOS(.v9), .macOS(.v13),
     ],
     products: [
         .library(
