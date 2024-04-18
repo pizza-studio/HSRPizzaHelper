@@ -33,9 +33,9 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
         public let level, avatarId: Int
         public let equipment: Equipment
-        public let relicList: [RelicList]
+        public let relicList: [ArtifactItem]
         public let promotion: Int
-        public let skillTreeList: [SkillTreeList]
+        public let skillTreeList: [SkillTreeItem]
         public let rank: Int?
         public let assist: Bool?
         public let pos: Int?
@@ -88,16 +88,30 @@ extension EnkaHSR.QueryRelated.DetailInfo {
         public let value: Double
     }
 
-    // MARK: - RelicList
+    // MARK: - ArtifactItem
 
-    public struct RelicList: Codable {
+    public struct ArtifactItem: Codable {
         // MARK: Public
+
+        // MARK: - SubAffixList
+
+        public struct SubAffixItem: Codable {
+            public let affixId, cnt: Int
+            public let step: Int?
+        }
+
+        // MARK: - ArtifactItem.Flat
+
+        public struct Flat: Codable {
+            public let props: [Prop]
+            public let setName, setID: Int
+        }
 
         public let type: Int
         public let level: Int?
-        public let subAffixList: [SubAffixList]
+        public let subAffixList: [SubAffixItem]
         public let mainAffixId, tid: Int
-        public let flat: RelicListFlat
+        public let flat: ArtifactItem.Flat
         public let exp: Int?
 
         // MARK: Internal
@@ -113,23 +127,9 @@ extension EnkaHSR.QueryRelated.DetailInfo {
         }
     }
 
-    // MARK: - RelicListFlat
+    // MARK: - SkillTreeItem
 
-    public struct RelicListFlat: Codable {
-        public let props: [Prop]
-        public let setName, setID: Int
-    }
-
-    // MARK: - SubAffixList
-
-    public struct SubAffixList: Codable {
-        public let affixId, cnt: Int
-        public let step: Int?
-    }
-
-    // MARK: - SkillTreeList
-
-    public struct SkillTreeList: Codable {
+    public struct SkillTreeItem: Codable {
         public let pointId, level: Int
     }
 

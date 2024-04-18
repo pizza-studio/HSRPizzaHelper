@@ -3,8 +3,6 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 extension EnkaHSR.DBModels {
-    public typealias MetaDict = [String: Meta]
-
     public struct Meta: Codable {
         public let avatar: RawAvatarMetaDict
         public let equipment: RawEquipmentMetaDict
@@ -21,17 +19,17 @@ extension EnkaHSR.DBModels.Meta {
 }
 
 extension EnkaHSR.DBModels.Meta.NestedPropValueMap {
-    public func query(id: some StringProtocol) -> [EnkaHSR.DBModels.PropType: Double] {
+    public func query(id: some StringProtocol) -> [EnkaHSR.DBModels.PropertyType: Double] {
         let rawResult = self[id.description]?.first?.value.first?.value ?? [:]
-        var results = [EnkaHSR.DBModels.PropType: Double]()
+        var results = [EnkaHSR.DBModels.PropertyType: Double]()
         for (key, value) in rawResult {
-            guard let propKey = EnkaHSR.DBModels.PropType(rawValue: key) else { continue }
+            guard let propKey = EnkaHSR.DBModels.PropertyType(rawValue: key) else { continue }
             results[propKey] = value
         }
         return results
     }
 
-    public func query(id: Int) -> [EnkaHSR.DBModels.PropType: Double] {
+    public func query(id: Int) -> [EnkaHSR.DBModels.PropertyType: Double] {
         query(id: id.description)
     }
 }
@@ -119,7 +117,7 @@ extension EnkaHSR.DBModels.Meta {
                 case levelAdd = "LevelAdd"
             }
 
-            let property: EnkaHSR.DBModels.PropType
+            let property: EnkaHSR.DBModels.PropertyType
             let baseValue: Double
             let levelAdd: Double
         }
@@ -131,7 +129,7 @@ extension EnkaHSR.DBModels.Meta {
                 case stepValue = "StepValue"
             }
 
-            let property: EnkaHSR.DBModels.PropType
+            let property: EnkaHSR.DBModels.PropertyType
             let baseValue: Double
             let stepValue: Double
         }
