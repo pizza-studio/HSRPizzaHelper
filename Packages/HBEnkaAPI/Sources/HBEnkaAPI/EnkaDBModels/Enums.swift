@@ -99,8 +99,8 @@ extension EnkaHSR.DBModels.Element {
         return result
     }
 
-    public var iconFileSubPath: String? {
-        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.element)/\(iconFileName)"
+    public var iconFilePath: String? {
+        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.element.rawValue)/\(iconFileName)"
     }
 }
 

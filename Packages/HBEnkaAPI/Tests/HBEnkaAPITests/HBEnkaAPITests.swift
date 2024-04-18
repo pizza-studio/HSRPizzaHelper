@@ -28,6 +28,10 @@ func getBundledLocTable() -> EnkaHSR.DBModels.RawLocTables? {
 // MARK: - HBEnkaAPITests
 
 final class HBEnkaAPITests: XCTestCase {
+    override func setUpWithError() throws {
+        EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
+    }
+
     func testDecodingQueriedResults() throws {
         let filePath = testDataPath + "TestQueryResult.json"
         let dataURL = URL(fileURLWithPath: filePath)
@@ -55,6 +59,8 @@ final class HBEnkaAPITests: XCTestCase {
         XCTAssertEqual(summarized.equippedWeapon.enkaId, 23024)
         XCTAssertEqual(summarized.equippedWeapon.props[0].localizedTitle, "基礎生命值")
         XCTAssertEqual(summarized.artifacts[0].enkaId, 61171)
+        print(summarized.mainInfo.photoFilePath)
+        XCTAssertTrue(FileManager.default.fileExists(atPath: summarized.mainInfo.photoFilePath))
     }
 
     func testPrintAllCharacterNames() throws {

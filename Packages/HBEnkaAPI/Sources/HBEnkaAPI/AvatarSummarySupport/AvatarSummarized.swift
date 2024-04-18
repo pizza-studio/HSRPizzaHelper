@@ -56,8 +56,8 @@ extension EnkaHSR.AvatarSummarized {
             "\(uniqueCharId).png"
         }
 
-        public var photoFileSubPath: String {
-            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character)/\(photoFileName)"
+        public var photoFilePath: String {
+            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character.rawValue)/\(photoFileName)"
         }
     }
 }
@@ -97,8 +97,8 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                 "\(charIdStr)_\(type.rawValue).png"
             }
 
-            public var iconFileSubPath: String {
-                "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.skills)/\(iconFileName)"
+            public var iconFilePath: String {
+                "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.skills.rawValue)/\(iconFileName)"
             }
         }
 
@@ -144,9 +144,9 @@ extension EnkaHSR.AvatarSummarized {
             type.iconFileName
         }
 
-        public var iconFileSubPath: String? {
+        public var iconFilePath: String? {
             guard let iconFileName = iconFileName else { return nil }
-            return "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.property)/\(iconFileName)"
+            return "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.property.rawValue)/\(iconFileName)"
         }
     }
 }
@@ -191,8 +191,8 @@ extension EnkaHSR.AvatarSummarized {
             "\(enkaId).png"
         }
 
-        public var iconFileSubPath: String {
-            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.weapon)/\(iconFileName)"
+        public var iconFilePath: String {
+            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.weapon.rawValue)/\(iconFileName)"
         }
     }
 }
@@ -240,8 +240,8 @@ extension EnkaHSR.AvatarSummarized {
             return "\(coreStr)_\(lastDigit)"
         }
 
-        public var iconFileSubPath: String? {
-            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.artifact)/\(iconFileName)"
+        public var iconFilePath: String? {
+            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.artifact.rawValue)/\(iconFileName)"
         }
     }
 }
