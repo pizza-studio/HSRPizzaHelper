@@ -19,8 +19,8 @@ extension EnkaHSR.DBModels.Meta {
 }
 
 extension EnkaHSR.DBModels.Meta.NestedPropValueMap {
-    public func query(id: some StringProtocol) -> [EnkaHSR.DBModels.PropertyType: Double] {
-        let rawResult = self[id.description]?.first?.value.first?.value ?? [:]
+    public func query(id: some StringProtocol, stage: Int) -> [EnkaHSR.DBModels.PropertyType: Double] {
+        let rawResult = self[id.description]?[stage.description]?["props"] ?? [:]
         var results = [EnkaHSR.DBModels.PropertyType: Double]()
         for (key, value) in rawResult {
             guard let propKey = EnkaHSR.DBModels.PropertyType(rawValue: key) else { continue }
@@ -29,8 +29,8 @@ extension EnkaHSR.DBModels.Meta.NestedPropValueMap {
         return results
     }
 
-    public func query(id: Int) -> [EnkaHSR.DBModels.PropertyType: Double] {
-        query(id: id.description)
+    public func query(id: Int, stage: Int) -> [EnkaHSR.DBModels.PropertyType: Double] {
+        query(id: id.description, stage: stage)
     }
 }
 

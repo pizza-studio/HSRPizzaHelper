@@ -146,16 +146,13 @@ extension EnkaHSR.PropertyType {
     public var iconFileName: String? {
         var nameStem = rawValue
         switch self {
-        case .attackAddedRatio, .defenceAddedRatio, .speedAddedRatio:
-            nameStem = nameStem.replacingOccurrences(of: "AddedRatio", with: "")
-        case .hpAddedRatio: nameStem = "MaxHP"
+        case .baseHP, .hpAddedRatio, .hpDelta: nameStem = "MaxHP"
         case .breakDamageAddedRatio: nameStem = "BreakUp"
-        case .hpDelta: nameStem = "MaxHP"
-        case .defenceDelta: nameStem = "Defence"
-        case .attackDelta: nameStem = "Attack"
+        case .baseDefence, .defenceAddedRatio, .defenceDelta: nameStem = "Defence"
+        case .attackAddedRatio, .attackDelta, .baseAttack: nameStem = "Attack"
         case .criticalChanceBase: nameStem = "CriticalChance"
         case .statusProbabilityBase: nameStem = "StatusProbability"
-        case .speedDelta: nameStem = "Speed"
+        case .speedAddedRatio, .speedDelta: nameStem = "Speed"
         case .energyRecovery: nameStem = "EnergyRecovery"
         case .energyRecoveryBase: nameStem = "EnergyRecovery"
         case .criticalDamageBase: nameStem = "CriticalDamage"
@@ -172,6 +169,7 @@ extension EnkaHSR.PropertyType {
     public var hasPropIcon: Bool {
         switch self {
         case .allDamageTypeAddedRatio: return false // An exceptional case.
+        case .baseAttack, .baseDefence, .baseHP: return true
         case .attack: return true
         case .breakUp: return true
         case .criticalChance: return true

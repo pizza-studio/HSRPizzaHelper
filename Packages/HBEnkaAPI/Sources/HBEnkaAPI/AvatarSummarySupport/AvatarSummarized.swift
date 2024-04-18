@@ -7,7 +7,8 @@ extension EnkaHSR {
     public struct AvatarSummarized: Codable, Hashable {
         public let mainInfo: AvatarMainInfo
         public let equippedWeapon: WeaponPanel
-        public let avatarProperties: [PropertyPair]
+        public let avatarPropertiesA: [PropertyPair]
+        public let avatarPropertiesB: [PropertyPair]
         public let artifacts: [ArtifactInfo]
     }
 }
@@ -181,11 +182,16 @@ extension EnkaHSR.AvatarSummarized {
             self.localizedName = theDB.locTable[nameHash] ?? "EnkaId: \(fetched.tid)"
             self.trainedLevel = fetched.level
             self.refinement = fetched.rank
-            self.props = fetched.flat.props.compactMap { currentRecord in
+            self.basicProps = fetched.flat.props.compactMap { currentRecord in
                 if let theType = EnkaHSR.PropertyType(rawValue: currentRecord.type) {
                     return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value)
                 }
                 return nil
+            }
+            self.specialProps = theDB.meta.equipmentSkill.query(
+                id: enkaId, stage: fetched.rank
+            ).map { key, value in
+                PropertyPair(theDB: theDB, type: key, value: value)
             }
         }
 
@@ -200,7 +206,8 @@ extension EnkaHSR.AvatarSummarized {
         public let localizedName: String
         public let trainedLevel: Int
         public let refinement: Int
-        public let props: [PropertyPair]
+        public let basicProps: [PropertyPair]
+        public let specialProps: [PropertyPair]
 
         public var rarityStars: Int { commonInfo.rarity }
 

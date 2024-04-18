@@ -18,18 +18,37 @@ public struct EachAvatarStatView: View {
     public var body: some View {
         VStack(spacing: 6) {
             data.mainInfo
-            VStack(spacing: 2) {
+            VStack(spacing: 4) {
                 data.equippedWeapon
-                VStack(spacing: 0) {
-                    ForEach(data.avatarProperties, id: \.type) { property in
-                        AttributeTagPair(
-                            icon: property.type.iconFilePath,
-                            title: property.localizedTitle,
-                            valueStr: property.valueString,
-                            fontSize: baseFontSize * 0.95
-                        )
+                HStack {
+                    VStack(spacing: 0) {
+                        ForEach(data.avatarPropertiesA, id: \.type) { property in
+                            AttributeTagPair(
+                                icon: property.type.iconFilePath,
+                                title: property.localizedTitle,
+                                valueStr: property.valueString,
+                                fontSize: baseFontSize * 0.8,
+                                dash: false
+                            )
+                        }
+                    }.fixedSize(horizontal: true, vertical: true)
+                    Divider().overlay {
+                        Color.primary.opacity(0.1)
                     }
+                    VStack(spacing: 0) {
+                        ForEach(data.avatarPropertiesB, id: \.type) { property in
+                            AttributeTagPair(
+                                icon: property.type.iconFilePath,
+                                title: property.localizedTitle,
+                                valueStr: property.valueString,
+                                fontSize: baseFontSize * 0.8,
+                                dash: false
+                            )
+                        }
+                    }.fixedSize(horizontal: false, vertical: true)
                 }
+                .fixedSize(horizontal: false, vertical: true)
+                .minimumScaleFactor(0.5)
             }
             .padding(.horizontal, 11)
             .padding(.vertical, 6)
@@ -42,6 +61,7 @@ public struct EachAvatarStatView: View {
         }
         .fixedSize(horizontal: true, vertical: false)
         .preferredColorScheme(.dark)
+        .padding(.horizontal, 24)
         .background {
             AsyncImage(url: URL(fileURLWithPath: data.mainInfo.photoFilePath)) { imageObj in
                 imageObj
@@ -224,14 +244,27 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel: View {
                 Divider().overlay {
                     Color.primary.opacity(0.6)
                 }.padding(.vertical, 2)
-                ForEach(props, id: \.type) { propUnit in
-                    AttributeTagPair(
-                        icon: propUnit.iconFilePath,
-                        title: propUnit.localizedTitle,
-                        valueStr: propUnit.valueString,
-                        fontSize: baseFontSize * 0.9,
-                        dash: false
-                    )
+                HStack {
+                    ForEach(basicProps, id: \.type) { propUnit in
+                        AttributeTagPair(
+                            icon: propUnit.iconFilePath,
+                            title: "",
+                            valueStr: "+\(propUnit.valueString)",
+                            fontSize: baseFontSize * 0.8,
+                            dash: false
+                        ).fixedSize()
+                    }
+                }
+                HStack {
+                    ForEach(specialProps, id: \.type) { propUnit in
+                        AttributeTagPair(
+                            icon: propUnit.iconFilePath,
+                            title: "",
+                            valueStr: "+\(propUnit.valueString)",
+                            fontSize: baseFontSize * 0.8,
+                            dash: false
+                        )
+                    }.fixedSize()
                 }
             }
         }
@@ -384,7 +417,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
         let filePath = testDataPath + "TestQueryResultEnka.json"
         let dataURL = URL(fileURLWithPath: filePath)
         let profile = try! Data(contentsOf: dataURL).parseAs(EnkaHSR.QueryRelated.QueriedProfile.self)
-        let summary = profile.detailInfo!.avatarDetailList[3].summarize(theDB: enkaDatabase)!
+        let summary = profile.detailInfo!.avatarDetailList[0].summarize(theDB: enkaDatabase)!
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
         return summary
         // swiftlint:enable force_try

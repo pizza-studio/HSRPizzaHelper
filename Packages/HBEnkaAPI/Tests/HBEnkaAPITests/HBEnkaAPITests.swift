@@ -57,7 +57,7 @@ final class HBEnkaAPITests: XCTestCase {
         XCTAssertEqual(summarized.mainInfo.localizedName, "黃泉")
         XCTAssertEqual(summarized.mainInfo.constellation, 2)
         XCTAssertEqual(summarized.equippedWeapon.enkaId, 23024)
-        XCTAssertEqual(summarized.equippedWeapon.props[0].localizedTitle, "基礎生命值")
+        XCTAssertEqual(summarized.equippedWeapon.basicProps[0].localizedTitle, "基礎生命值")
         XCTAssertEqual(summarized.artifacts[0].enkaId, 61171)
         print(summarized.mainInfo.photoFilePath)
         XCTAssertTrue(FileManager.default.fileExists(atPath: summarized.mainInfo.photoFilePath))
