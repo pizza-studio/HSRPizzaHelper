@@ -25,7 +25,8 @@ public struct EachAvatarStatView: View {
                         AttributeTagPair(
                             icon: property.type.iconFilePath,
                             title: property.localizedTitle,
-                            valueStr: property.valueString
+                            valueStr: property.valueString,
+                            fontSize: baseFontSize * 0.95
                         )
                     }
                 }
