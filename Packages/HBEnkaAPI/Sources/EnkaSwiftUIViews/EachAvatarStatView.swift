@@ -200,7 +200,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill: View {
 
 extension EnkaHSR.AvatarSummarized.WeaponPanel: View {
     public var body: some View {
-        HStack(spacing: 14) {
+        HStack(spacing: 6) {
             AsyncImage(url: URL(fileURLWithPath: iconFilePath)) { imageObj in
                 imageObj
                     .resizable()
