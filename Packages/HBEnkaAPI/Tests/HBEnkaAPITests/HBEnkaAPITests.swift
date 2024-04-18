@@ -33,7 +33,7 @@ final class HBEnkaAPITests: XCTestCase {
     }
 
     func testDecodingQueriedResults() throws {
-        let filePath = testDataPath + "TestQueryResult.json"
+        let filePath = testDataPath + "TestQueryResultEnka.json"
         let dataURL = URL(fileURLWithPath: filePath)
         guard let jsonData = try? Data(contentsOf: dataURL) else {
             assertionFailure("!!! Cannot access Enka Query Result JSON data.")

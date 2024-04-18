@@ -381,7 +381,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
             separator: "/"
         ).dropFirst()
         let testDataPath: String = packageRootPath + "/Tests/TestData/"
-        let filePath = testDataPath + "TestQueryResult.json"
+        let filePath = testDataPath + "TestQueryResultEnka.json"
         let dataURL = URL(fileURLWithPath: filePath)
         let profile = try! Data(contentsOf: dataURL).parseAs(EnkaHSR.QueryRelated.QueriedProfile.self)
         let summary = profile.detailInfo!.avatarDetailList[3].summarize(theDB: enkaDatabase)!
