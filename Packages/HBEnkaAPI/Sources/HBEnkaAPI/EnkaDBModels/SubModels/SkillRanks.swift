@@ -5,7 +5,7 @@
 extension EnkaHSR.DBModels {
     public typealias SkillRanksDict = [String: SkillRank]
 
-    public struct SkillRank: Codable {
+    public struct SkillRank: Codable, Hashable {
         // MARK: Public
 
         public let iconPath: String

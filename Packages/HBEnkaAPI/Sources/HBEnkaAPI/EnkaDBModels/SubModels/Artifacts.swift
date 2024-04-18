@@ -7,7 +7,7 @@
 extension EnkaHSR.DBModels {
     public typealias ArtifactsDict = [String: Artifact]
 
-    public struct Artifact: Codable {
+    public struct Artifact: Codable, Hashable {
         // MARK: Public
 
         public let rarity: Int

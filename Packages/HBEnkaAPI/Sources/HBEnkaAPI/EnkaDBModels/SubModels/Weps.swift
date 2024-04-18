@@ -5,10 +5,10 @@
 extension EnkaHSR.DBModels {
     public typealias WeaponsDict = [String: Weapon]
 
-    public struct Weapon: Codable {
+    public struct Weapon: Codable, Hashable {
         // MARK: Public
 
-        public struct EquipmentName: Codable {
+        public struct EquipmentName: Codable, Hashable {
             // MARK: Public
 
             public let hash: Int

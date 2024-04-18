@@ -63,6 +63,20 @@ final class HBEnkaAPITests: XCTestCase {
         XCTAssertTrue(FileManager.default.fileExists(atPath: summarized.mainInfo.photoFilePath))
     }
 
+    func testAllPropertyIconFileAccess() throws {
+        let fileMgr = FileManager.default
+        EnkaHSR.PropertyType.allCases.filter(\.hasPropIcon).forEach { prop in
+            XCTAssertNotNil(prop.iconFilePath)
+            guard let iconPath = prop.iconFilePath else { return }
+            let exists = fileMgr.fileExists(atPath: iconPath)
+            if !exists {
+                print("\nPath: \(iconPath)")
+                XCTAssertTrue(exists)
+                print("\n")
+            }
+        }
+    }
+
     func testPrintAllCharacterNames() throws {
         guard let locTable = getBundledLocTable()?["zh-tw"], let charTable = getBundledCharTable() else { return }
         charTable.forEach { charId, character in

@@ -5,7 +5,7 @@
 extension EnkaHSR.QueryRelated {
     // MARK: - QueriedProfile
 
-    public struct QueriedProfile: Codable {
+    public struct QueriedProfile: Codable, Hashable {
         public let detailInfo: DetailInfo?
         public let uid: String
         public let message: String?
@@ -13,7 +13,7 @@ extension EnkaHSR.QueryRelated {
 
     // MARK: - DetailInfo
 
-    public struct DetailInfo: Codable {
+    public struct DetailInfo: Codable, Hashable {
         public let platform, level, friendCount: Int
         public let signature: String
         public let recordInfo: RecordInfo
@@ -28,7 +28,7 @@ extension EnkaHSR.QueryRelated {
 extension EnkaHSR.QueryRelated.DetailInfo {
     // MARK: - Avatar
 
-    public struct Avatar: Codable {
+    public struct Avatar: Codable, Hashable {
         // MARK: Public
 
         public let level, avatarId: Int
@@ -57,7 +57,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
     // MARK: - Equipment
 
-    public struct Equipment: Codable {
+    public struct Equipment: Codable, Hashable {
         // MARK: Public
 
         public let rank, level, tid, promotion: Int
@@ -76,33 +76,33 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
     // MARK: - EquipmentFlat
 
-    public struct EquipmentFlat: Codable {
+    public struct EquipmentFlat: Codable, Hashable {
         public let props: [Prop]
         public let name: Int
     }
 
     // MARK: - Prop
 
-    public struct Prop: Codable {
+    public struct Prop: Codable, Hashable {
         public let type: String
         public let value: Double
     }
 
     // MARK: - ArtifactItem
 
-    public struct ArtifactItem: Codable {
+    public struct ArtifactItem: Codable, Hashable {
         // MARK: Public
 
         // MARK: - SubAffixList
 
-        public struct SubAffixItem: Codable {
+        public struct SubAffixItem: Codable, Hashable {
             public let affixId, cnt: Int
             public let step: Int?
         }
 
         // MARK: - ArtifactItem.Flat
 
-        public struct Flat: Codable {
+        public struct Flat: Codable, Hashable {
             public let props: [Prop]
             public let setName, setID: Int
         }
@@ -129,13 +129,13 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
     // MARK: - SkillTreeItem
 
-    public struct SkillTreeItem: Codable {
+    public struct SkillTreeItem: Codable, Hashable {
         public let pointId, level: Int
     }
 
     // MARK: - RecordInfo
 
-    public struct RecordInfo: Codable {
+    public struct RecordInfo: Codable, Hashable {
         public let maxRogueChallengeScore, achievementCount: Int
         public let challengeInfo: ChallengeInfo
         public let equipmentCount, avatarCount: Int
@@ -143,7 +143,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
     // MARK: - ChallengeInfo
 
-    public struct ChallengeInfo: Codable {
+    public struct ChallengeInfo: Codable, Hashable {
         public let scheduleGroupId: Int
     }
 }

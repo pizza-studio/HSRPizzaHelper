@@ -3,7 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 extension EnkaHSR.DBModels {
-    public struct Meta: Codable {
+    public struct Meta: Codable, Hashable {
         public let avatar: RawAvatarMetaDict
         public let equipment: RawEquipmentMetaDict
         public let equipmentSkill: RawEquipSkillMetaDict
@@ -39,7 +39,7 @@ extension EnkaHSR.DBModels.Meta.NestedPropValueMap {
 extension EnkaHSR.DBModels.Meta {
     public typealias RawAvatarMetaDict = [String: [String: AvatarMeta]]
 
-    public struct AvatarMeta: Codable {
+    public struct AvatarMeta: Codable, Hashable {
         // MARK: Public
 
         public let hpBase: Double
@@ -75,7 +75,7 @@ extension EnkaHSR.DBModels.Meta {
 extension EnkaHSR.DBModels.Meta {
     public typealias RawEquipmentMetaDict = [String: [String: EquipmentMeta]]
 
-    public struct EquipmentMeta: Codable {
+    public struct EquipmentMeta: Codable, Hashable {
         // MARK: Public
 
         public let baseHP: Double
@@ -109,8 +109,8 @@ extension EnkaHSR.DBModels.Meta {
 // Relic = Artifact
 
 extension EnkaHSR.DBModels.Meta {
-    public struct RawRelicDB: Codable {
-        public struct MainAffix: Codable {
+    public struct RawRelicDB: Codable, Hashable {
+        public struct MainAffix: Codable, Hashable {
             enum CodingKeys: String, CodingKey {
                 case property = "Property"
                 case baseValue = "BaseValue"
@@ -122,7 +122,7 @@ extension EnkaHSR.DBModels.Meta {
             let levelAdd: Double
         }
 
-        public struct SubAffix: Codable {
+        public struct SubAffix: Codable, Hashable {
             enum CodingKeys: String, CodingKey {
                 case property = "Property"
                 case baseValue = "BaseValue"

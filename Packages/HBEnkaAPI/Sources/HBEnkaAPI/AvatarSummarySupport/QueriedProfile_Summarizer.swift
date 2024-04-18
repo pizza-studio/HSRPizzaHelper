@@ -25,7 +25,16 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
         }
 
         // TODO: EnkaHSR requires manual calculation of avatar properties.
+        let testPair1 = EnkaHSR.AvatarSummarized.PropertyPair(theDB: theDB, type: .maxHP, value: 114)
+        let testPair2 = EnkaHSR.AvatarSummarized.PropertyPair(theDB: theDB, type: .defence, value: 514)
+        let testPair3 = EnkaHSR.AvatarSummarized.PropertyPair(theDB: theDB, type: .criticalDamage, value: 1.919)
+        let testPair4 = EnkaHSR.AvatarSummarized.PropertyPair(theDB: theDB, type: .criticalChance, value: 0.81)
 
-        return .init(mainInfo: mainInfo, equippedWeapon: equipInfo, avatarProperties: [], artifacts: artifactsInfo)
+        return .init(
+            mainInfo: mainInfo,
+            equippedWeapon: equipInfo,
+            avatarProperties: [testPair1, testPair2, testPair3, testPair4],
+            artifacts: artifactsInfo
+        )
     }
 }

@@ -5,10 +5,10 @@
 extension EnkaHSR.DBModels {
     public typealias CharacterDict = [String: Character]
 
-    public struct Character: Codable {
+    public struct Character: Codable, Hashable {
         // MARK: Public
 
-        public struct AvatarFullName: Codable {
+        public struct AvatarFullName: Codable, Hashable {
             // MARK: Public
 
             public let hash: Int64
@@ -20,7 +20,7 @@ extension EnkaHSR.DBModels {
             }
         }
 
-        public struct AvatarName: Codable {
+        public struct AvatarName: Codable, Hashable {
             // MARK: Public
 
             public let hash: Int64

@@ -7,7 +7,7 @@
 extension EnkaHSR.DBModels {
     public typealias ProfileAvatarDict = [String: ProfileAvatar]
 
-    public struct ProfileAvatar: Codable {
+    public struct ProfileAvatar: Codable, Hashable {
         // MARK: Public
 
         public let icon: String

@@ -4,7 +4,7 @@
 
 extension EnkaHSR {
     /// The backend struct dedicated for rendering EachAvatarStatView.
-    public struct AvatarSummarized: Codable {
+    public struct AvatarSummarized: Codable, Hashable {
         public let mainInfo: AvatarMainInfo
         public let equippedWeapon: WeaponPanel
         public let avatarProperties: [PropertyPair]
@@ -15,7 +15,7 @@ extension EnkaHSR {
 // MARK: - AvatarMainInfo & BaseSkillSet
 
 extension EnkaHSR.AvatarSummarized {
-    public struct AvatarMainInfo: Codable {
+    public struct AvatarMainInfo: Codable, Hashable {
         // MARK: Lifecycle
 
         public init?(
@@ -59,12 +59,16 @@ extension EnkaHSR.AvatarSummarized {
         public var photoFilePath: String {
             "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character.rawValue)/\(photoFileName)"
         }
+
+        public var avatarFilePath: String {
+            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.profileAvatar.rawValue)/\(photoFileName)"
+        }
     }
 }
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     /// Base Skill Set of a Character, excluding Technique since it doesn't have a level.
-    public struct BaseSkillSet: Codable {
+    public struct BaseSkillSet: Codable, Hashable {
         // MARK: Lifecycle
 
         public init?(
@@ -80,9 +84,9 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
 
         // MARK: Public
 
-        public struct BaseSkill: Codable {
-            public enum SkillType: String, Codable {
-                case basicAttack = "base_atk"
+        public struct BaseSkill: Codable, Hashable {
+            public enum SkillType: String, Codable, Hashable {
+                case basicAttack = "basic_atk"
                 case elementalSkill = "skill"
                 case elementalBurst = "ultimate"
                 case talent
@@ -120,13 +124,14 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
 // MARK: - PropertyPair
 
 extension EnkaHSR.AvatarSummarized {
-    public struct PropertyPair: Codable {
+    public struct PropertyPair: Codable, Hashable, Identifiable {
         // MARK: Lifecycle
 
-        public init(theDB: EnkaHSR.EnkaDB, type: EnkaHSR.PropertyType, value: Double) {
+        public init(theDB: EnkaHSR.EnkaDB, type: EnkaHSR.PropertyType, value: Double, isArtifact: Bool = false) {
             self.type = type
             self.value = value
-            self.localizedTitle = theDB.locTable[type.rawValue] ?? type.rawValue
+            self.localizedTitle = (theDB.locTable[type.rawValue] ?? type.rawValue)
+            self.isArtifact = isArtifact
         }
 
         // MARK: Public
@@ -134,10 +139,18 @@ extension EnkaHSR.AvatarSummarized {
         public let type: EnkaHSR.PropertyType
         public let value: Double
         public let localizedTitle: String
+        public let isArtifact: Bool
+
+        public var id: EnkaHSR.PropertyType { type }
 
         public var valueString: String {
-            // TODO: Need to implement something here to determine whether it should be represented as percentage.
-            value.roundToPlaces(places: 2).description
+            var copiedValue = value
+            let prefix = isArtifact ? "+" : ""
+            if type.isPercentage {
+                copiedValue *= 100
+                return prefix + copiedValue.roundToPlaces(places: 1).description + "%"
+            }
+            return prefix + Int(copiedValue).description
         }
 
         public var iconFileName: String? {
@@ -145,8 +158,7 @@ extension EnkaHSR.AvatarSummarized {
         }
 
         public var iconFilePath: String? {
-            guard let iconFileName = iconFileName else { return nil }
-            return "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.property.rawValue)/\(iconFileName)"
+            type.iconFilePath
         }
     }
 }
@@ -154,7 +166,7 @@ extension EnkaHSR.AvatarSummarized {
 // MARK: - WeaponPanel
 
 extension EnkaHSR.AvatarSummarized {
-    public struct WeaponPanel: Codable {
+    public struct WeaponPanel: Codable, Hashable {
         // MARK: Lifecycle
 
         public init?(
@@ -166,6 +178,8 @@ extension EnkaHSR.AvatarSummarized {
             self.commonInfo = theCommonInfo
             self.paramDataFetched = fetched
             self.localizedName = theDB.locTable[fetched.tid.description] ?? "EnkaId: \(fetched.tid)"
+            self.trainedLevel = fetched.level
+            self.refinement = fetched.rank
             self.props = fetched.flat.props.compactMap { currentRecord in
                 if let theType = EnkaHSR.PropertyType(rawValue: currentRecord.type) {
                     return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value)
@@ -183,6 +197,8 @@ extension EnkaHSR.AvatarSummarized {
         /// Data from Enka query result profile.
         public let paramDataFetched: EnkaHSR.QueryRelated.DetailInfo.Equipment
         public let localizedName: String
+        public let trainedLevel: Int
+        public let refinement: Int
         public let props: [PropertyPair]
 
         public var rarityStars: Int { commonInfo.rarity }
@@ -200,7 +216,7 @@ extension EnkaHSR.AvatarSummarized {
 // MARK: - ArtifactInfo
 
 extension EnkaHSR.AvatarSummarized {
-    public struct ArtifactInfo: Codable {
+    public struct ArtifactInfo: Codable, Hashable, Identifiable {
         // MARK: Lifecycle
 
         public init?(theDB: EnkaHSR.EnkaDB, fetched: EnkaHSR.QueryRelated.DetailInfo.ArtifactItem) {
@@ -210,7 +226,7 @@ extension EnkaHSR.AvatarSummarized {
             self.paramDataFetched = fetched
             let props: [PropertyPair] = fetched.flat.props.compactMap { currentRecord in
                 if let theType = EnkaHSR.PropertyType(rawValue: currentRecord.type) {
-                    return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value)
+                    return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value, isArtifact: true)
                 }
                 return nil
             }
@@ -230,17 +246,21 @@ extension EnkaHSR.AvatarSummarized {
         public let mainProp: PropertyPair
         public let subProps: [PropertyPair]
 
+        public var trainedLevel: Int { paramDataFetched.level ?? 0 }
         public var rarityStars: Int { commonInfo.rarity }
+        public var id: Int { enkaId }
 
         public var iconFileName: String {
             let str = paramDataFetched.tid.description
             guard str.count == 5 else { return "ARTIFACT_IMG_FOR_TID_\(str)" }
             let coreStr = str.dropFirst().dropLast()
-            let lastDigit = (Int(str.last?.description ?? "2") ?? 2) - 1
-            return "\(coreStr)_\(lastDigit)"
+            var lastDigit = (Int(str.last?.description ?? "2") ?? 2)
+            if lastDigit >= 5 { lastDigit -= 4 }
+            lastDigit -= 1
+            return "\(coreStr)_\(lastDigit).png"
         }
 
-        public var iconFilePath: String? {
+        public var iconFilePath: String {
             "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.artifact.rawValue)/\(iconFileName)"
         }
     }

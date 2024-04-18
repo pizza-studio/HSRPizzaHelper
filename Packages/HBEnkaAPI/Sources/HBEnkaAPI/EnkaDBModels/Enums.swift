@@ -5,7 +5,7 @@
 extension EnkaHSR.DBModels {
     /// Elements used in HSR, using Ancient Greek namings (same as Genshin).
     /// - remark: Typealiased as `EnkaHSR.Element`.`
-    public enum Element: String, Codable, CaseIterable {
+    public enum Element: String, Codable, Hashable, CaseIterable {
         case physico = "Physical"
         case anemo = "Wind"
         case electro = "Thunder"
@@ -15,7 +15,7 @@ extension EnkaHSR.DBModels {
         case cryo = "Ice"
     }
 
-    public enum LifePath: String, Codable, CaseIterable {
+    public enum LifePath: String, Codable, Hashable, CaseIterable {
         case none = "None"
         case destruction = "Warrior"
         case hunt = "Rogue"
@@ -26,7 +26,7 @@ extension EnkaHSR.DBModels {
         case abundance = "Priest"
     }
 
-    public enum PropertyType: String, Codable, CaseIterable {
+    public enum PropertyType: String, Codable, Hashable, CaseIterable {
         case anemoAddedRatio = "WindAddedRatio"
         case anemoResistance = "WindResistance"
         case anemoResistanceDelta = "WindResistanceDelta"
@@ -71,8 +71,8 @@ extension EnkaHSR.DBModels {
         case healRatio = "HealRatio"
         case healRatioBase = "HealRatioBase"
         case healTakenRatio = "HealTakenRatio"
-        case hPAddedRatio = "HPAddedRatio"
-        case hPDelta = "HPDelta"
+        case hpAddedRatio = "HPAddedRatio"
+        case hpDelta = "HPDelta"
         case maxHP = "MaxHP"
         case maxSP = "MaxSP"
         case speed = "Speed"
@@ -99,7 +99,7 @@ extension EnkaHSR.DBModels.Element {
         return result
     }
 
-    public var iconFilePath: String? {
+    public var iconFilePath: String {
         "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.element.rawValue)/\(iconFileName)"
     }
 }
@@ -108,11 +108,53 @@ extension EnkaHSR.DBModels.LifePath {
     public var iconFileName: String {
         String(describing: self).capitalized + ".png"
     }
+
+    public var iconFilePath: String {
+        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.lifePath.rawValue)/\(iconFileName)"
+    }
 }
 
 extension EnkaHSR.PropertyType {
+    public var titleSuffix: String {
+        var result = ""
+        if isDelta { result = "+" }
+        if isPercentage { result = "%" }
+        return result
+    }
+
+    public var isDelta: Bool { rawValue.suffix(5) == "Delta" }
+
+    public var isPercentage: Bool {
+        rawValue.contains("Chance")
+            || rawValue.contains("Probability")
+            || rawValue.contains("Ratio")
+            || rawValue.contains("Crit")
+            || rawValue.contains("StatusResistance")
+    }
+
     public var iconFileName: String? {
-        hasPropIcon ? "Icon\(rawValue).png" : nil
+        var nameStem = rawValue
+        switch self {
+        case .attackAddedRatio, .defenceAddedRatio, .speedAddedRatio:
+            nameStem = nameStem.replacingOccurrences(of: "AddedRatio", with: "")
+        case .hpAddedRatio: nameStem = "MaxHP"
+        case .breakDamageAddedRatio: nameStem = "BreakUp"
+        case .hpDelta: nameStem = "MaxHP"
+        case .defenceDelta: nameStem = "Defence"
+        case .attackDelta: nameStem = "Attack"
+        case .criticalChanceBase: nameStem = "CriticalChance"
+        case .statusProbabilityBase: nameStem = "StatusProbability"
+        case .speedDelta: nameStem = "Speed"
+        case .spRatioBase: nameStem = "StatusProbability"
+        case .criticalDamageBase: nameStem = "CriticalDamage"
+        default: break
+        }
+        return hasPropIcon ? "Icon\(nameStem).png" : nil
+    }
+
+    public var iconFilePath: String? {
+        guard let iconFileName = iconFileName else { return nil }
+        return "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.property.rawValue)/\(iconFileName)"
     }
 
     public var hasPropIcon: Bool {
@@ -144,6 +186,21 @@ extension EnkaHSR.PropertyType {
         case .electroResistanceDelta: return true
         case .anemoAddedRatio: return true
         case .anemoResistanceDelta: return true
+
+        // Other cases requiring reusing existing icons.
+        case .hpDelta: return true
+        case .defenceDelta: return true
+        case .hpAddedRatio: return true
+        case .defenceAddedRatio: return true
+        case .attackDelta: return true
+        case .attackAddedRatio: return true
+        case .criticalChanceBase: return true
+        case .breakDamageAddedRatio: return true
+        case .statusProbabilityBase: return true
+        case .speedDelta: return true
+        case .spRatioBase: return true
+        case .criticalDamageBase: return true
+
         default:
             // Just in case that there will be new elements available.
             let condition1 = rawValue.suffix(10) == "AddedRatio" || rawValue.suffix(15) == "ResistanceDelta"
