@@ -33,7 +33,7 @@ final class HBEnkaAPITests: XCTestCase {
     }
 
     func testDecodingQueriedResults() throws {
-        let filePath = testDataPath + "TestQueryResult.json"
+        let filePath = testDataPath + "TestQueryResultEnka.json"
         let dataURL = URL(fileURLWithPath: filePath)
         guard let jsonData = try? Data(contentsOf: dataURL) else {
             assertionFailure("!!! Cannot access Enka Query Result JSON data.")
@@ -57,10 +57,24 @@ final class HBEnkaAPITests: XCTestCase {
         XCTAssertEqual(summarized.mainInfo.localizedName, "黃泉")
         XCTAssertEqual(summarized.mainInfo.constellation, 2)
         XCTAssertEqual(summarized.equippedWeapon.enkaId, 23024)
-        XCTAssertEqual(summarized.equippedWeapon.props[0].localizedTitle, "基礎生命值")
+        XCTAssertEqual(summarized.equippedWeapon.basicProps[0].localizedTitle, "基礎生命值")
         XCTAssertEqual(summarized.artifacts[0].enkaId, 61171)
         print(summarized.mainInfo.photoFilePath)
         XCTAssertTrue(FileManager.default.fileExists(atPath: summarized.mainInfo.photoFilePath))
+    }
+
+    func testAllPropertyIconFileAccess() throws {
+        let fileMgr = FileManager.default
+        EnkaHSR.PropertyType.allCases.filter(\.hasPropIcon).forEach { prop in
+            XCTAssertNotNil(prop.iconFilePath)
+            guard let iconPath = prop.iconFilePath else { return }
+            let exists = fileMgr.fileExists(atPath: iconPath)
+            if !exists {
+                print("\nPath: \(iconPath)")
+                XCTAssertTrue(exists)
+                print("\n")
+            }
+        }
     }
 
     func testPrintAllCharacterNames() throws {

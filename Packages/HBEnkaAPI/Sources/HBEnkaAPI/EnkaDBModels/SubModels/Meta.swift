@@ -3,7 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 extension EnkaHSR.DBModels {
-    public struct Meta: Codable {
+    public struct Meta: Codable, Hashable {
         public let avatar: RawAvatarMetaDict
         public let equipment: RawEquipmentMetaDict
         public let equipmentSkill: RawEquipSkillMetaDict
@@ -19,8 +19,8 @@ extension EnkaHSR.DBModels.Meta {
 }
 
 extension EnkaHSR.DBModels.Meta.NestedPropValueMap {
-    public func query(id: some StringProtocol) -> [EnkaHSR.DBModels.PropertyType: Double] {
-        let rawResult = self[id.description]?.first?.value.first?.value ?? [:]
+    public func query(id: some StringProtocol, stage: Int) -> [EnkaHSR.DBModels.PropertyType: Double] {
+        let rawResult = self[id.description]?[stage.description]?["props"] ?? [:]
         var results = [EnkaHSR.DBModels.PropertyType: Double]()
         for (key, value) in rawResult {
             guard let propKey = EnkaHSR.DBModels.PropertyType(rawValue: key) else { continue }
@@ -29,8 +29,8 @@ extension EnkaHSR.DBModels.Meta.NestedPropValueMap {
         return results
     }
 
-    public func query(id: Int) -> [EnkaHSR.DBModels.PropertyType: Double] {
-        query(id: id.description)
+    public func query(id: Int, stage: Int) -> [EnkaHSR.DBModels.PropertyType: Double] {
+        query(id: id.description, stage: stage)
     }
 }
 
@@ -39,7 +39,7 @@ extension EnkaHSR.DBModels.Meta.NestedPropValueMap {
 extension EnkaHSR.DBModels.Meta {
     public typealias RawAvatarMetaDict = [String: [String: AvatarMeta]]
 
-    public struct AvatarMeta: Codable {
+    public struct AvatarMeta: Codable, Hashable {
         // MARK: Public
 
         public let hpBase: Double
@@ -75,7 +75,7 @@ extension EnkaHSR.DBModels.Meta {
 extension EnkaHSR.DBModels.Meta {
     public typealias RawEquipmentMetaDict = [String: [String: EquipmentMeta]]
 
-    public struct EquipmentMeta: Codable {
+    public struct EquipmentMeta: Codable, Hashable {
         // MARK: Public
 
         public let baseHP: Double
@@ -109,8 +109,8 @@ extension EnkaHSR.DBModels.Meta {
 // Relic = Artifact
 
 extension EnkaHSR.DBModels.Meta {
-    public struct RawRelicDB: Codable {
-        public struct MainAffix: Codable {
+    public struct RawRelicDB: Codable, Hashable {
+        public struct MainAffix: Codable, Hashable {
             enum CodingKeys: String, CodingKey {
                 case property = "Property"
                 case baseValue = "BaseValue"
@@ -122,7 +122,7 @@ extension EnkaHSR.DBModels.Meta {
             let levelAdd: Double
         }
 
-        public struct SubAffix: Codable {
+        public struct SubAffix: Codable, Hashable {
             enum CodingKeys: String, CodingKey {
                 case property = "Property"
                 case baseValue = "BaseValue"
