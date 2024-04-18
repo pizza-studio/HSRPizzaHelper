@@ -373,6 +373,7 @@ public struct AttributeTagPair: View {
 
 struct EachAvatarStatView_Previews: PreviewProvider {
     static let summary: EnkaHSR.AvatarSummarized = {
+        // swiftlint:disable force_try
         // Note: Do not use #Preview. Otherwise, the preview won't be able to access the assets.
         let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-tw")!
         let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
@@ -385,6 +386,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
         let summary = profile.detailInfo!.avatarDetailList[3].summarize(theDB: enkaDatabase)!
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
         return summary
+        // swiftlint:enable force_try
     }()
 
     static var previews: some View {
