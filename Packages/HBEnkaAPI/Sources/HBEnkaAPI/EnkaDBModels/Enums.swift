@@ -150,6 +150,7 @@ extension EnkaHSR.PropertyType {
             || rawValue.contains("Ratio")
             || rawValue.contains("Crit")
             || rawValue.contains("StatusResistance")
+            || rawValue.contains("BreakUp")
     }
 
     public var iconFileName: String? {

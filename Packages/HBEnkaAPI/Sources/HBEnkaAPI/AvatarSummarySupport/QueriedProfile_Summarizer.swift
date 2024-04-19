@@ -26,17 +26,72 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
             EnkaHSR.AvatarSummarized.ArtifactInfo(theDB: theDB, fetched: $0)
         }
 
-        // Panel: Add values from catched Metadata
+        // According to Haku Bill:
+        // 「每一个属性是基础数值（角色自带+武器自带）* 所有来自圣遗物等的百分比的总和 + 来自圣遗物的数值。」
+        // TODO: 得请专人来检查这里的数值计算方法。此处还缺很多数据、还有很多算法是错的。
+
+        // Panel: Add basic values from catched character Metadata.
         let baseMeta = theDB.meta.avatar[avatarId.description]?[promotion.description]
         guard let baseMeta = baseMeta else { return nil }
         var panel = MutableAvatarPropertyPanel()
-        panel.maxHP = baseMeta.hpBase + baseMeta.hpAdd
-        panel.attack = baseMeta.attackBase + baseMeta.attackAdd
-        panel.defence = baseMeta.defenceBase + baseMeta.defenceAdd
+        panel.maxHP = baseMeta.hpBase // + baseMeta.hpAdd
+        panel.attack = baseMeta.attackBase // + baseMeta.attackAdd
+        panel.defence = baseMeta.defenceBase // + baseMeta.defenceAdd
         panel.speed = baseMeta.speedBase
         panel.criticalChance = baseMeta.criticalChance
         panel.criticalDamage = baseMeta.criticalDamage
-        // TODO: 得请专人来检查这里的数值计算方法。此处还缺很多数据、还有很多算法是错的。
+
+        // Panel: Handle all additional props
+
+        // Panel: 来自武器的面板加成。
+        // English: Base and Additional Props from the Weapon.
+
+        let weaponProps: [EnkaHSR.AvatarSummarized.PropertyPair] = equipInfo.allProps
+        panel.triageAndHandle(weaponProps, element: mainInfo.element, postAmp: true)
+
+        // Panel: 来自天赋树的面板加成。
+        // English: Base and Additional Props from the Skill Tree.
+
+        let skillTreeProps: [EnkaHSR.AvatarSummarized.PropertyPair] = skillTreeList.compactMap { currentNode in
+            if currentNode.level == 1 {
+                return theDB.meta.tree.query(id: currentNode.pointId, stage: 1).map {
+                    EnkaHSR.AvatarSummarized.PropertyPair(theDB: theDB, type: $0.key, value: $0.value)
+                }
+            }
+            return nil
+        }.reduce([], +)
+        panel.triageAndHandle(skillTreeProps, element: mainInfo.element, postAmp: true)
+
+        // Panel: 来自圣遗物的面板加成。
+        // English: Additional Props from the Artifacts.
+
+        let artifactProps: [EnkaHSR.AvatarSummarized.PropertyPair] = artifactsInfo.map(\.allProps).reduce([], +)
+        panel.triageAndHandle(artifactProps, element: mainInfo.element, postAmp: false)
+
+        // Panel: 来自圣遗物套装特效的面板加成。
+        // English: Additional Props from the Artifact Set Effects.
+
+        let artifactSetProps: [EnkaHSR.AvatarSummarized.PropertyPair] = {
+            var resultPairs = [EnkaHSR.AvatarSummarized.PropertyPair]()
+            var setIDCounters: [Int: Int] = [:]
+            artifactsInfo.map(\.paramDataFetched.flat.setID).forEach { setIDCounters[$0, default: 0] += 1 }
+            setIDCounters.forEach { setId, count in
+                guard count >= 2 else { return }
+                let x = theDB.meta.relic.setSkill.query(id: setId, stage: 2).map {
+                    EnkaHSR.AvatarSummarized.PropertyPair(theDB: theDB, type: $0.key, value: $0.value)
+                }
+                resultPairs.append(contentsOf: x)
+                guard count >= 4 else { return }
+                let y = theDB.meta.relic.setSkill.query(id: setId, stage: 4).map {
+                    EnkaHSR.AvatarSummarized.PropertyPair(theDB: theDB, type: $0.key, value: $0.value)
+                }
+                resultPairs.append(contentsOf: y)
+            }
+            return resultPairs
+        }()
+        panel.triageAndHandle(artifactSetProps, element: mainInfo.element, postAmp: false)
+
+        // Panel: 将最终面板转成输出物件要用到的格式。
 
         let propPair = panel.converted(theDB: theDB, element: mainInfo.element)
 
@@ -53,6 +108,8 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
 // MARK: - MutableAvatarPropertyPanel
 
 private struct MutableAvatarPropertyPanel {
+    // MARK: Public
+
     public var maxHP: Double = 0
     public var attack: Double = 0
     public var defence: Double = 0
@@ -86,5 +143,83 @@ private struct MutableAvatarPropertyPanel {
         resultB.append(.init(theDB: theDB, type: .healRatio, value: healRatio))
         resultB.append(.init(theDB: theDB, type: element.damageAddedRatioProperty, value: elementalDMGAddedRatio))
         return (resultA, resultB)
+    }
+
+    /// Triage the property pairs into two categories, and then handle them.
+    /// - Parameters:
+    ///   - newProps: An array of property pairs to addup to self.
+    ///   - element: The element of the character, affecting which element's damange added ratio will be respected.
+    ///   - postAmp: If this turns on, all handling of non-amplifier property pairs will be prioritized. Vice-versa.
+    public mutating func triageAndHandle(
+        _ newProps: [EnkaHSR.AvatarSummarized.PropertyPair],
+        element: EnkaHSR.Element,
+        postAmp: Bool
+    ) {
+        var propAmplifiers = [EnkaHSR.AvatarSummarized.PropertyPair]()
+        var propAdditions = [EnkaHSR.AvatarSummarized.PropertyPair]()
+        newProps.forEach { $0.triage(amp: &propAmplifiers, add: &propAdditions, element: element) }
+
+        if postAmp {
+            propAdditions.forEach { handle($0, element: element) }
+            propAmplifiers.forEach { handle($0, element: element) }
+        } else {
+            propAmplifiers.forEach { handle($0, element: element) }
+            propAdditions.forEach { handle($0, element: element) }
+        }
+    }
+
+    // MARK: Private
+
+    // swiftlint:disable cyclomatic_complexity
+    private mutating func handle(
+        _ prop: EnkaHSR.AvatarSummarized.PropertyPair,
+        element: EnkaHSR.Element
+    ) {
+        switch prop.type {
+        // 星穹铁道没有附魔，所以只要是与角色属性不匹配的元素伤害加成都是狗屁。
+        case element.damageAddedRatioProperty: elementalDMGAddedRatio += prop.value
+        case .attack, .attackDelta, .baseAttack: attack += prop.value
+        case .attackAddedRatio: attack *= (1 + prop.value)
+        case .baseHP, .hpAddedRatio, .hpDelta, .maxHP: maxHP += prop.value
+        case .baseSpeed, .speed, .speedDelta: speed += prop.value
+        case .speedAddedRatio: speed *= (1 + prop.value)
+        case .criticalChance, .criticalChanceBase: criticalChance += prop.value
+        case .criticalDamage, .criticalDamageBase: criticalDamage += prop.value
+        case .baseDefence, .defence, .defenceDelta: defence += prop.value
+        case .defenceAddedRatio: defence *= (1 + prop.value)
+        case .energyRecovery, .energyRecoveryBase: energyRecovery += prop.value
+        case .healRatio, .healRatioBase: healRatio += prop.value
+        case .statusProbability, .statusProbabilityBase: statusProbability += prop.value
+        case .statusResistance, .statusResistanceBase: statusResistance += prop.value
+        case .breakDamageAddedRatio, .breakDamageAddedRatioBase, .breakUp:
+            breakUp += prop.value
+        default: return
+        }
+    }
+    // swiftlint:enable cyclomatic_complexity
+}
+
+extension EnkaHSR.AvatarSummarized.PropertyPair {
+    func triage(
+        amp arrAmp: inout [EnkaHSR.AvatarSummarized.PropertyPair],
+        add arrAdd: inout [EnkaHSR.AvatarSummarized.PropertyPair],
+        element: EnkaHSR.Element
+    ) {
+        switch type {
+        case .attackAddedRatio, .defenceAddedRatio, .speedAddedRatio: arrAmp.append(self)
+        case .attack, .attackDelta,
+             .baseAttack, .baseDefence, .baseHP, .baseSpeed,
+             .breakDamageAddedRatio, .breakDamageAddedRatioBase,
+             .breakUp, .criticalChance, .criticalChanceBase,
+             .criticalDamage, .criticalDamageBase, .defence,
+             .defenceDelta, element.damageAddedRatioProperty, .energyRecovery, .energyRecoveryBase,
+             .healRatio, .healRatioBase, .hpAddedRatio,
+             .hpDelta, .maxHP, .speed,
+             .speedDelta, .statusProbability,
+             .statusProbabilityBase, .statusResistance,
+             .statusResistanceBase:
+            arrAdd.append(self)
+        default: break
+        }
     }
 }
