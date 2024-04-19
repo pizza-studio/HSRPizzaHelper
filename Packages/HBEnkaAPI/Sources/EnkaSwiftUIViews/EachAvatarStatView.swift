@@ -322,7 +322,7 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
     public func asView(fontSize: CGFloat) -> some View {
         coreBody(fontSize: fontSize)
             .padding(.vertical, fontSize * 0.13)
-            .padding(.leading, fontSize * 0.13)
+            .padding(.horizontal, fontSize * 0.3)
             .background {
                 Color.black.opacity(0.2)
                     .clipShape(.rect(cornerSize: .init(width: fontSize * 0.5, height: fontSize * 0.5)))
