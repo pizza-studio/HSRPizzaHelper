@@ -82,11 +82,11 @@ public struct StaggeredGrid<Content: View, T: Identifiable>: View where T: Hasha
 
     // MARK: Internal
 
-    @State  var outerPadding: Bool
+    @State var outerPadding: Bool
 
-    @State  var scroll: Bool
+    @State var scroll: Bool
 
-    @ViewBuilder  var innerContent: some View {
+    @ViewBuilder var innerContent: some View {
         HStack(alignment: .top) {
             ForEach(setUpList(), id: \.self) { columnsData in
 
