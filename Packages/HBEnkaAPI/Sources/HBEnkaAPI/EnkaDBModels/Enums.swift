@@ -113,6 +113,16 @@ extension EnkaHSR.DBModels.Element {
         case .cryo: return .cryoAddedRatio
         }
     }
+
+    public static let elementConversionDict: [String: String] = [
+        "Physical": "Physico",
+        "Wind": "Anemo",
+        "Lightning": "Electro",
+        "Imaginary": "Fantastico",
+        "Quantum": "Posesto",
+        "Fire": "Pyro",
+        "Ice": "Cryo",
+    ]
 }
 
 extension EnkaHSR.DBModels.LifePath {
@@ -156,6 +166,7 @@ extension EnkaHSR.PropertyType {
         case .energyRecovery: nameStem = "EnergyRecovery"
         case .energyRecoveryBase: nameStem = "EnergyRecovery"
         case .criticalDamageBase: nameStem = "CriticalDamage"
+        case .statusResistanceBase: nameStem = "StatusResistance"
         default: break
         }
         return hasPropIcon ? "Icon\(nameStem).png" : nil
@@ -210,6 +221,7 @@ extension EnkaHSR.PropertyType {
         case .speedDelta: return true
         case .energyRecoveryBase: return true
         case .criticalDamageBase: return true
+        case .statusResistanceBase: return true
 
         default:
             // Just in case that there will be new elements available.
