@@ -6,7 +6,7 @@ import Foundation
 import HBEnkaAPI
 import SwiftUI
 
-private let baseFontSize: CGFloat = 16
+private let baseFontSize: CGFloat = 15
 
 // MARK: - EachAvatarStatView
 
@@ -16,52 +16,57 @@ public struct EachAvatarStatView: View {
     public let data: EnkaHSR.AvatarSummarized
 
     public var body: some View {
-        VStack(spacing: 6) {
-            data.mainInfo
-            VStack(spacing: 4) {
-                data.equippedWeapon
-                HStack {
-                    VStack(spacing: 0) {
-                        ForEach(data.avatarPropertiesA, id: \.type) { property in
-                            AttributeTagPair(
-                                icon: property.type.iconFilePath,
-                                title: property.localizedTitle,
-                                valueStr: property.valueString,
-                                fontSize: baseFontSize * 0.8,
-                                dash: false
-                            )
+        // 按照 iPhone SE2-SE3 的标准画面解析度（375 × 667）制作。
+        VStack(spacing: 0) {
+            Group {
+                data.mainInfo
+                VStack(spacing: 2) {
+                    data.equippedWeapon
+                    HStack {
+                        VStack(spacing: 0) {
+                            ForEach(data.avatarPropertiesA, id: \.type) { property in
+                                AttributeTagPair(
+                                    icon: property.type.iconFilePath,
+                                    title: property.localizedTitle,
+                                    valueStr: property.valueString,
+                                    fontSize: baseFontSize * 0.8,
+                                    dash: false
+                                )
+                            }
+                        }.fixedSize(horizontal: true, vertical: true)
+                        Divider().overlay {
+                            Color.primary.opacity(0.1)
                         }
-                    }.fixedSize(horizontal: true, vertical: true)
-                    Divider().overlay {
-                        Color.primary.opacity(0.1)
+                        VStack(spacing: 0) {
+                            ForEach(data.avatarPropertiesB, id: \.type) { property in
+                                AttributeTagPair(
+                                    icon: property.type.iconFilePath,
+                                    title: property.localizedTitle,
+                                    valueStr: property.valueString,
+                                    fontSize: baseFontSize * 0.8,
+                                    dash: false
+                                )
+                            }
+                        }.fixedSize(horizontal: false, vertical: true)
                     }
-                    VStack(spacing: 0) {
-                        ForEach(data.avatarPropertiesB, id: \.type) { property in
-                            AttributeTagPair(
-                                icon: property.type.iconFilePath,
-                                title: property.localizedTitle,
-                                valueStr: property.valueString,
-                                fontSize: baseFontSize * 0.8,
-                                dash: false
-                            )
-                        }
-                    }.fixedSize(horizontal: false, vertical: true)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .minimumScaleFactor(0.5)
                 }
-                .fixedSize(horizontal: false, vertical: true)
-                .minimumScaleFactor(0.5)
+                .padding(.horizontal, 11)
+                .padding(.vertical, 6)
+                .background {
+                    Color.black.opacity(0.2)
+                        .clipShape(.rect(cornerSize: .init(width: 12, height: 12)))
+                }
+                .padding(.top, 4)
+                .padding(.bottom, 3)
+                artifactsList.fixedSize(horizontal: false, vertical: true)
             }
-            .padding(.horizontal, 11)
-            .padding(.vertical, 6)
-            .background {
-                Color.black.opacity(0.2)
-                    .clipShape(.rect(cornerSize: .init(width: 12, height: 12)))
-            }
-            artifactsList
-            Spacer()
+            .frame(width: 353)
         }
-        .fixedSize(horizontal: true, vertical: false)
+        .fixedSize(horizontal: true, vertical: true)
         .preferredColorScheme(.dark)
-        .padding(.horizontal, 24)
+        .frame(width: 375, height: 500) // 输出画面刚好 375*500，可同时相容于 iPad。
         .background {
             AsyncImage(url: URL(fileURLWithPath: data.mainInfo.photoFilePath)) { imageObj in
                 imageObj
@@ -73,7 +78,7 @@ public struct EachAvatarStatView: View {
             } placeholder: {
                 Color.clear
             }
-        }
+        }.showDimension()
     }
 
     // MARK: Private
@@ -95,7 +100,7 @@ extension EnkaHSR.AvatarSummarized {
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo: View {
     public var body: some View {
-        HStack(spacing: 2) {
+        HStack(alignment: .bottom, spacing: 4) {
             AsyncImage(url: URL(fileURLWithPath: self.photoFilePath)) { imageObj in
                 imageObj
                     .resizable()
@@ -106,17 +111,16 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo: View {
             } placeholder: {
                 Color.clear
             }
-            .frame(maxWidth: 96, maxHeight: 86)
+            .frame(maxWidth: 85, maxHeight: 85)
             .clipShape(Circle())
             VStack(spacing: 0) {
-                HStack {
+                HStack(alignment: .bottom) {
                     Text(localizedName)
-                        .font(.system(size: 30))
+                        .font(.system(size: baseFontSize * 1.6))
                         .fontWeight(.bold)
                         .lineLimit(1).fixedSize()
                         .minimumScaleFactor(0.5)
                     Spacer()
-
                     ZStack(alignment: .center) {
                         Color.black.opacity(0.1)
                             .clipShape(Circle())
@@ -152,25 +156,26 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo: View {
                 }
                 .shadow(radius: 5)
                 HStack {
-                    VStack(spacing: 4) {
+                    VStack(spacing: 1) {
                         AttributeTagPair(
                             title: "等级", valueStr: self.avatarLevel.description,
-                            fontSize: baseFontSize * 0.9, dash: false
+                            fontSize: baseFontSize * 0.8, dash: false
                         )
                         AttributeTagPair(
                             title: "命之座", valueStr: "C\(self.constellation)",
-                            fontSize: baseFontSize * 0.9, dash: false
+                            fontSize: baseFontSize * 0.8, dash: false
                         )
-                    }.frame(maxWidth: 120, maxHeight: .infinity)
-                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     HStack(alignment: .lastTextBaseline, spacing: 0) {
                         ForEach(baseSkills.toArray, id: \.type) { skill in
                             skill.fixedSize()
                         }
                     }
+                    .frame(maxWidth: .infinity)
                     .minimumScaleFactor(0.5)
-                }
+                }.fixedSize(horizontal: false, vertical: true)
             }
+            .frame(maxWidth: .infinity)
         }
         .fixedSize(horizontal: false, vertical: true)
     }
@@ -181,7 +186,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo: View {
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill: View {
     func levelDisplay(size: CGFloat) -> some View {
         HStack(alignment: .firstTextBaseline, spacing: 0) {
-            Text("\(self.adjustedLevel)").font(.system(size: size * 0.93, weight: .heavy))
+            Text("\(self.adjustedLevel)").font(.system(size: size * 0.8, weight: .heavy))
         }
     }
 
@@ -200,7 +205,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill: View {
                     .scaleEffect(0.8)
                 }.frame(
                     width: baseFontSize * 2.2,
-                    height: baseFontSize * 2.2
+                    height: baseFontSize * 2
                 )
                 Spacer()
             }
@@ -232,7 +237,7 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel: View {
             } placeholder: {
                 Color.clear
             }
-            .frame(maxWidth: 80)
+            .frame(maxWidth: 67)
             .corneredTag(
                 verbatim: "Lv.\(trainedLevel) ★\(rarityStars)",
                 alignment: .bottom, textSize: baseFontSize * 0.8
@@ -240,7 +245,7 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(localizedName)
                     .fontWeight(.bold)
-                    .fontWidth(.condensed)
+                    .fontWidth(.compressed)
                 Divider().overlay {
                     Color.primary.opacity(0.6)
                 }.padding(.vertical, 2)
@@ -276,7 +281,9 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel: View {
 
 extension EnkaHSR.AvatarSummarized.ArtifactInfo: View {
     public var body: some View {
-        coreBody.padding(.vertical, 2).padding(.leading, 2)
+        coreBody
+            .padding(.vertical, 2)
+            .padding(.leading, 2)
             .background {
                 Color.black.opacity(0.2)
                     .clipShape(.rect(cornerSize: .init(width: 12, height: 12)))
@@ -319,6 +326,7 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo: View {
             }
             .padding(.horizontal, 4)
         }
+        .frame(height: baseFontSize * 4)
         .fixedSize(horizontal: false, vertical: true)
         .shadow(radius: 10)
         .corneredTag(
@@ -366,6 +374,25 @@ public struct AttributeTagPair: View {
     public let withDashLine: Bool
     public let fontSize: CGFloat
 
+    public var shortenedTitle: String {
+        var title = title.replacingOccurrences(of: "Regeneration", with: "Recharge")
+        title = title.replacingOccurrences(of: "Rate", with: "%")
+        title = title.replacingOccurrences(of: "Bonus", with: "+")
+        title = title.replacingOccurrences(of: "Boost", with: "+")
+        title = title.replacingOccurrences(of: "ダメージ", with: "傷害量")
+        title = title.replacingOccurrences(of: "能量恢复", with: "元素充能")
+        title = title.replacingOccurrences(of: "能量恢復", with: "元素充能")
+        title = title.replacingOccurrences(of: "属性", with: "元素")
+        title = title.replacingOccurrences(of: "屬性", with: "元素")
+        title = title.replacingOccurrences(of: "提高", with: "加成")
+        title = title.replacingOccurrences(of: "与", with: "")
+        EnkaHSR.Element.elementConversionDict.forEach { key, value in
+            title = title.replacingOccurrences(of: key, with: value)
+        }
+        let suffix = title.count > 18 ? "…" : ""
+        return "\(title.prefix(18))\(suffix)"
+    }
+
     public var body: some View {
         HStack(spacing: 0) {
             if let iconPath = iconPath {
@@ -376,7 +403,7 @@ public struct AttributeTagPair: View {
                 }
                 .frame(width: fontSize * 1.5, height: fontSize * 1.5)
             }
-            Text(title)
+            Text(shortenedTitle)
                 .fixedSize()
                 .lineLimit(1)
             if withDashLine {
@@ -398,8 +425,25 @@ public struct AttributeTagPair: View {
                     Color.secondary.opacity(0.2).clipShape(.capsule)
                 }
         }.font(.system(size: fontSize))
-            .fontWidth(.condensed)
+            .fontWidth(.compressed)
             .fontWeight(.regular)
+    }
+}
+
+// MARK: - View Dimension Measurement
+
+extension View {
+    func showDimension() -> some View {
+        #if DEBUG
+        overlay(
+            GeometryReader { geometry in
+                Text(geometry.size.debugDescription)
+                    .background(.red)
+            }
+        )
+        #else
+        self
+        #endif
     }
 }
 
