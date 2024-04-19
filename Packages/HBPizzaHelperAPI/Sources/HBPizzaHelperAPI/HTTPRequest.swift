@@ -27,7 +27,7 @@ enum HttpMethod<T: Codable> {
         hostType: HostType = .generalHost,
         keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys,
         completion: @escaping (
-            (Result<T, RequestError>) -> ()
+            (Result<T, RequestError>) -> Void
         )
     ) {
         let networkReachability = NetworkReachability()

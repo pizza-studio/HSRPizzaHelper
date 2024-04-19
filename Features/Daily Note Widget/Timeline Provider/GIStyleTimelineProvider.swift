@@ -65,7 +65,7 @@ extension GIStyleTimelineProvider {
         )
     }
 
-    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (GIStyleEntry) -> ()) {
+    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (GIStyleEntry) -> Void) {
         var expeditionWithUIImage: [(ExpeditionInformation.Expedition, [UIImage?])] = []
         expeditionWithUIImage = GeneralDailyNote.example().expeditionInformation.expeditions.map { expedition in
             var images: [UIImage?] = []
@@ -89,7 +89,7 @@ extension GIStyleTimelineProvider {
     func getTimeline(
         for configuration: Intent,
         in context: Context,
-        completion: @escaping (Timeline<GIStyleEntry>) -> ()
+        completion: @escaping (Timeline<GIStyleEntry>) -> Void
     ) {
         Task {
             var entries: [Entry] = []

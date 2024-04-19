@@ -84,7 +84,7 @@ private typealias CurrentResult = HSRDictionaryTranslationResult
 
 private enum QueryStatus {
     case pending
-    case fetching(Task<(), Never>)
+    case fetching(Task<Void, Never>)
 }
 
 // MARK: - HSRDictionaryView

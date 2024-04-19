@@ -17,7 +17,6 @@
 disabled_rules:
   - multiple_closures_with_trailing_closure
   - nesting
-  - void_return
 
 opt_in_rules:
   - convenience_type

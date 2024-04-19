@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func onFocused(_ action: @escaping () -> ()) -> some View {
+    func onFocused(_ action: @escaping () -> Void) -> some View {
         modifier(OnFocused(action: action))
     }
 }
@@ -18,7 +18,7 @@ extension View {
 private struct OnFocused: ViewModifier {
     @FocusState private var focus: Bool
 
-    let action: () -> ()
+    let action: () -> Void
 
     func body(content: Content) -> some View {
         content

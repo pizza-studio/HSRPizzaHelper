@@ -127,7 +127,7 @@ public class GachaClient {
 
     private let authentication: GachaRequestAuthentication
     private var status: Status = .currentPagination(.init())
-    private var task: Task<(), Never>?
+    private var task: Task<Void, Never>?
 
     private func fetchData(pagination: Pagination) async throws -> GachaResult {
         let request = generateGachaRequest(

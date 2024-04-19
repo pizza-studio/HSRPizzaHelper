@@ -46,7 +46,7 @@ struct LockscreenTimelineProvider: IntentTimelineProvider, HasDefaultAccount {
         )
     }
 
-    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (LockscreenEntry) -> ()) {
+    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (LockscreenEntry) -> Void) {
         completion(
             .init(
                 date: Date(),
@@ -59,7 +59,7 @@ struct LockscreenTimelineProvider: IntentTimelineProvider, HasDefaultAccount {
     func getTimeline(
         for configuration: Intent,
         in context: Context,
-        completion: @escaping (Timeline<LockscreenEntry>) -> ()
+        completion: @escaping (Timeline<LockscreenEntry>) -> Void
     ) {
         Task {
             var entries: [Entry] = []

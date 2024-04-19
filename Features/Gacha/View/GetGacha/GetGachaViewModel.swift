@@ -32,11 +32,11 @@ class GetGachaViewModel: ObservableObject {
 
     enum Status {
         case waitingForURL
-        case pending(start: () -> (), initialize: () -> ())
-        case inProgress(cancel: () -> ())
-        case got(page: Int, gachaType: GachaType, newItemCount: Int, cancel: () -> ())
-        case failFetching(page: Int, gachaType: GachaType, error: Error, retry: () -> ())
-        case finished(typeFetchedCount: [GachaType: Int], initialize: () -> ())
+        case pending(start: () -> Void, initialize: () -> Void)
+        case inProgress(cancel: () -> Void)
+        case got(page: Int, gachaType: GachaType, newItemCount: Int, cancel: () -> Void)
+        case failFetching(page: Int, gachaType: GachaType, error: Error, retry: () -> Void)
+        case finished(typeFetchedCount: [GachaType: Int], initialize: () -> Void)
     }
 
     @Published var savedTypeFetchedCount: [GachaType: Int] = Dictionary(

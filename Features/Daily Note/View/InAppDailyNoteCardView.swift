@@ -57,7 +57,7 @@ struct InAppDailyNoteCardView: View {
 
     // MARK: Private
 
-    private let refreshSubject: PassthroughSubject<(), Never>
+    private let refreshSubject: PassthroughSubject<Void, Never>
 
     @StateObject private var dailyNoteViewModel: DailyNoteViewModel
 

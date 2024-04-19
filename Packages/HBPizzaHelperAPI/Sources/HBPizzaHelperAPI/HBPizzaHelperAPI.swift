@@ -19,7 +19,7 @@ public enum PizzaHelperAPI {
         isBeta: Bool,
         completion: @escaping (
             NewestVersion
-        ) -> ()
+        ) -> Void
     ) async throws {
         var url = URL(string: "https://hsr.pizzastudio.org")!
 

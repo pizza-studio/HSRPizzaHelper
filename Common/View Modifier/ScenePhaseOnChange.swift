@@ -15,7 +15,7 @@ private struct OnAppBecomeActiveModifier: ViewModifier {
     @Environment(\.scenePhase) private var scenePhase: ScenePhase
 
     /// A closure that holds the action to be performed on becoming active.
-    let action: () -> ()
+    let action: () -> Void
 
     func body(content: Content) -> some View {
         content
@@ -34,7 +34,7 @@ private struct OnAppEnterBackgroundModifier: ViewModifier {
     @Environment(\.scenePhase) private var scenePhase: ScenePhase
 
     /// A closure that holds the action to be performed on entering the background state.
-    let action: () -> ()
+    let action: () -> Void
 
     /// The view body with the added action.
     /// - Parameter content: The Content view.
@@ -56,7 +56,7 @@ private struct OnAppBecomeInactiveModifier: ViewModifier {
     @Environment(\.scenePhase) private var scenePhase: ScenePhase
 
     /// A closure that holds the action to be performed on becoming inactive.
-    let action: () -> ()
+    let action: () -> Void
 
     /// The view body with the added action.
     /// - Parameter content: The Content view.
@@ -76,7 +76,7 @@ extension View {
     ///
     /// - Parameter action: A closure that holds the action to be performed on becoming active.
     /// - Returns: A View with the added action.
-    func onAppBecomeActive(perform action: @escaping () -> ()) -> some View {
+    func onAppBecomeActive(perform action: @escaping () -> Void) -> some View {
         modifier(OnAppBecomeActiveModifier(action: action))
     }
 
@@ -84,7 +84,7 @@ extension View {
     ///
     /// - Parameter action: A closure that holds the action to be performed on entering the background state.
     /// - Returns: A View with the added action.
-    func onAppEnterBackground(perform action: @escaping () -> ()) -> some View {
+    func onAppEnterBackground(perform action: @escaping () -> Void) -> some View {
         modifier(OnAppEnterBackgroundModifier(action: action))
     }
 
@@ -92,7 +92,7 @@ extension View {
     ///
     /// - Parameter action: A closure that holds the action to be performed on becoming inactive.
     /// - Returns: A View with the added action.
-    func onAppBecomeInactive(perform action: @escaping () -> ()) -> some View {
+    func onAppBecomeInactive(perform action: @escaping () -> Void) -> some View {
         modifier(OnAppBecomeInactiveModifier(action: action))
     }
 }

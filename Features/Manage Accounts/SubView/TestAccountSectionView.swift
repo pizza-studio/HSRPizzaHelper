@@ -143,7 +143,7 @@ struct TestAccountSectionView: View {
         // MARK: Internal
 
         let account: Account
-        @State var shouldRefreshAccount: () -> ()
+        @State var shouldRefreshAccount: () -> Void
 
         var body: some View {
             Button {

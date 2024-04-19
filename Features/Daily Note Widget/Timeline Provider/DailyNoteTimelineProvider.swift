@@ -54,7 +54,7 @@ extension DailyNoteTimelineProvider {
         )
     }
 
-    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (DailyNoteEntry) -> ()) {
+    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (DailyNoteEntry) -> Void) {
         completion(
             .init(
                 date: Date(),
@@ -67,7 +67,7 @@ extension DailyNoteTimelineProvider {
     func getTimeline(
         for configuration: Intent,
         in context: Context,
-        completion: @escaping (Timeline<DailyNoteEntry>) -> ()
+        completion: @escaping (Timeline<DailyNoteEntry>) -> Void
     ) {
         Task {
             var entries: [Entry] = []

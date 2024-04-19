@@ -32,7 +32,7 @@ enum Device {
 // Our custom view modifier to track rotation and
 // call our action
 struct DeviceRotationViewModifier: ViewModifier {
-    let action: (UIDeviceOrientation) -> ()
+    let action: (UIDeviceOrientation) -> Void
 
     func body(content: Content) -> some View {
         content
@@ -51,7 +51,7 @@ struct DeviceRotationViewModifier: ViewModifier {
 
 // A View wrapper to make the modifier easier to use
 extension View {
-    func onRotate(perform action: @escaping (UIDeviceOrientation) -> ())
+    func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void)
         -> some View {
         modifier(DeviceRotationViewModifier(action: action))
     }

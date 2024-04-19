@@ -11,7 +11,7 @@ import HBMihoyoAPI
 import SFSafeSymbols
 import SwiftUI
 
-let globalDailyNoteCardRefreshSubject: PassthroughSubject<(), Never> = .init()
+let globalDailyNoteCardRefreshSubject: PassthroughSubject<Void, Never> = .init()
 
 // MARK: - DailyNoteCards
 
@@ -49,7 +49,7 @@ struct DailyNoteCards: View {
 
     // MARK: Private
 
-    private let refreshSubject: PassthroughSubject<(), Never> = globalDailyNoteCardRefreshSubject
+    private let refreshSubject: PassthroughSubject<Void, Never> = globalDailyNoteCardRefreshSubject
 
     @Environment(\.managedObjectContext) private var viewContext
 
@@ -105,7 +105,7 @@ struct InAppDailyNoteCardView: View {
 
     // MARK: Private
 
-    private let refreshSubject: PassthroughSubject<(), Never>
+    private let refreshSubject: PassthroughSubject<Void, Never>
 
     @StateObject private var dailyNoteViewModel: DailyNoteViewModel
 

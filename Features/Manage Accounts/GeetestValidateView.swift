@@ -42,7 +42,7 @@ struct GeetestValidateView: UIViewRepresentable {
     let webView = WKWebView()
     @State private var isValidationObtained = false // 标识是否已获取到 validate.value 的内容
 
-    @State var completion: (String) -> ()
+    @State var completion: (String) -> Void
 
     func makeUIView(context: Context) -> WKWebView {
         webView.navigationDelegate = context.coordinator

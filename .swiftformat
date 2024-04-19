@@ -86,7 +86,7 @@ strongifiedSelf
 --maxwidth 120
 --typeattributes prev-line
 --varattributes same-line
---voidtype tuple
+--voidtype void
 --wraparguments before-first
 --wrapparameters before-first
 --wrapcollections before-first

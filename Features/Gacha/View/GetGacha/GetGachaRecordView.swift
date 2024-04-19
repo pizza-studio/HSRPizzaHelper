@@ -84,7 +84,7 @@ struct GetGachaRecordView: View {
 private struct WaitingForURLView: View {
     // MARK: Internal
 
-    let completion: (String) throws -> ()
+    let completion: (String) throws -> Void
 
     var body: some View {
         Section {
@@ -135,8 +135,8 @@ private struct WaitingForURLView: View {
 // MARK: - WaitingForStartView
 
 private struct WaitingForStartView: View {
-    let start: () -> ()
-    let initialize: () -> ()
+    let start: () -> Void
+    let initialize: () -> Void
 
     var body: some View {
         Button {
@@ -155,7 +155,7 @@ private struct WaitingForStartView: View {
 // MARK: - InProgressView
 
 private struct InProgressView: View {
-    let cancel: () -> ()
+    let cancel: () -> Void
 
     var body: some View {
         Section {
@@ -179,7 +179,7 @@ private struct GotSomeItemView: View {
     let page: Int
     let gachaType: GachaType
     let newItemCount: Int
-    let cancel: () -> ()
+    let cancel: () -> Void
 
     var body: some View {
         Section {
@@ -234,7 +234,7 @@ struct FailFetchingView: View {
     let page: Int
     let gachaType: GachaType
     let error: Error
-    let retry: () -> ()
+    let retry: () -> Void
 
     var body: some View {
         Label {
@@ -255,7 +255,7 @@ struct FailFetchingView: View {
 
 struct FinishedView: View {
     let typeFetchedCount: [GachaType: Int]
-    let initialize: () -> ()
+    let initialize: () -> Void
 
     var body: some View {
         Section {
