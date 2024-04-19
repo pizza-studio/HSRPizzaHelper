@@ -66,7 +66,6 @@ extension EnkaHSR.DBModels {
         case defence = "Defence"
         case defenceAddedRatio = "DefenceAddedRatio"
         case defenceDelta = "DefenceDelta"
-        case energyLimit = "EnergyLimit"
         case energyRecovery = "SPRatio"
         case energyRecoveryBase = "SPRatioBase"
         case healRatio = "HealRatio"
@@ -75,7 +74,7 @@ extension EnkaHSR.DBModels {
         case hpAddedRatio = "HPAddedRatio"
         case hpDelta = "HPDelta"
         case maxHP = "MaxHP"
-        case maxSP = "MaxSP"
+        case energyLimit = "MaxSP"
         case speed = "Speed"
         case speedAddedRatio = "SpeedAddedRatio"
         case speedDelta = "SpeedDelta"
@@ -167,6 +166,7 @@ extension EnkaHSR.PropertyType {
         case .energyRecoveryBase: nameStem = "EnergyRecovery"
         case .criticalDamageBase: nameStem = "CriticalDamage"
         case .statusResistanceBase: nameStem = "StatusResistance"
+        case .energyLimit: nameStem = "EnergyLimit"
         default: break
         }
         return hasPropIcon ? "Icon\(nameStem).png" : nil
