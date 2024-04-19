@@ -244,7 +244,7 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel: View {
             )
             VStack(alignment: .leading, spacing: 2) {
                 Text(localizedName)
-                    .fontWeight(.bold)
+                    .font(.system(size: baseFontSize, weight: .bold))
                     .fontWidth(.compressed)
                 Divider().overlay {
                     Color.primary.opacity(0.6)
@@ -375,17 +375,7 @@ public struct AttributeTagPair: View {
     public let fontSize: CGFloat
 
     public var shortenedTitle: String {
-        var title = title.replacingOccurrences(of: "Regeneration", with: "Recharge")
-        title = title.replacingOccurrences(of: "Rate", with: "%")
-        title = title.replacingOccurrences(of: "Bonus", with: "+")
-        title = title.replacingOccurrences(of: "Boost", with: "+")
-        title = title.replacingOccurrences(of: "ダメージ", with: "傷害量")
-        title = title.replacingOccurrences(of: "能量恢复", with: "元素充能")
-        title = title.replacingOccurrences(of: "能量恢復", with: "元素充能")
-        title = title.replacingOccurrences(of: "属性", with: "元素")
-        title = title.replacingOccurrences(of: "屬性", with: "元素")
-        title = title.replacingOccurrences(of: "提高", with: "加成")
-        title = title.replacingOccurrences(of: "与", with: "")
+        var title = title
         EnkaHSR.Element.elementConversionDict.forEach { key, value in
             title = title.replacingOccurrences(of: key, with: value)
         }
@@ -418,7 +408,7 @@ public struct AttributeTagPair: View {
                 .fixedSize()
                 .lineLimit(1)
                 .font(.system(size: fontSize))
-                .fontWidth(.condensed)
+                .fontWidth(.compressed)
                 .fontWeight(.bold)
                 .padding(.horizontal, 5)
                 .background {
@@ -453,7 +443,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
     static let summary: EnkaHSR.AvatarSummarized = {
         // swiftlint:disable force_try
         // Note: Do not use #Preview. Otherwise, the preview won't be able to access the assets.
-        let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-tw")!
+        let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-cn")!
         let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
             separator: "/"
         ).dropFirst()
@@ -461,7 +451,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
         let filePath = testDataPath + "TestQueryResultEnka.json"
         let dataURL = URL(fileURLWithPath: filePath)
         let profile = try! Data(contentsOf: dataURL).parseAs(EnkaHSR.QueryRelated.QueriedProfile.self)
-        let summary = profile.detailInfo!.avatarDetailList[0].summarize(theDB: enkaDatabase)!
+        let summary = profile.detailInfo!.avatarDetailList[3].summarize(theDB: enkaDatabase)!
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
         return summary
         // swiftlint:enable force_try

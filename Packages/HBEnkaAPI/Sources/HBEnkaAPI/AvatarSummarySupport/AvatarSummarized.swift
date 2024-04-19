@@ -131,7 +131,22 @@ extension EnkaHSR.AvatarSummarized {
         public init(theDB: EnkaHSR.EnkaDB, type: EnkaHSR.PropertyType, value: Double, isArtifact: Bool = false) {
             self.type = type
             self.value = value
-            self.localizedTitle = (theDB.locTable[type.rawValue] ?? type.rawValue)
+            var title = (theDB.locTable[type.rawValue] ?? type.rawValue)
+            title = title.replacingOccurrences(of: "Regeneration", with: "Recharge")
+            title = title.replacingOccurrences(of: "Rate", with: "%")
+            title = title.replacingOccurrences(of: "Bonus", with: "+")
+            title = title.replacingOccurrences(of: "Boost", with: "+")
+            title = title.replacingOccurrences(of: "ダメージ", with: "傷害量")
+            title = title.replacingOccurrences(of: "能量恢复", with: "元素充能")
+            title = title.replacingOccurrences(of: "能量恢復", with: "元素充能")
+            title = title.replacingOccurrences(of: "属性", with: "元素")
+            title = title.replacingOccurrences(of: "屬性", with: "元素")
+            title = title.replacingOccurrences(of: "量子元素", with: "量子")
+            title = title.replacingOccurrences(of: "虛數元素", with: "虛數")
+            title = title.replacingOccurrences(of: "虚数元素", with: "虚数")
+            title = title.replacingOccurrences(of: "提高", with: "加成")
+            title = title.replacingOccurrences(of: "与", with: "")
+            self.localizedTitle = title
             self.isArtifact = isArtifact
         }
 
