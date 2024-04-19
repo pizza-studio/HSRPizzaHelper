@@ -9,6 +9,7 @@ extension EnkaHSR {
         // MARK: Lifecycle
 
         public init(
+            locTag: String,
             locTable: EnkaHSR.DBModels.LocTable,
             profileAvatars: EnkaHSR.DBModels.ProfileAvatarDict,
             characters: EnkaHSR.DBModels.CharacterDict,
@@ -19,6 +20,7 @@ extension EnkaHSR {
             skillTrees: EnkaHSR.DBModels.SkillTreesDict,
             weapons: EnkaHSR.DBModels.WeaponsDict
         ) {
+            self.langTag = locTag
             self.locTable = locTable
             self.profileAvatars = profileAvatars
             self.characters = characters
@@ -36,6 +38,7 @@ extension EnkaHSR {
                 let locTables = try EnkaHSR.JSONTypes.locTable.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
                 guard let locTableSpecified = locTables[locTag] else { return nil }
+                self.langTag = locTag
                 self.locTable = locTableSpecified
                 self.profileAvatars = try EnkaHSR.JSONTypes.profileAvatarIcons.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.ProfileAvatarDict.self)
@@ -60,6 +63,12 @@ extension EnkaHSR {
         }
 
         // MARK: Public
+
+        public var langTag: String {
+            didSet {
+                objectWillChange.send()
+            }
+        }
 
         public var locTable: EnkaHSR.DBModels.LocTable {
             didSet {
@@ -114,5 +123,31 @@ extension EnkaHSR {
                 objectWillChange.send()
             }
         }
+    }
+}
+
+extension EnkaHSR.EnkaDB {
+    public enum ExtraTerms {
+        public static let constellation: [String: String] = [
+            "en": "Constellation",
+            "fr": "Constellation",
+            "ja": "命ノ星座",
+            "ko": "운명의 자리",
+            "ru": "Созвездие",
+            "vi": "Cung Mệnh",
+            "zh-cn": "命之座",
+            "zh-tw": "命之座",
+        ]
+
+        public static let characterLevel: [String: String] = [
+            "en": "Level",
+            "fr": "Level",
+            "ja": "レベル",
+            "ko": "레벨",
+            "ru": "Уровень",
+            "vi": "Cấp",
+            "zh-cn": "等级",
+            "zh-tw": "等級",
+        ]
     }
 }

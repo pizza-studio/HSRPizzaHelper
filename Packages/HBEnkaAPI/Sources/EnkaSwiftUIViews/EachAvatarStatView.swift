@@ -200,11 +200,11 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                 HStack {
                     VStack(spacing: 1) {
                         AttributeTagPair(
-                            title: "等级", valueStr: self.avatarLevel.description,
+                            title: levelName, valueStr: self.avatarLevel.description,
                             fontSize: fontSize * 0.8, dash: false
                         )
                         AttributeTagPair(
-                            title: "命之座", valueStr: "C\(self.constellation)",
+                            title: constellationName, valueStr: "C\(self.constellation)",
                             fontSize: fontSize * 0.8, dash: false
                         )
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
@@ -488,7 +488,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
     static let summary: EnkaHSR.AvatarSummarized = {
         // swiftlint:disable force_try
         // Note: Do not use #Preview. Otherwise, the preview won't be able to access the assets.
-        let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-cn")!
+        let enkaDatabase = EnkaHSR.EnkaDB(locTag: "en")!
         let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
             separator: "/"
         ).dropFirst()
