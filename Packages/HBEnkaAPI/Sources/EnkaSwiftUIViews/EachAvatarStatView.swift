@@ -188,8 +188,8 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                             }
                             .clipShape(Circle())
                         }.frame(
-                            width: 18,
-                            height: 18
+                            width: fontSize * 0.95,
+                            height: fontSize * 0.95
                         )
                         .background {
                             Color.black.clipShape(Circle()).blurMaterialBackground().opacity(0.3)
