@@ -227,6 +227,10 @@ extension EnkaHSR.AvatarSummarized {
 
         public var rarityStars: Int { commonInfo.rarity }
 
+        public var allProps: [PropertyPair] {
+            basicProps + specialProps
+        }
+
         public var iconFileName: String {
             "\(enkaId).png"
         }
@@ -273,6 +277,12 @@ extension EnkaHSR.AvatarSummarized {
         public var trainedLevel: Int { paramDataFetched.level ?? 0 }
         public var rarityStars: Int { commonInfo.rarity }
         public var id: Int { enkaId }
+
+        public var allProps: [PropertyPair] {
+            var result = subProps
+            result.insert(mainProp, at: 0)
+            return result
+        }
 
         public var iconFileName: String {
             let str = paramDataFetched.tid.description

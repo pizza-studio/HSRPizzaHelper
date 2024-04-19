@@ -16,6 +16,7 @@ extension EnkaHSR {
             skillRanks: EnkaHSR.DBModels.SkillRanksDict,
             artifacts: EnkaHSR.DBModels.ArtifactsDict,
             skills: EnkaHSR.DBModels.SkillsDict,
+            skillTrees: EnkaHSR.DBModels.SkillTreesDict,
             weapons: EnkaHSR.DBModels.WeaponsDict
         ) {
             self.locTable = locTable
@@ -25,6 +26,7 @@ extension EnkaHSR {
             self.skillRanks = skillRanks
             self.artifacts = artifacts
             self.skills = skills
+            self.skillTrees = skillTrees
             self.weapons = weapons
         }
 
@@ -47,6 +49,8 @@ extension EnkaHSR {
                     .assertedParseAs(EnkaHSR.DBModels.ArtifactsDict.self)
                 self.skills = try EnkaHSR.JSONTypes.skills.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.SkillsDict.self)
+                self.skillTrees = try EnkaHSR.JSONTypes.skillTrees.bundledJSONData
+                    .assertedParseAs(EnkaHSR.DBModels.SkillTreesDict.self)
                 self.weapons = try EnkaHSR.JSONTypes.weapons.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.WeaponsDict.self)
             } catch {
@@ -94,6 +98,12 @@ extension EnkaHSR {
         }
 
         public var skills: EnkaHSR.DBModels.SkillsDict {
+            didSet {
+                objectWillChange.send()
+            }
+        }
+
+        public var skillTrees: EnkaHSR.DBModels.SkillTreesDict {
             didSet {
                 objectWillChange.send()
             }

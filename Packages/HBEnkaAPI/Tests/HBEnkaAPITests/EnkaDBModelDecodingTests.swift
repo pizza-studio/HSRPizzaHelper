@@ -88,6 +88,16 @@ final class EnkaDBModelDecodingTests: XCTestCase {
         XCTAssertGreaterThan(dataCount, 0)
     }
 
+    func testSkillTreesJSONParsing() throws {
+        let testData = EnkaHSR.JSONTypes.skillTrees.bundledJSONData
+        guard let obj = try? testData.parseAs(EnkaHSR.DBModels.SkillTreesDict.self) else {
+            assertionFailure("!!! Cannot access bundled EnkaDB SkillTrees JSON data.")
+            return
+        }
+        let dataCount = obj.keys.count
+        XCTAssertGreaterThan(dataCount, 0)
+    }
+
     func testWeaponsJSONParsing() throws {
         let testData = EnkaHSR.JSONTypes.weapons.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.WeaponsDict.self) else {
