@@ -79,14 +79,44 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
         // MARK: Lifecycle
 
         public init?(
+            theDB: EnkaHSR.EnkaDB,
+            constellation: Int,
             fetched: [EnkaHSR.QueryRelated.DetailInfo.SkillTreeItem]
         ) {
             guard fetched.count >= 4, let firstTreeItem = fetched.first else { return nil }
             let charIdStr = firstTreeItem.pointId.description.prefix(4).description
-            self.basicAttack = .init(charIdStr: charIdStr, baseLevel: fetched[0].level, type: .basicAttack)
-            self.elementalSkill = .init(charIdStr: charIdStr, baseLevel: fetched[1].level, type: .elementalSkill)
-            self.elementalBurst = .init(charIdStr: charIdStr, baseLevel: fetched[2].level, type: .elementalBurst)
-            self.talent = .init(charIdStr: charIdStr, baseLevel: fetched[3].level, type: .talent)
+            var levelAdditionList = [String: Int]()
+            if constellation > 1 {
+                for i in 1 ... constellation {
+                    let keyword = "\(charIdStr)0\(i)"
+                    theDB.skillRanks[keyword]?.skillAddLevelList.forEach { thisPointId, levelDelta in
+                        var writeKeyArr = thisPointId.map(\.description)
+                        writeKeyArr.insert("0", at: 4)
+                        levelAdditionList[writeKeyArr.joined(), default: 0] += levelDelta
+                    }
+                }
+            }
+
+            self.basicAttack = .init(
+                charIdStr: charIdStr, baseLevel: fetched[0].level,
+                levelAddition: levelAdditionList[fetched[0].pointId.description],
+                type: .basicAttack
+            )
+            self.elementalSkill = .init(
+                charIdStr: charIdStr, baseLevel: fetched[1].level,
+                levelAddition: levelAdditionList[fetched[1].pointId.description],
+                type: .elementalSkill
+            )
+            self.elementalBurst = .init(
+                charIdStr: charIdStr, baseLevel: fetched[2].level,
+                levelAddition: levelAdditionList[fetched[2].pointId.description],
+                type: .elementalBurst
+            )
+            self.talent = .init(
+                charIdStr: charIdStr, baseLevel: fetched[3].level,
+                levelAddition: levelAdditionList[fetched[3].pointId.description],
+                type: .talent
+            )
         }
 
         // MARK: Public
@@ -102,6 +132,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
             public let charIdStr: String
             /// Base skill level with amplification by constellations.
             public let baseLevel: Int
+            public let levelAddition: Int?
             public let type: SkillType
 
             public var iconFileName: String {

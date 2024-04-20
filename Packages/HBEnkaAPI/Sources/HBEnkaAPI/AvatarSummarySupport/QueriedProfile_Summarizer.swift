@@ -5,7 +5,11 @@
 extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
     public func summarize(theDB: EnkaHSR.EnkaDB) -> EnkaHSR.AvatarSummarized? {
         // Main Info
-        let baseSkillSet = EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet(fetched: skillTreeList)
+        let baseSkillSet = EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet(
+            theDB: theDB,
+            constellation: rank ?? 0,
+            fetched: skillTreeList
+        )
         guard let baseSkillSet = baseSkillSet else { return nil }
 
         let mainInfo = EnkaHSR.AvatarSummarized.AvatarMainInfo(

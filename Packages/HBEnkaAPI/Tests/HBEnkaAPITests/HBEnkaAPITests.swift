@@ -61,6 +61,11 @@ final class HBEnkaAPITests: XCTestCase {
         XCTAssertEqual(summarized.artifacts[0].enkaId, 61171)
         print(summarized.mainInfo.photoFilePath)
         XCTAssertTrue(FileManager.default.fileExists(atPath: summarized.mainInfo.photoFilePath))
+        // Check skill levels reinforced by constellations.
+        let seijaku = detailInfo.avatarDetailList[4].summarize(theDB: enkaDatabase)
+        XCTAssertNotNil(seijaku)
+        guard let seijaku = seijaku else { return }
+        XCTAssertNotNil(seijaku.mainInfo.baseSkills.elementalBurst.levelAddition)
     }
 
     func testAllPropertyIconFileAccess() throws {
