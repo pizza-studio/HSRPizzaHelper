@@ -22,9 +22,23 @@ extension Defaults.Keys {
         default: EnkaHSR.EnkaDB()!,
         suite: .enkaSuite
     )
+    public static let lastEnkaQueryDate = Key<[String: Date]>(
+        "lastEnkaDBDataCheckDate",
+        default: [:],
+        suite: .enkaSuite
+    )
+    public static let queriedEnkaProfiles = Key<[String: EnkaHSR.QueryRelated.DetailInfo]>(
+        "lastEnkaDBDataCheckDate",
+        default: [:],
+        suite: .enkaSuite
+    )
 }
 #endif
 
 // MARK: - EnkaHSR.EnkaDB + _DefaultsSerializable
 
 extension EnkaHSR.EnkaDB: _DefaultsSerializable {}
+
+// MARK: - EnkaHSR.QueryRelated.DetailInfo + _DefaultsSerializable
+
+extension EnkaHSR.QueryRelated.DetailInfo: _DefaultsSerializable {}
