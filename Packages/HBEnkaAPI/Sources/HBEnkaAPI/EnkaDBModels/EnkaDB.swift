@@ -10,7 +10,7 @@ extension EnkaHSR {
         // MARK: Lifecycle
 
         public init(
-            locTag: String,
+            locTag: String = Locale.langCodeForEnkaAPI,
             locTable: EnkaHSR.DBModels.LocTable,
             profileAvatars: EnkaHSR.DBModels.ProfileAvatarDict,
             characters: EnkaHSR.DBModels.CharacterDict,
@@ -33,29 +33,55 @@ extension EnkaHSR {
             self.weapons = weapons
         }
 
+        public init?(
+            locTag: String = Locale.langCodeForEnkaAPI,
+            locTables: EnkaHSR.DBModels.RawLocTables,
+            profileAvatars: EnkaHSR.DBModels.ProfileAvatarDict,
+            characters: EnkaHSR.DBModels.CharacterDict,
+            meta: EnkaHSR.DBModels.Meta,
+            skillRanks: EnkaHSR.DBModels.SkillRanksDict,
+            artifacts: EnkaHSR.DBModels.ArtifactsDict,
+            skills: EnkaHSR.DBModels.SkillsDict,
+            skillTrees: EnkaHSR.DBModels.SkillTreesDict,
+            weapons: EnkaHSR.DBModels.WeaponsDict
+        ) {
+            let langTag = Self.sanitizeLangTag(locTag)
+            self.langTag = langTag
+            guard let langTable = locTables[langTag] else { return nil }
+            self.locTable = langTable
+            self.profileAvatars = profileAvatars
+            self.characters = characters
+            self.meta = meta
+            self.skillRanks = skillRanks
+            self.artifacts = artifacts
+            self.skills = skills
+            self.skillTrees = skillTrees
+            self.weapons = weapons
+        }
+
         /// Use bundled resources to initiate an EnkaDB instance.
         public init?(locTag: String = Locale.langCodeForEnkaAPI) {
             do {
-                let locTables = try EnkaHSR.JSONTypes.locTable.bundledJSONData
+                let locTables = try EnkaHSR.JSONType.locTable.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
                 guard let locTableSpecified = locTables[locTag] else { return nil }
                 self.langTag = Self.sanitizeLangTag(locTag)
                 self.locTable = locTableSpecified
-                self.profileAvatars = try EnkaHSR.JSONTypes.profileAvatarIcons.bundledJSONData
+                self.profileAvatars = try EnkaHSR.JSONType.profileAvatarIcons.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.ProfileAvatarDict.self)
-                self.characters = try EnkaHSR.JSONTypes.characters.bundledJSONData
+                self.characters = try EnkaHSR.JSONType.characters.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.CharacterDict.self)
-                self.meta = try EnkaHSR.JSONTypes.metadata.bundledJSONData
+                self.meta = try EnkaHSR.JSONType.metadata.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.Meta.self)
-                self.skillRanks = try EnkaHSR.JSONTypes.skillRanks.bundledJSONData
+                self.skillRanks = try EnkaHSR.JSONType.skillRanks.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.SkillRanksDict.self)
-                self.artifacts = try EnkaHSR.JSONTypes.artifacts.bundledJSONData
+                self.artifacts = try EnkaHSR.JSONType.artifacts.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.ArtifactsDict.self)
-                self.skills = try EnkaHSR.JSONTypes.skills.bundledJSONData
+                self.skills = try EnkaHSR.JSONType.skills.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.SkillsDict.self)
-                self.skillTrees = try EnkaHSR.JSONTypes.skillTrees.bundledJSONData
+                self.skillTrees = try EnkaHSR.JSONType.skillTrees.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.SkillTreesDict.self)
-                self.weapons = try EnkaHSR.JSONTypes.weapons.bundledJSONData
+                self.weapons = try EnkaHSR.JSONType.weapons.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.WeaponsDict.self)
             } catch {
                 print("\n\(error)\n")

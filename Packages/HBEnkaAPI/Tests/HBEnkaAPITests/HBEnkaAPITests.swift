@@ -14,13 +14,13 @@ private let testDataPath: String = packageRootPath + "/Tests/TestData/"
 // MARK: - Utility Functions
 
 func getBundledCharTable() -> EnkaHSR.DBModels.CharacterDict? {
-    let testData = EnkaHSR.JSONTypes.characters.bundledJSONData
+    let testData = EnkaHSR.JSONType.characters.bundledJSONData
     guard let testData = testData else { return nil }
     return try? JSONDecoder().decode(EnkaHSR.DBModels.CharacterDict.self, from: testData)
 }
 
 func getBundledLocTable() -> EnkaHSR.DBModels.RawLocTables? {
-    let testData = EnkaHSR.JSONTypes.locTable.bundledJSONData
+    let testData = EnkaHSR.JSONType.locTable.bundledJSONData
     guard let testData = testData else { return nil }
     return try? JSONDecoder().decode(EnkaHSR.DBModels.RawLocTables.self, from: testData)
 }

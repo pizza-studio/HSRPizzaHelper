@@ -19,7 +19,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testLocTableJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.locTable.bundledJSONData
+        let testData = EnkaHSR.JSONType.locTable.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.RawLocTables.self) else {
             assertionFailure("!!! Cannot parse bundled EnkaDB RawLocTables JSON data.")
             return
@@ -29,7 +29,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testProfileAvatarJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.profileAvatarIcons.bundledJSONData
+        let testData = EnkaHSR.JSONType.profileAvatarIcons.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.ProfileAvatarDict.self) else {
             assertionFailure("!!! Cannot access bundled EnkaDB ProfileAvatar JSON data.")
             return
@@ -39,7 +39,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testCharacterJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.characters.bundledJSONData
+        let testData = EnkaHSR.JSONType.characters.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.CharacterDict.self) else {
             assertionFailure("!!! Cannot access bundled EnkaDB Character JSON data.")
             return
@@ -49,7 +49,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testMetaJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.metadata.bundledJSONData
+        let testData = EnkaHSR.JSONType.metadata.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.Meta.self) else {
             assertionFailure("!!! Cannot access bundled EnkaDB Meta JSON data.")
             return
@@ -59,7 +59,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testSkillRanksJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.skillRanks.bundledJSONData
+        let testData = EnkaHSR.JSONType.skillRanks.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.SkillRanksDict.self) else {
             assertionFailure("!!! Cannot access bundled EnkaDB SkillRanks JSON data.")
             return
@@ -69,7 +69,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testArtifactsJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.artifacts.bundledJSONData
+        let testData = EnkaHSR.JSONType.artifacts.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.ArtifactsDict.self) else {
             assertionFailure("!!! Cannot access bundled EnkaDB Relics JSON data.")
             return
@@ -79,7 +79,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testSkillsJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.skills.bundledJSONData
+        let testData = EnkaHSR.JSONType.skills.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.SkillsDict.self) else {
             assertionFailure("!!! Cannot access bundled EnkaDB Skills JSON data.")
             return
@@ -89,7 +89,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testSkillTreesJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.skillTrees.bundledJSONData
+        let testData = EnkaHSR.JSONType.skillTrees.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.SkillTreesDict.self) else {
             assertionFailure("!!! Cannot access bundled EnkaDB SkillTrees JSON data.")
             return
@@ -99,7 +99,7 @@ final class EnkaDBModelDecodingTests: XCTestCase {
     }
 
     func testWeaponsJSONParsing() throws {
-        let testData = EnkaHSR.JSONTypes.weapons.bundledJSONData
+        let testData = EnkaHSR.JSONType.weapons.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.WeaponsDict.self) else {
             assertionFailure("!!! Cannot access bundled EnkaDB Weapons JSON data.")
             return

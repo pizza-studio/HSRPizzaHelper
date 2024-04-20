@@ -34,10 +34,10 @@ extension EnkaHSR {
     public typealias LifePath = DBModels.LifePath
 }
 
-// MARK: - EnkaHSR.JSONTypes
+// MARK: - EnkaHSR.JSONType
 
 extension EnkaHSR {
-    public enum JSONTypes: String, CaseIterable {
+    public enum JSONType: String, CaseIterable {
         case profileAvatarIcons = "honker_avatars" // Player Account Profile Picture
         case characters = "honker_characters"
         case metadata = "honker_meta"
@@ -84,7 +84,7 @@ extension Data? {
     }
 }
 
-// EnkaAPI LangCode
+// MARK: - EnkaAPI LangCode
 
 extension Locale {
     public static var langCodeForEnkaAPI: String {
@@ -102,5 +102,46 @@ extension Locale {
         default: break
         }
         return languageCode
+    }
+}
+
+extension EnkaHSR {
+    public enum HostType: Int, Codable, RawRepresentable, Hashable {
+        case mainlandChina = 0
+        case enkaGlobal = 1
+
+        // MARK: Public
+
+        public static var profileQueryURLHeader: String {
+            // MicroGG 目前不支持星穹铁道的资料查询。
+            "https://enka.network/api/hsr/uid/"
+        }
+
+        public var enkaDBSourceURLHeader: String {
+            switch self {
+            case .mainlandChina: return "https://gitcode.net/SHIKISUEN/Enka-API-docs/-/raw/master/"
+            case .enkaGlobal: return "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/"
+            }
+        }
+
+        public var profileQueryURLHeader: String {
+            Self.profileQueryURLHeader
+        }
+
+        public func enkaDBSourceURL(type: EnkaHSR.JSONType) -> URL {
+            // swiftlint:disable force_unwrapping
+            let urlStr = "\(enkaDBSourceURLHeader)store/hsr/\(type.rawValue).json"
+            return .init(string: urlStr)!
+            // swiftlint:enable force_unwrapping
+        }
+    }
+}
+
+extension EnkaHSR.QueryRelated {
+    public enum Exception: Error {
+        case enkaDBOnlineFetchFailure(details: String)
+        case enkaProfileQueryFailure(message: String)
+        case refreshTooFast(dateWhenRefreshable: Date)
+        case dataInvalid
     }
 }
