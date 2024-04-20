@@ -14,6 +14,7 @@
 		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
 		5B7CE2B82BCD2EAE0053FD7D /* HBEnkaAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7CE2B72BCD2EAE0053FD7D /* HBEnkaAPI */; };
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
+		5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
 		BF33C17B2A344DF0009D1E5D /* GeetestValidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33C17A2A344DF0009D1E5D /* GeetestValidateView.swift */; };
@@ -317,6 +318,7 @@
 		5B5D9BC62BCFF50B0085E728 /* other_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = other_meta; sourceTree = "<group>"; };
 		5B7CE2B62BCD2DAF0053FD7D /* HBEnkaAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBEnkaAPI; path = Packages/HBEnkaAPI; sourceTree = "<group>"; };
 		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
+		5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPortalView.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
 		BF2E97A72AD0E47700910FC0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
@@ -1115,8 +1117,9 @@
 			isa = PBXGroup;
 			children = (
 				EADA63762A0201B200BF070F /* HomeView.swift */,
-				EAE37EBE2A0206AC00154432 /* SettingView.swift */,
+				5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */,
 				EA1D523D2A76521E00FA66A9 /* ToolView.swift */,
+				EAE37EBE2A0206AC00154432 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1274,7 +1277,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					BF58D2382A579D5000CC0DC6 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -1582,6 +1585,7 @@
 				EA8D28822A86182E00B47869 /* GachaChartView.swift in Sources */,
 				EADCE9392A0B985F008D81A9 /* OptionalSpacer.swift in Sources */,
 				EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */,
+				5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */,
 				EA80CFE62A0E928B00002B53 /* NotificationSettingView.swift in Sources */,
 				EAE37EBF2A0206AC00154432 /* SettingView.swift in Sources */,
 				EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */,

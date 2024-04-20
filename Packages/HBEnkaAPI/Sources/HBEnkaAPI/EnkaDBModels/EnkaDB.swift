@@ -10,7 +10,7 @@ extension EnkaHSR {
         // MARK: Lifecycle
 
         public init(
-            locTag: String = Locale.langCodeForEnkaAPI,
+            locTag: String? = nil,
             locTable: EnkaHSR.DBModels.LocTable,
             profileAvatars: EnkaHSR.DBModels.ProfileAvatarDict,
             characters: EnkaHSR.DBModels.CharacterDict,
@@ -21,6 +21,7 @@ extension EnkaHSR {
             skillTrees: EnkaHSR.DBModels.SkillTreesDict,
             weapons: EnkaHSR.DBModels.WeaponsDict
         ) {
+            let locTag = locTag ?? Locale.langCodeForEnkaAPI
             self.langTag = Self.sanitizeLangTag(locTag)
             self.locTable = locTable
             self.profileAvatars = profileAvatars
@@ -34,7 +35,7 @@ extension EnkaHSR {
         }
 
         public init?(
-            locTag: String = Locale.langCodeForEnkaAPI,
+            locTag: String? = nil,
             locTables: EnkaHSR.DBModels.RawLocTables,
             profileAvatars: EnkaHSR.DBModels.ProfileAvatarDict,
             characters: EnkaHSR.DBModels.CharacterDict,
@@ -45,8 +46,9 @@ extension EnkaHSR {
             skillTrees: EnkaHSR.DBModels.SkillTreesDict,
             weapons: EnkaHSR.DBModels.WeaponsDict
         ) {
-            let langTag = Self.sanitizeLangTag(locTag)
-            self.langTag = langTag
+            let locTag = locTag ?? Locale.langCodeForEnkaAPI
+            self.langTag = Self.sanitizeLangTag(locTag)
+            self.langTag = locTag
             guard let langTable = locTables[langTag] else { return nil }
             self.locTable = langTable
             self.profileAvatars = profileAvatars
@@ -60,10 +62,11 @@ extension EnkaHSR {
         }
 
         /// Use bundled resources to initiate an EnkaDB instance.
-        public init?(locTag: String = Locale.langCodeForEnkaAPI) {
+        public init?(locTag: String? = nil) {
             do {
                 let locTables = try EnkaHSR.JSONType.locTable.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
+                let locTag = locTag ?? Locale.langCodeForEnkaAPI
                 guard let locTableSpecified = locTables[locTag] else { return nil }
                 self.langTag = Self.sanitizeLangTag(locTag)
                 self.locTable = locTableSpecified
@@ -158,12 +161,30 @@ extension EnkaHSR {
 
         public static func sanitizeLangTag(_ target: some StringProtocol) -> String {
             var target = target.lowercased()
-            target = target.replacingOccurrences(of: "cht", with: "zh-tw")
-            target = target.replacingOccurrences(of: "chs", with: "zh-cn")
+            if target.prefix(2) == "zh" {
+                if target.contains("cht") || target.contains("hant") {
+                    target = "zh-tw"
+                } else if target.contains("chs") || target.contains("hans") {
+                    target = "zh-cn"
+                }
+            }
             if !Self.allowedLangTags.contains(target) {
                 target = "en"
             }
             return target
+        }
+
+        public func update(new: EnkaHSR.EnkaDB) {
+            langTag = new.langTag
+            locTable = new.locTable
+            profileAvatars = new.profileAvatars
+            characters = new.characters
+            meta = new.meta
+            skillRanks = new.skillRanks
+            artifacts = new.artifacts
+            skills = new.skills
+            skillTrees = new.skillTrees
+            weapons = new.weapons
         }
     }
 }

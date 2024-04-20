@@ -10,10 +10,14 @@ import Foundation
 #if !os(watchOS)
 extension EnkaHSR {
     public enum Sputnik {
-        public static func getEnkaProfile(for uid: String) async throws -> EnkaHSR.QueryRelated.DetailInfo {
+        public static func getEnkaProfile(
+            for uid: String,
+            dateWhenNextRefreshable nextAvailableDate: Date? = nil
+        ) async throws
+            -> EnkaHSR.QueryRelated.DetailInfo {
             let existingData = Defaults[.queriedEnkaProfiles][uid]
             do {
-                let newData = try await Self.fetchEnkaProfileRAW(uid)
+                let newData = try await Self.fetchEnkaProfileRAW(uid, dateWhenNextRefreshable: nextAvailableDate)
                 guard let detailInfo = newData.detailInfo else {
                     let errMsgCore = newData.message ?? "No Error Message is Given."
                     throw EnkaHSR.QueryRelated.Exception.enkaProfileQueryFailure(message: "EnkaMsg: \(errMsgCore)")
@@ -29,11 +33,15 @@ extension EnkaHSR {
             // Read charloc and charmap from UserDefault
             let storedDB = Defaults[.enkaDBData]
 
-            let enkaDataExpired = Calendar.current.date(
+            var enkaDataExpired = Calendar.current.date(
                 byAdding: .hour,
                 value: 2,
                 to: Defaults[.lastEnkaDBDataCheckDate]
             )! < Date()
+
+            if Locale.langCodeForEnkaAPI != storedDB.langTag {
+                enkaDataExpired = true
+            }
 
             let needUpdate = enkaDataExpired
 
@@ -42,6 +50,7 @@ extension EnkaHSR {
             } else {
                 let host = Defaults[.defaultDBQueryHost]
                 async let newDB = try EnkaHSR.EnkaDB(
+                    locTag: Locale.langCodeForEnkaAPI,
                     locTables: Self.fetchEnkaDBData(
                         from: host, type: .locTable,
                         decodingTo: EnkaHSR.DBModels.RawLocTables.self

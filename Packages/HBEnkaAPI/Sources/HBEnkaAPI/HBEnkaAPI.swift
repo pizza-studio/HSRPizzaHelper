@@ -18,7 +18,7 @@ public enum EnkaHSR {
 
     /// Root Asset Path without ending slash. Can be overridable.
     /// - remark: You have to manually add the ending slash when using this variable.
-    public static var assetPathRoot = Bundle.main.bundlePath
+    public static var assetPathRoot = Bundle.main.bundlePath + "/Contents/Resources"
 }
 
 // MARK: - Global Level TypeAliases
@@ -88,7 +88,8 @@ extension Data? {
 
 extension Locale {
     public static var langCodeForEnkaAPI: String {
-        let languageCode = Bundle.module.preferredLocalizations.first
+        let languageCode = Locale.preferredLanguages.first
+            ?? Bundle.module.preferredLocalizations.first
             ?? Bundle.main.preferredLocalizations.first
             ?? "en"
         switch languageCode.prefix(7).lowercased() {
@@ -97,8 +98,8 @@ extension Locale {
         default: break
         }
         switch languageCode.prefix(5).lowercased() {
-        case "zh-CN": return "zh-cn"
-        case "zh-TW": return "zh-tw"
+        case "zh-cn": return "zh-cn"
+        case "zh-tw": return "zh-tw"
         default: break
         }
         return languageCode

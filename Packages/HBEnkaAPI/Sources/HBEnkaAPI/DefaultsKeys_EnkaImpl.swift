@@ -19,7 +19,7 @@ extension Defaults.Keys {
     )
     public static let enkaDBData = Key<EnkaHSR.EnkaDB>(
         "enkaDBData",
-        default: EnkaHSR.EnkaDB()!,
+        default: EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)!,
         suite: .enkaSuite
     )
     public static let lastEnkaQueryDate = Key<[String: Date]>(

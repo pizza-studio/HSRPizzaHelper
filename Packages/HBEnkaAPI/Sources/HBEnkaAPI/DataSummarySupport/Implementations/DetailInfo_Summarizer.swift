@@ -10,4 +10,18 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     public func summarize(theDB: EnkaHSR.EnkaDB) -> EnkaHSR.ProfileSummarized {
         .init(theDB: theDB, rawInfo: self)
     }
+
+    public func accountPhotoFilePath(theDB: EnkaHSR.EnkaDB) -> String {
+        let str = theDB.profileAvatars[headIcon.description]?
+            .icon.split(separator: "/").last?.description ?? "114514.png"
+        return "\(Self.accountPhotoFilePathHeader)/\(str)"
+    }
+
+    public static var accountPhotoFilePathHeader: String {
+        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.profileAvatar.rawValue)/"
+    }
+
+    public static var nullPhotoFilePath: String {
+        "\(accountPhotoFilePathHeader)/Anonymous.png"
+    }
 }
