@@ -484,11 +484,12 @@ extension View {
 
 // MARK: - EachAvatarStatView_Previews
 
+#if DEBUG
 struct EachAvatarStatView_Previews: PreviewProvider {
     static let summary: EnkaHSR.AvatarSummarized = {
         // swiftlint:disable force_try
-        // Note: Do not use #Preview. Otherwise, the preview won't be able to access the assets.
-        let enkaDatabase = EnkaHSR.EnkaDB(locTag: "en")!
+        // Note: Do not use #Preview macro. Otherwise, the preview won't be able to access the assets.
+        let enkaDatabase = EnkaHSR.EnkaDB(locTag: "ja")!
         let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
             separator: "/"
         ).dropFirst()
@@ -496,7 +497,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
         let filePath = testDataPath + "TestQueryResultEnka.json"
         let dataURL = URL(fileURLWithPath: filePath)
         let profile = try! Data(contentsOf: dataURL).parseAs(EnkaHSR.QueryRelated.QueriedProfile.self)
-        let summary = profile.detailInfo!.avatarDetailList[2].summarize(theDB: enkaDatabase)!
+        let summary = profile.detailInfo!.avatarDetailList[4].summarize(theDB: enkaDatabase)!
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
         return summary
         // swiftlint:enable force_try
@@ -506,3 +507,4 @@ struct EachAvatarStatView_Previews: PreviewProvider {
         summary.asView()
     }
 }
+#endif
