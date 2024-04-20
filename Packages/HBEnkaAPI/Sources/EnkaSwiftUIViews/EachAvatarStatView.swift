@@ -9,48 +9,14 @@ import SwiftUI
 // MARK: - EachAvatarStatView
 
 public struct EachAvatarStatView: View {
-    @Environment(\.verticalSizeClass) private var verticalSizeClass: UserInterfaceSizeClass?
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
+    // MARK: Lifecycle
 
-    @StateObject private var orientation = DeviceOrientation()
-
-    private var scaleRatioCompatible: CGFloat {
-        DeviceOrientation.scaleRatioCompatible
-    }
-
-    private var shouldOptimizeForPhone: Bool {
-        #if os(macOS) || targetEnvironment(macCatalyst)
-        return false
-        #else
-        // ref: https://forums.developer.apple.com/forums/thread/126878
-        switch (horizontalSizeClass, verticalSizeClass) {
-        case (.regular, .regular): return false
-        default: return true
-        }
-        #endif
+    public init(data: EnkaHSR.AvatarSummarized, background: Bool = false) {
+        self.showBackground = background
+        self.data = data
     }
 
     // MARK: Public
-
-    private var zoomFactor: CGFloat {
-        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-        return 1.3
-        #else
-        return 1.66
-        #endif
-    }
-
-    private var fontSize: CGFloat {
-        (shouldOptimizeForPhone ? 17 : 15) * zoomFactor
-    }
-
-    private var outerContentSpacing: CGFloat {
-        (shouldOptimizeForPhone ? 8 : 4) * zoomFactor
-    }
-
-    private var innerContentSpacing: CGFloat {
-        (shouldOptimizeForPhone ? 4 : 2) * zoomFactor
-    }
 
     public let data: EnkaHSR.AvatarSummarized
 
@@ -117,25 +83,77 @@ public struct EachAvatarStatView: View {
         .preferredColorScheme(.dark)
         .frame(width: 375 * zoomFactor) // 输出画面刚好 375*500，可同时相容于 iPad。
         .background {
-            AsyncImage(url: URL(fileURLWithPath: data.mainInfo.photoFilePath)) { imageObj in
-                imageObj
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .blur(radius: 60)
-                    .saturation(3)
-                    .opacity(0.47)
-            } placeholder: {
-                Color.clear
+            if showBackground {
+                data.asBackground()
             }
         }
         // .showDimension()
         .scaleEffect(scaleRatioCompatible)
     }
+
+    // MARK: Private
+
+    @Environment(\.verticalSizeClass) private var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
+
+    @StateObject private var orientation = DeviceOrientation()
+
+    private let showBackground: Bool
+
+    private var scaleRatioCompatible: CGFloat {
+        DeviceOrientation.scaleRatioCompatible
+    }
+
+    private var shouldOptimizeForPhone: Bool {
+        #if os(macOS) || targetEnvironment(macCatalyst)
+        return false
+        #else
+        // ref: https://forums.developer.apple.com/forums/thread/126878
+        switch (horizontalSizeClass, verticalSizeClass) {
+        case (.regular, .regular): return false
+        default: return true
+        }
+        #endif
+    }
+
+    private var zoomFactor: CGFloat {
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
+        return 1.3
+        #else
+        return 1.66
+        #endif
+    }
+
+    private var fontSize: CGFloat {
+        (shouldOptimizeForPhone ? 17 : 15) * zoomFactor
+    }
+
+    private var outerContentSpacing: CGFloat {
+        (shouldOptimizeForPhone ? 8 : 4) * zoomFactor
+    }
+
+    private var innerContentSpacing: CGFloat {
+        (shouldOptimizeForPhone ? 4 : 2) * zoomFactor
+    }
 }
 
 extension EnkaHSR.AvatarSummarized {
-    public func asView() -> EachAvatarStatView {
-        .init(data: self)
+    public func asView(background: Bool = false) -> EachAvatarStatView {
+        .init(data: self, background: background)
+    }
+
+    @ViewBuilder
+    public func asBackground() -> some View {
+        AsyncImage(url: URL(fileURLWithPath: mainInfo.photoFilePath)) { imageObj in
+            imageObj
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .blur(radius: 60)
+                .saturation(3)
+                .opacity(0.47)
+        } placeholder: {
+            Color.clear
+        }
     }
 
     @ViewBuilder
@@ -506,7 +524,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
     static let summary: EnkaHSR.AvatarSummarized = {
         // swiftlint:disable force_try
         // Note: Do not use #Preview macro. Otherwise, the preview won't be able to access the assets.
-        let enkaDatabase = EnkaHSR.EnkaDB(locTag: "ja")!
+        let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-cn")!
         let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
             separator: "/"
         ).dropFirst()
@@ -521,7 +539,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        summary.asView()
+        summary.asView(background: true)
     }
 }
 #endif
