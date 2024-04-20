@@ -292,6 +292,10 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
                     .clipShape(Capsule())
                 levelDisplay(size: fontSize * 0.9)
                     .padding(.horizontal, 4)
+                    .shadow(
+                        color: Color(.sRGBLinear, white: 0, opacity: 1),
+                        radius: 3
+                    )
             }.frame(height: fontSize).fixedSize()
         }
     }
