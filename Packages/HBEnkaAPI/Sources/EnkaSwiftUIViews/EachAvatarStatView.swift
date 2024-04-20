@@ -226,7 +226,10 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
     func levelDisplay(size: CGFloat) -> some View {
         HStack(alignment: .firstTextBaseline, spacing: 0) {
-            Text("\(self.baseLevel)").font(.system(size: size * 0.8, weight: .heavy))
+            Text("\(baseLevel)").font(.system(size: size * 0.8, weight: .heavy))
+            if let additionalLevel = self.levelAddition {
+                Text("+\(additionalLevel)").font(.system(size: size * 0.65, weight: .black))
+            }
         }
     }
 
@@ -331,7 +334,7 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
 
     private func coreBody(fontSize: CGFloat) -> some View {
         HStack(alignment: .top) {
-          Color.clear.frame(width: fontSize * 2.6)
+            Color.clear.frame(width: fontSize * 2.6)
             VStack(spacing: 0) {
                 AttributeTagPair(
                     icon: mainProp.iconFilePath,
