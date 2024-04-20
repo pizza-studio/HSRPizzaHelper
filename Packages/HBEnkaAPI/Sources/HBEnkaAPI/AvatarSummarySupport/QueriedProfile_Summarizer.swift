@@ -222,7 +222,7 @@ extension EnkaHSR.AvatarSummarized.PropertyPair {
         element: EnkaHSR.Element
     ) {
         switch type {
-        case .attackAddedRatio, .defenceAddedRatio, .speedAddedRatio, .hpAddedRatio: arrAmp.append(self)
+        case .attackAddedRatio, .defenceAddedRatio, .hpAddedRatio, .speedAddedRatio: arrAmp.append(self)
         case .attack, .attackDelta,
              .baseAttack, .baseDefence, .baseHP, .baseSpeed,
              .breakDamageAddedRatio, .breakDamageAddedRatioBase,
