@@ -226,7 +226,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
     func levelDisplay(size: CGFloat) -> some View {
         HStack(alignment: .firstTextBaseline, spacing: 0) {
-            Text("\(self.adjustedLevel)").font(.system(size: size * 0.8, weight: .heavy))
+            Text("\(self.baseLevel)").font(.system(size: size * 0.8, weight: .heavy))
         }
     }
 

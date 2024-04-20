@@ -83,10 +83,10 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
         ) {
             guard fetched.count >= 4, let firstTreeItem = fetched.first else { return nil }
             let charIdStr = firstTreeItem.pointId.description.prefix(4).description
-            self.basicAttack = .init(charIdStr: charIdStr, adjustedLevel: fetched[0].level, type: .basicAttack)
-            self.elementalSkill = .init(charIdStr: charIdStr, adjustedLevel: fetched[1].level, type: .elementalSkill)
-            self.elementalBurst = .init(charIdStr: charIdStr, adjustedLevel: fetched[2].level, type: .elementalBurst)
-            self.talent = .init(charIdStr: charIdStr, adjustedLevel: fetched[3].level, type: .talent)
+            self.basicAttack = .init(charIdStr: charIdStr, baseLevel: fetched[0].level, type: .basicAttack)
+            self.elementalSkill = .init(charIdStr: charIdStr, baseLevel: fetched[1].level, type: .elementalSkill)
+            self.elementalBurst = .init(charIdStr: charIdStr, baseLevel: fetched[2].level, type: .elementalBurst)
+            self.talent = .init(charIdStr: charIdStr, baseLevel: fetched[3].level, type: .talent)
         }
 
         // MARK: Public
@@ -101,7 +101,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
 
             public let charIdStr: String
             /// Base skill level with amplification by constellations.
-            public let adjustedLevel: Int
+            public let baseLevel: Int
             public let type: SkillType
 
             public var iconFileName: String {
