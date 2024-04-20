@@ -6969,6 +6969,70 @@
         }
       }
     },
+    "operation.scrolling.guide" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use (Shift+) Mouse Wheel to scroll contents."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use (Shift+) Mouse Wheel to scroll contents."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use (Shift+) Mouse Wheel to scroll contents."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use (Shift+) Mouse Wheel to scroll contents."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Shift+) マウスホイールでスクロールを制御する。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use (Shift+) Mouse Wheel to scroll contents."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use (Shift+) Mouse Wheel to scroll contents."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use (Shift+) Mouse Wheel to scroll contents."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请使用 (Shift+) 鼠标滚轮以控制内容卷动检视。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請使用 (Shift+) 滑鼠滾輪以控制內容捲動檢視。"
+          }
+        }
+      }
+    },
     "ophelper.intro" : {
       "localizations" : {
         "en" : {

@@ -4,12 +4,14 @@
 
 extension EnkaHSR {
     /// The backend struct dedicated for rendering EachAvatarStatView.
-    public struct AvatarSummarized: Codable, Hashable {
+    public struct AvatarSummarized: Codable, Hashable, Identifiable {
         public let mainInfo: AvatarMainInfo
         public let equippedWeapon: WeaponPanel
         public let avatarPropertiesA: [PropertyPair]
         public let avatarPropertiesB: [PropertyPair]
         public let artifacts: [ArtifactInfo]
+
+        public var id: Int { mainInfo.uniqueCharId }
     }
 }
 

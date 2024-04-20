@@ -5,6 +5,35 @@
 import Foundation
 import SwiftUI
 
+// MARK: - HelpTextForScrollingOnDesktopComputer
+
+public struct HelpTextForScrollingOnDesktopComputer: View {
+    // MARK: Lifecycle
+
+    public init(_ direction: Direction) {
+        self.direction = direction
+    }
+
+    // MARK: Public
+
+    public enum Direction {
+        case horizontal, vertical
+    }
+
+    public var body: some View {
+        if OS.type == .macOS {
+            let mark: String = (direction == .horizontal) ? "⇆ " : "⇅ "
+            (Text(mark) + Text("operation.scrolling.guide")).font(.footnote).opacity(0.7)
+        } else {
+            EmptyView()
+        }
+    }
+
+    // MARK: Internal
+
+    @State var direction: Direction
+}
+
 // MARK: - Trailing Text Label
 
 extension View {
@@ -113,3 +142,68 @@ struct AdjustedBlurMaterialBackground: ViewModifier {
         ))
     }
 }
+
+// MARK: - OS
+
+public enum OS: Int {
+    case macOS = 0
+    case iPhoneOS = 1
+    case iPadOS = 2
+    case watchOS = 3
+    case tvOS = 4
+
+    // MARK: Public
+
+    public static let type: OS = {
+        #if os(OSX)
+        return .macOS
+        #elseif os(watchOS)
+        return .watchOS
+        #elseif os(tvOS)
+        return .tvOS
+        #elseif os(iOS)
+        #if targetEnvironment(simulator)
+        return maybePad ? .iPadOS : .iPhoneOS
+        #elseif targetEnvironment(macCatalyst)
+        return .macOS
+        #else
+        return maybePad ? .iPadOS : .iPhoneOS
+        #endif
+        #endif
+    }()
+
+    public static let isCatalyst: Bool = {
+        #if targetEnvironment(macCatalyst)
+        return true
+        #else
+        return false
+        #endif
+    }()
+
+    // MARK: Private
+
+    private static let maybePad: Bool = {
+        #if canImport(UIKit)
+        return UIDevice.modelIdentifier.contains("iPad") || UIDevice.current.userInterfaceIdiom == .pad
+        #else
+        return false
+        #endif
+    }()
+}
+
+#if canImport(UIKit)
+extension UIDevice {
+    public static let modelIdentifier: String = {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children
+            .reduce("") { identifier, element in
+                guard let value = element.value as? Int8,
+                      value != 0 else { return identifier }
+                return identifier + String(UnicodeScalar(UInt8(value)))
+            }
+        return identifier
+    }()
+}
+#endif
