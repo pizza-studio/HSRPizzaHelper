@@ -83,3 +83,24 @@ extension Data? {
         try JSONDecoder().decode(T.self, from: self ?? .init([]))
     }
 }
+
+// EnkaAPI LangCode
+
+extension Locale {
+    public static var langCodeForEnkaAPI: String {
+        let languageCode = Bundle.module.preferredLocalizations.first
+            ?? Bundle.main.preferredLocalizations.first
+            ?? "en"
+        switch languageCode.prefix(7).lowercased() {
+        case "zh-hans": return "zh-cn"
+        case "zh-hant": return "zh-tw"
+        default: break
+        }
+        switch languageCode.prefix(5).lowercased() {
+        case "zh-CN": return "zh-cn"
+        case "zh-TW": return "zh-tw"
+        default: break
+        }
+        return languageCode
+    }
+}

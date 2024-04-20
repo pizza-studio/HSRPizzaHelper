@@ -3,6 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Combine
+import Foundation
 
 extension EnkaHSR {
     public class EnkaDB: Codable, ObservableObject {
@@ -33,7 +34,7 @@ extension EnkaHSR {
         }
 
         /// Use bundled resources to initiate an EnkaDB instance.
-        public init?(locTag: String) {
+        public init?(locTag: String = Locale.langCodeForEnkaAPI) {
             do {
                 let locTables = try EnkaHSR.JSONTypes.locTable.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
