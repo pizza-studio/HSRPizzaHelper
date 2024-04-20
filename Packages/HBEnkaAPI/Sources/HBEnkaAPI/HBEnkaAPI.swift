@@ -18,7 +18,13 @@ public enum EnkaHSR {
 
     /// Root Asset Path without ending slash. Can be overridable.
     /// - remark: You have to manually add the ending slash when using this variable.
-    public static var assetPathRoot = Bundle.main.bundlePath + "/Contents/Resources"
+    public static var assetPathRoot = {
+        #if os(OSX) || targetEnvironment(macCatalyst)
+        Bundle.main.bundlePath + "/Contents/Resources"
+        #else
+        Bundle.main.bundlePath
+        #endif
+    }()
 }
 
 // MARK: - Global Level TypeAliases
