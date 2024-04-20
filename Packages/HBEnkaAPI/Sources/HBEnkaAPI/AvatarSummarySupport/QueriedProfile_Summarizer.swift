@@ -31,25 +31,37 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
         // TODO: 得请专人来检查这里的数值计算方法。此处还缺很多数据、还有很多算法是错的。
 
         // Panel: Add basic values from catched character Metadata.
-        let baseMeta = theDB.meta.avatar[avatarId.description]?[promotion.description]
-        guard let baseMeta = baseMeta else { return nil }
+        let baseMetaCharacter = theDB.meta.avatar[avatarId.description]?[promotion.description]
+        guard let baseMetaCharacter = baseMetaCharacter else { return nil }
         var panel = MutableAvatarPropertyPanel()
-        panel.maxHP = baseMeta.hpBase
-        panel.attack = baseMeta.attackBase
-        panel.defence = baseMeta.defenceBase
-        panel.maxHP += baseMeta.hpAdd * Double(level - 1)
-        panel.attack += baseMeta.attackAdd * Double(level - 1)
-        panel.defence += baseMeta.defenceAdd * Double(level - 1)
-        panel.speed = baseMeta.speedBase
-        panel.criticalChance = baseMeta.criticalChance
-        panel.criticalDamage = baseMeta.criticalDamage
+        panel.maxHP = baseMetaCharacter.hpBase
+        panel.attack = baseMetaCharacter.attackBase
+        panel.defence = baseMetaCharacter.defenceBase
+        panel.maxHP += baseMetaCharacter.hpAdd * Double(level - 1)
+        panel.attack += baseMetaCharacter.attackAdd * Double(level - 1)
+        panel.defence += baseMetaCharacter.defenceAdd * Double(level - 1)
+        panel.speed = baseMetaCharacter.speedBase
+        panel.criticalChance = baseMetaCharacter.criticalChance
+        panel.criticalDamage = baseMetaCharacter.criticalDamage
+
+        // Panel: 来自武器的基础面板加成（HP, ATK, DEF）。
+        // English: Base Props from the Weapon.
+
+        let baseMetaWeapon = theDB.meta.equipment[equipment.tid.description]?[equipment.promotion.description]
+        guard let baseMetaWeapon = baseMetaWeapon else { return nil }
+        panel.maxHP += baseMetaWeapon.baseHP
+        panel.attack += baseMetaWeapon.baseAttack
+        panel.defence += baseMetaWeapon.baseDefence
+        panel.maxHP += baseMetaWeapon.hpAdd * Double(equipInfo.trainedLevel - 1)
+        panel.attack += baseMetaWeapon.attackAdd * Double(equipInfo.trainedLevel - 1)
+        panel.defence += baseMetaWeapon.defenceAdd * Double(equipInfo.trainedLevel - 1)
 
         // Panel: Handle all additional props
 
-        // Panel: 来自武器的面板加成。
-        // English: Base and Additional Props from the Weapon.
+        // Panel: 来自武器的副面板加成。
+        // English: Additional Props from the Weapon.
 
-        let weaponProps: [EnkaHSR.AvatarSummarized.PropertyPair] = equipInfo.allProps
+        let weaponSpecialProps: [EnkaHSR.AvatarSummarized.PropertyPair] = equipInfo.specialProps
 
         // Panel: 来自天赋树的面板加成。
         // English: Base and Additional Props from the Skill Tree.
@@ -89,8 +101,8 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
             }
             return resultPairs
         }()
-        let rarProps = skillTreeProps + weaponProps + artifactProps + artifactSetProps
-        panel.triageAndHandle(theDB: theDB, rarProps, element: mainInfo.element)
+        let allProps = skillTreeProps + weaponSpecialProps + artifactProps + artifactSetProps
+        panel.triageAndHandle(theDB: theDB, allProps, element: mainInfo.element)
 
         // Panel: 将最终面板转成输出物件要用到的格式。
 
