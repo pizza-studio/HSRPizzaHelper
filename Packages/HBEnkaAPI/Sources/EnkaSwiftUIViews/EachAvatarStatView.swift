@@ -330,8 +330,8 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
     }
 
     private func coreBody(fontSize: CGFloat) -> some View {
-        HStack {
-            Color.clear.frame(width: fontSize * 3)
+        HStack(alignment: .top) {
+          Color.clear.frame(width: fontSize * 2.6)
             VStack(spacing: 0) {
                 AttributeTagPair(
                     icon: mainProp.iconFilePath,
@@ -496,7 +496,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
         let filePath = testDataPath + "TestQueryResultEnka.json"
         let dataURL = URL(fileURLWithPath: filePath)
         let profile = try! Data(contentsOf: dataURL).parseAs(EnkaHSR.QueryRelated.QueriedProfile.self)
-        let summary = profile.detailInfo!.avatarDetailList[0].summarize(theDB: enkaDatabase)!
+        let summary = profile.detailInfo!.avatarDetailList[2].summarize(theDB: enkaDatabase)!
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
         return summary
         // swiftlint:enable force_try
