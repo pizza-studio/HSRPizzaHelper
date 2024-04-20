@@ -47,7 +47,7 @@ public struct AvatarShowCaseView: View {
 
     @ViewBuilder
     public func blankView() -> some View {
-        Image(systemName: "trash.square.fill")
+        Text("🗑️")
     }
 
     @ViewBuilder
