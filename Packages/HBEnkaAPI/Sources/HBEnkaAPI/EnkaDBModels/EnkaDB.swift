@@ -20,7 +20,7 @@ extension EnkaHSR {
             skillTrees: EnkaHSR.DBModels.SkillTreesDict,
             weapons: EnkaHSR.DBModels.WeaponsDict
         ) {
-            self.langTag = locTag
+            self.langTag = Self.sanitizeLangTag(locTag)
             self.locTable = locTable
             self.profileAvatars = profileAvatars
             self.characters = characters
@@ -38,7 +38,7 @@ extension EnkaHSR {
                 let locTables = try EnkaHSR.JSONTypes.locTable.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
                 guard let locTableSpecified = locTables[locTag] else { return nil }
-                self.langTag = locTag
+                self.langTag = Self.sanitizeLangTag(locTag)
                 self.locTable = locTableSpecified
                 self.profileAvatars = try EnkaHSR.JSONTypes.profileAvatarIcons.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.ProfileAvatarDict.self)
@@ -63,6 +63,11 @@ extension EnkaHSR {
         }
 
         // MARK: Public
+
+        public static let allowedLangTags: [String] = [
+            "en", "ru", "vi", "th", "pt", "ko",
+            "ja", "id", "fr", "es", "de", "zh-tw", "zh-cn",
+        ]
 
         public var langTag: String {
             didSet {
@@ -122,6 +127,16 @@ extension EnkaHSR {
             didSet {
                 objectWillChange.send()
             }
+        }
+
+        public static func sanitizeLangTag(_ target: some StringProtocol) -> String {
+            var target = target.lowercased()
+            target = target.replacingOccurrences(of: "cht", with: "zh-tw")
+            target = target.replacingOccurrences(of: "chs", with: "zh-cn")
+            if !Self.allowedLangTags.contains(target) {
+                target = "en"
+            }
+            return target
         }
     }
 }
