@@ -169,6 +169,21 @@ extension EnkaHSR.AvatarSummarized {
             Color.clear
         }
     }
+
+    /// 显示角色的扑克牌尺寸肖像，以身份证素材裁切而成。
+    @ViewBuilder
+    public func asCardIcon(
+        _ size: CGFloat
+    )
+        -> some View {
+        asIcon()
+            .scaledToFill()
+            .frame(width: size * 0.74, height: size)
+            .clipped()
+            .scaledToFit()
+            .clipShape(RoundedRectangle(cornerRadius: size / 10))
+            .contentShape(RoundedRectangle(cornerRadius: size / 10))
+    }
 }
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {

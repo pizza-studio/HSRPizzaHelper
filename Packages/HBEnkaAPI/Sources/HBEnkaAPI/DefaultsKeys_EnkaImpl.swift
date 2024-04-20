@@ -37,6 +37,11 @@ extension Defaults.Keys {
         default: EnkaHSR.HostType.enkaGlobal,
         suite: .enkaSuite
     )
+    public static let animateOnCallingCharacterShowcase = Key<Bool>(
+        "animateOnCallingCharacterShowcase",
+        default: true,
+        suite: .enkaSuite
+    )
 }
 #endif
 
