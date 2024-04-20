@@ -80,6 +80,6 @@ extension Data? {
     }
 
     public func assertedParseAs<T: Decodable>(_ type: T.Type) throws -> T {
-        return try JSONDecoder().decode(T.self, from: self ?? .init([]))
+        try JSONDecoder().decode(T.self, from: self ?? .init([]))
     }
 }
