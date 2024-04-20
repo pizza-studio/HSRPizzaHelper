@@ -195,7 +195,8 @@ private struct MutableAvatarPropertyPanel {
         case element.damageAddedRatioProperty: elementalDMGAddedRatio += prop.value
         case .attack, .attackDelta, .baseAttack: attack += prop.value
         case .attackAddedRatio: attack *= (1 + prop.value)
-        case .baseHP, .hpAddedRatio, .hpDelta, .maxHP: maxHP += prop.value
+        case .baseHP, .hpDelta, .maxHP: maxHP += prop.value
+        case .hpAddedRatio: maxHP *= (1 + prop.value)
         case .baseSpeed, .speed, .speedDelta: speed += prop.value
         case .speedAddedRatio: speed *= (1 + prop.value)
         case .criticalChance, .criticalChanceBase: criticalChance += prop.value
@@ -221,14 +222,15 @@ extension EnkaHSR.AvatarSummarized.PropertyPair {
         element: EnkaHSR.Element
     ) {
         switch type {
-        case .attackAddedRatio, .defenceAddedRatio, .speedAddedRatio: arrAmp.append(self)
+        case .attackAddedRatio, .defenceAddedRatio, .speedAddedRatio, .hpAddedRatio: arrAmp.append(self)
         case .attack, .attackDelta,
              .baseAttack, .baseDefence, .baseHP, .baseSpeed,
              .breakDamageAddedRatio, .breakDamageAddedRatioBase,
              .breakUp, .criticalChance, .criticalChanceBase,
              .criticalDamage, .criticalDamageBase, .defence,
-             .defenceDelta, element.damageAddedRatioProperty, .energyRecovery, .energyRecoveryBase,
-             .healRatio, .healRatioBase, .hpAddedRatio,
+             .defenceDelta, element.damageAddedRatioProperty,
+             .energyRecovery, .energyRecoveryBase,
+             .healRatio, .healRatioBase,
              .hpDelta, .maxHP, .speed,
              .speedDelta, .statusProbability,
              .statusProbabilityBase, .statusResistance,
