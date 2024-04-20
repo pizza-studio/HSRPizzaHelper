@@ -21,7 +21,8 @@ extension EnkaHSR.QueryRelated {
         public let nickname: String
         public let uid: Int
         public let isDisplayAvatar: Bool
-        public let avatarDetailList, assistAvatarList: [Avatar]
+        public let avatarDetailList: [Avatar]
+        // public let assistAvatarList: [Avatar]
     }
 }
 
@@ -29,30 +30,14 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     // MARK: - Avatar
 
     public struct Avatar: Codable, Hashable {
-        // MARK: Public
-
         public let level, avatarId: Int
         public let equipment: Equipment
         public let relicList: [ArtifactItem]
         public let promotion: Int
         public let skillTreeList: [SkillTreeItem]
         public let rank: Int?
-        public let assist: Bool?
-        public let pos: Int?
-
-        // MARK: Internal
-
-        enum CodingKeys: String, CodingKey {
-            case level
-            case avatarId
-            case equipment
-            case relicList
-            case promotion
-            case skillTreeList
-            case rank
-            case assist = "_assist"
-            case pos
-        }
+        // public let _assist: Bool? // 用不到的参数，表示「该角色是否允许其他玩家借用」。
+        // public let pos: Int? // 用不到的参数，表示其在展柜内的原始陈列顺序。
     }
 
     // MARK: - Equipment
