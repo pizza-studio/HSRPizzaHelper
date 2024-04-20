@@ -26,10 +26,6 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
             EnkaHSR.AvatarSummarized.ArtifactInfo(theDB: theDB, fetched: $0)
         }
 
-        // According to Haku Bill:
-        // 「每一个属性是基础数值（角色自带+武器自带）* 所有来自圣遗物等的百分比的总和 + 来自圣遗物的数值。」
-        // TODO: 得请专人来检查这里的数值计算方法。此处还缺很多数据、还有很多算法是错的。
-
         // Panel: Add basic values from catched character Metadata.
         let baseMetaCharacter = theDB.meta.avatar[avatarId.description]?[promotion.description]
         guard let baseMetaCharacter = baseMetaCharacter else { return nil }
@@ -44,8 +40,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
         panel.criticalChance = baseMetaCharacter.criticalChance
         panel.criticalDamage = baseMetaCharacter.criticalDamage
 
-        // Panel: 来自武器的基础面板加成（HP, ATK, DEF）。
-        // English: Base Props from the Weapon.
+        // Panel: Base Props from the Weapon.
 
         let baseMetaWeapon = theDB.meta.equipment[equipment.tid.description]?[equipment.promotion.description]
         guard let baseMetaWeapon = baseMetaWeapon else { return nil }
@@ -58,8 +53,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
 
         // Panel: Handle all additional props
 
-        // Panel: 来自武器的副面板加成。
-        // English: Additional Props from the Weapon.
+        // Panel: - Additional Props from the Weapon.
 
         let weaponSpecialProps: [EnkaHSR.AvatarSummarized.PropertyPair] = equipInfo.specialProps
 
@@ -75,13 +69,11 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
             return nil
         }.reduce([], +)
 
-        // Panel: 来自圣遗物的面板加成。
-        // English: Additional Props from the Artifacts.
+        // Panel: - Additional Props from the Artifacts.
 
         let artifactProps: [EnkaHSR.AvatarSummarized.PropertyPair] = artifactsInfo.map(\.allProps).reduce([], +)
 
-        // Panel: 来自圣遗物套装特效的面板加成。
-        // English: Additional Props from the Artifact Set Effects.
+        // Panel: - Additional Props from the Artifact Set Effects.
 
         let artifactSetProps: [EnkaHSR.AvatarSummarized.PropertyPair] = {
             var resultPairs = [EnkaHSR.AvatarSummarized.PropertyPair]()
@@ -101,6 +93,9 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
             }
             return resultPairs
         }()
+
+        // Panel: Triage and Handle.
+
         let allProps = skillTreeProps + weaponSpecialProps + artifactProps + artifactSetProps
         panel.triageAndHandle(theDB: theDB, allProps, element: mainInfo.element)
 
