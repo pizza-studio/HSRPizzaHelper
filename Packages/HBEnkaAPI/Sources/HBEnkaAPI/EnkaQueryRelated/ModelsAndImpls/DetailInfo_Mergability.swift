@@ -25,7 +25,8 @@ extension EnkaHSR.QueryRelated.DetailInfo {
         )
     }
 
-    public func merge(old: Self) -> Self {
+    public func merge(old: Self?) -> Self {
+        guard let old = old else { return self }
         var newAvatars = avatarDetailList
         let existingCharIds = newAvatars.map(\.avatarId)
         old.avatarDetailList.forEach { currentOldChar in

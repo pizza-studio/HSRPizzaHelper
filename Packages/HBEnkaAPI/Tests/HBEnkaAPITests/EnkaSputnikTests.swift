@@ -14,12 +14,17 @@ final class EnkaSputnikTests: XCTestCase {
     }
 
     func testFetchingLatestEnkaDB() async throws {
-        let dbObj = try await EnkaHSR.Sputnik.shared.getEnkaDB()
+        let dbObj = try await EnkaHSR.Sputnik.getEnkaDB()
         print(dbObj.langTag)
     }
 
     func testFetchingEnkaProfile() async throws {
-        let dbObj = try await EnkaHSR.Sputnik.fetchEnkaProfile("111664722")
+        let dbObj = try await EnkaHSR.Sputnik.fetchEnkaProfileRAW("114514810")
+        print(dbObj.uid)
+    }
+
+    func testFetchingEnkaProfile2() async throws {
+        let dbObj = try await EnkaHSR.Sputnik.getEnkaProfile(for: "114514810")
         print(dbObj.uid)
     }
 }

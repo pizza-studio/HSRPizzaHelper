@@ -9,16 +9,23 @@ import Foundation
 
 #if !os(watchOS)
 extension EnkaHSR {
-    public class Sputnik {
-        // MARK: Lifecycle
+    public enum Sputnik {
+        public static func getEnkaProfile(for uid: String) async throws -> EnkaHSR.QueryRelated.DetailInfo {
+            let existingData = Defaults[.queriedEnkaProfiles][uid]
+            do {
+                let newData = try await Self.fetchEnkaProfileRAW(uid)
+                guard let detailInfo = newData.detailInfo else {
+                    let errMsgCore = newData.message ?? "No Error Message is Given."
+                    throw EnkaHSR.QueryRelated.Exception.enkaProfileQueryFailure(message: "EnkaMsg: \(errMsgCore)")
+                }
+                return detailInfo.merge(old: existingData)
+            } catch {
+                print(error.localizedDescription)
+                throw EnkaHSR.QueryRelated.Exception.enkaProfileQueryFailure(message: error.localizedDescription)
+            }
+        }
 
-        private init() {}
-
-        // MARK: Public
-
-        public static let shared = EnkaHSR.Sputnik()
-
-        public func getEnkaDB() async throws -> EnkaHSR.EnkaDB {
+        public static func getEnkaDB() async throws -> EnkaHSR.EnkaDB {
             // Read charloc and charmap from UserDefault
             let storedDB = Defaults[.enkaDBData]
 
@@ -101,7 +108,7 @@ extension EnkaHSR.Sputnik {
     /// - Parameters:
     ///     - uid: 用户UID
     ///     - completion: 资料
-    public static func fetchEnkaProfile(
+    public static func fetchEnkaProfileRAW(
         _ uid: String,
         dateWhenNextRefreshable: Date? = nil
     ) async throws
