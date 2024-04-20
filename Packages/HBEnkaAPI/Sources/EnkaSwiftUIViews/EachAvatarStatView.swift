@@ -137,13 +137,27 @@ extension EnkaHSR.AvatarSummarized {
     public func asView() -> EachAvatarStatView {
         .init(data: self)
     }
+
+    @ViewBuilder
+    public func asIcon() -> some View {
+        AsyncImage(url: URL(fileURLWithPath: mainInfo.photoFilePath)) { imageObj in
+            imageObj
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .background {
+                    Color.black.opacity(0.165)
+                }
+        } placeholder: {
+            Color.clear
+        }
+    }
 }
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     @ViewBuilder
     public func asView(fontSize: CGFloat) -> some View {
         HStack(alignment: .bottom, spacing: fontSize * 0.55) {
-            AsyncImage(url: URL(fileURLWithPath: self.photoFilePath)) { imageObj in
+            AsyncImage(url: URL(fileURLWithPath: photoFilePath)) { imageObj in
                 imageObj
                     .resizable()
                     .aspectRatio(contentMode: .fit)
