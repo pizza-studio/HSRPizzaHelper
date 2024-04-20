@@ -32,6 +32,11 @@ extension Defaults.Keys {
         default: [:],
         suite: .enkaSuite
     )
+    public static let defaultDBQueryHost = Key<EnkaHSR.HostType>(
+        "defaultDBQueryHost",
+        default: EnkaHSR.HostType.enkaGlobal,
+        suite: .enkaSuite
+    )
 }
 #endif
 
@@ -42,3 +47,7 @@ extension EnkaHSR.EnkaDB: _DefaultsSerializable {}
 // MARK: - EnkaHSR.QueryRelated.DetailInfo + _DefaultsSerializable
 
 extension EnkaHSR.QueryRelated.DetailInfo: _DefaultsSerializable {}
+
+// MARK: - EnkaHSR.HostType + _DefaultsSerializable
+
+extension EnkaHSR.HostType: _DefaultsSerializable {}
