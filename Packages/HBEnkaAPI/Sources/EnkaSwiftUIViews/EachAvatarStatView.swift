@@ -236,7 +236,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                             fontSize: fontSize * 0.8, dash: false
                         )
                         AttributeTagPair(
-                            title: constellationName, valueStr: "C\(self.constellation)",
+                            title: constellationName, valueStr: "E\(self.constellation)",
                             fontSize: fontSize * 0.8, dash: false
                         )
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)

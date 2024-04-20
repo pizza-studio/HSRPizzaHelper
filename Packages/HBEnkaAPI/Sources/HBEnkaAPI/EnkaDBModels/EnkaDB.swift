@@ -129,14 +129,14 @@ extension EnkaHSR {
 extension EnkaHSR.EnkaDB {
     public enum ExtraTerms {
         public static let constellation: [String: String] = [
-            "en": "Constellation",
-            "fr": "Constellation",
-            "ja": "命ノ星座",
-            "ko": "운명의 자리",
-            "ru": "Созвездие",
-            "vi": "Cung Mệnh",
-            "zh-cn": "命之座",
-            "zh-tw": "命之座",
+            "en": "Eidolon Resonance",
+            "fr": "Résona. d'Eidolon",
+            "ja": "星魂同調",
+            "ko": "성혼 동조",
+            "ru": "Эйдолоны",
+            "vi": "Tinh Hồn Đồng Điệu",
+            "zh-cn": "星魂同调",
+            "zh-tw": "星魂同調",
         ]
 
         public static let characterLevel: [String: String] = [
