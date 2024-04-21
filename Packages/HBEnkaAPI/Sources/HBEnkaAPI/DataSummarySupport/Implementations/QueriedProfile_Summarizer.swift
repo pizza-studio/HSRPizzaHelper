@@ -46,14 +46,10 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
 
         // Panel: Base Props from the Weapon.
 
-        let baseMetaWeapon = theDB.meta.equipment[equipment.tid.description]?[equipment.promotionRank.description]
-        guard let baseMetaWeapon = baseMetaWeapon else { return nil }
-        panel.maxHP += baseMetaWeapon.baseHP
-        panel.attack += baseMetaWeapon.baseAttack
-        panel.defence += baseMetaWeapon.baseDefence
-        panel.maxHP += baseMetaWeapon.hpAdd * Double(equipInfo.trainedLevel - 1)
-        panel.attack += baseMetaWeapon.attackAdd * Double(equipInfo.trainedLevel - 1)
-        panel.defence += baseMetaWeapon.defenceAdd * Double(equipInfo.trainedLevel - 1)
+        let equipFlat = equipment.getFlat(theDB: theDB)
+        panel.maxHP += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseHP }?.value ?? 0
+        panel.attack += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseAttack }?.value ?? 0
+        panel.defence += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseDefence }?.value ?? 0
 
         // Panel: Handle all additional props
 
@@ -61,8 +57,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
 
         let weaponSpecialProps: [EnkaHSR.AvatarSummarized.PropertyPair] = equipInfo.specialProps
 
-        // Panel: 来自天赋树的面板加成。
-        // English: Base and Additional Props from the Skill Tree.
+        // Panel: Base and Additional Props from the Skill Tree.
 
         let skillTreeProps: [EnkaHSR.AvatarSummarized.PropertyPair] = skillTreeList.compactMap { currentNode in
             if currentNode.level == 1 {
@@ -82,7 +77,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
         let artifactSetProps: [EnkaHSR.AvatarSummarized.PropertyPair] = {
             var resultPairs = [EnkaHSR.AvatarSummarized.PropertyPair]()
             var setIDCounters: [Int: Int] = [:]
-            artifactsInfo.compactMap(\.paramDataFetched.flat?.setID).forEach { setIDCounters[$0, default: 0] += 1 }
+            artifactsInfo.map(\.setID).forEach { setIDCounters[$0, default: 0] += 1 }
             setIDCounters.forEach { setId, count in
                 guard count >= 2 else { return }
                 let x = theDB.meta.relic.setSkill.query(id: setId, stage: 2).map {
@@ -103,7 +98,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
         let allProps = skillTreeProps + weaponSpecialProps + artifactProps + artifactSetProps
         panel.triageAndHandle(theDB: theDB, allProps, element: mainInfo.element)
 
-        // Panel: 将最终面板转成输出物件要用到的格式。
+        // Panel: Final Output.
 
         let propPair = panel.converted(theDB: theDB, element: mainInfo.element)
 
@@ -237,5 +232,54 @@ extension EnkaHSR.AvatarSummarized.PropertyPair {
             arrAdd.append(self)
         default: break
         }
+    }
+}
+
+extension EnkaHSR.QueryRelated.DetailInfo.ArtifactItem {
+    public func getFlat(theDB: EnkaHSR.EnkaDB) -> EnkaHSR.QueryRelated.DetailInfo.ArtifactItem.Flat? {
+        var result = [EnkaHSR.QueryRelated.DetailInfo.Prop]()
+        guard let matchedArtifact = theDB.artifacts[tid.description] else { return nil }
+        let mainAffix = theDB.meta.relic.mainAffix[
+            matchedArtifact.mainAffixGroup.description
+        ]?[mainAffixId.description]
+        if let mainAffix = mainAffix {
+            result.append(
+                .init(
+                    type: mainAffix.property.rawValue,
+                    value: mainAffix.baseValue + mainAffix.levelAdd * Double(level ?? 0)
+                )
+            )
+        }
+        subAffixList.forEach { sub in
+            guard let subAffix = theDB.meta.relic.subAffix[
+                matchedArtifact.subAffixGroup.description
+            ]?[sub.affixId.description] else { return }
+            result.append(
+                .init(
+                    type: subAffix.property.rawValue,
+                    value: subAffix.baseValue * Double(sub.cnt) + subAffix.stepValue * Double(sub.step ?? 0)
+                )
+            )
+        }
+        return .init(
+            props: result,
+            setName: matchedArtifact.setID,
+            setID: matchedArtifact.setID
+        )
+    }
+}
+
+extension EnkaHSR.QueryRelated.DetailInfo.Equipment {
+    public func getFlat(theDB: EnkaHSR.EnkaDB) -> EnkaHSR.QueryRelated.DetailInfo.EquipmentFlat {
+        var result = [EnkaHSR.QueryRelated.DetailInfo.Prop]()
+        if let table = theDB.meta.equipment[tid.description]?[(promotion ?? 0).description] {
+            let summedHP = table.baseHP + table.hpAdd * (Double(level) - 1)
+            let summedATK = table.baseAttack + table.attackAdd * (Double(level) - 1)
+            let summedDEF = table.baseDefence + table.defenceAdd * (Double(level) - 1)
+            result.append(.init(type: EnkaHSR.PropertyType.baseHP.rawValue, value: summedHP))
+            result.append(.init(type: EnkaHSR.PropertyType.baseAttack.rawValue, value: summedATK))
+            result.append(.init(type: EnkaHSR.PropertyType.baseDefence.rawValue, value: summedDEF))
+        }
+        return .init(props: result, name: theDB.weapons[tid.description]?.equipmentName.hash ?? 0)
     }
 }
