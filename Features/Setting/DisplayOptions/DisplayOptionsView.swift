@@ -7,10 +7,11 @@
 
 import Defaults
 import DefaultsKeys
+import HBEnkaAPI
 import SwiftUI
 
 struct DisplayOptionsView: View {
-    @Default(.useGuestGachaEvaluator) var useGuestGachaEvaluator
+    // MARK: Internal
 
     var body: some View {
         Group {
@@ -27,6 +28,17 @@ struct DisplayOptionsView: View {
                     Text("setting.uirelated.useguestgachaevaluator")
                 }
             }
+
+            Section {
+                Toggle(isOn: $animateOnCallingCharacterShowcase) {
+                    Text("setting.uirelated.showCase.animateOnCallingCharacterShowcase.title")
+                }
+            }
         }
     }
+
+    // MARK: Private
+
+    @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator
+    @Default(.animateOnCallingCharacterShowcase)  private var animateOnCallingCharacterShowcase: Bool
 }

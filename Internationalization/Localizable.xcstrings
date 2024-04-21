@@ -8574,6 +8574,35 @@
         }
       }
     },
+    "setting.uirelated.showCase.animateOnCallingCharacterShowcase.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animate on opening character showcase"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラ陳列で詳細画面を呼ぶときの動画効果を起用"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点开角色展柜时显示动画效果"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點開角色展櫃時顯示動畫效果"
+          }
+        }
+      }
+    },
     "setting.uirelated.title" : {
       "localizations" : {
         "en" : {
