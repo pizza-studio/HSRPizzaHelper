@@ -22,7 +22,9 @@ extension EnkaHSR {
                     let errMsgCore = newData.message ?? "No Error Message is Given."
                     throw EnkaHSR.QueryRelated.Exception.enkaProfileQueryFailure(message: "EnkaMsg: \(errMsgCore)")
                 }
-                return detailInfo.merge(old: existingData)
+                let newMerged = detailInfo.merge(old: existingData)
+                Defaults[.queriedEnkaProfiles][uid] = newMerged
+                return newMerged
             } catch {
                 print(error.localizedDescription)
                 throw EnkaHSR.QueryRelated.Exception.enkaProfileQueryFailure(message: error.localizedDescription)
