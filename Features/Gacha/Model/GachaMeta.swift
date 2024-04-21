@@ -70,13 +70,17 @@ private protocol ItemMeta {
 
 extension ItemMeta {
     var icon: UIImage? {
+        #if os(OSX) || targetEnvironment(macCatalyst)
+        let url = Bundle.main.bundleURL.appendingPathComponent(
+            "Contents/Resources/" + AppConfig.gachaMetaFolderName,
+            isDirectory: true
+        ).appendingPathComponent(iconFilePath, conformingTo: .json)
+        #else
         let url = Bundle.main.bundleURL.appendingPathComponent(
             AppConfig.gachaMetaFolderName,
             isDirectory: true
-        ).appendingPathComponent(
-            iconFilePath,
-            isDirectory: false
-        )
+        ).appendingPathComponent(iconFilePath, conformingTo: .json)
+        #endif
         guard let data = try? Data(contentsOf: url) else { return nil }
         return UIImage(data: data)
     }
