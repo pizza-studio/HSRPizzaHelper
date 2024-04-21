@@ -131,7 +131,8 @@ extension EnkaHSR.Sputnik {
             )
             throw EnkaHSR.QueryRelated.Exception.refreshTooFast(dateWhenRefreshable: date)
         } else {
-            let enkaOfficial = EnkaHSR.HostType.profileQueryURLHeader + uid
+            let server = EnkaHSR.HostType(uid: uid)
+            let enkaOfficial = server.profileQueryURLHeader + uid
             // swiftlint:disable force_unwrapping
             let url = URL(string: enkaOfficial)!
             // swiftlint:enable force_unwrapping
