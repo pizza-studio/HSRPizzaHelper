@@ -144,29 +144,27 @@ extension EnkaHSR.AvatarSummarized {
 
     @ViewBuilder
     public func asBackground() -> some View {
-        AsyncImage(url: URL(fileURLWithPath: mainInfo.photoFilePath)) { imageObj in
-            imageObj
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .blur(radius: 60)
-                .saturation(3)
-                .opacity(0.47)
+        ResIcon(mainInfo.photoFilePath) {
+            $0.resizable()
         } placeholder: {
-            Color.clear
+            AnyView(Color.clear)
         }
+        .aspectRatio(contentMode: .fill)
+        .blur(radius: 60)
+        .saturation(3)
+        .opacity(0.47)
     }
 
     @ViewBuilder
     public func asIcon() -> some View {
-        AsyncImage(url: URL(fileURLWithPath: mainInfo.photoFilePath)) { imageObj in
-            imageObj
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .background {
-                    Color.black.opacity(0.165)
-                }
+        ResIcon(mainInfo.photoFilePath) {
+            $0.resizable()
         } placeholder: {
-            Color.clear
+            AnyView(Color.clear)
+        }
+        .aspectRatio(contentMode: .fit)
+        .background {
+            Color.black.opacity(0.165)
         }
     }
 
@@ -190,15 +188,14 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     @ViewBuilder
     public func asView(fontSize: CGFloat) -> some View {
         HStack(alignment: .bottom, spacing: fontSize * 0.55) {
-            AsyncImage(url: URL(fileURLWithPath: photoFilePath)) { imageObj in
-                imageObj
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .background {
-                        Color.black.opacity(0.165)
-                    }
+            ResIcon(photoFilePath) {
+                $0.resizable()
             } placeholder: {
-                Color.clear
+                AnyView(Color.clear)
+            }
+            .aspectRatio(contentMode: .fit)
+            .background {
+                Color.black.opacity(0.165)
             }
             .frame(maxWidth: fontSize * 5, maxHeight: fontSize * 5)
             .clipShape(Circle())
@@ -213,11 +210,12 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                     ZStack(alignment: .center) {
                         Color.black.opacity(0.1)
                             .clipShape(Circle())
-                        AsyncImage(url: URL(fileURLWithPath: lifePath.iconFilePath)) { imageObj in
-                            imageObj.resizable().aspectRatio(contentMode: .fit)
+                        ResIcon(lifePath.iconFilePath) {
+                            $0.resizable()
                         } placeholder: {
-                            Color.clear
+                            AnyView(Color.clear)
                         }
+                        .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                     }.frame(
                         width: fontSize * 2.6,
@@ -226,13 +224,13 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                         ZStack(alignment: .center) {
                             Color.black.opacity(0.05)
                                 .clipShape(Circle())
-                            AsyncImage(url: URL(fileURLWithPath: element.iconFilePath)) { imageObj in
-                                imageObj
-                                    .resizable()
-                                    .brightness(0.1)
+                            ResIcon(element.iconFilePath) {
+                                $0.resizable()
                             } placeholder: {
-                                Color.clear
+                                AnyView(Color.clear)
                             }
+                            .brightness(0.1)
+                            .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
                         }.frame(
                             width: fontSize * 0.95,
@@ -287,11 +285,12 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
                 ZStack(alignment: .center) {
                     Color.black.opacity(0.1)
                         .clipShape(Circle())
-                    AsyncImage(url: URL(fileURLWithPath: iconFilePath)) { imageObj in
-                        imageObj.resizable()
+                    ResIcon(iconFilePath) {
+                        $0.resizable()
                     } placeholder: {
-                        Color.clear
+                        AnyView(Color.clear)
                     }
+                    .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
                     .scaleEffect(0.8)
                 }.frame(
@@ -320,16 +319,15 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel {
     @ViewBuilder
     public func asView(fontSize: CGFloat) -> some View {
         HStack(spacing: fontSize * 0.4) {
-            AsyncImage(url: URL(fileURLWithPath: iconFilePath)) { imageObj in
-                imageObj
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .background {
-                        Color.primary.opacity(0.075)
-                            .clipShape(Circle())
-                    }
+            ResIcon(iconFilePath) {
+                $0.resizable()
             } placeholder: {
-                Color.clear
+                AnyView(Color.clear)
+            }
+            .aspectRatio(contentMode: .fit)
+            .background {
+                Color.primary.opacity(0.075)
+                    .clipShape(Circle())
             }
             .frame(maxWidth: fontSize * 4.46)
             .corneredTag(
@@ -404,14 +402,13 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
                 ) { prop in
                     HStack(spacing: 0) {
                         if let iconPath = prop.iconFilePath {
-                            AsyncImage(url: URL(fileURLWithPath: iconPath)) { imageObj in
-                                imageObj
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: fontSize * 1.25, height: fontSize * 1.25)
+                            ResIcon(iconPath) {
+                                $0.resizable()
                             } placeholder: {
-                                Color.clear
+                                AnyView(Color.clear)
                             }
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: fontSize * 1.25, height: fontSize * 1.25)
                         }
                         Text(prop.valueString)
                             .lineLimit(1)
@@ -433,15 +430,14 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
             alignment: .bottomLeading, textSize: fontSize * 0.7
         )
         .background(alignment: .topLeading) {
-            AsyncImage(url: URL(fileURLWithPath: iconFilePath)) { imageObj in
-                imageObj
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .opacity(0.9)
-                    .scaleEffect(0.8, anchor: .topLeading)
+            ResIcon(iconFilePath) {
+                $0.resizable()
             } placeholder: {
-                Color.clear
+                AnyView(Color.clear)
             }
+            .aspectRatio(contentMode: .fit)
+            .opacity(0.9)
+            .scaleEffect(0.8, anchor: .topLeading)
         }
     }
 }
@@ -485,11 +481,12 @@ public struct AttributeTagPair: View {
     public var body: some View {
         HStack(spacing: 0) {
             if let iconPath = iconPath {
-                AsyncImage(url: URL(fileURLWithPath: iconPath)) { imageObj in
-                    imageObj.resizable()
+                ResIcon(iconPath) {
+                    $0.resizable()
                 } placeholder: {
-                    Color.clear.frame(width: fontSize * 1.25, height: fontSize * 1.25)
+                    AnyView(Color.clear)
                 }
+                .aspectRatio(contentMode: .fit)
                 .frame(width: fontSize * 1.5, height: fontSize * 1.5)
             }
             Text(shortenedTitle)

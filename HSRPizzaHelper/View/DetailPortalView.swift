@@ -160,16 +160,14 @@ private struct SelectAccountSection: View {
         Section {
             HStack(spacing: 0) {
                 HStack {
-                    let path = basicInfo.accountPhotoFilePath(theDB: detailPortalViewModel.enkaDB)
-                    AsyncImage(url: URL(fileURLWithPath: path)) { imageObj in
-                        imageObj
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .background {
-                                Color.black.opacity(0.165)
-                            }
+                    ResIcon(basicInfo.accountPhotoFilePath(theDB: detailPortalViewModel.enkaDB)) {
+                        $0.resizable()
                     } placeholder: {
-                        Color.clear
+                        AnyView(Color.clear)
+                    }
+                    .aspectRatio(contentMode: .fit)
+                    .background {
+                        Color.black.opacity(0.165)
                     }
                     .clipShape(Circle())
                     .frame(width: 64, height: 64)
@@ -233,16 +231,14 @@ private struct SelectAccountSection: View {
         Section {
             HStack(spacing: 0) {
                 HStack {
-                    let path = EnkaProfileEntity.nullPhotoFilePath
-                    AsyncImage(url: URL(fileURLWithPath: path)) { imageObj in
-                        imageObj
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .background {
-                                Color.black.opacity(0.165)
-                            }
+                    ResIcon(EnkaProfileEntity.nullPhotoFilePath) {
+                        $0.resizable()
                     } placeholder: {
-                        Color.clear
+                        AnyView(Color.clear)
+                    }
+                    .aspectRatio(contentMode: .fit)
+                    .background {
+                        Color.black.opacity(0.165)
                     }
                     .clipShape(Circle())
                     .frame(width: 64, height: 64)
