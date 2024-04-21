@@ -5,6 +5,40 @@
 import Foundation
 import SwiftUI
 
+// MARK: - ResIcon
+
+public struct ResIcon: View {
+    // MARK: Lifecycle
+
+    public init(
+        _ path: String,
+        imageHandler: ((Image) -> Image)? = nil,
+        placeholder: (() -> AnyView)? = nil
+    ) {
+        self.path = path
+        self.imageHandler = imageHandler ?? { $0 }
+        self.placeholder = placeholder ?? { .init(ProgressView()) }
+    }
+
+    // MARK: Public
+
+    public let path: String
+    public let placeholder: () -> AnyView
+    public let imageHandler: (Image) -> Image
+
+    public var body: some View {
+        if let image = UIImage(contentsOfFile: path) {
+            imageHandler(Image(uiImage: image))
+        } else {
+            AsyncImage(url: .init(fileURLWithPath: path)) { image in
+                imageHandler(image)
+            } placeholder: {
+                placeholder()
+            }
+        }
+    }
+}
+
 // MARK: - HelpTextForScrollingOnDesktopComputer
 
 public struct HelpTextForScrollingOnDesktopComputer: View {
