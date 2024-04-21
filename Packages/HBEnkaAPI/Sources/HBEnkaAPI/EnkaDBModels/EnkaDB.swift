@@ -5,6 +5,8 @@
 import Combine
 import Foundation
 
+// MARK: - EnkaHSR.EnkaDB
+
 extension EnkaHSR {
     public class EnkaDB: Codable, ObservableObject {
         // MARK: Lifecycle
@@ -188,6 +190,8 @@ extension EnkaHSR {
         }
     }
 }
+
+// MARK: - EnkaHSR.EnkaDB.ExtraTerms
 
 extension EnkaHSR.EnkaDB {
     public enum ExtraTerms {

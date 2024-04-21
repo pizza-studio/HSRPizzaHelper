@@ -2,6 +2,8 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+// MARK: - EnkaHSR.DBModels.Meta
+
 extension EnkaHSR.DBModels {
     public struct Meta: Codable, Hashable {
         public let avatar: RawAvatarMetaDict
@@ -98,7 +100,7 @@ extension EnkaHSR.DBModels.Meta {
     }
 }
 
-// MARK: - Meta.RawEquipSkillMetaDict
+// MARK: - EnkaHSR.DBModels.Meta.RawEquipSkillMetaDict
 
 extension EnkaHSR.DBModels.Meta {
     public typealias RawEquipSkillMetaDict = NestedPropValueMap
@@ -144,7 +146,7 @@ extension EnkaHSR.DBModels.Meta {
     }
 }
 
-// MARK: - Meta.RawTreeMetaDict
+// MARK: - EnkaHSR.DBModels.Meta.RawTreeMetaDict
 
 extension EnkaHSR.DBModels.Meta {
     public typealias RawTreeMetaDict = NestedPropValueMap

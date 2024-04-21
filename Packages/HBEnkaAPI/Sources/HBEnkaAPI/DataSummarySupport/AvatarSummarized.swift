@@ -2,6 +2,8 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+// MARK: - EnkaHSR.AvatarSummarized
+
 extension EnkaHSR {
     /// The backend struct dedicated for rendering EachAvatarStatView.
     public struct AvatarSummarized: Codable, Hashable, Identifiable {
@@ -15,7 +17,7 @@ extension EnkaHSR {
     }
 }
 
-// MARK: - AvatarMainInfo & BaseSkillSet
+// MARK: - EnkaHSR.AvatarSummarized.AvatarMainInfo
 
 extension EnkaHSR.AvatarSummarized {
     public struct AvatarMainInfo: Codable, Hashable {
@@ -74,6 +76,8 @@ extension EnkaHSR.AvatarSummarized {
         }
     }
 }
+
+// MARK: - EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     /// Base Skill Set of a Character, excluding Technique since it doesn't have a level.
@@ -161,7 +165,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     }
 }
 
-// MARK: - PropertyPair
+// MARK: - EnkaHSR.AvatarSummarized.PropertyPair
 
 extension EnkaHSR.AvatarSummarized {
     public struct PropertyPair: Codable, Hashable, Identifiable {
@@ -218,7 +222,7 @@ extension EnkaHSR.AvatarSummarized {
     }
 }
 
-// MARK: - WeaponPanel
+// MARK: - EnkaHSR.AvatarSummarized.WeaponPanel
 
 extension EnkaHSR.AvatarSummarized {
     public struct WeaponPanel: Codable, Hashable {
@@ -280,7 +284,7 @@ extension EnkaHSR.AvatarSummarized {
     }
 }
 
-// MARK: - ArtifactInfo
+// MARK: - EnkaHSR.AvatarSummarized.ArtifactInfo
 
 extension EnkaHSR.AvatarSummarized {
     public struct ArtifactInfo: Codable, Hashable, Identifiable {

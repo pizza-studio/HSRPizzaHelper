@@ -40,5 +40,5 @@ struct DisplayOptionsView: View {
     // MARK: Private
 
     @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator
-    @Default(.animateOnCallingCharacterShowcase)  private var animateOnCallingCharacterShowcase: Bool
+    @Default(.animateOnCallingCharacterShowcase) private var animateOnCallingCharacterShowcase: Bool
 }

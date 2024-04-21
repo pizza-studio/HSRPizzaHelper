@@ -4,6 +4,8 @@
 
 import Combine
 
+// MARK: - EnkaHSR.ProfileSummarized
+
 extension EnkaHSR {
     public class ProfileSummarized: ObservableObject {
         // MARK: Lifecycle

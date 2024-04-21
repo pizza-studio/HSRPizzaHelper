@@ -40,7 +40,7 @@ extension EnkaHSR {
     public typealias LifePath = DBModels.LifePath
 }
 
-// MARK: - EnkaHSR.JSONType
+// MARK: EnkaHSR.JSONType
 
 extension EnkaHSR {
     public enum JSONType: String, CaseIterable {
@@ -112,6 +112,8 @@ extension Locale {
     }
 }
 
+// MARK: - EnkaHSR.HostType
+
 extension EnkaHSR {
     public enum HostType: Int, Codable, RawRepresentable, Hashable {
         case mainlandChina = 0
@@ -150,6 +152,8 @@ extension EnkaHSR {
         }
     }
 }
+
+// MARK: - EnkaHSR.QueryRelated.Exception
 
 extension EnkaHSR.QueryRelated {
     public enum Exception: Error {
