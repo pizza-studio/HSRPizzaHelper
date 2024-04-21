@@ -158,12 +158,15 @@ extension EnkaHSR.Sputnik {
             )
             dataToParse = data
         } catch {
-            if serverType != .enkaGlobal {
+            print(error.localizedDescription)
+            print("// [Enka.Sputnik.fetchEnkaDBData] Attempt using alternative JSON server source.")
+            do {
                 let (data, _) = try await URLSession.shared.data(
-                    for: URLRequest(url: EnkaHSR.HostType.enkaGlobal.enkaDBSourceURL(type: dataType))
+                    for: URLRequest(url: serverType.viceVersa().enkaDBSourceURL(type: dataType))
                 )
                 dataToParse = data
-            } else {
+            } catch {
+                print("// [Enka.Sputnik.fetchEnkaDBData] Final attempt failed:")
                 print(error.localizedDescription)
                 throw error
             }

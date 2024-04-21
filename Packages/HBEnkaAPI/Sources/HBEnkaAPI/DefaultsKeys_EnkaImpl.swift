@@ -55,4 +55,11 @@ extension EnkaHSR.QueryRelated.DetailInfo: _DefaultsSerializable {}
 
 // MARK: - EnkaHSR.HostType + _DefaultsSerializable
 
-extension EnkaHSR.HostType: _DefaultsSerializable {}
+extension EnkaHSR.HostType: _DefaultsSerializable {
+    public static func toggleEnkaDBQueryHost() {
+        switch Defaults[.defaultDBQueryHost] {
+        case .enkaGlobal: Defaults[.defaultDBQueryHost] = .mainlandChina
+        case .mainlandChina: Defaults[.defaultDBQueryHost] = .enkaGlobal
+        }
+    }
+}

@@ -135,6 +135,13 @@ extension EnkaHSR {
             Self.profileQueryURLHeader
         }
 
+        public func viceVersa() -> Self {
+            switch self {
+            case .enkaGlobal: return .mainlandChina
+            case .mainlandChina: return .enkaGlobal
+            }
+        }
+
         public func enkaDBSourceURL(type: EnkaHSR.JSONType) -> URL {
             // swiftlint:disable force_unwrapping
             let urlStr = "\(enkaDBSourceURLHeader)store/hsr/\(type.rawValue).json"
