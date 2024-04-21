@@ -14,41 +14,65 @@ extension EnkaHSR.QueryRelated {
     // MARK: - DetailInfo
 
     public struct DetailInfo: Codable, Hashable {
-        public let platform, level, friendCount: Int?
-        public let signature: String?
-        public let recordInfo: RecordInfo?
-        public let headIcon, worldLevel: Int?
-        public let nickname: String?
+        // MARK: Lifecycle
+
+        public init(
+            uid: Int,
+            nickname: String,
+            level: Int,
+            friendCount: Int,
+            signature: String,
+            recordInfo: RecordInfo?,
+            headIcon: Int,
+            worldLevel: Int,
+            isDisplayAvatar: Bool,
+            platform: PlatformType,
+            avatarDetailList: [Avatar]
+        ) {
+            self.uid = uid
+            self.nickname = nickname
+            self.level = level
+            self.friendCount = friendCount
+            self.signature = signature
+            self.recordInfo = recordInfo
+            self.headIcon = headIcon
+            self.worldLevel = worldLevel
+            self.isDisplayAvatar = isDisplayAvatar
+            self.platform = platform
+            self.avatarDetailList = avatarDetailList
+        }
+
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.uid = try container.decode(Int.self, forKey: .uid)
+            self.nickname = try container.decode(String?.self, forKey: .nickname) ?? "@Nanashibito"
+            self.level = try container.decode(Int?.self, forKey: .level) ?? 0
+            self.friendCount = try container.decode(Int?.self, forKey: .friendCount) ?? 0
+            self.signature = try container.decode(String?.self, forKey: .signature) ?? ""
+            self.recordInfo = try container.decode(RecordInfo?.self, forKey: .recordInfo)
+            self.headIcon = try container.decode(Int?.self, forKey: .headIcon) ?? 1310
+            self.worldLevel = try container.decode(Int?.self, forKey: .worldLevel) ?? 0
+            self.isDisplayAvatar = try container.decode(Bool?.self, forKey: .isDisplayAvatar) ?? false
+            self.avatarDetailList = try container.decode([Avatar]?.self, forKey: .avatarDetailList) ?? []
+            do {
+                self.platform = .init(rawValue: try container.decode(Int?.self, forKey: .platform) ?? 0) ?? .editor
+            } catch {
+                self.platform = .init(string: try container.decode(String?.self, forKey: .platform) ?? "EDITOR")
+            }
+        }
+
+        // MARK: Public
+
         public let uid: Int
-        public let isDisplayAvatar: Bool?
-        public let avatarDetailList: [Avatar]?
-
+        public let nickname: String
+        public let level, friendCount: Int
+        public let signature: String
+        public let recordInfo: RecordInfo?
+        public let headIcon, worldLevel: Int
+        public let isDisplayAvatar: Bool
+        public let platform: PlatformType
+        public let avatarDetailList: [Avatar]
         // public let assistAvatarList: [Avatar]
-
-        // Signature, guarded. The default value is blank.
-        public var signatureGuarded: String {
-            signature ?? ""
-        }
-
-        // Nickname, guarded.
-        public var nickNameGuarded: String {
-            nickname ?? "@Nanashibito"
-        }
-
-        // Adventure Rank / Trailblazing Level, guarded.
-        public var trailblazingLevel: Int {
-            level ?? 114_514
-        }
-
-        // World Level, guarded.
-        public var equilibriumLevel: Int {
-            worldLevel ?? 114_514
-        }
-
-        // All Avatars, guarded.
-        public var allAvatars: [Avatar] {
-            avatarDetailList ?? []
-        }
     }
 }
 
@@ -174,4 +198,41 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     public struct ChallengeInfo: Codable, Hashable {
         public let scheduleGroupId: Int?
     }
+
+    // swiftlint:disable identifier_name
+    public enum PlatformType: Int, Hashable, Codable, CaseIterable {
+        case editor = 0
+        case ios = 1
+        case android = 2
+        case pc = 3
+        case web = 4
+        case wap = 5
+        case ps4 = 6
+        case nintendo = 7
+        case cloud_android = 8
+        case cloud_pc = 9
+        case cloud_ios = 10
+        case ps5 = 11
+        case mac = 12
+        case cloud_mac = 13
+        case cloud_web_android = 20
+        case cloud_web_ios = 21
+        case cloud_web_pc = 22
+        case cloud_web_mac = 23
+        case cloud_web_touch = 24
+        case cloud_web_keyboard = 25
+
+        // MARK: Lifecycle
+
+        public init(string: String) {
+            self = Self.allCases.first { $0.toString == string } ?? .editor
+        }
+
+        // MARK: Public
+
+        public var toString: String {
+            .init(describing: self).uppercased()
+        }
+    }
+    // swiftlint:enable identifier_name
 }

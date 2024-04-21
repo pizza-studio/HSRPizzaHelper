@@ -4,46 +4,46 @@
 
 extension EnkaHSR.QueryRelated.DetailInfo {
     public func merge(new: Self) -> Self {
-        var newAvatars = new.allAvatars
+        var newAvatars = new.avatarDetailList
         let existingCharIds = newAvatars.map(\.avatarId)
-        allAvatars.forEach { currentOldChar in
+        avatarDetailList.forEach { currentOldChar in
             guard !existingCharIds.contains(currentOldChar.avatarId) else { return }
             newAvatars.append(currentOldChar)
         }
         return .init(
-            platform: new.platform,
+            uid: new.uid,
+            nickname: new.nickname,
             level: new.level,
             friendCount: new.friendCount,
             signature: new.signature,
             recordInfo: new.recordInfo,
             headIcon: new.headIcon,
             worldLevel: new.worldLevel,
-            nickname: new.nickname,
-            uid: new.uid,
             isDisplayAvatar: new.isDisplayAvatar,
+            platform: new.platform,
             avatarDetailList: newAvatars
         )
     }
 
     public func merge(old: Self?) -> Self {
         guard let old = old else { return self }
-        var newAvatars = allAvatars
+        var newAvatars = avatarDetailList
         let existingCharIds = newAvatars.map(\.avatarId)
-        old.allAvatars.forEach { currentOldChar in
+        old.avatarDetailList.forEach { currentOldChar in
             guard !existingCharIds.contains(currentOldChar.avatarId) else { return }
             newAvatars.append(currentOldChar)
         }
         return .init(
-            platform: platform,
+            uid: uid,
+            nickname: nickname,
             level: level,
             friendCount: friendCount,
             signature: signature,
             recordInfo: recordInfo,
             headIcon: headIcon,
             worldLevel: worldLevel,
-            nickname: nickname,
-            uid: uid,
             isDisplayAvatar: isDisplayAvatar,
+            platform: platform,
             avatarDetailList: newAvatars
         )
     }
