@@ -51,6 +51,7 @@ identifier_name:
     - y
     - i
     - j
+    - OS
     - Defaults # Make use of `SwiftyUserDefaults`
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
 trailing_comma:
