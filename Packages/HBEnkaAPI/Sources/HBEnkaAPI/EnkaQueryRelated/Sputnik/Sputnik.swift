@@ -165,6 +165,8 @@ extension EnkaHSR.Sputnik {
                     for: URLRequest(url: serverType.viceVersa().enkaDBSourceURL(type: dataType))
                 )
                 dataToParse = data
+                // 如果这次成功的话，就自动修改偏好设定、今后就用这个资料源。
+                EnkaHSR.HostType.toggleEnkaDBQueryHost()
             } catch {
                 print("// [Enka.Sputnik.fetchEnkaDBData] Final attempt failed:")
                 print(error.localizedDescription)
