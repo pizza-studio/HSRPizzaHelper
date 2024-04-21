@@ -27,6 +27,17 @@ public struct ResIcon: View {
     public let imageHandler: (Image) -> Image
 
     public var body: some View {
+        #if os(OSX)
+        if let image = NSImage(contentsOfFile: path) {
+            imageHandler(Image(nsImage: image))
+        } else {
+            AsyncImage(url: .init(fileURLWithPath: path)) { image in
+                imageHandler(image)
+            } placeholder: {
+                placeholder()
+            }
+        }
+        #else
         if let image = UIImage(contentsOfFile: path) {
             imageHandler(Image(uiImage: image))
         } else {
@@ -36,6 +47,7 @@ public struct ResIcon: View {
                 placeholder()
             }
         }
+        #endif
     }
 }
 
