@@ -316,6 +316,7 @@
 /* Begin PBXFileReference section */
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
 		5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DefaultsKeys; path = Packages/DefaultsKeys; sourceTree = "<group>"; };
+		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
 		5B5D9BC62BCFF50B0085E728 /* other_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = other_meta; sourceTree = "<group>"; };
 		5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnkaHSRImpl.swift; sourceTree = "<group>"; };
 		5B7CE2B62BCD2DAF0053FD7D /* HBEnkaAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBEnkaAPI; path = Packages/HBEnkaAPI; sourceTree = "<group>"; };
@@ -1001,6 +1002,7 @@
 				BF58D23A2A579D5000CC0DC6 /* HSRPizzaHelper Watch App */,
 				EAE5197D2A01738600EF23B7 /* Products */,
 				EA143BC62A01808200AE1FCA /* Frameworks */,
+				5B30C9C72BD53A06001935B0 /* Script */,
 			);
 			sourceTree = "<group>";
 		};
