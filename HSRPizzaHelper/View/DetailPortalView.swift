@@ -177,19 +177,19 @@ private struct SelectAccountSection: View {
                 }
                 .frame(width: 74)
                 .corneredTag(
-                    "detailPortal.player.adventureRank.short:\(basicInfo.level.description)",
+                    "detailPortal.player.adventureRank.short:\(basicInfo.trailblazingLevel.description)",
                     alignment: .bottomTrailing,
                     textSize: 12
                 )
                 VStack(alignment: .leading) {
                     HStack(spacing: 10) {
                         VStack(alignment: .leading) {
-                            Text(basicInfo.nickname)
+                            Text(basicInfo.nickNameGuarded)
                                 .font(.title3)
                                 .bold()
                                 .padding(.top, 5)
                                 .lineLimit(1)
-                            Text(basicInfo.signature)
+                            Text(basicInfo.signatureGuarded)
                                 .foregroundColor(.secondary)
                                 .font(.footnote)
                                 .lineLimit(2)
@@ -212,7 +212,7 @@ private struct SelectAccountSection: View {
                 Text(verbatim: "UID: \(selectedAccount.uid.description)")
                 Spacer()
                 let worldLevelTitle = "detailPortal.player.worldLevel".localized()
-                Text("\(worldLevelTitle): \(basicInfo.worldLevel.description)")
+                Text("\(worldLevelTitle): \(basicInfo.equilibriumLevel.description)")
             }
         }
     }
@@ -327,7 +327,7 @@ private struct PlayerDetailSection: View {
                     detailPortalViewModel.fetchPlayerDetail()
                 }
             case let .succeed((playerDetail, _)):
-                if playerDetail.avatarDetailList.isEmpty {
+                if playerDetail.allAvatars.isEmpty {
                     Button {
                         detailPortalViewModel.refresh()
                     } label: {

@@ -4,7 +4,7 @@
 
 extension EnkaHSR.QueryRelated.DetailInfo {
     public func summarizeAllAvatars(theDB: EnkaHSR.EnkaDB) -> [EnkaHSR.AvatarSummarized] {
-        avatarDetailList.compactMap { $0.summarize(theDB: theDB) }
+        allAvatars.compactMap { $0.summarize(theDB: theDB) }
     }
 
     public func summarize(theDB: EnkaHSR.EnkaDB) -> EnkaHSR.ProfileSummarized {
@@ -12,6 +12,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     }
 
     public func accountPhotoFilePath(theDB: EnkaHSR.EnkaDB) -> String {
+        guard let headIcon = headIcon else { return Self.nullPhotoFilePath }
         let str = theDB.profileAvatars[headIcon.description]?
             .icon.split(separator: "/").last?.description ?? "114514.png"
         return "\(Self.accountPhotoFilePathHeader)/\(str)"

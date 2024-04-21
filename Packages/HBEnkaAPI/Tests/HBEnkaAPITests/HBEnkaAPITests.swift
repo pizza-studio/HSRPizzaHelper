@@ -51,7 +51,7 @@ final class HBEnkaAPITests: XCTestCase {
         XCTAssertEqual(uid, "114514810")
         guard let profile = profile, let detailInfo = profile.detailInfo else { return }
         guard let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-tw") else { return }
-        let summarized = detailInfo.avatarDetailList.first?.summarize(theDB: enkaDatabase)
+        let summarized = detailInfo.allAvatars.first?.summarize(theDB: enkaDatabase)
         XCTAssertNotNil(summarized)
         guard let summarized = summarized else { return }
         XCTAssertEqual(summarized.mainInfo.localizedName, "黃泉")
@@ -62,7 +62,7 @@ final class HBEnkaAPITests: XCTestCase {
         print(summarized.mainInfo.photoFilePath)
         XCTAssertTrue(FileManager.default.fileExists(atPath: summarized.mainInfo.photoFilePath))
         // Check skill levels reinforced by constellations.
-        let seijaku = detailInfo.avatarDetailList[4].summarize(theDB: enkaDatabase)
+        let seijaku = detailInfo.allAvatars[4].summarize(theDB: enkaDatabase)
         XCTAssertNotNil(seijaku)
         guard let seijaku = seijaku else { return }
         XCTAssertNotNil(seijaku.mainInfo.baseSkills.elementalBurst.levelAddition)

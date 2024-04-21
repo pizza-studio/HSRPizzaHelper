@@ -4,9 +4,9 @@
 
 extension EnkaHSR.QueryRelated.DetailInfo {
     public func merge(new: Self) -> Self {
-        var newAvatars = new.avatarDetailList
+        var newAvatars = new.allAvatars
         let existingCharIds = newAvatars.map(\.avatarId)
-        avatarDetailList.forEach { currentOldChar in
+        allAvatars.forEach { currentOldChar in
             guard !existingCharIds.contains(currentOldChar.avatarId) else { return }
             newAvatars.append(currentOldChar)
         }
@@ -27,9 +27,9 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
     public func merge(old: Self?) -> Self {
         guard let old = old else { return self }
-        var newAvatars = avatarDetailList
+        var newAvatars = allAvatars
         let existingCharIds = newAvatars.map(\.avatarId)
-        old.avatarDetailList.forEach { currentOldChar in
+        old.allAvatars.forEach { currentOldChar in
             guard !existingCharIds.contains(currentOldChar.avatarId) else { return }
             newAvatars.append(currentOldChar)
         }

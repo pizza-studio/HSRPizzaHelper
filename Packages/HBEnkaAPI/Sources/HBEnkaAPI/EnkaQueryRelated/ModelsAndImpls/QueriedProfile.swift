@@ -14,15 +14,41 @@ extension EnkaHSR.QueryRelated {
     // MARK: - DetailInfo
 
     public struct DetailInfo: Codable, Hashable {
-        public let platform, level, friendCount: Int
-        public let signature: String
-        public let recordInfo: RecordInfo
-        public let headIcon, worldLevel: Int
-        public let nickname: String
+        public let platform, level, friendCount: Int?
+        public let signature: String?
+        public let recordInfo: RecordInfo?
+        public let headIcon, worldLevel: Int?
+        public let nickname: String?
         public let uid: Int
-        public let isDisplayAvatar: Bool
-        public let avatarDetailList: [Avatar]
+        public let isDisplayAvatar: Bool?
+        public let avatarDetailList: [Avatar]?
+
         // public let assistAvatarList: [Avatar]
+
+        // Signature, guarded. The default value is blank.
+        public var signatureGuarded: String {
+            signature ?? ""
+        }
+
+        // Nickname, guarded.
+        public var nickNameGuarded: String {
+            nickname ?? "@Nanashibito"
+        }
+
+        // Adventure Rank / Trailblazing Level, guarded.
+        public var trailblazingLevel: Int {
+            level ?? 114_514
+        }
+
+        // World Level, guarded.
+        public var equilibriumLevel: Int {
+            worldLevel ?? 114_514
+        }
+
+        // All Avatars, guarded.
+        public var allAvatars: [Avatar] {
+            avatarDetailList ?? []
+        }
     }
 }
 
