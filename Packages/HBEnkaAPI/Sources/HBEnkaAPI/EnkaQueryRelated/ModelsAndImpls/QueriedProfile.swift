@@ -40,6 +40,7 @@ extension EnkaHSR.QueryRelated {
             self.isDisplayAvatar = isDisplayAvatar
             self.platform = platform
             self.avatarDetailList = avatarDetailList
+            self.assistAvatarList = []
         }
 
         public init(from decoder: Decoder) throws {
@@ -53,7 +54,13 @@ extension EnkaHSR.QueryRelated {
             self.headIcon = (try? container.decode(Int.self, forKey: .headIcon)) ?? 1310
             self.worldLevel = (try? container.decode(Int.self, forKey: .worldLevel)) ?? 0
             self.isDisplayAvatar = (try? container.decode(Bool.self, forKey: .isDisplayAvatar)) ?? false
-            self.avatarDetailList = (try? container.decode([Avatar].self, forKey: .avatarDetailList)) ?? []
+            // 在这个阶段就将 assistAvatarList 的内容并入到 avatarDetailList 内。
+            let avatarListPrimary = (try? container.decode([Avatar].self, forKey: .assistAvatarList)) ?? []
+            var avatarListSecondary = (try? container.decode([Avatar].self, forKey: .avatarDetailList)) ?? []
+            let filteredCharIDs = avatarListPrimary.map(\.avatarId)
+            avatarListSecondary.removeAll { filteredCharIDs.contains($0.avatarId) }
+            self.assistAvatarList = []
+            self.avatarDetailList = avatarListPrimary + avatarListSecondary
             do {
                 self.platform = .init(rawValue: (try container.decode(Int?.self, forKey: .platform)) ?? 0) ?? .editor
             } catch {
@@ -72,7 +79,7 @@ extension EnkaHSR.QueryRelated {
         public let isDisplayAvatar: Bool
         public let platform: PlatformType
         public let avatarDetailList: [Avatar]
-        // public let assistAvatarList: [Avatar]
+        public let assistAvatarList: [Avatar]
     }
 }
 
