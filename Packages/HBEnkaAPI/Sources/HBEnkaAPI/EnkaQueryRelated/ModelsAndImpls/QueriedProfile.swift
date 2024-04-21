@@ -147,14 +147,14 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     // MARK: - RecordInfo
 
     public struct RecordInfo: Codable, Hashable {
-        public let maxRogueChallengeScore, achievementCount: Int
-        public let challengeInfo: ChallengeInfo
-        public let equipmentCount, avatarCount: Int
+        public let maxRogueChallengeScore, achievementCount: Int?
+        public let challengeInfo: ChallengeInfo?
+        public let equipmentCount, avatarCount: Int?
     }
 
     // MARK: - ChallengeInfo
 
     public struct ChallengeInfo: Codable, Hashable {
-        public let scheduleGroupId: Int
+        public let scheduleGroupId: Int?
     }
 }
