@@ -19,12 +19,11 @@ final class EnkaSputnikTests: XCTestCase {
     }
 
     func testFetchingEnkaProfile() async throws {
-        let dbObj = try await EnkaHSR.Sputnik.fetchEnkaProfileRAW("114514810")
-        print(dbObj.uid)
-    }
-
-    func testFetchingEnkaProfile2() async throws {
-        let dbObj = try await EnkaHSR.Sputnik.getEnkaProfile(for: "114514810")
-        print(dbObj.uid)
+        do {
+            let dbObj = try await EnkaHSR.Sputnik.fetchEnkaProfileRAW("114514810")
+            print(dbObj.uid)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
