@@ -14,12 +14,12 @@ struct ThanksView: View {
                 .font(.footnote)
             Divider()
             Group {
-                Text("AlertToast - elai950\nhttps://github.com/elai950/AlertToast")
-                Text("Mantis - guoyingtao\nhttps://github.com/guoyingtao/Mantis")
-                Text("SFSafeSymbols\nhttps://github.com/SFSafeSymbols/SFSafeSymbols")
-                Text("SwifterSwift\nhttps://github.com/SwifterSwift/SwifterSwift")
-                Text("Defaults - Sindre Sorhus\nhttps://github.com/sindresorhus/Defaults")
-                Text("Enka API - Enka Network\nhttps://enka.network/?hsr")
+                Text(verbatim: "AlertToast - elai950\nhttps://github.com/elai950/AlertToast")
+                Text(verbatim: "Mantis - guoyingtao\nhttps://github.com/guoyingtao/Mantis")
+                Text(verbatim: "SFSafeSymbols\nhttps://github.com/SFSafeSymbols/SFSafeSymbols")
+                Text(verbatim: "SwifterSwift\nhttps://github.com/SwifterSwift/SwifterSwift")
+                Text(verbatim: "Defaults - Sindre Sorhus\nhttps://github.com/sindresorhus/Defaults")
+                Text(verbatim: "Enka API - Enka Network\nhttps://enka.network/?hsr")
             }
             .font(.caption)
             Divider()
