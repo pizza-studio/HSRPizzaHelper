@@ -3,6 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Combine
+import Defaults
 import EnkaSwiftUIViews
 import Foundation
 import HBEnkaAPI
@@ -29,11 +30,18 @@ final class DetailPortalViewModel: ObservableObject {
 
         if let account = accounts?.first {
             self._selectedAccount = .init(initialValue: account)
+            self.currentBasicInfo = Defaults[.queriedEnkaProfiles][account.uid]
             refresh()
         } else {
             self._selectedAccount = .init(initialValue: nil)
         }
     }
+
+    // MARK: Public
+
+    @Published public var currentBasicInfo: EnkaProfileEntity?
+
+    @Published public var playerDetailStatus: PlayerDetailStatus = .progress(nil)
 
     // MARK: Internal
 
@@ -45,15 +53,14 @@ final class DetailPortalViewModel: ObservableObject {
 
     typealias PlayerDetailStatus = Status<(EnkaProfileEntity, nextRefreshableDate: Date)>
 
-    @Published var playerDetailStatus: PlayerDetailStatus = .progress(nil)
-
-    @Published var currentBasicInfo: EnkaProfileEntity?
-
     // swiftlint:disable force_unwrapping
     let enkaDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)!
 
     @Published var selectedAccount: Account? {
-        didSet { refresh() }
+        didSet {
+            currentBasicInfo = Defaults[.queriedEnkaProfiles][selectedAccount?.uid ?? "-1"]
+            refresh()
+        }
     }
 
     // swiftlint:enable force_unwrapping
@@ -109,27 +116,27 @@ struct DetailPortalView: View {
     var body: some View {
         NavigationStack {
             List {
-                SelectAccountSection(selectedAccount: $detailPortalViewModel.selectedAccount)
-                if let account = detailPortalViewModel.selectedAccount {
+                SelectAccountSection(selectedAccount: $vmDPV.selectedAccount)
+                if let account = vmDPV.selectedAccount {
                     PlayerDetailSection(account: account)
                 }
             }
             .refreshable {
-                detailPortalViewModel.refresh()
+                vmDPV.refresh()
             }
         }
-        .environmentObject(detailPortalViewModel)
+        .environmentObject(vmDPV)
     }
 
     // MARK: Private
 
-    @StateObject private var detailPortalViewModel: DetailPortalViewModel = .init()
+    @StateObject private var vmDPV: DetailPortalViewModel = .init()
 }
 
 // MARK: - SelectAccountSection
 
 private struct SelectAccountSection: View {
-    @EnvironmentObject private var detailPortalViewModel: DetailPortalViewModel
+    @EnvironmentObject private var vmDPV: DetailPortalViewModel
 
     // MARK: Internal
 
@@ -137,7 +144,7 @@ private struct SelectAccountSection: View {
 
     var body: some View {
         if let selectedAccount {
-            switch detailPortalViewModel.playerDetailStatus {
+            switch vmDPV.playerDetailStatus {
             case let .succeed((playerDetail, _)):
                 normalAccountPickerView(
                     basicInfo: playerDetail,
@@ -160,7 +167,7 @@ private struct SelectAccountSection: View {
         Section {
             HStack(spacing: 0) {
                 HStack {
-                    ResIcon(basicInfo.accountPhotoFilePath(theDB: detailPortalViewModel.enkaDB)) {
+                    ResIcon(basicInfo.accountPhotoFilePath(theDB: vmDPV.enkaDB)) {
                         $0.resizable()
                     } placeholder: {
                         AnyView(Color.clear)
@@ -176,7 +183,7 @@ private struct SelectAccountSection: View {
                             Group {
                                 Button("↺") {
                                     withAnimation {
-                                        detailPortalViewModel.refresh()
+                                        vmDPV.refresh()
                                     }
                                 }
                             }
@@ -186,19 +193,19 @@ private struct SelectAccountSection: View {
                 }
                 .frame(width: 74)
                 .corneredTag(
-                    "detailPortal.player.adventureRank.short:\(basicInfo.trailblazingLevel.description)",
+                    "detailPortal.player.adventureRank.short:\(basicInfo.level.description)",
                     alignment: .bottomTrailing,
                     textSize: 12
                 )
                 VStack(alignment: .leading) {
                     HStack(spacing: 10) {
                         VStack(alignment: .leading) {
-                            Text(basicInfo.nickNameGuarded)
+                            Text(basicInfo.nickname)
                                 .font(.title3)
                                 .bold()
                                 .padding(.top, 5)
                                 .lineLimit(1)
-                            Text(basicInfo.signatureGuarded)
+                            Text(basicInfo.signature)
                                 .foregroundColor(.secondary)
                                 .font(.footnote)
                                 .lineLimit(2)
@@ -221,7 +228,7 @@ private struct SelectAccountSection: View {
                 Text(verbatim: "UID: \(selectedAccount.uid.description)")
                 Spacer()
                 let worldLevelTitle = "detailPortal.player.worldLevel".localized()
-                Text("\(worldLevelTitle): \(basicInfo.equilibriumLevel.description)")
+                Text("\(worldLevelTitle): \(basicInfo.worldLevel.description)")
             }
         }
     }
@@ -231,11 +238,13 @@ private struct SelectAccountSection: View {
         Section {
             HStack(spacing: 0) {
                 HStack {
-                    ResIcon(EnkaProfileEntity.nullPhotoFilePath) {
+                    let path = vmDPV.currentBasicInfo?.accountPhotoFilePath(theDB: vmDPV.enkaDB)
+                    ResIcon(path ?? EnkaProfileEntity.nullPhotoFilePath) {
                         $0.resizable()
                     } placeholder: {
                         AnyView(Color.clear)
                     }
+                    .saturation(0)
                     .aspectRatio(contentMode: .fit)
                     .background {
                         Color.black.opacity(0.165)
@@ -247,7 +256,7 @@ private struct SelectAccountSection: View {
                             Group {
                                 Button("↺") {
                                     withAnimation {
-                                        detailPortalViewModel.refresh()
+                                        vmDPV.refresh()
                                     }
                                 }
                             }
@@ -323,31 +332,41 @@ private struct SelectAccountSection: View {
 // MARK: - PlayerDetailSection
 
 private struct PlayerDetailSection: View {
-    @EnvironmentObject private var detailPortalViewModel: DetailPortalViewModel
+    // MARK: Internal
 
-    let account: Account
-
-    var playerDetailStatus: DetailPortalViewModel.Status<(EnkaProfileEntity, nextRefreshableDate: Date)> {
-        detailPortalViewModel.playerDetailStatus
-    }
-
-    var errorTextForBlankAvatars: String {
-        "account.PlayerDetail.EmptyAvatarsFetched".localized()
+    @ViewBuilder var currentShowCase: some View {
+        vmDPV.currentBasicInfo?.asView(theDB: vmDPV.enkaDB).saturation(
+            {
+                switch vmDPV.playerDetailStatus {
+                case .progress: 0
+                default: 1
+                }
+            }()
+        )
+        .disabled(
+            {
+                switch vmDPV.playerDetailStatus {
+                case .progress: true
+                default: false
+                }
+            }()
+        )
     }
 
     var body: some View {
         Section {
-            switch playerDetailStatus {
+            currentShowCase
+            switch vmDPV.playerDetailStatus {
             case .progress:
                 ProgressView().id(UUID())
             case let .fail(error):
                 ErrorView(account: account, apiPath: "", error: error) {
-                    detailPortalViewModel.fetchPlayerDetail()
+                    vmDPV.fetchPlayerDetail()
                 }
             case let .succeed((playerDetail, _)):
-                if playerDetail.allAvatars.isEmpty {
+                if playerDetail.avatarDetailList.isEmpty {
                     Button {
-                        detailPortalViewModel.refresh()
+                        vmDPV.refresh()
                     } label: {
                         Label {
                             VStack {
@@ -359,18 +378,26 @@ private struct PlayerDetailSection: View {
                                 .foregroundColor(.red)
                         }
                     }
-                } else {
-                    playerDetail.asView(theDB: detailPortalViewModel.enkaDB)
                 }
             }
         }
+    }
+
+    // MARK: Private
+
+    @EnvironmentObject private var vmDPV: DetailPortalViewModel
+
+    public let account: Account
+
+    private var errorTextForBlankAvatars: String {
+        "account.PlayerDetail.EmptyAvatarsFetched".localized()
     }
 }
 
 // MARK: - ErrorView
 
 private struct ErrorView: View {
-    @EnvironmentObject private var detailPortalViewModel: DetailPortalViewModel
+    @EnvironmentObject private var vmDPV: DetailPortalViewModel
 
     let account: Account
     let apiPath: String
