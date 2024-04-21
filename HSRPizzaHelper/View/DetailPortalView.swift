@@ -20,7 +20,20 @@ typealias EnkaProfileEntity = EnkaHSR.QueryRelated.DetailInfo
 final class DetailPortalViewModel: ObservableObject {
     // MARK: Lifecycle
 
-    init() {}
+    init() {
+        let viewContext = PersistenceController.shared.container.viewContext
+
+        let request = Account.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Account.priority, ascending: true)]
+        let accounts = try? viewContext.fetch(request)
+
+        if let account = accounts?.first {
+            self._selectedAccount = .init(initialValue: account)
+            refresh()
+        } else {
+            self._selectedAccount = .init(initialValue: nil)
+        }
+    }
 
     // MARK: Internal
 
@@ -101,13 +114,6 @@ struct DetailPortalView: View {
                     PlayerDetailSection(account: account)
                 }
             }
-            .onAppear {
-                if let account = accounts.first {
-                    detailPortalViewModel.selectedAccount = account
-                } else {
-                    detailPortalViewModel.selectedAccount = nil
-                }
-            }
             .refreshable {
                 detailPortalViewModel.refresh()
             }
@@ -118,11 +124,6 @@ struct DetailPortalView: View {
     // MARK: Private
 
     @StateObject private var detailPortalViewModel: DetailPortalViewModel = .init()
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
-        animation: .default
-    ) private var accounts: FetchedResults<Account>
 }
 
 // MARK: - SelectAccountSection
