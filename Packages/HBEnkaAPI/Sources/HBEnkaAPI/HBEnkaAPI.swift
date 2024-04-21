@@ -119,12 +119,24 @@ extension EnkaHSR {
         case mainlandChina = 0
         case enkaGlobal = 1
 
-        // MARK: Public
+        // MARK: Lifecycle
 
-        public static var profileQueryURLHeader: String {
-            // MicroGG 目前不支持星穹铁道的资料查询。
-            "https://enka.network/api/hsr/uid/"
+        public init(uid: String) {
+            var theUID = uid
+            while theUID.count > 9 {
+                theUID = theUID.dropFirst().description
+            }
+            guard let initial = theUID.first, let initialInt = Int(initial.description) else {
+                self = .enkaGlobal
+                return
+            }
+            switch initialInt {
+            case 1 ... 5: self = .mainlandChina
+            default: self = .enkaGlobal
+            }
         }
+
+        // MARK: Public
 
         public var enkaDBSourceURLHeader: String {
             switch self {
@@ -134,7 +146,10 @@ extension EnkaHSR {
         }
 
         public var profileQueryURLHeader: String {
-            Self.profileQueryURLHeader
+            switch self {
+            case .mainlandChina: return "https://api.mihomo.me/sr_info/"
+            case .enkaGlobal: return "https://enka.network/api/hsr/uid/"
+            }
         }
 
         public func viceVersa() -> Self {
