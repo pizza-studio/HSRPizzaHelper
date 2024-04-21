@@ -335,22 +335,16 @@ private struct PlayerDetailSection: View {
     // MARK: Internal
 
     @ViewBuilder var currentShowCase: some View {
-        vmDPV.currentBasicInfo?.asView(theDB: vmDPV.enkaDB).saturation(
-            {
-                switch vmDPV.playerDetailStatus {
-                case .progress: 0
-                default: 1
-                }
-            }()
-        )
-        .disabled(
-            {
-                switch vmDPV.playerDetailStatus {
-                case .progress: true
-                default: false
-                }
-            }()
-        )
+        vmDPV.currentBasicInfo?.asView(theDB: vmDPV.enkaDB)
+            .saturation(isUpdating ? 0 : 1)
+            .disabled(isUpdating)
+    }
+
+    var isUpdating: Bool {
+        switch vmDPV.playerDetailStatus {
+        case .progress: true
+        default: false
+        }
     }
 
     var body: some View {
