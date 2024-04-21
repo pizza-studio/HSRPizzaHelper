@@ -82,7 +82,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
         let artifactSetProps: [EnkaHSR.AvatarSummarized.PropertyPair] = {
             var resultPairs = [EnkaHSR.AvatarSummarized.PropertyPair]()
             var setIDCounters: [Int: Int] = [:]
-            artifactsInfo.map(\.paramDataFetched.flat.setID).forEach { setIDCounters[$0, default: 0] += 1 }
+            artifactsInfo.compactMap(\.paramDataFetched.flat?.setID).forEach { setIDCounters[$0, default: 0] += 1 }
             setIDCounters.forEach { setId, count in
                 guard count >= 2 else { return }
                 let x = theDB.meta.relic.setSkill.query(id: setId, stage: 2).map {

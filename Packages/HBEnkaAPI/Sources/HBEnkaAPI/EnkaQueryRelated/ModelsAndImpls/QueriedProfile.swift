@@ -7,7 +7,7 @@ extension EnkaHSR.QueryRelated {
 
     public struct QueriedProfile: Codable, Hashable {
         public let detailInfo: DetailInfo?
-        public let uid: String
+        public let uid: String?
         public let message: String?
     }
 
@@ -45,19 +45,19 @@ extension EnkaHSR.QueryRelated {
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.uid = try container.decode(Int.self, forKey: .uid)
-            self.nickname = try container.decode(String?.self, forKey: .nickname) ?? "@Nanashibito"
-            self.level = try container.decode(Int?.self, forKey: .level) ?? 0
-            self.friendCount = try container.decode(Int?.self, forKey: .friendCount) ?? 0
-            self.signature = try container.decode(String?.self, forKey: .signature) ?? ""
-            self.recordInfo = try container.decode(RecordInfo?.self, forKey: .recordInfo)
-            self.headIcon = try container.decode(Int?.self, forKey: .headIcon) ?? 1310
-            self.worldLevel = try container.decode(Int?.self, forKey: .worldLevel) ?? 0
-            self.isDisplayAvatar = try container.decode(Bool?.self, forKey: .isDisplayAvatar) ?? false
-            self.avatarDetailList = try container.decode([Avatar]?.self, forKey: .avatarDetailList) ?? []
+            self.nickname = (try? container.decode(String.self, forKey: .nickname)) ?? "@Nanashibito"
+            self.level = (try? container.decode(Int.self, forKey: .level)) ?? 0
+            self.friendCount = (try? container.decode(Int.self, forKey: .friendCount)) ?? 0
+            self.signature = (try? container.decode(String.self, forKey: .signature)) ?? ""
+            self.recordInfo = try? container.decode(RecordInfo.self, forKey: .recordInfo)
+            self.headIcon = (try? container.decode(Int.self, forKey: .headIcon)) ?? 1310
+            self.worldLevel = (try? container.decode(Int.self, forKey: .worldLevel)) ?? 0
+            self.isDisplayAvatar = (try? container.decode(Bool.self, forKey: .isDisplayAvatar)) ?? false
+            self.avatarDetailList = (try? container.decode([Avatar].self, forKey: .avatarDetailList)) ?? []
             do {
-                self.platform = .init(rawValue: try container.decode(Int?.self, forKey: .platform) ?? 0) ?? .editor
+                self.platform = .init(rawValue: (try container.decode(Int?.self, forKey: .platform)) ?? 0) ?? .editor
             } catch {
-                self.platform = .init(string: try container.decode(String?.self, forKey: .platform) ?? "EDITOR")
+                self.platform = .init(string: (try? container.decode(String?.self, forKey: .platform)) ?? "EDITOR")
             }
         }
 
@@ -108,7 +108,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
         public let rank, level, tid: Int
         public let promotion: Int?
-        public let flat: EquipmentFlat
+        public let flat: EquipmentFlat?
 
         // Promotion, guarded
         public var promotionRank: Int {
@@ -163,7 +163,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
         public let level: Int?
         public let subAffixList: [SubAffixItem]
         public let mainAffixId, tid: Int
-        public let flat: ArtifactItem.Flat
+        public let flat: ArtifactItem.Flat?
         public let exp: Int?
 
         // MARK: Internal

@@ -240,12 +240,12 @@ extension EnkaHSR.AvatarSummarized {
             self.localizedName = theDB.locTable[nameHash] ?? "EnkaId: \(fetched.tid)"
             self.trainedLevel = fetched.level
             self.refinement = fetched.rank
-            self.basicProps = fetched.flat.props.compactMap { currentRecord in
+            self.basicProps = fetched.flat?.props.compactMap { currentRecord in
                 if let theType = EnkaHSR.PropertyType(rawValue: currentRecord.type) {
                     return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value)
                 }
                 return nil
-            }
+            } ?? []
             // TODO: 目前先忽略那些没有图标的词条，回头单独再订做一套图标。
             self.specialProps = theDB.meta.equipmentSkill.query(
                 id: enkaId, stage: fetched.rank
@@ -295,12 +295,12 @@ extension EnkaHSR.AvatarSummarized {
             self.enkaId = fetched.tid
             self.commonInfo = theCommonInfo
             self.paramDataFetched = fetched
-            let props: [PropertyPair] = fetched.flat.props.compactMap { currentRecord in
+            let props: [PropertyPair] = fetched.flat?.props.compactMap { currentRecord in
                 if let theType = EnkaHSR.PropertyType(rawValue: currentRecord.type) {
                     return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value, isArtifact: true)
                 }
                 return nil
-            }
+            } ?? []
             guard let theMainProp = props.first else { return nil }
             self.mainProp = theMainProp
             self.subProps = Array(props.dropFirst())

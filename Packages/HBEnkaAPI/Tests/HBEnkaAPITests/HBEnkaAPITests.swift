@@ -43,7 +43,7 @@ final class HBEnkaAPITests: XCTestCase {
         var profile: EnkaHSR.QueryRelated.QueriedProfile?
         do {
             let obj = try JSONDecoder().decode(EnkaHSR.QueryRelated.QueriedProfile.self, from: jsonData)
-            uid = obj.uid
+            uid = obj.uid ?? obj.detailInfo?.uid.description ?? 114514810.description
             profile = obj
         } catch {
             throw (error)
