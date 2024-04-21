@@ -16,13 +16,9 @@ public struct AvatarShowCaseView: View {
         profile: EnkaHSR.ProfileSummarized,
         onClose: (() -> Void)? = nil
     ) {
-        var safeSelection = 0
-        checkMatch: for (i, avatar) in profile.summarizedAvatars.enumerated() {
-            if avatar.mainInfo.uniqueCharId == selection {
-                safeSelection = i
-                break checkMatch
-            }
-        }
+        let safeSelection = profile.summarizedAvatars.firstIndex {
+            $0.mainInfo.uniqueCharId == selection
+        } ?? 0
         self.selection = safeSelection
         self.onClose = onClose
         self.profile = profile
