@@ -2497,6 +2497,122 @@
     "Error: %@" : {
 
     },
+    "error.EnkaAPI.Query.DataInvalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error: Attempted to decode either invalid data (incl. blank data)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー：デコードできませんでした。データ毀損の可能性かもしれません。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误：尝试解码的资料似乎已损毁（或者是空资料）。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錯誤：嘗試解碼的資料似乎已損毀（或者是空資料）。"
+          }
+        }
+      }
+    },
+    "error.EnkaAPI.Query.OnlineFetchFailure:%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error: Failed while retrieving online data. Details: "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー：データの受け取りは失敗しました。詳しいのは："
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误：没能成功获取资料。详情："
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錯誤：沒能成功獲取資料。詳情："
+          }
+        }
+      }
+    },
+    "error.EnkaAPI.Query.PlzRefrainFromQueryingUntil:%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error: Please refrain from querying until: "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー：下記の時間までお我慢くださいませ："
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误：请勿频繁请求。该限制的截止时间："
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錯誤：請勿頻繁請求。該限制的截止時間："
+          }
+        }
+      }
+    },
+    "error.EnkaAPI.Query.ProfileQueryFailure:%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error: Failed while querying Enka Profile data. Details: "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー：Enka プロファイルデータ請求失敗。詳しいのは："
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误：没能成功请求 Enka 面板资料。详情："
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錯誤：沒能成功請求 Enka 面板資料。詳情："
+          }
+        }
+      }
+    },
     "gacha.account_detail.chart.average" : {
       "localizations" : {
         "en" : {
