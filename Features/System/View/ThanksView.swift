@@ -20,6 +20,7 @@ struct ThanksView: View {
                 Text(verbatim: "SwifterSwift\nhttps://github.com/SwifterSwift/SwifterSwift")
                 Text(verbatim: "Defaults - Sindre Sorhus\nhttps://github.com/sindresorhus/Defaults")
                 Text(verbatim: "Enka API - Enka Network\nhttps://enka.network/?hsr")
+                Text(verbatim: "MiHoMo Origin API Mirror - MiHoMo\nhttps://github.com/Mar-7th/March7th-Docs")
             }
             .font(.caption)
             Divider()
