@@ -123,8 +123,9 @@ extension EnkaHSR.Sputnik {
     ) async throws
         -> EnkaHSR.QueryRelated.QueriedProfile {
         if let date = dateWhenNextRefreshable, date > Date() {
+            let delta = date.timeIntervalSinceReferenceDate - Date().timeIntervalSinceReferenceDate
             print(
-                "PLAYER DETAIL FETCH 刷新太快了，请在\(date.timeIntervalSinceReferenceDate - Date().timeIntervalSinceReferenceDate)秒后刷新"
+                "PLAYER DETAIL FETCH 刷新太快了，请在\(delta)秒后刷新"
             )
             throw EnkaHSR.QueryRelated.Exception.refreshTooFast(dateWhenRefreshable: date)
         } else {
