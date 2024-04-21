@@ -19,6 +19,7 @@ struct ThanksView: View {
                 Text("SFSafeSymbols\nhttps://github.com/SFSafeSymbols/SFSafeSymbols")
                 Text("SwifterSwift\nhttps://github.com/SwifterSwift/SwifterSwift")
                 Text("Defaults - Sindre Sorhus\nhttps://github.com/sindresorhus/Defaults")
+                Text("Enka API - Enka Network\nhttps://enka.network/?hsr")
             }
             .font(.caption)
             Divider()
