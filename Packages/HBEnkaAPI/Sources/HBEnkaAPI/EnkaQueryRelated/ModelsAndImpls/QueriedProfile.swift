@@ -58,12 +58,23 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     public struct Avatar: Codable, Hashable {
         public let level, avatarId: Int
         public let equipment: Equipment
-        public let relicList: [ArtifactItem]
-        public let promotion: Int
+        public let relicList: [ArtifactItem]?
+        public let promotion: Int?
         public let skillTreeList: [SkillTreeItem]
         public let rank: Int?
+
         // public let _assist: Bool? // 用不到的参数，表示「该角色是否允许其他玩家借用」。
         // public let pos: Int? // 用不到的参数，表示其在展柜内的原始陈列顺序。
+
+        // Artifact list, guarded.
+        public var artifactList: [ArtifactItem] {
+            relicList ?? []
+        }
+
+        // Promotion, guarded
+        public var promotionRank: Int {
+            promotion ?? 0
+        }
     }
 
     // MARK: - Equipment
@@ -71,8 +82,14 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     public struct Equipment: Codable, Hashable {
         // MARK: Public
 
-        public let rank, level, tid, promotion: Int
+        public let rank, level, tid: Int
+        public let promotion: Int?
         public let flat: EquipmentFlat
+
+        // Promotion, guarded
+        public var promotionRank: Int {
+            promotion ?? 0
+        }
 
         // MARK: Internal
 

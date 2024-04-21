@@ -26,12 +26,12 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
         let equipInfo = EnkaHSR.AvatarSummarized.WeaponPanel(theDB: theDB, fetched: equipment)
         guard let equipInfo = equipInfo else { return nil }
 
-        let artifactsInfo = relicList.compactMap {
+        let artifactsInfo = artifactList.compactMap {
             EnkaHSR.AvatarSummarized.ArtifactInfo(theDB: theDB, fetched: $0)
         }
 
         // Panel: Add basic values from catched character Metadata.
-        let baseMetaCharacter = theDB.meta.avatar[avatarId.description]?[promotion.description]
+        let baseMetaCharacter = theDB.meta.avatar[avatarId.description]?[promotionRank.description]
         guard let baseMetaCharacter = baseMetaCharacter else { return nil }
         var panel = MutableAvatarPropertyPanel()
         panel.maxHP = baseMetaCharacter.hpBase
@@ -46,7 +46,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
 
         // Panel: Base Props from the Weapon.
 
-        let baseMetaWeapon = theDB.meta.equipment[equipment.tid.description]?[equipment.promotion.description]
+        let baseMetaWeapon = theDB.meta.equipment[equipment.tid.description]?[equipment.promotionRank.description]
         guard let baseMetaWeapon = baseMetaWeapon else { return nil }
         panel.maxHP += baseMetaWeapon.baseHP
         panel.attack += baseMetaWeapon.baseAttack

@@ -46,7 +46,7 @@ final class HBEnkaAPITests: XCTestCase {
             uid = obj.uid
             profile = obj
         } catch {
-            assertionFailure(error.localizedDescription)
+            throw (error)
         }
         XCTAssertEqual(uid, "114514810")
         guard let profile = profile, let detailInfo = profile.detailInfo else { return }
