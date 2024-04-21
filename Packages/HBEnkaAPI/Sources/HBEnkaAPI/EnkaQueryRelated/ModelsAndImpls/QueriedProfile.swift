@@ -107,8 +107,8 @@ extension EnkaHSR.QueryRelated.DetailInfo {
         // MARK: Public
 
         public let rank, level, tid: Int
+        // public let flat: EquipmentFlat? // UNAVAILABLE_IN_MIHOMO_ORIGIN_RESULTS.
         public let promotion: Int?
-        public let flat: EquipmentFlat?
 
         // Promotion, guarded
         public var promotionRank: Int {
@@ -122,7 +122,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
             case level
             case tid
             case promotion
-            case flat = "_flat"
+            // case flat = "_flat" // UNAVAILABLE_IN_MIHOMO_ORIGIN_RESULTS.
         }
     }
 
@@ -163,7 +163,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
         public let level: Int?
         public let subAffixList: [SubAffixItem]
         public let mainAffixId, tid: Int
-        public let flat: ArtifactItem.Flat?
+        // public let flat: ArtifactItem.Flat? // UNAVAILABLE_IN_MIHOMO_ORIGIN_RESULTS.
         public let exp: Int?
 
         // MARK: Internal
@@ -174,7 +174,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
             case subAffixList
             case mainAffixId
             case tid
-            case flat = "_flat"
+            // case flat = "_flat" // UNAVAILABLE_IN_MIHOMO_ORIGIN_RESULTS.
             case exp
         }
     }
