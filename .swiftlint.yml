@@ -41,6 +41,8 @@ type_name:
   max_length:
     warning: 50
     error: 50
+  excluded:
+    - OS
 identifier_name:
   min_length: 3
   excluded: # excluded via string array
