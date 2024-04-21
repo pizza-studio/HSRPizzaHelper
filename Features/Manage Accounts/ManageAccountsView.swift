@@ -6,6 +6,7 @@
 //
 
 import AlertToast
+import Defaults
 import SwiftUI
 
 // MARK: - AlertToastVariable
@@ -126,7 +127,11 @@ struct ManageAccountsView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { accounts[$0] }.forEach(viewContext.delete)
+            offsets.map {
+                let returned = accounts[$0]
+                Defaults[.queriedEnkaProfiles].removeValue(forKey: returned.uid)
+                return returned
+            }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
