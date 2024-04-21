@@ -173,6 +173,17 @@ private struct SelectAccountSection: View {
                     }
                     .clipShape(Circle())
                     .frame(width: 64, height: 64)
+                    #if os(OSX) || targetEnvironment(macCatalyst)
+                        .contextMenu {
+                            Group {
+                                Button("↺") {
+                                    withAnimation {
+                                        detailPortalViewModel.refresh()
+                                    }
+                                }
+                            }
+                        }
+                    #endif
                     Spacer()
                 }
                 .frame(width: 74)
@@ -235,6 +246,17 @@ private struct SelectAccountSection: View {
                     }
                     .clipShape(Circle())
                     .frame(width: 64, height: 64)
+                    #if os(OSX) || targetEnvironment(macCatalyst)
+                        .contextMenu {
+                            Group {
+                                Button("↺") {
+                                    withAnimation {
+                                        detailPortalViewModel.refresh()
+                                    }
+                                }
+                            }
+                        }
+                    #endif
                     Spacer()
                 }
                 .frame(width: 74)
