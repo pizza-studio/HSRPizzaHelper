@@ -3,6 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Combine
+import Defaults
 import EnkaSwiftUIViews
 import Foundation
 import HBEnkaAPI
@@ -40,7 +41,15 @@ final class DetailPortalViewModel: ObservableObject {
     let enkaDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)!
 
     @Published var selectedAccount: Account? {
-        didSet { refresh() }
+        didSet {
+            if let newAccountUID = selectedAccount?.uid {
+                currentBasicInfo = Defaults[.queriedEnkaProfiles][newAccountUID]
+                if currentBasicInfo == nil {
+                    fetchPlayerDetail()
+                }
+                detailPortalRefreshSubject.send(())
+            }
+        }
     }
 
     // swiftlint:enable force_unwrapping
