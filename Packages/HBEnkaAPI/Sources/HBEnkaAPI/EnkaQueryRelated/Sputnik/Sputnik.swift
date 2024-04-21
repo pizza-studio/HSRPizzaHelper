@@ -166,6 +166,9 @@ extension EnkaHSR.Sputnik {
                 )
                 dataToParse = data
                 // 如果这次成功的话，就自动修改偏好设定、今后就用这个资料源。
+                var successMsg = "// [Enka.Sputnik.fetchEnkaDBData] 2nd attempt succeeded."
+                successMsg += " Will use this JSON server source from now on."
+                print(successMsg)
                 EnkaHSR.HostType.toggleEnkaDBQueryHost()
             } catch {
                 print("// [Enka.Sputnik.fetchEnkaDBData] Final attempt failed:")
