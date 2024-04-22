@@ -23,8 +23,6 @@ Welcome to the public repository for **HSR Pizza Helper**, a game tool app for H
 
 **HSR Pizza Helper** is based on Swift and SwiftUI, available on iOS, iPadOS, macOS, and watchOS.
 
-The app is currently still in development and has not been uploaded to the app store.
-
 <a href="https://apps.apple.com/app/id6448894222"><img src="https://hsr.pizzastudio.org/img/app_store.svg" alt="HSRPizzaHelper"></a>
 <a href="https://apps.apple.com/app/id6448894222"><img src="https://hsr.pizzastudio.org/img/app_store_mac.svg" alt="HSRPizzaHelper"></a>
 
