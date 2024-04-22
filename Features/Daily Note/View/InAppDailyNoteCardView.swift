@@ -70,57 +70,71 @@ struct InAppDailyNoteCardView: View {
 // MARK: - NoteView
 
 private struct NoteView: View {
+    // MARK: Internal
+
     let account: Account
     let note: DailyNote
 
     var body: some View {
-        // Trailblaze_Power
-        VStack {
-            HStack {
-                Text("sys.label.trailblaze").bold()
-                Spacer()
-            }
-            HStack(spacing: 10) {
-                let iconFrame: CGFloat = 40
-                Image("Item_Trailblaze_Power")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: iconFrame)
-                HStack(alignment: .lastTextBaseline, spacing: 0) {
-                    Text(verbatim: "\(note.staminaInformation.currentStamina)")
-                        .font(.title)
-                    Text(verbatim: " / \(note.staminaInformation.maxStamina)")
-                        .font(.caption)
+        ZStack {
+            // Daily Training & Simulated Universe (China mainland user only)
+            if let dailyNote = note as? WidgetDailyNote {
+                HStack {
                     Spacer()
+                    VStack(alignment: .trailing) {
+                        Spacer()
+                        VStack(alignment: .trailing, spacing: 0) {
+                            let currentScore = dailyNote.dailyTrainingInformation.currentScore
+                            let maxScore = dailyNote.dailyTrainingInformation.maxScore
+                            Text(verbatim: "\(currentScore)/\(maxScore)")
+                                .fontWidth(.condensed)
+                            Text("app.dailynote.card.daily_training.label")
+                                .font(.caption2).bold().fontWidth(.compressed)
+                        }
+                        VStack(alignment: .trailing, spacing: 0) {
+                            let currentScore = dailyNote.simulatedUniverseInformation.currentScore
+                            let maxScore = dailyNote.simulatedUniverseInformation.maxScore
+                            Text(verbatim: "\(currentScore)/\(maxScore)")
+                                .fontWidth(.condensed)
+                            Text("app.dailynote.card.simulated_universe.label")
+                                .font(.caption2).bold().fontWidth(.compressed)
+                        }
+                    }
+                }.frame(maxWidth: .infinity)
+            }
+            // Trailblaze_Power, etc.
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("sys.label.trailblaze").bold()
+                    Spacer()
+                }
+                HStack(alignment: .center, spacing: 10) {
+                    let iconFrame: CGFloat = 40
+                    Image("Item_Trailblaze_Power")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: iconFrame)
+                    HStack(alignment: .lastTextBaseline, spacing: 0) {
+                        Text(verbatim: "\(note.staminaInformation.currentStamina)")
+                            .font(.title).fontWidth(.compressed)
+                        Text(verbatim: " / \(note.staminaInformation.maxStamina)")
+                            .font(.caption).fontWidth(.compressed)
+                    }
                     if note.staminaInformation.fullTime > Date() {
                         (
                             Text(note.staminaInformation.fullTime, style: .relative)
-                                + Text(verbatim: "\n")
+                                + Text("\n")
                                 + Text(dateFormatter.string(from: note.staminaInformation.fullTime))
                         )
-                        .multilineTextAlignment(.trailing)
                         .font(.caption2)
+                        .fontWidth(.condensed)
                     }
+                    Spacer().frame(maxWidth: .infinity)
                 }
             }
+            .frame(maxWidth: .infinity)
         }
-        // Daily Training & Simulated Universe (China mainland user only)
-        if let dailyNote = note as? WidgetDailyNote {
-            HStack {
-                Text("app.dailynote.card.daily_training.label").bold()
-                Spacer()
-                let currentScore = dailyNote.dailyTrainingInformation.currentScore
-                let maxScore = dailyNote.dailyTrainingInformation.maxScore
-                Text(verbatim: "\(currentScore)/\(maxScore)")
-            }
-            HStack {
-                Text("app.dailynote.card.simulated_universe.label").bold()
-                Spacer()
-                let currentScore = dailyNote.simulatedUniverseInformation.currentScore
-                let maxScore = dailyNote.simulatedUniverseInformation.maxScore
-                Text(verbatim: "\(currentScore)/\(maxScore)")
-            }
-        }
+        .frame(maxWidth: .infinity)
         // Dispatch
         VStack {
             HStack {
@@ -132,7 +146,7 @@ private struct NoteView: View {
             }
             VStack(spacing: 15) {
                 StaggeredGrid(
-                    columns: 2,
+                    columns: horizontalSizeClass == .compact ? 2 : 4,
                     outerPadding: false,
                     scroll: false,
                     list: note.expeditionInformation.expeditions
@@ -143,6 +157,10 @@ private struct NoteView: View {
             }
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
 }
 
 // MARK: - ExpeditionInformation.Expedition + View
@@ -169,8 +187,6 @@ extension ExpeditionInformation.Expedition: View {
                     }
                 }.fixedSize()
             }
-
-            // Divider().tint(.primary.opacity(0.3))
             // Time
             if remainingTime > 0 {
                 (
