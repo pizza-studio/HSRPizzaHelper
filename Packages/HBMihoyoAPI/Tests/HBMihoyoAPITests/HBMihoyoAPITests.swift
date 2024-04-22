@@ -24,7 +24,7 @@ final class HBMihoyoAPITests: XCTestCase {
         print(basicParam)
 
         print(
-            generateGachaRequest(basicParam: basicParam, page: 1, size: 5, gachaType: .characterEventWarp, endID: 0)
+            generateGachaRequest(basicParam: basicParam, page: 1, size: 5, gachaType: .characterEventWarp, endID: "0")
                 .url!
         )
     }

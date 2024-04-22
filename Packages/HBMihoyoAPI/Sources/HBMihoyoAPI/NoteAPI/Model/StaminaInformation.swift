@@ -15,6 +15,9 @@ public struct StaminaInformation {
     /// Each stamina needs 6 minutes to recover
     public static let eachStaminaRecoveryTime: TimeInterval = 60 * 6
 
+    /// Each backup stamina needs 6 minutes to recover
+    public static let eachBackupStaminaRecoveryTime: TimeInterval = 60 * 18
+
     /// Max stamina.
     public let maxStamina: Int
 
@@ -48,8 +51,12 @@ public struct StaminaInformation {
         }
     }
 
+    public let isReserveStaminaFull: Bool
+
     // MARK: Private
 
+    /// Reserved Stamina when data is fetched.
+    private let _currentReserveStamina: Int
     /// Stamina when data is fetched.
     private let _currentStamina: Int
     /// Recovery time interval when data is fetched.
@@ -73,12 +80,16 @@ extension StaminaInformation: Decodable {
         self.maxStamina = try container.decode(Int.self, forKey: .maxStamina)
         self._currentStamina = try container.decode(Int.self, forKey: .currentStamina)
         self._staminaRecoverTime = try TimeInterval(container.decode(Int.self, forKey: .staminaRecoverTime))
+        self._currentReserveStamina = (try? container.decode(Int.self, forKey: .currentReserveStamina)) ?? 0
+        self.isReserveStaminaFull = (try? container.decode(Bool.self, forKey: .isReserveStaminaFull)) ?? false
     }
 
     enum CodingKeys: String, CodingKey {
         case maxStamina = "max_stamina"
         case currentStamina = "current_stamina"
         case staminaRecoverTime = "stamina_recover_time"
+        case isReserveStaminaFull = "is_reserve_stamina_full"
+        case currentReserveStamina = "current_reserve_stamina"
     }
 }
 
