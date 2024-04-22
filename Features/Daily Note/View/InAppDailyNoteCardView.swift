@@ -6,6 +6,7 @@
 //
 
 import Combine
+import EnkaSwiftUIViews
 import Foundation
 import HBMihoyoAPI
 import SFSafeSymbols
@@ -130,41 +131,67 @@ private struct NoteView: View {
                 Text(verbatim: "\(onGoingExpeditionNumber)/\(totalExpeditionNumber)")
             }
             VStack(spacing: 15) {
-                ForEach(note.expeditionInformation.expeditions, id: \.name) { expedition in
-                    HStack(alignment: .bottom) {
-                        // Avatar Icon
-                        HStack {
-                            let imageFrame: CGFloat = 40
-                            ForEach(expedition.avatarIconURLs, id: \.self) { url in
-                                AsyncImage(url: url) { image in
-                                    image.resizable().scaledToFit()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .frame(height: imageFrame)
-                            }
+                StaggeredGrid(
+                    columns: 2,
+                    outerPadding: false,
+                    scroll: false,
+                    list: note.expeditionInformation.expeditions
+                ) { currentExpedition in
+                    currentExpedition
+                }
+                .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+}
+
+// MARK: - ExpeditionInformation.Expedition + View
+
+extension ExpeditionInformation.Expedition: View {
+    public var body: some View {
+        HStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 4) {
+                // Avatar Icon
+                HStack(alignment: .top, spacing: 2) {
+                    let imageFrame: CGFloat = 32
+                    ForEach(avatarIconURLs, id: \.self) { url in
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } placeholder: {
+                            ProgressView()
                         }
-                        // Expedition Name
-                        Text("\(expedition.name)")
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                        // Time
-                        if expedition.remainingTime > 0 {
-                            (
-                                Text(expedition.finishedTime, style: .relative)
-                                    + Text("\n")
-                                    + Text(dateFormatter.string(from: expedition.finishedTime))
-                            )
-                            .multilineTextAlignment(.trailing)
-                            .font(.caption2)
-                        } else {
-                            Image(systemSymbol: .checkmarkCircle)
-                                .foregroundColor(.green)
+                        .frame(height: imageFrame)
+                        .background {
+                            Color.gray.opacity(0.5).clipShape(Circle())
                         }
                     }
-                }
+                }.fixedSize()
             }
+
+            // Divider().tint(.primary.opacity(0.3))
+            // Time
+            if remainingTime > 0 {
+                (
+                    Text(finishedTime, style: .relative)
+                        + Text("\n")
+                        + Text(dateFormatter.string(from: finishedTime))
+                )
+                .multilineTextAlignment(.leading)
+                .font(.caption2)
+                .fontWidth(.condensed)
+            } else {
+                Image(systemSymbol: .checkmarkCircle)
+                    .foregroundColor(.green)
+            }
+            // Expedition Name
+            // Text("\(name)")
+            // .font(.footnote)
+            // .foregroundColor(.secondary)
+            // .minimumScaleFactor(0.5)
+            // .fontWidth(.compressed)
+            Spacer()
         }
     }
 }

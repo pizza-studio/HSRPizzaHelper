@@ -52,7 +52,7 @@ extension WidgetDailyNote: BenchmarkTimeEditable {
 // MARK: - BenchmarkTime
 
 @propertyWrapper
-public struct BenchmarkTime {
+public struct BenchmarkTime: Hashable {
     // MARK: Lifecycle
 
     public init() {
