@@ -172,6 +172,12 @@ extension EnkaHSR {
             return .init(string: urlStr)!
             // swiftlint:enable force_unwrapping
         }
+
+        public func enkaProfileQueryURL(uid: String) -> URL {
+            // swiftlint:disable force_unwrapping
+            .init(string: profileQueryURLPrefix + uid + profileQueryURLSuffix)!
+            // swiftlint:enable force_unwrapping
+        }
     }
 }
 

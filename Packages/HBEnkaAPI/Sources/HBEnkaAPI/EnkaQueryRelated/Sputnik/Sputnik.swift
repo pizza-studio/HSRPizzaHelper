@@ -131,17 +131,44 @@ extension EnkaHSR.Sputnik {
             )
             throw EnkaHSR.QueryRelated.Exception.refreshTooFast(dateWhenRefreshable: date)
         } else {
-            let server = EnkaHSR.HostType(uid: uid)
-            let enkaOfficial = server.profileQueryURLPrefix + uid + server.profileQueryURLSuffix
-            // swiftlint:disable force_unwrapping
-            let url = URL(string: enkaOfficial)!
-            // swiftlint:enable force_unwrapping
-            let (data, _) = try await URLSession.shared.data(for: URLRequest(url: url))
-            let requestResult = try JSONDecoder().decode(
-                EnkaHSR.QueryRelated.QueriedProfile.self,
-                from: data
-            )
-            return requestResult
+            var server = EnkaHSR.HostType(uid: uid)
+            var dataToParse = Data([])
+            do {
+                let (data, _) = try await URLSession.shared.data(
+                    for: URLRequest(url: server.enkaProfileQueryURL(uid: uid))
+                )
+                dataToParse = data
+            } catch {
+                print(error.localizedDescription)
+                print("// [Enka.Sputnik.fetchEnkaProfileRAW] Attempt using alternative profile query server source.")
+                do {
+                    server = server.viceVersa()
+                    let (data, _) = try await URLSession.shared.data(
+                        for: URLRequest(url: server.enkaProfileQueryURL(uid: uid))
+                    )
+                    dataToParse = data
+                    // 如果这次成功的话，就自动修改偏好设定、今后就用这个资料源。
+                    var successMsg = "// [Enka.Sputnik.fetchEnkaProfileRAW] 2nd attempt succeeded."
+                    print(successMsg)
+                } catch {
+                    print("// [Enka.Sputnik.fetchEnkaProfileRAW] Final attempt failed:")
+                    print(error.localizedDescription)
+                    throw error
+                }
+            }
+            do {
+                let requestResult = try JSONDecoder()
+                    .decode(EnkaHSR.QueryRelated.QueriedProfile.self.self, from: dataToParse)
+                return requestResult
+            } catch {
+                if dataToParse.isEmpty {
+                    print("// DEBUG: [Enka.Sputnik.fetchEnkaProfileRAW] Profile Query Failed. UID: \(uid) .")
+                } else {
+                    print("// DEBUG: [Enka.Sputnik.fetchEnkaProfileRAW] Profile Query Data Parse Failed. UID: \(uid) .")
+                }
+                print(error.localizedDescription)
+                throw error
+            }
         }
     }
 
@@ -184,9 +211,9 @@ extension EnkaHSR.Sputnik {
             return requestResult
         } catch {
             if dataToParse.isEmpty {
-                print("// DEBUG: Data Fetch Failed: \(dataType.rawValue).json")
+                print("// DEBUG: [Enka.Sputnik.fetchEnkaDBData] Data Fetch Failed: \(dataType.rawValue).json")
             } else {
-                print("// DEBUG: Data Parse Failed: \(dataType.rawValue).json")
+                print("// DEBUG: [Enka.Sputnik.fetchEnkaDBData] Data Parse Failed: \(dataType.rawValue).json")
             }
             print(error.localizedDescription)
             throw error
