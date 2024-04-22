@@ -121,6 +121,8 @@ struct DetailPortalView: View {
                     PlayerDetailSection(account: account)
                 }
             }
+            .disabled(isFetching)
+            .saturation(saturation)
             .refreshable {
                 vmDPV.refresh()
             }
@@ -131,6 +133,17 @@ struct DetailPortalView: View {
     // MARK: Private
 
     @StateObject private var vmDPV: DetailPortalViewModel = .init()
+
+    private var isFetching: Bool {
+        switch vmDPV.playerDetailStatus {
+        case .progress: return true
+        default: return false
+        }
+    }
+
+    private var saturation: CGFloat {
+        isFetching ? 0 : 1
+    }
 }
 
 // MARK: - SelectAccountSection
