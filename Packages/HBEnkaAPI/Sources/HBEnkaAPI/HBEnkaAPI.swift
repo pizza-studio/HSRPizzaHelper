@@ -108,7 +108,8 @@ extension Locale {
         case "zh-tw": return "zh-tw"
         default: break
         }
-        return languageCode
+        let valid = EnkaHSR.EnkaDB.allowedLangTags.contains(languageCode)
+        return valid ? languageCode : "en"
     }
 }
 
