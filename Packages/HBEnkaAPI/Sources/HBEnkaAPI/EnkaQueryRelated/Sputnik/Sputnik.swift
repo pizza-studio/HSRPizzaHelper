@@ -148,7 +148,7 @@ extension EnkaHSR.Sputnik {
                     )
                     dataToParse = data
                     // 如果这次成功的话，就自动修改偏好设定、今后就用这个资料源。
-                    var successMsg = "// [Enka.Sputnik.fetchEnkaProfileRAW] 2nd attempt succeeded."
+                    let successMsg = "// [Enka.Sputnik.fetchEnkaProfileRAW] 2nd attempt succeeded."
                     print(successMsg)
                 } catch {
                     print("// [Enka.Sputnik.fetchEnkaProfileRAW] Final attempt failed:")
