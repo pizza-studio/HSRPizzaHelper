@@ -138,17 +138,24 @@ extension EnkaHSR {
 
         // MARK: Public
 
-        public var enkaDBSourceURLHeader: String {
+        public var enkaDBSourceURLPrefix: String {
             switch self {
             case .mainlandChina: return "https://gitcode.net/SHIKISUEN/Enka-API-docs/-/raw/master/"
             case .enkaGlobal: return "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/"
             }
         }
 
-        public var profileQueryURLHeader: String {
+        public var profileQueryURLPrefix: String {
             switch self {
             case .mainlandChina: return "https://api.mihomo.me/sr_info/"
             case .enkaGlobal: return "https://enka.network/api/hsr/uid/"
+            }
+        }
+
+        public var profileQueryURLSuffix: String {
+            switch self {
+            case .mainlandChina: return "?is_force_update=true"
+            case .enkaGlobal: return ""
             }
         }
 
@@ -161,7 +168,7 @@ extension EnkaHSR {
 
         public func enkaDBSourceURL(type: EnkaHSR.JSONType) -> URL {
             // swiftlint:disable force_unwrapping
-            let urlStr = "\(enkaDBSourceURLHeader)store/hsr/\(type.rawValue).json"
+            let urlStr = "\(enkaDBSourceURLPrefix)store/hsr/\(type.rawValue).json"
             return .init(string: urlStr)!
             // swiftlint:enable force_unwrapping
         }

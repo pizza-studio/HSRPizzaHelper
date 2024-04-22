@@ -22,7 +22,7 @@ extension MiHoMo.QueriedProfile {
     }
 
     public static func fetchEnka(uid: String) async throws -> EnkaHSR.QueryRelated.QueriedProfile {
-        let urlLink = "https://api.mihomo.me/sr_info/\(uid)"
+        let urlLink = "https://api.mihomo.me/sr_info/\(uid)?is_force_update=true"
         // swiftlint:disable force_unwrapping
         let url = URL(string: urlLink)!
         // swiftlint:enable force_unwrapping
