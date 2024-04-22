@@ -75,3 +75,4 @@ custom_rules:
 
 excluded:
   - "Build/*"
+  - "*/.build/*"
