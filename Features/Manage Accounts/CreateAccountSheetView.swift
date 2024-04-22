@@ -72,7 +72,7 @@ struct CreateAccountSheetView: View {
     }
 
     func saveAccount() {
-        guard account.isValid() else {
+        guard account.isValid else {
             saveAccountError = .missingFieldError("err.mfe")
             isSaveAccountFailAlertShown.toggle()
             return
@@ -144,7 +144,7 @@ struct CreateAccountSheetView: View {
                             .font(.footnote)
                     }
                 }
-                if !account.isValid() {
+                if !account.isValid {
                     ExplanationView()
                 }
             }

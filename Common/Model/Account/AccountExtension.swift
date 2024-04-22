@@ -10,7 +10,7 @@ import HBMihoyoAPI
 
 extension Account {
     /// Returns true if the account object is valid.
-    func isValid() -> Bool {
+    var isValid: Bool {
         true
             && uid != nil
             && uid != ""
@@ -20,4 +20,6 @@ extension Account {
             && priority != nil
             && name != nil
     }
+
+    var isInvalid: Bool { !isValid }
 }

@@ -66,11 +66,9 @@ struct ManageAccountsView: View {
             }
         })
         .onAppear {
-            accounts.forEach { account in
-                if !account.isValid() {
-                    viewContext.delete(account)
-                    try? viewContext.save()
-                }
+            accounts.filter(\.isInvalid).forEach { account in
+                viewContext.delete(account)
+                try? viewContext.save()
             }
         }
         .toolbar {

@@ -20,14 +20,12 @@ struct DailyNoteCards: View {
     @State var isNewAccountSheetShow = false
 
     var body: some View {
-        ForEach(accounts) { account in
-            if account.isValid() {
-                InAppDailyNoteCardView(
-                    account: account
-                )
-            }
+        // Only compute once for each attempt of rendering this view.
+        let validAccounts = accounts.filter(\.isValid)
+        ForEach(validAccounts) { account in
+            InAppDailyNoteCardView(account: account)
         }
-        if accounts.filter({ $0.isValid() }).isEmpty {
+        if validAccounts.isEmpty {
             AddNewAccountButton(
                 isNewAccountSheetShow: $isNewAccountSheetShow
             )

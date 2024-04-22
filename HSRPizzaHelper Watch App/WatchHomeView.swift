@@ -19,20 +19,20 @@ struct DailyNoteCards: View {
     // MARK: Internal
 
     var body: some View {
-        ForEach(accounts) { account in
-            if account.isValid() {
-                InAppDailyNoteCardView(
-                    account: account
-                )
+        // Only compute once for each attempt of rendering this view.
+        let validAccounts = accounts.filter(\.isValid)
+        ForEach(validAccounts) { account in
+            InAppDailyNoteCardView(
+                account: account
+            )
 //                .onAppear {
 //                    PersistenceController.shared.container.viewContext.delete(account)
 //                    do {
 //                        try PersistenceController.shared.container.viewContext.save()
 //                    } catch {}
 //                }
-            }
         }
-        if accounts.filter({ $0.isValid() }).isEmpty {
+        if validAccounts.isEmpty {
             VStack {
                 Image(systemSymbol: .icloudAndArrowDown)
                     .resizable()
