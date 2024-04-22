@@ -10144,6 +10144,22 @@
     "SFSafeSymbols\nhttps://github.com/SFSafeSymbols/SFSafeSymbols" : {
 
     },
+    "Shiki Suen (孙志贵)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "孫 志貴 (このいと しき, Shiki Suen) "
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shiki Suen (孫志貴)"
+          }
+        }
+      }
+    },
     "ShikiSuen" : {
 
     },
@@ -11486,6 +11502,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "訂閱Telegram頻道"
+          }
+        }
+      }
+    },
+    "sys.contact.title.163MusicArtistHP" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NetEase Music Artist Page"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NetEase 作曲家作品HP"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网易云音乐 作曲家主页"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "網易雲音樂 作曲家主頁"
           }
         }
       }

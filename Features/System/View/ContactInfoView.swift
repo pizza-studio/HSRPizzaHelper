@@ -5,6 +5,7 @@
 //  Created by Bill Haku on 2023/5/20.
 //  Contact us
 
+import SFSafeSymbols
 import SwiftUI
 
 // MARK: - ContactInfoView
@@ -178,6 +179,104 @@ struct ContactInfoView: View {
                             Image("icon.github")
                                 .resizable()
                                 .scaledToFit()
+                        }
+                    }
+                }
+
+                // developer - ShikiSuen
+                Section {
+                    HStack {
+                        Image("avatar.shikisuen")
+                            .resizable()
+                            .clipShape(Circle())
+                            .frame(width: 40, height: 40)
+                        VStack(alignment: .leading) {
+                            Text("Shiki Suen (孙志贵)")
+                                .bold()
+                                .padding(.vertical, 5)
+                        }
+                        Spacer()
+                        Image(systemSymbol: .chevronRight)
+                            .rotationEffect(.degrees(isShikiDetailShow ? 90 : 0))
+                    }
+                    .onTapGesture {
+                        simpleTaptic(type: .light)
+                        withAnimation {
+                            isShikiDetailShow.toggle()
+                        }
+                    }
+                    if isShikiDetailShow {
+                        Link(
+                            destination: URL(string: "https://music.163.com/#/artist/desc?id=60323623")!
+                        ) {
+                            Label {
+                                Text("sys.contact.title.163MusicArtistHP")
+                            } icon: {
+                                Image("icon.163CloudMusic")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                        Link(
+                            destination: URL(string: "https://shikisuen.gitee.io/")!
+                        ) {
+                            Label {
+                                Text("sys.contact.title.homepage")
+                            } icon: {
+                                Image("icon.homepage")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                        Link(destination: URL(string: "mailto:shikisuen@pm.me")!) {
+                            Label {
+                                Text(verbatim: "shikisuen@pm.me")
+                            } icon: {
+                                Image("icon.email")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                        Link(
+                            destination: isInstallation(urlString: "twitter://") ?
+                                URL(
+                                    string: "twitter://user?id=176288731"
+                                )! :
+                                URL(string: "https://twitter.com/ShikiSuen")!
+                        ) {
+                            Label {
+                                Text("sys.contact.title.twitter")
+                            } icon: {
+                                Image("icon.twitter")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                        Link(
+                            destination: URL(
+                                string: "https://space.bilibili.com/911304"
+                            )!
+                        ) {
+                            Label {
+                                Text("sys.contact.title.bilibili")
+                            } icon: {
+                                Image("icon.bilibili")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                        Link(
+                            destination: URL(
+                                string: "https://github.com/ShikiSuen"
+                            )!
+                        ) {
+                            Label {
+                                Text("sys.contact.title.github")
+                            } icon: {
+                                Image("icon.github")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
                         }
                     }
                 }
