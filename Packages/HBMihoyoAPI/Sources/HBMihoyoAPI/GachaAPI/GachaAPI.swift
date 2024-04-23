@@ -159,7 +159,7 @@ func generateGachaRequest(
     components.scheme = "https"
 
     switch basicParam.server.region {
-    case .china:
+    case .mainlandChina:
         components.host = "api-takumi.mihoyo.com"
     case .global:
         components.host = "api-os-takumi.mihoyo.com"

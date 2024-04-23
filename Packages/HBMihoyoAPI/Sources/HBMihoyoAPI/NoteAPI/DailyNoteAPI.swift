@@ -26,7 +26,7 @@ extension MiHoYoAPI {
     ) async throws
         -> DailyNote {
         switch server.region {
-        case .china:
+        case .mainlandChina:
             return try await widgetNote(cookie: cookie, deviceFingerPrint: deviceFingerPrint)
         case .global:
             return try await generalDailyNote(
@@ -100,7 +100,7 @@ extension MiHoYoAPI {
         }
 
         let request = try await Self.generateRecordAPIRequest(
-            region: .china,
+            region: .mainlandChina,
             path: "/game_record/app/hkrpg/aapi/widget",
             queryItems: [],
             cookie: cookie,

@@ -30,12 +30,12 @@ extension MiHoYoAPI {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = try await URLRequestHelperConfiguration.defaultHeaders(
-            region: .china,
+            region: .mainlandChina,
             additionalHeaders: additionalHeaders
         )
         request.setValue(cookie, forHTTPHeaderField: "Cookie")
         request.setValue(
-            URLRequestHelper.getDS(region: .china, query: url.query ?? "", body: nil),
+            URLRequestHelper.getDS(region: .mainlandChina, query: url.query ?? "", body: nil),
             forHTTPHeaderField: "DS"
         )
 
@@ -81,12 +81,12 @@ extension MiHoYoAPI {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = try await URLRequestHelperConfiguration.defaultHeaders(
-            region: .china,
+            region: .mainlandChina,
             additionalHeaders: additionalHeaders
         )
         request.setValue(cookie, forHTTPHeaderField: "Cookie")
         request.setValue(
-            URLRequestHelper.getDS(region: .china, query: url.query ?? "", body: bodyData),
+            URLRequestHelper.getDS(region: .mainlandChina, query: url.query ?? "", body: bodyData),
             forHTTPHeaderField: "DS"
         )
         request.httpBody = bodyData

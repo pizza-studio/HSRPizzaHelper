@@ -27,7 +27,7 @@ extension MiHoYoAPI {
         ]
 
         let request = try await Self.generateAccountAPIRequest(
-            region: .china,
+            region: .mainlandChina,
             path: "/auth/api/getMultiTokenByLoginTicket",
             queryItems: queryItems,
             cookie: nil

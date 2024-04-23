@@ -11,9 +11,9 @@ import Foundation
 
 /// The region of server.
 /// `.china` uses miyoushe api and `.global` uses HoYoLAB api.
-public enum Region: String {
+public enum Region: String, CaseIterable {
     // CNMainland servers
-    case china = "hkrpg_cn"
+    case mainlandChina = "hkrpg_cn"
     // Other servers
     case global = "hkrpg_global"
 }

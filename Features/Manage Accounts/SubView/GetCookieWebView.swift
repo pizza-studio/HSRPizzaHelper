@@ -58,7 +58,7 @@ struct GetCookieWebView: View {
         }
 
         switch region {
-        case .china:
+        case .mainlandChina:
             let loginTicket = getFromCookies("login_ticket") ?? ""
             let loginUid = getFromCookies("login_uid") ?? ""
             let multiToken = try? await MiHoYoAPI.getMultiTokenByLoginTicket(
@@ -171,7 +171,7 @@ struct CookieGetterWebView: UIViewRepresentable {
 
 private func getURL(region: Region) -> String {
     switch region {
-    case .china:
+    case .mainlandChina:
         return "https://user.mihoyo.com/#/login/captcha"
     case .global:
         return "https://www.hoyolab.com/"
@@ -180,7 +180,7 @@ private func getURL(region: Region) -> String {
 
 private func getHTTPHeaderFields(region: Region) -> [String: String] {
     switch region {
-    case .china:
+    case .mainlandChina:
         return [
             "Accept": """
             text/html,application/xhtml+xml,application/xml;q=0.9,\

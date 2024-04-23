@@ -21,7 +21,7 @@ enum URLRequestHelperConfiguration {
 
     static func recordURLAPIHost(region: Region) -> String {
         switch region {
-        case .china:
+        case .mainlandChina:
             return "api-takumi-record.mihoyo.com"
         case .global:
             return "bbs-api-os.hoyolab.com"
@@ -30,7 +30,7 @@ enum URLRequestHelperConfiguration {
 
     static func accountAPIURLHost(region: Region) -> String {
         switch region {
-        case .china:
+        case .mainlandChina:
             return "api-takumi.mihoyo.com"
         case .global:
             return "api-account-os.hoyolab.com"
@@ -39,7 +39,7 @@ enum URLRequestHelperConfiguration {
 
     static func hostInHeaders(region: Region) -> String {
         switch region {
-        case .china:
+        case .mainlandChina:
             return "https://api-takumi-record.mihoyo.com/"
         case .global:
             return "https://bbs-api-os.mihoyo.com/"
@@ -48,7 +48,7 @@ enum URLRequestHelperConfiguration {
 
     static func salt(region: Region) -> String {
         switch region {
-        case .china:
+        case .mainlandChina:
             return "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
         case .global:
             return "okr4obncj8bw5a65hbnn5oo6ixjc3l9w"
@@ -57,7 +57,7 @@ enum URLRequestHelperConfiguration {
 
     static func xRpcAppVersion(region: Region) -> String {
         switch region {
-        case .china:
+        case .mainlandChina:
             return "2.51.1"
         case .global:
             return "2.33.0"
@@ -66,7 +66,7 @@ enum URLRequestHelperConfiguration {
 
     static func xRpcClientType(region: Region) -> String {
         switch region {
-        case .china:
+        case .mainlandChina:
             return "5"
         case .global:
             return "2"
@@ -75,7 +75,7 @@ enum URLRequestHelperConfiguration {
 
     static func referer(region: Region) -> String {
         switch region {
-        case .china:
+        case .mainlandChina:
             return "https://webstatic.mihoyo.com"
         case .global:
             return "https://webstatic-sea.hoyolab.com"

@@ -109,7 +109,7 @@ struct CreateAccountSheetView: View {
                         getAccountError = .customize("account.login.error.no.account.found")
                     }
                     // Get device finger print
-                    if account.server.region == .china {
+                    if account.server.region == .mainlandChina {
                         account.deviceFingerPrint = try await MiHoYoAPI.getDeviceFingerPrint(region: region)
                     }
                     status = .gotAccount
@@ -187,7 +187,7 @@ struct CreateAccountSheetView: View {
 
     @State private var accountsForSelected: [FetchedAccount] = []
 
-    @State private var region: Region = .china
+    @State private var region: Region = .mainlandChina
 
     private var name: Binding<String> {
         .init {
@@ -208,8 +208,8 @@ private struct RequireLoginView: View {
     var body: some View {
         Menu {
             Button("sys.server.cn") {
-                getCookieWebViewRegion = .china
-                region = .china
+                getCookieWebViewRegion = .mainlandChina
+                region = .mainlandChina
             }
             Button("sys.server.os") {
                 getCookieWebViewRegion = .global
