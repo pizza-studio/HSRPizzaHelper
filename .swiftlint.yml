@@ -76,3 +76,5 @@ custom_rules:
 excluded:
   - "Build/*"
   - "*/.build/*"
+  - "*/resource_bundle_accessor.swift"
+  - "resource_bundle_accessor.swift"
