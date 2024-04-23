@@ -108,8 +108,13 @@ extension Locale {
         case "zh-tw": return "zh-tw"
         default: break
         }
+        switch languageCode.prefix(2).lowercased() {
+        case "ja", "jp": return "ja"
+        case "ko", "kr": return "ko"
+        default: break
+        }
         let valid = EnkaHSR.EnkaDB.allowedLangTags.contains(languageCode)
-        return valid ? languageCode : "en"
+        return valid ? languageCode.prefix(2).description : "en"
     }
 }
 
