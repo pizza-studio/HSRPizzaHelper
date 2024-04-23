@@ -93,7 +93,31 @@ def download_image(relative_url_path: str):
     with open(to, "wb") as f:
         f.write(res.content)
 
+def get_char_data() -> dict:
+    url = "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/store/hsr/honker_characters.json"
+    res = requests.get(url)
+    result = {}
+    for id, meta in res.json().items():
+        result.setdefault(id, {})
+        result[id] = str(id) + ".png"
+    return result
+
+def download_char_image(relative_url_path: str):
+    base = "https://api.yatta.top/hsr/assets/UI/avatar/medium/"
+    if relative_url_path == "":
+        return
+    print("downloading: ", relative_url_path)
+    url = f"{base}{relative_url_path}"
+    res = requests.get(url)
+    meta_folder = Path("./Assets/other_meta/icon/characters")
+    to = meta_folder / relative_url_path
+    to.parent.mkdir(parents=True, exist_ok=True)
+    print("saving to: ", to)
+    with open(to, "wb") as f:
+        f.write(res.content)
+
 def main():
+    # 其他杂物（从 March7th 的仓库下载）
     assets_folder = Path("./Assets")
     other_meta_folder = assets_folder / "other_meta"
     other_meta_file = other_meta_folder / "other_meta.json"
@@ -106,6 +130,15 @@ def main():
     for type, detail in data.items():
         for id, meta in detail.items():
             download_image(meta["icon_file_path"])
+    # 角色卡片（从 Ambr.top 的仓库下载）
+    assets_folder = Path("./Assets")
+    char_meta_folder = assets_folder / "other_meta/icon/characters"
+    if char_meta_folder.exists():
+        shutil.rmtree(char_meta_folder)
+    char_meta_folder.mkdir(parents=True)
+    data = get_char_data()
+    for type, detail in data.items():
+        download_char_image(detail)
 
 if __name__ == "__main__":
     main()
