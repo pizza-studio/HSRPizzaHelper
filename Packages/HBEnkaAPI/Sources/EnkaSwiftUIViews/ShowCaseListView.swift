@@ -109,7 +109,7 @@ struct ShowCaseListView_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        detailInfo.asView(theDB: enkaDatabase)
+        detailInfo.asView(theDB: enkaDatabase).frame(width: 510, height: 720)
     }
 }
 #endif

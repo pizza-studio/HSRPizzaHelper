@@ -21,7 +21,7 @@ final class EnkaSputnikTests: XCTestCase {
     func testFetchingEnkaProfile() async throws {
         do {
             let dbObj = try await EnkaHSR.Sputnik.fetchEnkaProfileRAW("114514810")
-            print(dbObj.uid)
+            print(dbObj.uid?.description ?? "FUCKED.")
         } catch {
             print(error.localizedDescription)
         }

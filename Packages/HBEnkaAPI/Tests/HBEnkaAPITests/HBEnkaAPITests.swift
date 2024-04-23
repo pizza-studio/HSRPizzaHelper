@@ -66,6 +66,14 @@ final class HBEnkaAPITests: XCTestCase {
         XCTAssertNotNil(seijaku)
         guard let seijaku = seijaku else { return }
         XCTAssertNotNil(seijaku.mainInfo.baseSkills.elementalBurst.levelAddition)
+
+        let char = detailInfo.avatarDetailList[1]
+        let artifacts = char.artifactList
+            .compactMap { EnkaHSR.AvatarSummarized.ArtifactInfo(theDB: enkaDatabase, fetched: $0) }
+        artifacts[2].allProps.forEach {
+            print($0.type.rawValue)
+            print($0.iconFilePath ?? "FUCKED.")
+        }
     }
 
     func testAllPropertyIconFileAccess() throws {

@@ -10,8 +10,32 @@ extension EnkaHSR.DBModels {
     public struct Artifact: Codable, Hashable {
         // MARK: Public
 
+        public enum ArtifactType: String, Codable, Hashable, CaseIterable, Identifiable {
+            case head = "HEAD"
+            case hand = "HAND"
+            case body = "BODY"
+            case foot = "FOOT"
+            case object = "OBJECT"
+            case neck = "NECK"
+
+            // MARK: Public
+
+            public var id: String { rawValue }
+
+            public var assetSuffix: Int {
+                switch self {
+                case .head: return 0
+                case .hand: return 1
+                case .body: return 2
+                case .foot: return 3
+                case .object: return 0
+                case .neck: return 1
+                }
+            }
+        }
+
         public let rarity: Int
-        public let type: String
+        public let type: ArtifactType
         public let mainAffixGroup: Int
         public let subAffixGroup: Int
         public let icon: String

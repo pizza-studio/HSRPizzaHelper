@@ -332,13 +332,7 @@ extension EnkaHSR.AvatarSummarized {
         }
 
         public var iconFileName: String {
-            let str = paramDataFetched.tid.description
-            guard str.count == 5 else { return "ARTIFACT_IMG_FOR_TID_\(str)" }
-            let coreStr = str.dropFirst().dropLast()
-            var lastDigit = (Int(str.last?.description ?? "2") ?? 2)
-            if lastDigit >= 5 { lastDigit -= 4 }
-            lastDigit -= 1
-            return "\(coreStr)_\(lastDigit).png"
+            "\(commonInfo.setID)_\(commonInfo.type.assetSuffix).png"
         }
 
         public var iconFilePath: String {

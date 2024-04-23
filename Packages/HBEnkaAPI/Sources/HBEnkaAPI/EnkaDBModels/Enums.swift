@@ -159,9 +159,9 @@ extension EnkaHSR.PropertyType {
         var nameStem = rawValue
         switch self {
         case .baseHP, .hpAddedRatio, .hpDelta: nameStem = "MaxHP"
-        case .breakDamageAddedRatio: nameStem = "BreakUp"
         case .baseDefence, .defenceAddedRatio, .defenceDelta: nameStem = "Defence"
         case .attackAddedRatio, .attackDelta, .baseAttack: nameStem = "Attack"
+        case .breakDamageAddedRatio, .breakDamageAddedRatioBase: nameStem = "BreakUp"
         case .criticalChanceBase: nameStem = "CriticalChance"
         case .statusProbabilityBase: nameStem = "StatusProbability"
         case .speedAddedRatio, .speedDelta: nameStem = "Speed"
@@ -220,6 +220,7 @@ extension EnkaHSR.PropertyType {
         case .attackAddedRatio: return true
         case .criticalChanceBase: return true
         case .breakDamageAddedRatio: return true
+        case .breakDamageAddedRatioBase: return true
         case .statusProbabilityBase: return true
         case .speedDelta: return true
         case .energyRecoveryBase: return true
