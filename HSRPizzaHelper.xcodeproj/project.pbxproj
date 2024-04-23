@@ -212,6 +212,10 @@
 		EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAA6916C2A0E6783003D17FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519882A01738600EF23B7 /* Persistence.swift */; };
 		EAAD1AE82A04CE37002BDA86 /* DailyNoteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */; };
+		EAB809242BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EAB809232BD792C400FEC5FF /* PrivacyInfo.xcprivacy */; };
+		EAB809252BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EAB809232BD792C400FEC5FF /* PrivacyInfo.xcprivacy */; };
+		EAB809262BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EAB809232BD792C400FEC5FF /* PrivacyInfo.xcprivacy */; };
+		EAB809272BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EAB809232BD792C400FEC5FF /* PrivacyInfo.xcprivacy */; };
 		EABA18082A87A908005A639E /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = EABA18072A87A908005A639E /* Collections */; };
 		EAC3243D2A1F584D007075D7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC3243C2A1F584D007075D7 /* StoreKit.framework */; };
 		EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */; };
@@ -453,6 +457,7 @@
 		EA9E221A2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
 		EA9E221C2A0BA48B002F3351 /* SmallSquareDailyNoteWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSquareDailyNoteWidgetView.swift; sourceTree = "<group>"; };
 		EAAD1AE72A04CE37002BDA86 /* DailyNoteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteCards.swift; sourceTree = "<group>"; };
+		EAB809232BD792C400FEC5FF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
 		EAC3243C2A1F584D007075D7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EAC9E4102A09F36E00011E1F /* WidgetTimelineReloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimelineReloader.swift; sourceTree = "<group>"; };
 		EAC9E4142A09F72600011E1F /* WidgetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingView.swift; sourceTree = "<group>"; };
@@ -1025,6 +1030,7 @@
 				EA09B1942A09182A00986D46 /* Initialization */,
 				EAE519CA2A0178D100EF23B7 /* View */,
 				EAE519C22A01771F00EF23B7 /* HSRPizzaHelper.entitlements */,
+				EAB809232BD792C400FEC5FF /* PrivacyInfo.xcprivacy */,
 				EAE5197F2A01738600EF23B7 /* HSRPizzaHelperApp.swift */,
 				EAE519812A01738600EF23B7 /* ContentView.swift */,
 				BF58D2692A57AD4300CC0DC6 /* WatchConnectivityManager.swift */,
@@ -1346,6 +1352,7 @@
 				BF58D2432A579D5100CC0DC6 /* Preview Assets.xcassets in Resources */,
 				BFB54CF92AD0E3CE00EAEE85 /* InfoPlist.xcstrings in Resources */,
 				BFB54CF62AD0E3C400EAEE85 /* Localizable.xcstrings in Resources */,
+				EAB809272BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */,
 				BF58D26F2A57F84600CC0DC6 /* WatchAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1354,6 +1361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB809252BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */,
 				EADA17CC2A06B88400AF9784 /* background_image in Resources */,
 				BFB54CF42AD0E3C400EAEE85 /* Localizable.xcstrings in Resources */,
 				EA068D152A08169D003C4E69 /* Assets.xcassets in Resources */,
@@ -1367,6 +1375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */,
+				EAB809242BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */,
 				EAEF1ABB2A84F4E90013AD48 /* gacha_meta in Resources */,
 				EADA17C82A06B7BE00AF9784 /* background_image in Resources */,
 				BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */,
@@ -1385,6 +1394,7 @@
 			files = (
 				BFD051DB2A08C2EA008343E8 /* HBPizzaHelperAPI in Resources */,
 				BFB54CF52AD0E3C400EAEE85 /* Localizable.xcstrings in Resources */,
+				EAB809262BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */,
 				EADA17CB2A06B88000AF9784 /* background_image in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
