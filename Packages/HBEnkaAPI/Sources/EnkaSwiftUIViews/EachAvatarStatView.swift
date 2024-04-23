@@ -156,7 +156,7 @@ extension EnkaHSR.AvatarSummarized {
     }
 
     @ViewBuilder
-    public func asIcon() -> some View {
+    public func asPortrait() -> some View {
         ResIcon(mainInfo.photoFilePath) {
             $0.resizable()
         } placeholder: {
@@ -174,31 +174,62 @@ extension EnkaHSR.AvatarSummarized {
         _ size: CGFloat
     )
         -> some View {
-        asIcon()
-            .scaledToFill()
-            .frame(width: size * 0.74, height: size)
-            .clipped()
-            .scaledToFit()
-            .clipShape(RoundedRectangle(cornerRadius: size / 10))
-            .contentShape(RoundedRectangle(cornerRadius: size / 10))
+        mainInfo.cardIcon(size: size)
     }
 }
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     @ViewBuilder
+    public func avatarPhoto(size: CGFloat, circleClipped: Bool = true) -> some View {
+        let result = ResIcon(photoFilePath) {
+            $0.resizable()
+        } placeholder: {
+            AnyView(Color.clear)
+        }
+        .aspectRatio(contentMode: .fit)
+        .scaleEffect(1.5, anchor: .top)
+        .scaleEffect(1.4)
+        .frame(maxWidth: size, maxHeight: size)
+        // Draw.
+        let bgColor = Color.black.opacity(0.165)
+        Group {
+            if circleClipped {
+                result
+                    .background { bgColor }
+                    .clipShape(Circle())
+                    .contentShape(Circle())
+            } else {
+                result
+                    .background { bgColor }
+                    .clipShape(Rectangle())
+                    .contentShape(Rectangle())
+            }
+        }
+    }
+
+    /// 显示角色的扑克牌尺寸肖像，以身份证素材裁切而成。
+    @ViewBuilder
+    public func cardIcon(size: CGFloat) -> some View {
+        ResIcon(photoFilePath) {
+            $0.resizable()
+        } placeholder: {
+            AnyView(Color.clear)
+        }
+        .aspectRatio(contentMode: .fit)
+        .scaleEffect(1.5, anchor: .top)
+        .scaleEffect(1.4)
+        .frame(width: size * 0.74, height: size)
+        .background {
+            Color.black.opacity(0.165)
+        }
+        .clipShape(RoundedRectangle(cornerRadius: size / 10))
+        .contentShape(RoundedRectangle(cornerRadius: size / 10))
+    }
+
+    @ViewBuilder
     public func asView(fontSize: CGFloat) -> some View {
         HStack(alignment: .bottom, spacing: fontSize * 0.55) {
-            ResIcon(photoFilePath) {
-                $0.resizable()
-            } placeholder: {
-                AnyView(Color.clear)
-            }
-            .aspectRatio(contentMode: .fit)
-            .background {
-                Color.black.opacity(0.165)
-            }
-            .frame(maxWidth: fontSize * 5, maxHeight: fontSize * 5)
-            .clipShape(Circle())
+            avatarPhoto(size: fontSize * 5)
             VStack(spacing: 0) {
                 HStack(alignment: .bottom) {
                     Text(localizedName)
