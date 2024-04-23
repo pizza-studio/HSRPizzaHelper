@@ -4,7 +4,7 @@
 
 extension EnkaHSR {
     public enum AssetPathComponents: String {
-        case character = "gacha_meta/icon/character"
+        case character = "other_meta/icon/characters"
         case weapon = "gacha_meta/icon/light_cone"
         case profileAvatar = "other_meta/icon/avatar"
         case element = "other_meta/icon/element"
