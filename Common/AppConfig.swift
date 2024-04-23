@@ -13,6 +13,20 @@ import Foundation
 enum AppConfig {
     // MARK: Internal
 
+    static let appVersionHumanReadable = (
+        Bundle.main
+            .infoDictionary?["CFBundleShortVersionString"] as? String
+    ) ?? ""
+    static let appVersionBuild = (Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? ""
+
+    static let watermarkAppVersionStr: String? = {
+        switch AppConfig.appConfiguration {
+        case .debug: return "Debug: \(AppConfig.appVersionHumanReadable) (\(AppConfig.appVersionBuild))"
+        case .testFlight: return "TestFlight: \(AppConfig.appVersionHumanReadable) (\(AppConfig.appVersionBuild))"
+        default: return nil
+        }
+    }()
+
     /// A string representing the App Group identifier
     static let appGroupID: String = "group.Canglong.HSRPizzaHelper"
 

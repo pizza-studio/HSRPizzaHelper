@@ -13,6 +13,7 @@
 		5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B10337B2ADC313400B1DA08 /* Defaults */; };
 		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
 		5B6162AC2BD4E0A200662F5A /* EnkaHSRImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */; };
+		5B7990312BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */; };
 		5B7CE2B82BCD2EAE0053FD7D /* HBEnkaAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7CE2B72BCD2EAE0053FD7D /* HBEnkaAPI */; };
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
 		5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */; };
@@ -319,6 +320,7 @@
 		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
 		5B5D9BC62BCFF50B0085E728 /* other_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = other_meta; sourceTree = "<group>"; };
 		5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnkaHSRImpl.swift; sourceTree = "<group>"; };
+		5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig_SwiftUIImpl.swift; sourceTree = "<group>"; };
 		5B7CE2B62BCD2DAF0053FD7D /* HBEnkaAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HBEnkaAPI; path = Packages/HBEnkaAPI; sourceTree = "<group>"; };
 		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
 		5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPortalView.swift; sourceTree = "<group>"; };
@@ -1160,6 +1162,7 @@
 			children = (
 				EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */,
 				5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */,
+				5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1570,6 +1573,7 @@
 				EA1D523E2A76521E00FA66A9 /* ToolView.swift in Sources */,
 				EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */,
 				BFDF6A862A08D6C000048FF9 /* TapticSupport.swift in Sources */,
+				5B7990312BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift in Sources */,
 				EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */,
 				BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */,
 				EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */,

@@ -12,12 +12,6 @@ import SwiftUI
 // MARK: - AboutView
 
 struct AboutView: View {
-    let appVersion = (
-        Bundle.main
-            .infoDictionary?["CFBundleShortVersionString"] as? String
-    ) ?? ""
-    let buildVersion = (Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? ""
-
     @State var isDevelopSettingsShow = false
 
     var body: some View {
@@ -35,7 +29,7 @@ struct AboutView: View {
                 .font(.title3)
                 .fontWeight(.regular)
                 .foregroundColor(.primary)
-            Text("\(appVersion) (\(buildVersion))")
+            Text("\(AppConfig.appVersionHumanReadable) (\(AppConfig.appVersionBuild))")
                 .font(.callout)
                 .fontWeight(.regular)
                 .foregroundColor(.secondary)
