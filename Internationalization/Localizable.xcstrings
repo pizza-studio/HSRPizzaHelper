@@ -993,6 +993,34 @@
         }
       }
     },
+    "account.PlayerDetail.EmptyAvatarsFetched" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Either no characters found in the Character Showcase, or Enka failed from retrieving the player's data from the game server."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラ陳列には誰もござぬか、あるいは Enka にてゲームサーバーからプレーヤー資料を取り出すのはできなかった。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账号未展示角色详情，或 Enka 未能成功从游戏服务器取得玩家数据。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "帳號未展示角色詳情，或 Enka 沒能成功從遊戲伺服器取得玩家資料。"
+          }
+        }
+      }
+    },
     "account.setting.allownotification" : {
       "localizations" : {
         "en" : {
