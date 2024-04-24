@@ -186,7 +186,7 @@ private struct MutableAvatarPropertyPanel {
     ) {
         switch prop.type {
         // 星穹铁道没有附魔，所以只要是与角色属性不匹配的元素伤害加成都是狗屁。
-        case element.damageAddedRatioProperty, .allDamageTypeAddedRatio:
+        case .allDamageTypeAddedRatio, element.damageAddedRatioProperty:
             elementalDMGAddedRatio += prop.value
         case .attack, .attackDelta, .baseAttack: attack += prop.value
         case .attackAddedRatio: attack *= (1 + prop.value)
@@ -218,7 +218,7 @@ extension EnkaHSR.AvatarSummarized.PropertyPair {
     ) {
         switch type {
         case .attackAddedRatio, .defenceAddedRatio, .hpAddedRatio, .speedAddedRatio: arrAmp.append(self)
-        case .attack, .attackDelta,
+        case .allDamageTypeAddedRatio, .attack, .attackDelta,
              .baseAttack, .baseDefence, .baseHP, .baseSpeed,
              .breakDamageAddedRatio, .breakDamageAddedRatioBase,
              .breakUp, .criticalChance, .criticalChanceBase,
