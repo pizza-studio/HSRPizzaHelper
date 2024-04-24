@@ -362,31 +362,29 @@ private struct PlayerDetailSection: View {
 
     var body: some View {
         Section {
-            VStack {
-                currentShowCase
-                switch vmDPV.playerDetailStatus {
-                case .progress:
-                    InfiniteProgressBar().id(UUID())
-                case let .fail(error):
+            currentShowCase
+            switch vmDPV.playerDetailStatus {
+            case .progress:
+                InfiniteProgressBar().id(UUID())
+            case let .fail(error):
+                Divider()
+                ErrorView(account: account, apiPath: "", error: error) {
+                    vmDPV.fetchPlayerDetail()
+                }
+            case let .succeed((playerDetail, _)):
+                if playerDetail.avatarDetailList.isEmpty {
                     Divider()
-                    ErrorView(account: account, apiPath: "", error: error) {
-                        vmDPV.fetchPlayerDetail()
-                    }
-                case let .succeed((playerDetail, _)):
-                    if playerDetail.avatarDetailList.isEmpty {
-                        Divider()
-                        Button {
-                            vmDPV.refresh()
-                        } label: {
-                            Label {
-                                VStack {
-                                    Text(errorTextForBlankAvatars)
-                                        .foregroundColor(.secondary)
-                                }
-                            } icon: {
-                                Image(systemSymbol: .xmarkCircle)
-                                    .foregroundColor(.red)
+                    Button {
+                        vmDPV.refresh()
+                    } label: {
+                        Label {
+                            VStack {
+                                Text(errorTextForBlankAvatars)
+                                    .foregroundColor(.secondary)
                             }
+                        } icon: {
+                            Image(systemSymbol: .xmarkCircle)
+                                .foregroundColor(.red)
                         }
                     }
                 }
