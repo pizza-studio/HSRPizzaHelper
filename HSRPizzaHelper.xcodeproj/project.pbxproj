@@ -602,6 +602,7 @@
 		EA09B1932A09180200986D46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */,
 				BF06C4A42A04D42900EE9120 /* WebViews.swift */,
 				EADCE9382A0B985F008D81A9 /* OptionalSpacer.swift */,
 			);
@@ -1171,7 +1172,6 @@
 				EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */,
 				5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */,
 				5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */,
-				5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
