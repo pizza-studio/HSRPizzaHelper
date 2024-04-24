@@ -362,27 +362,31 @@ private struct PlayerDetailSection: View {
 
     var body: some View {
         Section {
-            currentShowCase
-            switch vmDPV.playerDetailStatus {
-            case .progress:
-                ProgressView().id(UUID())
-            case let .fail(error):
-                ErrorView(account: account, apiPath: "", error: error) {
-                    vmDPV.fetchPlayerDetail()
-                }
-            case let .succeed((playerDetail, _)):
-                if playerDetail.avatarDetailList.isEmpty {
-                    Button {
-                        vmDPV.refresh()
-                    } label: {
-                        Label {
-                            VStack {
-                                Text(errorTextForBlankAvatars)
-                                    .foregroundColor(.secondary)
+            VStack {
+                currentShowCase
+                switch vmDPV.playerDetailStatus {
+                case .progress:
+                    InfiniteProgressBar().id(UUID())
+                case let .fail(error):
+                    Divider()
+                    ErrorView(account: account, apiPath: "", error: error) {
+                        vmDPV.fetchPlayerDetail()
+                    }
+                case let .succeed((playerDetail, _)):
+                    if playerDetail.avatarDetailList.isEmpty {
+                        Divider()
+                        Button {
+                            vmDPV.refresh()
+                        } label: {
+                            Label {
+                                VStack {
+                                    Text(errorTextForBlankAvatars)
+                                        .foregroundColor(.secondary)
+                                }
+                            } icon: {
+                                Image(systemSymbol: .xmarkCircle)
+                                    .foregroundColor(.red)
                             }
-                        } icon: {
-                            Image(systemSymbol: .xmarkCircle)
-                                .foregroundColor(.red)
                         }
                     }
                 }

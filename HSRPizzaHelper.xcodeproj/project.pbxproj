@@ -11,6 +11,7 @@
 		5B1033782ADC312900B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033772ADC312900B1DA08 /* Defaults */; };
 		5B10337A2ADC312F00B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033792ADC312F00B1DA08 /* Defaults */; };
 		5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B10337B2ADC313400B1DA08 /* Defaults */; };
+		5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */; };
 		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
 		5B6162AC2BD4E0A200662F5A /* EnkaHSRImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */; };
 		5B7990312BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */; };
@@ -322,6 +323,7 @@
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
 		5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DefaultsKeys; path = Packages/DefaultsKeys; sourceTree = "<group>"; };
 		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
+		5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
 		5B5D9BC62BCFF50B0085E728 /* other_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = other_meta; sourceTree = "<group>"; };
 		5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnkaHSRImpl.swift; sourceTree = "<group>"; };
 		5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig_SwiftUIImpl.swift; sourceTree = "<group>"; };
@@ -1169,6 +1171,7 @@
 				EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */,
 				5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */,
 				5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */,
+				5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1594,6 +1597,7 @@
 				EA2C064D2A04A0CA00A328E6 /* Account+CoreDataProperties.swift in Sources */,
 				EA4DAC172A0BBA0A00D2AC5F /* SourceLocalizedError.swift in Sources */,
 				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
+				5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */,
 				EA1D523A2A76262B00FA66A9 /* HSRDictionaryView.swift in Sources */,
 				EA8D28802A8601B600B47869 /* AccountGachaView.swift in Sources */,
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
