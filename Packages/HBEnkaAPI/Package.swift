@@ -29,6 +29,7 @@ let package = Package(
                 .product(name: "DefaultsKeys", package: "DefaultsKeys"),
             ],
             resources: [
+                .process("EnkaAssets/ExtraAssets/IconAllDamageTypeAddedRatio.png"),
                 .process("EnkaAssets/hsr_jsons/honker_avatars.json"),
                 .process("EnkaAssets/hsr_jsons/honker_characters.json"),
                 .process("EnkaAssets/hsr_jsons/honker_meta.json"),

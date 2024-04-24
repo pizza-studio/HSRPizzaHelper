@@ -2,6 +2,8 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Foundation
+
 extension EnkaHSR.DBModels {
     /// Elements used in HSR, using Ancient Greek namings (same as Genshin).
     /// - remark: Typealiased as `EnkaHSR.Element`.`
@@ -156,6 +158,11 @@ extension EnkaHSR.PropertyType {
     }
 
     public var iconFileName: String? {
+        hasPropIcon ? proposedIconFileName : nil
+    }
+
+    /// This variable is only for unit tests.
+    internal var proposedIconFileName: String {
         var nameStem = rawValue
         switch self {
         case .baseHP, .hpAddedRatio, .hpDelta: nameStem = "MaxHP"
@@ -163,6 +170,7 @@ extension EnkaHSR.PropertyType {
         case .attackAddedRatio, .attackDelta, .baseAttack: nameStem = "Attack"
         case .breakDamageAddedRatio, .breakDamageAddedRatioBase: nameStem = "BreakUp"
         case .criticalChanceBase: nameStem = "CriticalChance"
+        case .healRatioBase: nameStem = "HealRatio"
         case .statusProbabilityBase: nameStem = "StatusProbability"
         case .speedAddedRatio, .speedDelta: nameStem = "Speed"
         case .energyRecovery: nameStem = "EnergyRecovery"
@@ -170,19 +178,29 @@ extension EnkaHSR.PropertyType {
         case .criticalDamageBase: nameStem = "CriticalDamage"
         case .statusResistanceBase: nameStem = "StatusResistance"
         case .energyLimit: nameStem = "EnergyLimit"
+        case .allDamageTypeAddedRatio: nameStem = "AllDamageTypeAddedRatio"
         default: break
         }
-        return hasPropIcon ? "Icon\(nameStem).png" : nil
+        return "Icon\(nameStem).png"
+    }
+
+    /// This variable is only for unit tests.
+    internal var proposedIconFilePath: String {
+        if self == .allDamageTypeAddedRatio {
+            let result = Bundle.module.path(forResource: "IconAllDamageTypeAddedRatio", ofType: "png")
+            return result!
+        }
+        let rawPathComponent = EnkaHSR.AssetPathComponents.property.rawValue
+        return "\(EnkaHSR.assetPathRoot)/\(rawPathComponent)/\(proposedIconFileName)"
     }
 
     public var iconFilePath: String? {
-        guard let iconFileName = iconFileName else { return nil }
-        return "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.property.rawValue)/\(iconFileName)"
+        hasPropIcon ? proposedIconFilePath : nil
     }
 
     public var hasPropIcon: Bool {
         switch self {
-        case .allDamageTypeAddedRatio: return false // An exceptional case.
+        case .allDamageTypeAddedRatio: return true
         case .baseAttack, .baseDefence, .baseHP: return true
         case .attack: return true
         case .breakUp: return true
@@ -213,6 +231,7 @@ extension EnkaHSR.PropertyType {
 
         // Other cases requiring reusing existing icons.
         case .hpDelta: return true
+        case .healRatioBase: return true
         case .defenceDelta: return true
         case .hpAddedRatio: return true
         case .defenceAddedRatio: return true

@@ -246,10 +246,9 @@ extension EnkaHSR.AvatarSummarized {
                 }
                 return nil
             }
-            // TODO: 目前先忽略那些没有图标的词条，回头单独再订做一套图标。
             self.specialProps = theDB.meta.equipmentSkill.query(
                 id: enkaId, stage: fetched.rank
-            ).filter(\.key.hasPropIcon).map { key, value in
+            ).map { key, value in
                 PropertyPair(theDB: theDB, type: key, value: value)
             }
         }
