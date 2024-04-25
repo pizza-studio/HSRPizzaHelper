@@ -83,8 +83,9 @@ final class DetailPortalViewModel: ObservableObject {
                     dateWhenNextRefreshable: nil
                 )
                 enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
-                let queryResultAwaited = try await queryResult
+                let queryResultAwaited = try await queryResult.merge(old: currentBasicInfo)
                 currentBasicInfo = queryResultAwaited
+                Defaults[.queriedEnkaProfiles][selectedAccount.uid] = queryResultAwaited
 
                 DispatchQueue.main.async {
                     withAnimation {
@@ -347,8 +348,10 @@ private struct SelectAccountSection: View {
 private struct PlayerDetailSection: View {
     // MARK: Internal
 
+    let account: Account
+
     @ViewBuilder var currentShowCase: some View {
-        vmDPV.currentBasicInfo?.asView(theDB: vmDPV.enkaDB)
+        profileStorage[account.uid]?.asView(theDB: vmDPV.enkaDB)
             .saturation(isUpdating ? 0 : 1)
             .disabled(isUpdating)
     }
@@ -396,7 +399,7 @@ private struct PlayerDetailSection: View {
 
     @EnvironmentObject private var vmDPV: DetailPortalViewModel
 
-    public let account: Account
+    @Default(.queriedEnkaProfiles) private var profileStorage: [String: EnkaHSR.QueryRelated.DetailInfo]
 
     private var errorTextForBlankAvatars: String {
         "account.PlayerDetail.EmptyAvatarsFetched".localized()
