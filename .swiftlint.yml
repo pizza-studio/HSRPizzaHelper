@@ -59,9 +59,6 @@ reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, em
 trailing_comma:
   severity: warning
   mandatory_comma: true
-large_tuple:
-  - warning: 4
-  - error: 4
 # force_unwrapping:
 #   excluded:
 #     - ".*Test\\.swift"
