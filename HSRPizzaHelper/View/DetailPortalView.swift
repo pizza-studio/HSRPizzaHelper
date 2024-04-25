@@ -49,6 +49,19 @@ final class DetailPortalViewModel: ObservableObject {
         case progress(Task<Void, Never>?)
         case fail(Error)
         case succeed(T)
+
+        // MARK: Internal
+
+        var isBusy: Bool {
+            switch self {
+            case .progress: return true
+            default: return false
+            }
+        }
+
+        var saturationValue: CGFloat {
+            isBusy ? 0 : 1
+        }
     }
 
     typealias PlayerDetailStatus = Status<(EnkaProfileEntity, nextRefreshableDate: Date)>
@@ -86,8 +99,7 @@ final class DetailPortalViewModel: ObservableObject {
                 let queryResultAwaited = try await queryResult.merge(old: currentBasicInfo)
                 currentBasicInfo = queryResultAwaited
                 Defaults[.queriedEnkaProfiles][selectedAccount.uid] = queryResultAwaited
-
-                DispatchQueue.main.async {
+                Task {
                     withAnimation {
                         self.playerDetailStatus = .succeed((
                             queryResultAwaited,
@@ -96,12 +108,15 @@ final class DetailPortalViewModel: ObservableObject {
                     }
                 }
             } catch {
-                DispatchQueue.main.async {
-                    self.playerDetailStatus = .fail(error)
+                Task {
+                    withAnimation {
+                        self.playerDetailStatus = .fail(error)
+                    }
                 }
             }
         }
-        DispatchQueue.main.async {
+
+        Task {
             withAnimation {
                 self.playerDetailStatus = .progress(task)
             }
@@ -122,8 +137,6 @@ struct DetailPortalView: View {
                     PlayerDetailSection(account: account)
                 }
             }
-            .disabled(isFetching)
-            .saturation(saturation)
             .refreshable {
                 vmDPV.refresh()
             }
@@ -134,17 +147,6 @@ struct DetailPortalView: View {
     // MARK: Private
 
     @StateObject private var vmDPV: DetailPortalViewModel = .init()
-
-    private var isFetching: Bool {
-        switch vmDPV.playerDetailStatus {
-        case .progress: return true
-        default: return false
-        }
-    }
-
-    private var saturation: CGFloat {
-        isFetching ? 0 : 1
-    }
 }
 
 // MARK: - SelectAccountSection
@@ -258,7 +260,6 @@ private struct SelectAccountSection: View {
                     } placeholder: {
                         AnyView(Color.clear)
                     }
-                    .saturation(0)
                     .aspectRatio(contentMode: .fit)
                     .background {
                         Color.black.opacity(0.165)
@@ -352,8 +353,8 @@ private struct PlayerDetailSection: View {
 
     @ViewBuilder var currentShowCase: some View {
         profileStorage[account.uid]?.asView(theDB: vmDPV.enkaDB)
-            .saturation(isUpdating ? 0 : 1)
-            .disabled(isUpdating)
+            .disabled(vmDPV.playerDetailStatus.isBusy)
+            .saturation(vmDPV.playerDetailStatus.saturationValue)
     }
 
     var isUpdating: Bool {
