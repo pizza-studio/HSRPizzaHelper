@@ -353,7 +353,7 @@ private struct PlayerDetailSection: View {
     let account: Account
 
     @ViewBuilder var currentShowCase: some View {
-        profileStorage[account.uid]?.asView(theDB: vmDPV.enkaDB)
+        vmDPV.currentBasicInfo?.asView(theDB: vmDPV.enkaDB)
             .disabled(vmDPV.playerDetailStatus.isBusy)
             .saturation(vmDPV.playerDetailStatus.saturationValue)
     }
@@ -402,8 +402,6 @@ private struct PlayerDetailSection: View {
     // MARK: Private
 
     @EnvironmentObject private var vmDPV: DetailPortalViewModel
-
-    @Default(.queriedEnkaProfiles) private var profileStorage: [String: EnkaHSR.QueryRelated.DetailInfo]
 
     private var errorTextForBlankAvatars: String {
         "account.PlayerDetail.EmptyAvatarsFetched".localized()
