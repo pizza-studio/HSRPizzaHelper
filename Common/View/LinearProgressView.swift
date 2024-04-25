@@ -38,7 +38,7 @@ struct InfiniteProgressBar: View {
             .offset(x: width * offset)
             .onAppear {
                 withAnimation(Animation.linear(duration: 2.5).repeatForever(autoreverses: false)) {
-                    self.offset = maxOffset
+                    offset = maxOffset
                 }
             }
     }
