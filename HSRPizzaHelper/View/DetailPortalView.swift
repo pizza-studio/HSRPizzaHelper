@@ -79,8 +79,10 @@ final class DetailPortalViewModel: ObservableObject {
     // swiftlint:enable force_unwrapping
 
     func refresh() {
-        fetchPlayerDetail()
-        detailPortalRefreshSubject.send(())
+        Task {
+            fetchPlayerDetail()
+            detailPortalRefreshSubject.send(())
+        }
     }
 
     func fetchPlayerDetail() {
@@ -91,12 +93,12 @@ final class DetailPortalViewModel: ObservableObject {
         if case let .progress(task) = playerDetailStatus { task?.cancel() }
         let task = Task {
             do {
-                async let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
+                enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
+                let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
                     for: selectedAccount.uid,
                     dateWhenNextRefreshable: nil
                 )
-                enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
-                let queryResultAwaited = try await queryResult.merge(old: currentBasicInfo)
+                let queryResultAwaited = queryResult.merge(old: currentBasicInfo)
                 currentBasicInfo = queryResultAwaited
                 Defaults[.queriedEnkaProfiles][selectedAccount.uid] = queryResultAwaited
                 Task {
@@ -115,7 +117,6 @@ final class DetailPortalViewModel: ObservableObject {
                 }
             }
         }
-
         Task {
             withAnimation {
                 self.playerDetailStatus = .progress(task)
@@ -373,7 +374,7 @@ private struct PlayerDetailSection: View {
             case let .fail(error):
                 Divider()
                 ErrorView(account: account, apiPath: "", error: error) {
-                    vmDPV.fetchPlayerDetail()
+                    vmDPV.refresh()
                 }
             case let .succeed((playerDetail, _)):
                 if playerDetail.avatarDetailList.isEmpty {
