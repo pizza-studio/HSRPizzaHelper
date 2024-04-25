@@ -201,6 +201,7 @@ public enum OS: Int {
     // MARK: Public
 
     public static let type: OS = {
+        guard !ProcessInfo.processInfo.isiOSAppOnMac else { return .macOS }
         #if os(OSX)
         return .macOS
         #elseif os(watchOS)
