@@ -10,9 +10,55 @@ import SwiftUI
 // MARK: - ShowCaseListView
 
 public struct ShowCaseListView: View {
+    // MARK: Lifecycle
+
+    public init(profile: EnkaHSR.ProfileSummarized, expanded: Bool = false) {
+        self.profile = profile
+        self.expanded = expanded
+    }
+
     // MARK: Public
 
+    @State public var expanded: Bool
+
     public var body: some View {
+        if !expanded {
+            condensedBody
+        } else {
+            ScrollView(.vertical) {
+                Spacer()
+                // TabView 以 EnkaID 为依据，不能仅依赖资料本身的 Identifiable 特性。
+                ForEach(profile.summarizedAvatars, id: \.mainInfo.uniqueCharId) { avatar in
+                    Button {
+                        tapticMedium()
+                        var transaction = Transaction()
+                        transaction.animation = .easeInOut
+                        transaction.disablesAnimations = !animateOnCallingCharacterShowcase
+                        withTransaction(transaction) {
+                            // TabView 以 EnkaId 为依据。
+                            showingCharacterIdentifier = avatar.mainInfo.uniqueCharId
+                        }
+                    } label: {
+                        #if os(OSX)
+                        let fontSize = NSFont.systemFontSize
+                        #else
+                        let fontSize = UIFont.systemFontSize
+                        #endif
+                        avatar.mainInfo.asView(fontSize: fontSize)
+                            .preferredColorScheme(.dark)
+                    }
+                    .foregroundStyle(.primary)
+                }
+            }
+            #if !os(OSX)
+            .fullScreenCover(item: $showingCharacterIdentifier) { enkaId in
+                fullScreenCover(id: enkaId)
+            }
+            #endif
+        }
+    }
+
+    @ViewBuilder public var condensedBody: some View {
         // （Enka 被天空岛服务器喂屎的情形会导致 profile.summarizedAvatars 成为空阵列。）
         if profile.summarizedAvatars.isEmpty {
             EmptyView()
@@ -42,18 +88,7 @@ public struct ShowCaseListView: View {
             }
             #if !os(OSX)
             .fullScreenCover(item: $showingCharacterIdentifier) { enkaId in
-                AvatarShowCaseView(
-                    selection: enkaId,
-                    profile: profile
-                ) {
-                    var transaction = Transaction()
-                    transaction.animation = .easeInOut
-                    transaction.disablesAnimations = !animateOnCallingCharacterShowcase
-                    withTransaction(transaction) {
-                        showingCharacterIdentifier = nil
-                    }
-                }
-                .environment(\.colorScheme, .dark)
+                fullScreenCover(id: enkaId)
             }
             #endif
         }
@@ -65,7 +100,25 @@ public struct ShowCaseListView: View {
     @Default(.animateOnCallingCharacterShowcase) var animateOnCallingCharacterShowcase: Bool
     @ObservedObject var profile: EnkaHSR.ProfileSummarized
 
+    @ViewBuilder
+    func fullScreenCover(id enkaId: Int) -> some View {
+        AvatarShowCaseView(
+            selection: enkaId,
+            profile: profile
+        ) {
+            var transaction = Transaction()
+            transaction.animation = .easeInOut
+            transaction.disablesAnimations = !animateOnCallingCharacterShowcase
+            withTransaction(transaction) {
+                showingCharacterIdentifier = nil
+            }
+        }
+        .environment(\.colorScheme, .dark)
+    }
+
     // MARK: Private
+
+    @Environment(\.dismiss) private var dismiss
 
     private func tapticMedium() {
         #if !os(OSX)
@@ -83,8 +136,8 @@ extension Int: Identifiable {
 }
 
 extension EnkaHSR.QueryRelated.DetailInfo {
-    public func asView(theDB: EnkaHSR.EnkaDB) -> ShowCaseListView {
-        .init(profile: summarize(theDB: theDB))
+    public func asView(theDB: EnkaHSR.EnkaDB, expanded: Bool = false) -> ShowCaseListView {
+        .init(profile: summarize(theDB: theDB), expanded: expanded)
     }
 }
 

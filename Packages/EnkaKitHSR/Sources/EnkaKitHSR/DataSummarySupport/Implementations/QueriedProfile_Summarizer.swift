@@ -251,7 +251,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.ArtifactItem {
                 )
             )
         }
-        subAffixList.forEach { sub in
+        subAffixList?.forEach { sub in
             guard let subAffix = theDB.meta.relic.subAffix[
                 matchedArtifact.subAffixGroup.description
             ]?[sub.affixId.description] else { return }

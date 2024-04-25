@@ -137,6 +137,10 @@ struct DetailPortalView: View {
                 if let account = vmDPV.selectedAccount {
                     PlayerDetailSection(account: account)
                 }
+                CaseQuerySection(theDB: vmDPV.enkaDB)
+            }
+            .navigationDestination(for: EnkaHSR.QueryRelated.DetailInfo.self) { result in
+                CaseQueryResultView(profile: result)
             }
             .refreshable {
                 vmDPV.refresh()
@@ -146,6 +150,127 @@ struct DetailPortalView: View {
     }
 
     // MARK: Private
+
+    @StateObject private var vmDPV: DetailPortalViewModel = .init()
+}
+
+// MARK: - CaseQueryResultView
+
+private struct CaseQueryResultView: View {
+    // MARK: Lifecycle
+
+    public init(profile: EnkaHSR.QueryRelated.DetailInfo) {
+        self.profile = profile
+    }
+
+    // MARK: Public
+
+    public var body: some View {
+        List {
+            AccountHeaderView(profile: profile)
+            Section {
+                profile.asView(theDB: vmDPV.enkaDB, expanded: true)
+            }
+        }
+        .navigationTitle(Text("\(profile.nickname) (\(profile.uid.description))"))
+    }
+
+    // MARK: Private
+
+    @State private var profile: EnkaHSR.QueryRelated.DetailInfo
+
+    @StateObject private var vmDPV: DetailPortalViewModel = .init()
+
+    private var allAvatarSummaries: [EnkaHSR.AvatarSummarized] {
+        profile.summarizeAllAvatars(theDB: vmDPV.enkaDB)
+    }
+}
+
+// MARK: - AccountHeaderView
+
+private struct AccountHeaderView<T: View>: View {
+    // MARK: Lifecycle
+
+    public init(profile: EnkaHSR.QueryRelated.DetailInfo, additionalView: @escaping (() -> T) = { EmptyView() }) {
+        self.additionalView = additionalView
+        self.profile = profile
+    }
+
+    // MARK: Public
+
+    public var body: some View {
+        Section {
+            HStack(spacing: 0) {
+                HStack {
+                    ResIcon(profile.accountPhotoFilePath(theDB: vmDPV.enkaDB)) {
+                        $0.resizable()
+                    } placeholder: {
+                        AnyView(Color.clear)
+                    }
+                    .aspectRatio(contentMode: .fit)
+                    .background {
+                        Color.black.opacity(0.165)
+                    }
+                    .clipShape(Circle())
+                    .frame(width: 64, height: 64)
+                    #if os(OSX) || targetEnvironment(macCatalyst)
+                        .contextMenu {
+                            Group {
+                                Button("↺") {
+                                    withAnimation {
+                                        vmDPV.refresh()
+                                    }
+                                }
+                            }
+                        }
+                    #endif
+                    Spacer()
+                }
+                .frame(width: 74)
+                .corneredTag(
+                    "detailPortal.player.adventureRank.short:\(profile.level.description)",
+                    alignment: .bottomTrailing,
+                    textSize: 12
+                )
+                VStack(alignment: .leading) {
+                    HStack(spacing: 10) {
+                        VStack(alignment: .leading) {
+                            Text(profile.nickname)
+                                .font(.title3)
+                                .bold()
+                                .padding(.top, 5)
+                                .lineLimit(1)
+                            Text(profile.signature)
+                                .foregroundColor(.secondary)
+                                .font(.footnote)
+                                .lineLimit(2)
+                                .fixedSize(
+                                    horizontal: false,
+                                    vertical: true
+                                )
+                        }
+                        Spacer()
+                    }
+                }
+                additionalView()
+            }
+        } footer: {
+            HStack {
+                Text(verbatim: "UID: \(profile.uid.description)")
+                Spacer()
+                let worldLevelTitle = "detailPortal.player.worldLevel".localized()
+                Text("\(worldLevelTitle): \(profile.worldLevel.description)")
+            }
+        }
+    }
+
+    // MARK: Internal
+
+    let additionalView: () -> T
+
+    // MARK: Private
+
+    @State private var profile: EnkaHSR.QueryRelated.DetailInfo
 
     @StateObject private var vmDPV: DetailPortalViewModel = .init()
 }
@@ -181,71 +306,11 @@ private struct SelectAccountSection: View {
         selectedAccount: Account
     )
         -> some View {
-        Section {
-            HStack(spacing: 0) {
-                HStack {
-                    ResIcon(basicInfo.accountPhotoFilePath(theDB: vmDPV.enkaDB)) {
-                        $0.resizable()
-                    } placeholder: {
-                        AnyView(Color.clear)
-                    }
-                    .aspectRatio(contentMode: .fit)
-                    .background {
-                        Color.black.opacity(0.165)
-                    }
-                    .clipShape(Circle())
-                    .frame(width: 64, height: 64)
-                    #if os(OSX) || targetEnvironment(macCatalyst)
-                        .contextMenu {
-                            Group {
-                                Button("↺") {
-                                    withAnimation {
-                                        vmDPV.refresh()
-                                    }
-                                }
-                            }
-                        }
-                    #endif
-                    Spacer()
-                }
-                .frame(width: 74)
-                .corneredTag(
-                    "detailPortal.player.adventureRank.short:\(basicInfo.level.description)",
-                    alignment: .bottomTrailing,
-                    textSize: 12
-                )
-                VStack(alignment: .leading) {
-                    HStack(spacing: 10) {
-                        VStack(alignment: .leading) {
-                            Text(basicInfo.nickname)
-                                .font(.title3)
-                                .bold()
-                                .padding(.top, 5)
-                                .lineLimit(1)
-                            Text(basicInfo.signature)
-                                .foregroundColor(.secondary)
-                                .font(.footnote)
-                                .lineLimit(2)
-                                .fixedSize(
-                                    horizontal: false,
-                                    vertical: true
-                                )
-                        }
-                        Spacer()
-                        SelectAccountMenu {
-                            Image(systemSymbol: .arrowLeftArrowRightCircle)
-                        } completion: { account in
-                            self.selectedAccount = account
-                        }
-                    }
-                }
-            }
-        } footer: {
-            HStack {
-                Text(verbatim: "UID: \(selectedAccount.uid.description)")
-                Spacer()
-                let worldLevelTitle = "detailPortal.player.worldLevel".localized()
-                Text("\(worldLevelTitle): \(basicInfo.worldLevel.description)")
+        AccountHeaderView(profile: basicInfo) {
+            SelectAccountMenu {
+                Image(systemSymbol: .arrowLeftArrowRightCircle)
+            } completion: { account in
+                self.selectedAccount = account
             }
         }
     }

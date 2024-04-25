@@ -168,7 +168,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
         public let type: Int
         public let level: Int?
-        public let subAffixList: [SubAffixItem]
+        public let subAffixList: [SubAffixItem]?
         public let mainAffixId, tid: Int
         // public let flat: ArtifactItem.Flat? // UNAVAILABLE_IN_MIHOMO_ORIGIN_RESULTS.
         public let exp: Int?
