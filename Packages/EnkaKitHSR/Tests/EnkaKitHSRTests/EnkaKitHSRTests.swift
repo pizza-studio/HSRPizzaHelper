@@ -2,7 +2,7 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
-@testable import HBEnkaAPI
+@testable import EnkaKitHSR
 import XCTest
 
 private let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Tests" }).joined(
@@ -25,9 +25,9 @@ func getBundledLocTable() -> EnkaHSR.DBModels.RawLocTables? {
     return try? JSONDecoder().decode(EnkaHSR.DBModels.RawLocTables.self, from: testData)
 }
 
-// MARK: - HBEnkaAPITests
+// MARK: - EnkaKitHSRTests
 
-final class HBEnkaAPITests: XCTestCase {
+final class EnkaKitHSRTests: XCTestCase {
     override func setUpWithError() throws {
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
     }

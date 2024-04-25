@@ -4,9 +4,9 @@
 
 import Combine
 import Defaults
+import EnkaKitHSR
 import EnkaSwiftUIViews
 import Foundation
-import HBEnkaAPI
 import HBMihoyoAPI
 import HBPizzaHelperAPI
 import SwiftUI

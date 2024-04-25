@@ -7,7 +7,7 @@
 
 import Defaults
 import DefaultsKeys
-import HBEnkaAPI
+import EnkaKitHSR
 import SwiftUI
 
 struct DisplayOptionsView: View {

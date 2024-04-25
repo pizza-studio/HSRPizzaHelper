@@ -3,7 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Defaults
-@testable import HBEnkaAPI
+@testable import EnkaKitHSR
 import XCTest
 
 // MARK: - MiHoMoAPITests

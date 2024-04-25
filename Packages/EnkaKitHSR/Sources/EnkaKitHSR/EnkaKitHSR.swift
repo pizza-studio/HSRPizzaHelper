@@ -64,7 +64,7 @@ extension EnkaHSR {
             do {
                 return try Data(contentsOf: url)
             } catch {
-                NSLog("HBEnkaAPI: Cannot access bundled JSON data \(rawValue).json.")
+                NSLog("EnkaKitHSR: Cannot access bundled JSON data \(rawValue).json.")
                 return nil
             }
         }

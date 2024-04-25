@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "HBEnkaAPI",
+    name: "EnkaKitHSR",
     platforms: [
         .iOS(.v16), .watchOS(.v9), .macOS(.v13),
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "HBEnkaAPI",
-            targets: ["HBEnkaAPI", "EnkaSwiftUIViews"]
+            name: "EnkaKitHSR",
+            targets: ["EnkaKitHSR", "EnkaSwiftUIViews"]
         ),
     ],
     dependencies: [
@@ -23,7 +23,7 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "HBEnkaAPI",
+            name: "EnkaKitHSR",
             dependencies: [
                 .product(name: "Defaults", package: "Defaults"),
                 .product(name: "DefaultsKeys", package: "DefaultsKeys"),
@@ -44,14 +44,14 @@ let package = Package(
         .target(
             name: "EnkaSwiftUIViews",
             dependencies: [
-                "HBEnkaAPI",
+                "EnkaKitHSR",
                 .product(name: "Defaults", package: "Defaults"),
                 .product(name: "DefaultsKeys", package: "DefaultsKeys"),
             ]
         ),
         .testTarget(
-            name: "HBEnkaAPITests",
-            dependencies: ["HBEnkaAPI", "EnkaSwiftUIViews"]
+            name: "EnkaKitHSRTests",
+            dependencies: ["EnkaKitHSR", "EnkaSwiftUIViews"]
         ),
     ]
 )

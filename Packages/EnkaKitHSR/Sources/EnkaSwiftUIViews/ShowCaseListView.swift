@@ -3,8 +3,8 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Defaults
+import EnkaKitHSR
 import Foundation
-import HBEnkaAPI
 import SwiftUI
 
 // MARK: - ShowCaseListView

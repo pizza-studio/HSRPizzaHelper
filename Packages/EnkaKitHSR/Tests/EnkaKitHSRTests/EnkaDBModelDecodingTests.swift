@@ -2,8 +2,8 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+@testable import EnkaKitHSR
 import Foundation
-@testable import HBEnkaAPI
 import XCTest
 
 // MARK: - Factory JSON Database Decoding Tests.
