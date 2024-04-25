@@ -80,12 +80,12 @@ final class DetailPortalViewModel: ObservableObject {
 
     func refresh() {
         Task {
-            fetchPlayerDetail()
+            await fetchPlayerDetail()
             detailPortalRefreshSubject.send(())
         }
     }
 
-    func fetchPlayerDetail() {
+    func fetchPlayerDetail() async {
         guard let selectedAccount else { return }
         if case let .succeed((_, refreshableDate)) = playerDetailStatus {
             guard Date() > refreshableDate else { return }
@@ -374,7 +374,9 @@ private struct PlayerDetailSection: View {
             case let .fail(error):
                 Divider()
                 ErrorView(account: account, apiPath: "", error: error) {
-                    vmDPV.refresh()
+                    Task {
+                        await vmDPV.fetchPlayerDetail()
+                    }
                 }
             case let .succeed((playerDetail, _)):
                 if playerDetail.avatarDetailList.isEmpty {
