@@ -23,7 +23,7 @@ public struct CaseQuerySection: View {
 
     public var body: some View {
         Section {
-            TextField("UID", value: $givenUID, formatter: numberFormatter)
+            TextField("UID", value: $givenUID, format: .number.grouping(.never))
             #if !os(OSX) && !targetEnvironment(macCatalyst)
                 .keyboardType(.decimalPad)
             #endif
@@ -59,15 +59,6 @@ public struct CaseQuerySection: View {
 
     @State var givenUID: Int?
 
-    // MARK: Private
-
-    @State private var numberFormatter: NumberFormatter = {
-        var formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 0
-        return formatter
-    }()
-
     private var theDB: EnkaHSR.EnkaDB
     @StateObject private var delegate: Coordinator = .init()
 
@@ -76,6 +67,8 @@ public struct CaseQuerySection: View {
         return (100_000_000 ... 9_999_999_999).contains(givenUID)
     }
 }
+
+// MARK: CaseQuerySection.Coordinator
 
 extension CaseQuerySection {
     @MainActor
