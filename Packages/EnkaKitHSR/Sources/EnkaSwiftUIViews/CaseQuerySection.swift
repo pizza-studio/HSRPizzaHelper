@@ -40,7 +40,7 @@ public struct CaseQuerySection: View {
                         .disabled(delegate.state == .busy || !isUIDValid)
                     }
                 }
-                .frame(height: Font.baseFontSize * 2)
+                .frame(height: ceil(Font.baseFontSize * 2))
             }
             if let result = delegate.currentInfo {
                 NavigationLink(value: result) {
@@ -54,7 +54,7 @@ public struct CaseQuerySection: View {
                         .background { Color.black.opacity(0.165) }
                         .clipShape(Circle())
                         .contentShape(Circle())
-                        .frame(width: Font.baseFontSize * 3)
+                        .frame(width: ceil(Font.baseFontSize * 3))
                         VStack(alignment: .leading) {
                             Text(result.nickname).font(.headline).fontWeight(.bold)
                             Text(result.uid.description).font(.subheadline)
