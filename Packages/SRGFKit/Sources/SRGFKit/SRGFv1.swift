@@ -2,6 +2,8 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Foundation
+
 // MARK: - SRGFv1
 
 // Ref: https://uigf.org/zh/standards/srgf.html
@@ -53,5 +55,20 @@ extension SRGFv1 {
             case rankType = "rank_type"
             case id
         }
+    }
+}
+
+extension SRGFv1.Info {
+    public init(uid: String, lang: GachaLanguageCode) {
+        self.uid = uid
+        self.lang = lang.rawValue
+        self.srgfVersion = "v1.0"
+        self.regionTimeZone = TimeZone.current.secondsFromGMT() / 3600
+        self.exportTimestamp = Int(Date.now.timeIntervalSince1970)
+        self.exportApp = "PizzaHelper4HSR"
+        self.exportAppVersion = (
+            Bundle.main
+                .infoDictionary!["CFBundleShortVersionString"] as! String
+        )
     }
 }

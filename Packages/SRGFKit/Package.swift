@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "SRGFKit",
+    platforms: [
+        .iOS(.v16), .watchOS(.v9), .macOS(.v13),
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
