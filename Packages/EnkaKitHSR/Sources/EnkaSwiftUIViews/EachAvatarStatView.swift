@@ -307,6 +307,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
                 Text("+\(additionalLevel)").font(.system(size: size * 0.65, weight: .black))
             }
         }
+        .foregroundStyle(.white) // Always use white color for the text of these information.
     }
 
     @ViewBuilder
@@ -324,6 +325,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
                     .scaleEffect(0.8)
+                    .shadow(radius: 5)
                 }.frame(
                     width: fontSize * 2.2,
                     height: fontSize * 2

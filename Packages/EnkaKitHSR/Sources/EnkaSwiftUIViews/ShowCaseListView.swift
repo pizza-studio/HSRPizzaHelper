@@ -23,42 +23,57 @@ public struct ShowCaseListView: View {
 
     public var body: some View {
         if !expanded {
-            condensedBody
+            bodyAsCardCase
         } else {
-            ScrollView(.vertical) {
-                Spacer()
-                // TabView 以 EnkaID 为依据，不能仅依赖资料本身的 Identifiable 特性。
-                ForEach(profile.summarizedAvatars, id: \.mainInfo.uniqueCharId) { avatar in
-                    Button {
-                        tapticMedium()
-                        var transaction = Transaction()
-                        transaction.animation = .easeInOut
-                        transaction.disablesAnimations = !animateOnCallingCharacterShowcase
-                        withTransaction(transaction) {
-                            // TabView 以 EnkaId 为依据。
-                            showingCharacterIdentifier = avatar.mainInfo.uniqueCharId
-                        }
-                    } label: {
-                        #if os(OSX)
-                        let fontSize = NSFont.systemFontSize
-                        #else
-                        let fontSize = UIFont.systemFontSize
-                        #endif
-                        avatar.mainInfo.asView(fontSize: fontSize)
-                            .preferredColorScheme(.dark)
-                    }
-                    .foregroundStyle(.primary)
-                }
-            }
-            #if !os(OSX)
-            .fullScreenCover(item: $showingCharacterIdentifier) { enkaId in
-                fullScreenCover(id: enkaId)
-            }
-            #endif
+            bodyAsNavList
         }
     }
 
-    @ViewBuilder public var condensedBody: some View {
+    @ViewBuilder public var bodyAsNavList: some View {
+        ScrollView {
+            Spacer()
+            VStack {
+                Divided {
+                    // TabView 以 EnkaID 为依据，不能仅依赖资料本身的 Identifiable 特性。
+                    ForEach(profile.summarizedAvatars, id: \.mainInfo.uniqueCharId) { avatar in
+                        Button {
+                            tapticMedium()
+                            var transaction = Transaction()
+                            transaction.animation = .easeInOut
+                            transaction.disablesAnimations = !animateOnCallingCharacterShowcase
+                            withTransaction(transaction) {
+                                // TabView 以 EnkaId 为依据。
+                                showingCharacterIdentifier = avatar.mainInfo.uniqueCharId
+                            }
+                        } label: {
+                            HStack(alignment: .center) {
+                                let intel = avatar.mainInfo
+                                let strLevel = "\(intel.levelName): \(intel.avatarLevel)"
+                                let strEL = "\(intel.constellationName): \(intel.constellation)"
+                                intel.avatarPhoto(size: Font.baseFontSize * 3, circleClipped: true)
+                                VStack(alignment: .leading) {
+                                    Text(verbatim: intel.localizedName).font(.headline).fontWeight(.bold)
+                                    HStack {
+                                        Text(verbatim: strLevel)
+                                        Spacer()
+                                        Text(verbatim: strEL)
+                                    }.font(.subheadline)
+                                }
+                            }
+                        }
+                        .foregroundStyle(.primary)
+                    }
+                }
+            }
+        }
+        #if !os(OSX)
+        .fullScreenCover(item: $showingCharacterIdentifier) { enkaId in
+            fullScreenCover(id: enkaId)
+        }
+        #endif
+    }
+
+    @ViewBuilder public var bodyAsCardCase: some View {
         // （Enka 被天空岛服务器喂屎的情形会导致 profile.summarizedAvatars 成为空阵列。）
         if profile.summarizedAvatars.isEmpty {
             EmptyView()

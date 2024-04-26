@@ -254,3 +254,15 @@ extension UIDevice {
     }()
 }
 #endif
+
+extension Font {
+    public static let baseFontSize: CGFloat = {
+        #if os(OSX)
+        return NSFont.systemFontSize
+        #elseif targetEnvironment(macCatalyst)
+        return UIFont.systemFontSize / 0.77
+        #else
+        return UIFont.systemFontSize
+        #endif
+    }()
+}

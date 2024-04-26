@@ -6,6 +6,7 @@ import Combine
 import Defaults
 import EnkaKitHSR
 import Foundation
+import SFSafeSymbols
 import SwiftUI
 
 // MARK: - CaseQuerySection
@@ -14,37 +15,52 @@ public struct CaseQuerySection: View {
     // MARK: Lifecycle
 
     @MainActor
-    public init(theDB: EnkaHSR.EnkaDB, uid: Int? = nil) {
+    public init(theDB: EnkaHSR.EnkaDB) {
         self.theDB = theDB
-        self.givenUID = uid
     }
 
     // MARK: Public
 
     public var body: some View {
         Section {
-            TextField("UID", value: $givenUID, format: .number.grouping(.never))
-            #if !os(OSX) && !targetEnvironment(macCatalyst)
-                .keyboardType(.decimalPad)
-            #endif
-                .disabled(delegate.state == .busy)
-            Button {
-                Task {
-                    delegate.update(givenUID: givenUID)
-                }
-            } label: {
-                HStack {
-                    Text("detailPortal.OtherCase.LinkName")
+            HStack {
+                textFieldView
+                    .font(.system(.title))
+                    .monospaced()
+                    .fontWidth(.condensed)
+                Group {
                     if delegate.state == .busy {
-                        Spacer()
                         ProgressView()
+                    } else {
+                        Button(action: triggerUpdateTask) {
+                            Image(systemSymbol: SFSymbol.magnifyingglassCircleFill)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
+                        .disabled(delegate.state == .busy || !isUIDValid)
                     }
                 }
+                .frame(height: Font.baseFontSize * 2)
             }
-            .disabled(delegate.state == .busy || !isUIDValid)
             if let result = delegate.currentInfo {
                 NavigationLink(value: result) {
-                    Text("\(result.nickname) (\(result.uid.description))")
+                    HStack {
+                        ResIcon(result.accountPhotoFilePath(theDB: theDB)) {
+                            $0.resizable()
+                        } placeholder: {
+                            AnyView(Color.clear)
+                        }
+                        .aspectRatio(contentMode: .fit)
+                        .background { Color.black.opacity(0.165) }
+                        .clipShape(Circle())
+                        .contentShape(Circle())
+                        .frame(width: Font.baseFontSize * 3)
+                        VStack(alignment: .leading) {
+                            Text(result.nickname).font(.headline).fontWeight(.bold)
+                            Text(result.uid.description).font(.subheadline)
+                        }
+                        Spacer()
+                    }
                 }
             }
             if let errorMsg = delegate.errorMsg {
@@ -52,12 +68,42 @@ public struct CaseQuerySection: View {
             }
         } header: {
             Text("detailPortal.OtherCase.Title")
+        } footer: {
+            let rawFooter = String(localized: "detailPortal.showCaseAPIServiceProviders.explain")
+            let attrStr = (
+                try? AttributedString(
+                    markdown: rawFooter,
+                    options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace)
+                )
+            ) ?? .init(stringLiteral: rawFooter)
+            Text(attrStr)
         }
     }
 
     // MARK: Internal
 
     @State var givenUID: Int?
+
+    @ViewBuilder var textFieldView: some View {
+        TextField("UID", value: $givenUID, format: .number.grouping(.never))
+        #if !os(OSX) && !targetEnvironment(macCatalyst)
+            .keyboardType(.numberPad)
+        #endif
+            .onSubmit {
+                if isUIDValid {
+                    triggerUpdateTask()
+                }
+            }
+            .disabled(delegate.state == .busy)
+    }
+
+    func triggerUpdateTask() {
+        Task {
+            delegate.update(givenUID: givenUID)
+        }
+    }
+
+    // MARK: Private
 
     private var theDB: EnkaHSR.EnkaDB
     @StateObject private var delegate: Coordinator = .init()
@@ -99,6 +145,7 @@ extension CaseQuerySection {
                         let profile = try await EnkaHSR.Sputnik.getEnkaProfile(for: givenUID.description)
                         self.currentInfo = profile
                         state = .standBy
+                        errorMsg = nil
                         return profile
                     } catch {
                         state = .standBy
@@ -108,6 +155,45 @@ extension CaseQuerySection {
                 }
             }
         }
+    }
+}
+
+// MARK: - CaseQueryResultListView
+
+public struct CaseQueryResultListView: View {
+    // MARK: Lifecycle
+
+    public init(profile: EnkaHSR.QueryRelated.DetailInfo, enkaDB: EnkaHSR.EnkaDB, wrapped: Bool = false) {
+        self.profile = profile
+        self.enkaDB = enkaDB
+        self.wrapped = wrapped
+    }
+
+    // MARK: Public
+
+    public var body: some View {
+        if wrapped {
+            List {
+                coreBody
+            }
+            .navigationTitle(Text(verbatim: "\(profile.nickname) (\(profile.uid.description))"))
+        } else {
+            coreBody
+        }
+    }
+
+    @ViewBuilder public var coreBody: some View {
+        profile.asView(theDB: enkaDB, expanded: true)
+    }
+
+    // MARK: Private
+
+    @State private var profile: EnkaHSR.QueryRelated.DetailInfo
+    @State private var enkaDB: EnkaHSR.EnkaDB
+    @State private var wrapped: Bool
+
+    private var allAvatarSummaries: [EnkaHSR.AvatarSummarized] {
+        profile.summarizeAllAvatars(theDB: enkaDB)
     }
 }
 
@@ -125,9 +211,12 @@ struct CaseQuerySection_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 CaseQuerySection(theDB: enkaDatabase)
+            }
+            .navigationDestination(for: EnkaHSR.QueryRelated.DetailInfo.self) { result in
+                CaseQueryResultListView(profile: result, enkaDB: enkaDatabase, wrapped: true)
             }
         }
     }

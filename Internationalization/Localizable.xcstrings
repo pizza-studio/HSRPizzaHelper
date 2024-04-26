@@ -2292,6 +2292,35 @@
     "Defaults - Sindre Sorhus\nhttps://github.com/sindresorhus/Defaults" : {
 
     },
+    "detailPortal.OtherCase.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Query ShowCase With UID"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UID でショーケースを調べる"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "以 UID 查询展柜"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以 UID 查詢展櫃"
+          }
+        }
+      }
+    },
     "detailPortal.player.adventureRank.short:%@" : {
       "localizations" : {
         "en" : {
@@ -2469,6 +2498,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "請先選擇帳號"
+          }
+        }
+      }
+    },
+    "detailPortal.showCaseAPIServiceProviders.explain" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ShowCase Query Result Provider depends on which server the UID belongs to:\n* MiHoMo Origin API (Celestia & Irminsul Servers).\n* Enka Networks (All other servers)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ショーケースのデータのAPI提供者:\n* 天空の島と世界樹サーバー限定: MiHoMo Origin API。\n* 他のすべてのサーバー: Enka Networks。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "展柜查询结果由下述来源提供:\n* 天空岛＆世界树: MiHoMo Origin API。\n* 其余区服: Enka Networks。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "展櫃查詢結果由下述來源提供:\n* 天空島＆世界樹: MiHoMo Origin API。\n* 其餘區服: Enka Networks。"
           }
         }
       }
