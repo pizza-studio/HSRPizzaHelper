@@ -11,6 +11,7 @@
 		5B1033782ADC312900B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033772ADC312900B1DA08 /* Defaults */; };
 		5B10337A2ADC312F00B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033792ADC312F00B1DA08 /* Defaults */; };
 		5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B10337B2ADC313400B1DA08 /* Defaults */; };
+		5B16985E2BDBEE770017660A /* SRGFImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16985D2BDBEE770017660A /* SRGFImpl.swift */; };
 		5B499B322BDBB918004919F5 /* SRGFKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5B499B312BDBB918004919F5 /* SRGFKit */; };
 		5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */; };
 		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
@@ -322,6 +323,7 @@
 
 /* Begin PBXFileReference section */
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
+		5B16985D2BDBEE770017660A /* SRGFImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRGFImpl.swift; sourceTree = "<group>"; };
 		5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DefaultsKeys; path = Packages/DefaultsKeys; sourceTree = "<group>"; };
 		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
 		5B499B302BDBB8FC004919F5 /* SRGFKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SRGFKit; path = Packages/SRGFKit; sourceTree = "<group>"; };
@@ -563,6 +565,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B16985C2BDBEE650017660A /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				5B16985D2BDBEE770017660A /* SRGFImpl.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
 		5BB6BD6E2ACAC514001D6847 /* DisplayOptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,8 +650,9 @@
 		EA120C3A2A8386CC0069BE1D /* Gacha */ = {
 			isa = PBXGroup;
 			children = (
-				EAB7F1EE2A8494DD00010726 /* View */,
+				5B16985C2BDBEE650017660A /* Impl */,
 				EA3BDC9D2A83A93B001C3C6C /* Model */,
+				EAB7F1EE2A8494DD00010726 /* View */,
 			);
 			path = Gacha;
 			sourceTree = "<group>";
@@ -1588,6 +1599,7 @@
 				EA2C06522A04AC5A00A328E6 /* TestAccountSectionView.swift in Sources */,
 				5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */,
 				EAE519822A01738600EF23B7 /* ContentView.swift in Sources */,
+				5B16985E2BDBEE770017660A /* SRGFImpl.swift in Sources */,
 				EA1D523E2A76521E00FA66A9 /* ToolView.swift in Sources */,
 				EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */,
 				BFDF6A862A08D6C000048FF9 /* TapticSupport.swift in Sources */,

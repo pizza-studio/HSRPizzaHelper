@@ -10,7 +10,7 @@ import Foundation
 
 public struct SRGFv1: Codable, Hashable, Sendable {
     public var info: Info
-    public var list: [Entry]
+    public var list: [DataEntry]
 }
 
 extension SRGFv1 {
@@ -39,7 +39,31 @@ extension SRGFv1 {
 
     // MARK: - List
 
-    public struct Entry: Codable, Hashable, Sendable, Identifiable {
+    public struct DataEntry: Codable, Hashable, Sendable, Identifiable {
+        // MARK: Lifecycle
+
+        public init(
+            gachaID: String,
+            itemID: String,
+            time: String,
+            id: String,
+            gachaType: GachaType,
+            name: String? = nil,
+            rankType: String? = nil,
+            count: String? = nil,
+            itemType: ItemType? = nil
+        ) {
+            self.gachaID = gachaID
+            self.itemID = itemID
+            self.time = time
+            self.id = id
+            self.gachaType = gachaType
+            self.name = name
+            self.rankType = rankType
+            self.count = count
+            self.itemType = itemType
+        }
+
         // MARK: Public
 
         public enum ItemType: String, Codable, Hashable, CaseIterable, Sendable {
@@ -88,7 +112,7 @@ extension SRGFv1.Info {
     }
 }
 
-extension SRGFv1.Entry {
+extension SRGFv1.DataEntry {
     public func toGachaEntry(uid: String, lang: GachaLanguageCode) -> GachaEntry {
         .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
@@ -107,7 +131,7 @@ extension SRGFv1.Entry {
 }
 
 extension GachaEntry {
-    public func toSRGFEntry() -> SRGFv1.Entry {
+    public func toSRGFEntry() -> SRGFv1.DataEntry {
         .init(
             gachaID: gachaID,
             itemID: itemID,
