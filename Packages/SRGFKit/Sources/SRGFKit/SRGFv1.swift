@@ -19,7 +19,8 @@ extension SRGFv1 {
     public struct Info: Codable, Hashable, Sendable {
         // MARK: Public
 
-        public var uid, lang, srgfVersion: String
+        public var uid, srgfVersion: String
+        public var lang: GachaLanguageCode
         public var regionTimeZone: Int
         public var exportTimestamp: Int?
         public var exportApp, exportAppVersion: String?
@@ -75,7 +76,7 @@ extension SRGFv1 {
 extension SRGFv1.Info {
     public init(uid: String, lang: GachaLanguageCode) {
         self.uid = uid
-        self.lang = lang.rawValue
+        self.lang = lang
         self.srgfVersion = "v1.0"
         self.regionTimeZone = TimeZone.current.secondsFromGMT() / 3600
         self.exportTimestamp = Int(Date.now.timeIntervalSince1970)
@@ -83,6 +84,40 @@ extension SRGFv1.Info {
         self.exportAppVersion = (
             Bundle.main
                 .infoDictionary!["CFBundleShortVersionString"] as! String
+        )
+    }
+}
+
+extension SRGFv1.Entry {
+    public func toGachaEntry(uid: String, lang: GachaLanguageCode) -> GachaEntry {
+        .init(
+            count: Int32(count ?? "1") ?? 1, // Default is 1.
+            gachaID: gachaID,
+            gachaTypeRawValue: gachaType.rawValue,
+            id: id,
+            itemID: itemID,
+            itemTypeRawValue: (itemType ?? .character).rawValue,
+            langRawValue: lang.rawValue,
+            name: name ?? "#NAME:\(id)#",
+            rankRawValue: rankType ?? "3",
+            time: Date(timeIntervalSince1970: Double(time) ?? Date().timeIntervalSince1970),
+            uid: uid
+        )
+    }
+}
+
+extension GachaEntry {
+    public func toSRGFEntry() -> SRGFv1.Entry {
+        .init(
+            gachaID: gachaID,
+            itemID: itemID,
+            time: time.timeIntervalSince1970.description,
+            id: id,
+            gachaType: .init(rawValue: gachaTypeRawValue) ?? .departureWarp,
+            name: name,
+            rankType: rankRawValue,
+            count: count.description, // Default is 1.
+            itemType: .init(rawValue: itemTypeRawValue)
         )
     }
 }
