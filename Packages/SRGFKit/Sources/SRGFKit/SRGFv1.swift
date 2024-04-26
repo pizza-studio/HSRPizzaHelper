@@ -7,8 +7,8 @@
 // Ref: https://uigf.org/zh/standards/srgf.html
 
 public struct SRGFv1: Codable, Hashable, Sendable {
-    public let info: Info
-    public let list: [Entry]
+    public var info: Info
+    public var list: [Entry]
 }
 
 extension SRGFv1 {
@@ -17,10 +17,10 @@ extension SRGFv1 {
     public struct Info: Codable, Hashable, Sendable {
         // MARK: Public
 
-        public let uid, lang, srgfVersion: String
-        public let regionTimeZone: Int
-        public let exportTimestamp: Int?
-        public let exportApp, exportAppVersion: String?
+        public var uid, lang, srgfVersion: String
+        public var regionTimeZone: Int
+        public var exportTimestamp: Int?
+        public var exportApp, exportAppVersion: String?
 
         // MARK: Internal
 
@@ -39,8 +39,8 @@ extension SRGFv1 {
     public struct Entry: Codable, Hashable, Sendable, Identifiable {
         // MARK: Public
 
-        public let gachaID, gachaType, itemID, time, id: String
-        public let name, itemType, rankType, count: String?
+        public var gachaID, gachaType, itemID, time, id: String
+        public var name, itemType, rankType, count: String?
 
         // MARK: Internal
 
