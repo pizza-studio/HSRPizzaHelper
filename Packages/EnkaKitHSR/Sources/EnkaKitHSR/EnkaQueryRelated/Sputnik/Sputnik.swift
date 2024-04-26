@@ -10,6 +10,8 @@ import Foundation
 #if !os(watchOS)
 extension EnkaHSR {
     public enum Sputnik {
+        public static var sharedDB: EnkaHSR.EnkaDB = Defaults[.enkaDBData]
+
         public static func getEnkaProfile(
             for uid: String,
             dateWhenNextRefreshable nextAvailableDate: Date? = nil
@@ -32,8 +34,7 @@ extension EnkaHSR {
         }
 
         public static func getEnkaDB() async throws -> EnkaHSR.EnkaDB {
-            // Read charloc and charmap from UserDefault
-            let storedDB = Defaults[.enkaDBData]
+            sharedDB = Defaults[.enkaDBData]
 
             var enkaDataExpired = Calendar.current.date(
                 byAdding: .hour,
@@ -41,14 +42,14 @@ extension EnkaHSR {
                 to: Defaults[.lastEnkaDBDataCheckDate]
             )! < Date()
 
-            if Locale.langCodeForEnkaAPI != storedDB.langTag {
+            if Locale.langCodeForEnkaAPI != sharedDB.langTag {
                 enkaDataExpired = true
             }
 
             let needUpdate = enkaDataExpired
 
             if !needUpdate {
-                return storedDB
+                return sharedDB
             } else {
                 let host = Defaults[.defaultDBQueryHost]
                 async let newDB = try EnkaHSR.EnkaDB(
