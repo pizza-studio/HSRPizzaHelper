@@ -34,10 +34,12 @@ extension GeneralDailyNote {
     public static func example() -> DailyNote {
         let exampleURL = Bundle.module.url(forResource: "daily_note_example", withExtension: "json")!
         // swiftlint:disable force_try
+        // swiftlint:disable force_unwrapping
         let exampleData = try! Data(contentsOf: exampleURL)
         return try! GeneralDailyNote.decodeFromMiHoYoAPIJSONResult(
             data: exampleData
         ) as DailyNote
         // swiftlint:enable force_try
+        // swiftlint:enable force_unwrapping
     }
 }

@@ -205,9 +205,9 @@ struct CaseQuerySection_Previews: PreviewProvider {
             separator: "/"
         ).dropFirst()
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
-        // swiftlint:disable force_try
+        // swiftlint:disable force_unwrapping
         return EnkaHSR.EnkaDB(locTag: "ja")!
-        // swiftlint:enable force_try
+        // swiftlint:enable force_unwrapping
     }()
 
     static var previews: some View {

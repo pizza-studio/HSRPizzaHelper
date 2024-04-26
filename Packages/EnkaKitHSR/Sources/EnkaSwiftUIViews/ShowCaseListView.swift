@@ -163,6 +163,7 @@ struct ShowCaseListView_Previews: PreviewProvider {
     static let enkaDatabase = EnkaHSR.EnkaDB(locTag: "ja")!
     static let detailInfo: EnkaHSR.QueryRelated.DetailInfo = {
         // swiftlint:disable force_try
+        // swiftlint:disable force_unwrapping
         // Note: Do not use #Preview macro. Otherwise, the preview won't be able to access the assets.
         let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
             separator: "/"
@@ -174,6 +175,7 @@ struct ShowCaseListView_Previews: PreviewProvider {
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
         return profile.detailInfo!
         // swiftlint:enable force_try
+        // swiftlint:enable force_unwrapping
     }()
 
     static var previews: some View {

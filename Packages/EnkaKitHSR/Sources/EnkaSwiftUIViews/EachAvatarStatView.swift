@@ -572,6 +572,7 @@ extension View {
 struct EachAvatarStatView_Previews: PreviewProvider {
     static let summary: EnkaHSR.AvatarSummarized = {
         // swiftlint:disable force_try
+        // swiftlint:disable force_unwrapping
         // Note: Do not use #Preview macro. Otherwise, the preview won't be able to access the assets.
         let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-cn")!
         let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
@@ -585,6 +586,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
         return summary
         // swiftlint:enable force_try
+        // swiftlint:enable force_unwrapping
     }()
 
     static var previews: some View {
