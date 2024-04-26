@@ -20,5 +20,19 @@ final class SRGFKitTests: XCTestCase {
         let data = try Data(contentsOf: url)
         let decoded = try JSONDecoder().decode(SRGFv1.self, from: data)
         XCTAssertEqual(decoded.info.exportApp, "YJSNPI")
+        let x = decoded.list.filter {
+            $0.gachaType == .characterEventWarp
+                && $0.rankType == "5"
+                && $0.itemType == .character
+        }
+        XCTAssertEqual(x.count, 20)
+        print(x.compactMap(\.name).joined(separator: "\n"))
+        let y = decoded.list.filter {
+            $0.gachaType == .lightConeEventWarp
+                && $0.rankType == "5"
+                && $0.itemType == .lightCone
+        }
+        XCTAssertEqual(y.count, 1)
+        print(y.compactMap(\.name).joined(separator: "\n"))
     }
 }

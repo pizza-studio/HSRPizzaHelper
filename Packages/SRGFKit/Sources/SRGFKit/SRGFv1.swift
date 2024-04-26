@@ -41,8 +41,22 @@ extension SRGFv1 {
     public struct Entry: Codable, Hashable, Sendable, Identifiable {
         // MARK: Public
 
-        public var gachaID, gachaType, itemID, time, id: String
-        public var name, itemType, rankType, count: String?
+        public enum ItemType: String, Codable, Hashable, CaseIterable, Sendable {
+            case lightCone = "Light Cone"
+            case character = "Character"
+        }
+
+        public enum GachaType: String, Codable, Hashable, CaseIterable, Sendable {
+            case characterEventWarp = "11"
+            case lightConeEventWarp = "12"
+            case stellarWarp = "1" // 群星跃迁，常驻池
+            case departureWarp = "2" // 始发跃迁，新手池
+        }
+
+        public var gachaID, itemID, time, id: String
+        public var gachaType: GachaType
+        public var name, rankType, count: String?
+        public var itemType: ItemType?
 
         // MARK: Internal
 
