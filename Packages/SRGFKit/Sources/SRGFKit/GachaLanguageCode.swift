@@ -6,6 +6,8 @@ import Foundation
 
 // MARK: - GachaLanguageCode
 
+// swiftlint:disable cyclomatic_complexity
+// swiftlint:disable identifier_name
 public enum GachaLanguageCode: String, CaseIterable, Sendable {
     case th = "th-th" // 泰语（泰国）
     case ko = "ko-kr" // 朝鲜语（韩国）
@@ -61,6 +63,9 @@ public enum GachaLanguageCode: String, CaseIterable, Sendable {
 }
 
 // MARK: Codable
+
+// swiftlint:enable identifier_name
+// swiftlint:enable cyclomatic_complexity
 
 extension GachaLanguageCode: Codable {
     public init(from decoder: Decoder) throws {
