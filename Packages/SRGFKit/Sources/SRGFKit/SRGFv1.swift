@@ -3,6 +3,8 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Foundation
+import SwiftUI
+import UniformTypeIdentifiers
 
 // MARK: - SRGFv1
 
@@ -126,6 +128,19 @@ extension SRGFv1 {
     }
 }
 
+extension SRGFv1 {
+    public var defaultFileNameStem: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmm"
+        dateFormatter.locale = .init(identifier: "en_US_POSIX")
+        return "SRGF_\(info.uid)_\(dateFormatter.string(from: info.maybeDateExported ?? Date()))"
+    }
+
+    public var asDocument: Document {
+        .init(model: self)
+    }
+}
+
 extension SRGFv1.Info {
     public init(uid: String, lang: GachaLanguageCode) {
         self.uid = uid
@@ -136,6 +151,12 @@ extension SRGFv1.Info {
         self.exportApp = "PizzaHelper4HSR"
         let shortVer = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         self.exportAppVersion = shortVer ?? "1.14.514"
+    }
+
+    public var maybeDateExported: Date? {
+        guard let exportTimestampStr = exportApp else { return nil }
+        guard let exportTimestampValue = Double(exportTimestampStr) else { return nil }
+        return .init(timeIntervalSince1970: exportTimestampValue)
     }
 }
 
@@ -170,5 +191,42 @@ extension GachaEntry {
             count: count.description, // Default is 1.
             itemType: .init(rawValue: itemTypeRawValue)
         )
+    }
+}
+
+extension SRGFv1 {
+    // MARK: - JsonFile
+
+    public struct Document: FileDocument {
+        // MARK: Lifecycle
+
+        public init(configuration: ReadConfiguration) throws {
+            self.model = try JSONDecoder()
+                .decode(
+                    SRGFv1.self,
+                    from: configuration.file.regularFileContents!
+                )
+        }
+
+        public init(model: SRGFv1) {
+            self.model = model
+        }
+
+        // MARK: Public
+
+        public static var readableContentTypes: [UTType] = [.json]
+
+        public let model: SRGFv1
+
+        public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+            let encoder = JSONEncoder()
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = .init(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            encoder.dateEncodingStrategy = .formatted(dateFormatter)
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            let data = try encoder.encode(model)
+            return FileWrapper(regularFileWithContents: data)
+        }
     }
 }
