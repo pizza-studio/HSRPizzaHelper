@@ -6,8 +6,6 @@
 //
 
 import CoreData
-import HBMihoyoAPI
-import SRGFKit
 import SwiftUI
 
 // MARK: - UIDAndName
@@ -45,14 +43,12 @@ struct ManageGachaRecordView: View {
                         }
                     }
                 }
-                Button("gacha.manage.srgf.export") {} // Needs Implementation.
                 Button("gacha.manage.delete_all") {
                     isDeleteConfirmDialogueShow.toggle()
                 }
                 .disabled(selectedUIDAndName == nil)
             }
             Section {
-                Button("gacha.manage.srgf.import") {} // Needs Implementation.
                 Button("gacha.manage.clean_duplicate") {
                     cleanedDuplicateItemCount = cleanDuplicatedItems()
                 }
@@ -169,13 +165,5 @@ struct ManageGachaRecordView: View {
         } else {
             return []
         }
-    }
-
-    private func insert(_ entrySRGF: SRGFv1.DataEntry, lang: GachaLanguageCode, uid: String) {
-        let context = PersistenceController.shared.container.viewContext
-        let request = GachaItemMO.fetchRequest()
-        request.predicate = NSPredicate(format: "(id = %@) AND (uid = %@)", entrySRGF.id, uid)
-        guard let duplicateItems = try? context.fetch(request), duplicateItems.isEmpty else { return }
-        context.addFromSRGF(uid: uid, lang: lang, newSRGF: entrySRGF)
     }
 }
