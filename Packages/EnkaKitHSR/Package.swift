@@ -18,6 +18,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/sindresorhus/Defaults", from: "7.3.1"),
         .package(url: "./Packages/DefaultsKeys", from: "1.0.0"),
+        .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", .upToNextMajor(from: "4.1.1")),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -47,6 +48,7 @@ let package = Package(
                 "EnkaKitHSR",
                 .product(name: "Defaults", package: "Defaults"),
                 .product(name: "DefaultsKeys", package: "DefaultsKeys"),
+                .product(name: "SFSafeSymbols", package: "SFSafeSymbols"),
             ]
         ),
         .testTarget(
