@@ -35,6 +35,8 @@ enum AppConfig {
 
     static let gachaMetaFolderName: String = "gacha_meta"
 
+    static let gachaMetaIndexFileName: String = "gacha_meta.json"
+
     static let rectangularBackgroundImageFolderName: String = "rectangular_widget_background"
 
     static let squareBackgroundImageFolderName: String = "square_widget_background"

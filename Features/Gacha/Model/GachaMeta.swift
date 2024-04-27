@@ -33,19 +33,12 @@ class GachaMetaManager {
     // MARK: Private
 
     private lazy var meta: GachaMeta = {
-        #if os(OSX) || targetEnvironment(macCatalyst)
-        let url = Bundle.main.bundleURL.appendingPathComponent(
-            "Contents/Resources/" + AppConfig.gachaMetaFolderName,
-            isDirectory: true
-        ).appendingPathComponent("gacha_meta", conformingTo: .json)
-        #else
-        let url = Bundle.main.bundleURL.appendingPathComponent(
-            AppConfig.gachaMetaFolderName,
-            isDirectory: true
-        ).appendingPathComponent("gacha_meta", conformingTo: .json)
-        #endif
+        let url = Bundle.main.url(
+            forResource: AppConfig.gachaMetaIndexFileName, withExtension: nil,
+            subdirectory: AppConfig.gachaMetaFolderName
+        )
         // swiftlint:disable force_try
-        let data = try! Data(contentsOf: url)
+        let data = try! Data(contentsOf: url!)
         return try! JSONDecoder().decode(GachaMeta.self, from: data)
         // swiftlint:enable force_try
     }()
@@ -70,18 +63,12 @@ private protocol ItemMeta {
 
 extension ItemMeta {
     var icon: UIImage? {
-        #if os(OSX) || targetEnvironment(macCatalyst)
-        let url = Bundle.main.bundleURL.appendingPathComponent(
-            "Contents/Resources/" + AppConfig.gachaMetaFolderName,
-            isDirectory: true
-        ).appendingPathComponent(iconFilePath, conformingTo: .json)
-        #else
-        let url = Bundle.main.bundleURL.appendingPathComponent(
-            AppConfig.gachaMetaFolderName,
-            isDirectory: true
-        ).appendingPathComponent(iconFilePath, conformingTo: .json)
-        #endif
-        guard let data = try? Data(contentsOf: url) else { return nil }
+        let url = Bundle.main.url(
+            forResource: iconFilePath, withExtension: nil,
+            subdirectory: AppConfig.gachaMetaFolderName
+        )
+        print(iconFilePath)
+        guard let url = url, let data = try? Data(contentsOf: url) else { return nil }
         return UIImage(data: data)
     }
 }
