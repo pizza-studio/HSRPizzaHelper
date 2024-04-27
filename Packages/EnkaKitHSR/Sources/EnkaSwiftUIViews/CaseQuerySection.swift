@@ -141,6 +141,7 @@ extension CaseQuerySection {
                 self.task = Task {
                     self.state = .busy
                     currentInfo = nil
+                    errorMsg = nil
                     do {
                         let profile = try await EnkaHSR.Sputnik.getEnkaProfile(for: givenUID.description)
                         self.currentInfo = profile
