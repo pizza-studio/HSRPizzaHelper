@@ -9,6 +9,15 @@ import Foundation
 // Ref: https://uigf.org/zh/standards/srgf.html
 
 public struct SRGFv1: Codable, Hashable, Sendable {
+    // MARK: Lifecycle
+
+    public init(info: Info, list: [DataEntry]) {
+        self.info = info
+        self.list = list
+    }
+
+    // MARK: Public
+
     public var info: Info
     public var list: [DataEntry]
 }
@@ -17,6 +26,26 @@ extension SRGFv1 {
     // MARK: - Info
 
     public struct Info: Codable, Hashable, Sendable {
+        // MARK: Lifecycle
+
+        public init(
+            uid: String,
+            srgfVersion: String,
+            lang: GachaLanguageCode,
+            regionTimeZone: Int,
+            exportTimestamp: Int? = nil,
+            exportApp: String? = nil,
+            exportAppVersion: String? = nil
+        ) {
+            self.uid = uid
+            self.srgfVersion = srgfVersion
+            self.lang = lang
+            self.regionTimeZone = regionTimeZone
+            self.exportTimestamp = exportTimestamp
+            self.exportApp = exportApp
+            self.exportAppVersion = exportAppVersion
+        }
+
         // MARK: Public
 
         public var uid, srgfVersion: String
@@ -105,10 +134,8 @@ extension SRGFv1.Info {
         self.regionTimeZone = TimeZone.current.secondsFromGMT() / 3600
         self.exportTimestamp = Int(Date.now.timeIntervalSince1970)
         self.exportApp = "PizzaHelper4HSR"
-        self.exportAppVersion = (
-            Bundle.main
-                .infoDictionary!["CFBundleShortVersionString"] as! String
-        )
+        let shortVer = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        self.exportAppVersion = shortVer ?? "1.14.514"
     }
 }
 
