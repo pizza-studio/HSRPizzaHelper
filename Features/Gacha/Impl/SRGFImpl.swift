@@ -91,12 +91,11 @@ extension PersistenceController {
 
     public func exportSRGF(_ uid: String) async throws -> SRGFv1? {
         guard let lang = GachaLanguageCode(langTag: Locale.langCodeForEnkaAPI) else { return nil }
-        var info = SRGFv1.Info(uid: uid, lang: lang)
+        let info = SRGFv1.Info(uid: uid, lang: lang)
         let context = container.viewContext
         let request = GachaItemMO.fetchRequest()
         request.predicate = NSPredicate(format: "(uid = %@)", uid)
-        let theList = try context.fetch(request).map(\.asSRGFEntry)
-        var result = SRGFv1(info: info, list: theList)
+        let result = SRGFv1(info: info, list: try context.fetch(request).map(\.asSRGFEntry))
         return result
     }
 }
