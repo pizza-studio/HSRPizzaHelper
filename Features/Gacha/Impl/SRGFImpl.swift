@@ -64,4 +64,26 @@ extension PersistenceController {
         guard let duplicateItems = try? context.fetch(request), duplicateItems.isEmpty else { return }
         context.addFromSRGF(uid: uid, lang: lang, newSRGF: entrySRGF)
     }
+
+    public func importSRGF(_ srgf: SRGFv1) async {
+        // TODO: 这个函式可以实作状态反馈与结果实时统计功能，
+        // 结果实时统计可以使用新增 Binding 参数的方法来完成。
+        let lang = srgf.info.lang
+        let uid = srgf.info.uid
+        srgf.list.forEach { dataEntry in
+            insert(dataEntry, lang: lang, uid: uid)
+        }
+    }
+
+    public func exportSRGF(_ uid: String) async -> SRGFv1? {
+        // TODO: 这个函式可以实作状态反馈与结果实时统计功能，
+        // 结果实时统计可以使用新增 Binding 参数的方法来完成。
+        guard let lang = GachaLanguageCode(langTag: Locale.langCodeForEnkaAPI) else { return nil }
+        var info = SRGFv1.Info(uid: uid, lang: lang)
+        // TODO: 从 PersistenceController 调取所有符合给定 UID 的抽卡记录（GachaItemMO）。
+        // 然后将这些记录直接用「.toSRGFEntry()」这个 API 翻译成 SRGFv1.DataEntry 类型。
+        // 再将翻译结果塞到下面这行的 list 参数阵列里面。
+        var result = SRGFv1(info: info, list: [])
+        return result
+    }
 }
