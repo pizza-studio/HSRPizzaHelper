@@ -7,6 +7,7 @@ import Defaults
 import EnkaKitHSR
 import Foundation
 import SRGFKit
+import SwiftUI
 
 extension GachaItemMO {
     public func toSRGFEntry() -> SRGFv1.DataEntry {
@@ -21,6 +22,10 @@ extension GachaItemMO {
             count: count.description, // Default is 1.
             itemType: .init(rawValue: itemTypeRawValue)
         )
+    }
+
+    public var asSRGFEntry: SRGFv1.DataEntry {
+        toSRGFEntry()
     }
 }
 
@@ -57,41 +62,41 @@ extension NSManagedObjectContext {
 }
 
 extension PersistenceController {
-    public func insertEntry(_ entrySRGF: SRGFv1.DataEntry, lang: GachaLanguageCode, uid: String) {
-        let context = container.viewContext
-        let request = GachaItemMO.fetchRequest()
-        request.predicate = NSPredicate(format: "(id = %@) AND (uid = %@)", entrySRGF.id, uid)
-        guard let duplicateItems = try? context.fetch(request), duplicateItems.isEmpty else { return }
-        context.addFromSRGF(uid: uid, lang: lang, newSRGF: entrySRGF)
+    public func insertEntry(_ entrySRGF: SRGFv1.DataEntry, lang: GachaLanguageCode, uid: String) throws {
+        try insertEntries([entrySRGF], lang: lang, uid: uid)
     }
 
-    public func insertEntries(_ entrySRGFs: [SRGFv1.DataEntry], lang: GachaLanguageCode, uid: String) {
+    public func insertEntries(
+        _ entrySRGFs: [SRGFv1.DataEntry],
+        lang: GachaLanguageCode,
+        uid: String,
+        counter: Binding<Int>? = nil
+    ) throws {
         let context = container.viewContext
         let request = GachaItemMO.fetchRequest()
-        entrySRGFs.forEach { entrySRGF in
+        try entrySRGFs.forEach { entrySRGF in
             request.predicate = NSPredicate(format: "(id = %@) AND (uid = %@)", entrySRGF.id, uid)
-            guard let duplicateItems = try? context.fetch(request), duplicateItems.isEmpty else { return }
+            guard try context.fetch(request).isEmpty else { return }
             context.addFromSRGF(uid: uid, lang: lang, newSRGF: entrySRGF)
+            counter?.wrappedValue += 1
         }
+        try context.save()
     }
 
-    public func importSRGF(_ srgf: SRGFv1) async {
-        // TODO: 这个函式可以实作状态反馈与结果实时统计功能，
-        // 结果实时统计可以使用新增 Binding 参数的方法来完成。
+    public func importSRGF(_ srgf: SRGFv1, counter: Binding<Int>? = nil) async throws {
         let lang = srgf.info.lang
         let uid = srgf.info.uid
-        insertEntries(srgf.list, lang: lang, uid: uid)
+        try insertEntries(srgf.list, lang: lang, uid: uid, counter: counter)
     }
 
-    public func exportSRGF(_ uid: String) async -> SRGFv1? {
-        // TODO: 这个函式可以实作状态反馈与结果实时统计功能，
-        // 结果实时统计可以使用新增 Binding 参数的方法来完成。
+    public func exportSRGF(_ uid: String) async throws -> SRGFv1? {
         guard let lang = GachaLanguageCode(langTag: Locale.langCodeForEnkaAPI) else { return nil }
         var info = SRGFv1.Info(uid: uid, lang: lang)
-        // TODO: 从 PersistenceController 调取所有符合给定 UID 的抽卡记录（GachaItemMO）。
-        // 然后将这些记录直接用「.toSRGFEntry()」这个 API 翻译成 SRGFv1.DataEntry 类型。
-        // 再将翻译结果塞到下面这行的 list 参数阵列里面。
-        var result = SRGFv1(info: info, list: [])
+        let context = container.viewContext
+        let request = GachaItemMO.fetchRequest()
+        request.predicate = NSPredicate(format: "(uid = %@)", uid)
+        let theList = try context.fetch(request).map(\.asSRGFEntry)
+        var result = SRGFv1(info: info, list: theList)
         return result
     }
 }
