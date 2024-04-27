@@ -57,7 +57,7 @@ extension NSManagedObjectContext {
 }
 
 extension PersistenceController {
-    public func insert(_ entrySRGF: SRGFv1.DataEntry, lang: GachaLanguageCode, uid: String) {
+    public func insertEntry(_ entrySRGF: SRGFv1.DataEntry, lang: GachaLanguageCode, uid: String) {
         let context = container.viewContext
         let request = GachaItemMO.fetchRequest()
         request.predicate = NSPredicate(format: "(id = %@) AND (uid = %@)", entrySRGF.id, uid)
@@ -65,14 +65,22 @@ extension PersistenceController {
         context.addFromSRGF(uid: uid, lang: lang, newSRGF: entrySRGF)
     }
 
+    public func insertEntries(_ entrySRGFs: [SRGFv1.DataEntry], lang: GachaLanguageCode, uid: String) {
+        let context = container.viewContext
+        let request = GachaItemMO.fetchRequest()
+        entrySRGFs.forEach { entrySRGF in
+            request.predicate = NSPredicate(format: "(id = %@) AND (uid = %@)", entrySRGF.id, uid)
+            guard let duplicateItems = try? context.fetch(request), duplicateItems.isEmpty else { return }
+            context.addFromSRGF(uid: uid, lang: lang, newSRGF: entrySRGF)
+        }
+    }
+
     public func importSRGF(_ srgf: SRGFv1) async {
         // TODO: 这个函式可以实作状态反馈与结果实时统计功能，
         // 结果实时统计可以使用新增 Binding 参数的方法来完成。
         let lang = srgf.info.lang
         let uid = srgf.info.uid
-        srgf.list.forEach { dataEntry in
-            insert(dataEntry, lang: lang, uid: uid)
-        }
+        insertEntries(srgf.list, lang: lang, uid: uid)
     }
 
     public func exportSRGF(_ uid: String) async -> SRGFv1? {
