@@ -26,6 +26,15 @@ public enum GachaLanguageCode: String, CaseIterable, Sendable {
     // MARK: Lifecycle
 
     public init?(langTag: String) {
+        switch langTag.prefix(3).lowercased() {
+        case "chs":
+            self = .zhHans
+            return
+        case "cht":
+            self = .zhHant
+            return
+        default: break
+        }
         switch langTag.prefix(2).lowercased() {
         case "ja", "jp": self = .ja
         case "ko", "kr": self = .ko
