@@ -75,7 +75,8 @@ def main():
         json.dump(data, f, ensure_ascii=False)
     for type, detail in data.items():
         for id, meta in detail.items():
-            download_image(meta["icon_file_path"])
+            if "light_cone" in meta["icon_file_path"]:
+                download_image(meta["icon_file_path"])
 
 if __name__ == "__main__":
     main()

@@ -63,12 +63,21 @@ private protocol ItemMeta {
 
 extension ItemMeta {
     var icon: UIImage? {
-        let url = Bundle.main.url(
-            forResource: iconFilePath, withExtension: nil,
-            subdirectory: AppConfig.gachaMetaFolderName
-        )
-        print(iconFilePath)
-        guard let url = url, let data = try? Data(contentsOf: url) else { return nil }
+        var data: Data = .init([11, 4, 51, 4]) // 垃圾数据，垫底用。UIImage 读了会出 nil。
+        if iconFilePath.contains("character") {
+            let charIconFilePath = iconFilePath.replacingOccurrences(of: "character", with: "avatar")
+            let url = Bundle.main.url(
+                forResource: charIconFilePath, withExtension: nil,
+                subdirectory: AppConfig.otherMetaFolderName
+            )
+            if let url = url, let newData = try? Data(contentsOf: url) { data = newData }
+        } else {
+            let url2 = Bundle.main.url(
+                forResource: iconFilePath, withExtension: nil,
+                subdirectory: AppConfig.gachaMetaFolderName
+            )
+            if let url = url2, let newData = try? Data(contentsOf: url) { data = newData }
+        }
         return UIImage(data: data)
     }
 }
