@@ -135,8 +135,8 @@ extension CaseQuerySection {
         @Published var errorMsg: String?
 
         func update(givenUID: Int?) {
-            task?.cancel()
             guard let givenUID = givenUID else { return }
+            task?.cancel()
             withAnimation {
                 self.task = Task {
                     self.state = .busy
