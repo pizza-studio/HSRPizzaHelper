@@ -311,7 +311,7 @@ private struct GachaStatisticSectionView: View {
                     HStack {
                         let keyPaimon: LocalizedStringKey = "gacha.account_detail.statistic.paimon_review"
                         let keyPomPom: LocalizedStringKey = "gacha.account_detail.statistic.pom_pom_review"
-                        Text(Defaults[.useGuestGachaEvaluator] ? keyPaimon : keyPomPom)
+                        Text(useGuestGachaEvaluator ? keyPaimon : keyPomPom)
                             .font(.caption)
                             .foregroundColor(.secondary)
                         Spacer()
@@ -325,10 +325,10 @@ private struct GachaStatisticSectionView: View {
                         ForEach(Rank.allCases, id: \.rawValue) { rank in
                             Group {
                                 if judgedRank == rank {
-                                    rank.image(neighborGame: Defaults[.useGuestGachaEvaluator]).resizable()
+                                    rank.image(neighborGame: useGuestGachaEvaluator).resizable()
                                         .scaledToFit()
                                 } else {
-                                    rank.image(neighborGame: Defaults[.useGuestGachaEvaluator]).resizable()
+                                    rank.image(neighborGame: useGuestGachaEvaluator).resizable()
                                         .scaledToFit()
                                         .opacity(0.25)
                                 }
@@ -344,6 +344,7 @@ private struct GachaStatisticSectionView: View {
 
     // MARK: Private
 
+    @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator: Bool
     @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
 }
 
