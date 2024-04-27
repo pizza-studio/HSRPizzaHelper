@@ -2309,7 +2309,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "以 UID 查询展柜"
           }
         },
@@ -6126,6 +6126,62 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "帳號"
+          }
+        }
+      }
+    },
+    "gacha.manage.srgf.export" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export to SRGF file"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SRGF ファイルとしてデータを書き出す"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出数据为 SRGF 文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自 SRGF 檔案匯入資料"
+          }
+        }
+      }
+    },
+    "gacha.manage.srgf.import" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import from SRGF file"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SRGF ファイルからデータを読み込む"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自 SRGF 文件读入数据"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將資料匯出為 SRGF 檔案"
           }
         }
       }
