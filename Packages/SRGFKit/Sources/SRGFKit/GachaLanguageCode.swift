@@ -27,7 +27,8 @@ public enum GachaLanguageCode: String, CaseIterable, Sendable {
     // MARK: Lifecycle
 
     public init?(langTag: String) {
-        switch langTag.prefix(3).lowercased() {
+        let langTag = langTag.lowercased()
+        switch langTag.prefix(3) {
         case "chs":
             self = .zhHans
             return
@@ -36,7 +37,7 @@ public enum GachaLanguageCode: String, CaseIterable, Sendable {
             return
         default: break
         }
-        switch langTag.prefix(2).lowercased() {
+        switch langTag.prefix(2) {
         case "ja", "jp": self = .ja
         case "ko", "kr": self = .ko
         case "es": self = .es
@@ -51,22 +52,22 @@ public enum GachaLanguageCode: String, CaseIterable, Sendable {
         case "zh":
             switch langTag.count {
             case 7...:
-                let middleTag = langTag.map(\.description)[3 ... 6].joined().lowercased()
+                let middleTag = langTag.map(\.description)[3 ... 6].joined()
                 switch middleTag {
                 case "hans": self = .zhHans
                 case "hant": self = .zhHant
-                default: break
+                default: self = .zhHans
                 }
-            case 0 ... 5:
-                let trailingTag = langTag.map(\.description)[3 ... 4].joined().lowercased()
+            case 0 ... 6:
+                let trailingTag = langTag.map(\.description)[3 ... 4].joined()
                 switch trailingTag {
-                case "hk", "mo", "tw": self = .zhHant
+                case "hk", "mo", "tw", "yue": self = .zhHant
                 case "cn", "my", "sg": self = .zhHans
-                default: break
+                default: self = .zhHans
                 }
-            default: break
+            default:
+                self = .zhHans
             }
-            self = .zhHans
         default: return nil
         }
     }
