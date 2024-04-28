@@ -6,6 +6,8 @@
 //
 
 import Charts
+import Defaults
+import DefaultsKeys
 import HBMihoyoAPI
 import SwiftUI
 
@@ -89,6 +91,10 @@ private struct GachaItemChart: View {
         }
     }
 
+    var lose5050IconStr: String {
+        useGuestGachaEvaluator ? "UI_EmotionIcon5" : "Pom-Pom_Sticker_32"
+    }
+
     func matchedItems(with value: String) -> [GachaItemMO] {
         items.map(\.0).filter { $0.id == value }
     }
@@ -121,7 +127,7 @@ private struct GachaItemChart: View {
                         Text("\(item.count)").foregroundColor(.gray)
                             .font(.caption)
                         if gachaType != .regularWarp, item.0.isLose5050 {
-                            Image("Pom-Pom_Sticker_23").resizable().scaledToFit()
+                            Image(lose5050IconStr).resizable().scaledToFit()
                                 .frame(width: frame, height: frame)
                                 .offset(y: -5)
                         } else {
@@ -193,6 +199,8 @@ private struct GachaItemChart: View {
     }
 
     // MARK: Private
+
+    @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator: Bool
 
     private let gachaType: GachaType
 
