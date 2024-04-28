@@ -299,7 +299,7 @@ private struct GachaStatisticSectionView: View {
                     Label("gacha.account_detail.statistic.won_5050", systemSymbol: .chartPieFill)
                     Spacer()
                     Text(
-                        "\(fmt.string(from: lose5050percentage as NSNumber)!)"
+                        "\(fmt.string(from: (1.0 - lose5050percentage) as NSNumber)!)"
                     )
                 }
             }
