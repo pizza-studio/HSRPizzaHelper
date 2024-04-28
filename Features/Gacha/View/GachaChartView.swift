@@ -11,7 +11,6 @@ import SwiftUI
 
 // MARK: - GachaChartView
 
-@available(iOS 16.0, *)
 struct GachaChartView: View {
     let uid: String
     @State var gachaType: GachaType
@@ -45,7 +44,6 @@ struct GachaChartView: View {
 
 // MARK: - GachaItemChart
 
-@available(iOS 16.0, *)
 private struct GachaItemChart: View {
     // MARK: Lifecycle
 

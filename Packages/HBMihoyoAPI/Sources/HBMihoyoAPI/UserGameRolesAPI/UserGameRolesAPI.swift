@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 15.0, *)
 extension MiHoYoAPI {
     public static func getUserGameRolesByCookie(region: Region, cookie: String) async throws -> [FetchedAccount] {
         let queryItems: [URLQueryItem] = [

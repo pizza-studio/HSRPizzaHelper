@@ -29,13 +29,11 @@ struct AccountGachaView: View {
                 }
             }
             Section {
-                if #available(iOS 16.0, *) {
-                    GachaSmallChart(uid: uid, gachaType: gachaType)
-                    NavigationLink {
-                        GachaChartView(uid: uid, gachaType: gachaType)
-                    } label: {
-                        Label("gacha.account_detail.chart.more", systemSymbol: .chartBarXaxis)
-                    }
+                GachaSmallChart(uid: uid, gachaType: gachaType)
+                NavigationLink {
+                    GachaChartView(uid: uid, gachaType: gachaType)
+                } label: {
+                    Label("gacha.account_detail.chart.more", systemSymbol: .chartBarXaxis)
                 }
             } header: {
                 Text("gacha.account_detail.chart.header")
@@ -62,7 +60,6 @@ struct AccountGachaView: View {
 
 // MARK: - GachaSmallChart
 
-@available(iOS 16.0, *)
 private struct GachaSmallChart: View {
     // MARK: Lifecycle
 

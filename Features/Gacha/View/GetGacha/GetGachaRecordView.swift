@@ -40,22 +40,8 @@ struct GetGachaRecordView: View {
 
             switch viewModel.status {
             case .failFetching, .finished, .got:
-                if #available(iOS 16.0, *) {
-                    Section {
-                        GetGachaChart(data: $viewModel.gachaTypeDateCounts)
-                    }
-                } else {
-                    Section {
-                        ForEach(viewModel.savedTypeFetchedCount.sorted(by: \.key), id: \.key) { key, value in
-                            HStack {
-                                Text(key.rawValue)
-                                Spacer()
-                                Text("\(value)")
-                            }
-                        }
-                    } header: {
-                        Text("New items saved")
-                    }
+                Section {
+                    GetGachaChart(data: $viewModel.gachaTypeDateCounts)
                 }
             default:
                 EmptyView()
@@ -316,7 +302,6 @@ private var dateFormatter: DateFormatter = {
 
 // MARK: - GetGachaChart
 
-@available(iOS 16.0, *)
 private struct GetGachaChart: View {
     // MARK: Internal
 

@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 15.0, *)
 extension MiHoYoAPI {
     public static func createVerification(cookie: String, deviceFingerPrint: String?) async throws -> Verification {
         let queryItems: [URLQueryItem] = [

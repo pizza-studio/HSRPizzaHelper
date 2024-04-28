@@ -10,7 +10,6 @@ import HBMihoyoAPI
 import SwiftUI
 
 /// A view model for fetching a daily note for a specific account.
-@available(iOS 15.0, *)
 class DailyNoteViewModel: ObservableObject {
     // MARK: Lifecycle
 

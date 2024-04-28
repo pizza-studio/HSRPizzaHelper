@@ -10,7 +10,6 @@ import Foundation
 // MARK: - MiHoYoAPIError
 
 /// The error returned by miHoYo when `retcode != 0`
-@available(iOS 15.0, *)
 public enum MiHoYoAPIError: Error {
     case verificationNeeded
     case other(retcode: Int, message: String)

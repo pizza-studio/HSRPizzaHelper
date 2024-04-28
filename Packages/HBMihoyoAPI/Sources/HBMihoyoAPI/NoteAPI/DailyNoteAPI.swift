@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 15.0, *)
 extension MiHoYoAPI {
     /// Fetches the daily note of the specified user.
     ///

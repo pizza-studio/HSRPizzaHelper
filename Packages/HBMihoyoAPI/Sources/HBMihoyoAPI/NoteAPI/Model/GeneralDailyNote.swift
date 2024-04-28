@@ -29,7 +29,6 @@ public struct GeneralDailyNote: DecodableFromMiHoYoAPIJSONResult, DailyNote {
     public let fetchTime: Date = .init()
 }
 
-@available(iOS 15.0, *)
 extension GeneralDailyNote {
     public static func example() -> DailyNote {
         let exampleURL = Bundle.module.url(forResource: "daily_note_example", withExtension: "json")!

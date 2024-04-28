@@ -10,10 +10,8 @@ import Foundation
 // MARK: - MiHoYoAPI
 
 /// Abstract class for MiHoYoAPI. Add new features by `extension`ing it.
-@available(iOS 15.0, *)
 public enum MiHoYoAPI {}
 
-@available(iOS 15.0, *)
 extension MiHoYoAPI {
     /// Generate `api-takumi-record.mihoyo.com` / `bbs-api-os.mihoyo.com` request for miHoYo API
     /// - Parameters:

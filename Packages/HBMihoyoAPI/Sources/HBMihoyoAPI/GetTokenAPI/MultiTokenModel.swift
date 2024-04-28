@@ -10,7 +10,6 @@ import Foundation
 // MARK: - MultiToken
 
 /// A struct representing a miHoYo multi token API result with stoken and ltoken
-@available(iOS 15.0, *)
 public struct MultiToken: Decodable {
     // MARK: Lifecycle
 
@@ -58,5 +57,4 @@ public struct MultiToken: Decodable {
 
 // MARK: DecodableFromMiHoYoAPIJSONResult
 
-@available(iOS 15.0, *)
 extension MultiToken: DecodableFromMiHoYoAPIJSONResult {}

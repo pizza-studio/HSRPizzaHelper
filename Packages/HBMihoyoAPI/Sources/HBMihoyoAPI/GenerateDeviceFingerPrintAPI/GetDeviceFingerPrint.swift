@@ -10,7 +10,6 @@ import DefaultsKeys
 import Foundation
 import UIKit
 
-@available(iOS 15.0, *)
 extension MiHoYoAPI {
     public static func getDeviceFingerPrint(region: Region) async throws -> String {
         if let fingerPrint = Defaults[.deviceFingerPrint], !fingerPrint.isEmpty {

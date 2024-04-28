@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 15.0, *)
 extension MiHoYoAPI {
     /// Get `MultiToken` by using a login ticket
     ///

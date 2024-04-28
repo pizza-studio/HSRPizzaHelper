@@ -12,7 +12,6 @@ import UIKit
 // MARK: - URLRequestHelperConfiguration
 
 /// Abstract class storing salt, version, etc for API.
-@available(iOS 15.0, *)
 enum URLRequestHelperConfiguration {
     static let userAgent: String = """
     Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) \

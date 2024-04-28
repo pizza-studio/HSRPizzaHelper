@@ -68,7 +68,6 @@ private let dateFormatter: DateFormatter = {
 
 // MARK: - ProgressGaugeStyle
 
-@available(iOS 16.0, *)
 private struct ProgressGaugeStyle: GaugeStyle {
     var circleColor: Color = .white
 
