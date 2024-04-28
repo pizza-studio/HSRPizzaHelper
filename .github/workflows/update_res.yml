@@ -30,6 +30,7 @@ jobs:
               run: |
                 python Script/update_gacha_meta.py
                 python Script/update_other_meta.py
+                bash ./Script/RelocateGachaMetaJSON.sh
 
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
