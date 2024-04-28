@@ -167,7 +167,6 @@
 		EA80CFE82A0E983C00002B53 /* InlineNavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE72A0E983C00002B53 /* InlineNavigationTitle.swift */; };
 		EA80CFEA2A0E9E2E00002B53 /* RequestAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE92A0E9E2E00002B53 /* RequestAuthorization.swift */; };
 		EA80CFEC2A0E9E9A00002B53 /* DailyNoteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */; };
-		EA86304A2A84CDC5001E484B /* GachaMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8630492A84CDC5001E484B /* GachaMeta.swift */; };
 		EA8A770D2A0735F30005C511 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064B2A04A0CA00A328E6 /* Account+CoreDataProperties.swift */; };
 		EA8A770E2A0735F70005C511 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		EA8A77142A07365D0005C511 /* DailyNoteEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A77132A07365D0005C511 /* DailyNoteEntry.swift */; };
@@ -439,7 +438,6 @@
 		EA80CFE72A0E983C00002B53 /* InlineNavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineNavigationTitle.swift; sourceTree = "<group>"; };
 		EA80CFE92A0E9E2E00002B53 /* RequestAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAuthorization.swift; sourceTree = "<group>"; };
 		EA80CFEB2A0E9E9A00002B53 /* DailyNoteNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteNotification.swift; sourceTree = "<group>"; };
-		EA8630492A84CDC5001E484B /* GachaMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaMeta.swift; sourceTree = "<group>"; };
 		EA8A77132A07365D0005C511 /* DailyNoteEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteEntry.swift; sourceTree = "<group>"; };
 		EA8A77152A0737390005C511 /* DailyNoteBackgroundWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteBackgroundWidgetConfiguration.swift; sourceTree = "<group>"; };
 		EA8A77182A0739B10005C511 /* DailyNoteTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteTimelineProvider.swift; sourceTree = "<group>"; };
@@ -750,7 +748,6 @@
 			children = (
 				EA3BDC9E2A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift */,
 				EA3BDC9F2A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift */,
-				EA8630492A84CDC5001E484B /* GachaMeta.swift */,
 				EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */,
 				EA47FE802A85E12300344A8A /* GachaItemExtension.swift */,
 				EAE605BC2A8B2B24005A9EDC /* GachaRelatedDescriptionExtension.swift */,
@@ -1588,7 +1585,6 @@
 				EADCE9362A0B7857008D81A9 /* EmbedIn.swift in Sources */,
 				EA68B2A92AB95A2300D39095 /* ContainerBackground.swift in Sources */,
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
-				EA86304A2A84CDC5001E484B /* GachaMeta.swift in Sources */,
 				EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
 				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,

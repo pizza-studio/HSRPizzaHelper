@@ -9,23 +9,31 @@ import Foundation
 import HBMihoyoAPI
 import UIKit
 
+// MARK: - SPMConfig
+
+enum SPMConfig {
+    static let otherMetaFolderName: String = "other_meta"
+    static let gachaMetaFolderName: String = "gacha_meta"
+    static let gachaMetaIndexFileName: String = "gacha_meta.json"
+}
+
 // MARK: - GachaMetaManager
 
-class GachaMetaManager {
+public class GachaMetaManager {
     // MARK: Lifecycle
 
     private init() {}
 
-    // MARK: Internal
+    // MARK: Public
 
-    static let shared: GachaMetaManager = .init()
+    public static let shared: GachaMetaManager = .init()
 
-    func getLocalizedName(id: String, type: GachaItem.ItemType) -> String? {
+    public func getLocalizedName(id: String, type: GachaItem.ItemType) -> String? {
         guard let meta = getMeta(id: id, type: type) else { return nil }
         return meta.nameLocalizationMap[Locale.miHoYoAPILanguage]!
     }
 
-    func getIcon(id: String, type: GachaItem.ItemType) -> UIImage? {
+    public func getIcon(id: String, type: GachaItem.ItemType) -> UIImage? {
         guard let meta = getMeta(id: id, type: type) else { return nil }
         return meta.icon
     }
@@ -33,9 +41,9 @@ class GachaMetaManager {
     // MARK: Private
 
     private lazy var meta: GachaMeta = {
-        let url = Bundle.main.url(
-            forResource: AppConfig.gachaMetaIndexFileName, withExtension: nil,
-            subdirectory: AppConfig.gachaMetaFolderName
+        let url = Bundle.module.url(
+            forResource: SPMConfig.gachaMetaIndexFileName, withExtension: nil,
+            subdirectory: SPMConfig.gachaMetaFolderName
         )
         // swiftlint:disable force_try
         let data = try! Data(contentsOf: url!)
@@ -62,19 +70,19 @@ private protocol ItemMeta {
 }
 
 extension ItemMeta {
-    var icon: UIImage? {
+    public var icon: UIImage? {
         var data: Data = .init([11, 4, 51, 4]) // 垃圾数据，垫底用。UIImage 读了会出 nil。
         if iconFilePath.contains("character") {
             let charIconFilePath = iconFilePath.replacingOccurrences(of: "character", with: "avatar")
             let url = Bundle.main.url(
                 forResource: charIconFilePath, withExtension: nil,
-                subdirectory: AppConfig.otherMetaFolderName
+                subdirectory: SPMConfig.otherMetaFolderName
             )
             if let url = url, let newData = try? Data(contentsOf: url) { data = newData }
         } else {
             let url2 = Bundle.main.url(
                 forResource: iconFilePath, withExtension: nil,
-                subdirectory: AppConfig.gachaMetaFolderName
+                subdirectory: SPMConfig.gachaMetaFolderName
             )
             if let url = url2, let newData = try? Data(contentsOf: url) { data = newData }
         }

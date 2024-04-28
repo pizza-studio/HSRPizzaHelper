@@ -7,6 +7,7 @@
 
 import Foundation
 import HBMihoyoAPI
+import SRGFKit
 import UIKit
 
 extension GachaItem {
