@@ -4,9 +4,4 @@
 
 import Foundation
 
-public enum SRGFKit {
-    public static let sharedGachaMeta: Data = {
-        let url = Bundle.module.url(forResource: "gacha_meta", withExtension: "json")!
-        return try! Data(contentsOf: url)
-    }()
-}
+public enum SRGFKit {}

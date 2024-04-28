@@ -42,8 +42,7 @@ public class GachaMetaManager {
 
     private lazy var meta: GachaMeta = {
         let url = Bundle.module.url(
-            forResource: SPMConfig.gachaMetaIndexFileName, withExtension: nil,
-            subdirectory: SPMConfig.gachaMetaFolderName
+            forResource: SPMConfig.gachaMetaIndexFileName, withExtension: nil
         )
         // swiftlint:disable force_try
         let data = try! Data(contentsOf: url!)
