@@ -23,6 +23,12 @@ struct GachaView: View {
                 NavigationLink("gacha.home.manage_gacha_record") {
                     ManageGachaRecordView()
                 }
+                NavigationLink("gacha.manage.srgf.import") {
+                    ImportGachaView()
+                }
+                NavigationLink("gacha.manage.srgf.export") {
+                    ExportGachaView()
+                }
             }
             Section {
                 if !availableUIDAndNames.isEmpty {

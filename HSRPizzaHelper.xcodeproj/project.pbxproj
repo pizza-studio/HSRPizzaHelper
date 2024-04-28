@@ -12,6 +12,9 @@
 		5B10337A2ADC312F00B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033792ADC312F00B1DA08 /* Defaults */; };
 		5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B10337B2ADC313400B1DA08 /* Defaults */; };
 		5B16985E2BDBEE770017660A /* SRGFImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16985D2BDBEE770017660A /* SRGFImpl.swift */; };
+		5B28F8FE2BDE41F7004B271E /* ImportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */; };
+		5B28F8FF2BDE41F7004B271E /* ExportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */; };
+		5B28F9042BDE5045004B271E /* LocaleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F9032BDE5045004B271E /* LocaleImpl.swift */; };
 		5B499B322BDBB918004919F5 /* SRGFKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5B499B312BDBB918004919F5 /* SRGFKit */; };
 		5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */; };
 		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
@@ -325,6 +328,9 @@
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
 		5B16985D2BDBEE770017660A /* SRGFImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRGFImpl.swift; sourceTree = "<group>"; };
 		5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DefaultsKeys; path = Packages/DefaultsKeys; sourceTree = "<group>"; };
+		5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportGachaView.swift; sourceTree = "<group>"; };
+		5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportGachaView.swift; sourceTree = "<group>"; };
+		5B28F9032BDE5045004B271E /* LocaleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocaleImpl.swift; sourceTree = "<group>"; };
 		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
 		5B499B302BDBB8FC004919F5 /* SRGFKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SRGFKit; path = Packages/SRGFKit; sourceTree = "<group>"; };
 		5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
@@ -571,6 +577,15 @@
 				5B16985D2BDBEE770017660A /* SRGFImpl.swift */,
 			);
 			path = Impl;
+			sourceTree = "<group>";
+		};
+		5B28F9002BDE41FB004B271E /* SRGF */ = {
+			isa = PBXGroup;
+			children = (
+				5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */,
+				5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */,
+			);
+			path = SRGF;
 			sourceTree = "<group>";
 		};
 		5BB6BD6E2ACAC514001D6847 /* DisplayOptions */ = {
@@ -972,6 +987,7 @@
 		EAB7F1EE2A8494DD00010726 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B28F9002BDE41FB004B271E /* SRGF */,
 				EAB7F1EF2A8494EA00010726 /* GetGacha */,
 				EA3BDCA32A83D20A001C3C6C /* GachaView.swift */,
 				EA3BDCA52A83D4B0001C3C6C /* ManageGachaRecordView.swift */,
@@ -1184,6 +1200,7 @@
 		EAF286512A124ABA00F876B6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5B28F9032BDE5045004B271E /* LocaleImpl.swift */,
 				EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */,
 				5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */,
 				5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */,
@@ -1624,9 +1641,12 @@
 				BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */,
 				5B6162AC2BD4E0A200662F5A /* EnkaHSRImpl.swift in Sources */,
 				EA8D28822A86182E00B47869 /* GachaChartView.swift in Sources */,
+				5B28F9042BDE5045004B271E /* LocaleImpl.swift in Sources */,
 				EADCE9392A0B985F008D81A9 /* OptionalSpacer.swift in Sources */,
 				EA60BE5D2A05053200CBF10B /* AboutView.swift in Sources */,
 				5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */,
+				5B28F8FF2BDE41F7004B271E /* ExportGachaView.swift in Sources */,
+				5B28F8FE2BDE41F7004B271E /* ImportGachaView.swift in Sources */,
 				EA80CFE62A0E928B00002B53 /* NotificationSettingView.swift in Sources */,
 				EAE37EBF2A0206AC00154432 /* SettingView.swift in Sources */,
 				EAC9E4112A09F36E00011E1F /* WidgetTimelineReloader.swift in Sources */,

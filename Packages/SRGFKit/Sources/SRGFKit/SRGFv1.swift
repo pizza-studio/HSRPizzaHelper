@@ -56,6 +56,11 @@ extension SRGFv1 {
         public var exportTimestamp: Int?
         public var exportApp, exportAppVersion: String?
 
+        public var exportDate: Date? {
+            guard let exportTimestamp = exportTimestamp else { return nil }
+            return .init(timeIntervalSince1970: TimeInterval(exportTimestamp))
+        }
+
         // MARK: Internal
 
         enum CodingKeys: String, CodingKey {

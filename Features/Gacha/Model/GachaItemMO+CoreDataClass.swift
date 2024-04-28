@@ -27,6 +27,22 @@ extension GachaEntry {
         result.uid = uid
         return result
     }
+
+    public func toManagedModel(context: NSManagedObjectContext) -> GachaItemMO {
+        let result = GachaItemMO(context: context)
+        result.count = count
+        result.gachaID = gachaID
+        result.gachaTypeRawValue = gachaTypeRawValue
+        result.id = id
+        result.itemID = itemID
+        result.itemTypeRawValue = itemTypeRawValue
+        result.langRawValue = langRawValue
+        result.name = name
+        result.rankRawValue = rankRawValue
+        result.time = time
+        result.uid = uid
+        return result
+    }
 }
 
 extension GachaItemMO {

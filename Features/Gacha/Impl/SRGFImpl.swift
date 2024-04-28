@@ -34,6 +34,11 @@ extension SRGFv1.DataEntry {
         let rawResult = toGachaEntry(uid: uid, lang: lang)
         return rawResult.toManagedModel()
     }
+
+    public func toManagedModel(uid: String, lang: GachaLanguageCode, context: NSManagedObjectContext) -> GachaItemMO {
+        let rawResult = toGachaEntry(uid: uid, lang: lang)
+        return rawResult.toManagedModel(context: context)
+    }
 }
 
 extension NSManagedObjectContext {
