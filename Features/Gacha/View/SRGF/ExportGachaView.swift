@@ -76,7 +76,6 @@ struct ExportGachaView: View {
                         Text(code.localized).tag(code)
                     }
                 }
-                .disabled(true)
             }
         }
     }
@@ -95,7 +94,7 @@ struct ExportGachaView: View {
                         }
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("gacha.export.button") {
+                        Button("app.gacha.data.export.button") {
                             exportButtonClicked()
                         }
                         .disabled(params.uid == nil)
@@ -155,7 +154,7 @@ struct ExportGachaView: View {
 
     func exportButtonClicked() {
         let uid = params.uid!
-        let items = fetchAllMO(uid: uid).map { $0.toSRGFEntry() }
+        let items = fetchAllMO(uid: uid).map { $0.toSRGFEntry(langOverride: params.lang) }
         srgfJson = .init(
             info: .init(uid: uid, lang: params.lang),
             list: items

@@ -3,6 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Foundation
+import HBMihoyoAPI
 import SwiftUI
 import UniformTypeIdentifiers
 
@@ -187,13 +188,22 @@ extension SRGFv1.Info {
 
 extension SRGFv1.DataEntry {
     public func toGachaEntry(uid: String, lang: GachaLanguageCode) -> GachaEntry {
-        .init(
+        var name = name
+        if let itemType = itemType, let managedType = GachaItem.ItemType(
+            rawValue: itemType.asManagedObjectRawValue
+        ) {
+            name = GachaMetaManager.shared.getLocalizedName(
+                id: itemID, type: managedType,
+                langOverride: lang
+            ) ?? name
+        }
+        return .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
             gachaID: gachaID,
             gachaTypeRawValue: gachaType.rawValue,
             id: id,
             itemID: itemID,
-            itemTypeRawValue: (itemType ?? .character).rawValue,
+            itemTypeRawValue: (itemType ?? .character).asManagedObjectRawValue,
             langRawValue: lang.rawValue,
             name: name ?? "#NAME:\(id)#",
             rankRawValue: rankType ?? "3",
@@ -204,8 +214,13 @@ extension SRGFv1.DataEntry {
 }
 
 extension GachaEntry {
-    public func toSRGFEntry() -> SRGFv1.DataEntry {
-        .init(
+    public func toSRGFEntry(langOverride: GachaLanguageCode? = nil) -> SRGFv1.DataEntry {
+        var name = name
+        if let managedType = GachaItem.ItemType(rawValue: itemTypeRawValue) {
+            name = GachaMetaManager.shared
+                .getLocalizedName(id: itemID, type: managedType, langOverride: langOverride) ?? name
+        }
+        return .init(
             gachaID: gachaID,
             itemID: itemID,
             time: time.timeIntervalSince1970.description,
@@ -214,7 +229,7 @@ extension GachaEntry {
             name: name,
             rankType: rankRawValue,
             count: count.description, // Default is 1.
-            itemType: .init(rawValue: itemTypeRawValue)
+            itemType: .init(managedRawValue: itemTypeRawValue)
         )
     }
 }

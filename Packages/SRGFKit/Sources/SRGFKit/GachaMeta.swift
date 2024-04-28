@@ -32,9 +32,13 @@ public class GachaMetaManager {
 
     public static let shared: GachaMetaManager = .init()
 
-    public func getLocalizedName(id: String, type: GachaItem.ItemType) -> String? {
+    public func getLocalizedName(
+        id: String, type: GachaItem.ItemType,
+        langOverride: GachaLanguageCode? = nil
+    )
+        -> String? {
         guard let meta = getMeta(id: id, type: type) else { return nil }
-        return meta.nameLocalizationMap[Locale.miHoYoAPILanguage]!
+        return meta.nameLocalizationMap[langOverride ?? Locale.gachaLangauge]!
     }
 
     #if canImport(UIKit)
@@ -75,7 +79,7 @@ public class GachaMetaManager {
 // MARK: - ItemMeta
 
 private protocol ItemMeta {
-    var nameLocalizationMap: [MiHoYoAPILanguage: String] { get }
+    var nameLocalizationMap: [GachaLanguageCode: String] { get }
     var rank: GachaItem.Rank { get }
     var iconFilePath: String { get }
 }
@@ -136,7 +140,7 @@ private struct GachaMeta: Decodable {
                 forKey: GachaMeta.Character.CodingKeys.nameLocalizationMap
             )
             self.nameLocalizationMap = Dictionary(uniqueKeysWithValues: nameLocalizationMap.map { key, value in
-                (MiHoYoAPILanguage(rawValue: key)!, value)
+                (GachaLanguageCode(rawValue: key) ?? .enUS, value)
             })
             self.iconFilePath = try container.decode(String.self, forKey: GachaMeta.Character.CodingKeys.iconFilePath)
             self.rank = try container.decode(GachaItem.Rank.self, forKey: GachaMeta.Character.CodingKeys.rank)
@@ -150,7 +154,7 @@ private struct GachaMeta: Decodable {
             case rank
         }
 
-        let nameLocalizationMap: [MiHoYoAPILanguage: String]
+        let nameLocalizationMap: [GachaLanguageCode: String]
         let rank: GachaItem.Rank
 
         // MARK: Fileprivate
@@ -169,7 +173,7 @@ private struct GachaMeta: Decodable {
                 forKey: GachaMeta.LightCone.CodingKeys.nameLocalizationMap
             )
             self.nameLocalizationMap = Dictionary(uniqueKeysWithValues: nameLocalizationMap.map { key, value in
-                (MiHoYoAPILanguage(rawValue: key)!, value)
+                (GachaLanguageCode(rawValue: key) ?? .enUS, value)
             })
             self.iconFilePath = try container.decode(String.self, forKey: GachaMeta.LightCone.CodingKeys.iconFilePath)
             self.rank = try container.decode(GachaItem.Rank.self, forKey: GachaMeta.LightCone.CodingKeys.rank)
@@ -183,7 +187,7 @@ private struct GachaMeta: Decodable {
             case rank
         }
 
-        let nameLocalizationMap: [MiHoYoAPILanguage: String]
+        let nameLocalizationMap: [GachaLanguageCode: String]
         let rank: GachaItem.Rank
 
         // MARK: Fileprivate

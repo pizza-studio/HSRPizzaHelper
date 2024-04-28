@@ -3,6 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Foundation
+import HBMihoyoAPI
 
 // MARK: - GachaLanguageCode
 
@@ -103,6 +104,13 @@ extension GachaLanguageCode {
     }
 
     public var localized: String {
-        String(localized: "\(localizedKey)")
+        NSLocalizedString("\(localizedKey)", comment: "")
+    }
+}
+
+extension Locale {
+    /// Get the language code used for gacha API according to current preferred localization.
+    public static var gachaLangauge: GachaLanguageCode {
+        .init(langTag: Bundle.main.preferredLocalizations.first ?? "en") ?? .enUS
     }
 }
