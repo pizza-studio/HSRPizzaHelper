@@ -107,19 +107,19 @@ extension PersistenceController {
 }
 
 extension GachaItem.ItemType {
-  public var asSRGFType: SRGFv1.DataEntry.ItemType {
-    switch self {
-    case .lightCones: return .lightCone
-    case .characters: return .character
+    public var asSRGFType: SRGFv1.DataEntry.ItemType {
+        switch self {
+        case .lightCones: return .lightCone
+        case .characters: return .character
+        }
     }
-  }
 }
 
 extension SRGFv1.DataEntry.ItemType {
-  public var asManagedType: GachaItem.ItemType {
-    switch self {
-    case .lightCone: return .lightCones
-    case .character: return .characters
+    public var asManagedType: GachaItem.ItemType {
+        switch self {
+        case .lightCone: return .lightCones
+        case .character: return .characters
+        }
     }
-  }
 }
