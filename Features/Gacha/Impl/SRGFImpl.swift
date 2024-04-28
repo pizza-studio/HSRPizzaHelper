@@ -6,6 +6,7 @@ import CoreData
 import Defaults
 import EnkaKitHSR
 import Foundation
+import HBMihoyoAPI
 import SRGFKit
 import SwiftUI
 
@@ -103,4 +104,22 @@ extension PersistenceController {
         let result = SRGFv1(info: info, list: try context.fetch(request).map(\.asSRGFEntry))
         return result
     }
+}
+
+extension GachaItem.ItemType {
+  public var asSRGFType: SRGFv1.DataEntry.ItemType {
+    switch self {
+    case .lightCones: return .lightCone
+    case .characters: return .character
+    }
+  }
+}
+
+extension SRGFv1.DataEntry.ItemType {
+  public var asManagedType: GachaItem.ItemType {
+    switch self {
+    case .lightCone: return .lightCones
+    case .character: return .characters
+    }
+  }
 }
