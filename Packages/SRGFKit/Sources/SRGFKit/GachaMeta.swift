@@ -7,7 +7,11 @@
 
 import Foundation
 import HBMihoyoAPI
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 // MARK: - SPMConfig
 
@@ -33,10 +37,18 @@ public class GachaMetaManager {
         return meta.nameLocalizationMap[Locale.miHoYoAPILanguage]!
     }
 
+    #if canImport(UIKit)
     public func getIcon(id: String, type: GachaItem.ItemType) -> UIImage? {
         guard let meta = getMeta(id: id, type: type) else { return nil }
         return meta.icon
     }
+
+    #elseif canImport(AppKit)
+    public func getIcon(id: String, type: GachaItem.ItemType) -> NSImage? {
+        guard let meta = getMeta(id: id, type: type) else { return nil }
+        return meta.icon
+    }
+    #endif
 
     // MARK: Private
 
@@ -69,7 +81,18 @@ private protocol ItemMeta {
 }
 
 extension ItemMeta {
+    #if canImport(UIKit)
     public var icon: UIImage? {
+        UIImage(data: iconData ?? .init([11, 4, 51, 4]))
+    }
+
+    #elseif canImport(AppKit)
+    public var icon: NSImage? {
+        NSImage(data: iconData ?? .init([11, 4, 51, 4]))
+    }
+    #endif
+
+    private var iconData: Data? {
         var data: Data = .init([11, 4, 51, 4]) // 垃圾数据，垫底用。UIImage 读了会出 nil。
         if iconFilePath.contains("character") {
             let charIconFilePath = iconFilePath.replacingOccurrences(of: "character", with: "avatar")
@@ -85,7 +108,7 @@ extension ItemMeta {
             )
             if let url = url2, let newData = try? Data(contentsOf: url) { data = newData }
         }
-        return UIImage(data: data)
+        return data
     }
 }
 
