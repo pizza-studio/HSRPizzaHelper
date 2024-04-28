@@ -8,6 +8,7 @@
 import Charts
 import Defaults
 import DefaultsKeys
+import EnkaSwiftUIViews
 import HBMihoyoAPI
 import SwiftUI
 
@@ -29,7 +30,10 @@ struct AccountGachaView: View {
                 }
             }
             Section {
-                GachaSmallChart(uid: uid, gachaType: gachaType)
+                VStack(alignment: .leading) {
+                    GachaSmallChart(uid: uid, gachaType: gachaType)
+                    HelpTextForScrollingOnDesktopComputer(.horizontal)
+                }
                 NavigationLink {
                     GachaChartView(uid: uid, gachaType: gachaType)
                 } label: {
