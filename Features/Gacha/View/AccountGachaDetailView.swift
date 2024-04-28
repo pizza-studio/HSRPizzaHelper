@@ -173,6 +173,13 @@ private struct GachaItemBar: View {
                     }
                 }
             }
+            #if DEBUG
+                .contextMenu {
+                    Text(item.langRawValue)
+                    Text(item.itemTypeRawValue)
+                    Text(item.gachaTypeRawValue)
+                }
+            #endif
         }
     }
 
