@@ -82,9 +82,6 @@ struct ImportGachaView: View {
             if url.startAccessingSecurityScopedResource() {
                 do {
                     let decoder = JSONDecoder()
-                    decoder
-                        .keyDecodingStrategy =
-                        .convertFromSnakeCase
                     let data: Data = try Data(contentsOf: url)
                     let srgfModel: SRGFv1 = try decoder
                         .decode(
