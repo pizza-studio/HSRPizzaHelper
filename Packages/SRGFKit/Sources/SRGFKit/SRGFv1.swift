@@ -105,6 +105,26 @@ extension SRGFv1 {
         public enum ItemType: String, Codable, Hashable, CaseIterable, Sendable {
             case lightCone = "Light Cone"
             case character = "Character"
+
+            // MARK: Lifecycle
+
+            public init?(managedRawValue: String) {
+                switch managedRawValue {
+                case "lightCones": self = .lightCone
+                case "characters": self = .character
+                default: return nil
+                }
+            }
+
+            // MARK: Public
+
+            /// 穹披助手的 CoreData Managed Object 对这个 Enum 有着不同的 RawValue 定义。
+            public var asManagedObjectRawValue: String {
+                switch self {
+                case .lightCone: return "lightCones"
+                case .character: return "characters"
+                }
+            }
         }
 
         public enum GachaType: String, Codable, Hashable, CaseIterable, Sendable {
