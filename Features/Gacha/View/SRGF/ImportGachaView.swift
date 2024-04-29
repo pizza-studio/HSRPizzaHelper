@@ -277,28 +277,15 @@ private struct HelpSheet: View {
         NavigationStack {
             List {
                 Section {
-                    if Locale.isUILanguagePanChinese {
-                        Link(
-                            destination: URL(
-                                string: "https://uigf.org/zh/partnership.html"
-                            )!
-                        ) {
-                            Label(
-                                "app.gacha.import.help.srgf.button",
-                                systemSymbol: .appBadgeCheckmark
-                            )
-                        }
-                    } else {
-                        Link(
-                            destination: URL(
-                                string: "https://uigf.org/en/partnership.html"
-                            )!
-                        ) {
-                            Label(
-                                "app.gacha.import.help.srgf.button",
-                                systemSymbol: .appBadgeCheckmark
-                            )
-                        }
+                    Link(
+                        destination: URL(
+                            string: "https://uigf.org/partnership.html"
+                        )!
+                    ) {
+                        Label(
+                            "app.gacha.import.help.srgf.button",
+                            systemSymbol: .appBadgeCheckmark
+                        )
                     }
                 } footer: {
                     Text("app.gacha.import.srgf.verified.note.2")
