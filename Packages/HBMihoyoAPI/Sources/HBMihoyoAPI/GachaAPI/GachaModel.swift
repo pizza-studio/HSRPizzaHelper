@@ -96,6 +96,8 @@ public struct GachaItem: Codable {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        // 抽卡记录的网页固定显示伺服器时间。
+        dateFormatter.timeZone = .init(secondsFromGMT: Self.getServerTimeZoneDelta(uid) * 3600)
         if let time = dateFormatter.date(from: timeString) {
             self.time = time
         } else {
@@ -166,6 +168,21 @@ public struct GachaItem: Codable {
     public let rank: Rank
     public let id: String
     public let lang: MiHoYoAPILanguage
+
+    public static func getServerTimeZoneDelta(_ uid: String) -> Int {
+        // 抽卡记录的网页固定显示伺服器时间。
+        guard (9 ... 10).contains(uid.count) else { return 8 }
+        var uid = uid
+        if uid.count == 10 {
+            uid.remove(at: uid.indices.first ?? .init(utf16Offset: 0, in: uid))
+        }
+        guard let firstDigit = uid.first else { return 8 }
+        switch firstDigit {
+        case "6": return -5
+        case "7": return 1
+        default: return 8
+        }
+    }
 
     // MARK: Internal
 
