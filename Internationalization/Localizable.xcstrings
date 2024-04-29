@@ -7132,9 +7132,6 @@
         }
       }
     },
-    "gacha.instruction.howToImportFromPaimonMoe" : {
-
-    },
     "gacha.languageCode.de" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -7980,9 +7977,6 @@
           }
         }
       }
-    },
-    "gacha.link.howToImportFromTeyvatAssistant" : {
-
     },
     "gacha.manage.clean_duplicate" : {
       "localizations" : {
@@ -8952,9 +8946,6 @@
           }
         }
       }
-    },
-    "gacha.term.tutorial" : {
-
     },
     "Game Account Data API - 米游社 (CN) / HoYoLAB (OS)" : {
 
