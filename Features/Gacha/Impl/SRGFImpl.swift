@@ -12,23 +12,7 @@ import SwiftUI
 
 extension GachaItemMO {
     public func toSRGFEntry(langOverride: GachaLanguageCode? = nil) -> SRGFv1.DataEntry {
-        var name = name
-        if let langOverride = langOverride {
-            name = GachaMetaManager.shared.getLocalizedName(
-                id: itemID, type: itemType, langOverride: langOverride
-            ) ?? name
-        }
-        return .init(
-            gachaID: gachaID,
-            itemID: itemID,
-            time: time.timeIntervalSince1970.description,
-            id: id,
-            gachaType: .init(rawValue: gachaTypeRawValue) ?? .departureWarp,
-            name: name,
-            rankType: rankRawValue,
-            count: count.description, // Default is 1.
-            itemType: .init(managedRawValue: itemTypeRawValue)
-        )
+        toEntry().toSRGFEntry(langOverride: langOverride)
     }
 
     public var asSRGFEntry: SRGFv1.DataEntry {

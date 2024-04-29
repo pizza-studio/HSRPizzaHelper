@@ -156,14 +156,34 @@ extension SRGFv1 {
 
 extension SRGFv1 {
     public var defaultFileNameStem: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMddHHmm"
-        dateFormatter.locale = .init(identifier: "en_US_POSIX")
+        let dateFormatter = DateFormatter.forSRGFFileName
         return "SRGF_\(info.uid)_\(dateFormatter.string(from: info.maybeDateExported ?? Date()))"
     }
 
     public var asDocument: Document {
         .init(model: self)
+    }
+}
+
+extension DateFormatter {
+    public static var forSRGFEntry: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmm"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter
+    }
+
+    public static var forSRGFFileName: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmm"
+        dateFormatter.locale = .init(identifier: "en_US_POSIX")
+        return dateFormatter
+    }
+}
+
+extension Date {
+    public var asSRGFDate: String {
+        DateFormatter.forSRGFEntry.string(from: self)
     }
 }
 
@@ -197,6 +217,7 @@ extension SRGFv1.DataEntry {
                 langOverride: lang
             ) ?? name
         }
+
         return .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
             gachaID: gachaID,
@@ -207,7 +228,7 @@ extension SRGFv1.DataEntry {
             langRawValue: lang.rawValue,
             name: name ?? "#NAME:\(id)#",
             rankRawValue: rankType ?? "3",
-            time: Date(timeIntervalSince1970: Double(time) ?? Date().timeIntervalSince1970),
+            time: DateFormatter.forSRGFEntry.date(from: time) ?? Date(),
             uid: uid
         )
     }
@@ -223,7 +244,7 @@ extension GachaEntry {
         return .init(
             gachaID: gachaID,
             itemID: itemID,
-            time: time.timeIntervalSince1970.description,
+            time: time.asSRGFDate,
             id: id,
             gachaType: .init(rawValue: gachaTypeRawValue) ?? .departureWarp,
             name: name,
