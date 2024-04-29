@@ -97,7 +97,8 @@ struct ImportGachaView: View {
                         totalCount: result.totalCount,
                         newCount: result.newCount,
                         app: srgfModel.info.exportApp,
-                        exportDate: srgfModel.info.exportDate
+                        exportDate: srgfModel.info.exportDate,
+                        timeZone: GachaItem.getServerTimeZoneDelta(result.uid)
                     ))
                     isCompleteAlertShow.toggle()
                 } catch {
@@ -250,12 +251,20 @@ extension ImportStatus: Identifiable {
 private struct ImportSucceedInfo: Equatable {
     // MARK: Lifecycle
 
-    init(uid: String, totalCount: Int, newCount: Int, app: String? = nil, exportDate: Date? = nil) {
+    init(
+        uid: String,
+        totalCount: Int,
+        newCount: Int,
+        app: String? = nil,
+        exportDate: Date? = nil,
+        timeZone: Int
+    ) {
         self.uid = uid
         self.totalCount = totalCount
         self.newCount = newCount
         self.app = app
         self.exportDate = exportDate
+        self.timeZoneDelta = timeZone
     }
 
     // MARK: Internal
@@ -265,6 +274,7 @@ private struct ImportSucceedInfo: Equatable {
     let newCount: Int
     let app: String?
     let exportDate: Date?
+    let timeZoneDelta: Int
 }
 
 // MARK: - ImportFileSourceType
@@ -378,6 +388,13 @@ private struct SucceedView: View {
     @Binding var status: ImportStatus
     let info: ImportSucceedInfo
 
+    var timeZoneDeltaValueText: String {
+        switch info.timeZoneDelta {
+        case 0...: return "+\(info.timeZoneDelta)"
+        default: return "\(info.timeZoneDelta)"
+        }
+    }
+
     var body: some View {
         Section {
             Label {
@@ -392,11 +409,17 @@ private struct SucceedView: View {
                 Text(sourceInfo)
             }
             if let date = info.exportDate {
-                let timeInfo = String(
-                    format: "app.gacha.import.info.time:%@".localized(),
-                    dateFormatter.string(from: date)
-                )
-                Text(timeInfo)
+                VStack(alignment: .leading) {
+                    let timeInfo = String(
+                        format: "app.gacha.import.info.time:%@".localized(),
+                        dateFormatterCurrent.string(from: date)
+                    )
+                    Text(timeInfo)
+                    if importedTimeZone != .autoupdatingCurrent {
+                        let timeInfo2 = "UTC\(timeZoneDeltaValueText): " + dateFormatterAsImported.string(from: date)
+                        Text(timeInfo2).font(.caption).foregroundStyle(.secondary)
+                    }
+                }
             }
         }
         Section {
@@ -412,10 +435,22 @@ private struct SucceedView: View {
 
     // MARK: Private
 
-    private var dateFormatter: DateFormatter {
+    private var importedTimeZone: TimeZone {
+        .init(secondsFromGMT: 3600 * info.timeZoneDelta) ?? .autoupdatingCurrent
+    }
+
+    private var dateFormatterAsImported: DateFormatter {
         let fmt = DateFormatter()
         fmt.dateStyle = .medium
         fmt.timeStyle = .medium
+        return fmt
+    }
+
+    private var dateFormatterCurrent: DateFormatter {
+        let fmt = DateFormatter()
+        fmt.dateStyle = .medium
+        fmt.timeStyle = .medium
+        fmt.timeZone = .init(secondsFromGMT: 3600 * info.timeZoneDelta)
         return fmt
     }
 }
