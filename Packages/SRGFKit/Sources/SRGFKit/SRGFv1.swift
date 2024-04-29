@@ -154,6 +154,8 @@ extension SRGFv1 {
     }
 }
 
+// MARK: - Extensions.
+
 extension SRGFv1 {
     public var defaultFileNameStem: String {
         let dateFormatter = DateFormatter.forSRGFFileName
@@ -162,28 +164,6 @@ extension SRGFv1 {
 
     public var asDocument: Document {
         .init(model: self)
-    }
-}
-
-extension DateFormatter {
-    public static var forSRGFEntry: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMddHHmm"
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter
-    }
-
-    public static var forSRGFFileName: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMddHHmm"
-        dateFormatter.locale = .init(identifier: "en_US_POSIX")
-        return dateFormatter
-    }
-}
-
-extension Date {
-    public var asSRGFDate: String {
-        DateFormatter.forSRGFEntry.string(from: self)
     }
 }
 
@@ -207,7 +187,12 @@ extension SRGFv1.Info {
 }
 
 extension SRGFv1.DataEntry {
-    public func toGachaEntry(uid: String, lang: GachaLanguageCode) -> GachaEntry {
+    public func toGachaEntry(
+        uid: String,
+        lang: GachaLanguageCode,
+        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
+    )
+        -> GachaEntry {
         var name = name
         if let itemType = itemType, let managedType = GachaItem.ItemType(
             rawValue: itemType.asManagedObjectRawValue
@@ -228,14 +213,18 @@ extension SRGFv1.DataEntry {
             langRawValue: lang.rawValue,
             name: name ?? "#NAME:\(id)#",
             rankRawValue: rankType ?? "3",
-            time: DateFormatter.forSRGFEntry.date(from: time) ?? Date(),
+            time: DateFormatter.forSRGFEntry(timeZoneDelta: timeZoneDelta).date(from: time) ?? Date(),
             uid: uid
         )
     }
 }
 
 extension GachaEntry {
-    public func toSRGFEntry(langOverride: GachaLanguageCode? = nil) -> SRGFv1.DataEntry {
+    public func toSRGFEntry(
+        langOverride: GachaLanguageCode? = nil,
+        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
+    )
+        -> SRGFv1.DataEntry {
         var name = name
         if let managedType = GachaItem.ItemType(rawValue: itemTypeRawValue) {
             name = GachaMetaManager.shared
@@ -244,7 +233,7 @@ extension GachaEntry {
         return .init(
             gachaID: gachaID,
             itemID: itemID,
-            time: time.asSRGFDate,
+            time: time.asSRGFDate(timeZoneDelta: timeZoneDelta),
             id: id,
             gachaType: .init(rawValue: gachaTypeRawValue) ?? .departureWarp,
             name: name,
