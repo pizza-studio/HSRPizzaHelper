@@ -134,10 +134,12 @@ struct DetailPortalView: View {
         NavigationStack {
             List {
                 SelectAccountSection(selectedAccount: $vmDPV.selectedAccount)
+                    .onTapGesture { uidInputFieldFocus = false }
                 if let account = vmDPV.selectedAccount {
                     PlayerDetailSection(account: account)
+                        .onTapGesture { uidInputFieldFocus = false }
                 }
-                CaseQuerySection(theDB: vmDPV.enkaDB)
+                CaseQuerySection(theDB: vmDPV.enkaDB, focus: $uidInputFieldFocus)
             }
             .navigationDestination(for: EnkaHSR.QueryRelated.DetailInfo.self) { result in
                 CaseQueryResultView(profile: result)
@@ -150,6 +152,8 @@ struct DetailPortalView: View {
     }
 
     // MARK: Private
+
+    @FocusState private var uidInputFieldFocus: Bool
 
     @StateObject private var vmDPV: DetailPortalViewModel = .init()
 }
