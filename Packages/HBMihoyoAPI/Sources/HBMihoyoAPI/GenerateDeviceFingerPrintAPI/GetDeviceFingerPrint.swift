@@ -8,7 +8,7 @@
 import Defaults
 import DefaultsKeys
 import Foundation
-#if canImport(UIKit)
+#if os(iOS)
 import UIKit
 #endif
 
@@ -36,7 +36,7 @@ extension MiHoYoAPI {
         }
 
         let url = URL(string: "https://public-data-api.mihoyo.com/device-fp/api/getFp")!
-        #if canImport(UIKit)
+        #if os(iOS)
         let deviceId = await (UIDevice.current.identifierForVendor ?? UUID()).uuidString
         #else
         let deviceId = UUID().uuidString
