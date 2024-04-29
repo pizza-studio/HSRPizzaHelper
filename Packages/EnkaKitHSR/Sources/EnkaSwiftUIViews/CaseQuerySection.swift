@@ -15,8 +15,9 @@ public struct CaseQuerySection: View {
     // MARK: Lifecycle
 
     @MainActor
-    public init(theDB: EnkaHSR.EnkaDB) {
+    public init(theDB: EnkaHSR.EnkaDB, focus: FocusState<Bool>.Binding? = nil) {
         self.theDB = theDB
+        self.focused = focus
     }
 
     // MARK: Public
@@ -41,6 +42,10 @@ public struct CaseQuerySection: View {
                     }
                 }
                 .frame(height: ceil(Font.baseFontSize * 2))
+                .onTapGesture {
+                    focused?.wrappedValue = false
+                    backupFocus = false
+                }
             }
             if let result = delegate.currentInfo {
                 NavigationLink(value: result) {
@@ -62,12 +67,18 @@ public struct CaseQuerySection: View {
                         Spacer()
                     }
                 }
+                .onTapGesture {
+                    dropFieldFocus()
+                }
             }
             if let errorMsg = delegate.errorMsg {
                 Text(errorMsg).font(.caption2)
             }
         } header: {
             Text("detailPortal.OtherCase.Title")
+                .onTapGesture {
+                    dropFieldFocus()
+                }
         } footer: {
             let rawFooter = String(localized: "detailPortal.showCaseAPIServiceProviders.explain")
             let attrStr = (
@@ -77,6 +88,9 @@ public struct CaseQuerySection: View {
                 )
             ) ?? .init(stringLiteral: rawFooter)
             Text(attrStr)
+                .onTapGesture {
+                    dropFieldFocus()
+                }
         }
     }
 
@@ -84,8 +98,12 @@ public struct CaseQuerySection: View {
 
     @State var givenUID: Int?
 
+    var focused: FocusState<Bool>.Binding?
+    @FocusState var backupFocus: Bool
+
     @ViewBuilder var textFieldView: some View {
         TextField("UID", value: $givenUID, format: .number.grouping(.never))
+            .focused(focused ?? $backupFocus)
         #if !os(OSX) && !targetEnvironment(macCatalyst)
             .keyboardType(.numberPad)
         #endif
@@ -95,6 +113,11 @@ public struct CaseQuerySection: View {
                 }
             }
             .disabled(delegate.state == .busy)
+    }
+
+    func dropFieldFocus() {
+        focused?.wrappedValue = false
+        backupFocus = false
     }
 
     func triggerUpdateTask() {
