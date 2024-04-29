@@ -29,11 +29,6 @@ struct ExportGachaView: View {
                         .navigationTitle("app.gacha.data.export.button")
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbar {
-                            ToolbarItem(placement: .navigationBarLeading) {
-                                Button("sys.cancel") {
-                                    dismiss()
-                                }
-                            }
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 Button("app.gacha.data.export.button") {
                                     exportButtonClicked()
