@@ -380,7 +380,7 @@ private struct FailureView: View {
 
     var body: some View {
         Text("app.gacha.import.fail")
-        let errorContent = String(format: "app.gacha.import.errorContent:%@", errorMessage).localized()
+        let errorContent = String(format: "app.gacha.import.errorContent:%@".localized(), errorMessage)
         Text(errorContent)
         Button("app.gacha.import.retry") {
             status = .pending
@@ -406,18 +406,20 @@ private struct SucceedView: View {
             }
             Text(verbatim: "UID: \(info.uid)")
             if let app = info.app {
-                let sourceInfo = String(format: "app.gacha.import.info.source:%@", app).localized()
+                let sourceInfo = String(format: "app.gacha.import.info.source:%@".localized(), app)
                 Text(sourceInfo)
             }
             if let date = info.exportDate {
-                let timeInfo = String(format: "app.gacha.import.info.time:%@", dateFormatter.string(from: date))
-                    .localized()
+                let timeInfo = String(
+                    format: "app.gacha.import.info.time:%@".localized(),
+                    dateFormatter.string(from: date)
+                )
                 Text(timeInfo)
             }
         }
         Section {
-            let importInfo = String(format: "app.gacha.import.info.import:%lld", info.totalCount).localized()
-            let storageInfo = String(format: "app.gacha.import.info.storage:%lld", info.newCount).localized()
+            let importInfo = String(format: "app.gacha.import.info.import:%lld".localized(), info.totalCount)
+            let storageInfo = String(format: "app.gacha.import.info.storage:%lld".localized(), info.newCount)
             Text(importInfo)
             Text(storageInfo)
         }
