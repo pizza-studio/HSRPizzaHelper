@@ -277,16 +277,6 @@ private struct HelpSheet: View {
         NavigationStack {
             List {
                 Section {
-                    Link(destination: URL(string: "https://gi.pizzastudio.org/static/import_tiwatexiaozhushou")!) {
-                        Text("gacha.link.howToImportFromTeyvatAssistant")
-                    }
-                    Link(destination: URL(string: "https://gi.pizzastudio.org/static/paimonmoe-export.pdf")!) {
-                        Text("gacha.instruction.howToImportFromPaimonMoe")
-                    }
-                } header: {
-                    Text("gacha.term.tutorial")
-                }
-                Section {
                     if Locale.isUILanguagePanChinese {
                         Link(
                             destination: URL(
