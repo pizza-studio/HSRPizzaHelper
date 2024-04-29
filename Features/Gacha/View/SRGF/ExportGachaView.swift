@@ -10,38 +10,89 @@ import UniformTypeIdentifiers
 // MARK: - ExportGachaView
 
 struct ExportGachaView: View {
-    @FetchRequest(sortDescriptors: [
-        .init(keyPath: \Account.priority, ascending: true),
-    ]) var accounts: FetchedResults<Account>
+    // MARK: Lifecycle
 
-    @ObservedObject fileprivate var params: ExportGachaParams = .init()
+    public init(compactLayout: Bool = false, uid: String? = nil) {
+        self.compactLayout = compactLayout
+        params.uid = uid
+    }
 
-    @State private var isExporterPresented: Bool = false
+    // MARK: Internal
 
-    @State private var srgfJson: SRGFv1?
-
-    @State fileprivate var alert: AlertType? {
-        didSet {
-            if let alert = alert {
-                switch alert {
-                case .succeed:
-                    isSucceedAlertShow = true
-                case .failure:
-                    isFailureAlertShow = true
-                }
+    var body: some View {
+        Group {
+            if compactLayout {
+                compactMain()
             } else {
-                isSucceedAlertShow = false
-                isFailureAlertShow = false
+                NavigationStack {
+                    main()
+                        .navigationTitle("app.gacha.data.export.button")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button("sys.cancel") {
+                                    dismiss()
+                                }
+                            }
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button("app.gacha.data.export.button") {
+                                    exportButtonClicked()
+                                }
+                                .disabled(params.uid == nil)
+                            }
+                        }
+                }
             }
         }
-    }
-
-    var defaultFileName: String {
-        srgfJson?.defaultFileNameStem ?? "Untitled"
-    }
-
-    fileprivate var file: JsonFile? {
-        srgfJson?.asDocument
+        .alert(
+            "gacha.export.succeededInSavingToFile",
+            isPresented: $isSucceedAlertShown,
+            presenting: alert,
+            actions: { _ in
+                Button("button.okay") {
+                    isSucceedAlertShown = false
+                }
+            },
+            message: { thisAlert in
+                switch thisAlert {
+                case let .succeed(url):
+                    Text("gacha.export.fileSavedTo:\(url)")
+                default:
+                    EmptyView()
+                }
+            }
+        )
+        .alert(
+            "gacha.export.failedInSavingToFile",
+            isPresented: $isFailureAlertShown,
+            presenting: alert,
+            actions: { _ in
+                Button("button.okay") {
+                    isFailureAlertShown = false
+                }
+            },
+            message: { thisAlert in
+                switch thisAlert {
+                case let .failure(error):
+                    Text("错误信息：\(error)")
+                default:
+                    EmptyView()
+                }
+            }
+        )
+        .fileExporter(
+            isPresented: $isExporterPresented,
+            document: file,
+            contentType: .json,
+            defaultFilename: defaultFileName
+        ) { result in
+            switch result {
+            case let .success(url):
+                alert = .succeed(url: url.absoluteString)
+            case let .failure(failure):
+                alert = .failure(message: failure.localizedDescription)
+            }
+        }
     }
 
     @ViewBuilder
@@ -80,75 +131,15 @@ struct ExportGachaView: View {
         }
     }
 
-    @Environment(\.dismiss) private var dismiss
-
-    var body: some View {
-        NavigationStack {
-            main()
-                .navigationTitle("app.gacha.data.export.button")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button("sys.cancel") {
-                            dismiss()
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("app.gacha.data.export.button") {
-                            exportButtonClicked()
-                        }
-                        .disabled(params.uid == nil)
-                    }
+    @ViewBuilder
+    func compactMain() -> some View {
+        Menu("gacha.manage.srgf.export.toolbarTitle") {
+            ForEach(GachaLanguageCode.allCases, id: \.rawValue) { code in
+                Button(code.localized) {
+                    params.lang = code
+                    exportButtonClicked()
                 }
-                .alert(
-                    "gacha.export.succeededInSavingToFile",
-                    isPresented: $isSucceedAlertShow,
-                    presenting: alert,
-                    actions: { _ in
-                        Button("button.okay") {
-                            isSucceedAlertShow = false
-                        }
-                    },
-                    message: { thisAlert in
-                        switch thisAlert {
-                        case let .succeed(url):
-                            Text("gacha.export.fileSavedTo:\(url)")
-                        default:
-                            EmptyView()
-                        }
-                    }
-                )
-                .alert(
-                    "gacha.export.failedInSavingToFile",
-                    isPresented: $isFailureAlertShow,
-                    presenting: alert,
-                    actions: { _ in
-                        Button("button.okay") {
-                            isFailureAlertShow = false
-                        }
-                    },
-                    message: { thisAlert in
-                        switch thisAlert {
-                        case let .failure(error):
-                            Text("错误信息：\(error)")
-                        default:
-                            EmptyView()
-                        }
-                    }
-                )
-                .fileExporter(
-                    isPresented: $isExporterPresented,
-                    document: file,
-                    contentType: .json,
-                    defaultFilename: defaultFileName
-                ) { result in
-                    switch result {
-                    case let .success(url):
-                        alert = .succeed(url: url.absoluteString)
-                    case let .failure(failure):
-                        alert = .failure(message: failure.localizedDescription)
-                    }
-                }
+            }
         }
     }
 
@@ -162,10 +153,48 @@ struct ExportGachaView: View {
         isExporterPresented.toggle()
     }
 
-    @State private var isSucceedAlertShow: Bool = false
-    @State private var isFailureAlertShow: Bool = false
+    // MARK: Private
+
+    @State private var isSucceedAlertShown: Bool = false
+    @State private var isFailureAlertShown: Bool = false
+    private let compactLayout: Bool
 
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.dismiss) private var dismiss
+
+    @FetchRequest(sortDescriptors: [
+        .init(keyPath: \Account.priority, ascending: true),
+    ]) private var accounts: FetchedResults<Account>
+
+    @ObservedObject private var params: ExportGachaParams = .init()
+
+    @State private var isExporterPresented: Bool = false
+
+    @State private var srgfJson: SRGFv1?
+
+    @State private var alert: AlertType? {
+        didSet {
+            if let alert = alert {
+                switch alert {
+                case .succeed:
+                    isSucceedAlertShown = true
+                case .failure:
+                    isFailureAlertShown = true
+                }
+            } else {
+                isSucceedAlertShown = false
+                isFailureAlertShown = false
+            }
+        }
+    }
+
+    private var defaultFileName: String {
+        srgfJson?.defaultFileNameStem ?? "Untitled"
+    }
+
+    private var file: JsonFile? {
+        srgfJson?.asDocument
+    }
 }
 
 extension ExportGachaView {

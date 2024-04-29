@@ -55,6 +55,11 @@ struct AccountGachaView: View {
         }
         .navigationTitle(name ?? uid)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                ExportGachaView(compactLayout: true, uid: uid)
+            }
+        }
     }
 
     // MARK: Private
