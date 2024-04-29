@@ -42,10 +42,6 @@ public struct CaseQuerySection: View {
                     }
                 }
                 .frame(height: ceil(Font.baseFontSize * 2))
-                .onTapGesture {
-                    focused?.wrappedValue = false
-                    backupFocus = false
-                }
             }
             if let result = delegate.currentInfo {
                 NavigationLink(value: result) {
@@ -66,9 +62,6 @@ public struct CaseQuerySection: View {
                         }
                         Spacer()
                     }
-                }
-                .onTapGesture {
-                    dropFieldFocus()
                 }
             }
             if let errorMsg = delegate.errorMsg {
