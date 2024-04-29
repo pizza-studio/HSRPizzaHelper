@@ -2547,6 +2547,35 @@
         }
       }
     },
+    "app.gacha.srgf.affLink.[SRGF](https://uigf.org/)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[About SRGF v1.0 format, a UIGF standard.](https://uigf.org/)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[UIGF 委員会の SRGF v1.0 ガチャ記録規格について](https://uigf.org/)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[关于 UIGF 组织所规范的星穹铁道抽卡记录标准 SRGF v1.0 格式](https://uigf.org/)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[關於 UIGF 組織所規範的星穹鐵道抽卡記錄標準 SRGF v1.0 格式](https://uigf.org/)"
+          }
+        }
+      }
+    },
     "app.name" : {
       "localizations" : {
         "en" : {

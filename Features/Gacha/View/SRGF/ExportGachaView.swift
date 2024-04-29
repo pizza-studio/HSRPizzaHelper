@@ -127,6 +127,8 @@ struct ExportGachaView: View {
                         Text(code.localized).tag(code)
                     }
                 }
+            } footer: {
+                Text("app.gacha.srgf.affLink.[SRGF](https://uigf.org/)")
             }
         }
     }

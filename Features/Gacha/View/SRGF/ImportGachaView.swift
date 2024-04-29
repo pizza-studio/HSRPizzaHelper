@@ -290,7 +290,7 @@ private struct HelpSheet: View {
                     if Locale.isUILanguagePanChinese {
                         Link(
                             destination: URL(
-                                string: "https://srgf.org/zh/partnership.html"
+                                string: "https://uigf.org/zh/partnership.html"
                             )!
                         ) {
                             Label(
@@ -301,7 +301,7 @@ private struct HelpSheet: View {
                     } else {
                         Link(
                             destination: URL(
-                                string: "https://srgf.org/en/partnership.html"
+                                string: "https://uigf.org/en/partnership.html"
                             )!
                         ) {
                             Label(
@@ -468,9 +468,12 @@ private struct ImportView: View {
                     }
                 }
             } footer: {
-                Text(
-                    "app.gacha.import.srgf.verified.note.1"
-                )
+                VStack(alignment: .leading) {
+                    Text(
+                        "app.gacha.import.srgf.verified.note.1"
+                    )
+                    Text("app.gacha.srgf.affLink.[SRGF](https://uigf.org/)")
+                }
             }
         }
     }
