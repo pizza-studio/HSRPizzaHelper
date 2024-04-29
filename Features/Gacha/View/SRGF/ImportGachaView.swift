@@ -3,6 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import AlertToast
+import HBMihoyoAPI
 import SFSafeSymbols
 import SRGFKit
 import SwiftUI
@@ -138,7 +139,11 @@ struct ImportGachaView: View {
                     item.id = String(index)
                 }
                 if !checkIDAndUIDExists(uid: uid, id: item.id) {
-                    _ = item.toManagedModel(uid: uid, lang: lang, context: viewContext)
+                    _ = item.toManagedModel(
+                        uid: uid, lang: lang,
+                        timeZoneDelta: GachaItem.getServerTimeZoneDelta(uid),
+                        context: viewContext
+                    )
                     count += 1
                 }
             }
