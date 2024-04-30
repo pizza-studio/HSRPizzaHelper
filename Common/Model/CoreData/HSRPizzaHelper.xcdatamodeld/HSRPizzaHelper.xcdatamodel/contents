@@ -21,6 +21,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rankRawValue" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timeRawValue" optional="YES" attributeType="String"/>
         <attribute name="uid" optional="YES" attributeType="String"/>
     </entity>
 </model>
