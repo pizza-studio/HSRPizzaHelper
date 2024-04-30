@@ -685,13 +685,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sorry, login feature for China mainland server is temporary down. We are working on this. You can now manually config your account by crawler the cookie in miyoushe. "
+            "value" : "Sorry, login feature for China mainland server (Celestia and Irminsul server) is temporary down. We are working on this. You can now manually config your account with your own effective Miyoushe Cookie. "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深く残念ながら、中国大陸のサーバー（天空の島サーバーと世界樹サーバー）のアカウントのログインは現時点でできません。一刻も早く使えるよう、我らは策を練っています。幸い、使える「米遊社Cookieデータ」がお持ちしている場合、ご自分でそれを書き込んでログインするのは可能です。"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "抱歉，中国大陆服务器的登录功能暂时无法使用。我们正在努力修复中。目前你仍可以通过抓包米游社请求以填写Cookie来手动登录。"
+            "value" : "抱歉，中国大陆服务器（天空岛＆世界树）的登录功能暂时无法使用。我们正在努力寻求解决方案。目前您仍可以通过「自行填写有效米游社Cookie」的方式来手动登录。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "抱歉，中國大陸伺服器（天空島＆世界樹）的登入功能暫時無法使用。我們正在努力尋求解決方案。目前您仍可以藉由「自行填寫有效米游社Cookie」的方式來手動登入。"
           }
         }
       }
