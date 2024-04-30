@@ -92,13 +92,13 @@ public struct GachaItem: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.uid = try container.decode(String.self, forKey: .uid)
-        let timeString = try container.decode(String.self, forKey: .time)
+        self.timeRawValue = try container.decode(String.self, forKey: .time)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         // 抽卡记录的网页固定显示伺服器时间。
         dateFormatter.timeZone = .init(secondsFromGMT: Self.getServerTimeZoneDelta(uid) * 3600)
-        if let time = dateFormatter.date(from: timeString) {
+        if let time = dateFormatter.date(from: timeRawValue) {
             self.time = time
         } else {
             throw DecodingError.typeMismatch(
@@ -159,6 +159,7 @@ public struct GachaItem: Codable {
 
     public let uid: String
     public let time: Date
+    public let timeRawValue: String
     public let gachaID: String
     public let gachaType: GachaType
     public let itemID: String
