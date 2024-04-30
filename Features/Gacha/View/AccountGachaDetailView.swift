@@ -174,7 +174,7 @@ private struct GachaItemBar: View {
                 }
             }
             #if DEBUG
-                .contextMenu {
+            .contextMenu {
                     Text(item.langRawValue)
                     Text(item.itemTypeRawValue)
                     Text(item.gachaTypeRawValue)

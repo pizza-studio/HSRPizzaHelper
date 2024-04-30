@@ -680,6 +680,22 @@
         }
       }
     },
+    "account.login.cn_disabled_desc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sorry, login feature for China mainland server is temporary down. We are working on this. You can now manually config your account by crawler the cookie in miyoushe. "
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "抱歉，中国大陆服务器的登录功能暂时无法使用。我们正在努力修复中。目前你仍可以通过抓包米游社请求以填写Cookie来手动登录。"
+          }
+        }
+      }
+    },
     "account.login.error.no.account.found" : {
       "extractionState" : "migrated",
       "localizations" : {
