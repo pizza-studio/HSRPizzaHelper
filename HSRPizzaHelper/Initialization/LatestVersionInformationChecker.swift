@@ -373,7 +373,8 @@ struct HistoryVersionInfoView: View {
     func getLocalizedHistoryUpdateInfos(
         meta: NewestVersion
             .VersionHistory
-    ) -> [String] {
+    )
+        -> [String] {
         let locale = Bundle.main.preferredLocalizations.first
         switch locale {
         case "zh-Hans":

@@ -240,6 +240,8 @@ extension GachaEntry {
     }
 }
 
+// MARK: - SRGFv1.Document
+
 extension SRGFv1 {
     // MARK: - JsonFile
 

@@ -256,7 +256,8 @@ extension EnkaHSR.PropertyType {
 
     public static func getAvatarProperties(
         element: EnkaHSR.Element
-    ) -> [EnkaHSR.PropertyType] {
+    )
+        -> [EnkaHSR.PropertyType] {
         var results: [EnkaHSR.PropertyType] = [
             .maxHP,
             .attack,

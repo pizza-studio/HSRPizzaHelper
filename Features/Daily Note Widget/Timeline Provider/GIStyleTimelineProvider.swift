@@ -141,7 +141,8 @@ extension GIStyleTimelineProvider {
     private func getEntries(
         dailyNoteResult: Result<DailyNote, Error>,
         configuration: Intent
-    ) -> [Entry] {
+    )
+        -> [Entry] {
         var expeditionWithUIImage: [(ExpeditionInformation.Expedition, [UIImage?])] = []
         if case let .success(dailyNote) = dailyNoteResult {
             var entries: [GIStyleEntry] = []

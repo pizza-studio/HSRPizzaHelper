@@ -119,7 +119,8 @@ struct LockscreenTimelineProvider: IntentTimelineProvider, HasDefaultAccount {
     private func getEntries(
         dailyNoteResult: Result<DailyNote, Error>,
         configuration: Intent
-    ) -> [Entry] {
+    )
+        -> [Entry] {
         if case let .success(dailyNote) = dailyNoteResult {
             var entries: [LockscreenEntry] = []
             entries.append(

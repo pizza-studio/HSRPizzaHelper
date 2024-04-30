@@ -119,7 +119,8 @@ extension DailyNoteTimelineProvider {
     private func getEntries(
         dailyNoteResult: Result<DailyNote, Error>,
         configuration: Intent
-    ) -> [Entry] {
+    )
+        -> [Entry] {
         if case let .success(dailyNote) = dailyNoteResult {
             var entries: [DailyNoteEntry] = []
             entries.append(

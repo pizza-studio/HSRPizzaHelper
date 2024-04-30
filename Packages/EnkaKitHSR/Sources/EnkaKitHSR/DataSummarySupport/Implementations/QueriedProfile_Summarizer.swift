@@ -134,7 +134,8 @@ private struct MutableAvatarPropertyPanel {
         theDB: EnkaHSR.EnkaDB,
         element: EnkaHSR
             .Element
-    ) -> ([EnkaHSR.AvatarSummarized.PropertyPair], [EnkaHSR.AvatarSummarized.PropertyPair]) {
+    )
+        -> ([EnkaHSR.AvatarSummarized.PropertyPair], [EnkaHSR.AvatarSummarized.PropertyPair]) {
         var resultA = [EnkaHSR.AvatarSummarized.PropertyPair]()
         var resultB = [EnkaHSR.AvatarSummarized.PropertyPair]()
         resultA.append(.init(theDB: theDB, type: .maxHP, value: maxHP))

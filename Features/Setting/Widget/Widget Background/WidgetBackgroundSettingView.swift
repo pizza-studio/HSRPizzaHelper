@@ -370,7 +370,7 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
         }
         .onAppear {
             // Set an default name for image
-            var name: Int = 1
+            var name = 1
             let fileManager = FileManager.default
             guard let folderURL = try? getFolderUrl() else { return }
             while true {
