@@ -56,8 +56,10 @@ extension GachaType: CustomStringConvertible {
             return "gacha.gacha_type.character_event_warp".localized()
         case .lightConeEventWarp:
             return "gacha.gacha_type.lightCon_event_warp".localized()
-        case .regularWarp:
-            return "gacha.gacha_type.regular_warp".localized()
+        case .stellarWarp:
+            return "gacha.gacha_type.stellar_warp".localized()
+        case .departureWarp:
+            return "gacha.gacha_type.departure_warp".localized()
         }
     }
 }

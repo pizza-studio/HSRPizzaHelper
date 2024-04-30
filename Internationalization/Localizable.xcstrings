@@ -5779,6 +5779,53 @@
         }
       }
     },
+    "gacha.gacha_type.departure_warp" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Departure Warp"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Departure Warp"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "始発跳躍"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отправной прыжок"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bước Nhảy Đầu Tiên"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "始发跃迁"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "始發躍遷"
+          }
+        }
+      }
+    },
     "gacha.gacha_type.lightCon_event_warp" : {
       "extractionState" : "migrated",
       "localizations" : {
@@ -5826,49 +5873,49 @@
         }
       }
     },
-    "gacha.gacha_type.regular_warp" : {
+    "gacha.gacha_type.stellar_warp" : {
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Regular Warp"
+            "value" : "Stellar Warp"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Regular Warp"
+            "value" : "Stellar Warp"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "恒常跳躍"
+            "value" : "群星跳躍"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Regular Warp"
+            "value" : "Звёздный прыжок"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Regular Warp"
+            "value" : "Bước Nhảy Chòm Sao"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "常驻跃迁"
+            "value" : "群星跃迁"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "常駐躍遷"
+            "value" : "群星躍遷"
           }
         }
       }

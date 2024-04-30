@@ -316,9 +316,10 @@ private struct GetGachaChart: View {
             .foregroundStyle(by: .value("gacha.get_record.chart.gacha_type", $0.gachaType.description))
         }
         .chartForegroundStyleScale([
-            GachaType.regularWarp.description: .green,
             GachaType.characterEventWarp.description: .blue,
             GachaType.lightConeEventWarp.description: .yellow,
+            GachaType.stellarWarp.description: .green,
+            GachaType.departureWarp.description: .cyan,
         ])
         .padding(.top)
     }

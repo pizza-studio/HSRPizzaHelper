@@ -126,7 +126,7 @@ private struct GachaItemChart: View {
                         let frame: CGFloat = 35
                         Text("\(item.count)").foregroundColor(.gray)
                             .font(.caption)
-                        if gachaType != .regularWarp, item.0.isLose5050 {
+                        if gachaType.isLimitedWarp, item.0.isLose5050 {
                             Image(lose5050IconStr).resizable().scaledToFit()
                                 .frame(width: frame, height: frame)
                                 .offset(y: -5)

@@ -35,12 +35,23 @@ public enum ParseGachaURLError: Error {
 
 // MARK: - GachaType
 
-public enum GachaType: String, Codable, CaseIterable, Comparable {
+public enum GachaType: String, Codable, Hashable, CaseIterable, Sendable, Comparable {
     case characterEventWarp = "11"
     case lightConeEventWarp = "12"
-    case regularWarp = "1"
+    case stellarWarp = "1" // 群星跃迁，常驻池
+    case departureWarp = "2" // 始发跃迁，新手池
 
     // MARK: Public
+
+    public static let nonLimitedWarps: [GachaType] = [.stellarWarp, .departureWarp]
+
+    public var isLimitedWarp: Bool {
+        !Self.nonLimitedWarps.contains(self)
+    }
+
+    public var isRegularWarp: Bool {
+        Self.nonLimitedWarps.contains(self)
+    }
 
     public static func < (lhs: GachaType, rhs: GachaType) -> Bool {
         Self.allCases.firstIndex(of: lhs)! < Self.allCases.firstIndex(of: rhs)!

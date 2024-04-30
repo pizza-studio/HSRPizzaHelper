@@ -128,12 +128,7 @@ extension SRGFv1 {
             }
         }
 
-        public enum GachaType: String, Codable, Hashable, CaseIterable, Sendable {
-            case characterEventWarp = "11"
-            case lightConeEventWarp = "12"
-            case stellarWarp = "1" // 群星跃迁，常驻池
-            case departureWarp = "2" // 始发跃迁，新手池
-        }
+        public typealias GachaType = HBMihoyoAPI.GachaType
 
         public var gachaID, itemID, time, id: String
         public var gachaType: GachaType

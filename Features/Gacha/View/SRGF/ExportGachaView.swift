@@ -214,20 +214,10 @@ extension ExportGachaView {
         }
         let request = GachaItemMO.fetchRequest()
         var predicate = NSPredicate(format: "(uid = %@)", uid)
-        switch gachaType {
-        case .characterEventWarp:
-            guard let rawType = gachaType?.rawValue else { break }
-            // gachaType = 2 是 新手祈愿。
-            predicate = NSPredicate(
-                format: "(uid = %@) AND ((gachaType = %i) OR (gachaType = 2))",
-                uid,
-                rawType
-            )
-        default:
-            guard let rawType = gachaType?.rawValue else { break }
+        ifHavingType: do {
+            guard let rawType = gachaType?.rawValue else { break ifHavingType }
             predicate = NSPredicate(format: "(uid = %@) AND (gachaType = %i)", uid, rawType)
         }
-
         request.predicate = predicate
         let dateSortId = NSSortDescriptor(
             keyPath: \GachaItemMO.id,

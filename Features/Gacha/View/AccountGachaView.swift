@@ -286,7 +286,7 @@ private struct GachaStatisticSectionView: View {
                 Spacer()
                 Text("\(average5StarDraw)")
             }
-            if gachaType != .regularWarp {
+            if gachaType.isLimitedWarp {
                 HStack {
                     Label(
                         "gacha.account_detail.statistic.limited_5_star_avg_pull",
@@ -311,8 +311,6 @@ private struct GachaStatisticSectionView: View {
                         "\(fmt.string(from: lose5050percentage as NSNumber)!)"
                     )
                 }
-            }
-            if gachaType != .regularWarp {
                 VStack {
                     HStack {
                         let keyPaimon: LocalizedStringKey = "gacha.account_detail.statistic.paimon_review"
