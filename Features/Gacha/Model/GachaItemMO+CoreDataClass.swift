@@ -24,6 +24,7 @@ extension GachaEntry {
         result.name = name
         result.rankRawValue = rankRawValue
         result.time = time
+        result.timeRawValue = timeRawValue
         result.uid = uid
         return result
     }
@@ -40,6 +41,7 @@ extension GachaEntry {
         result.name = name
         result.rankRawValue = rankRawValue
         result.time = time
+        result.timeRawValue = timeRawValue
         result.uid = uid
         return result
     }
@@ -58,6 +60,7 @@ extension GachaItemMO {
             name: name,
             rankRawValue: rankRawValue,
             time: time,
+            timeRawValue: timeRawValue,
             uid: uid
         )
     }

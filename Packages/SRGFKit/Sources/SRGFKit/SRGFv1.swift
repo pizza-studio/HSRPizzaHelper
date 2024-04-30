@@ -202,7 +202,7 @@ extension SRGFv1.DataEntry {
                 langOverride: lang
             ) ?? name
         }
-
+        let timeTyped: Date? = DateFormatter.forSRGFEntry(timeZoneDelta: timeZoneDelta).date(from: time)
         return .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
             gachaID: gachaID,
@@ -213,7 +213,8 @@ extension SRGFv1.DataEntry {
             langRawValue: lang.rawValue,
             name: name ?? "#NAME:\(id)#",
             rankRawValue: rankType ?? "3",
-            time: DateFormatter.forSRGFEntry(timeZoneDelta: timeZoneDelta).date(from: time) ?? Date(),
+            time: timeTyped ?? Date(),
+            timeRawValue: time,
             uid: uid
         )
     }
@@ -233,7 +234,7 @@ extension GachaEntry {
         return .init(
             gachaID: gachaID,
             itemID: itemID,
-            time: time.asSRGFDate(timeZoneDelta: timeZoneDelta),
+            time: timeRawValue ?? time.asSRGFDate(timeZoneDelta: timeZoneDelta),
             id: id,
             gachaType: .init(rawValue: gachaTypeRawValue) ?? .departureWarp,
             name: name,

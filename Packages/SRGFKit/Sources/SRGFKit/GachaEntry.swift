@@ -22,6 +22,7 @@ public struct GachaEntry: Codable, Sendable, Hashable, Identifiable {
         name: String,
         rankRawValue: String,
         time: Date,
+        timeRawValue: String?,
         uid: String
     ) {
         self.count = count
@@ -34,6 +35,7 @@ public struct GachaEntry: Codable, Sendable, Hashable, Identifiable {
         self.name = name
         self.rankRawValue = rankRawValue
         self.time = time
+        self.timeRawValue = timeRawValue
         self.uid = uid
     }
 
@@ -49,5 +51,6 @@ public struct GachaEntry: Codable, Sendable, Hashable, Identifiable {
     public var name: String
     public var rankRawValue: String
     public var time: Date
+    public var timeRawValue: String?
     public var uid: String
 }
