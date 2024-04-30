@@ -168,6 +168,7 @@ class GetGachaViewModel: ObservableObject {
             persistedItem.name = gachaItem.name
             persistedItem.rank = gachaItem.rank
             persistedItem.time = gachaItem.time
+            persistedItem.timeRawValue = gachaItem.timeRawValue
             persistedItem.uid = gachaItem.uid
             withAnimation {
                 savedTypeFetchedCount[gachaItem.gachaType]! += 1
