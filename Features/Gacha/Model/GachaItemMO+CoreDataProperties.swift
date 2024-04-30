@@ -28,6 +28,7 @@ extension GachaItemMO {
     @NSManaged public var name: String!
     @NSManaged public var rankRawValue: String!
     @NSManaged public var time: Date!
+    @NSManaged public var timeRawValue: String?
     @NSManaged public var uid: String!
 
     var gachaType: GachaType {
