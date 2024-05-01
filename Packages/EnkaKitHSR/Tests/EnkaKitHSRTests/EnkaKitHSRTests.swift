@@ -56,8 +56,8 @@ final class EnkaKitHSRTests: XCTestCase {
         guard let summarized = summarized else { return }
         XCTAssertEqual(summarized.mainInfo.localizedName, "黃泉")
         XCTAssertEqual(summarized.mainInfo.constellation, 2)
-        XCTAssertEqual(summarized.equippedWeapon.enkaId, 23024)
-        XCTAssertEqual(summarized.equippedWeapon.basicProps[0].localizedTitle, "基礎生命值")
+        XCTAssertEqual(summarized.equippedWeapon?.enkaId, 23024)
+        XCTAssertEqual(summarized.equippedWeapon?.basicProps[0].localizedTitle, "基礎生命值")
         XCTAssertEqual(summarized.artifacts[0].enkaId, 61171)
         print(summarized.mainInfo.photoFilePath)
         XCTAssertTrue(FileManager.default.fileExists(atPath: summarized.mainInfo.photoFilePath))
@@ -68,7 +68,7 @@ final class EnkaKitHSRTests: XCTestCase {
         XCTAssertNotNil(seijaku.mainInfo.baseSkills.elementalBurst.levelAddition)
 
         let char = detailInfo.avatarDetailList[4].summarize(theDB: enkaDatabase)
-        char?.equippedWeapon.specialProps.forEach { print($0) }
+        char?.equippedWeapon?.specialProps.forEach { print($0) }
     }
 
     func testAllPropertyIconFileAccess() throws {

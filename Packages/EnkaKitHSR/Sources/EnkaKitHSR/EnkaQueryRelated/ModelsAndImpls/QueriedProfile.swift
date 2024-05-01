@@ -87,8 +87,23 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     // MARK: - Avatar
 
     public struct Avatar: Codable, Hashable {
+        // MARK: Lifecycle
+
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.level = try container.decode(Int.self, forKey: .level)
+            self.avatarId = try container.decode(Int.self, forKey: .avatarId)
+            self.equipment = try? container.decode(Equipment.self, forKey: .equipment)
+            self.relicList = try? container.decode([ArtifactItem].self, forKey: .relicList)
+            self.promotion = try? container.decode(Int.self, forKey: .promotion)
+            self.skillTreeList = try container.decode([SkillTreeItem].self, forKey: .skillTreeList)
+            self.rank = try? container.decode(Int.self, forKey: .rank)
+        }
+
+        // MARK: Public
+
         public let level, avatarId: Int
-        public let equipment: Equipment
+        public let equipment: Equipment?
         public let relicList: [ArtifactItem]?
         public let promotion: Int?
         public let skillTreeList: [SkillTreeItem]

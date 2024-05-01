@@ -23,8 +23,10 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
         )
         guard let mainInfo = mainInfo else { return nil }
 
-        let equipInfo = EnkaHSR.AvatarSummarized.WeaponPanel(theDB: theDB, fetched: equipment)
-        guard let equipInfo = equipInfo else { return nil }
+        let equipInfo: EnkaHSR.AvatarSummarized.WeaponPanel? = {
+            guard let equipment = equipment else { return nil }
+            return EnkaHSR.AvatarSummarized.WeaponPanel(theDB: theDB, fetched: equipment)
+        }()
 
         let artifactsInfo = artifactList.compactMap {
             EnkaHSR.AvatarSummarized.ArtifactInfo(theDB: theDB, fetched: $0)
@@ -46,16 +48,18 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
 
         // Panel: Base Props from the Weapon.
 
-        let equipFlat = equipment.getFlat(theDB: theDB)
-        panel.maxHP += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseHP }?.value ?? 0
-        panel.attack += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseAttack }?.value ?? 0
-        panel.defence += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseDefence }?.value ?? 0
+        if let equipFlat = equipment?.getFlat(theDB: theDB) {
+            panel.maxHP += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseHP }?.value ?? 0
+            panel.attack += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseAttack }?.value ?? 0
+            panel.defence += equipFlat.props.first { EnkaHSR.PropertyType(rawValue: $0.type) == .baseDefence }?
+                .value ?? 0
+        }
 
         // Panel: Handle all additional props
 
         // Panel: - Additional Props from the Weapon.
 
-        let weaponSpecialProps: [EnkaHSR.AvatarSummarized.PropertyPair] = equipInfo.specialProps
+        let weaponSpecialProps: [EnkaHSR.AvatarSummarized.PropertyPair] = equipInfo?.specialProps ?? []
 
         // Panel: Base and Additional Props from the Skill Tree.
 

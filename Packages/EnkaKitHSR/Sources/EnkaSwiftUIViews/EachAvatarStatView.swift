@@ -26,7 +26,7 @@ public struct EachAvatarStatView: View {
             Group {
                 data.mainInfo.asView(fontSize: fontSize)
                 VStack(spacing: 2 * zoomFactor) {
-                    data.equippedWeapon.asView(fontSize: fontSize)
+                    data.equippedWeapon?.asView(fontSize: fontSize)
                     HStack {
                         VStack(spacing: 0) {
                             ForEach(data.avatarPropertiesA, id: \.type) { property in
