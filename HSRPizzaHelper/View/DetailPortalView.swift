@@ -171,7 +171,7 @@ private struct CaseQueryResultView: View {
 
     public var body: some View {
         List {
-            AccountHeaderView(profile: profile)
+            AccountHeaderView(givenProfile: profile)
             Section {
                 CaseQueryResultListView(profile: profile, enkaDB: vmDPV.enkaDB)
             }
@@ -196,12 +196,24 @@ private struct AccountHeaderView<T: View>: View {
     // MARK: Lifecycle
 
     public init(
-        profile: EnkaHSR.QueryRelated.DetailInfo? = nil,
+        profile: Binding<EnkaHSR.QueryRelated.DetailInfo?>?,
         refreshAction: (() -> Void)? = nil,
         additionalView: @escaping (() -> T) = { EmptyView() }
     ) {
         self.additionalView = additionalView
-        self.profile = profile
+        self._profile = profile ?? Binding.constant(nil)
+        self.refreshAction = refreshAction
+        self.profileStatic = nil
+    }
+
+    public init(
+        givenProfile: EnkaHSR.QueryRelated.DetailInfo?,
+        refreshAction: (() -> Void)? = nil,
+        additionalView: @escaping (() -> T) = { EmptyView() }
+    ) {
+        self.additionalView = additionalView
+        self.profileStatic = givenProfile
+        self._profile = Binding.constant(nil)
         self.refreshAction = refreshAction
     }
 
@@ -244,7 +256,7 @@ private struct AccountHeaderView<T: View>: View {
             }
         } footer: {
             HStack {
-                Text(verbatim: "UID: \(uid)")
+                Text(verbatim: uidStr)
                 Spacer()
                 if let worldLevel = guardedProfile?.worldLevel {
                     let worldLevelTitle = "detailPortal.player.worldLevel".localized()
@@ -256,9 +268,11 @@ private struct AccountHeaderView<T: View>: View {
 
     // MARK: Internal
 
+    let profileStatic: EnkaHSR.QueryRelated.DetailInfo?
+
     @ViewBuilder var avatarIconRendered: some View {
         HStack {
-            let path = profile?.accountPhotoFilePath(theDB: vmDPV.enkaDB)
+            let path = guardedProfile?.accountPhotoFilePath(theDB: vmDPV.enkaDB)
             ResIcon(path ?? EnkaProfileEntity.nullPhotoFilePath) {
                 $0.resizable()
             } placeholder: {
@@ -291,16 +305,17 @@ private struct AccountHeaderView<T: View>: View {
 
     private let refreshAction: (() -> Void)?
 
-    @State private var profile: EnkaHSR.QueryRelated.DetailInfo?
+    @Binding private var profile: EnkaHSR.QueryRelated.DetailInfo?
 
     @StateObject private var vmDPV: DetailPortalViewModel = .init()
 
-    private var uid: String {
-        guardedProfile?.uid.description ?? vmDPV.selectedAccount?.uid ?? ""
+    private var uidStr: String {
+        guard let strUid = guardedProfile?.uid.description else { return "" }
+        return "UID: \(strUid)"
     }
 
     private var name: String {
-        guardedProfile?.nickname ?? vmDPV.selectedAccount?.name ?? ""
+        guardedProfile?.nickname ?? "………"
     }
 
     private var signature: String {
@@ -308,15 +323,11 @@ private struct AccountHeaderView<T: View>: View {
     }
 
     private var guardedProfile: EnkaHSR.QueryRelated.DetailInfo? {
-        if let profile = profile { return profile }
-        switch vmDPV.playerDetailStatus {
-        case let .succeed((backupProfile, _)): return backupProfile
-        default: return nil
-        }
+        profile ?? profileStatic
     }
 
     private var levelTag: LocalizedStringKey? {
-        if let profile = profile {
+        if let profile = guardedProfile {
             return "detailPortal.player.adventureRank.short:\(profile.level.description)"
         } else {
             return nil
@@ -336,9 +347,8 @@ private struct SelectAccountSection: View {
     var body: some View {
         if let selectedAccount {
             switch vmDPV.playerDetailStatus {
-            case let .succeed((playerDetail, _)):
+            case .succeed:
                 normalAccountPickerView(
-                    basicInfo: playerDetail,
                     selectedAccount: selectedAccount
                 )
             default:
@@ -351,11 +361,10 @@ private struct SelectAccountSection: View {
 
     @ViewBuilder
     func normalAccountPickerView(
-        basicInfo: EnkaProfileEntity,
         selectedAccount: Account
     )
         -> some View {
-        AccountHeaderView(profile: basicInfo) {
+        AccountHeaderView(profile: $vmDPV.currentBasicInfo) {
             vmDPV.refresh()
         } additionalView: {
             SelectAccountMenu {
@@ -368,7 +377,7 @@ private struct SelectAccountSection: View {
 
     @ViewBuilder
     func noBasicInfoFallBackView(selectedAccount: Account) -> some View {
-        AccountHeaderView {
+        AccountHeaderView(profile: nil) {
             vmDPV.refresh()
         } additionalView: {
             SelectAccountMenu {
