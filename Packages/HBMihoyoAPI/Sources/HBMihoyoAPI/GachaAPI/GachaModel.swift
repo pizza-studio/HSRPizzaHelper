@@ -164,13 +164,17 @@ public struct GachaItem: Codable {
 
         public init?(rawString: String) {
             switch rawString {
-            case "角色", "character", "Character", "characters", "Figur", "Karakter", "Nhân Vật", "Personagens",
-                 "Personajes", "Personnages",
-                 "Персонажи", "ตัวละคร", "캐릭터", "キャラクター": self = .characters
-            case "光円錐", "光锥", "光錐", "武器", "Arma", "Arme", "cônes de lumière", "Cones de Luz",
+            case "角色", "character", "characters", "Figur", "Figuren",
+                 "Karakter", "Nhân Vật", "Personagem", "Personagens", "Personaje",
+                 "Personajes", "Personnage", "Personnages", "Персонажи",
+                 "ตัวละคร", "캐릭터", "キャラクター":
+                self = .characters
+            case "光円錐", "光锥", "光錐", "武器", "Arma", "Arme", "Cône de lumière",
+                 "Cone de Luz", "cônes de lumière", "Cones de Luz", "Cono de luz",
                  "Conos de luz", "Lichtkegel", "Light Cone", "light_cone", "light_cones",
-                 "lightcone", "lightCone", "lightcones", "lightCones", "Nón Ánh Sáng", "Senjata", "Vũ Khí", "Waffe",
-                 "weapon", "Weapon", "weapons", "Оружие", "Световые конусы", "อาวุธ", "광추", "무기": self = .lightCones
+                 "lightcone", "lightcones", "Nón Ánh Sáng", "Senjata", "Vũ Khí", "Waffe",
+                 "weapon", "weapons", "Оружие", "Световые конусы", "อาวุธ", "광추", "무기":
+                self = .lightCones
             default: return nil
             }
         }
