@@ -415,7 +415,7 @@ private struct SucceedView: View {
                         dateFormatterCurrent.string(from: date)
                     )
                     Text(timeInfo)
-                    if importedTimeZone != .autoupdatingCurrent {
+                    if importedTimeZone.secondsFromGMT() != TimeZone.autoupdatingCurrent.secondsFromGMT() {
                         let timeInfo2 = "UTC\(timeZoneDeltaValueText): " + dateFormatterAsImported.string(from: date)
                         Text(timeInfo2).font(.caption).foregroundStyle(.secondary)
                     }
