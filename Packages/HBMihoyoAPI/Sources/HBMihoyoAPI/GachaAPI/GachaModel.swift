@@ -155,16 +155,29 @@ public struct GachaItem: Codable {
 
         // MARK: Lifecycle
 
-        public init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            switch try container.decode(String.self) {
-            case "角色", "Character", "Figur", "Karakter", "Nhân Vật", "Personagens", "Personajes", "Personnages",
-                 "Персонажи", "ตัวละคร", "캐릭터", "キャラクター": self = .characters
-            case "光円錐", "光锥", "光錐", "cônes de lumière", "Cones de Luz", "Conos de luz", "Lichtkegel", "Light Cone",
-                 "Nón Ánh Sáng", "Световые конусы", "광추": self = .lightCones
-            default:
-                self = .lightCones
+        public init(itemID: String) {
+            switch itemID.count {
+            case 5...: self = .lightCones
+            default: self = .characters
             }
+        }
+
+        public init?(rawString: String) {
+            switch rawString {
+            case "角色", "character", "Character", "characters", "Figur", "Karakter", "Nhân Vật", "Personagens",
+                 "Personajes", "Personnages",
+                 "Персонажи", "ตัวละคร", "캐릭터", "キャラクター": self = .characters
+            case "光円錐", "光锥", "光錐", "武器", "Arma", "Arme", "cônes de lumière", "Cones de Luz",
+                 "Conos de luz", "Lichtkegel", "Light Cone", "light_cone", "light_cones",
+                 "lightcone", "lightCone", "lightcones", "lightCones", "Nón Ánh Sáng", "Senjata", "Vũ Khí", "Waffe",
+                 "weapon", "Weapon", "weapons", "Оружие", "Световые конусы", "อาวุธ", "광추", "무기": self = .lightCones
+            default: return nil
+            }
+        }
+
+        public init(from decoder: Decoder) throws {
+            let decoded = try decoder.singleValueContainer().decode(String.self)
+            self = .init(rawString: decoded) ?? .lightCones
         }
     }
 
