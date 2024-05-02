@@ -38,6 +38,7 @@ extension Date {
     }
 }
 
+// swiftlint:disable cyclomatic_complexity
 extension GachaItem.ItemType {
     func translatedRaw(for lang: GachaLanguageCode) -> String {
         switch (self, lang) {
@@ -70,3 +71,5 @@ extension GachaItem.ItemType {
         }
     }
 }
+
+// swiftlint:enable cyclomatic_complexity
