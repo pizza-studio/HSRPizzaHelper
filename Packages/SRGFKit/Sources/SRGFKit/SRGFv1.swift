@@ -123,7 +123,7 @@ extension SRGFv1 {
                 case "角色", "character", "Character", "characters", "Figur", "Karakter", "Nhân Vật", "Personagens",
                      "Personajes", "Personnages",
                      "Персонажи", "ตัวละคร", "캐릭터", "キャラクター": self = .character
-                case "光円錐", "光锥", "光錐", "武器", "武器", "武器", "Arma", "Arma", "Arme", "cônes de lumière", "Cones de Luz",
+                case "光円錐", "光锥", "光錐", "武器", "Arma", "Arme", "cônes de lumière", "Cones de Luz",
                      "Conos de luz", "Lichtkegel", "Light Cone", "light_cone", "light_cones",
                      "lightcone", "lightCone", "lightcones", "lightCones", "Nón Ánh Sáng", "Senjata", "Vũ Khí", "Waffe",
                      "weapon", "Weapon", "weapons", "Оружие", "Световые конусы", "อาวุธ", "광추", "무기": self = .lightCone
