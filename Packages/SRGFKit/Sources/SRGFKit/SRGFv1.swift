@@ -88,7 +88,7 @@ extension SRGFv1 {
             name: String? = nil,
             rankType: String? = nil,
             count: String? = nil,
-            itemType: ItemType? = nil
+            itemType: String? = nil
         ) {
             self.gachaID = gachaID
             self.itemID = itemID
@@ -103,54 +103,12 @@ extension SRGFv1 {
 
         // MARK: Public
 
-        public enum ItemType: String, Codable, Hashable, CaseIterable, Sendable {
-            case lightCone = "Light Cone"
-            case character = "Character"
-
-            // MARK: Lifecycle
-
-            public init?(managedRawValue: String) {
-                switch managedRawValue {
-                case "lightCones": self = .lightCone
-                case "characters": self = .character
-                default: return nil
-                }
-            }
-
-            public init(from decoder: Decoder) throws {
-                let container = try decoder.singleValueContainer()
-                switch try container.decode(String.self) {
-                case "角色", "character", "Character", "characters", "Figur", "Karakter", "Nhân Vật", "Personagens",
-                     "Personajes", "Personnages",
-                     "Персонажи", "ตัวละคร", "캐릭터", "キャラクター": self = .character
-                case "光円錐", "光锥", "光錐", "武器", "Arma", "Arme", "cônes de lumière", "Cones de Luz",
-                     "Conos de luz", "Lichtkegel", "Light Cone", "light_cone", "light_cones",
-                     "lightcone", "lightCone", "lightcones", "lightCones", "Nón Ánh Sáng", "Senjata", "Vũ Khí", "Waffe",
-                     "weapon", "Weapon", "weapons", "Оружие", "Световые конусы", "อาวุธ", "광추", "무기": self = .lightCone
-                default: throw DecodingError.dataCorruptedError(
-                        in: container,
-                        debugDescription: "Cannot match the Field Raw Value for `item_type`."
-                    )
-                }
-            }
-
-            // MARK: Public
-
-            /// 穹披助手的 CoreData Managed Object 对这个 Enum 有着不同的 RawValue 定义。
-            public var asManagedObjectRawValue: String {
-                switch self {
-                case .lightCone: return "lightCones"
-                case .character: return "characters"
-                }
-            }
-        }
-
         public typealias GachaType = HBMihoyoAPI.GachaType
 
         public var gachaID, itemID, time, id: String
         public var gachaType: GachaType
         public var name, rankType, count: String?
-        public var itemType: ItemType?
+        public var itemType: String?
 
         // MARK: Internal
 
@@ -205,15 +163,10 @@ extension SRGFv1.DataEntry {
         timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
     )
         -> GachaEntry {
-        var name = name
-        if let itemType = itemType, let managedType = GachaItem.ItemType(
-            rawValue: itemType.asManagedObjectRawValue
-        ) {
-            name = GachaMetaManager.shared.getLocalizedName(
-                id: itemID, type: managedType,
-                langOverride: lang
-            ) ?? name
-        }
+        let newItemType = GachaItem.ItemType(itemID: itemID)
+        let name = GachaMetaManager.shared.getLocalizedName(
+            id: itemID, type: newItemType, langOverride: lang
+        ) ?? name
         let timeTyped: Date? = DateFormatter.forSRGFEntry(timeZoneDelta: timeZoneDelta).date(from: time)
         return .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
@@ -221,7 +174,7 @@ extension SRGFv1.DataEntry {
             gachaTypeRawValue: gachaType.rawValue,
             id: id,
             itemID: itemID,
-            itemTypeRawValue: (itemType ?? .character).asManagedObjectRawValue,
+            itemTypeRawValue: newItemType.rawValue, // 披萨助手有内部专用的 Item Type Raw Value。
             langRawValue: lang.rawValue,
             name: name ?? "#NAME:\(id)#",
             rankRawValue: rankType ?? "3",
@@ -238,11 +191,13 @@ extension GachaEntry {
         timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
     )
         -> SRGFv1.DataEntry {
-        var name = name
-        if let managedType = GachaItem.ItemType(rawValue: itemTypeRawValue) {
-            name = GachaMetaManager.shared
-                .getLocalizedName(id: itemID, type: managedType, langOverride: langOverride) ?? name
-        }
+        let langOverride = langOverride ?? Locale.gachaLangauge
+        let newItemType = GachaItem.ItemType(itemID: itemID)
+        let name = GachaMetaManager.shared.getLocalizedName(
+            id: itemID, type: newItemType, langOverride: langOverride
+        ) ?? name
+        // 每次导出 SRGF 资料时，都根据当前语言来重新生成 `item_type` 资料值。
+        let itemTypeTranslated = newItemType.translatedRaw(for: langOverride)
         return .init(
             gachaID: gachaID,
             itemID: itemID,
@@ -252,7 +207,7 @@ extension GachaEntry {
             name: name,
             rankType: rankRawValue,
             count: count.description, // Default is 1.
-            itemType: .init(managedRawValue: itemTypeRawValue)
+            itemType: itemTypeTranslated
         )
     }
 }
