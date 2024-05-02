@@ -117,6 +117,20 @@ extension SRGFv1 {
                 }
             }
 
+            public init(from decoder: Decoder) throws {
+                let container = try decoder.singleValueContainer()
+                switch try container.decode(String.self) {
+                case "角色", "Character", "Figur", "Karakter", "Nhân Vật", "Personagens", "Personajes", "Personnages",
+                     "Персонажи", "ตัวละคร", "캐릭터", "キャラクター": self = .character
+                case "光円錐", "光锥", "光錐", "cônes de lumière", "Cones de Luz", "Conos de luz", "Lichtkegel", "Light Cone",
+                     "Nón Ánh Sáng", "Световые конусы", "광추": self = .lightCone
+                default: throw DecodingError.dataCorruptedError(
+                        in: container,
+                        debugDescription: "Cannot match the Field Raw Value for `item_type`."
+                    )
+                }
+            }
+
             // MARK: Public
 
             /// 穹披助手的 CoreData Managed Object 对这个 Enum 有着不同的 RawValue 定义。
