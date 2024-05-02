@@ -120,10 +120,13 @@ extension SRGFv1 {
             public init(from decoder: Decoder) throws {
                 let container = try decoder.singleValueContainer()
                 switch try container.decode(String.self) {
-                case "角色", "Character", "Figur", "Karakter", "Nhân Vật", "Personagens", "Personajes", "Personnages",
+                case "角色", "character", "Character", "characters", "Figur", "Karakter", "Nhân Vật", "Personagens",
+                     "Personajes", "Personnages",
                      "Персонажи", "ตัวละคร", "캐릭터", "キャラクター": self = .character
-                case "光円錐", "光锥", "光錐", "cônes de lumière", "Cones de Luz", "Conos de luz", "Lichtkegel", "Light Cone",
-                     "Nón Ánh Sáng", "Световые конусы", "광추": self = .lightCone
+                case "光円錐", "光锥", "光錐", "武器", "武器", "武器", "Arma", "Arma", "Arme", "cônes de lumière", "Cones de Luz",
+                     "Conos de luz", "Lichtkegel", "Light Cone", "light_cone", "light_cones",
+                     "lightcone", "lightCone", "lightcones", "lightCones", "Nón Ánh Sáng", "Senjata", "Vũ Khí", "Waffe",
+                     "weapon", "Weapon", "weapons", "Оружие", "Световые конусы", "อาวุธ", "광추", "무기": self = .lightCone
                 default: throw DecodingError.dataCorruptedError(
                         in: container,
                         debugDescription: "Cannot match the Field Raw Value for `item_type`."
