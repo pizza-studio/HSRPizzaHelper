@@ -197,3 +197,7 @@ extension EnkaHSR.QueryRelated {
         case dataInvalid
     }
 }
+
+extension Bundle {
+    public static let enkaHSR = Bundle.module
+}
