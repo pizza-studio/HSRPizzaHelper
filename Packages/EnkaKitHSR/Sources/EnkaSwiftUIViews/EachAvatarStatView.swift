@@ -181,28 +181,32 @@ extension EnkaHSR.AvatarSummarized {
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     @ViewBuilder
     public func avatarPhoto(size: CGFloat, circleClipped: Bool = true) -> some View {
-        let result = ResIcon(photoFilePath) {
-            $0.resizable()
-        } placeholder: {
-            AnyView(Color.clear)
-        }
-        .aspectRatio(contentMode: .fit)
-        .scaleEffect(1.5, anchor: .top)
-        .scaleEffect(1.4)
-        .frame(maxWidth: size, maxHeight: size)
-        // Draw.
-        let bgColor = Color.black.opacity(0.165)
-        Group {
-            if circleClipped {
-                result
-                    .background { bgColor }
-                    .clipShape(Circle())
-                    .contentShape(Circle())
-            } else {
-                result
-                    .background { bgColor }
-                    .clipShape(Rectangle())
-                    .contentShape(Rectangle())
+        if let idPhotoView = IDPhotoView(pid: uniqueCharId.description, size, .cutShoulder) {
+            idPhotoView
+        } else {
+            let result = ResIcon(photoFilePath) {
+                $0.resizable()
+            } placeholder: {
+                AnyView(Color.clear)
+            }
+            .aspectRatio(contentMode: .fit)
+            .scaleEffect(1.5, anchor: .top)
+            .scaleEffect(1.4)
+            .frame(maxWidth: size, maxHeight: size)
+            // Draw.
+            let bgColor = Color.black.opacity(0.165)
+            Group {
+                if circleClipped {
+                    result
+                        .background { bgColor }
+                        .clipShape(Circle())
+                        .contentShape(Circle())
+                } else {
+                    result
+                        .background { bgColor }
+                        .clipShape(Rectangle())
+                        .contentShape(Rectangle())
+                }
             }
         }
     }
@@ -210,20 +214,24 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     /// 显示角色的扑克牌尺寸肖像，以身份证素材裁切而成。
     @ViewBuilder
     public func cardIcon(size: CGFloat) -> some View {
-        ResIcon(photoFilePath) {
-            $0.resizable()
-        } placeholder: {
-            AnyView(Color.clear)
+        if let idPhotoView = IDPhotoView(pid: uniqueCharId.description, size, .asCard) {
+            idPhotoView
+        } else {
+            ResIcon(photoFilePath) {
+                $0.resizable()
+            } placeholder: {
+                AnyView(Color.clear)
+            }
+            .aspectRatio(contentMode: .fit)
+            .scaleEffect(1.5, anchor: .top)
+            .scaleEffect(1.4)
+            .frame(width: size * 0.74, height: size)
+            .background {
+                Color.black.opacity(0.165)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: size / 10))
+            .contentShape(RoundedRectangle(cornerRadius: size / 10))
         }
-        .aspectRatio(contentMode: .fit)
-        .scaleEffect(1.5, anchor: .top)
-        .scaleEffect(1.4)
-        .frame(width: size * 0.74, height: size)
-        .background {
-            Color.black.opacity(0.165)
-        }
-        .clipShape(RoundedRectangle(cornerRadius: size / 10))
-        .contentShape(RoundedRectangle(cornerRadius: size / 10))
     }
 
     @ViewBuilder
