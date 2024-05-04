@@ -48,3 +48,7 @@ Before contributing, read [CONTRIBUTING](CONTRIBUTING.md).
 ## License
 
 Source code in this repository is made available under the [GPL-3.0 license](LICENSE)
+
+## Disclaimer
+
+- The Genshin-style character ID photos are **NOT from leaked character design assets from Hoyoverse / Cognosphere / Mihoyo**. Instead, these assets are rendered (by someone else) using their official MikuMikuDance models released by MiHoYo.
