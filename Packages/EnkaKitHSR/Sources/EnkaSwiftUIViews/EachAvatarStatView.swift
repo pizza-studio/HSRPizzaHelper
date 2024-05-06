@@ -372,7 +372,7 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel {
             }
             .frame(maxWidth: fontSize * 4.46)
             .corneredTag(
-                verbatim: "Lv.\(trainedLevel) ★\(rarityStars)",
+                verbatim: "Lv.\(trainedLevel) ★\(rarityStars) ❖\(refinement)",
                 alignment: .bottom, textSize: fontSize * 0.8
             )
             VStack(alignment: .leading, spacing: 2) {
