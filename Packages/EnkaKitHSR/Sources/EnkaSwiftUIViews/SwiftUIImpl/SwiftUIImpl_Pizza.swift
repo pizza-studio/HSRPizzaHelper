@@ -2,6 +2,7 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Defaults
 import EnkaKitHSR
 import Foundation
 import SwiftUI
@@ -63,6 +64,7 @@ public struct IDPhotoView: View {
         _ type: IconType,
         imageHandler: ((Image) -> Image)? = nil
     ) {
+        guard Defaults[.useGenshinStyleCharacterPhotos] else { return nil }
         guard let ref = EnkaHSR.queryImageAsset(for: "idp\(pid)") else { return nil }
         self.pid = pid
         self.size = size

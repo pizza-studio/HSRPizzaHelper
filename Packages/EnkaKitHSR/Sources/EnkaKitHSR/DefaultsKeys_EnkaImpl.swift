@@ -42,6 +42,11 @@ extension Defaults.Keys {
         default: true,
         suite: .enkaSuite
     )
+    public static let useGenshinStyleCharacterPhotos = Key<Bool>(
+        "useGenshinStyleCharacterPhotos",
+        default: true,
+        suite: .enkaSuite
+    )
 }
 #endif
 
