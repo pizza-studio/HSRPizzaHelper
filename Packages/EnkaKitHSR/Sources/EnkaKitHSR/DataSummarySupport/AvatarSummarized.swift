@@ -39,8 +39,8 @@ extension EnkaHSR.AvatarSummarized {
             self.uniqueCharId = charId
             self.element = theCommonInfo.element
             self.lifePath = theCommonInfo.avatarBaseType
-            let charNameHash = theCommonInfo.avatarName.hash.description
-            self.localizedName = theDB.locTable[charNameHash] ?? "EnkaId: \(charId)"
+            let nameTyped = EnkaHSR.CharacterName(pid: charId)
+            self.localizedName = nameTyped.i18n(theDB: theDB)
             self.levelName = levelName
             self.constellationName = constellationName
         }
