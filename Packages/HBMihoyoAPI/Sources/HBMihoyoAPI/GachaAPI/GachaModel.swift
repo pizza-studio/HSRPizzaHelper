@@ -95,9 +95,17 @@ public struct GachaResult: DecodableFromMiHoYoAPIJSONResult {
     }
 }
 
+// MARK: - GachaItemProtocol
+
+public protocol GachaItemProtocol {
+    var itemType: GachaItem.ItemType { get }
+    var itemID: String { get }
+    var rank: GachaItem.Rank { get }
+}
+
 // MARK: - GachaItem
 
-public struct GachaItem: Codable {
+public struct GachaItem: Codable, GachaItemProtocol {
     // MARK: Lifecycle
 
     public init(from decoder: Decoder) throws {

@@ -10,9 +10,19 @@ import HBMihoyoAPI
 import SRGFKit
 import UIKit
 
-extension GachaItem {
+extension GachaItemProtocol {
     var localizedName: String {
-        GachaMetaManager.shared.getLocalizedName(id: itemID, type: itemType) ?? name
+        let initialValue = GachaMetaManager.shared.getLocalizedName(id: itemID, type: itemType)
+        let secondaryValue: String? = {
+            if let this = self as? GachaItemMO {
+                return this.name
+            }
+            if let this = self as? GachaItem {
+                return this.name
+            }
+            return nil
+        }()
+        return initialValue ?? secondaryValue ?? "MissingName: \(itemID)"
     }
 
     var icon: UIImage? {

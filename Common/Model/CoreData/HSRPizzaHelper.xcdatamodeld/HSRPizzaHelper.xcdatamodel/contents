@@ -15,7 +15,7 @@
         <attribute name="gachaID" optional="YES" attributeType="String"/>
         <attribute name="gachaTypeRawValue" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="itemID" optional="YES" attributeType="String"/>
+        <attribute name="itemID" attributeType="String" defaultValueString=""/>
         <attribute name="itemTypeRawValue" optional="YES" attributeType="String"/>
         <attribute name="langRawValue" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>

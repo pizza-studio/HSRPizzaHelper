@@ -5,6 +5,7 @@
 //  Created by 戴藏龙 on 2023/8/11.
 //
 
+import EnkaSwiftUIViews
 import HBMihoyoAPI
 import SwiftUI
 
@@ -157,7 +158,7 @@ private struct GachaItemBar: View {
 
     var body: some View {
         HStack {
-            ItemIcon(item: item)
+            GachaItemIcon(item: item)
             HStack {
                 Text(item.localizedName)
                 Spacer()
@@ -185,33 +186,6 @@ private struct GachaItemBar: View {
 
     // MARK: Private
 }
-
-// MARK: - ItemIcon
-
-private struct ItemIcon: View {
-    let item: GachaItemMO
-
-    var body: some View {
-        Group {
-            if let uiImage = item.icon {
-                Image(uiImage: uiImage).resizable().scaledToFit()
-            } else {
-                Image(systemSymbol: .questionmarkCircle).resizable().scaledToFit()
-            }
-        }
-        .background {
-            Image(item.rank.backgroundKey)
-                .scaledToFit()
-                .scaleEffect(1.5)
-                .offset(y: 3)
-        }
-        .clipShape(Circle())
-        .contentShape(Circle())
-        .frame(width: 35, height: 35)
-    }
-}
-
-// MARK: - ItemIcon
 
 private var dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()

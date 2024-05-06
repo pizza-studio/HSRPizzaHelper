@@ -142,7 +142,7 @@ private struct GachaSmallChart: View {
                         if let id = value.as(String.self),
                            let item = fiveStarItems
                            .first(where: { $0.0.id == id })?.0 {
-                            ItemIcon(item: item)
+                            GachaItemIcon(item: item)
                         } else {
                             EmptyView()
                         }
@@ -165,31 +165,6 @@ private struct GachaSmallChart: View {
     // MARK: Private
 
     @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
-}
-
-// MARK: - ItemIcon
-
-private struct ItemIcon: View {
-    let item: GachaItemMO
-
-    var body: some View {
-        Group {
-            if let uiImage = item.icon {
-                Image(uiImage: uiImage).resizable().scaledToFit()
-            } else {
-                Image(systemSymbol: .questionmarkCircle).resizable().scaledToFit()
-            }
-        }
-        .background {
-            Image(item.rank.backgroundKey)
-                .scaledToFit()
-                .scaleEffect(1.5)
-                .offset(y: 3)
-        }
-        .clipShape(Circle())
-        .contentShape(Circle())
-        .frame(width: 35, height: 35)
-    }
 }
 
 // MARK: - GachaStatisticSectionView

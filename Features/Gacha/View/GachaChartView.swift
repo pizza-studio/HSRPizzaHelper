@@ -8,6 +8,7 @@
 import Charts
 import Defaults
 import DefaultsKeys
+import EnkaSwiftUIViews
 import HBMihoyoAPI
 import SwiftUI
 
@@ -162,7 +163,7 @@ private struct GachaItemChart: View {
                     if let id = value.as(String.self),
                        let item = items
                        .first(where: { $0.0.id == id })?.0 {
-                        ItemIcon(item: item)
+                        GachaItemIcon(item: item, size: 45)
                     } else {
                         EmptyView()
                     }
@@ -230,30 +231,5 @@ extension Collection {
         stride(from: 0, to: count, by: size).map {
             Array(self[$0 ..< Swift.min($0 + size, self.count)])
         }
-    }
-}
-
-// MARK: - ItemIcon
-
-private struct ItemIcon: View {
-    let item: GachaItemMO
-
-    var body: some View {
-        Group {
-            if let uiImage = item.icon {
-                Image(uiImage: uiImage).resizable().scaledToFit()
-            } else {
-                Image(systemSymbol: .questionmarkCircle).resizable().scaledToFit()
-            }
-        }
-        .background {
-            Image(item.rank.backgroundKey)
-                .scaledToFit()
-                .scaleEffect(1.5)
-                .offset(y: 3)
-        }
-        .clipShape(Circle())
-        .contentShape(Circle())
-        .frame(width: 35, height: 35)
     }
 }

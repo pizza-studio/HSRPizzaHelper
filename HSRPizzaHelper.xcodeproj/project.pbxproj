@@ -17,6 +17,7 @@
 		5B28F9042BDE5045004B271E /* LocaleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F9032BDE5045004B271E /* LocaleImpl.swift */; };
 		5B499B322BDBB918004919F5 /* SRGFKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5B499B312BDBB918004919F5 /* SRGFKit */; };
 		5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */; };
+		5B55DD1E2BE9004800CEFDE0 /* GachaItemIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */; };
 		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
 		5B6162AC2BD4E0A200662F5A /* EnkaHSRImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */; };
 		5B7990312BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */; };
@@ -333,6 +334,7 @@
 		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
 		5B499B302BDBB8FC004919F5 /* SRGFKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SRGFKit; path = Packages/SRGFKit; sourceTree = "<group>"; };
 		5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
+		5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaItemIcon.swift; sourceTree = "<group>"; };
 		5B5D9BC62BCFF50B0085E728 /* other_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = other_meta; sourceTree = "<group>"; };
 		5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnkaHSRImpl.swift; sourceTree = "<group>"; };
 		5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig_SwiftUIImpl.swift; sourceTree = "<group>"; };
@@ -991,6 +993,7 @@
 				EA8D287D2A86012000B47869 /* AccountGachaDetailView.swift */,
 				EA8D287F2A8601B600B47869 /* AccountGachaView.swift */,
 				EA8D28812A86182E00B47869 /* GachaChartView.swift */,
+				5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1655,6 +1658,7 @@
 				BFBA361C2A1749AE00E0142A /* GlobalDonateView.swift in Sources */,
 				EA80CFE82A0E983C00002B53 /* InlineNavigationTitle.swift in Sources */,
 				EA3BDCA12A83A98A001C3C6C /* GachaItemMO+CoreDataProperties.swift in Sources */,
+				5B55DD1E2BE9004800CEFDE0 /* GachaItemIcon.swift in Sources */,
 				EA120C3E2A8396620069BE1D /* GetGachaRecordView.swift in Sources */,
 				EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */,
 				EA8D287E2A86012000B47869 /* AccountGachaDetailView.swift in Sources */,

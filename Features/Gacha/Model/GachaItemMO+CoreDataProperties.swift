@@ -12,7 +12,9 @@ import HBMihoyoAPI
 import SRGFKit
 import UIKit
 
-extension GachaItemMO {
+// MARK: - GachaItemMO + GachaItemProtocol
+
+extension GachaItemMO: GachaItemProtocol {
     @nonobjc
     public class func fetchRequest() -> NSFetchRequest<GachaItemMO> {
         NSFetchRequest<GachaItemMO>(entityName: "GachaItemMO")
@@ -22,7 +24,7 @@ extension GachaItemMO {
     @NSManaged public var gachaID: String!
     @NSManaged public var gachaTypeRawValue: String!
     @NSManaged public var id: String!
-    @NSManaged public var itemID: String!
+    @NSManaged public var itemID: String
     @NSManaged public var itemTypeRawValue: String!
     @NSManaged public var langRawValue: String!
     @NSManaged public var name: String!
@@ -39,7 +41,7 @@ extension GachaItemMO {
         }
     }
 
-    var itemType: GachaItem.ItemType {
+    public var itemType: GachaItem.ItemType {
         get {
             .init(rawValue: itemTypeRawValue)!
         } set {
@@ -47,7 +49,7 @@ extension GachaItemMO {
         }
     }
 
-    var rank: GachaItem.Rank {
+    public var rank: GachaItem.Rank {
         get {
             .init(rawValue: rankRawValue)!
         } set {

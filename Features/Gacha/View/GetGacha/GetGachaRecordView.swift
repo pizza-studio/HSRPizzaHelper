@@ -6,6 +6,7 @@
 //
 
 import Charts
+import EnkaSwiftUIViews
 import Foundation
 import HBMihoyoAPI
 import SwiftUI
@@ -198,7 +199,7 @@ private struct GachaItemBar: View {
 
     var body: some View {
         HStack {
-            ItemIcon(item: item)
+            GachaItemIcon(item: item)
             HStack {
                 Text(item.localizedName)
                 Spacer()
@@ -265,31 +266,6 @@ struct FinishedView: View {
                 )
             }
         }
-    }
-}
-
-// MARK: - ItemIcon
-
-private struct ItemIcon: View {
-    let item: GachaItem
-
-    var body: some View {
-        Group {
-            if let uiImage = item.icon {
-                Image(uiImage: uiImage).resizable().scaledToFit()
-            } else {
-                Image(systemSymbol: .questionmarkCircle).resizable().scaledToFit()
-            }
-        }
-        .background {
-            Image(item.rank.backgroundKey)
-                .scaledToFit()
-                .scaleEffect(1.5)
-                .offset(y: 3)
-        }
-        .clipShape(Circle())
-        .contentShape(Circle())
-        .frame(width: 35, height: 35)
     }
 }
 
