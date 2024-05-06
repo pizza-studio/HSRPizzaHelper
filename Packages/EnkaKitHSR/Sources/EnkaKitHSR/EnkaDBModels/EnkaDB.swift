@@ -101,6 +101,10 @@ extension EnkaHSR {
             "ja", "id", "fr", "es", "de", "zh-tw", "zh-cn",
         ]
 
+        public static var currentLangTag: String {
+            Locale.langCodeForEnkaAPI
+        }
+
         public var langTag: String {
             didSet {
                 objectWillChange.send()

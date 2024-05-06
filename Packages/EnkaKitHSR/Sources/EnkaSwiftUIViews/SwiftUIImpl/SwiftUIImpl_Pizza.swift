@@ -65,7 +65,7 @@ public struct IDPhotoView: View {
         imageHandler: ((Image) -> Image)? = nil
     ) {
         guard Defaults[.useGenshinStyleCharacterPhotos] else { return nil }
-        self.pid = Self.convertPIDForProtagonist(pid)
+        self.pid = EnkaHSR.CharacterName.convertPIDForProtagonist(pid)
         guard let ref = EnkaHSR.queryImageAsset(for: "idp\(self.pid)") else { return nil }
         self.size = size
         self.cgImageRef = ref
@@ -182,15 +182,6 @@ public struct IDPhotoView: View {
     private let imageHandler: (Image) -> Image
     private let size: CGFloat
     private let iconType: IconType
-
-    private static func convertPIDForProtagonist(_ pid: String) -> String {
-        guard pid.count == 4, let first = pid.first, first == "8" else { return pid }
-        guard let last = pid.last?.description, var lastDigi = Int(last) else { return pid }
-        guard lastDigi >= 1 else { return pid }
-        lastDigi = lastDigi % 2
-        if lastDigi == 0 { lastDigi += 2 }
-        return String(pid.dropLast()) + lastDigi.description
-    }
 }
 
 // MARK: - HelpTextForScrollingOnDesktopComputer
