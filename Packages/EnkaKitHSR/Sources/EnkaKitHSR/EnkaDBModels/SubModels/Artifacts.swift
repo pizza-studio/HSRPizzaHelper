@@ -19,6 +19,20 @@ extension EnkaHSR.DBModels {
             case object = "NECK" // MiHoYo's mistake, not ours.
             case neck = "OBJECT" // MiHoYo's mistake, not ours.
 
+            // MARK: Lifecycle
+
+            public init?(typeId: Int) {
+                switch typeId {
+                case 1: self = .head
+                case 2: self = .hand
+                case 3: self = .body
+                case 4: self = .foot
+                case 5: self = .object
+                case 6: self = .neck
+                default: return nil
+                }
+            }
+
             // MARK: Public
 
             public var id: String { rawValue }

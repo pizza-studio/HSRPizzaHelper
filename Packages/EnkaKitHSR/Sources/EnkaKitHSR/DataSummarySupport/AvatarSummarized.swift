@@ -330,8 +330,12 @@ extension EnkaHSR.AvatarSummarized {
             return result
         }
 
+        public var type: EnkaHSR.DBModels.Artifact.ArtifactType {
+            .init(typeId: paramDataFetched.type) ?? commonInfo.type
+        }
+
         public var iconFileName: String {
-            "\(commonInfo.setID)_\(commonInfo.type.assetSuffix).png"
+            "\(commonInfo.setID)_\(type.assetSuffix).png"
         }
 
         public var iconFilePath: String {
