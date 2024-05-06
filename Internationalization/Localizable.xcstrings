@@ -11306,6 +11306,34 @@
         }
       }
     },
+    "setting.uirelated.useGenshinStyleCharacterPhotos.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This might not be appliable to certain occasions. Also, a disclaimer: The Genshin-style character ID photos are **NOT from leaked character design assets from Hoyoverse / Cognosphere / MiHoYo**. Instead, these assets are rendered using [the MikuMikuDance models released by MiHoYo in public](https://www.hoyolab.com/article/17994319)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "効かぬ場所はございます。なお：弊アプリで使用していた「原神のキャラ写真スタイルに基づいたキャラ写真」素材は、**情報漏洩者からの素材でなく**、「[MiHoYo公式提供したミクミクダンス用モデル](https://www.hoyolab.com/article/17994319)」を使って作ったものである。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "该功能可能在某些场合下无法起作用。另附免责声明：这套原神风格的角色证件照**并非出自内鬼泄漏的角色人设图稿**，而是利用[米哈游官方放出的 MMD 模型](https://www.hoyolab.com/article/17994319)渲染而成。\n"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "該功能可能在某些場合下無法起作用。另附免責聲明：這套原神風格的角色證件照**並非出自內鬼洩漏的角色人設圖稿**，而是利用[米哈遊官方放出的 MMD 模型](https://www.hoyolab.com/article/17994319)渲染而成。"
+          }
+        }
+      }
+    },
     "setting.uirelated.useguestgachaevaluator" : {
       "localizations" : {
         "en" : {

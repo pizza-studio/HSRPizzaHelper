@@ -33,8 +33,22 @@ struct DisplayOptionsView: View {
                 Toggle(isOn: $animateOnCallingCharacterShowcase) {
                     Text("setting.uirelated.showCase.animateOnCallingCharacterShowcase.title")
                 }
+            }
+
+            Section {
                 Toggle(isOn: $useGenshinStyleCharacterPhotos) {
                     Text("setting.uirelated.useGenshinStyleCharacterPhotos")
+                }
+            } footer: {
+                let raw =
+                    LocalizedStringResource(
+                        stringLiteral: "setting.uirelated.useGenshinStyleCharacterPhotos.description"
+                    )
+                let attrStr = try? AttributedString(markdown: String(localized: raw))
+                if let attrStr = attrStr {
+                    Text(attrStr)
+                } else {
+                    Text(raw)
                 }
             }
         }
