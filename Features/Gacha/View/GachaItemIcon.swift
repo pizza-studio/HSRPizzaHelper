@@ -2,6 +2,7 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Defaults
 import EnkaSwiftUIViews
 import HBMihoyoAPI
 import SwiftUI
@@ -18,7 +19,9 @@ public struct GachaItemIcon: View {
 
     public var body: some View {
         Group {
-            if item.itemType == .characters, let iconView = IDPhotoView(pid: item.itemID, size, .cutHead) {
+            if useGenshinStyleCharacterPhotos,
+               item.itemType == .characters,
+               let iconView = IDPhotoView(pid: item.itemID, size, .cutHead) {
                 iconView
             } else if let uiImage = item.icon {
                 Image(uiImage: uiImage).resizable().scaledToFit()
@@ -41,4 +44,6 @@ public struct GachaItemIcon: View {
 
     private let item: GachaItemProtocol
     private let size: CGFloat
+
+    @Default(.useGenshinStyleCharacterPhotos) private var useGenshinStyleCharacterPhotos: Bool
 }
