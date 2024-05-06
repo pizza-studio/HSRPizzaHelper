@@ -255,7 +255,7 @@ extension EnkaHSR.AvatarSummarized {
 
         // MARK: Public
 
-        /// Unique Artifact ID, defining its Rarity, Set Suite, and Body Part.
+        /// Unique Weapon ID.
         public let enkaId: Int
         /// Common information fetched from EnkaDB.
         public let commonInfo: EnkaHSR.DBModels.Weapon
