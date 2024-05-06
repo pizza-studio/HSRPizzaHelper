@@ -50,7 +50,11 @@ public struct ShowCaseListView: View {
                                 let intel = avatar.mainInfo
                                 let strLevel = "\(intel.levelName): \(intel.avatarLevel)"
                                 let strEL = "\(intel.constellationName): \(intel.constellation)"
-                                intel.avatarPhoto(size: ceil(Font.baseFontSize * 3), circleClipped: true)
+                                intel.avatarPhoto(
+                                    size: ceil(Font.baseFontSize * 3),
+                                    circleClipped: true,
+                                    clipToHead: true
+                                )
                                 VStack(alignment: .leading) {
                                     Text(verbatim: intel.localizedName).font(.headline).fontWeight(.bold)
                                     HStack {

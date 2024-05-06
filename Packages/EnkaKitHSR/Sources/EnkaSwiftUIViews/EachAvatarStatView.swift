@@ -180,8 +180,9 @@ extension EnkaHSR.AvatarSummarized {
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     @ViewBuilder
-    public func avatarPhoto(size: CGFloat, circleClipped: Bool = true) -> some View {
-        if let idPhotoView = IDPhotoView(pid: uniqueCharId.description, size, .cutShoulder) {
+    public func avatarPhoto(size: CGFloat, circleClipped: Bool = true, clipToHead: Bool = false) -> some View {
+        let cutType: IDPhotoView.IconType = clipToHead ? .cutHead : .cutShoulder
+        if let idPhotoView = IDPhotoView(pid: uniqueCharId.description, size, cutType) {
             idPhotoView
         } else {
             let result = ResIcon(photoFilePath) {
