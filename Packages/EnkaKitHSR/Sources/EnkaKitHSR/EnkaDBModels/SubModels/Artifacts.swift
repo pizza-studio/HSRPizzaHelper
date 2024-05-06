@@ -10,13 +10,14 @@ extension EnkaHSR.DBModels {
     public struct Artifact: Codable, Hashable {
         // MARK: Public
 
+        // It looks insane but HSR internal database messed up the raw values of "object' and "neck".
         public enum ArtifactType: String, Codable, Hashable, CaseIterable, Identifiable {
             case head = "HEAD"
             case hand = "HAND"
             case body = "BODY"
             case foot = "FOOT"
-            case object = "OBJECT"
-            case neck = "NECK"
+            case object = "NECK" // MiHoYo's mistake, not ours.
+            case neck = "OBJECT" // MiHoYo's mistake, not ours.
 
             // MARK: Public
 
