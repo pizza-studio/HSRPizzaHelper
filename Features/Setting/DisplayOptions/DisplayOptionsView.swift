@@ -33,6 +33,9 @@ struct DisplayOptionsView: View {
                 Toggle(isOn: $animateOnCallingCharacterShowcase) {
                     Text("setting.uirelated.showCase.animateOnCallingCharacterShowcase.title")
                 }
+                Toggle(isOn: $useGenshinStyleCharacterPhotos) {
+                    Text("setting.uirelated.useGenshinStyleCharacterPhotos")
+                }
             }
         }
     }
@@ -41,4 +44,5 @@ struct DisplayOptionsView: View {
 
     @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator
     @Default(.animateOnCallingCharacterShowcase) private var animateOnCallingCharacterShowcase: Bool
+    @Default(.useGenshinStyleCharacterPhotos) private var useGenshinStyleCharacterPhotos: Bool
 }

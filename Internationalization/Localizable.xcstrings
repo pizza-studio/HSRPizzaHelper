@@ -11278,6 +11278,34 @@
         }
       }
     },
+    "setting.uirelated.useGenshinStyleCharacterPhotos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Genshin-style Character Photos"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原神のキャラ写真スタイルを起用"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用与原神风格一致的角色肖像"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用與原神風格一致的角色肖像"
+          }
+        }
+      }
+    },
     "setting.uirelated.useguestgachaevaluator" : {
       "localizations" : {
         "en" : {
