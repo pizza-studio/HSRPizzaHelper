@@ -8,6 +8,7 @@
 import Defaults
 import DefaultsKeys
 import EnkaKitHSR
+import EnkaSwiftUIViews
 import SwiftUI
 
 struct DisplayOptionsView: View {
@@ -18,6 +19,19 @@ struct DisplayOptionsView: View {
             mainView()
         }
         .inlineNavigationTitle("setting.uirelated.title")
+    }
+
+    @ViewBuilder var disclaimerView: some View {
+        let raw =
+            LocalizedStringResource(
+                stringLiteral: "setting.uirelated.useGenshinStyleCharacterPhotos.description"
+            )
+        let attrStr = try? AttributedString(markdown: String(localized: raw))
+        if let attrStr = attrStr {
+            Text(attrStr)
+        } else {
+            Text(raw)
+        }
     }
 
     @ViewBuilder
@@ -39,24 +53,37 @@ struct DisplayOptionsView: View {
                 Toggle(isOn: $useGenshinStyleCharacterPhotos) {
                     Text("setting.uirelated.useGenshinStyleCharacterPhotos")
                 }
-            } footer: {
-                let raw =
-                    LocalizedStringResource(
-                        stringLiteral: "setting.uirelated.useGenshinStyleCharacterPhotos.description"
-                    )
-                let attrStr = try? AttributedString(markdown: String(localized: raw))
-                if let attrStr = attrStr {
-                    Text(attrStr)
-                } else {
-                    Text(raw)
+                NavigationLink {
+                    List {
+                        Section {
+                            AllCharacterPhotoSpecimenView(columns: specimenColumns, scroll: false)
+                        } header: {
+                            disclaimerView
+                        }
+                    }
+                    .navigationTitle(specimentText)
+                } label: {
+                    Text(specimentText)
                 }
+            } footer: {
+                disclaimerView
             }
         }
     }
 
     // MARK: Private
 
+    private let specimentText = String(
+        localized: .init(stringLiteral: "detailPortal.AllCharacterPhotoSpecimen")
+    )
+
     @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator
     @Default(.animateOnCallingCharacterShowcase) private var animateOnCallingCharacterShowcase: Bool
     @Default(.useGenshinStyleCharacterPhotos) private var useGenshinStyleCharacterPhotos: Bool
+
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
+
+    private var specimenColumns: Int {
+        horizontalSizeClass == .compact ? 4 : 6
+    }
 }

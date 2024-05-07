@@ -140,29 +140,6 @@ struct DetailPortalView: View {
                         .onTapGesture { uidInputFieldFocus = false }
                 }
                 CaseQuerySection(theDB: vmDPV.enkaDB, focus: $uidInputFieldFocus)
-                if [.testFlight, .debug].contains(AppConfig.appConfiguration) {
-                    NavigationLink {
-                        List {
-                            Section {
-                                AllCharacterPhotoSpecimenView(scroll: false)
-                            } header: {
-                                let raw =
-                                    LocalizedStringResource(
-                                        stringLiteral: "setting.uirelated.useGenshinStyleCharacterPhotos.description"
-                                    )
-                                let attrStr = try? AttributedString(markdown: String(localized: raw))
-                                if let attrStr = attrStr {
-                                    Text(attrStr)
-                                } else {
-                                    Text(raw)
-                                }
-                            }
-                        }
-                        .navigationTitle(specimentText)
-                    } label: {
-                        Text(verbatim: "[DEBUG] " + specimentText)
-                    }
-                }
             }
             .navigationDestination(for: EnkaHSR.QueryRelated.DetailInfo.self) { result in
                 CaseQueryResultView(profile: result)
@@ -176,10 +153,7 @@ struct DetailPortalView: View {
 
     // MARK: Private
 
-    private let specimentText = String(localized: .init(stringLiteral: "detailPortal.AllCharacterPhotoSpecimen"))
-
     @FocusState private var uidInputFieldFocus: Bool
-
     @StateObject private var vmDPV: DetailPortalViewModel = .init()
 }
 
