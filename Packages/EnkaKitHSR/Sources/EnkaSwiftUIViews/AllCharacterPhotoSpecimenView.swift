@@ -2,11 +2,11 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
-#if DEBUG
-
 import EnkaKitHSR
 import Foundation
 import SwiftUI
+
+// MARK: - CharSpecimen
 
 public struct CharSpecimen: Identifiable, Hashable {
     public static var allSpecimens: [Self] {
@@ -40,11 +40,10 @@ public struct CharSpecimen: Identifiable, Hashable {
         cutType: IDPhotoView.IconType = .cutShoulder
     )
         -> some View {
-        let adaptiveColumn = [GridItem](repeating: GridItem(.adaptive(minimum: size)), count: columns)
-        let inner = LazyVGrid(columns: adaptiveColumn, spacing: 4) {
-            ForEach(allSpecimens, id: \.self) { specimen in
-                specimen.render(size: size, cutType: cutType)
-            }
+        let inner = StaggeredGrid(
+            columns: columns, outerPadding: false, scroll: scroll, list: Self.allSpecimens
+        ) { specimen in
+            specimen.render(size: size, cutType: cutType)
         }
         if scroll {
             ScrollView {
@@ -60,6 +59,8 @@ public struct CharSpecimen: Identifiable, Hashable {
     }
 }
 
+// MARK: - AllCharacterPhotoSpecimenView
+
 public struct AllCharacterPhotoSpecimenView: View {
     // MARK: Lifecycle
 
@@ -71,11 +72,13 @@ public struct AllCharacterPhotoSpecimenView: View {
     // MARK: Public
 
     public var body: some View {
-        GeometryReader { geometry in
-            coreBodyView.onAppear {
-                containerSize = geometry.size
-            }.onChange(of: geometry.size) { newSize in
-                containerSize = newSize
+        coreBodyView.overlay {
+            GeometryReader { geometry in
+                Color.clear.onAppear {
+                    containerSize = geometry.size
+                }.onChange(of: geometry.size) { newSize in
+                    containerSize = newSize
+                }
             }
         }
     }
@@ -86,14 +89,14 @@ public struct AllCharacterPhotoSpecimenView: View {
 
     @State var containerSize: CGSize = .init(width: 320, height: 320)
 
-    @State var columns: Int = 4
+    @State var columns: Int
 
-    @State var scroll: Bool = true
+    @State var scroll: Bool
 
     @ViewBuilder var coreBodyView: some View {
         CharSpecimen.renderAllSpecimen(
             scroll: scroll,
-            columns: 4,
+            columns: columns,
             size: containerSize.width / (1.2 * Double(columns)),
             cutType: .cutShoulder
         )
@@ -107,6 +110,8 @@ public struct AllCharacterPhotoSpecimenView: View {
     @StateObject private var orientation = DeviceOrientation()
 }
 
+#if DEBUG
+
 struct CharacterPhotoSpecimenView_Previews: PreviewProvider {
     static let frameSize: CGSize = {
         let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
@@ -118,10 +123,16 @@ struct CharacterPhotoSpecimenView_Previews: PreviewProvider {
 
     static var previews: some View {
         let size = frameSize
-        AllCharacterPhotoSpecimenView()
-            .overlay {
-                Text(size.width.description).foregroundStyle(.clear)
+        NavigationStack {
+            List {
+                Section {
+                    AllCharacterPhotoSpecimenView(scroll: false)
+                        .overlay {
+                            Text(size.width.description).foregroundStyle(.clear)
+                        }
+                }
             }
+        }
     }
 }
 
