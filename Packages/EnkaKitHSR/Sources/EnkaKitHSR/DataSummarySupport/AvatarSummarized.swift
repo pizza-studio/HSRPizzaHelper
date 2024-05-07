@@ -185,6 +185,7 @@ extension EnkaHSR.AvatarSummarized {
             title = title.replacingOccurrences(of: "属性", with: "元素")
             title = title.replacingOccurrences(of: "屬性", with: "元素")
             title = title.replacingOccurrences(of: "量子元素", with: "量子")
+            title = title.replacingOccurrences(of: "物理元素", with: "物理")
             title = title.replacingOccurrences(of: "虛數元素", with: "虛數")
             title = title.replacingOccurrences(of: "虚数元素", with: "虚数")
             title = title.replacingOccurrences(of: "提高", with: "加成")
