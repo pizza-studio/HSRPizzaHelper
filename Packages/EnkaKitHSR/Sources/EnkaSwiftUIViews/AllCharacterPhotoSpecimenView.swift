@@ -1,0 +1,128 @@
+// (c) 2023 and onwards Pizza Studio (GPL v3.0 License).
+// ====================
+// This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
+
+#if DEBUG
+
+import EnkaKitHSR
+import Foundation
+import SwiftUI
+
+public struct CharSpecimen: Identifiable, Hashable {
+    public static var allSpecimens: [Self] {
+        EnkaHSR.Sputnik.sharedDB.characters.keys.sorted().map { Self(id: $0) }
+    }
+
+    public let id: String
+
+    public static func putAllSecimensAsMatrix(lineCapacity: Int) -> [[Self]] {
+        let lineCapacity = Swift.max(1, lineCapacity)
+        guard lineCapacity > 1 else { return [allSpecimens] }
+        var outerContainer = [[Self]]()
+        var innerContainer = [Self]()
+        allSpecimens.forEach { specimen in
+            defer {
+                if innerContainer.count >= lineCapacity {
+                    outerContainer.append(innerContainer)
+                    innerContainer.removeAll()
+                }
+            }
+            innerContainer.append(specimen)
+        }
+        return outerContainer
+    }
+
+    @ViewBuilder
+    public static func renderAllSpecimen(
+        scroll: Bool,
+        columns: Int,
+        size: Double,
+        cutType: IDPhotoView.IconType = .cutShoulder
+    )
+        -> some View {
+        let adaptiveColumn = [GridItem](repeating: GridItem(.adaptive(minimum: size)), count: columns)
+        let inner = LazyVGrid(columns: adaptiveColumn, spacing: 4) {
+            ForEach(allSpecimens, id: \.self) { specimen in
+                specimen.render(size: size, cutType: cutType)
+            }
+        }
+        if scroll {
+            ScrollView {
+                inner.padding()
+            }
+        } else {
+            inner
+        }
+    }
+
+    public func render(size: Double, cutType: IDPhotoView.IconType = .cutShoulder) -> some View {
+        IDPhotoView(pid: id, size, cutType)
+    }
+}
+
+public struct AllCharacterPhotoSpecimenView: View {
+    // MARK: Lifecycle
+
+    public init(columns: Int = 4, scroll: Bool = true) {
+        self.columns = Swift.max(1, columns)
+        self.scroll = scroll
+    }
+
+    // MARK: Public
+
+    public var body: some View {
+        GeometryReader { geometry in
+            coreBodyView.onAppear {
+                containerSize = geometry.size
+            }.onChange(of: geometry.size) { newSize in
+                containerSize = newSize
+            }
+        }
+    }
+
+    // MARK: Internal
+
+    @Namespace var animation
+
+    @State var containerSize: CGSize = .init(width: 320, height: 320)
+
+    @State var columns: Int = 4
+
+    @State var scroll: Bool = true
+
+    @ViewBuilder var coreBodyView: some View {
+        CharSpecimen.renderAllSpecimen(
+            scroll: scroll,
+            columns: 4,
+            size: containerSize.width / (1.2 * Double(columns)),
+            cutType: .cutShoulder
+        )
+        .padding(.horizontal)
+        .animation(.easeInOut, value: columns)
+        .environmentObject(orientation)
+    }
+
+    // MARK: Private
+
+    @StateObject private var orientation = DeviceOrientation()
+}
+
+struct CharacterPhotoSpecimenView_Previews: PreviewProvider {
+    static let frameSize: CGSize = {
+        let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
+            separator: "/"
+        ).dropFirst()
+        EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
+        return .init(width: 320, height: 720)
+    }()
+
+    static var previews: some View {
+        let size = frameSize
+        AllCharacterPhotoSpecimenView()
+            .overlay {
+                Text(size.width.description).foregroundStyle(.clear)
+            }
+    }
+}
+
+#endif
