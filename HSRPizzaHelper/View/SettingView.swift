@@ -13,6 +13,8 @@ import SwiftUI
 // MARK: - SettingView
 
 struct SettingView: View {
+    // MARK: Internal
+
     var body: some View {
         NavigationView {
             List {
@@ -105,13 +107,17 @@ struct SettingView: View {
             .listStyle(.insetGrouped)
             .navigationTitle("settings.title")
             #if !os(watchOS)
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                ManageAccountsView()
+            if horizontalSizeClass != .compact {
+                DisplayOptionsView()
             }
             #endif
         }
         .navigationViewStyle(.columns)
     }
+
+    // MARK: Private
+
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
 }
 
 // MARK: - OtherSettingsView
