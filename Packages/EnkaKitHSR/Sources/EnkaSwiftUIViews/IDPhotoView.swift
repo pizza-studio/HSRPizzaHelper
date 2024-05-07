@@ -138,7 +138,7 @@ public struct IDPhotoView: View {
         var opacity: Double = 1
         switch lifePath {
         case .abundance: opacity = 0.4
-        case .hunt: opacity = 0.3
+        case .hunt: opacity = 0.35
         default: break
         }
         return EnkaHSR.Sputnik.sharedDB.characters[pid]?.element.themeColor.suiColor.opacity(opacity) ?? .clear
@@ -187,8 +187,8 @@ extension EnkaHSR.DBModels.Element {
         case .physico: return .init(red: 0.40, green: 0.40, blue: 0.40, alpha: 1.00)
         case .anemo: return .init(red: 0.00, green: 0.52, blue: 0.56, alpha: 1.00)
         case .electro: return .init(red: 0.54, green: 0.14, blue: 0.79, alpha: 1.00)
-        case .fantastico: return .init(red: 0.35, green: 0.35, blue: 0.00, alpha: 1.00)
-        case .posesto: return .init(red: 0.09, green: 0.00, blue: 0.63, alpha: 1.00)
+        case .fantastico: return .init(red: 1.00, green: 1.00, blue: 0.00, alpha: 1.00)
+        case .posesto: return .init(red: 0.00, green: 0.13, blue: 1.00, alpha: 1.00)
         case .pyro: return .init(red: 0.83, green: 0.00, blue: 0.00, alpha: 1.00)
         case .cryo: return .init(red: 0.00, green: 0.38, blue: 0.63, alpha: 1.00)
         }
