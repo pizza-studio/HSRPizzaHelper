@@ -70,10 +70,11 @@ extension EnkaHSR.CharacterName: CustomStringConvertible {
     }
 
     public func i18n(theDB: EnkaHSR.EnkaDB? = nil) -> String {
+        guard let theDB = theDB else { return description }
         switch self {
-        case .ofCaelus, .ofStelle: return description
+        case .ofCaelus: return Self.locTableCaelus[theDB.langTag] ?? "Caelus"
+        case .ofStelle: return Self.locTableStelle[theDB.langTag] ?? "Stelle"
         case let .isSomeoneElse(pid):
-            guard let theDB = theDB else { return description }
             guard let theCommonInfo = theDB.characters[rawValue] else { return description }
             let charNameHash = theCommonInfo.avatarName.hash.description
             return theDB.locTable[charNameHash] ?? "EnkaId: \(pid)"
