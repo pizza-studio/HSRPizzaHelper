@@ -3558,6 +3558,35 @@
     "Defaults - Sindre Sorhus\nhttps://github.com/sindresorhus/Defaults" : {
 
     },
+    "detailPortal.AllCharacterPhotoSpecimen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ID Photo Specimen for all characters"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "身分証明用写真一覧 (全キャラ)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全角色证件照样本"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全角色身分證件照樣本"
+          }
+        }
+      }
+    },
     "detailPortal.OtherCase.Title" : {
       "extractionState" : "manual",
       "localizations" : {
