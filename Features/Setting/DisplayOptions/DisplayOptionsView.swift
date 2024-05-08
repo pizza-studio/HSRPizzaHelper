@@ -84,6 +84,6 @@ struct DisplayOptionsView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
 
     private var specimenColumns: Int {
-        horizontalSizeClass == .compact ? 4 : 6
+        horizontalSizeClass == .compact ? 2 : 6
     }
 }
