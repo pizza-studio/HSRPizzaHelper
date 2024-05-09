@@ -7,13 +7,22 @@
 extension EnkaHSR {
     /// The backend struct dedicated for rendering EachAvatarStatView.
     public struct AvatarSummarized: Codable, Hashable, Identifiable {
+        // MARK: Public
+
         public let mainInfo: AvatarMainInfo
         public let equippedWeapon: WeaponPanel?
         public let avatarPropertiesA: [PropertyPair]
         public let avatarPropertiesB: [PropertyPair]
-        public let artifacts: [ArtifactInfo]
+        public private(set) var artifacts: [ArtifactInfo]
+        public var artifactRatingResult: ArtifactRating.ScoreResult?
 
-        public var id: Int { mainInfo.uniqueCharId }
+        public var id: Int { mainInfo.uniqueCharId } // 回头可能需要另外考虑。
+
+        // MARK: Internal
+
+        internal mutating func updateArtifacts(targetArray: @escaping ([ArtifactInfo]) -> [ArtifactInfo]) {
+            artifacts = targetArray(artifacts)
+        }
     }
 }
 
@@ -25,20 +34,20 @@ extension EnkaHSR.AvatarSummarized {
 
         public init?(
             theDB: EnkaHSR.EnkaDB,
-            charId: Int,
+            charID: Int,
             avatarLevel avatarLv: Int,
             constellation constellationLevel: Int,
             baseSkills baseSkillSet: BaseSkillSet,
             terms: EnkaHSR.EnkaDB.ExtraTerms
         ) {
-            guard let theCommonInfo = theDB.characters[charId.description] else { return nil }
+            guard let theCommonInfo = theDB.characters[charID.description] else { return nil }
             self.avatarLevel = avatarLv
             self.constellation = constellationLevel
             self.baseSkills = baseSkillSet
-            self.uniqueCharId = charId
+            self.uniqueCharId = charID
             self.element = theCommonInfo.element
             self.lifePath = theCommonInfo.avatarBaseType
-            let nameTyped = EnkaHSR.CharacterName(pid: charId)
+            let nameTyped = EnkaHSR.CharacterName(pid: charID)
             self.localizedName = nameTyped.i18n(theDB: theDB)
             self.terms = terms
         }
@@ -87,11 +96,11 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
             fetched: [EnkaHSR.QueryRelated.DetailInfo.SkillTreeItem]
         ) {
             guard fetched.count >= 4, let firstTreeItem = fetched.first else { return nil }
-            let charIdStr = firstTreeItem.pointId.description.prefix(4).description
+            let charIDStr = firstTreeItem.pointId.description.prefix(4).description
             var levelAdditionList = [String: Int]()
             if constellation > 1 {
                 for i in 1 ... constellation {
-                    let keyword = "\(charIdStr)0\(i)"
+                    let keyword = "\(charIDStr)0\(i)"
                     theDB.skillRanks[keyword]?.skillAddLevelList.forEach { thisPointId, levelDelta in
                         var writeKeyArr = thisPointId.map(\.description)
                         writeKeyArr.insert("0", at: 4)
@@ -101,22 +110,22 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
             }
 
             self.basicAttack = .init(
-                charIdStr: charIdStr, baseLevel: fetched[0].level,
+                charIDStr: charIDStr, baseLevel: fetched[0].level,
                 levelAddition: levelAdditionList[fetched[0].pointId.description],
                 type: .basicAttack
             )
             self.elementalSkill = .init(
-                charIdStr: charIdStr, baseLevel: fetched[1].level,
+                charIDStr: charIDStr, baseLevel: fetched[1].level,
                 levelAddition: levelAdditionList[fetched[1].pointId.description],
                 type: .elementalSkill
             )
             self.elementalBurst = .init(
-                charIdStr: charIdStr, baseLevel: fetched[2].level,
+                charIDStr: charIDStr, baseLevel: fetched[2].level,
                 levelAddition: levelAdditionList[fetched[2].pointId.description],
                 type: .elementalBurst
             )
             self.talent = .init(
-                charIdStr: charIdStr, baseLevel: fetched[3].level,
+                charIDStr: charIDStr, baseLevel: fetched[3].level,
                 levelAddition: levelAdditionList[fetched[3].pointId.description],
                 type: .talent
             )
@@ -132,14 +141,14 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                 case talent
             }
 
-            public let charIdStr: String
+            public let charIDStr: String
             /// Base skill level with amplification by constellations.
             public let baseLevel: Int
             public let levelAddition: Int?
             public let type: SkillType
 
             public var iconFileName: String {
-                "\(charIdStr)_\(type.rawValue).png"
+                "\(charIDStr)_\(type.rawValue).png"
             }
 
             public var iconFilePath: String {
@@ -318,10 +327,11 @@ extension EnkaHSR.AvatarSummarized {
         public let mainProp: PropertyPair
         public let subProps: [PropertyPair]
 
+        public var ratedScore: Int?
+
         public var trainedLevel: Int { paramDataFetched.level ?? 0 }
         public var rarityStars: Int { commonInfo.rarity }
         public var id: Int { enkaId }
-
         public var allProps: [PropertyPair] {
             var result = subProps
             result.insert(mainProp, at: 0)
@@ -329,7 +339,7 @@ extension EnkaHSR.AvatarSummarized {
         }
 
         public var type: EnkaHSR.DBModels.Artifact.ArtifactType {
-            .init(typeId: paramDataFetched.type) ?? commonInfo.type
+            .init(typeID: paramDataFetched.type) ?? commonInfo.type
         }
 
         public var iconFileName: String {

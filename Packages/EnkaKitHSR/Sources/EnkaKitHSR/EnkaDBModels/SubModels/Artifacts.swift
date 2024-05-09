@@ -21,8 +21,8 @@ extension EnkaHSR.DBModels {
 
             // MARK: Lifecycle
 
-            public init?(typeId: Int) {
-                switch typeId {
+            public init?(typeID: Int) {
+                switch typeID {
                 case 1: self = .head
                 case 2: self = .hand
                 case 3: self = .body

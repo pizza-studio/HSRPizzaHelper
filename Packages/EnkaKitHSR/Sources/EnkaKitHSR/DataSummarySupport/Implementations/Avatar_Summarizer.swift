@@ -14,7 +14,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
 
         let mainInfo = EnkaHSR.AvatarSummarized.AvatarMainInfo(
             theDB: theDB,
-            charId: avatarId,
+            charID: avatarId,
             avatarLevel: level,
             constellation: rank ?? 0,
             baseSkills: baseSkillSet,
@@ -105,13 +105,13 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
 
         let propPair = panel.converted(theDB: theDB, element: mainInfo.element)
 
-        return .init(
+        return EnkaHSR.AvatarSummarized(
             mainInfo: mainInfo,
             equippedWeapon: equipInfo,
             avatarPropertiesA: propPair.0,
             avatarPropertiesB: propPair.1,
             artifacts: artifactsInfo
-        )
+        ).artifactsRated()
     }
 }
 

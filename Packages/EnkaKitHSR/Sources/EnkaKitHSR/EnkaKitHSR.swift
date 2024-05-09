@@ -40,7 +40,16 @@ extension EnkaHSR {
     public typealias LifePath = DBModels.LifePath
 }
 
-// MARK: EnkaHSR.JSONType
+// MARK: - EnkaHSR.PropertyType.PVPair
+
+extension EnkaHSR.PropertyType {
+    public struct PVPair: Hashable, Codable {
+        let prop: EnkaHSR.PropertyType
+        let value: Double
+    }
+}
+
+// MARK: - EnkaHSR.JSONType
 
 extension EnkaHSR {
     public enum JSONType: String, CaseIterable {

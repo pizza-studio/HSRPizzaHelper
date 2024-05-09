@@ -28,7 +28,7 @@ extension EnkaHSR.DBModels {
         case abundance = "Priest"
     }
 
-    public enum PropertyType: String, Codable, Hashable, CaseIterable {
+    public enum PropertyType: String, Codable, Hashable, CaseIterable, RawRepresentable {
         case anemoAddedRatio = "WindAddedRatio"
         case anemoResistance = "WindResistance"
         case anemoResistanceDelta = "WindResistanceDelta"
@@ -251,6 +251,26 @@ extension EnkaHSR.PropertyType {
             let condition1 = rawValue.suffix(10) == "AddedRatio" || rawValue.suffix(15) == "ResistanceDelta"
             let condition2 = rawValue.prefix(9) != "AllDamage"
             return condition1 && condition2
+        }
+    }
+
+    public var element: EnkaHSR.Element? {
+        switch self {
+        case .anemoAddedRatio, .anemoResistance, .anemoResistanceDelta:
+            return .anemo
+        case .physicoAddedRatio, .physicoResistance, .physicoResistanceDelta:
+            return .physico
+        case .electroAddedRatio, .electroResistance, .electroResistanceDelta:
+            return .electro
+        case .fantasticoAddedRatio, .fantasticoResistance, .fantasticoResistanceDelta:
+            return .fantastico
+        case .posestoAddedRatio, .posestoResistance, .posestoResistanceDelta:
+            return .posesto
+        case .pyroAddedRatio, .pyroResistance, .pyroResistanceDelta:
+            return .pyro
+        case .cryoAddedRatio, .cryoResistance, .cryoResistanceDelta:
+            return .cryo
+        default: return nil
         }
     }
 

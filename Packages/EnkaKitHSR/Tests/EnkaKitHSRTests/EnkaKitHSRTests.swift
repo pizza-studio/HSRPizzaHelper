@@ -51,8 +51,9 @@ final class EnkaKitHSRTests: XCTestCase {
         XCTAssertEqual(uid, "114514810")
         guard let profile = profile, let detailInfo = profile.detailInfo else { return }
         guard let enkaDatabase = EnkaHSR.EnkaDB(locTag: "zh-tw") else { return }
-        let summarized = detailInfo.avatarDetailList.first?.summarize(theDB: enkaDatabase)
+        let summarized = detailInfo.avatarDetailList.first?.summarize(theDB: enkaDatabase)?.artifactsRated()
         XCTAssertNotNil(summarized)
+        XCTAssertNotNil(summarized?.artifactRatingResult)
         guard let summarized = summarized else { return }
         XCTAssertEqual(summarized.mainInfo.localizedName, "黃泉")
         XCTAssertEqual(summarized.mainInfo.constellation, 2)
@@ -87,9 +88,9 @@ final class EnkaKitHSRTests: XCTestCase {
 
     func testPrintAllCharacterNames() throws {
         guard let locTable = getBundledLocTable()?["zh-tw"], let charTable = getBundledCharTable() else { return }
-        charTable.forEach { charId, character in
+        charTable.forEach { charID, character in
             guard let nameLocalized = locTable[character.avatarName.hash.description] else { return }
-            print("\(nameLocalized) \(charId)")
+            print("\(nameLocalized) \(charID)")
         }
     }
 
