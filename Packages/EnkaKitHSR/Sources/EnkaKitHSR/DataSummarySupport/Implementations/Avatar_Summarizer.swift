@@ -18,8 +18,7 @@ extension EnkaHSR.QueryRelated.DetailInfo.Avatar {
             avatarLevel: level,
             constellation: rank ?? 0,
             baseSkills: baseSkillSet,
-            levelName: EnkaHSR.EnkaDB.ExtraTerms.characterLevel[theDB.langTag] ?? "Lv.",
-            constellationName: EnkaHSR.EnkaDB.ExtraTerms.constellation[theDB.langTag] ?? "Cons."
+            terms: .init(lang: theDB.langTag)
         )
         guard let mainInfo = mainInfo else { return nil }
 

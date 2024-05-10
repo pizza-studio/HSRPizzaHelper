@@ -48,8 +48,8 @@ public struct ShowCaseListView: View {
                         } label: {
                             HStack(alignment: .center) {
                                 let intel = avatar.mainInfo
-                                let strLevel = "\(intel.levelName): \(intel.avatarLevel)"
-                                let strEL = "\(intel.constellationName): \(intel.constellation)"
+                                let strLevel = "\(intel.terms.levelName): \(intel.avatarLevel)"
+                                let strEL = "\(intel.terms.constellationName): \(intel.constellation)"
                                 intel.avatarPhoto(
                                     size: ceil(Font.baseFontSize * 3),
                                     circleClipped: true,

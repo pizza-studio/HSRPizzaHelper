@@ -198,8 +198,18 @@ extension EnkaHSR {
 // MARK: - EnkaHSR.EnkaDB.ExtraTerms
 
 extension EnkaHSR.EnkaDB {
-    public enum ExtraTerms {
-        public static let constellation: [String: String] = [
+    public struct ExtraTerms: Codable, Hashable, Sendable {
+        // MARK: Lifecycle
+
+        public init(lang: String = Locale.langCodeForEnkaAPI) {
+            let lang = EnkaHSR.EnkaDB.sanitizeLangTag(lang)
+            self.constellationName = Self.charLevelNameDict[lang] ?? "Lv."
+            self.levelName = Self.constellationDict[lang] ?? "Cons."
+        }
+
+        // MARK: Public
+
+        public static let constellationDict: [String: String] = [
             "en": "Eidolon Resonance",
             "fr": "Résona. d'Eidolon",
             "ja": "星魂同調",
@@ -210,7 +220,7 @@ extension EnkaHSR.EnkaDB {
             "zh-tw": "星魂同調",
         ]
 
-        public static let characterLevel: [String: String] = [
+        public static let charLevelNameDict: [String: String] = [
             "en": "Level",
             "fr": "Level",
             "ja": "レベル",
@@ -220,5 +230,8 @@ extension EnkaHSR.EnkaDB {
             "zh-cn": "等级",
             "zh-tw": "等級",
         ]
+
+        public let levelName: String
+        public let constellationName: String
     }
 }

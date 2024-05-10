@@ -29,8 +29,7 @@ extension EnkaHSR.AvatarSummarized {
             avatarLevel avatarLv: Int,
             constellation constellationLevel: Int,
             baseSkills baseSkillSet: BaseSkillSet,
-            levelName: String,
-            constellationName: String
+            terms: EnkaHSR.EnkaDB.ExtraTerms
         ) {
             guard let theCommonInfo = theDB.characters[charId.description] else { return nil }
             self.avatarLevel = avatarLv
@@ -41,14 +40,12 @@ extension EnkaHSR.AvatarSummarized {
             self.lifePath = theCommonInfo.avatarBaseType
             let nameTyped = EnkaHSR.CharacterName(pid: charId)
             self.localizedName = nameTyped.i18n(theDB: theDB)
-            self.levelName = levelName
-            self.constellationName = constellationName
+            self.terms = terms
         }
 
         // MARK: Public
 
-        public let levelName: String
-        public let constellationName: String
+        public let terms: EnkaHSR.EnkaDB.ExtraTerms
         public let localizedName: String
         /// Unique Character ID number used by both Enka Network and MiHoYo.
         public let uniqueCharId: Int

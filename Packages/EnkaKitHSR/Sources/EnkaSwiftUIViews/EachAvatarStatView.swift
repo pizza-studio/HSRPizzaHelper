@@ -285,11 +285,11 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                 HStack {
                     VStack(spacing: 1) {
                         AttributeTagPair(
-                            title: levelName, valueStr: self.avatarLevel.description,
+                            title: terms.levelName, valueStr: self.avatarLevel.description,
                             fontSize: fontSize * 0.8, dash: false
                         )
                         AttributeTagPair(
-                            title: constellationName, valueStr: "E\(self.constellation)",
+                            title: terms.constellationName, valueStr: "E\(self.constellation)",
                             fontSize: fontSize * 0.8, dash: false
                         )
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
