@@ -56,6 +56,23 @@ public struct EachAvatarStatView: View {
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .minimumScaleFactor(0.5)
+                    if let ratingResult = data.artifactRatingResult {
+                        HStack {
+                            Text(verbatim: " → " + data.mainInfo.terms.artifactRatingName + "(Beta)")
+                                .fontWidth(.compressed)
+                            Spacer()
+                            Text(
+                                verbatim: ratingResult.sumExpression
+                                    + ratingResult.allpt.description
+                                    + "(\(ratingResult.result))"
+                            )
+                            .fontWeight(.bold)
+                            .fontWidth(.condensed)
+                        }
+                        .font(.system(size: fontSize * 0.7))
+                        .opacity(0.9)
+                        .padding(.top, 2)
+                    }
                 }
                 .padding(.horizontal, 11 * zoomFactor)
                 .padding(.vertical, 6 * zoomFactor)
@@ -69,7 +86,7 @@ public struct EachAvatarStatView: View {
                     scroll: false,
                     spacing: outerContentSpacing, list: data.artifacts
                 ) { currentArtifact in
-                    currentArtifact.asView(fontSize: fontSize)
+                    currentArtifact.asView(fontSize: fontSize, langTag: data.mainInfo.terms.langTag)
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.bottom, 18 * zoomFactor)
@@ -412,9 +429,17 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel {
 }
 
 extension EnkaHSR.AvatarSummarized.ArtifactInfo {
+    private func scoreText(lang: String) -> String {
+        let unit = EnkaHSR.EnkaDB.ExtraTerms(lang: lang).artifactRatingUnit
+        if let score = ratedScore?.description {
+            return score + unit
+        }
+        return ""
+    }
+
     @ViewBuilder
-    public func asView(fontSize: CGFloat) -> some View {
-        coreBody(fontSize: fontSize)
+    public func asView(fontSize: CGFloat, langTag: String) -> some View {
+        coreBody(fontSize: fontSize, langTag: langTag)
             .padding(.vertical, fontSize * 0.13)
             .padding(.horizontal, fontSize * 0.3)
             .background {
@@ -423,7 +448,8 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
             }
     }
 
-    private func coreBody(fontSize: CGFloat) -> some View {
+    @ViewBuilder
+    private func coreBody(fontSize: CGFloat, langTag: String) -> some View {
         HStack(alignment: .top) {
             Color.clear.frame(width: fontSize * 2.6)
             VStack(spacing: 0) {
@@ -479,6 +505,10 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
             }
             .aspectRatio(contentMode: .fit)
             .opacity(0.9)
+            .corneredTag(
+                verbatim: scoreText(lang: langTag),
+                alignment: .bottomLeading, textSize: fontSize * 0.8
+            )
             .scaleEffect(0.8, anchor: .topLeading)
         }
     }

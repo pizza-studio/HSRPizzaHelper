@@ -203,8 +203,11 @@ extension EnkaHSR.EnkaDB {
 
         public init(lang: String = Locale.langCodeForEnkaAPI) {
             let lang = EnkaHSR.EnkaDB.sanitizeLangTag(lang)
+            self.langTag = lang
             self.constellationName = Self.charLevelNameDict[lang] ?? "Lv."
             self.levelName = Self.constellationDict[lang] ?? "Cons."
+            self.artifactRatingName = Self.artifactRatingNameDict[lang] ?? "Artifact Compatibility Rate"
+            self.artifactRatingUnit = Self.artifactRatingUnitDict[lang] ?? "pt"
         }
 
         // MARK: Public
@@ -231,7 +234,32 @@ extension EnkaHSR.EnkaDB {
             "zh-tw": "等級",
         ]
 
+        public static let artifactRatingNameDict: [String: String] = [
+            "en": "Artifact Compatibility",
+            "fr": "Compatibilité des artefacts",
+            "ja": "聖遺物互換性",
+            "ko": "유물 호환성 비율",
+            "ru": "Совместимость Артефактов",
+            "vi": "Tỷ lệ tương thích hiện vật",
+            "zh-cn": "圣遗物契合度",
+            "zh-tw": "聖遺物契合度",
+        ]
+
+        public static let artifactRatingUnitDict: [String: String] = [
+            "en": "pt",
+            "fr": "pt",
+            "ja": "点",
+            "ko": "pt",
+            "ru": "pt",
+            "vi": "pt",
+            "zh-cn": "分",
+            "zh-tw": "分",
+        ]
+
+        public let langTag: String
         public let levelName: String
         public let constellationName: String
+        public let artifactRatingName: String
+        public let artifactRatingUnit: String
     }
 }

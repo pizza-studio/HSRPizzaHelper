@@ -237,6 +237,10 @@ extension ArtifactRating {
         public var allpt: Int = 0
         public var result: String = "N/A"
 
+        public var sumExpression: String {
+            "\(stat1pt)+\(stat2pt)+\(stat3pt)+\(stat4pt)+\(stat5pt)+\(stat6pt) = "
+        }
+
         public var isValid: Bool {
             guard allpt == stat1pt + stat2pt + stat3pt + stat4pt + stat5pt
             else { return false }
