@@ -204,8 +204,8 @@ extension EnkaHSR.EnkaDB {
         public init(lang: String = Locale.langCodeForEnkaAPI) {
             let lang = EnkaHSR.EnkaDB.sanitizeLangTag(lang)
             self.langTag = lang
-            self.constellationName = Self.charLevelNameDict[lang] ?? "Lv."
-            self.levelName = Self.constellationDict[lang] ?? "Cons."
+            self.levelName = Self.charLevelNameDict[lang] ?? "Lv."
+            self.constellationName = Self.constellationDict[lang] ?? "Cons."
             self.artifactRatingName = Self.artifactRatingNameDict[lang] ?? "Artifact Compatibility Rate"
             self.artifactRatingUnit = Self.artifactRatingUnitDict[lang] ?? "pt"
         }
