@@ -55,7 +55,7 @@ public struct CharSpecimen: Identifiable, Hashable {
     }
 
     public func render(size: Double, cutType: IDPhotoView.IconType = .cutShoulder) -> some View {
-        IDPhotoView(pid: id, size, cutType)
+        IDPhotoView(pid: id, size, cutType, forceRender: true)
     }
 }
 

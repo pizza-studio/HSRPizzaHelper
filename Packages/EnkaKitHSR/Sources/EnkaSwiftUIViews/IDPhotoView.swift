@@ -16,9 +16,10 @@ public struct IDPhotoView: View {
         pid: String,
         _ size: CGFloat,
         _ type: IconType,
+        forceRender: Bool = false,
         imageHandler: ((Image) -> Image)? = nil
     ) {
-        guard Defaults[.useGenshinStyleCharacterPhotos] else { return nil }
+        guard Defaults[.useGenshinStyleCharacterPhotos] || forceRender else { return nil }
         self.pid = pid
         let fallbackPID = EnkaHSR.CharacterName.convertPIDForProtagonist(pid)
         guard let ref = EnkaHSR.queryImageAsset(for: "idp\(fallbackPID)") else { return nil }
