@@ -34,6 +34,22 @@ struct DisplayOptionsView: View {
         }
     }
 
+    @ViewBuilder var artifactRatingSystemCreditView: some View {
+        let raw =
+            LocalizedStringResource(
+                stringLiteral: "setting.uirelated.showCase.enableArtifactRating.credit"
+            )
+        let attrStr = try? AttributedString(
+            markdown: String(localized: raw),
+            options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace)
+        )
+        if let attrStr = attrStr {
+            Text(attrStr)
+        } else {
+            Text(raw)
+        }
+    }
+
     @ViewBuilder
     func mainView() -> some View {
         List {
@@ -73,6 +89,8 @@ struct DisplayOptionsView: View {
                 Toggle(isOn: $enableArtifactRatingInShowcase) {
                     Text("setting.uirelated.showCase.enableArtifactRating.title")
                 }
+            } footer: {
+                artifactRatingSystemCreditView
             }
         }
     }

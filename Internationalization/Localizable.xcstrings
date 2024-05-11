@@ -11267,6 +11267,35 @@
         }
       }
     },
+    "setting.uirelated.showCase.enableArtifactRating.credit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This rating system consists of:\n- Data from [Mar-7th/StarRailScore](https://github.com/Mar-7th/StarRailScore) repository.\n- Rating method modified from Alice Workshop: [Kamihimmel/artifactrating](https://github.com/Kamihimmel/artifactrating)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "評判システムの仕組み:\n- 評判準拠資料は SRS 倉庫 [Mar-7th/StarRailScore](https://github.com/Mar-7th/StarRailScore) から参考したものである。\n- 評判方法はアリス工房の（『原神』向けの） [Kamihimmel/artifactrating](https://github.com/Kamihimmel/artifactrating) その方法に基づいてから、『崩壊：星穹鉄道』そのゲームのために改善した方法である。\n"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该评分系统由下述成分组成:\n- 评分权重资料取自三月七 SRS 仓库: [Mar-7th/StarRailScore](https://github.com/Mar-7th/StarRailScore)\n- 评分方法修改自爱丽丝工房原神圣遗物评分脚本: [Kamihimmel/artifactrating](https://github.com/Kamihimmel/artifactrating)\n"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "該評分系統由下述成分組成:\n- 評分權重資料取自三月七 SRS 倉庫: [Mar-7th/StarRailScore](https://github.com/Mar-7th/StarRailScore)\n- 評分方法修改自愛麗絲工房原神聖遺物評分腳本: [Kamihimmel/artifactrating](https://github.com/Kamihimmel/artifactrating)\n"
+          }
+        }
+      }
+    },
     "setting.uirelated.showCase.enableArtifactRating.title" : {
       "extractionState" : "manual",
       "localizations" : {
