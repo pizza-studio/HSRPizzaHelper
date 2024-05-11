@@ -4261,6 +4261,257 @@
             "level": 1
           }
         ]
+      },
+
+      {
+        "equipment": {
+          "promotion": 6,
+          "rank": 1,
+          "tid": 23016,
+          "level": 80
+        },
+        "promotion": 6,
+        "skillTreeList": [
+          {
+            "pointId": 1112001,
+            "level": 6
+          },
+          {
+            "pointId": 1112002,
+            "level": 10
+          },
+          {
+            "pointId": 1112003,
+            "level": 10
+          },
+          {
+            "pointId": 1112004,
+            "level": 10
+          },
+          {
+            "pointId": 1112007,
+            "level": 1
+          },
+          {
+            "pointId": 1112101,
+            "level": 1
+          },
+          {
+            "pointId": 1112102,
+            "level": 1
+          },
+          {
+            "pointId": 1112103,
+            "level": 1
+          },
+          {
+            "pointId": 1112201,
+            "level": 1
+          },
+          {
+            "pointId": 1112202,
+            "level": 1
+          },
+          {
+            "pointId": 1112203,
+            "level": 1
+          },
+          {
+            "pointId": 1112204,
+            "level": 1
+          },
+          {
+            "pointId": 1112205,
+            "level": 1
+          },
+          {
+            "pointId": 1112206,
+            "level": 1
+          },
+          {
+            "pointId": 1112207,
+            "level": 1
+          },
+          {
+            "pointId": 1112208,
+            "level": 1
+          },
+          {
+            "pointId": 1112209,
+            "level": 1
+          },
+          {
+            "pointId": 1112210,
+            "level": 1
+          }
+        ],
+        "relicList": [
+          {
+            "type": 1,
+            "mainAffixId": 1,
+            "tid": 61151,
+            "subAffixList": [
+              {
+                "affixId": 5,
+                "cnt": 1,
+                "step": 1
+              },
+              {
+                "affixId": 8,
+                "cnt": 2
+              },
+              {
+                "affixId": 9,
+                "cnt": 4,
+                "step": 3
+              },
+              {
+                "affixId": 10,
+                "cnt": 2,
+                "step": 4
+              }
+            ],
+            "level": 15
+          },
+          {
+            "type": 2,
+            "mainAffixId": 1,
+            "tid": 61152,
+            "subAffixList": [
+              {
+                "affixId": 4,
+                "cnt": 1
+              },
+              {
+                "affixId": 8,
+                "cnt": 3,
+                "step": 3
+              },
+              {
+                "affixId": 9,
+                "cnt": 2,
+                "step": 2
+              },
+              {
+                "affixId": 11,
+                "cnt": 2,
+                "step": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "type": 3,
+            "mainAffixId": 5,
+            "tid": 61073,
+            "subAffixList": [
+              {
+                "affixId": 5,
+                "cnt": 2,
+                "step": 2
+              },
+              {
+                "affixId": 8,
+                "cnt": 3,
+                "step": 5
+              },
+              {
+                "affixId": 10,
+                "cnt": 1
+              },
+              {
+                "affixId": 12,
+                "cnt": 2,
+                "step": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "type": 4,
+            "mainAffixId": 2,
+            "tid": 61074,
+            "subAffixList": [
+              {
+                "affixId": 3,
+                "cnt": 1
+              },
+              {
+                "affixId": 6,
+                "cnt": 3,
+                "step": 2
+              },
+              {
+                "affixId": 8,
+                "cnt": 2,
+                "step": 1
+              },
+              {
+                "affixId": 9,
+                "cnt": 2,
+                "step": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "type": 5,
+            "mainAffixId": 5,
+            "tid": 63065,
+            "subAffixList": [
+              {
+                "affixId": 1,
+                "cnt": 2,
+                "step": 1
+              },
+              {
+                "affixId": 5,
+                "cnt": 2,
+                "step": 3
+              },
+              {
+                "affixId": 8,
+                "cnt": 2,
+                "step": 3
+              },
+              {
+                "affixId": 9,
+                "cnt": 3,
+                "step": 4
+              }
+            ],
+            "level": 15
+          },
+          {
+            "type": 6,
+            "mainAffixId": 4,
+            "tid": 63066,
+            "subAffixList": [
+              {
+                "affixId": 1,
+                "cnt": 1
+              },
+              {
+                "affixId": 8,
+                "cnt": 2
+              },
+              {
+                "affixId": 9,
+                "cnt": 4,
+                "step": 2
+              },
+              {
+                "affixId": 12,
+                "cnt": 1,
+                "step": 1
+              }
+            ],
+            "level": 15
+          }
+        ],
+        "avatarId": 1112,
+        "level": 80,
+        "pos": 4
       }
     ],
     "assistAvatarList": [
