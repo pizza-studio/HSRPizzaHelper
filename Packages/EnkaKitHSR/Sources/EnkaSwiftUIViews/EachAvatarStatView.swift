@@ -609,7 +609,7 @@ extension View {
 
 #if DEBUG
 struct EachAvatarStatView_Previews: PreviewProvider {
-    static let summary: EnkaHSR.AvatarSummarized = {
+    static let summaries: [EnkaHSR.AvatarSummarized] = {
         // swiftlint:disable force_try
         // swiftlint:disable force_unwrapping
         // Note: Do not use #Preview macro. Otherwise, the preview won't be able to access the assets.
@@ -621,15 +621,22 @@ struct EachAvatarStatView_Previews: PreviewProvider {
         let filePath = testDataPath + "TestQueryResultEnka.json"
         let dataURL = URL(fileURLWithPath: filePath)
         let profile = try! Data(contentsOf: dataURL).parseAs(EnkaHSR.QueryRelated.QueriedProfile.self)
-        let summary = profile.detailInfo!.avatarDetailList[4].summarize(theDB: enkaDatabase)!
+        let summaries = profile.detailInfo!.avatarDetailList.map { $0.summarize(theDB: enkaDatabase)! }
         EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
-        return summary
+        return summaries
         // swiftlint:enable force_try
         // swiftlint:enable force_unwrapping
     }()
 
     static var previews: some View {
-        summary.asView(background: true)
+        TabView {
+            ForEach(summaries) { summary in
+                summary.asView(background: true)
+                    .tabItem {
+                        Text(summary.mainInfo.localizedName)
+                    }
+            }
+        }
     }
 }
 #endif
