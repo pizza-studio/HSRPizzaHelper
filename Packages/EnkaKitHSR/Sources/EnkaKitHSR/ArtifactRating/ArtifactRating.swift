@@ -18,17 +18,17 @@ public typealias ArtifactSubStatScore = ArtifactRating.SubStatScoreLevel
 
 extension ArtifactRating {
     public enum SubStatScoreLevel: Double, Codable, Hashable {
-        case highest = 31
-        case higherPlus = 30
-        case higher = 28
-        case highPlus = 27
-        case high = 25
-        case medium = 23
-        case low = 20
-        case lower = 18
-        case lowerLower = 14
-        case lowest = 11
-        case none = 9
+        case highest = 100
+        case higherPlus = 90
+        case higher = 80
+        case highPlus = 70
+        case high = 60
+        case medium = 50
+        case low = 40
+        case lower = 30
+        case lowerLower = 20
+        case lowest = 10
+        case none = 0
 
         // MARK: Lifecycle
 
@@ -120,24 +120,9 @@ extension ArtifactRating.Appraiser {
         for param: ArtifactRating.Appraiser.Param, star5: Bool
     )
         -> Double {
-        var result: Double = 0
-        switch param {
-        case .dmgAmp: result = 7.0
-        case .critChance: result = 3.3
-        case .critDamage: result = 6.6
-        case .energyRecovery: result = 5.5
-        case .atkAmp: result = 5
-        case .atkDelta: result = 17
-        case .hpAmp: result = 5
-        case .hpDelta: result = 26
-        case .defAmp: result = 6.2
-        case .defDelta: result = 20
-        case .healAmp: result = 5.4
-        case .spdDelta: result = 5 // HSR Special.
-        case .statProb: result = 6 // HSR Special.
-        case .statResis: result = 5 // HSR Special.
-        case .breakDmg: result = 10 // HSR Special.
-        }
+        // 星穹铁道的圣遗物评分是按照每个词条获得增幅的次数来计算的，
+        // 所以不需要针对不同的词条制定不同的 Roll。
+        var result: Double = 10
         if !star5 { result *= 0.9 } // 简化对非五星圣遗物的处理。
         return result
     }
@@ -150,7 +135,7 @@ extension ArtifactRating.RatingRequest.Artifact {
         -> Double {
         let isStar5: Bool = star >= 5
         var ratingModel = ArtifactRating.CharacterStatScoreModel.getScoreModel(charID: request.charID.description)
-
+        let charMax = ArtifactRating.CharacterStatScoreModel.getMax(charID: request.charID.description)
         func getPt(_ base: Double, _ param: ArtifactRating.Appraiser.Param) -> Double {
             (base / ArtifactRating.Appraiser.getDefaultRoll(for: param, star5: isStar5)) * (ratingModel[param] ?? .none)
                 .rawValue
@@ -171,6 +156,7 @@ extension ArtifactRating.RatingRequest.Artifact {
             getPt(subPanel.statusResistanceBase, .statResis),
             getPt(subPanel.breakDamageAddedRatioBase, .breakDmg),
         ]
+        stackedScore = stackedScore.map { $0 / charMax * 10 }
 
         // 主詞條處理。
         var shouldAdjustForMainProp = false
@@ -181,9 +167,9 @@ extension ArtifactRating.RatingRequest.Artifact {
                 charID: request.charID.description,
                 artifactType: type
             )
-            let mainPropWeight = Double(level) * 0.25 + 1
+            let mainPropWeight = Double(level + 1) / 16
             shouldAdjustForMainProp = true
-            stackedScore.append(getPt(mainPropWeight, mainPropParam) / 5)
+            stackedScore.append(getPt(mainPropWeight, mainPropParam))
         }
 
         var result = stackedScore.reduce(0, +)

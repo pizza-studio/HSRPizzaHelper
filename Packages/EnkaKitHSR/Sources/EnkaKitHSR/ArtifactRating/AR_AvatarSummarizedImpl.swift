@@ -62,19 +62,20 @@ extension EnkaHSR.AvatarSummarized {
             // 副词条
             thisSummarizedArtifact.subProps.forEach { thisPropPair in
                 guard let typeAppraisable = thisPropPair.type.appraisableArtifactParam else { return }
+                let valueForRating = (Double(thisPropPair.count) + (Double(thisPropPair.step ?? 0) * 0.1))
                 switch typeAppraisable {
-                case .hpDelta: result.subPanel.hpDelta = thisPropPair.value
-                case .atkDelta: result.subPanel.attackDelta = thisPropPair.value
-                case .defDelta: result.subPanel.defenceDelta = thisPropPair.value
-                case .hpAmp: result.subPanel.hpAddedRatio = thisPropPair.value
-                case .atkAmp: result.subPanel.attackAddedRatio = thisPropPair.value
-                case .defAmp: result.subPanel.defenceAddedRatio = thisPropPair.value
-                case .spdDelta: result.subPanel.speedDelta = thisPropPair.value
-                case .critChance: result.subPanel.criticalChanceBase = thisPropPair.value
-                case .critDamage: result.subPanel.criticalDamageBase = thisPropPair.value
-                case .statProb: result.subPanel.statusProbabilityBase = thisPropPair.value
-                case .statResis: result.subPanel.statusResistanceBase = thisPropPair.value
-                case .breakDmg: result.subPanel.breakDamageAddedRatioBase = thisPropPair.value
+                case .hpDelta: result.subPanel.hpDelta = valueForRating
+                case .atkDelta: result.subPanel.attackDelta = valueForRating
+                case .defDelta: result.subPanel.defenceDelta = valueForRating
+                case .hpAmp: result.subPanel.hpAddedRatio = valueForRating
+                case .atkAmp: result.subPanel.attackAddedRatio = valueForRating
+                case .defAmp: result.subPanel.defenceAddedRatio = valueForRating
+                case .spdDelta: result.subPanel.speedDelta = valueForRating
+                case .critChance: result.subPanel.criticalChanceBase = valueForRating
+                case .critDamage: result.subPanel.criticalDamageBase = valueForRating
+                case .statProb: result.subPanel.statusProbabilityBase = valueForRating
+                case .statResis: result.subPanel.statusResistanceBase = valueForRating
+                case .breakDmg: result.subPanel.breakDamageAddedRatioBase = valueForRating
                 case .healAmp: return // 主词条专属项目「治疗量加成」。
                 case .energyRecovery: return // 主词条专属项目「元素充能效率」。
                 case .dmgAmp: return // 主词条专属项目「元素伤害加成」。

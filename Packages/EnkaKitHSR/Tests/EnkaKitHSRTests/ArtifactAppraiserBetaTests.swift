@@ -89,6 +89,7 @@ final class ArtifactAppraiserTests: XCTestCase {
         var newDB = ArtifactRating.StatScoreModelOptimized.Dict()
         rawDB.forEach { charID, rawModel in
             var newModel = ArtifactRating.StatScoreModelOptimized()
+            newModel.max = rawModel.max
             // 副词条
             rawModel.weight.forEach { rawPropID, propWeight in
                 let newWeight = ArtifactRating.SubStatScoreLevel(march7thWeight: propWeight)

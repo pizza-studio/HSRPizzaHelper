@@ -28,6 +28,10 @@ extension ArtifactRating.CharacterStatScoreModel {
         }
         return result
     }
+
+    static func getMax(charID: String) -> Double {
+        ArtifactRating.sharedStatScoreModelDB[charID]?.max ?? 10
+    }
 }
 
 // swiftlint:disable file_length
@@ -52,275 +56,277 @@ extension ArtifactRating {
     public static let sharedStatScoreModelDB: StatScoreModelOptimized.Dict = [
         "1001": .init(
             main: [
-                .foot: [.hpAmp: .medium, .spdDelta: .higher, .defAmp: .highest],
                 .body: [
-                    .statProb: .highest,
-                    .hpAmp: .medium,
                     .defAmp: .highest,
+                    .hpAmp: .medium,
+                    .statProb: .highest,
                 ],
+                .foot: [.defAmp: .highest, .spdDelta: .higher, .hpAmp: .medium],
                 .object: [.hpAmp: .medium, .defAmp: .highest],
                 .neck: [
                     .defAmp: .highest,
-                    .hpAmp: .medium,
                     .energyRecovery: .highest,
+                    .hpAmp: .medium,
                 ],
+                .hand: [.atkDelta: .highest],
             ],
             weight: [
                 .hpAmp: .medium,
+                .hpDelta: .lowerLower,
                 .defDelta: .medium,
+                .statProb: .medium,
+                .defAmp: .highest,
                 .spdDelta: .highest,
                 .statResis: .medium,
-                .defAmp: .highest,
-                .statProb: .medium,
-                .hpDelta: .lowerLower,
             ],
-            max: 10.0
+            max: 9.3
         ),
         "1002": .init(
             main: [
-                .neck: [.atkAmp: .highest, .energyRecovery: .medium],
-                .object: [.atkAmp: .higher, .dmgAmp(.anemo): .highest],
-                .foot: [.atkAmp: .higher, .spdDelta: .highest],
                 .body: [
                     .critDamage: .higherPlus,
                     .atkAmp: .higher,
                     .critChance: .highest,
                 ],
+                .neck: [.atkAmp: .highest, .energyRecovery: .medium],
+                .foot: [.spdDelta: .highest, .atkAmp: .higher],
+                .object: [.atkAmp: .higher, .dmgAmp(.anemo): .highest],
             ],
             weight: [
-                .critDamage: .highest,
+                .atkDelta: .lower,
                 .critChance: .highest,
                 .spdDelta: .highest,
                 .atkAmp: .higher,
-                .atkDelta: .lower,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.18
         ),
         "1003": .init(
             main: [
                 .body: [
-                    .critDamage: .higherPlus,
                     .critChance: .highest,
                     .atkAmp: .higher,
+                    .critDamage: .higherPlus,
                 ],
                 .neck: [
                     .breakDmg: .highest,
                     .energyRecovery: .highest,
                     .atkAmp: .higher,
                 ],
-                .foot: [.atkAmp: .highest, .spdDelta: .higher],
                 .object: [.dmgAmp(.pyro): .highest, .atkAmp: .higher],
+                .foot: [.spdDelta: .higher, .atkAmp: .highest],
             ],
             weight: [
-                .atkAmp: .higher,
                 .spdDelta: .higher,
-                .critChance: .highest,
-                .breakDmg: .medium,
                 .atkDelta: .lower,
+                .critChance: .highest,
+                .atkAmp: .higher,
                 .critDamage: .highest,
+                .breakDmg: .medium,
             ],
-            max: 10.0
+            max: 10.16
         ),
         "1004": .init(
             main: [
-                .neck: [
-                    .energyRecovery: .highest,
-                    .breakDmg: .highest,
-                    .atkAmp: .higher,
-                ],
-                .object: [.dmgAmp(.fantastico): .highest, .atkAmp: .higher],
+                .object: [.atkAmp: .higher, .dmgAmp(.fantastico): .highest],
                 .foot: [.atkAmp: .highest, .spdDelta: .highest],
                 .body: [
-                    .atkAmp: .higher,
                     .critChance: .highest,
-                    .statProb: .highest,
                     .critDamage: .higherPlus,
+                    .statProb: .highest,
+                    .atkAmp: .higher,
+                ],
+                .neck: [
+                    .atkAmp: .higher,
+                    .energyRecovery: .highest,
+                    .breakDmg: .highest,
                 ],
             ],
             weight: [
-                .spdDelta: .highest,
-                .atkAmp: .higher,
-                .critChance: .highest,
-                .critDamage: .highest,
                 .atkDelta: .lower,
+                .atkAmp: .higher,
+                .critDamage: .highest,
+                .spdDelta: .highest,
+                .critChance: .highest,
                 .statProb: .highest,
             ],
-            max: 10.0
+            max: 10.76
         ),
         "1005": .init(
             main: [
-                .body: [
-                    .critDamage: .higher,
-                    .critChance: .higher,
-                    .atkAmp: .highest,
-                    .statProb: .highest,
-                ],
-                .object: [.dmgAmp(.electro): .highest, .atkAmp: .higher],
-                .foot: [.spdDelta: .highest, .atkAmp: .higher],
+                .foot: [.atkAmp: .higher, .spdDelta: .highest],
                 .neck: [
                     .energyRecovery: .medium,
-                    .breakDmg: .highest,
                     .atkAmp: .higher,
+                    .breakDmg: .highest,
                 ],
+                .body: [
+                    .critDamage: .higher,
+                    .atkAmp: .highest,
+                    .statProb: .highest,
+                    .critChance: .higher,
+                ],
+                .object: [.dmgAmp(.electro): .highest, .atkAmp: .higher],
             ],
             weight: [
                 .atkDelta: .lower,
-                .spdDelta: .highest,
-                .statProb: .highest,
-                .critChance: .highest,
                 .critDamage: .highest,
                 .atkAmp: .higher,
+                .critChance: .highest,
+                .statProb: .highest,
+                .spdDelta: .highest,
             ],
-            max: 10.0
+            max: 10.76
         ),
         "1006": .init(
             main: [
-                .neck: [.atkAmp: .medium, .energyRecovery: .highest],
-                .foot: [.atkAmp: .higher, .spdDelta: .highest],
-                .object: [.atkAmp: .higher, .dmgAmp(.posesto): .highest],
+                .object: [.dmgAmp(.posesto): .highest, .atkAmp: .higher],
+                .neck: [.energyRecovery: .highest, .atkAmp: .medium],
+                .foot: [.spdDelta: .highest, .atkAmp: .higher],
                 .body: [
                     .statProb: .highest,
                     .critDamage: .higherPlus,
-                    .atkAmp: .higher,
                     .critChance: .highest,
+                    .atkAmp: .higher,
                 ],
             ],
             weight: [
-                .spdDelta: .highest,
+                .statProb: .highest,
                 .atkDelta: .lower,
                 .atkAmp: .higher,
+                .spdDelta: .highest,
                 .critDamage: .highest,
                 .critChance: .highest,
-                .statProb: .highest,
             ],
-            max: 10.0
+            max: 10.72
         ),
         "1008": .init(
             main: [
+                .body: [
+                    .critDamage: .higherPlus,
+                    .critChance: .highest,
+                    .atkAmp: .higher,
+                ],
+                .foot: [.atkAmp: .highest, .spdDelta: .higher],
+                .object: [.dmgAmp(.electro): .highest, .atkAmp: .higher],
                 .neck: [
                     .energyRecovery: .medium,
-                    .breakDmg: .highest,
                     .atkAmp: .highest,
+                    .breakDmg: .highest,
                 ],
-                .foot: [.spdDelta: .higher, .atkAmp: .highest],
-                .body: [
-                    .atkAmp: .higher,
-                    .critChance: .highest,
-                    .critDamage: .higherPlus,
-                ],
-                .object: [.dmgAmp(.electro): .highest, .atkAmp: .higher],
             ],
             weight: [
-                .atkAmp: .higher,
-                .critDamage: .highest,
+                .atkDelta: .lower,
                 .spdDelta: .higher,
                 .critChance: .highest,
-                .atkDelta: .lower,
+                .atkAmp: .higher,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "1009": .init(
             main: [
+                .foot: [.spdDelta: .highest, .atkAmp: .highest],
                 .body: [
                     .critDamage: .higherPlus,
                     .critChance: .highest,
                     .atkAmp: .higher,
                 ],
-                .object: [.dmgAmp(.pyro): .highest, .atkAmp: .higher],
-                .foot: [.atkAmp: .highest, .spdDelta: .highest],
                 .neck: [
                     .energyRecovery: .highest,
-                    .atkAmp: .higher,
                     .breakDmg: .highest,
+                    .atkAmp: .higher,
                 ],
+                .object: [.dmgAmp(.pyro): .highest, .atkAmp: .higher],
             ],
             weight: [
-                .breakDmg: .higher,
-                .atkDelta: .lower,
                 .spdDelta: .highest,
                 .atkAmp: .higher,
+                .atkDelta: .lower,
+                .breakDmg: .higher,
             ],
-            max: 10.0
+            max: 9.16
         ),
         "1013": .init(
             main: [
                 .body: [
-                    .critDamage: .higherPlus,
                     .atkAmp: .higher,
                     .critChance: .highest,
+                    .critDamage: .higherPlus,
                 ],
-                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
                 .object: [.atkAmp: .higher, .dmgAmp(.cryo): .highest],
-                .foot: [.spdDelta: .higher, .atkAmp: .highest],
+                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
+                .foot: [.atkAmp: .highest, .spdDelta: .higher],
             ],
             weight: [
                 .spdDelta: .higher,
-                .atkAmp: .higher,
                 .critChance: .highest,
+                .atkAmp: .higher,
                 .critDamage: .highest,
                 .atkDelta: .lower,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "1101": .init(
             main: [
-                .foot: [
-                    .atkAmp: .medium,
-                    .hpAmp: .higher,
-                    .spdDelta: .highest,
-                    .defAmp: .higher,
-                ],
-                .object: [
-                    .defAmp: .highest,
-                    .dmgAmp(.anemo): .medium,
-                    .hpAmp: .highest,
-                    .atkAmp: .medium,
-                ],
-                .neck: [.energyRecovery: .highest, .atkAmp: .medium],
                 .body: [
-                    .critDamage: .highest,
-                    .atkAmp: .medium,
                     .hpAmp: .medium,
+                    .atkAmp: .medium,
+                    .critDamage: .highest,
+                ],
+                .foot: [
+                    .spdDelta: .highest,
+                    .atkAmp: .medium,
+                    .defAmp: .higher,
+                    .hpAmp: .higher,
+                ],
+                .neck: [.atkAmp: .medium, .energyRecovery: .highest],
+                .object: [
+                    .hpAmp: .highest,
+                    .dmgAmp(.anemo): .medium,
+                    .defAmp: .highest,
+                    .atkAmp: .medium,
                 ],
             ],
             weight: [
-                .hpDelta: .lower,
-                .spdDelta: .highest,
-                .atkAmp: .medium,
-                .defAmp: .higher,
                 .defDelta: .lower,
+                .defAmp: .higher,
+                .critDamage: .highest,
+                .spdDelta: .highest,
+                .hpDelta: .lower,
+                .atkAmp: .medium,
+                .hpAmp: .higher,
                 .atkDelta: .lowerLower,
                 .statResis: .medium,
-                .hpAmp: .higher,
-                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.06
         ),
         "1102": .init(
             main: [
-                .neck: [.atkAmp: .highest, .energyRecovery: .medium],
-                .object: [.dmgAmp(.posesto): .highest, .atkAmp: .higher],
+                .foot: [.atkAmp: .higher, .spdDelta: .highest],
                 .body: [
-                    .critChance: .highest,
                     .critDamage: .higherPlus,
+                    .critChance: .highest,
                     .atkAmp: .higher,
                 ],
-                .foot: [.spdDelta: .highest, .atkAmp: .higher],
+                .object: [.dmgAmp(.posesto): .highest, .atkAmp: .higher],
+                .neck: [.atkAmp: .highest, .energyRecovery: .medium],
+                .head: [.hpDelta: .highest],
             ],
             weight: [
-                .critChance: .highest,
-                .critDamage: .highest,
-                .atkDelta: .lower,
                 .atkAmp: .higher,
+                .atkDelta: .lower,
+                .critChance: .highest,
                 .spdDelta: .highest,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.18
         ),
         "1103": .init(
             main: [
                 .neck: [
-                    .energyRecovery: .medium,
                     .breakDmg: .highest,
+                    .energyRecovery: .medium,
                     .atkAmp: .highest,
                 ],
                 .object: [.atkAmp: .higher, .dmgAmp(.electro): .highest],
@@ -333,683 +339,691 @@ extension ArtifactRating {
             ],
             weight: [
                 .critDamage: .highest,
-                .atkAmp: .higher,
                 .atkDelta: .lower,
                 .critChance: .highest,
+                .atkAmp: .higher,
                 .spdDelta: .higher,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "1104": .init(
             main: [
-                .body: [.hpAmp: .medium, .defAmp: .highest, .statProb: .medium],
-                .foot: [.spdDelta: .higher, .defAmp: .highest, .hpAmp: .medium],
-                .object: [.defAmp: .highest, .hpAmp: .medium],
+                .body: [.defAmp: .highest, .hpAmp: .medium, .statProb: .medium],
                 .neck: [
-                    .energyRecovery: .highest,
                     .defAmp: .highest,
                     .hpAmp: .medium,
+                    .energyRecovery: .highest,
                 ],
+                .foot: [.spdDelta: .higher, .defAmp: .highest, .hpAmp: .medium],
+                .object: [.hpAmp: .medium, .defAmp: .highest],
             ],
             weight: [
-                .hpAmp: .medium,
+                .spdDelta: .highest,
                 .statResis: .medium,
+                .hpDelta: .lowerLower,
+                .hpAmp: .medium,
                 .defAmp: .highest,
                 .defDelta: .medium,
                 .statProb: .medium,
-                .hpDelta: .lowerLower,
-                .spdDelta: .highest,
             ],
-            max: 10.0
+            max: 9.3
         ),
         "1105": .init(
             main: [
                 .foot: [.hpAmp: .highest, .spdDelta: .highest],
+                .object: [.defAmp: .medium, .hpAmp: .highest],
                 .neck: [.hpAmp: .highest, .energyRecovery: .medium],
-                .object: [.hpAmp: .highest, .defAmp: .medium],
                 .body: [.healAmp: .highest, .hpAmp: .higher],
             ],
             weight: [
-                .spdDelta: .higher,
-                .defDelta: .lowerLower,
-                .statResis: .medium,
-                .hpAmp: .highest,
                 .hpDelta: .medium,
+                .spdDelta: .higher,
+                .hpAmp: .highest,
+                .defDelta: .lowerLower,
                 .defAmp: .medium,
+                .statResis: .medium,
             ],
-            max: 10.0
+            max: 8.46
         ),
         "1106": .init(
             main: [
-                .body: [
-                    .statProb: .highest,
-                    .atkAmp: .higher,
-                    .critDamage: .higherPlus,
-                    .critChance: .highest,
-                ],
-                .neck: [.energyRecovery: .medium, .atkAmp: .highest],
                 .object: [.atkAmp: .higher, .dmgAmp(.cryo): .highest],
-                .foot: [.spdDelta: .highest, .atkAmp: .higher],
+                .neck: [.atkAmp: .highest, .energyRecovery: .medium],
+                .body: [
+                    .atkAmp: .higher,
+                    .statProb: .highest,
+                    .critChance: .highest,
+                    .critDamage: .higherPlus,
+                ],
+                .foot: [.atkAmp: .higher, .spdDelta: .highest],
             ],
             weight: [
                 .critChance: .highest,
-                .atkDelta: .lower,
                 .critDamage: .highest,
-                .spdDelta: .highest,
                 .statProb: .highest,
+                .atkDelta: .lower,
+                .spdDelta: .highest,
                 .atkAmp: .higher,
             ],
-            max: 10.0
+            max: 10.72
         ),
         "1107": .init(
             main: [
-                .body: [
-                    .critDamage: .higherPlus,
-                    .atkAmp: .higher,
-                    .critChance: .highest,
-                ],
-                .object: [.atkAmp: .higher, .dmgAmp(.physico): .highest],
+                .object: [.dmgAmp(.physico): .highest, .atkAmp: .higher],
+                .foot: [.spdDelta: .higher, .atkAmp: .highest],
                 .neck: [
-                    .atkAmp: .highest,
                     .energyRecovery: .medium,
+                    .atkAmp: .highest,
                     .breakDmg: .highest,
                 ],
-                .foot: [.spdDelta: .higher, .atkAmp: .highest],
+                .body: [
+                    .atkAmp: .higher,
+                    .critChance: .highest,
+                    .critDamage: .higherPlus,
+                ],
+                .hand: [.atkDelta: .highest],
             ],
             weight: [
                 .atkAmp: .higher,
                 .critChance: .highest,
-                .spdDelta: .higher,
                 .critDamage: .highest,
                 .atkDelta: .lower,
+                .spdDelta: .higher,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "1108": .init(
             main: [
-                .neck: [.atkAmp: .higher, .energyRecovery: .highest],
-                .foot: [.atkAmp: .higher, .spdDelta: .highest],
+                .foot: [.spdDelta: .highest, .atkAmp: .higher],
                 .body: [
                     .critDamage: .higher,
-                    .critChance: .higher,
                     .statProb: .highest,
                     .atkAmp: .highest,
+                    .critChance: .higher,
                 ],
                 .object: [.dmgAmp(.anemo): .highest, .atkAmp: .higher],
+                .neck: [.atkAmp: .higher, .energyRecovery: .highest],
             ],
             weight: [
-                .critDamage: .highest,
-                .spdDelta: .highest,
-                .atkDelta: .lower,
-                .critChance: .highest,
-                .atkAmp: .higher,
                 .statProb: .highest,
+                .critChance: .highest,
+                .spdDelta: .highest,
+                .critDamage: .highest,
+                .atkAmp: .higher,
+                .atkDelta: .lower,
             ],
-            max: 10.0
+            max: 10.76
         ),
         "1109": .init(
             main: [
                 .neck: [
-                    .breakDmg: .medium,
-                    .energyRecovery: .medium,
                     .atkAmp: .highest,
+                    .energyRecovery: .medium,
+                    .breakDmg: .medium,
                 ],
-                .object: [.dmgAmp(.pyro): .highest, .atkAmp: .higher],
-                .foot: [.spdDelta: .highest, .atkAmp: .higher],
+                .object: [.atkAmp: .higher, .dmgAmp(.pyro): .highest],
                 .body: [
                     .critDamage: .higherPlus,
-                    .atkAmp: .higher,
                     .critChance: .highest,
+                    .atkAmp: .higher,
                 ],
+                .foot: [.atkAmp: .higher, .spdDelta: .highest],
+                .hand: [.atkDelta: .highest],
             ],
             weight: [
-                .atkDelta: .lower,
-                .atkAmp: .higher,
-                .critDamage: .highest,
                 .critChance: .highest,
                 .spdDelta: .higher,
+                .atkAmp: .higher,
+                .atkDelta: .lower,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 9.98
         ),
         "1110": .init(
             main: [
                 .neck: [.hpAmp: .highest, .energyRecovery: .highest],
-                .foot: [.hpAmp: .higher, .spdDelta: .highest],
                 .object: [.hpAmp: .highest],
-                .body: [.healAmp: .highest, .hpAmp: .higher],
+                .foot: [.hpAmp: .higher, .spdDelta: .highest],
+                .body: [.hpAmp: .higher, .healAmp: .highest],
             ],
             weight: [
                 .defDelta: .lowerLower,
-                .hpAmp: .highest,
-                .statResis: .highPlus,
-                .hpDelta: .medium,
                 .spdDelta: .highest,
+                .statResis: .highPlus,
                 .defAmp: .medium,
+                .hpDelta: .medium,
+                .hpAmp: .highest,
             ],
-            max: 10.0
+            max: 9.64
         ),
         "1111": .init(
             main: [
+                .object: [.atkAmp: .higher, .dmgAmp(.physico): .highest],
+                .foot: [.atkAmp: .higher, .spdDelta: .highest],
                 .body: [
-                    .statProb: .highest,
                     .critChance: .higher,
                     .critDamage: .higher,
                     .atkAmp: .highest,
+                    .statProb: .highest,
                 ],
                 .neck: [
-                    .energyRecovery: .highest,
                     .atkAmp: .highest,
+                    .energyRecovery: .highest,
                     .breakDmg: .highest,
                 ],
-                .foot: [.spdDelta: .highest, .atkAmp: .higher],
-                .object: [.atkAmp: .higher, .dmgAmp(.physico): .highest],
+                .head: [.hpDelta: .highest],
             ],
             weight: [
-                .atkAmp: .higher,
                 .atkDelta: .lower,
-                .spdDelta: .highest,
+                .atkAmp: .higher,
                 .critChance: .highest,
+                .spdDelta: .highest,
                 .critDamage: .highest,
                 .statProb: .highest,
             ],
-            max: 10.0
+            max: 10.76
         ),
         "1112": .init(
             main: [
                 .neck: [.energyRecovery: .highest, .atkAmp: .highest],
+                .foot: [.atkAmp: .highest, .spdDelta: .higher],
                 .object: [.dmgAmp(.pyro): .highest, .atkAmp: .higher],
                 .body: [
-                    .critChance: .highest,
                     .critDamage: .higherPlus,
                     .atkAmp: .higher,
+                    .critChance: .highest,
                 ],
-                .foot: [.atkAmp: .highest, .spdDelta: .higher],
             ],
             weight: [
-                .atkAmp: .higher,
+                .hpDelta: .lowest,
+                .hpAmp: .lower,
                 .spdDelta: .highest,
                 .critChance: .highest,
                 .atkDelta: .lower,
-                .hpDelta: .lowest,
                 .critDamage: .highest,
-                .hpAmp: .lower,
+                .atkAmp: .higher,
             ],
-            max: 10.0
+            max: 10.32
         ),
         "1201": .init(
             main: [
-                .object: [.atkAmp: .higher, .dmgAmp(.posesto): .highest],
-                .neck: [.atkAmp: .higher, .energyRecovery: .highest],
+                .object: [.dmgAmp(.posesto): .highest, .atkAmp: .higher],
+                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
+                .foot: [.atkAmp: .highest, .spdDelta: .higher],
                 .body: [
                     .critChance: .highest,
                     .atkAmp: .higher,
                     .critDamage: .higherPlus,
                 ],
-                .foot: [.atkAmp: .highest, .spdDelta: .higher],
             ],
             weight: [
-                .atkDelta: .lower,
-                .critDamage: .highest,
                 .spdDelta: .higher,
                 .critChance: .highest,
+                .atkDelta: .lower,
                 .atkAmp: .higher,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "1202": .init(
             main: [
+                .object: [.atkAmp: .higher, .dmgAmp(.electro): .highest],
                 .body: [
-                    .hpAmp: .medium,
                     .critDamage: .medium,
                     .critChance: .medium,
+                    .hpAmp: .medium,
                     .atkAmp: .highest,
                 ],
-                .object: [.dmgAmp(.electro): .highest, .atkAmp: .higher],
                 .neck: [.energyRecovery: .highest, .atkAmp: .highest],
-                .foot: [.spdDelta: .highest, .atkAmp: .highest],
+                .foot: [.atkAmp: .highest, .spdDelta: .highest],
             ],
             weight: [
-                .atkDelta: .medium,
-                .hpDelta: .lowerLower,
-                .spdDelta: .highest,
-                .atkAmp: .highest,
                 .hpAmp: .medium,
+                .hpDelta: .lowerLower,
+                .atkDelta: .medium,
+                .atkAmp: .highest,
+                .spdDelta: .highest,
             ],
-            max: 10.0
+            max: 9.28
         ),
         "1203": .init(
             main: [
+                .body: [.healAmp: .highest, .hpAmp: .higher],
+                .object: [.defAmp: .medium, .hpAmp: .highest],
                 .foot: [.spdDelta: .highest, .hpAmp: .highest],
-                .object: [.hpAmp: .highest, .defAmp: .medium],
-                .body: [.hpAmp: .higher, .healAmp: .highest],
                 .neck: [.hpAmp: .highest, .energyRecovery: .medium],
             ],
             weight: [
-                .hpDelta: .medium,
-                .spdDelta: .higher,
-                .defAmp: .medium,
-                .defDelta: .lowerLower,
                 .hpAmp: .highest,
                 .statResis: .medium,
+                .defDelta: .lowerLower,
+                .defAmp: .medium,
+                .hpDelta: .medium,
+                .spdDelta: .higher,
             ],
-            max: 10.0
+            max: 8.46
         ),
         "1204": .init(
             main: [
+                .foot: [.spdDelta: .higher, .atkAmp: .highest],
+                .object: [.dmgAmp(.electro): .highest, .atkAmp: .higher],
+                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
                 .body: [
                     .atkAmp: .higher,
+                    .critDamage: .higherPlus,
+                    .critChance: .highest,
+                ],
+            ],
+            weight: [
+                .critChance: .highest,
+                .atkAmp: .higher,
+                .atkDelta: .lower,
+                .critDamage: .highest,
+                .spdDelta: .highest,
+            ],
+            max: 10.32
+        ),
+        "1205": .init(
+            main: [
+                .body: [
                     .critChance: .highest,
                     .critDamage: .higherPlus,
+                    .hpAmp: .higher,
+                    .atkAmp: .higher,
                 ],
-                .object: [.atkAmp: .higher, .dmgAmp(.electro): .highest],
-                .foot: [.atkAmp: .highest, .spdDelta: .higher],
+                .foot: [.hpAmp: .higher, .atkAmp: .higher, .spdDelta: .highest],
+                .neck: [
+                    .hpAmp: .highest,
+                    .atkAmp: .higher,
+                    .energyRecovery: .medium,
+                ],
+                .object: [
+                    .atkAmp: .higher,
+                    .hpAmp: .higher,
+                    .dmgAmp(.anemo): .highest,
+                ],
+            ],
+            weight: [
+                .hpAmp: .higher,
+                .spdDelta: .higher,
+                .atkDelta: .lower,
+                .critChance: .highest,
+                .atkAmp: .higher,
+                .hpDelta: .lower,
+                .critDamage: .highest,
+            ],
+            max: 10.28
+        ),
+        "1206": .init(
+            main: [
+                .neck: [
+                    .energyRecovery: .medium,
+                    .atkAmp: .higher,
+                    .breakDmg: .highest,
+                ],
+                .foot: [.spdDelta: .highest, .atkAmp: .higher],
+                .object: [.atkAmp: .higher, .dmgAmp(.physico): .highest],
+                .body: [
+                    .critDamage: .higherPlus,
+                    .atkAmp: .higher,
+                    .critChance: .highest,
+                ],
+            ],
+            weight: [
+                .critDamage: .highest,
+                .critChance: .highest,
+                .atkDelta: .lower,
+                .spdDelta: .highest,
+                .breakDmg: .medium,
+                .atkAmp: .higher,
+            ],
+            max: 10.36
+        ),
+        "1207": .init(
+            main: [
+                .body: [
+                    .critChance: .highest,
+                    .critDamage: .higherPlus,
+                    .atkAmp: .highest,
+                    .statProb: .higher,
+                ],
+                .object: [.dmgAmp(.fantastico): .highest, .atkAmp: .higher],
+                .foot: [.spdDelta: .higher, .atkAmp: .highest],
                 .neck: [.atkAmp: .higher, .energyRecovery: .highest],
             ],
             weight: [
                 .spdDelta: .highest,
-                .atkAmp: .higher,
-                .critChance: .highest,
-                .atkDelta: .lower,
-                .critDamage: .highest,
-            ],
-            max: 10.0
-        ),
-        "1205": .init(
-            main: [
-                .neck: [
-                    .atkAmp: .higher,
-                    .hpAmp: .highest,
-                    .energyRecovery: .medium,
-                ],
-                .body: [
-                    .critChance: .highest,
-                    .hpAmp: .higher,
-                    .critDamage: .higherPlus,
-                    .atkAmp: .higher,
-                ],
-                .object: [
-                    .dmgAmp(.anemo): .highest,
-                    .hpAmp: .higher,
-                    .atkAmp: .higher,
-                ],
-                .foot: [.spdDelta: .highest, .atkAmp: .higher, .hpAmp: .higher],
-            ],
-            weight: [
-                .spdDelta: .higher,
-                .atkAmp: .higher,
-                .critChance: .highest,
-                .critDamage: .highest,
-                .hpDelta: .lower,
-                .atkDelta: .lower,
-                .hpAmp: .higher,
-            ],
-            max: 10.0
-        ),
-        "1206": .init(
-            main: [
-                .foot: [.spdDelta: .highest, .atkAmp: .higher],
-                .object: [.dmgAmp(.physico): .highest, .atkAmp: .higher],
-                .neck: [
-                    .energyRecovery: .medium,
-                    .breakDmg: .highest,
-                    .atkAmp: .higher,
-                ],
-                .body: [
-                    .atkAmp: .higher,
-                    .critDamage: .higherPlus,
-                    .critChance: .highest,
-                ],
-            ],
-            weight: [
-                .breakDmg: .medium,
                 .atkDelta: .lower,
                 .atkAmp: .higher,
-                .critChance: .highest,
-                .critDamage: .highest,
-                .spdDelta: .highest,
             ],
-            max: 10.0
-        ),
-        "1207": .init(
-            main: [
-                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
-                .foot: [.atkAmp: .highest, .spdDelta: .higher],
-                .body: [
-                    .statProb: .higher,
-                    .critChance: .highest,
-                    .critDamage: .higherPlus,
-                    .atkAmp: .highest,
-                ],
-                .object: [.atkAmp: .higher, .dmgAmp(.fantastico): .highest],
-            ],
-            weight: [
-                .atkAmp: .higher,
-                .spdDelta: .highest,
-                .atkDelta: .lower,
-            ],
-            max: 10.0
+            max: 8.2
         ),
         "1208": .init(
             main: [
-                .object: [
-                    .hpAmp: .highest,
-                    .defAmp: .higher,
-                    .dmgAmp(.posesto): .highest,
-                ],
                 .foot: [.hpAmp: .higher, .spdDelta: .highest],
                 .body: [
+                    .hpAmp: .highest,
+                    .defAmp: .higher,
                     .critDamage: .higher,
+                ],
+                .neck: [
+                    .defAmp: .high,
+                    .hpAmp: .higher,
+                    .energyRecovery: .highest,
+                ],
+                .object: [
+                    .dmgAmp(.posesto): .highest,
                     .hpAmp: .highest,
                     .defAmp: .higher,
                 ],
-                .neck: [
-                    .hpAmp: .higher,
-                    .energyRecovery: .highest,
-                    .defAmp: .high,
-                ],
+                .head: [.hpDelta: .highest],
             ],
             weight: [
-                .defDelta: .lower,
-                .critDamage: .high,
                 .hpDelta: .medium,
-                .statResis: .highPlus,
-                .defAmp: .high,
-                .spdDelta: .highest,
+                .critDamage: .high,
                 .critChance: .high,
+                .defAmp: .high,
+                .statResis: .highPlus,
+                .defDelta: .lower,
                 .hpAmp: .highest,
+                .spdDelta: .highest,
             ],
-            max: 10.0
+            max: 9.72
         ),
         "1209": .init(
             main: [
+                .object: [.dmgAmp(.cryo): .highest, .atkAmp: .higher],
+                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
                 .foot: [.spdDelta: .highest, .atkAmp: .higher],
                 .body: [
-                    .critDamage: .highest,
                     .atkAmp: .higher,
+                    .critDamage: .highest,
                     .critChance: .higherPlus,
                 ],
-                .object: [.atkAmp: .higher, .dmgAmp(.cryo): .highest],
-                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
+                .hand: [.atkDelta: .highest],
             ],
             weight: [
+                .spdDelta: .highest,
                 .atkDelta: .lower,
                 .critChance: .highest,
                 .critDamage: .highest,
-                .spdDelta: .highest,
                 .atkAmp: .higher,
             ],
-            max: 10.0
+            max: 10.28
         ),
         "1210": .init(
             main: [
-                .object: [.atkAmp: .higher, .dmgAmp(.pyro): .highest],
                 .foot: [.spdDelta: .highest, .atkAmp: .highest],
+                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
                 .body: [
-                    .atkAmp: .highest,
                     .critChance: .high,
+                    .atkAmp: .highest,
                     .critDamage: .high,
                 ],
-                .neck: [.energyRecovery: .highest, .atkAmp: .higher],
+                .object: [.atkAmp: .higher, .dmgAmp(.pyro): .highest],
             ],
             weight: [
-                .hpDelta: .lowest,
                 .hpAmp: .lower,
-                .critChance: .higher,
                 .spdDelta: .highest,
                 .atkAmp: .highest,
                 .atkDelta: .low,
+                .critChance: .higher,
                 .critDamage: .higher,
+                .hpDelta: .lowest,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "1211": .init(
             main: [
                 .neck: [.hpAmp: .highest, .energyRecovery: .higher],
-                .body: [.healAmp: .highest, .hpAmp: .higher],
                 .foot: [.spdDelta: .highest, .hpAmp: .highest],
-                .object: [.defAmp: .medium, .hpAmp: .highest],
+                .object: [.hpAmp: .highest, .defAmp: .medium],
+                .body: [.hpAmp: .higher, .healAmp: .highest],
             ],
             weight: [
                 .hpAmp: .highest,
+                .defDelta: .lowerLower,
                 .hpDelta: .medium,
+                .statResis: .medium,
                 .spdDelta: .highest,
                 .defAmp: .medium,
-                .defDelta: .lowerLower,
-                .statResis: .medium,
             ],
-            max: 10.0
+            max: 9.3
         ),
         "1212": .init(
             main: [
-                .neck: [.atkAmp: .highest, .energyRecovery: .highest],
                 .body: [
-                    .atkAmp: .higher,
                     .critDamage: .highest,
+                    .atkAmp: .higher,
                     .critChance: .higher,
                 ],
+                .neck: [.atkAmp: .highest, .energyRecovery: .highest],
                 .object: [.atkAmp: .higher, .dmgAmp(.cryo): .highest],
                 .foot: [.atkAmp: .higher, .spdDelta: .highest],
             ],
             weight: [
+                .statResis: .lowerLower,
+                .critChance: .higher,
                 .critDamage: .highest,
+                .defAmp: .lower,
                 .defDelta: .lowest,
                 .spdDelta: .highest,
-                .hpDelta: .lowest,
+                .atkDelta: .lower,
                 .atkAmp: .higher,
                 .hpAmp: .lower,
-                .critChance: .higher,
-                .atkDelta: .lower,
-                .defAmp: .lower,
-                .statResis: .lowerLower,
+                .hpDelta: .lowest,
             ],
-            max: 10.0
+            max: 10.04
         ),
         "1213": .init(
             main: [
+                .body: [
+                    .critDamage: .higherPlus,
+                    .critChance: .highest,
+                    .atkAmp: .higher,
+                ],
                 .foot: [.atkAmp: .higher, .spdDelta: .highest],
                 .neck: [
                     .energyRecovery: .highest,
-                    .atkAmp: .higher,
                     .breakDmg: .highest,
-                ],
-                .body: [
                     .atkAmp: .higher,
-                    .critDamage: .higherPlus,
-                    .critChance: .highest,
                 ],
-                .object: [.dmgAmp(.fantastico): .highest, .atkAmp: .higher],
+                .object: [.atkAmp: .higher, .dmgAmp(.fantastico): .highest],
             ],
             weight: [
-                .critChance: .highest,
-                .atkDelta: .lower,
                 .spdDelta: .higher,
-                .critDamage: .highest,
+                .atkDelta: .lower,
                 .atkAmp: .higher,
+                .critChance: .highest,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "1214": .init(
             main: [
-                .foot: [.spdDelta: .highest, .atkAmp: .higher],
-                .neck: [
+                .body: [
+                    .critChance: .highest,
+                    .critDamage: .higherPlus,
                     .atkAmp: .higher,
-                    .breakDmg: .highest,
-                    .energyRecovery: .medium,
                 ],
                 .object: [.dmgAmp(.posesto): .highest, .atkAmp: .highest],
-                .body: [
+                .foot: [.spdDelta: .highest, .atkAmp: .higher],
+                .neck: [
+                    .energyRecovery: .medium,
+                    .breakDmg: .highest,
                     .atkAmp: .higher,
-                    .critDamage: .higherPlus,
-                    .critChance: .highest,
                 ],
             ],
             weight: [
-                .atkDelta: .lower,
-                .spdDelta: .highest,
-                .atkAmp: .higher,
                 .critDamage: .highest,
-                .breakDmg: .highest,
+                .spdDelta: .highest,
+                .atkDelta: .lower,
                 .critChance: .highest,
+                .breakDmg: .highest,
+                .atkAmp: .higher,
             ],
-            max: 10.0
+            max: 10.68
         ),
         "1215": .init(
             main: [
-                .body: [.hpAmp: .highest, .atkAmp: .highest],
-                .foot: [.atkAmp: .higher, .spdDelta: .highest, .hpAmp: .higher],
-                .object: [.atkAmp: .higher, .hpAmp: .highest],
+                .foot: [.hpAmp: .higher, .spdDelta: .highest, .atkAmp: .higher],
                 .neck: [
-                    .hpAmp: .higher,
                     .energyRecovery: .highest,
+                    .hpAmp: .higher,
                     .atkAmp: .higher,
                 ],
+                .body: [.atkAmp: .highest, .hpAmp: .highest],
+                .object: [.hpAmp: .highest, .atkAmp: .higher],
             ],
             weight: [
-                .spdDelta: .highest,
-                .hpDelta: .lower,
-                .defAmp: .higher,
                 .statResis: .medium,
-                .hpAmp: .higher,
                 .defDelta: .lower,
+                .spdDelta: .highest,
+                .hpAmp: .higher,
+                .defAmp: .higher,
+                .hpDelta: .lower,
             ],
-            max: 10.0
+            max: 9.18
         ),
         "1217": .init(
             main: [
-                .object: [.defAmp: .medium, .hpAmp: .highest],
-                .neck: [.hpAmp: .higher, .energyRecovery: .highest],
-                .body: [.healAmp: .highest, .hpAmp: .higher],
+                .body: [.hpAmp: .higher, .healAmp: .highest],
+                .object: [.hpAmp: .highest, .defAmp: .medium],
+                .neck: [.energyRecovery: .highest, .hpAmp: .higher],
                 .foot: [.hpAmp: .higher, .spdDelta: .highest],
+                .hand: [.atkDelta: .highest],
             ],
             weight: [
-                .statResis: .medium,
-                .spdDelta: .highest,
                 .hpAmp: .highest,
                 .defAmp: .medium,
-                .defDelta: .lowerLower,
+                .statResis: .medium,
+                .spdDelta: .highest,
                 .hpDelta: .medium,
+                .defDelta: .lowerLower,
             ],
-            max: 10.0
+            max: 9.4
         ),
         "1301": .init(
             main: [
-                .neck: [
-                    .hpAmp: .higher,
-                    .energyRecovery: .highest,
-                    .breakDmg: .highest,
-                ],
-                .foot: [.spdDelta: .highest, .hpAmp: .higher],
                 .object: [.hpAmp: .highest],
+                .foot: [.hpAmp: .higher, .spdDelta: .highest],
                 .body: [.hpAmp: .higher, .healAmp: .highest],
+                .neck: [
+                    .breakDmg: .highest,
+                    .energyRecovery: .highest,
+                    .hpAmp: .higher,
+                ],
+                .head: [.hpDelta: .highest],
             ],
             weight: [
-                .breakDmg: .highest,
-                .hpAmp: .highest,
                 .defAmp: .medium,
                 .defDelta: .lowerLower,
-                .statResis: .medium,
                 .hpDelta: .medium,
                 .spdDelta: .highest,
+                .statResis: .medium,
+                .hpAmp: .highest,
+                .breakDmg: .highest,
             ],
-            max: 10.0
+            max: 9.9
         ),
         "1302": .init(
             main: [
-                .object: [.dmgAmp(.physico): .highest, .atkAmp: .higher],
+                .foot: [.spdDelta: .highest, .atkAmp: .higher],
+                .object: [.atkAmp: .higher, .dmgAmp(.physico): .highest],
                 .body: [
-                    .critDamage: .highest,
                     .critChance: .highest,
+                    .critDamage: .highest,
                     .atkAmp: .higher,
                 ],
-                .foot: [.atkAmp: .higher, .spdDelta: .highest],
                 .neck: [.energyRecovery: .higher, .atkAmp: .highest],
             ],
             weight: [
-                .atkDelta: .lower,
                 .spdDelta: .highest,
                 .critDamage: .highest,
-                .critChance: .highest,
+                .atkDelta: .lower,
                 .atkAmp: .higher,
+                .critChance: .highest,
             ],
-            max: 10.0
+            max: 10.18
         ),
         "1303": .init(
             main: [
-                .object: [.defAmp: .highest, .hpAmp: .highest],
                 .neck: [
-                    .hpAmp: .higher,
                     .breakDmg: .highest,
                     .energyRecovery: .highest,
+                    .hpAmp: .higher,
                     .defAmp: .higher,
                 ],
-                .body: [.defAmp: .highest, .hpAmp: .highest],
-                .foot: [.spdDelta: .highest, .hpAmp: .higher, .defAmp: .higher],
+                .body: [.hpAmp: .highest, .defAmp: .highest],
+                .object: [.hpAmp: .highest, .defAmp: .highest],
+                .foot: [.hpAmp: .higher, .spdDelta: .highest, .defAmp: .higher],
             ],
             weight: [
                 .defDelta: .lower,
-                .defAmp: .higher,
-                .hpAmp: .higher,
-                .breakDmg: .highest,
                 .hpDelta: .lower,
                 .spdDelta: .highest,
                 .statResis: .medium,
+                .defAmp: .higher,
+                .hpAmp: .higher,
+                .breakDmg: .highest,
             ],
             max: 10.0
         ),
         "1304": .init(
             main: [
-                .object: [.dmgAmp(.fantastico): .highest, .defAmp: .highest],
                 .body: [
                     .critDamage: .highest,
                     .defAmp: .highest,
                     .critChance: .higher,
                 ],
-                .neck: [.defAmp: .highest, .energyRecovery: .highest],
-                .foot: [.defAmp: .highest, .spdDelta: .highest],
+                .object: [.dmgAmp(.fantastico): .highest, .defAmp: .highest],
+                .neck: [.energyRecovery: .highest, .defAmp: .highest],
+                .foot: [.spdDelta: .highest, .defAmp: .highest],
+                .hand: [.atkDelta: .highest],
             ],
             weight: [
-                .critDamage: .highest,
-                .defAmp: .highest,
                 .statResis: .medium,
+                .defAmp: .highest,
+                .critDamage: .highest,
                 .critChance: .highest,
                 .spdDelta: .higher,
                 .defDelta: .medium,
             ],
-            max: 10.0
+            max: 10.26
         ),
         "1305": .init(
             main: [
-                .neck: [.atkAmp: .highest, .energyRecovery: .highest],
-                .foot: [.spdDelta: .highest, .atkAmp: .highest],
+                .neck: [.energyRecovery: .highest, .atkAmp: .highest],
+                .object: [.dmgAmp(.fantastico): .highest, .atkAmp: .higher],
                 .body: [
                     .atkAmp: .higher,
-                    .critChance: .highest,
                     .critDamage: .highest,
+                    .critChance: .highest,
                 ],
-                .object: [.atkAmp: .higher, .dmgAmp(.fantastico): .highest],
+                .foot: [.spdDelta: .highest, .atkAmp: .highest],
             ],
             weight: [
-                .spdDelta: .higher,
-                .critDamage: .highest,
                 .critChance: .highest,
-                .atkAmp: .higher,
                 .atkDelta: .lower,
+                .spdDelta: .higher,
+                .atkAmp: .higher,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "1306": .init(
             main: [
-                .foot: [.spdDelta: .highest, .hpAmp: .higher],
                 .object: [.hpAmp: .highest, .defAmp: .medium],
+                .foot: [.spdDelta: .highest, .hpAmp: .higher],
                 .body: [
-                    .critDamage: .highest,
-                    .hpAmp: .higher,
                     .defAmp: .medium,
+                    .hpAmp: .higher,
+                    .critDamage: .highest,
                 ],
                 .neck: [
-                    .hpAmp: .higher,
                     .defAmp: .medium,
                     .energyRecovery: .highest,
+                    .hpAmp: .higher,
                 ],
             ],
             weight: [
@@ -1017,253 +1031,231 @@ extension ArtifactRating {
                 .defAmp: .medium,
                 .hpDelta: .lower,
                 .spdDelta: .highest,
-                .critDamage: .highest,
-                .defDelta: .lowerLower,
                 .statResis: .higher,
+                .defDelta: .lowerLower,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.06
         ),
         "1307": .init(
             main: [
-                .neck: [.atkAmp: .highest, .energyRecovery: .highest],
+                .object: [.dmgAmp(.anemo): .highest, .atkAmp: .higher],
                 .body: [.atkAmp: .higher, .statProb: .highest],
-                .object: [.atkAmp: .higher, .dmgAmp(.anemo): .highest],
                 .foot: [.spdDelta: .highest, .atkAmp: .highest],
+                .neck: [.atkAmp: .highest, .energyRecovery: .highest],
+                .head: [.hpDelta: .highest],
             ],
             weight: [
-                .atkDelta: .low,
-                .critChance: .low,
-                .spdDelta: .highest,
-                .atkAmp: .highest,
                 .critDamage: .low,
+                .spdDelta: .highest,
+                .atkDelta: .low,
+                .atkAmp: .highest,
+                .critChance: .low,
                 .statProb: .highest,
             ],
-            max: 10.0
+            max: 9.84
         ),
         "1308": .init(
             main: [
                 .foot: [.atkAmp: .highest],
+                .object: [.dmgAmp(.electro): .highest, .atkAmp: .highest],
                 .body: [
-                    .critDamage: .highest,
                     .atkAmp: .higher,
+                    .critDamage: .highest,
                     .critChance: .highest,
                 ],
-                .object: [.dmgAmp(.electro): .highest, .atkAmp: .highest],
                 .neck: [.atkAmp: .highest],
             ],
             weight: [
-                .critChance: .highest,
                 .statProb: .medium,
-                .spdDelta: .higher,
                 .atkAmp: .higher,
-                .atkDelta: .lower,
                 .critDamage: .highest,
+                .spdDelta: .higher,
+                .critChance: .highest,
+                .atkDelta: .lower,
             ],
-            max: 10.0
+            max: 10.04
         ),
         "1309": .init(
             main: [
-                .foot: [
-                    .atkAmp: .highest,
-                ],
-                .neck: [
-                    .atkAmp: .higher,
-                    .energyRecovery: .highest,
-                ],
-                .object: [
-                    .atkAmp: .highest,
-                    .dmgAmp(.physico): .highest,
-                ],
-                .body: [
-                    .atkAmp: .highest,
-                ],
+                .body: [.atkAmp: .highest],
+                .object: [.dmgAmp(.physico): .highest, .atkAmp: .highest],
+                .foot: [.atkAmp: .highest],
+                .neck: [.atkAmp: .higher, .energyRecovery: .highest],
             ],
             weight: [
-                .spdDelta: .highest,
-                .statResis: .medium,
                 .defDelta: .lower,
+                .atkAmp: .highest,
+                .statResis: .medium,
+                .hpAmp: .higher,
+                .spdDelta: .highest,
                 .hpDelta: .lower,
                 .defAmp: .higher,
-                .hpAmp: .higher,
-                .atkAmp: .highest,
                 .atkDelta: .medium,
             ],
-            max: 10.0
+            max: 10.02
         ),
         "1312": .init(
             main: [
-                .body: [
-                    .critDamage: .highest,
-                    .critChance: .highest,
-                    .atkAmp: .higher,
-                ],
+                .neck: [.atkAmp: .highest, .energyRecovery: .highest],
                 .foot: [.spdDelta: .highest, .atkAmp: .highest],
                 .object: [.dmgAmp(.cryo): .highest, .atkAmp: .higher],
-                .neck: [.energyRecovery: .highest, .atkAmp: .highest],
+                .body: [
+                    .atkAmp: .higher,
+                    .critChance: .highest,
+                    .critDamage: .highest,
+                ],
+                .hand: [.atkDelta: .highest],
             ],
             weight: [
                 .atkDelta: .lower,
-                .critDamage: .highest,
-                .atkAmp: .higher,
+                .spdDelta: .higher,
                 .statProb: .medium,
                 .critChance: .highest,
-                .spdDelta: .higher,
+                .atkAmp: .higher,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.16
+        ),
+        "1315": .init(
+            main: [
+                .body: [.critChance: .highest],
+                .foot: [.spdDelta: .highest],
+                .object: [.dmgAmp(.physico): .highest, .atkAmp: .higher],
+                .neck: [.breakDmg: .highest],
+            ],
+            weight: [:],
+            max: 0.0
         ),
         "8001": .init(
             main: [
-                .body: [
-                    .critDamage: .higherPlus,
-                    .critChance: .highest,
-                    .atkAmp: .higher,
-                ],
                 .neck: [
+                    .atkAmp: .highest,
                     .breakDmg: .highest,
                     .energyRecovery: .medium,
-                    .atkAmp: .highest,
                 ],
-                .object: [.dmgAmp(.physico): .highest, .atkAmp: .higher],
-                .foot: [.spdDelta: .higher, .atkAmp: .highest],
+                .object: [.atkAmp: .higher, .dmgAmp(.physico): .highest],
+                .foot: [.atkAmp: .highest, .spdDelta: .higher],
+                .body: [
+                    .atkAmp: .higher,
+                    .critDamage: .higherPlus,
+                    .critChance: .highest,
+                ],
+                .head: [.hpDelta: .highest],
             ],
             weight: [
-                .atkDelta: .lower,
-                .critDamage: .highest,
-                .critChance: .highest,
                 .spdDelta: .higher,
                 .atkAmp: .higher,
+                .atkDelta: .lower,
+                .critChance: .highest,
+                .critDamage: .highest,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "8002": .init(
             main: [
+                .object: [.dmgAmp(.physico): .highest, .atkAmp: .higher],
                 .body: [
+                    .atkAmp: .higher,
                     .critChance: .highest,
                     .critDamage: .higherPlus,
-                    .atkAmp: .higher,
-                ],
-                .object: [.dmgAmp(.physico): .highest, .atkAmp: .higher],
-                .neck: [
-                    .breakDmg: .highest,
-                    .energyRecovery: .medium,
-                    .atkAmp: .highest,
                 ],
                 .foot: [.spdDelta: .higher, .atkAmp: .highest],
+                .neck: [
+                    .atkAmp: .highest,
+                    .energyRecovery: .medium,
+                    .breakDmg: .highest,
+                ],
+                .head: [.hpDelta: .highest],
             ],
             weight: [
-                .atkDelta: .lower,
-                .critChance: .highest,
                 .critDamage: .highest,
+                .critChance: .highest,
                 .spdDelta: .higher,
+                .atkDelta: .lower,
                 .atkAmp: .higher,
             ],
-            max: 10.0
+            max: 10.08
         ),
         "8003": .init(
             main: [
-                .foot: [.spdDelta: .higher, .hpAmp: .medium, .defAmp: .highest],
+                .neck: [.defAmp: .highest, .hpAmp: .medium],
                 .body: [
                     .statProb: .highest,
-                    .defAmp: .highest,
                     .hpAmp: .medium,
+                    .defAmp: .highest,
                 ],
-                .neck: [.hpAmp: .medium, .defAmp: .highest],
-                .object: [.hpAmp: .medium, .defAmp: .highest],
+                .object: [.defAmp: .highest, .hpAmp: .medium],
+                .foot: [.spdDelta: .higher, .hpAmp: .medium, .defAmp: .highest],
+                .head: [.hpDelta: .highest],
             ],
             weight: [
+                .defAmp: .highest,
+                .statProb: .highest,
                 .statResis: .medium,
-                .hpAmp: .medium,
                 .spdDelta: .highest,
                 .defDelta: .medium,
-                .statProb: .highest,
-                .defAmp: .highest,
+                .hpAmp: .medium,
                 .hpDelta: .lowerLower,
             ],
-            max: 10.0
+            max: 9.8
         ),
         "8004": .init(
             main: [
-                .foot: [.defAmp: .highest, .hpAmp: .medium, .spdDelta: .higher],
                 .body: [
                     .defAmp: .highest,
                     .hpAmp: .medium,
                     .statProb: .highest,
                 ],
-                .object: [.defAmp: .highest, .hpAmp: .medium],
-                .neck: [.hpAmp: .medium, .defAmp: .highest],
+                .neck: [.defAmp: .highest, .hpAmp: .medium],
+                .object: [.hpAmp: .medium, .defAmp: .highest],
+                .foot: [.spdDelta: .higher, .defAmp: .highest, .hpAmp: .medium],
             ],
             weight: [
-                .spdDelta: .highest,
                 .defDelta: .medium,
-                .statResis: .medium,
                 .defAmp: .highest,
-                .hpDelta: .lowerLower,
+                .spdDelta: .highest,
                 .statProb: .highest,
+                .hpDelta: .lowerLower,
+                .statResis: .medium,
                 .hpAmp: .medium,
             ],
-            max: 10.0
+            max: 9.8
         ),
         "8005": .init(
             main: [
-                .object: [
-                    .defAmp: .highest,
-                    .hpAmp: .highest,
-                ],
-                .body: [
-                    .hpAmp: .highest,
-                    .defAmp: .highest,
-                ],
-                .neck: [
-                    .hpAmp: .higher,
-                    .defAmp: .higher,
-                    .breakDmg: .highest,
-                ],
-                .foot: [
-                    .spdDelta: .highest,
-                    .defAmp: .higher,
-                    .hpAmp: .higher,
-                ],
+                .foot: [.defAmp: .higher, .hpAmp: .higher, .spdDelta: .highest],
+                .body: [.hpAmp: .highest, .defAmp: .highest],
+                .object: [.hpAmp: .highest, .defAmp: .highest],
+                .neck: [.breakDmg: .highest, .hpAmp: .higher, .defAmp: .higher],
             ],
             weight: [
                 .defAmp: .medium,
-                .breakDmg: .highest,
                 .hpDelta: .lowerLower,
+                .breakDmg: .highest,
                 .hpAmp: .medium,
                 .spdDelta: .highest,
                 .defDelta: .lowerLower,
             ],
-            max: 10.0
+            max: 9.16
         ),
         "8006": .init(
             main: [
-                .object: [
-                    .defAmp: .highest,
-                    .hpAmp: .highest,
-                ],
-                .neck: [
-                    .breakDmg: .highest,
-                    .defAmp: .higher,
-                    .hpAmp: .higher,
-                ],
-                .body: [
-                    .hpAmp: .highest,
-                    .defAmp: .highest,
-                ],
-                .foot: [
-                    .defAmp: .higher,
-                    .spdDelta: .highest,
-                    .hpAmp: .higher,
-                ],
+                .neck: [.breakDmg: .highest, .hpAmp: .higher, .defAmp: .higher],
+                .foot: [.hpAmp: .higher, .spdDelta: .highest, .defAmp: .higher],
+                .body: [.hpAmp: .highest, .defAmp: .highest],
+                .object: [.defAmp: .highest, .hpAmp: .highest],
+                .hand: [.atkDelta: .highest],
             ],
             weight: [
                 .defDelta: .lowerLower,
-                .hpDelta: .lowerLower,
                 .spdDelta: .highest,
-                .breakDmg: .highest,
+                .hpDelta: .lowerLower,
                 .defAmp: .medium,
+                .breakDmg: .highest,
                 .hpAmp: .medium,
             ],
-            max: 10.0
+            max: 9.16
         ),
     ]
 }
