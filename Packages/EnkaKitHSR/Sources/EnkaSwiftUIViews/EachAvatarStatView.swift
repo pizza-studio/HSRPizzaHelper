@@ -2,6 +2,7 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Defaults
 import EnkaKitHSR
 import Foundation
 import SwiftUI
@@ -56,7 +57,7 @@ public struct EachAvatarStatView: View {
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .minimumScaleFactor(0.5)
-                    if let ratingResult = data.artifactRatingResult {
+                    if enableArtifactRatingInShowcase, let ratingResult = data.artifactRatingResult {
                         HStack {
                             Text(verbatim: " → " + data.mainInfo.terms.artifactRatingName + "(Beta)")
                                 .fontWidth(.compressed)
@@ -107,6 +108,10 @@ public struct EachAvatarStatView: View {
         // .showDimension()
         .scaleEffect(scaleRatioCompatible)
     }
+
+    // MARK: Internal
+
+    @Default(.enableArtifactRatingInShowcase) var enableArtifactRatingInShowcase: Bool
 
     // MARK: Private
 
@@ -430,6 +435,7 @@ extension EnkaHSR.AvatarSummarized.WeaponPanel {
 
 extension EnkaHSR.AvatarSummarized.ArtifactInfo {
     private func scoreText(lang: String) -> String {
+        guard Defaults[.enableArtifactRatingInShowcase] else { return "" }
         let unit = EnkaHSR.EnkaDB.ExtraTerms(lang: lang).artifactRatingUnit
         if let score = ratedScore?.description {
             return score + unit

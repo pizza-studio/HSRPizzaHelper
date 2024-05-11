@@ -47,6 +47,11 @@ extension Defaults.Keys {
         default: true,
         suite: .enkaSuite
     )
+    public static let enableArtifactRatingInShowcase = Key<Bool>(
+        "enableArtifactRatingInShowcase",
+        default: true,
+        suite: .enkaSuite
+    )
 }
 #endif
 
