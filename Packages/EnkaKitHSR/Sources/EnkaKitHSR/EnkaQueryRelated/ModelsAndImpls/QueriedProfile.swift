@@ -162,6 +162,16 @@ extension EnkaHSR.QueryRelated.DetailInfo {
         public let value: Double
     }
 
+    // MARK: - PropStepped
+
+    // NON-ENKA
+    public struct PropStepped: Codable, Hashable {
+        public let type: String
+        public let value: Double
+        public let count: Int
+        public let step: Int?
+    }
+
     // MARK: - ArtifactItem
 
     public struct ArtifactItem: Codable, Hashable {
@@ -178,6 +188,14 @@ extension EnkaHSR.QueryRelated.DetailInfo {
 
         public struct Flat: Codable, Hashable {
             public let props: [Prop]
+            public let setName, setID: Int
+        }
+
+        // MARK: - ArtifactItem.SteppedFlat
+
+        // NON-ENKA
+        public struct SteppedFlat: Codable, Hashable {
+            public let props: [PropStepped]
             public let setName, setID: Int
         }
 

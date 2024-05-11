@@ -241,8 +241,8 @@ extension EnkaHSR.AvatarSummarized.PropertyPair {
 }
 
 extension EnkaHSR.QueryRelated.DetailInfo.ArtifactItem {
-    public func getFlat(theDB: EnkaHSR.EnkaDB) -> EnkaHSR.QueryRelated.DetailInfo.ArtifactItem.Flat? {
-        var result = [EnkaHSR.QueryRelated.DetailInfo.Prop]()
+    public func getFlat(theDB: EnkaHSR.EnkaDB) -> EnkaHSR.QueryRelated.DetailInfo.ArtifactItem.SteppedFlat? {
+        var result = [EnkaHSR.QueryRelated.DetailInfo.PropStepped]()
         guard let matchedArtifact = theDB.artifacts[tid.description] else { return nil }
         let mainAffix = theDB.meta.relic.mainAffix[
             matchedArtifact.mainAffixGroup.description
@@ -251,7 +251,9 @@ extension EnkaHSR.QueryRelated.DetailInfo.ArtifactItem {
             result.append(
                 .init(
                     type: mainAffix.property.rawValue,
-                    value: mainAffix.baseValue + mainAffix.levelAdd * Double(level ?? 0)
+                    value: mainAffix.baseValue + mainAffix.levelAdd * Double(level ?? 0),
+                    count: 0,
+                    step: nil
                 )
             )
         }
@@ -262,7 +264,9 @@ extension EnkaHSR.QueryRelated.DetailInfo.ArtifactItem {
             result.append(
                 .init(
                     type: subAffix.property.rawValue,
-                    value: subAffix.baseValue * Double(sub.cnt) + subAffix.stepValue * Double(sub.step ?? 0)
+                    value: subAffix.baseValue * Double(sub.cnt) + subAffix.stepValue * Double(sub.step ?? 0),
+                    count: sub.cnt,
+                    step: sub.step ?? 0
                 )
             )
         }

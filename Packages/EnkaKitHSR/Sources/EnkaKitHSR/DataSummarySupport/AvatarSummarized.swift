@@ -177,27 +177,36 @@ extension EnkaHSR.AvatarSummarized {
     public struct PropertyPair: Codable, Hashable, Identifiable {
         // MARK: Lifecycle
 
-        public init(theDB: EnkaHSR.EnkaDB, type: EnkaHSR.PropertyType, value: Double, isArtifact: Bool = false) {
+        public init(
+            theDB: EnkaHSR.EnkaDB,
+            type: EnkaHSR.PropertyType,
+            value: Double
+        ) {
             self.type = type
             self.value = value
             var title = (theDB.locTable[type.rawValue] ?? type.rawValue)
-            title = title.replacingOccurrences(of: "Regeneration", with: "Recharge")
-            title = title.replacingOccurrences(of: "Rate", with: "%")
-            title = title.replacingOccurrences(of: "Bonus", with: "+")
-            title = title.replacingOccurrences(of: "Boost", with: "+")
-            title = title.replacingOccurrences(of: "ダメージ", with: "傷害量")
-            title = title.replacingOccurrences(of: "能量恢复", with: "元素充能")
-            title = title.replacingOccurrences(of: "能量恢復", with: "元素充能")
-            title = title.replacingOccurrences(of: "属性", with: "元素")
-            title = title.replacingOccurrences(of: "屬性", with: "元素")
-            title = title.replacingOccurrences(of: "量子元素", with: "量子")
-            title = title.replacingOccurrences(of: "物理元素", with: "物理")
-            title = title.replacingOccurrences(of: "虛數元素", with: "虛數")
-            title = title.replacingOccurrences(of: "虚数元素", with: "虚数")
-            title = title.replacingOccurrences(of: "提高", with: "加成")
-            title = title.replacingOccurrences(of: "与", with: "")
+            Self.sanitizeTitle(&title)
             self.localizedTitle = title
-            self.isArtifact = isArtifact
+            self.isArtifact = false
+            self.count = 0
+            self.step = nil
+        }
+
+        public init(
+            theDB: EnkaHSR.EnkaDB,
+            type: EnkaHSR.PropertyType,
+            value: Double,
+            count: Int,
+            step: Int?
+        ) {
+            self.type = type
+            self.value = value
+            var title = (theDB.locTable[type.rawValue] ?? type.rawValue)
+            Self.sanitizeTitle(&title)
+            self.localizedTitle = title
+            self.isArtifact = true
+            self.count = count
+            self.step = step
         }
 
         // MARK: Public
@@ -206,6 +215,8 @@ extension EnkaHSR.AvatarSummarized {
         public let value: Double
         public let localizedTitle: String
         public let isArtifact: Bool
+        public let count: Int
+        public let step: Int?
 
         public var id: EnkaHSR.PropertyType { type }
 
@@ -225,6 +236,26 @@ extension EnkaHSR.AvatarSummarized {
 
         public var iconFilePath: String? {
             type.iconFilePath
+        }
+
+        // MARK: Private
+
+        private static func sanitizeTitle(_ title: inout String) {
+            title = title.replacingOccurrences(of: "Regeneration", with: "Recharge")
+            title = title.replacingOccurrences(of: "Rate", with: "%")
+            title = title.replacingOccurrences(of: "Bonus", with: "+")
+            title = title.replacingOccurrences(of: "Boost", with: "+")
+            title = title.replacingOccurrences(of: "ダメージ", with: "傷害量")
+            title = title.replacingOccurrences(of: "能量恢复", with: "元素充能")
+            title = title.replacingOccurrences(of: "能量恢復", with: "元素充能")
+            title = title.replacingOccurrences(of: "属性", with: "元素")
+            title = title.replacingOccurrences(of: "屬性", with: "元素")
+            title = title.replacingOccurrences(of: "量子元素", with: "量子")
+            title = title.replacingOccurrences(of: "物理元素", with: "物理")
+            title = title.replacingOccurrences(of: "虛數元素", with: "虛數")
+            title = title.replacingOccurrences(of: "虚数元素", with: "虚数")
+            title = title.replacingOccurrences(of: "提高", with: "加成")
+            title = title.replacingOccurrences(of: "与", with: "")
         }
     }
 }
@@ -304,7 +335,13 @@ extension EnkaHSR.AvatarSummarized {
             guard let flat = fetched.getFlat(theDB: theDB) else { return nil }
             let props: [PropertyPair] = flat.props.compactMap { currentRecord in
                 if let theType = EnkaHSR.PropertyType(rawValue: currentRecord.type) {
-                    return PropertyPair(theDB: theDB, type: theType, value: currentRecord.value, isArtifact: true)
+                    return PropertyPair(
+                        theDB: theDB,
+                        type: theType,
+                        value: currentRecord.value,
+                        count: currentRecord.count,
+                        step: currentRecord.step
+                    )
                 }
                 return nil
             }
