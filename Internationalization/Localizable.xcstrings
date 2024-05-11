@@ -11267,6 +11267,35 @@
         }
       }
     },
+    "setting.uirelated.showCase.enableArtifactRating.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable Artifact Compatibility Rating"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "聖遺物互換性評判結果を示す"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用圣遗物契合度评分"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "啟用聖遺物契合度評分"
+          }
+        }
+      }
+    },
     "setting.uirelated.title" : {
       "localizations" : {
         "en" : {

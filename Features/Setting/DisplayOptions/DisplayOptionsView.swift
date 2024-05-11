@@ -68,6 +68,12 @@ struct DisplayOptionsView: View {
             } footer: {
                 disclaimerView
             }
+
+            Section {
+                Toggle(isOn: $enableArtifactRatingInShowcase) {
+                    Text("setting.uirelated.showCase.enableArtifactRating.title")
+                }
+            }
         }
     }
 
@@ -80,6 +86,7 @@ struct DisplayOptionsView: View {
     @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator
     @Default(.animateOnCallingCharacterShowcase) private var animateOnCallingCharacterShowcase: Bool
     @Default(.useGenshinStyleCharacterPhotos) private var useGenshinStyleCharacterPhotos: Bool
+    @Default(.enableArtifactRatingInShowcase) var enableArtifactRatingInShowcase: Bool
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
 
