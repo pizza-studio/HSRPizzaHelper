@@ -175,8 +175,8 @@ extension ArtifactRating.RatingRequest.Artifact {
         var result = stackedScore.reduce(0, +)
         if shouldAdjustForMainProp {
             // 因为引入了主词条加分机制，导致分数上涨得有些虚高了。这里给总分乘以 0.9。
-            // 理论上，此处的调整不会影响到花翎，只会影响到钟杯帽。
-            // 这也就是说，如果角色带了与自己属性或者特长不相配的属性伤害杯的话，反而会「扣分」。
+            // 理论上，此处的调整不会影响到头与手的装备，仅会影响到身体装备、足部装备、位面球、连结绳。
+            // 这也就是说，如果角色带了与自己属性或者特长不相配的属性伤害球的话，反而会「扣分」。
             result *= 0.9
         }
         return result * 3
