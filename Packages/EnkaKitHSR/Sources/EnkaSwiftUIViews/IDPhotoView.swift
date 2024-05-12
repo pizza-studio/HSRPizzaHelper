@@ -22,7 +22,9 @@ public struct IDPhotoView: View {
         guard Defaults[.useGenshinStyleCharacterPhotos] || forceRender else { return nil }
         self.pid = pid
         let fallbackPID = EnkaHSR.CharacterName.convertPIDForProtagonist(pid)
-        guard let ref = EnkaHSR.queryImageAsset(for: "idp\(fallbackPID)") else { return nil }
+        guard let ref = EnkaHSR.queryImageAsset(for: "idp\(pid)")
+            ?? EnkaHSR.queryImageAsset(for: "idp\(fallbackPID)")
+        else { return nil }
         let lifePath = EnkaHSR.Sputnik.sharedDB.characters[pid]?.avatarBaseType
         guard let lifePath = lifePath else { return nil }
         self.size = size
