@@ -5,6 +5,8 @@
 //  Created by 戴藏龙 on 2024/5/10.
 //
 
+// swiftlint:disable:next duplicate_imports
+
 #if !os(watchOS)
 import CoreImage
 import CoreImage.CIFilterBuiltins
