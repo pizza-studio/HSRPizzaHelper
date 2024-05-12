@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// swiftlint:disable line_length
 struct ThanksView: View {
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,6 +22,10 @@ struct ThanksView: View {
                 Text(verbatim: "Defaults - Sindre Sorhus\nhttps://github.com/sindresorhus/Defaults")
                 Text(verbatim: "Enka API - Enka Network\nhttps://enka.network/?hsr")
                 Text(verbatim: "MiHoMo Origin API Mirror - MiHoMo\nhttps://github.com/Mar-7th/March7th-Docs")
+                Text(verbatim: "StarRailScore - Mobyw @ Mar-7th\nhttps://github.com/Mar-7th/StarRailScore")
+                Text(
+                    verbatim: "Genshin Artifact Rating System - Alice Workshop\nhttps://github.com/Kamihimmel/artifactrating"
+                )
             }
             .font(.caption)
             Divider()
@@ -35,3 +40,5 @@ struct ThanksView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
+// swiftlint:enable line_length
