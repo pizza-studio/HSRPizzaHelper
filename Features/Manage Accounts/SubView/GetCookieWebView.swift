@@ -324,6 +324,7 @@ struct QRCodeGetCookieView: View {
         }
         .task(id: taskId) {
             do {
+                qrCodeAndTicket = nil
                 qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: taskId)
             } catch {
                 self.error = error
