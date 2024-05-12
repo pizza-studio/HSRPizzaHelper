@@ -681,6 +681,7 @@
       }
     },
     "account.login.cn_disabled_desc" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1058,6 +1059,21 @@
           }
         }
       }
+    },
+    "account.qr_code_login.check_scanned" : {
+
+    },
+    "account.qr_code_login.footer" : {
+
+    },
+    "account.qr_code_login.not_scanned_alert" : {
+
+    },
+    "account.qr_code_login.regenerate_qrcode" : {
+
+    },
+    "account.qr_code_login.title" : {
+
     },
     "account.setting.allownotification" : {
       "localizations" : {
@@ -15490,6 +15506,9 @@
           }
         }
       }
+    },
+    "sys.retry" : {
+
     },
     "sys.save" : {
       "localizations" : {
