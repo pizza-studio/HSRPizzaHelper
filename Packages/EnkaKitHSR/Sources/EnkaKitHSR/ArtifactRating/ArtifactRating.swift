@@ -89,11 +89,12 @@ extension ArtifactRating {
 extension ArtifactRating.Appraiser {
     public static func tellTier(score: Int) -> String {
         switch score {
-        case 1300...: return "SSS+"
-        case 1250 ..< 1300: return "SSS"
-        case 1200 ..< 1250: return "SSS-"
-        case 1150 ..< 1200: return "SS+"
-        case 1100 ..< 1150: return "SS+"
+        case 1350...: return "SSS+"
+        case 1300 ..< 1350: return "SSS"
+        case 1250 ..< 1300: return "SSS-"
+        case 1200 ..< 1250: return "SS+"
+        case 1150 ..< 1200: return "SS"
+        case 1100 ..< 1150: return "SS-"
         case 1050 ..< 1100: return "S+"
         case 1000 ..< 1050: return "S"
         case 950 ..< 1000: return "S-"
@@ -115,17 +116,6 @@ extension ArtifactRating.Appraiser {
         default: return "F"
         }
     }
-
-    public static func getDefaultRoll(
-        for param: ArtifactRating.Appraiser.Param, star5: Bool
-    )
-        -> Double {
-        // 星穹铁道的圣遗物评分是按照每个词条获得增幅的次数来计算的，
-        // 所以不需要针对不同的词条制定不同的 Roll。
-        var result: Double = 10
-        if !star5 { result *= 0.9 } // 简化对非五星圣遗物的处理。
-        return result
-    }
 }
 
 extension ArtifactRating.RatingRequest.Artifact {
@@ -133,12 +123,13 @@ extension ArtifactRating.RatingRequest.Artifact {
         for request: ArtifactRating.RatingRequest
     )
         -> Double {
-        let isStar5: Bool = star >= 5
         var ratingModel = ArtifactRating.CharacterStatScoreModel.getScoreModel(charID: request.charID.description)
         let charMax = ArtifactRating.CharacterStatScoreModel.getMax(charID: request.charID.description)
+        // 星穹铁道的圣遗物评分是按照每个词条获得增幅的次数来计算的，
+        // 所以不需要针对不同的词条制定不同的 default roll。
+        let defaultRoll = Double(star) * 0.2
         func getPt(_ base: Double, _ param: ArtifactRating.Appraiser.Param) -> Double {
-            (base / ArtifactRating.Appraiser.getDefaultRoll(for: param, star5: isStar5)) * (ratingModel[param] ?? .none)
-                .rawValue
+            (base / defaultRoll) * (ratingModel[param] ?? .none).rawValue
         }
 
         // 副詞條處理。
@@ -156,30 +147,24 @@ extension ArtifactRating.RatingRequest.Artifact {
             getPt(subPanel.statusResistanceBase, .statResis),
             getPt(subPanel.breakDamageAddedRatioBase, .breakDmg),
         ]
-        stackedScore = stackedScore.map { $0 / charMax * 10 }
 
         // 主詞條處理。
-        var shouldAdjustForMainProp = false
         checkMainProps: do {
             guard let mainPropParam = mainProp else { break checkMainProps }
-            guard ![.head, .hand].contains(type) else { break checkMainProps }
             ratingModel = ArtifactRating.CharacterStatScoreModel.getScoreModel(
                 charID: request.charID.description,
                 artifactType: type
             )
-            let mainPropWeight = Double(level + 1) / 16
-            shouldAdjustForMainProp = true
-            stackedScore.append(getPt(mainPropWeight, mainPropParam))
+            typeAdd: switch type {
+            case .head: ratingModel[.hpDelta] = .highest
+            case .hand: ratingModel[.atkDelta] = .highest
+            default: break typeAdd
+            }
+            let mainPropWeightBase = Double(level + 1) / 16
+            stackedScore.append(getPt(mainPropWeightBase, mainPropParam))
         }
 
-        var result = stackedScore.reduce(0, +)
-        if shouldAdjustForMainProp {
-            // 因为引入了主词条加分机制，导致分数上涨得有些虚高了。这里给总分乘以 0.9。
-            // 理论上，此处的调整不会影响到头与手的装备，仅会影响到身体装备、足部装备、位面球、连结绳。
-            // 这也就是说，如果角色带了与自己属性或者特长不相配的属性伤害球的话，反而会「扣分」。
-            result *= 0.9
-        }
-        return result * 3
+        return (stackedScore.reduce(0, +) / charMax) * 3
     }
 }
 
