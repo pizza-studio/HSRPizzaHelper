@@ -25,11 +25,6 @@ struct EditAccountView: View {
                 unsavedCookie: $account.cookie,
                 region: account.server.region
             )
-        } footer: {
-            if account.server.region == .mainlandChina {
-                Text("account.login.cn_disabled_desc")
-                    .foregroundStyle(.red)
-            }
         }
         Section {
             HStack {
@@ -104,13 +99,17 @@ private struct RequireLoginView: View {
                     maxHeight: .infinity
                 )
         }
-        .disabled(region == .mainlandChina)
         .sheet(isPresented: $isGetCookieWebViewShown, content: {
-            GetCookieWebView(
-                isShown: $isGetCookieWebViewShown,
-                cookie: $unsavedCookie,
-                region: region
-            )
+            switch region {
+            case .mainlandChina:
+                QRCodeGetCookieView(cookie: $unsavedCookie)
+            case .global:
+                GetCookieWebView(
+                    isShown: $isGetCookieWebViewShown,
+                    cookie: $unsavedCookie,
+                    region: region
+                )
+            }
         })
     }
 }

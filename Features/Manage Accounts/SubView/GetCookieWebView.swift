@@ -217,4 +217,118 @@ private func getHTTPHeaderFields(region: Region) -> [String: String] {
     }
 }
 
-private func get(_: String) {}
+// MARK: - QRCodeGetCookieView
+
+struct QRCodeGetCookieView: View {
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var qrCodeAndTicket: (qrCode: UIImage, ticket: String)?
+    @State private var taskId: UUID = .init()
+    @State private var error: Error?
+
+    @Binding var cookie: String!
+
+    @State private var isNotScannedAlertShow: Bool = false
+
+    @State private var isCheckingScanning = false
+
+    var body: some View {
+        NavigationStack {
+            List {
+                Section {
+                    if let error {
+                        Label {
+                            Text(error.localizedDescription)
+                        } icon: {
+                            Image(systemSymbol: .exclamationmarkCircle)
+                                .foregroundStyle(.red)
+                        }
+                        Button("sys.retry") {
+                            taskId = UUID()
+                        }
+                    } else if let qrCodeAndTicket {
+                        Image(uiImage: qrCodeAndTicket.qrCode)
+                            .interpolation(.none)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                        if isCheckingScanning {
+                            ProgressView()
+                        } else {
+                            Button("account.qr_code_login.check_scanned") {
+                                Task {
+                                    isCheckingScanning = true
+                                    do {
+                                        let status = try await MiHoYoAPI.queryQRCodeStatus(
+                                            deviceId: taskId,
+                                            ticket: qrCodeAndTicket.ticket
+                                        )
+
+                                        if case let .confirmed(accountId: accountId, token: gameToken) = status {
+                                            let stokenResult = try await MiHoYoAPI.gameToken2StokenV2(
+                                                accountId: accountId,
+                                                gameToken: gameToken
+                                            )
+                                            let stoken = stokenResult.stoken
+                                            let mid = stokenResult.mid
+
+                                            let ltoken = try await MiHoYoAPI.stoken2LTokenV1(
+                                                mid: mid,
+                                                stoken: stoken
+                                            ).ltoken
+
+                                            var cookie = ""
+                                            cookie += "stuid=" + accountId + "; "
+                                            cookie += "stoken=" + stoken + "; "
+                                            cookie += "ltuid=" + accountId + "; "
+                                            cookie += "ltoken=" + ltoken + "; "
+                                            cookie += "mid=" + mid + "; "
+                                            self.cookie = cookie
+
+                                            dismiss()
+                                        } else {
+                                            isNotScannedAlertShow = true
+                                        }
+                                    } catch {
+                                        self.error = error
+                                    }
+                                    isCheckingScanning = false
+                                }
+                            }
+                        }
+
+                        Button("account.qr_code_login.regenerate_qrcode") {
+                            taskId = UUID()
+                        }
+                    } else {
+                        ProgressView()
+                    }
+                } footer: {
+                    Text("account.qr_code_login.footer")
+                }
+            }
+            .alert("account.qr_code_login.not_scanned_alert", isPresented: $isNotScannedAlertShow, actions: {
+                Button("sys.done") {
+                    isNotScannedAlertShow.toggle()
+                }
+            })
+            .navigationTitle("account.qr_code_login.title")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("sys.cancel") {
+                        dismiss()
+                    }
+                }
+            }
+        }
+        .task(id: taskId) {
+            do {
+                qrCodeAndTicket = nil
+                qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: taskId)
+            } catch {
+                self.error = error
+            }
+        }
+    }
+}
