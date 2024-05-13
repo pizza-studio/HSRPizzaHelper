@@ -61,9 +61,9 @@ enum URLRequestHelperConfiguration {
     static func xRpcAppVersion(region: Region) -> String {
         switch region {
         case .mainlandChina:
-            return "2.51.1"
+            return "2.71.1"
         case .global:
-            return "2.33.0"
+            return "2.54.0"
         }
     }
 
