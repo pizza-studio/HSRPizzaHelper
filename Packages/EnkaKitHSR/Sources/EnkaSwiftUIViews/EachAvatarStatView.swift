@@ -59,7 +59,7 @@ public struct EachAvatarStatView: View {
                     .minimumScaleFactor(0.5)
                     if enableArtifactRatingInShowcase, let ratingResult = data.artifactRatingResult {
                         HStack {
-                            Text(verbatim: " → " + data.mainInfo.terms.artifactRatingName + "(Beta)")
+                            Text(verbatim: " → " + data.mainInfo.terms.artifactRatingName)
                                 .fontWidth(.compressed)
                             Spacer()
                             Text(
