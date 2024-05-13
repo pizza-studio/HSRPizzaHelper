@@ -17,7 +17,7 @@ import UIKit
 enum URLRequestHelperConfiguration {
     static let userAgent: String = """
     Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) \
-    AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.71.1
+    AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.51.1
     """
 
     static func recordURLAPIHost(region: Region) -> String {
@@ -50,18 +50,18 @@ enum URLRequestHelperConfiguration {
     static func salt(region: Region) -> String {
         switch region {
         case .mainlandChina:
-            return "rtvTthKxEyreVXQCnhluFgLXPOFKPHlA"
+            return "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
         case .global:
-            return "599uqkwc0dlqu3h6epzjzfhgyyrd44ae"
+            return "okr4obncj8bw5a65hbnn5oo6ixjc3l9w"
         }
     }
 
     static func xRpcAppVersion(region: Region) -> String {
         switch region {
         case .mainlandChina:
-            return "2.71.1"
+            return "2.51.1"
         case .global:
-            return "2.54.0"
+            return "2.33.0"
         }
     }
 
