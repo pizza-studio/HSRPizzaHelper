@@ -15,10 +15,12 @@ import UIKit
 
 /// Abstract class storing salt, version, etc for API.
 enum URLRequestHelperConfiguration {
-    static let userAgent: String = """
-    Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) \
-    AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.51.1
-    """
+    static func getUserAgent(region: Region) -> String {
+        """
+        Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) \
+        AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/\(Self.xRpcAppVersion(region: region))
+        """
+    }
 
     static func recordURLAPIHost(region: Region) -> String {
         switch region {
@@ -94,7 +96,7 @@ enum URLRequestHelperConfiguration {
         let deviceId = UUID().uuidString
         #endif
         var headers = [
-            "User-Agent": userAgent,
+            "User-Agent": Self.getUserAgent(region: region),
             "Referer": referer(region: region),
             "Origin": referer(region: region),
             "Accept-Encoding": "gzip, deflate, br",
