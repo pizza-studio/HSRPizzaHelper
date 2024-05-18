@@ -94,13 +94,13 @@ public struct AllCharacterPhotoSpecimenView: View {
     @State var scroll: Bool
 
     @ViewBuilder var coreBodyView: some View {
+        let base: CGFloat = scroll ? 1.2 : 1
         CharSpecimen.renderAllSpecimen(
             scroll: scroll,
             columns: columns,
-            size: containerSize.width / (1.2 * Double(columns)),
+            size: containerSize.width / (base * Double(columns)),
             cutType: .cutShoulder
         )
-        .padding(.horizontal)
         .animation(.easeInOut, value: columns)
         .environmentObject(orientation)
     }
