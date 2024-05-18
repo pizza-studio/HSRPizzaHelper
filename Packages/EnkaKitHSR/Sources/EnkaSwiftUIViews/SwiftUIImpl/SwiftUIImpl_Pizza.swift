@@ -272,3 +272,15 @@ extension CGColor {
         .init(cgColor: self)
     }
 }
+
+extension CGFloat {
+    public static var currentMonitorScaleFactor: CGFloat {
+        #if canImport(UIKit)
+        return UIScreen.main.scale
+        #elseif canImport(AppKit)
+        return NSScreen.main?.backingScaleFactor
+        #else
+        return 2
+        #endif
+    }
+}

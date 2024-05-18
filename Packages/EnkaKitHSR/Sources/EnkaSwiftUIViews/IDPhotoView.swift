@@ -58,7 +58,17 @@ public struct IDPhotoView: View {
     public let cgImageRef: CGImage
 
     public var body: some View {
-        coreBody
+        let pair = getRendererPair()
+        let theSize = proposedSize
+        if let cgImage = pair.0.cgImage {
+            Image(decorative: cgImage, scale: 1)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
+                .frame(width: theSize.width, height: theSize.height)
+        } else {
+            pair.1
+        }
     }
 
     // MARK: Internal
@@ -67,6 +77,13 @@ public struct IDPhotoView: View {
         switch iconType {
         case .asCard: return AnyView(cardView)
         default: return AnyView(circleIconView)
+        }
+    }
+
+    var proposedSize: CGSize {
+        switch iconType {
+        case .asCard: return .init(width: size * 0.74, height: size)
+        default: return .init(width: size, height: size)
         }
     }
 
@@ -173,6 +190,14 @@ public struct IDPhotoView: View {
         #else
         return nil
         #endif
+    }
+
+    @MainActor
+    func getRendererPair() -> (ImageRenderer<AnyView>, AnyView) {
+        let theBody = AnyView(coreBody)
+        let renderer = ImageRenderer(content: theBody)
+        renderer.scale = .currentMonitorScaleFactor
+        return (renderer, theBody)
     }
 
     // MARK: Private
