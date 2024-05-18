@@ -17,9 +17,11 @@ public struct IDPhotoView: View {
         _ size: CGFloat,
         _ type: IconType,
         forceRender: Bool = false,
+        smashed: Bool = false,
         imageHandler: ((Image) -> Image)? = nil
     ) {
         guard Defaults[.useGenshinStyleCharacterPhotos] || forceRender else { return nil }
+        self.smashed = smashed
         self.pid = pid
         let fallbackPID = EnkaHSR.CharacterName.convertPIDForProtagonist(pid)
         guard let ref = EnkaHSR.queryImageAsset(for: "idp\(pid)")
@@ -58,16 +60,15 @@ public struct IDPhotoView: View {
     public let cgImageRef: CGImage
 
     public var body: some View {
-        let pair = getRendererPair()
-        let theSize = proposedSize
-        if let cgImage = pair.0.cgImage {
+        if let pair = getRendererPair(), let cgImage = pair.0.cgImage {
+            let theSize = proposedSize
             Image(decorative: cgImage, scale: 1)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .scaledToFit()
                 .frame(width: theSize.width, height: theSize.height)
         } else {
-            pair.1
+            coreBody
         }
     }
 
@@ -193,7 +194,8 @@ public struct IDPhotoView: View {
     }
 
     @MainActor
-    func getRendererPair() -> (ImageRenderer<AnyView>, AnyView) {
+    func getRendererPair() -> (ImageRenderer<AnyView>, AnyView)? {
+        guard smashed else { return nil }
         let theBody = AnyView(coreBody)
         let renderer = ImageRenderer(content: theBody)
         renderer.scale = .currentMonitorScaleFactor
@@ -202,6 +204,7 @@ public struct IDPhotoView: View {
 
     // MARK: Private
 
+    private let smashed: Bool
     private let pid: String
     private let imageHandler: (Image) -> Image
     private let size: CGFloat

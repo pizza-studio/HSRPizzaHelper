@@ -53,7 +53,8 @@ public struct ShowCaseListView: View {
                                 intel.avatarPhoto(
                                     size: ceil(Font.baseFontSize * 3),
                                     circleClipped: true,
-                                    clipToHead: true
+                                    clipToHead: true,
+                                    smashed: true
                                 )
                                 VStack(alignment: .leading) {
                                     Text(verbatim: intel.localizedName).font(.headline).fontWeight(.bold)
@@ -97,7 +98,7 @@ public struct ShowCaseListView: View {
                                     showingCharacterIdentifier = avatar.mainInfo.uniqueCharId
                                 }
                             } label: {
-                                avatar.asCardIcon(75)
+                                avatar.asCardIcon(75, smashed: true)
                             }
                         }
                     }
