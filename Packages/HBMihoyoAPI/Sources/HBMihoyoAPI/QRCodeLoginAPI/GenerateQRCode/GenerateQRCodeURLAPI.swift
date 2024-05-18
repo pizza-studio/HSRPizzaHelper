@@ -5,11 +5,8 @@
 //  Created by 戴藏龙 on 2024/5/10.
 //
 
-// swiftlint:disable:next duplicate_imports
-
 #if !os(watchOS)
 import CoreImage
-import CoreImage.CIFilterBuiltins
 import Foundation
 import UIKit
 
@@ -55,10 +52,10 @@ extension MiHoYoAPI {
 
 private func generateQRCode(from string: String) -> UIImage? {
     let context = CIContext()
-    let filter = CIFilter.qrCodeGenerator()
-
-    filter.message = Data(string.utf8)
-
+    guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
+    filter.setDefaults()
+    filter.setValue(Data(string.utf8), forKey: "inputMessage")
+    filter.setValue("H", forKey: "inputCorrectionLevel")
     if let outputImage = filter.outputImage {
         if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
             return UIImage(cgImage: cgImage)
