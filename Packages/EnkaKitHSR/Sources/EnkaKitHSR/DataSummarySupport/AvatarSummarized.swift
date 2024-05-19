@@ -2,6 +2,9 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Defaults
+import DefaultsKeys
+
 // MARK: - EnkaHSR.AvatarSummarized
 
 extension EnkaHSR {
@@ -48,7 +51,8 @@ extension EnkaHSR.AvatarSummarized {
             self.element = theCommonInfo.element
             self.lifePath = theCommonInfo.avatarBaseType
             let nameTyped = EnkaHSR.CharacterName(pid: charID)
-            self.localizedName = nameTyped.i18n(theDB: theDB)
+            self.localizedName = nameTyped.i18n(theDB: theDB, officialNameOnly: true)
+            self.localizedRealName = nameTyped.i18n(theDB: theDB, officialNameOnly: false)
             self.terms = terms
         }
 
@@ -56,6 +60,7 @@ extension EnkaHSR.AvatarSummarized {
 
         public let terms: EnkaHSR.EnkaDB.ExtraTerms
         public let localizedName: String
+        public let localizedRealName: String
         /// Unique Character ID number used by both Enka Network and MiHoYo.
         public let uniqueCharId: Int
         /// Character's Mastered Element.
@@ -68,6 +73,10 @@ extension EnkaHSR.AvatarSummarized {
         public let constellation: Int
         /// Base Skills.
         public let baseSkills: BaseSkillSet
+
+        public var name: String {
+            Defaults[.useRealCharacterNames] ? localizedRealName : localizedName
+        }
 
         public var photoFileName: String {
             "\(uniqueCharId).png"

@@ -37,7 +37,7 @@ extension EnkaHSR.AvatarSummarized {
 
         // 姓名, 等级, 命之座, 天赋等级
         var headLine = useMarkDown ? "### " : " "
-        headLine.append(mainInfo.localizedName + " ")
+        headLine.append(mainInfo.name + " ")
         headLine.append("[Lv.\(mainInfo.avatarLevel), E\(mainInfo.constellation)]")
         let skillLevels: String = mainInfo.baseSkills.toArray.map { skillUnit in
             if let addedLevel = skillUnit.levelAddition {

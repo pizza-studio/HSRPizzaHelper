@@ -40,6 +40,7 @@ let package = Package(
                 .process("EnkaAssets/hsr_jsons/honker_skilltree.json"),
                 .process("EnkaAssets/hsr_jsons/honker_weps.json"),
                 .process("EnkaAssets/hsr_jsons/hsr.json"),
+                .process("EnkaAssets/RealNameDict.json"),
                 .process("EnkaAssets/StarRailScore.json"),
             ]
         ),

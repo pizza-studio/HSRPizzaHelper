@@ -28,6 +28,16 @@ final class EnkaDBModelDecodingTests: XCTestCase {
         XCTAssertGreaterThan(dataCount, 0)
     }
 
+    func testRealNameTableJSONParsing() throws {
+        let testData = EnkaHSR.JSONType.realNameTable.bundledJSONData
+        guard let obj = try? testData.parseAs(EnkaHSR.DBModels.RawLocTables.self) else {
+            assertionFailure("!!! Cannot parse bundled EnkaDB RealNameTables JSON data.")
+            return
+        }
+        let dataCount = obj.keys.count
+        XCTAssertGreaterThan(dataCount, 0)
+    }
+
     func testProfileAvatarJSONParsing() throws {
         let testData = EnkaHSR.JSONType.profileAvatarIcons.bundledJSONData
         guard let obj = try? testData.parseAs(EnkaHSR.DBModels.ProfileAvatarDict.self) else {

@@ -66,6 +66,12 @@ struct DisplayOptionsView: View {
             }
 
             Section {
+                Toggle(isOn: $useRealCharacterNames) {
+                    Text("settings.display.useRealCharacterNames")
+                }
+            }
+
+            Section {
                 Toggle(isOn: $useGenshinStyleCharacterPhotos) {
                     Text("setting.uirelated.useGenshinStyleCharacterPhotos")
                 }
@@ -105,6 +111,7 @@ struct DisplayOptionsView: View {
     @Default(.animateOnCallingCharacterShowcase) private var animateOnCallingCharacterShowcase: Bool
     @Default(.useGenshinStyleCharacterPhotos) private var useGenshinStyleCharacterPhotos: Bool
     @Default(.enableArtifactRatingInShowcase) var enableArtifactRatingInShowcase: Bool
+    @Default(.useRealCharacterNames) private var useRealCharacterNames: Bool
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
 

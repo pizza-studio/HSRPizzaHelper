@@ -114,7 +114,7 @@ public struct AvatarShowCaseView: View {
                     }
                     #if os(OSX) || targetEnvironment(macCatalyst)
                     ForEach(profile.summarizedAvatars) { avatar in
-                        Button(avatar.mainInfo.localizedName) {
+                        Button(avatar.mainInfo.name) {
                             withAnimation {
                                 showingCharacterIdentifier = avatar.mainInfo.uniqueCharId
                             }

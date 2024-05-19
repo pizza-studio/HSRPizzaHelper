@@ -62,6 +62,7 @@ extension EnkaHSR {
         case skills = "honker_skills"
         case weapons = "honker_weps"
         case locTable = "hsr"
+        case realNameTable = "RealNameDict"
         case retrieved = "N/A" // The JSON file retrieved from Enka Networks website per each query.
 
         // MARK: Public

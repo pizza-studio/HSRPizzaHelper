@@ -10,7 +10,11 @@ import Foundation
 #if !os(watchOS)
 extension EnkaHSR {
     public enum Sputnik {
-        public static var sharedDB: EnkaHSR.EnkaDB = Defaults[.enkaDBData]
+        public static var sharedDB: EnkaHSR.EnkaDB = {
+            let result = Defaults[.enkaDBData]
+            result.refreshRealNameTable()
+            return result
+        }()
 
         public static func getEnkaProfile(
             for uid: String,

@@ -265,7 +265,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
             avatarPhoto(size: fontSize * 5)
             VStack(spacing: 0) {
                 HStack(alignment: .bottom) {
-                    Text(localizedName)
+                    Text(name)
                         .font(.system(size: fontSize * 1.6))
                         .fontWeight(.bold)
                         .lineLimit(1).fixedSize()
@@ -641,7 +641,7 @@ struct EachAvatarStatView_Previews: PreviewProvider {
             ForEach(summaries) { summary in
                 summary.asView(background: true)
                     .tabItem {
-                        Text(summary.mainInfo.localizedName)
+                        Text(summary.mainInfo.name)
                     }
             }
         }

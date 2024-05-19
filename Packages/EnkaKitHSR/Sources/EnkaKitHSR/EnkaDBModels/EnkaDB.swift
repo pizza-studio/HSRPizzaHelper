@@ -3,6 +3,8 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Combine
+import Defaults
+import DefaultsKeys
 import Foundation
 
 // MARK: - EnkaHSR.EnkaDB
@@ -34,6 +36,9 @@ extension EnkaHSR {
             self.skills = skills
             self.skillTrees = skillTrees
             self.weapons = weapons
+            let locTablesRN = try? EnkaHSR.JSONType.realNameTable.bundledJSONData
+                .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
+            self.realNameTable = locTablesRN?[locTag] ?? [:]
         }
 
         public init?(
@@ -61,6 +66,9 @@ extension EnkaHSR {
             self.skills = skills
             self.skillTrees = skillTrees
             self.weapons = weapons
+            let locTablesRN = try? EnkaHSR.JSONType.realNameTable.bundledJSONData
+                .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
+            self.realNameTable = locTablesRN?[locTag] ?? [:]
         }
 
         /// Use bundled resources to initiate an EnkaDB instance.
@@ -72,6 +80,10 @@ extension EnkaHSR {
                 guard let locTableSpecified = locTables[locTag] else { return nil }
                 self.langTag = Self.sanitizeLangTag(locTag)
                 self.locTable = locTableSpecified
+                let locTablesRN = try EnkaHSR.JSONType.realNameTable.bundledJSONData
+                    .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
+                guard let locTableSpecifiedRN = locTablesRN[locTag] else { return nil }
+                self.realNameTable = locTableSpecifiedRN
                 self.profileAvatars = try EnkaHSR.JSONType.profileAvatarIcons.bundledJSONData
                     .assertedParseAs(EnkaHSR.DBModels.ProfileAvatarDict.self)
                 self.characters = try EnkaHSR.JSONType.characters.bundledJSONData
@@ -104,6 +116,8 @@ extension EnkaHSR {
         public static var currentLangTag: String {
             Locale.langCodeForEnkaAPI
         }
+
+        public private(set) var realNameTable: EnkaHSR.DBModels.LocTable
 
         public var langTag: String {
             didSet {
@@ -191,6 +205,13 @@ extension EnkaHSR {
             skills = new.skills
             skillTrees = new.skillTrees
             weapons = new.weapons
+            refreshRealNameTable()
+        }
+
+        public func refreshRealNameTable() {
+            let locTablesRN = try? EnkaHSR.JSONType.realNameTable.bundledJSONData
+                .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
+            realNameTable = locTablesRN?[langTag] ?? [:]
         }
     }
 }

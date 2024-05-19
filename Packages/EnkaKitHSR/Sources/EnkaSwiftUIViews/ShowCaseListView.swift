@@ -56,7 +56,7 @@ public struct ShowCaseListView: View {
                                     clipToHead: true
                                 )
                                 VStack(alignment: .leading) {
-                                    Text(verbatim: intel.localizedName).font(.headline).fontWeight(.bold)
+                                    Text(verbatim: intel.name).font(.headline).fontWeight(.bold)
                                     HStack {
                                         Text(verbatim: strLevel)
                                         Spacer()

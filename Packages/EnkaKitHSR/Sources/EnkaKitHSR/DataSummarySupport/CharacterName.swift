@@ -65,11 +65,20 @@ extension EnkaHSR.CharacterName: CustomStringConvertible {
         case .ofCaelus: Self.locTableCaelus[EnkaHSR.EnkaDB.currentLangTag] ?? "Caelus"
         case .ofStelle: Self.locTableStelle[EnkaHSR.EnkaDB.currentLangTag] ?? "Stelle"
         case let .isSomeoneElse(pid):
-            EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(id: pid)
+            EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(id: pid, officialNameOnly: false)
         }
     }
 
-    public func i18n(theDB: EnkaHSR.EnkaDB? = nil) -> String {
+    public var realDescription: String {
+        switch self {
+        case .ofCaelus: Self.locTableCaelus[EnkaHSR.EnkaDB.currentLangTag] ?? "Caelus"
+        case .ofStelle: Self.locTableStelle[EnkaHSR.EnkaDB.currentLangTag] ?? "Stelle"
+        case let .isSomeoneElse(pid):
+            EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(id: pid, officialNameOnly: true)
+        }
+    }
+
+    public func i18n(theDB: EnkaHSR.EnkaDB? = nil, officialNameOnly: Bool = false) -> String {
         guard let theDB = theDB else { return description }
         switch self {
         case .ofCaelus: return Self.locTableCaelus[theDB.langTag] ?? "Caelus"
@@ -77,7 +86,9 @@ extension EnkaHSR.CharacterName: CustomStringConvertible {
         case let .isSomeoneElse(pid):
             guard let theCommonInfo = theDB.characters[rawValue] else { return description }
             let charNameHash = theCommonInfo.avatarName.hash.description
-            return theDB.locTable[charNameHash] ?? "EnkaId: \(pid)"
+            let officialName = theDB.locTable[charNameHash] ?? "EnkaId: \(pid)"
+            let realName = theDB.realNameTable[pid]
+            return officialNameOnly ? officialName : realName ?? officialName
         }
     }
 
