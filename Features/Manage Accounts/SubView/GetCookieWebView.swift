@@ -22,7 +22,7 @@ struct GetCookieWebView: View {
     var dataStore: WKWebsiteDataStore = .default()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             CookieGetterWebView(
                 url: getURL(region: region),
                 dataStore: dataStore,
@@ -44,7 +44,7 @@ struct GetCookieWebView: View {
                     }
                 }
             }
-        }.navigationViewStyle(.stack)
+        }
     }
 
     @MainActor
@@ -208,9 +208,9 @@ private func getHTTPHeaderFields(region: Region) -> [String: String] {
             "accept-language": "zh-CN,zh-Hans;q=0.9",
             "accept-encoding": "gzip, deflate, br",
             "user-agent": """
-            Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) \
-            AppleWebKit/537.36 (KHTML, like Gecko) \
-            Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52
+            Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) \
+            AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Mobile/15E148 \
+            Safari/604.1
             """,
             "cache-control": "max-age=0",
         ]
@@ -222,9 +222,7 @@ private func getHTTPHeaderFields(region: Region) -> [String: String] {
 struct QRCodeGetCookieView: View {
     @Environment(\.dismiss) private var dismiss
 
-    @State private var qrCodeAndTicket: (qrCode: UIImage, ticket: String)?
-    @State private var taskId: UUID = .init()
-    @State private var error: Error?
+    @StateObject var viewModel = QRCodeGetCookieViewModel.shared
 
     @Binding var cookie: String!
 
@@ -236,7 +234,7 @@ struct QRCodeGetCookieView: View {
         NavigationStack {
             List {
                 Section {
-                    if let error {
+                    if let error = viewModel.error {
                         Label {
                             Text(error.localizedDescription)
                         } icon: {
@@ -244,14 +242,15 @@ struct QRCodeGetCookieView: View {
                                 .foregroundStyle(.red)
                         }
                         Button("sys.retry") {
-                            taskId = UUID()
+                            viewModel.reCreateQRCode()
                         }
-                    } else if let qrCodeAndTicket {
+                    } else if let qrCodeAndTicket = viewModel.qrCodeAndTicket {
                         Image(uiImage: qrCodeAndTicket.qrCode)
                             .interpolation(.none)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 200)
+
                         if isCheckingScanning {
                             ProgressView()
                         } else {
@@ -260,7 +259,7 @@ struct QRCodeGetCookieView: View {
                                     isCheckingScanning = true
                                     do {
                                         let status = try await MiHoYoAPI.queryQRCodeStatus(
-                                            deviceId: taskId,
+                                            deviceId: viewModel.taskId,
                                             ticket: qrCodeAndTicket.ticket
                                         )
 
@@ -290,7 +289,7 @@ struct QRCodeGetCookieView: View {
                                             isNotScannedAlertShow = true
                                         }
                                     } catch {
-                                        self.error = error
+                                        viewModel.error = error
                                     }
                                     isCheckingScanning = false
                                 }
@@ -298,7 +297,7 @@ struct QRCodeGetCookieView: View {
                         }
 
                         Button("account.qr_code_login.regenerate_qrcode") {
-                            taskId = UUID()
+                            viewModel.reCreateQRCode()
                         }
                     } else {
                         ProgressView()
@@ -322,13 +321,45 @@ struct QRCodeGetCookieView: View {
                 }
             }
         }
-        .task(id: taskId) {
+    }
+}
+
+// MARK: - QRCodeGetCookieViewModel
+
+class QRCodeGetCookieViewModel: ObservableObject {
+    // MARK: Lifecycle
+
+    init() {
+        self.taskId = .init()
+        Task {
             do {
-                qrCodeAndTicket = nil
-                qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: taskId)
+                self.qrCodeAndTicket = nil
+                self.qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: taskId)
             } catch {
                 self.error = error
             }
         }
     }
+
+    // MARK: Public
+
+    public func reCreateQRCode() {
+        taskId = .init()
+        Task {
+            do {
+                self.qrCodeAndTicket = nil
+                self.qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: taskId)
+            } catch {
+                self.error = error
+            }
+        }
+    }
+
+    // MARK: Internal
+
+    static var shared: QRCodeGetCookieViewModel = .init()
+
+    @Published var qrCodeAndTicket: (qrCode: UIImage, ticket: String)?
+    @Published var taskId: UUID
+    @Published var error: Error?
 }
