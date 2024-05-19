@@ -67,6 +67,8 @@ final class EnkaKitHSRTests: XCTestCase {
         XCTAssertNotNil(seijaku)
         guard let seijaku = seijaku else { return }
         XCTAssertNotNil(seijaku.mainInfo.baseSkills.elementalBurst.levelAddition)
+        print("\n\(seijaku.asText)")
+        print("\n\(seijaku.asMarkDown)")
 
         let char = detailInfo.avatarDetailList[4].summarize(theDB: enkaDatabase)
         char?.equippedWeapon?.specialProps.forEach { print($0) }

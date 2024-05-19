@@ -99,9 +99,20 @@ public struct AvatarShowCaseView: View {
                     }
                 }
             }
-        #if os(OSX) || targetEnvironment(macCatalyst)
             .contextMenu {
                 Group {
+                    if let avatar = avatar {
+                        Button("app.detailPortal.avatar.summarzeToClipboard.asText") {
+                            UIPasteboard.general.string = avatar.asText
+                        }
+                        Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
+                            UIPasteboard.general.string = avatar.asMarkDown
+                        }
+                        #if os(OSX) || targetEnvironment(macCatalyst)
+                        Divider()
+                        #endif
+                    }
+                    #if os(OSX) || targetEnvironment(macCatalyst)
                     ForEach(profile.summarizedAvatars) { avatar in
                         Button(avatar.mainInfo.localizedName) {
                             withAnimation {
@@ -109,9 +120,9 @@ public struct AvatarShowCaseView: View {
                             }
                         }
                     }
+                    #endif
                 }
             }
-        #endif
     }
 
     // MARK: Internal

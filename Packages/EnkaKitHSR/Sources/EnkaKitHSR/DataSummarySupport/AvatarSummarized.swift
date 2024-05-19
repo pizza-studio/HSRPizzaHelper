@@ -349,6 +349,8 @@ extension EnkaHSR.AvatarSummarized {
             self.mainProp = theMainProp
             self.subProps = Array(props.dropFirst())
             self.setID = flat.setID
+            // 回頭恐需要單獨給聖遺物套裝名稱設定 Datamine。
+            self.setNameLocalized = "Set.\(setID)"
         }
 
         // MARK: Public
@@ -357,6 +359,7 @@ extension EnkaHSR.AvatarSummarized {
         public let enkaId: Int
         /// Artifact Set ID.
         public let setID: Int
+        public let setNameLocalized: String
         /// Common information fetched from EnkaDB.
         public let commonInfo: EnkaHSR.DBModels.Artifact
         /// Data from Enka query result profile.
