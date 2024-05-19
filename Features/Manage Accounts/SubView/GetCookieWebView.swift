@@ -326,6 +326,7 @@ struct QRCodeGetCookieView: View {
 
 // MARK: - QRCodeGetCookieViewModel
 
+// Credit: Bill Haku for the fix in commit bef5d1a.
 class QRCodeGetCookieViewModel: ObservableObject {
     // MARK: Lifecycle
 
