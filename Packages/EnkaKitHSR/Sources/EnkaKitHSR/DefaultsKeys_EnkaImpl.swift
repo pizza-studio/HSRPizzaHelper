@@ -12,6 +12,8 @@ extension UserDefaults {
 }
 
 extension Defaults.Keys {
+    // MARK: - Enka Suite
+
     public static let lastEnkaDBDataCheckDate = Key<Date>(
         "lastEnkaDBDataCheckDate",
         default: .init(timeIntervalSince1970: 0),
@@ -37,20 +39,28 @@ extension Defaults.Keys {
         default: EnkaHSR.HostType.enkaGlobal,
         suite: .enkaSuite
     )
+
+    // MARK: - HSR Suite
+
+    /// Whether animating on calling character showcase panel tabView.
     public static let animateOnCallingCharacterShowcase = Key<Bool>(
         "animateOnCallingCharacterShowcase",
         default: true,
-        suite: .enkaSuite
+        suite: .hsrSuite
     )
+
+    /// Whether displaying character photos in Genshin style.
     public static let useGenshinStyleCharacterPhotos = Key<Bool>(
         "useGenshinStyleCharacterPhotos",
         default: true,
-        suite: .enkaSuite
+        suite: .hsrSuite
     )
+
+    /// Whether displaying artifact compatibility rating results in EachAvatarStatView.
     public static let enableArtifactRatingInShowcase = Key<Bool>(
         "enableArtifactRatingInShowcase",
         default: true,
-        suite: .enkaSuite
+        suite: .hsrSuite
     )
 }
 #endif
