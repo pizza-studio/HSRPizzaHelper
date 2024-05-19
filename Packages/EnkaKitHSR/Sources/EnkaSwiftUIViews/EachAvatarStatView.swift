@@ -107,6 +107,7 @@ public struct EachAvatarStatView: View {
         }
         // .showDimension()
         .scaleEffect(scaleRatioCompatible)
+        .clipped()
     }
 
     // MARK: Internal

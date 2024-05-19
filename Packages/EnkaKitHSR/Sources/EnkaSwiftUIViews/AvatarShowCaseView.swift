@@ -74,6 +74,7 @@ public struct AvatarShowCaseView: View {
                 .scaleEffect(1.2)
                 .ignoresSafeArea(.all)
         }
+        .clipped()
         .onChange(of: showingCharacterIdentifier) { _ in
             #if canImport(UIKit)
             let selectionGenerator = UISelectionFeedbackGenerator()
