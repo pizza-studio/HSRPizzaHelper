@@ -231,6 +231,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                         .contentShape(Rectangle())
                 }
             }
+            .compositingGroup()
         }
     }
 
@@ -254,6 +255,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
             }
             .clipShape(RoundedRectangle(cornerRadius: size / 10))
             .contentShape(RoundedRectangle(cornerRadius: size / 10))
+            .compositingGroup()
         }
     }
 

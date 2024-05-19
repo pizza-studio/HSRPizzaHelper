@@ -58,7 +58,7 @@ public struct IDPhotoView: View {
     public let cgImageRef: CGImage
 
     public var body: some View {
-        coreBody
+        coreBody.compositingGroup()
     }
 
     // MARK: Internal
