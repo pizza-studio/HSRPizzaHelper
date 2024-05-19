@@ -8,6 +8,7 @@
 import Charts
 import Defaults
 import DefaultsKeys
+import EnkaKitHSR
 import EnkaSwiftUIViews
 import HBMihoyoAPI
 import SwiftUI
@@ -173,7 +174,7 @@ private struct GachaItemChart: View {
                 AxisValueLabel(content: {
                     if let theValue = value.as(String.self),
                        let item = matchedItems(with: theValue).first {
-                        Text(item.localizedName)
+                        item.localizedNameView(officialNameOnly: !useRealCharacterNames)
                             .offset(y: items.count == 1 ? 0 : 8)
                     } else {
                         EmptyView()
@@ -202,6 +203,7 @@ private struct GachaItemChart: View {
     // MARK: Private
 
     @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator: Bool
+    @Default(.useRealCharacterNames) private var useRealCharacterNames: Bool
 
     private let gachaType: GachaType
 

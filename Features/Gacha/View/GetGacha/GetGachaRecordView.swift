@@ -6,6 +6,8 @@
 //
 
 import Charts
+import Defaults
+import DefaultsKeys
 import EnkaSwiftUIViews
 import Foundation
 import HBMihoyoAPI
@@ -197,11 +199,13 @@ private struct GotSomeItemView: View {
 private struct GachaItemBar: View {
     let item: GachaItem
 
+    @Default(.useRealCharacterNames) var useRealCharacterNames: Bool
+
     var body: some View {
         HStack {
             GachaItemIcon(item: item)
             HStack {
-                Text(item.localizedName)
+                item.localizedNameView(officialNameOnly: !useRealCharacterNames)
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(item.rank.rawValue)

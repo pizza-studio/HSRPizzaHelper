@@ -5,6 +5,9 @@
 //  Created by 戴藏龙 on 2023/8/11.
 //
 
+import Defaults
+import DefaultsKeys
+import EnkaKitHSR
 import EnkaSwiftUIViews
 import HBMihoyoAPI
 import SwiftUI
@@ -152,6 +155,8 @@ private struct GachaItemDetail: View {
 // MARK: - GachaItemBar
 
 private struct GachaItemBar: View {
+    // MARK: Internal
+
     let item: GachaItemMO
     let drawCount: Int
     let showTime: Bool
@@ -160,7 +165,7 @@ private struct GachaItemBar: View {
         HStack {
             GachaItemIcon(item: item)
             HStack {
-                Text(item.localizedName)
+                item.localizedNameView(officialNameOnly: !useRealCharacterNames)
                 Spacer()
                 VStack(alignment: .trailing) {
                     if item.rank != .three {
@@ -185,6 +190,8 @@ private struct GachaItemBar: View {
     }
 
     // MARK: Private
+
+    @Default(.useRealCharacterNames) private var useRealCharacterNames: Bool
 }
 
 private var dateFormatter: DateFormatter = {

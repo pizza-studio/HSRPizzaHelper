@@ -12,6 +12,7 @@
 		5B10337A2ADC312F00B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033792ADC312F00B1DA08 /* Defaults */; };
 		5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B10337B2ADC313400B1DA08 /* Defaults */; };
 		5B16985E2BDBEE770017660A /* SRGFImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16985D2BDBEE770017660A /* SRGFImpl.swift */; };
+		5B23404D2BFA7C6700F1974A /* GachaNameViewRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23404C2BFA7C6700F1974A /* GachaNameViewRenderable.swift */; };
 		5B28F8FE2BDE41F7004B271E /* ImportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */; };
 		5B28F8FF2BDE41F7004B271E /* ExportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */; };
 		5B28F9042BDE5045004B271E /* LocaleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F9032BDE5045004B271E /* LocaleImpl.swift */; };
@@ -327,6 +328,7 @@
 /* Begin PBXFileReference section */
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
 		5B16985D2BDBEE770017660A /* SRGFImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRGFImpl.swift; sourceTree = "<group>"; };
+		5B23404C2BFA7C6700F1974A /* GachaNameViewRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaNameViewRenderable.swift; sourceTree = "<group>"; };
 		5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DefaultsKeys; path = Packages/DefaultsKeys; sourceTree = "<group>"; };
 		5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportGachaView.swift; sourceTree = "<group>"; };
 		5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportGachaView.swift; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				5B16985D2BDBEE770017660A /* SRGFImpl.swift */,
+				5B23404C2BFA7C6700F1974A /* GachaNameViewRenderable.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -1579,6 +1582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA39D0972ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift in Sources */,
+				5B23404D2BFA7C6700F1974A /* GachaNameViewRenderable.swift in Sources */,
 				EA1DE41E2A08B78500CFB37C /* WidgetBackgroundSettingView.swift in Sources */,
 				EA09B1992A091A1F00986D46 /* AppInitializer.swift in Sources */,
 				EAE37EC12A0206BC00154432 /* ManageAccountsView.swift in Sources */,
