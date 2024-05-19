@@ -193,30 +193,18 @@ extension EnkaHSR.AvatarSummarized {
     /// 显示角色的扑克牌尺寸肖像，以身份证素材裁切而成。
     @ViewBuilder
     public func asCardIcon(
-        _ size: CGFloat,
-        smashed: Bool = false
+        _ size: CGFloat
     )
         -> some View {
-        mainInfo.cardIcon(size: size, smashed: smashed)
+        mainInfo.cardIcon(size: size)
     }
 }
 
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     @ViewBuilder
-    public func avatarPhoto(
-        size: CGFloat,
-        circleClipped: Bool = true,
-        clipToHead: Bool = false,
-        smashed: Bool = false
-    )
-        -> some View {
+    public func avatarPhoto(size: CGFloat, circleClipped: Bool = true, clipToHead: Bool = false) -> some View {
         let cutType: IDPhotoView.IconType = clipToHead ? .cutHead : .cutShoulder
-        if let idPhotoView = IDPhotoView(
-            pid: uniqueCharId.description,
-            size,
-            cutType,
-            smashed: smashed
-        ) {
+        if let idPhotoView = IDPhotoView(pid: uniqueCharId.description, size, cutType) {
             idPhotoView
         } else {
             let result = ResIcon(photoFilePath) {
@@ -248,12 +236,8 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
 
     /// 显示角色的扑克牌尺寸肖像，以身份证素材裁切而成。
     @ViewBuilder
-    public func cardIcon(size: CGFloat, smashed: Bool = false) -> some View {
-        if let idPhotoView = IDPhotoView(
-            pid: uniqueCharId.description,
-            size, .asCard,
-            smashed: smashed
-        ) {
+    public func cardIcon(size: CGFloat) -> some View {
+        if let idPhotoView = IDPhotoView(pid: uniqueCharId.description, size, .asCard) {
             idPhotoView
         } else {
             ResIcon(photoFilePath) {
