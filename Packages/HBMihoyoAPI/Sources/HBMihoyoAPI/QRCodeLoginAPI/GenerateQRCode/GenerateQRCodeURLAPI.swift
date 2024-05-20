@@ -55,7 +55,7 @@ private func generateQRCode(from string: String) -> CGImage? {
     guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
     filter.setDefaults()
     filter.setValue(Data(string.utf8), forKey: "inputMessage")
-    filter.setValue("H", forKey: "inputCorrectionLevel")
+    filter.setValue("M", forKey: "inputCorrectionLevel")
     if let outputImage = filter.outputImage {
         return context.createCGImage(outputImage, from: outputImage.extent)
     }
