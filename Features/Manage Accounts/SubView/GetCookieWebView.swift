@@ -238,6 +238,21 @@ struct QRCodeGetCookieView: View {
         #endif
     }
 
+    private var qrImage: Image? {
+        guard let qrCodeAndTicket = viewModel.qrCodeAndTicket else { return nil }
+        let img = Image(decorative: qrCodeAndTicket.qrCode, scale: 1)
+            .interpolation(.none)
+            .resizable()
+            .scaledToFit()
+            .frame(width: qrWidth, height: qrWidth)
+            .padding()
+        let renderer = ImageRenderer(content: img)
+        renderer.proposedSize = .init(width: qrWidth, height: qrWidth)
+        renderer.scale = 2
+        guard let newImg = renderer.cgImage else { return nil }
+        return Image(decorative: newImg, scale: 1)
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -252,15 +267,20 @@ struct QRCodeGetCookieView: View {
                         Button("sys.retry") {
                             viewModel.reCreateQRCode()
                         }
-                    } else if let qrCodeAndTicket = viewModel.qrCodeAndTicket {
+                    } else if let qrCodeAndTicket = viewModel.qrCodeAndTicket, let qrImage = qrImage {
                         HStack(alignment: .center) {
                             Spacer()
-                            Image(decorative: qrCodeAndTicket.qrCode, scale: 1)
-                                .interpolation(.none)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: qrWidth, height: qrWidth)
-                                .padding()
+                            ShareLink(
+                                item: qrImage,
+                                preview: SharePreview("account.qr_code_login.shared_qr_code_title", image: qrImage)
+                            ) {
+                                qrImage
+                                    .interpolation(.none)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: qrWidth, height: qrWidth)
+                                    .padding()
+                            }
                             Spacer()
                         }
                         if isCheckingScanning {
@@ -326,7 +346,7 @@ struct QRCodeGetCookieView: View {
             .navigationTitle("account.qr_code_login.title")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button("sys.cancel") {
                         dismiss()
                     }

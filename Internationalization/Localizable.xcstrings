@@ -1172,6 +1172,34 @@
         }
       }
     },
+    "account.qr_code_login.shared_qr_code_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR Code for Miyoushe"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米遊社専用QRコード"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米游社专用二维码"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米遊社專用 QR Code"
+          }
+        }
+      }
+    },
     "account.qr_code_login.title" : {
       "localizations" : {
         "en" : {
