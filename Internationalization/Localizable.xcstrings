@@ -1088,6 +1088,35 @@
         }
       }
     },
+    "account.qr_code_login.click_qr_to_save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap the QR code above to save it"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QRコードをタップして保存"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击该二维码以保存"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點按該 QR Code 以保存"
+          }
+        }
+      }
+    },
     "account.qr_code_login.footer" : {
       "localizations" : {
         "en" : {
@@ -1140,6 +1169,63 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "伺服器回傳訊息指出該 QR Code 尚未被掃描。請重新嘗試掃描、或者重新生成新的 QR Code 再嘗試。"
+          }
+        }
+      }
+    },
+    "account.qr_code_login.open_miyoushe" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click here to jump to Miyoushe"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米遊社アプリを呼び出す"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点此跳转至米游社"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點此跳轉至米遊社"
+          }
+        }
+      }
+    },
+    "account.qr_code_login.open_miyoushe_mas_page" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get Miyoushe from App Store"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Store の米遊社アプリのページへ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从 App Store 获取米游社应用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "藉由 App Store 獲取米遊社應用"
           }
         }
       }

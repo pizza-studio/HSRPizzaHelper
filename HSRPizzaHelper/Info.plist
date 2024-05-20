@@ -20,6 +20,10 @@
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>bilibili</string>
+		<string>mihoyobbs</string>
+		<string>com.miHoYo.mhybbs</string>
+		<string>vk</string>
 		<string>twitter</string>
 		<string>ophelper</string>
 	</array>
