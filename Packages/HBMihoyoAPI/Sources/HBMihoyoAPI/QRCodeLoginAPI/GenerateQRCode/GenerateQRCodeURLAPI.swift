@@ -40,7 +40,7 @@ extension MiHoYoAPI {
         return (url: resultURL, ticket: ticket)
     }
 
-    public static func generateLoginQRCode(deviceId: UUID) async throws -> (qrCode: UIImage, ticket: String) {
+    public static func generateLoginQRCode(deviceId: UUID) async throws -> (qrCode: CGImage, ticket: String) {
         let result = try await generateQRCodeURL(deviceId: deviceId)
         if let qrCode = generateQRCode(from: result.url.absoluteString) {
             return (qrCode, result.ticket)
@@ -50,16 +50,14 @@ extension MiHoYoAPI {
     }
 }
 
-private func generateQRCode(from string: String) -> UIImage? {
+private func generateQRCode(from string: String) -> CGImage? {
     let context = CIContext()
     guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
     filter.setDefaults()
     filter.setValue(Data(string.utf8), forKey: "inputMessage")
     filter.setValue("H", forKey: "inputCorrectionLevel")
     if let outputImage = filter.outputImage {
-        if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-            return UIImage(cgImage: cgImage)
-        }
+        return context.createCGImage(outputImage, from: outputImage.extent)
     }
 
     return nil
