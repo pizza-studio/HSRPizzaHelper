@@ -4124,7 +4124,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "エラー：コンテンツが欠落しています"
+            "value" : "エラー：フィールド値欠落"
           }
         },
         "ru" : {
