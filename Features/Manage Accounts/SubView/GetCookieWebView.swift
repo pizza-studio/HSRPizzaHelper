@@ -230,6 +230,14 @@ struct QRCodeGetCookieView: View {
 
     @State private var isCheckingScanning = false
 
+    private var qrWidth: CGFloat {
+        #if os(OSX) || targetEnvironment(macCatalyst)
+        400
+        #else
+        280
+        #endif
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -245,12 +253,16 @@ struct QRCodeGetCookieView: View {
                             viewModel.reCreateQRCode()
                         }
                     } else if let qrCodeAndTicket = viewModel.qrCodeAndTicket {
-                        Image(decorative: qrCodeAndTicket.qrCode, scale: 1)
-                            .interpolation(.none)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 200, height: 200)
-
+                        HStack(alignment: .center) {
+                            Spacer()
+                            Image(decorative: qrCodeAndTicket.qrCode, scale: 1)
+                                .interpolation(.none)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: qrWidth, height: qrWidth)
+                                .padding()
+                            Spacer()
+                        }
                         if isCheckingScanning {
                             ProgressView()
                         } else {
