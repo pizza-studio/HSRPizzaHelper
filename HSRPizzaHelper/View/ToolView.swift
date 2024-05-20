@@ -7,6 +7,7 @@
 
 import Foundation
 import HBMihoyoAPI
+import NewsKitHSR
 import SwiftUI
 import WebKit
 
@@ -16,6 +17,7 @@ struct ToolView: View {
     enum Navigation: Hashable {
         case gacha
         case dictionary
+        case officialNews
         case map(Region)
     }
 
@@ -43,10 +45,12 @@ struct ToolView: View {
                     GachaView()
                 case .dictionary:
                     HSRDictionaryView()
+                case .officialNews:
+                    NewsKitHSR.NewsView()
                 case let .map(region):
                     HSRMapWebView(region: region)
                 case nil:
-                    GachaView()
+                    NewsKitHSR.NewsView()
                 }
             }
         }
@@ -60,6 +64,9 @@ public struct ThirdPartyToolsView: View {
 
     public var body: some View {
         Section {
+            NavigationLink(value: ToolView.Navigation.officialNews) {
+                Text("news.navEntryName")
+            }
             mapNavigationLink()
         }
     }
