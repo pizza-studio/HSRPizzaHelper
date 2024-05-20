@@ -189,7 +189,7 @@ struct ContactInfoView: View {
                         Image("avatar.shikisuen")
                             .resizable()
                             .clipShape(Circle())
-                            .frame(width: 40, height: 40)
+                            .frame(width: 50, height: 50)
                         VStack(alignment: .leading) {
                             Text("Shiki Suen (孙志贵)")
                                 .bold()
@@ -228,9 +228,9 @@ struct ContactInfoView: View {
                                     .scaledToFit()
                             }
                         }
-                        Link(destination: URL(string: "mailto:shikisuen@pm.me")!) {
+                        Link(destination: URL(string: "mailto:shikisuen@yeah.net")!) {
                             Label {
-                                Text(verbatim: "shikisuen@pm.me")
+                                Text(verbatim: "shikisuen@yeah.net")
                             } icon: {
                                 Image("icon.email")
                                     .resizable()
