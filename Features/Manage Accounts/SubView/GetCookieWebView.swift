@@ -346,7 +346,7 @@ struct QRCodeGetCookieView: View {
                         if Self.isMiyousheInstalled {
                             Link(
                                 destination: URL(
-                                    string: Self.miyousheHeader
+                                    string: Self.miyousheHeader + "me"
                                 )!
                             ) {
                                 Text("account.qr_code_login.open_miyoushe")
