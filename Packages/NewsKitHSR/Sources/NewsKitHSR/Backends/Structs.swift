@@ -44,6 +44,7 @@ extension NewsKitHSR {
         public let url: String
     }
 
+    // swiftlint:disable identifier_name
     public enum LangForQuery: String, Codable {
         case en
         case zhHans = "cn"
@@ -61,4 +62,5 @@ extension NewsKitHSR {
         case tr
         case vi
     }
+    // swiftlint:enable identifier_name
 }
