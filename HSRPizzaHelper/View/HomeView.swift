@@ -16,15 +16,19 @@ struct HomeView: View {
     // MARK: Internal
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 DailyNoteCards()
             }
             .navigationTitle("home.title")
-            .refreshable {
-                globalDailyNoteCardRefreshSubject.send(())
-                WidgetCenter.shared.reloadAllTimelines()
+            .toolbar {
+                #if os(OSX) || targetEnvironment(macCatalyst)
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("", systemImage: "arrow.clockwise") { refresh() }
+                }
+                #endif
             }
+            .refreshable { refresh() }
             .toast(isPresenting: $alertToastVariable.isDoneButtonTapped) {
                 AlertToast(
                     displayMode: .alert,
@@ -33,8 +37,12 @@ struct HomeView: View {
                 )
             }
         }
-        .navigationViewStyle(.stack)
         .environmentObject(alertToastVariable)
+    }
+
+    func refresh() {
+        globalDailyNoteCardRefreshSubject.send(())
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     // MARK: Private
