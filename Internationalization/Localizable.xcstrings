@@ -4220,6 +4220,35 @@
     "Dismiss" : {
 
     },
+    "dpv.error.EnkaDBNeedsUpdate.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locale EnkaDB data needs update in order to support new characters / weapons / artifacts."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最新のキャラ、武器（光円錐）、聖遺物のサポートするために、この端末で実装したこのアプリの EnkaDB 資料はアップデートする必要はございます。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地 EnkaDB 资料库得更新、以支援最新的角色、武器、圣遗物。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地 EnkaDB 資料庫得更新、以支援最新的角色、武器、聖遺物。"
+          }
+        }
+      }
+    },
     "English Channel" : {
 
     },

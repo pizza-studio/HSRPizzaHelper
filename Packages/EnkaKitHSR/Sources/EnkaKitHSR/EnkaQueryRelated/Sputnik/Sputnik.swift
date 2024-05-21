@@ -117,6 +117,16 @@ extension EnkaHSR.Sputnik {
         case charMapInvalid
         case charLocInvalid
     }
+
+    public enum EnkaDBError: LocalizedError {
+        case needsUpdate
+
+        // MARK: Public
+
+        public var errorDescription: String {
+            String(localized: .init(stringLiteral: "dpv.error.EnkaDBNeedsUpdate.message"))
+        }
+    }
 }
 
 extension EnkaHSR.Sputnik {
