@@ -99,4 +99,12 @@ final class EnkaKitHSRTests: XCTestCase {
     func testLifePathFileName() throws {
         XCTAssertEqual(EnkaHSR.LifePath.nihility.iconFileName, "Nihility.png")
     }
+
+    func testWallpapers() throws {
+        Wallpaper.allCases.forEach { thisCase in
+            print(thisCase.localizedTitle)
+            print(thisCase.imageData.width)
+            print(thisCase.imageData.height)
+        }
+    }
 }

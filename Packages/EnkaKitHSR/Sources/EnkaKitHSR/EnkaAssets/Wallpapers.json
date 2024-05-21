@@ -1,0 +1,106 @@
+{
+  "de":{
+    "221000":"Abenteuer der Namenlosen",
+    "221001":"Ingenium-Träume",
+    "221002":"Spezialität vom Schaffner",
+    "221003":"Sternenfeuergarten",
+    "221004":"Der Planet der Festlichkeiten",
+    "221005":"Kosmonopoly"
+  },
+  "en":{
+    "221000":"Nameless Journey",
+    "221001":"Ingenium Dreams",
+    "221002":"Conductor's Treat",
+    "221003":"Starfire Parkland",
+    "221004":"The Planet of Festivities",
+    "221005":"Cosmodyssey"
+  },
+  "es":{
+    "221000":"Camino de los Anónimos",
+    "221001":"Noche larga, sueño lúcido",
+    "221002":"Especialidad del revisor",
+    "221003":"Parque de fuego estelar",
+    "221004":"Planeta de las celebraciones",
+    "221005":"Cosmodisea"
+  },
+  "fr":{
+    "221000":"Voyage des Sans Noms",
+    "221001":"Rêves d'ingéniosité",
+    "221002":"La spécialité du conducteur",
+    "221003":"Foyer du feu d'étoile",
+    "221004":"La planète des festivités",
+    "221005":"Cosmopoly"
+  },
+  "id":{
+    "221000":"Perjalanan Nameless",
+    "221001":"Mimpi Ingenium",
+    "221002":"Traktiran Kondektur",
+    "221003":"Taman Bintang Api",
+    "221004":"Planet Perayaan",
+    "221005":"Perjalanan Antarbintang"
+  },
+  "ja":{
+    "221000":"ナナシの道",
+    "221001":"宵長き機巧の夢",
+    "221002":"車掌のスペシャルプレート",
+    "221003":"星火游園",
+    "221004":"宴の星",
+    "221005":"開拓伝説～星間旅行スゴロク～"
+  },
+  "ko":{
+    "221000":"무명객의 여정",
+    "221001":"기나긴 기교의 꿈",
+    "221002":"차장의 특식",
+    "221003":"불꽃 정원",
+    "221004":"축제의 별",
+    "221005":"성간 여행"
+  },
+  "pt":{
+    "221000":"Jornada Inominada",
+    "221001":"Sonhos de Engenho",
+    "221002":"A Especialidade do Condutor",
+    "221003":"Parque Chama Estelar",
+    "221004":"O Planeta das Festividades",
+    "221005":"Cosmodisseia"
+  },
+  "ru":{
+    "221000":"Путешествие Безымянных",
+    "221001":"Долгий сон робоптахи",
+    "221002":"Особое блюдо от проводника",
+    "221003":"Сад искр",
+    "221004":"Планета празднеств",
+    "221005":"Звёздная одиссея"
+  },
+  "th":{
+    "221000":"การเดินทางนิรนาม",
+    "221001":"ค่ำคืนอันยาวนานของนกสมองกล",
+    "221002":"สูตรเฉพาะของกัปตันรถไฟ",
+    "221003":"สวนประกายเพลิงหฤหรรษ์",
+    "221004":"ดาวแหงการเฉลิมฉลอง",
+    "221005":"ตะลุยจักรวาล"
+  },
+  "vi":{
+    "221000":"Hành Trình Không Tên",
+    "221001":"Giấc Mơ Công Nghệ Hóa",
+    "221002":"Đích Thân Tàu Trưởng Chế Biến",
+    "221003":"Khu Vườn Tinh Hỏa",
+    "221004":"Hành Tinh Lễ Hội",
+    "221005":"Cờ Tỷ Phú Vũ Trụ"
+  },
+  "zh-cn":{
+    "221000":"无名路途",
+    "221001":"机巧梦宵长",
+    "221002":"列车长特供",
+    "221003":"星火游园",
+    "221004":"盛会之星",
+    "221005":"星间旅行"
+  },
+  "zh-tw":{
+    "221000":"無名路途",
+    "221001":"機巧夢宵長",
+    "221002":"列車長特餐",
+    "221003":"星火遊園",
+    "221004":"盛會之星",
+    "221005":"星間旅行"
+  }
+}

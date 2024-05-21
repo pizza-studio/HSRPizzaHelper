@@ -42,6 +42,7 @@ let package = Package(
                 .process("EnkaAssets/hsr_jsons/hsr.json"),
                 .process("EnkaAssets/RealNameDict.json"),
                 .process("EnkaAssets/StarRailScore.json"),
+                .process("EnkaAssets/Wallpapers.json"),
             ]
         ),
         .target(

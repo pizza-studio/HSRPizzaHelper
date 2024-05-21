@@ -69,6 +69,13 @@ extension Defaults.Keys {
         default: false,
         suite: .hsrSuite
     )
+
+    /// Default App Wallpaper.
+    public static let wallpaper = Key<Wallpaper>(
+        "wallpaper",
+        default: .namelessJourney,
+        suite: .hsrSuite
+    )
 }
 #endif
 
