@@ -83,6 +83,13 @@ extension NewsKitHSR {
             NavigationStack {
                 currentTabContent
                     .toolbar {
+                        #if os(OSX) || targetEnvironment(macCatalyst)
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button("", systemImage: "arrow.clockwise") {
+                                coordinator.updateData()
+                            }
+                        }
+                        #endif
                         ToolbarItem(placement: .topBarTrailing) {
                             Picker("", selection: $currentTab) {
                                 Label("news.Notices", systemImage: "info.circle")
