@@ -85,6 +85,7 @@ final class DetailPortalViewModel: ObservableObject {
         }
     }
 
+    @MainActor
     func fetchPlayerDetail() async {
         guard let selectedAccount else { return }
         if case let .succeed((_, refreshableDate)) = playerDetailStatus {
@@ -93,7 +94,6 @@ final class DetailPortalViewModel: ObservableObject {
         if case let .progress(task) = playerDetailStatus { task?.cancel() }
         let task = Task {
             do {
-                enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
                 let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
                     for: selectedAccount.uid,
                     dateWhenNextRefreshable: nil
@@ -101,19 +101,25 @@ final class DetailPortalViewModel: ObservableObject {
                 let queryResultAwaited = queryResult.merge(old: currentBasicInfo)
                 currentBasicInfo = queryResultAwaited
                 Defaults[.queriedEnkaProfiles][selectedAccount.uid] = queryResultAwaited
-                Task {
-                    withAnimation {
-                        self.playerDetailStatus = .succeed((
-                            queryResultAwaited,
-                            Date()
-                        ))
+                await enkaDB.updateExpiryStatus()
+                if enkaDB.isExpired {
+                    let factoryDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)
+                    await factoryDB?.updateExpiryStatus()
+                    if let factoryDB = factoryDB, !factoryDB.isExpired {
+                        enkaDB.update(new: factoryDB)
+                    } else {
+                        enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
                     }
                 }
+                withAnimation {
+                    self.playerDetailStatus = .succeed((
+                        queryResultAwaited,
+                        Date()
+                    ))
+                }
             } catch {
-                Task {
-                    withAnimation {
-                        self.playerDetailStatus = .fail(error)
-                    }
+                withAnimation {
+                    self.playerDetailStatus = .fail(error)
                 }
             }
         }
