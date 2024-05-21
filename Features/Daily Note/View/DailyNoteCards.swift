@@ -24,12 +24,14 @@ struct DailyNoteCards: View {
         let validAccounts = accounts.filter(\.isValid)
         ForEach(validAccounts) { account in
             InAppDailyNoteCardView(account: account)
+                .listRowMaterialBackground()
         }
         if validAccounts.isEmpty {
             AddNewAccountButton(
                 isNewAccountSheetShow: $isNewAccountSheetShow
             )
-            .listRowBackground(Color.white.opacity(0))
+            .listRowMaterialBackground()
+            // .listRowBackground(Color.white.opacity(0))
         }
     }
 

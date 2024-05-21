@@ -42,6 +42,7 @@ struct InAppDailyNoteCardView: View {
         } header: {
             if let name = account.name {
                 Text(name)
+                    .secondaryColorVerseBackground()
             }
         }
         .onReceive(refreshSubject, perform: { _ in

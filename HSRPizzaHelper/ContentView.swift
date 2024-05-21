@@ -22,11 +22,13 @@ struct ContentView: View {
                 .tabItem {
                     Label("tab.home", systemSymbol: .listBullet)
                 }
+                .toolbarBackground(.thinMaterial, for: .tabBar)
             DetailPortalView()
                 .tag(1)
                 .tabItem {
                     Label("tab.detailPortal", systemSymbol: .personTextRectangle)
                 }
+                .toolbarBackground(.thinMaterial, for: .tabBar)
             ToolView()
                 .tag(2)
                 .tabItem {
@@ -38,6 +40,7 @@ struct ContentView: View {
                     Label("tab.settings", systemSymbol: .gear)
                 }
         }
+        .tint(tintForCurrentTab)
         .onChange(of: selection) { _ in
             feedbackGenerator.selectionChanged()
         }
@@ -48,5 +51,14 @@ struct ContentView: View {
 
     @State private var selection: Int = 0
 
+    @Environment(\.colorScheme) private var colorScheme
+
     private let feedbackGenerator = UISelectionFeedbackGenerator()
+
+    private var tintForCurrentTab: Color {
+        switch selection {
+        case 0, 1: return .accessibilityAccent(colorScheme)
+        default: return .accentColor
+        }
+    }
 }

@@ -20,6 +20,8 @@ struct HomeView: View {
             List {
                 DailyNoteCards()
             }
+            .scrollContentBackground(.hidden)
+            .listContainerBackground()
             .navigationTitle("home.title")
             .toolbar {
                 #if os(OSX) || targetEnvironment(macCatalyst)

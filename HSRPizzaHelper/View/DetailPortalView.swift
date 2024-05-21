@@ -134,16 +134,21 @@ struct DetailPortalView: View {
         NavigationStack {
             List {
                 SelectAccountSection(selectedAccount: $vmDPV.selectedAccount)
+                    .listRowMaterialBackground()
                     .onTapGesture { uidInputFieldFocus = false }
                 if let account = vmDPV.selectedAccount {
                     PlayerDetailSection(account: account)
+                        .listRowMaterialBackground()
                         .onTapGesture { uidInputFieldFocus = false }
                 }
                 CaseQuerySection(theDB: vmDPV.enkaDB, focus: $uidInputFieldFocus)
+                    .listRowMaterialBackground()
             }
             .navigationDestination(for: EnkaHSR.QueryRelated.DetailInfo.self) { result in
                 CaseQueryResultView(profile: result)
             }
+            .scrollContentBackground(.hidden)
+            .listContainerBackground()
             .refreshable {
                 vmDPV.refresh()
             }
@@ -171,10 +176,14 @@ private struct CaseQueryResultView: View {
     public var body: some View {
         List {
             AccountHeaderView(givenProfile: profile)
+                .listRowMaterialBackground()
             Section {
                 CaseQueryResultListView(profile: profile, enkaDB: vmDPV.enkaDB)
             }
+            .listRowMaterialBackground()
         }
+        .scrollContentBackground(.hidden)
+        .listContainerBackground()
         .navigationTitle(Text(verbatim: "\(profile.nickname) (\(profile.uid.description))"))
     }
 
@@ -262,6 +271,7 @@ private struct AccountHeaderView<T: View>: View {
                     Text(verbatim: "\(worldLevelTitle): \(worldLevel)")
                 }
             }
+            .secondaryColorVerseBackground()
         }
     }
 

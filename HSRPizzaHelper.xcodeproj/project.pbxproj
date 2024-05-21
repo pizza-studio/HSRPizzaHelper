@@ -20,6 +20,7 @@
 		5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */; };
 		5B55DD1E2BE9004800CEFDE0 /* GachaItemIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */; };
 		5B579DB52BFCEC9E0030C64D /* ViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B579DB42BFCEC9E0030C64D /* ViewTools.swift */; };
+		5B579DB72BFCF16E0030C64D /* SwiftUIColorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B579DB62BFCF16E0030C64D /* SwiftUIColorImpl.swift */; };
 		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
 		5B6162AC2BD4E0A200662F5A /* EnkaHSRImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */; };
 		5B62B7562BFB9B550051E097 /* NewsKitHSR in Frameworks */ = {isa = PBXBuildFile; productRef = 5B62B7552BFB9B550051E097 /* NewsKitHSR */; };
@@ -340,6 +341,7 @@
 		5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
 		5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaItemIcon.swift; sourceTree = "<group>"; };
 		5B579DB42BFCEC9E0030C64D /* ViewTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTools.swift; sourceTree = "<group>"; };
+		5B579DB62BFCF16E0030C64D /* SwiftUIColorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIColorImpl.swift; sourceTree = "<group>"; };
 		5B5D9BC62BCFF50B0085E728 /* other_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = other_meta; sourceTree = "<group>"; };
 		5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnkaHSRImpl.swift; sourceTree = "<group>"; };
 		5B62B7572BFB9BAA0051E097 /* NewsKitHSR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NewsKitHSR; path = Packages/NewsKitHSR; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 				BF06C4A42A04D42900EE9120 /* WebViews.swift */,
 				EADCE9382A0B985F008D81A9 /* OptionalSpacer.swift */,
 				5B579DB42BFCEC9E0030C64D /* ViewTools.swift */,
+				5B579DB62BFCF16E0030C64D /* SwiftUIColorImpl.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1612,6 +1615,7 @@
 				EA664C742A092E3A00DCEAC1 /* WidgetAccountCard.swift in Sources */,
 				EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */,
 				EADA63772A0201B200BF070F /* HomeView.swift in Sources */,
+				5B579DB72BFCF16E0030C64D /* SwiftUIColorImpl.swift in Sources */,
 				EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */,
 				EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA3BDCA42A83D20A001C3C6C /* GachaView.swift in Sources */,
