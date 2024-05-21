@@ -13258,6 +13258,34 @@
         }
       }
     },
+    "settings.display.appWallpaper" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UI Background Wallpaper"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UI背景壁紙"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "界面背景壁紙"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "介面背景壁紙"
+          }
+        }
+      }
+    },
     "settings.display.useRealCharacterNames" : {
       "localizations" : {
         "en" : {

@@ -54,6 +54,29 @@ struct DisplayOptionsView: View {
     func mainView() -> some View {
         List {
             Section {
+                Picker("settings.display.appWallpaper", selection: $wallpaper) {
+                    ForEach(Wallpaper.allCases, id: \.rawValue) { currentWP in
+                        Label {
+                            Text(currentWP.localizedTitle)
+                        } icon: {
+                            Circle()
+                                .foregroundStyle(Color.clear)
+                                .background(alignment: .topTrailing) {
+                                    Image(decorative: currentWP.imageData, scale: 1)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .scaleEffect(2)
+                                }
+                                .compositingGroup()
+                                .clipShape(Circle())
+                                .frame(width: 30, height: 30)
+                        }.tag(currentWP)
+                    }
+                }
+                .pickerStyle(.navigationLink)
+            }
+
+            Section {
                 Toggle(isOn: $useGuestGachaEvaluator) {
                     Text("setting.uirelated.useguestgachaevaluator")
                 }
@@ -107,6 +130,7 @@ struct DisplayOptionsView: View {
         localized: .init(stringLiteral: "detailPortal.AllCharacterPhotoSpecimen")
     )
 
+    @Default(.wallpaper) private var wallpaper: Wallpaper
     @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator
     @Default(.animateOnCallingCharacterShowcase) private var animateOnCallingCharacterShowcase: Bool
     @Default(.useGenshinStyleCharacterPhotos) private var useGenshinStyleCharacterPhotos: Bool
