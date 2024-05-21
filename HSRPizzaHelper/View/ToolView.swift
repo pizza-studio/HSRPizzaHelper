@@ -49,6 +49,8 @@ struct ToolView: View {
                     NewsKitHSR.NewsView()
                 case let .map(region):
                     HSRMapWebView(region: region)
+                        .navigationTitle("tools.hsrInteractiveMap")
+                        .navigationBarTitleDisplayMode(.inline)
                 case nil:
                     NewsKitHSR.NewsView()
                 }

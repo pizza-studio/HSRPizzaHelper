@@ -17935,7 +17935,6 @@
     },
     "tools.hsrInteractiveMap" : {
       "comment" : "Other tool",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
