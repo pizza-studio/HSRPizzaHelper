@@ -179,6 +179,12 @@ extension EnkaHSR {
             }
         }
 
+        public var isExpired: Bool = false {
+            didSet {
+                objectWillChange.send()
+            }
+        }
+
         public static func sanitizeLangTag(_ target: some StringProtocol) -> String {
             var target = target.lowercased()
             if target.prefix(2) == "zh" {
@@ -206,6 +212,7 @@ extension EnkaHSR {
             skillTrees = new.skillTrees
             weapons = new.weapons
             refreshRealNameTable()
+            isExpired = false
         }
 
         public func refreshRealNameTable() {
