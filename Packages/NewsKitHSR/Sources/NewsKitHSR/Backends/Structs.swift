@@ -54,8 +54,8 @@ extension NewsKitHSR {
         case fr
         case id
         case it
-        case ja
-        case ko
+        case ja = "jp"
+        case ko = "kr"
         case pt
         case ru
         case th
