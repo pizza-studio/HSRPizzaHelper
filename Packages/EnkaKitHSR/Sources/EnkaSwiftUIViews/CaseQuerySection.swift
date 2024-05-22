@@ -69,6 +69,7 @@ public struct CaseQuerySection: View {
             }
         } header: {
             Text("detailPortal.OtherCase.Title")
+                .foregroundColor(.primary.opacity(0.75)) // Enhance legibility with background images.
                 .onTapGesture {
                     dropFieldFocus()
                 }
@@ -81,6 +82,7 @@ public struct CaseQuerySection: View {
                 )
             ) ?? .init(stringLiteral: rawFooter)
             Text(attrStr)
+                .foregroundColor(.primary.opacity(0.75)) // Enhance legibility with background images.
                 .onTapGesture {
                     dropFieldFocus()
                 }
