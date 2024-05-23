@@ -6,7 +6,6 @@
 //
 
 import HBMihoyoAPI
-import Mantis
 import SwifterSwift
 import SwiftUI
 
