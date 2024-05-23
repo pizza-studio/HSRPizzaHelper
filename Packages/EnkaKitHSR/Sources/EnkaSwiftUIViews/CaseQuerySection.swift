@@ -152,6 +152,7 @@ extension CaseQuerySection {
 
         @Published var errorMsg: String?
 
+        @MainActor
         func update(givenUID: Int?) {
             guard let givenUID = givenUID else { return }
             task?.cancel()
@@ -162,6 +163,17 @@ extension CaseQuerySection {
                     errorMsg = nil
                     do {
                         let profile = try await EnkaHSR.Sputnik.getEnkaProfile(for: givenUID.description)
+                        let enkaDB = EnkaHSR.Sputnik.sharedDB
+                        await enkaDB.updateExpiryStatus(against: profile)
+                        if enkaDB.isExpired {
+                            let factoryDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)
+                            await factoryDB?.updateExpiryStatus(against: profile)
+                            if let factoryDB = factoryDB, !factoryDB.isExpired {
+                                enkaDB.update(new: factoryDB)
+                            } else {
+                                enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
+                            }
+                        }
                         self.currentInfo = profile
                         state = .standBy
                         errorMsg = nil

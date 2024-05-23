@@ -66,8 +66,7 @@ final class DetailPortalViewModel: ObservableObject {
 
     typealias PlayerDetailStatus = Status<(EnkaProfileEntity, nextRefreshableDate: Date)>
 
-    // swiftlint:disable force_unwrapping
-    let enkaDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)!
+    let enkaDB = EnkaHSR.Sputnik.sharedDB
 
     @Published var selectedAccount: Account? {
         didSet {
@@ -92,39 +91,35 @@ final class DetailPortalViewModel: ObservableObject {
             guard Date() > refreshableDate else { return }
         }
         if case let .progress(task) = playerDetailStatus { task?.cancel() }
-        let task = Task {
-            do {
-                let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
-                    for: selectedAccount.uid,
-                    dateWhenNextRefreshable: nil
-                )
-                let queryResultAwaited = queryResult.merge(old: currentBasicInfo)
-                currentBasicInfo = queryResultAwaited
-                Defaults[.queriedEnkaProfiles][selectedAccount.uid] = queryResultAwaited
-                await enkaDB.updateExpiryStatus()
-                if enkaDB.isExpired {
-                    let factoryDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)
-                    await factoryDB?.updateExpiryStatus()
-                    if let factoryDB = factoryDB, !factoryDB.isExpired {
-                        enkaDB.update(new: factoryDB)
-                    } else {
-                        enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
+        withAnimation {
+            let task = Task {
+                do {
+                    let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
+                        for: selectedAccount.uid,
+                        dateWhenNextRefreshable: nil
+                    )
+                    let queryResultAwaited = queryResult.merge(old: currentBasicInfo)
+                    currentBasicInfo = queryResultAwaited
+                    Defaults[.queriedEnkaProfiles][selectedAccount.uid] = queryResultAwaited
+                    await enkaDB.updateExpiryStatus(against: queryResult)
+                    if enkaDB.isExpired {
+                        let factoryDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)
+                        await factoryDB?.updateExpiryStatus(against: queryResult)
+                        if let factoryDB = factoryDB, !factoryDB.isExpired {
+                            enkaDB.update(new: factoryDB)
+                        } else {
+                            enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
+                        }
                     }
-                }
-                withAnimation {
                     self.playerDetailStatus = .succeed((
                         queryResultAwaited,
                         Date()
                     ))
-                }
-            } catch {
-                withAnimation {
+                } catch {
                     self.playerDetailStatus = .fail(error)
                 }
             }
-        }
-        Task {
-            withAnimation {
+            Task {
                 self.playerDetailStatus = .progress(task)
             }
         }

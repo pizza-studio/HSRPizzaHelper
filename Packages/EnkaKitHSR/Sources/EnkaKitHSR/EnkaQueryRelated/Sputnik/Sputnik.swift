@@ -38,8 +38,6 @@ extension EnkaHSR {
         }
 
         public static func getEnkaDB() async throws -> EnkaHSR.EnkaDB {
-            sharedDB = Defaults[.enkaDBData]
-
             var enkaDataExpired = Calendar.current.date(
                 byAdding: .hour,
                 value: 2,
