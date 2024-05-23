@@ -37,6 +37,15 @@ final class DetailPortalViewModel: ObservableObject {
         }
     }
 
+    deinit {
+        Task {
+            if case let .progress(task) = await playerDetailStatus,
+               let task = task, !task.isCancelled {
+                task.cancel()
+            }
+        }
+    }
+
     // MARK: Public
 
     @Published public var currentBasicInfo: EnkaProfileEntity?
