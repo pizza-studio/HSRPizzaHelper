@@ -84,8 +84,6 @@ final class DetailPortalViewModel: ObservableObject {
         }
     }
 
-    // swiftlint:enable force_unwrapping
-
     func refresh() {
         Task {
             await fetchPlayerDetail()
