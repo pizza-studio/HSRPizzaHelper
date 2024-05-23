@@ -15419,6 +15419,34 @@
         }
       }
     },
+    "sys.force_reset_enkaDB_cache" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset locale EnkaDB cache"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この端末のキャッシュ済みの EnkaDB データを整い戻す"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重设本地 EnkaDB 缓存"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置本機 EnkaDB 快取"
+          }
+        }
+      }
+    },
     "sys.help" : {
       "localizations" : {
         "en" : {

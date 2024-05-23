@@ -5,6 +5,8 @@
 //  Created by 戴藏龙 on 2023/5/3.
 //
 
+import Defaults
+import EnkaKitHSR
 import HBMihoyoAPI
 import SwifterSwift
 import SwiftUI
@@ -208,6 +210,14 @@ private struct OtherSettingsView: View {
             } footer: {
                 Text("sys.manage_hoyolab_account.footer")
                     .textCase(.none)
+            }
+
+            Section {
+                Button {
+                    Defaults.reset([.enkaDBData])
+                } label: {
+                    Label("sys.force_reset_enkaDB_cache", systemSymbol: .squareStack3dUp)
+                }
             }
 
             Section {
