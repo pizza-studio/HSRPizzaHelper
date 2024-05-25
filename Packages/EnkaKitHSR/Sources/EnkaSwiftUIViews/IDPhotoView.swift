@@ -156,30 +156,14 @@ public struct IDPhotoView: View {
 
     var lifePathImage: CGImage? {
         let path = lifePath.iconFilePath
-        #if os(macOS)
-        guard let image = NSImage(contentsOfFile: path) else { return nil }
-        var imageRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-        let imageRef = image.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)
-        return imageRef
-        #elseif os(iOS)
-        return UIImage(contentsOfFile: path)?.cgImage
-        #else
-        return nil
-        #endif
+        let result = CGImage.instantiate(filePath: path)
+        return result
     }
 
     var backgroundImage: CGImage? {
         let path = "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character.rawValue)/\(pid).png"
-        #if os(macOS)
-        guard let image = NSImage(contentsOfFile: path) else { return nil }
-        var imageRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-        let imageRef = image.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)
-        return imageRef
-        #elseif os(iOS)
-        return UIImage(contentsOfFile: path)?.cgImage
-        #else
-        return nil
-        #endif
+        let result = CGImage.instantiate(filePath: path)
+        return result
     }
 
     // MARK: Private
@@ -202,5 +186,20 @@ extension EnkaHSR.DBModels.Element {
         case .pyro: return .init(red: 0.83, green: 0.00, blue: 0.00, alpha: 1.00)
         case .cryo: return .init(red: 0.00, green: 0.38, blue: 0.63, alpha: 1.00)
         }
+    }
+}
+
+extension CGImage {
+    fileprivate static func instantiate(filePath path: String) -> CGImage? {
+        #if os(macOS)
+        guard let image = NSImage(contentsOfFile: path) else { return nil }
+        var imageRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        let imageRef = image.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)
+        return imageRef
+        #elseif os(iOS)
+        return UIImage(contentsOfFile: path)?.cgImage
+        #else
+        return nil
+        #endif
     }
 }
