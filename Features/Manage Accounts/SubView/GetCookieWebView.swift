@@ -240,17 +240,12 @@ struct QRCodeGetCookieView: View {
 
     private var qrImage: Image? {
         guard let qrCodeAndTicket = viewModel.qrCodeAndTicket else { return nil }
-        let img = Image(decorative: qrCodeAndTicket.qrCode, scale: 1)
-            .interpolation(.none)
-            .resizable()
-            .scaledToFit()
-            .frame(width: qrWidth, height: qrWidth)
-            .padding()
-        let renderer = ImageRenderer(content: img)
-        renderer.proposedSize = .init(width: qrWidth, height: qrWidth)
-        renderer.scale = 2
-        guard let newImg = renderer.cgImage else { return nil }
-        return Image(decorative: newImg, scale: 1)
+        let newSize = CGSize(width: qrWidth, height: qrWidth)
+        guard let imgResized = qrCodeAndTicket.qrCode.resized(
+            size: newSize,
+            quality: .none
+        ) else { return nil }
+        return Image(decorative: imgResized, scale: 1)
     }
 
     private static var isMiyousheInstalled: Bool {
@@ -288,7 +283,7 @@ struct QRCodeGetCookieView: View {
                                     .interpolation(.none)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: qrWidth, height: qrWidth)
+                                    .frame(width: qrWidth, height: qrWidth + 12, alignment: .top)
                                     .padding()
                             }
                             Spacer()

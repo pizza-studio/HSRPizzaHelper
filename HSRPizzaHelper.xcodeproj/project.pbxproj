@@ -11,6 +11,7 @@
 		5B1033782ADC312900B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033772ADC312900B1DA08 /* Defaults */; };
 		5B10337A2ADC312F00B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1033792ADC312F00B1DA08 /* Defaults */; };
 		5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B10337B2ADC313400B1DA08 /* Defaults */; };
+		5B11A26A2C01FE9A006B0BF9 /* CGImageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11A2692C01FE9A006B0BF9 /* CGImageImpl.swift */; };
 		5B16985E2BDBEE770017660A /* SRGFImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16985D2BDBEE770017660A /* SRGFImpl.swift */; };
 		5B23404D2BFA7C6700F1974A /* GachaNameViewRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23404C2BFA7C6700F1974A /* GachaNameViewRenderable.swift */; };
 		5B28F8FE2BDE41F7004B271E /* ImportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */; };
@@ -330,6 +331,7 @@
 
 /* Begin PBXFileReference section */
 		5B0BAC842A265E5700B0B8F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HSRPizzaHelperWidget.strings"; sourceTree = "<group>"; };
+		5B11A2692C01FE9A006B0BF9 /* CGImageImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImageImpl.swift; sourceTree = "<group>"; };
 		5B16985D2BDBEE770017660A /* SRGFImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRGFImpl.swift; sourceTree = "<group>"; };
 		5B23404C2BFA7C6700F1974A /* GachaNameViewRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaNameViewRenderable.swift; sourceTree = "<group>"; };
 		5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DefaultsKeys; path = Packages/DefaultsKeys; sourceTree = "<group>"; };
@@ -1217,6 +1219,7 @@
 				EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */,
 				5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */,
 				5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */,
+				5B11A2692C01FE9A006B0BF9 /* CGImageImpl.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1654,6 +1657,7 @@
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
 				EA3BDCA02A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift in Sources */,
 				BFBA361A2A17496D00E0142A /* StoreManager.swift in Sources */,
+				5B11A26A2C01FE9A006B0BF9 /* CGImageImpl.swift in Sources */,
 				EA80CFE32A0E8FFF00002B53 /* HSRNotificationCenter.swift in Sources */,
 				BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */,
 				5B6162AC2BD4E0A200662F5A /* EnkaHSRImpl.swift in Sources */,
