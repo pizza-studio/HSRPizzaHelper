@@ -104,10 +104,10 @@ public struct AvatarShowCaseView: View {
                 Group {
                     if let avatar = avatar {
                         Button("app.detailPortal.avatar.summarzeToClipboard.asText") {
-                            UIPasteboard.general.string = avatar.asText
+                            Clipboard.writeString(avatar.asText)
                         }
                         Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
-                            UIPasteboard.general.string = avatar.asMarkDown
+                            Clipboard.writeString(avatar.asMarkDown)
                         }
                         #if os(OSX) || targetEnvironment(macCatalyst)
                         Divider()
