@@ -203,3 +203,25 @@ extension CGImage {
         #endif
     }
 }
+
+// MARK: - EachAvatarStatView_Previews
+
+#if DEBUG
+struct IDPhotoView_Previews: PreviewProvider {
+    static let idp: IDPhotoView? = {
+        // Note: Do not use #Preview macro. Otherwise, the preview won't be able to access the assets.
+        let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
+            separator: "/"
+        ).dropFirst()
+        EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
+        return IDPhotoView(pid: "8004", 128, .cutShoulder)
+    }()
+
+    static var previews: some View {
+        // NOTE: The preview only works if the canvas is set to use macOS (either native or Catalyst).
+        VStack {
+            idp
+        }
+    }
+}
+#endif
