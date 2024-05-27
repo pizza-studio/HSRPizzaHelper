@@ -36,8 +36,8 @@ extension CanProvideWidgetBackground {
         // If a URL is found, try to load and resize the image.
         if let url = url,
            let data = try? Data(contentsOf: url),
-           let uiImage = UIImage(data: data)?.resized() {
-            return Image(uiImage: uiImage)
+           let uiImage = UIImage(data: data)?.cgImage?.resized(width: 860.0) {
+            return Image(decorative: uiImage, scale: 1)
         } else {
             return nil
         }
@@ -135,25 +135,4 @@ func findFolderURLWithImage(name imageName: String, inFolders folders: [URL]) ->
         }
     }
     return nil
-}
-
-/// An extension of `UIImage` to add functionality of resizing images.
-extension UIImage {
-    /// Resizes the image to a specified width and height.
-    /// - Parameters:
-    ///     - width: The width to resize the image to.
-    ///     - isOpaque: A boolean indicating whether the resulting image should be opaque or not.
-    /// - Returns: A `UIImage` object representing the resized image.
-    fileprivate func resized(toWidth width: CGFloat = 860, isOpaque: Bool = true) -> UIImage? {
-        let canvas = CGSize(width: width, height: CGFloat(ceil(width / size.width * size.height)))
-        let format = imageRendererFormat
-        format.opaque = isOpaque
-        return UIGraphicsImageRenderer(
-            size: canvas,
-            format: format
-        )
-        .image { _ in
-            draw(in: CGRect(origin: .zero, size: canvas))
-        }
-    }
 }

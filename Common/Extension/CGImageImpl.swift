@@ -30,4 +30,18 @@ extension CGImage {
 
         return context.makeImage()
     }
+
+    func resized(width: CGFloat, quality: CGInterpolationQuality = .high) -> CGImage? {
+        let ratio = CGFloat(self.width) / CGFloat(height)
+        let height = width / ratio
+        let size: CGSize = .init(width: width, height: height)
+        return resized(size: size, quality: quality)
+    }
+
+    func resized(height: CGFloat, quality: CGInterpolationQuality = .high) -> CGImage? {
+        let ratio = CGFloat(self.height) / CGFloat(width)
+        let width = height / ratio
+        let size: CGSize = .init(width: width, height: height)
+        return resized(size: size, quality: quality)
+    }
 }

@@ -25,6 +25,8 @@
 		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
 		5B6162AC2BD4E0A200662F5A /* EnkaHSRImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */; };
 		5B62B7562BFB9B550051E097 /* NewsKitHSR in Frameworks */ = {isa = PBXBuildFile; productRef = 5B62B7552BFB9B550051E097 /* NewsKitHSR */; };
+		5B76D67B2C04711600E813C6 /* CGImageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11A2692C01FE9A006B0BF9 /* CGImageImpl.swift */; };
+		5B76D67C2C04711600E813C6 /* CGImageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11A2692C01FE9A006B0BF9 /* CGImageImpl.swift */; };
 		5B7990312BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */; };
 		5B7CE2B82BCD2EAE0053FD7D /* EnkaKitHSR in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7CE2B72BCD2EAE0053FD7D /* EnkaKitHSR */; };
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
@@ -1543,6 +1545,7 @@
 				EA1673FA2A063AF300436487 /* HSRPizzaHelperWidget.swift in Sources */,
 				EA8A77362A074D290005C511 /* RandomBackgroundDrawable.swift in Sources */,
 				EA8A771C2A0741220005C511 /* WidgetConfigurationIntentHandler.swift in Sources */,
+				5B76D67C2C04711600E813C6 /* CGImageImpl.swift in Sources */,
 				EAFC5B502A35D29600598F2F /* WidgetErrorView.swift in Sources */,
 				EA39D0982ABBE8DD008F93CF /* WidgetContainerBackgroundRemovable.swift in Sources */,
 				EA702C0E2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
@@ -1723,6 +1726,7 @@
 				EA946A8B2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */,
 				EAE8987E2A06A2A6000AF830 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,
 				EA702C0A2A06B0BA006D3BC9 /* Account+CoreDataClass.swift in Sources */,
+				5B76D67B2C04711600E813C6 /* CGImageImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

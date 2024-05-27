@@ -336,31 +336,37 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
                         backgroundName = ""
                     }
                 }
-            Button("sys.save") {
-                guard backgroundName != "" else {
-                    isNeedNameAlertShow.toggle()
-                    return
-                }
-                let data = image!.resized()!.jpegData(compressionQuality: 0.8)!
-                do {
-                    // Check if name is existed
-                    let fileManager = FileManager.default
-                    let folderURL = try getFolderUrl()
-                    let contents = try fileManager.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
-                    guard contents.allSatisfy({ fileUrl in
-                        fileUrl.lastPathComponent.deletingPathExtension != backgroundName
-                    }) else {
-                        isNameDuplicatedAlertShow.toggle()
+            if let rawImageCG = image?.cgImage?.resized(width: 860.0),
+               let data = UIImage(cgImage: rawImageCG).jpegData(compressionQuality: 0.8) {
+                Button("sys.save") {
+                    guard backgroundName != "" else {
+                        isNeedNameAlertShow.toggle()
                         return
                     }
 
-                    // Save image data
-                    let fileUrl = folderURL.appendingPathComponent(backgroundName, conformingTo: .png)
-                    try data.write(to: fileUrl)
-                    isShow.toggle()
-                } catch {
-                    self.error = .init(source: error)
-                    isErrorAlertShow.toggle()
+                    do {
+                        // Check if name is existed
+                        let fileManager = FileManager.default
+                        let folderURL = try getFolderUrl()
+                        let contents = try fileManager.contentsOfDirectory(
+                            at: folderURL,
+                            includingPropertiesForKeys: nil
+                        )
+                        guard contents.allSatisfy({ fileUrl in
+                            fileUrl.lastPathComponent.deletingPathExtension != backgroundName
+                        }) else {
+                            isNameDuplicatedAlertShow.toggle()
+                            return
+                        }
+
+                        // Save image data
+                        let fileUrl = folderURL.appendingPathComponent(backgroundName, conformingTo: .png)
+                        try data.write(to: fileUrl)
+                        isShow.toggle()
+                    } catch {
+                        self.error = .init(source: error)
+                        isErrorAlertShow.toggle()
+                    }
                 }
             }
             Button("sys.cancel", role: .cancel) {
@@ -607,25 +613,4 @@ private struct ImagePickerView: UIViewControllerRepresentable {
         _ uiViewController: UIImagePickerController,
         context: UIViewControllerRepresentableContext<ImagePickerView>
     ) {}
-}
-
-/// An extension of `UIImage` to add functionality of resizing images.
-extension UIImage {
-    /// Resizes the image to a specified width and height.
-    /// - Parameters:
-    ///     - width: The width to resize the image to.
-    ///     - isOpaque: A boolean indicating whether the resulting image should be opaque or not.
-    /// - Returns: A `UIImage` object representing the resized image.
-    fileprivate func resized(toWidth width: CGFloat = 860, isOpaque: Bool = true) -> UIImage? {
-        let canvas = CGSize(width: width, height: CGFloat(ceil(width / size.width * size.height)))
-        let format = imageRendererFormat
-        format.opaque = isOpaque
-        return UIGraphicsImageRenderer(
-            size: canvas,
-            format: format
-        )
-        .image { _ in
-            draw(in: CGRect(origin: .zero, size: canvas))
-        }
-    }
 }
