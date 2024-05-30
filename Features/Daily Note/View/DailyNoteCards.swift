@@ -82,7 +82,12 @@ private struct AddNewAccountButton: View {
                         isNewAccountSheetShow.toggle()
                     }
                     .sheet(isPresented: $isNewAccountSheetShow) {
-                        CreateAccountSheetView(account: Account(context: viewContext), isShown: $isNewAccountSheetShow)
+                        CreateAccountSheetView(
+                            account: Account(context: viewContext),
+                            isShown: $isNewAccountSheetShow
+                        )
+                        .scrollContentBackground(.visible)
+                        .restoreSystemTint()
                     }
                 Spacer()
             }
