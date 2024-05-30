@@ -39,8 +39,7 @@ final class DetailPortalViewModel: ObservableObject {
 
     deinit {
         Task {
-            if case let .progress(task) = await playerDetailStatus,
-               let task = task, !task.isCancelled {
+            if case let .progress(task) = await playerDetailStatus, !task.isCancelled {
                 task.cancel()
             }
         }
@@ -50,14 +49,15 @@ final class DetailPortalViewModel: ObservableObject {
 
     @Published public var currentBasicInfo: EnkaProfileEntity?
 
-    @Published public var playerDetailStatus: PlayerDetailStatus = .progress(nil)
+    @Published public var playerDetailStatus: PlayerDetailStatus = .standby
 
     // MARK: Internal
 
     enum Status<T> {
-        case progress(Task<Void, Never>?)
+        case progress(Task<Void, Never>)
         case fail(Error)
         case succeed(T)
+        case standby
 
         // MARK: Internal
 
@@ -97,7 +97,7 @@ final class DetailPortalViewModel: ObservableObject {
         if case let .succeed((_, refreshableDate)) = playerDetailStatus {
             guard Date() > refreshableDate else { return }
         }
-        if case let .progress(task) = playerDetailStatus { task?.cancel() }
+        if case let .progress(task) = playerDetailStatus { task.cancel() }
         let task = Task {
             do {
                 let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
@@ -479,12 +479,13 @@ private struct PlayerDetailSection: View {
             case .progress:
                 InfiniteProgressBar().id(UUID())
             case let .fail(error):
-                Divider()
                 ErrorView(account: account, apiPath: "", error: error) {
                     Task {
                         await vmDPV.fetchPlayerDetail()
                     }
                 }
+            case .standby:
+                EmptyView()
             case let .succeed((playerDetail, _)):
                 if playerDetail.avatarDetailList.isEmpty {
                     Divider()
