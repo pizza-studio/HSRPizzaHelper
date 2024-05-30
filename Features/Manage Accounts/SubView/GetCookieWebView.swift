@@ -112,10 +112,10 @@ struct CookieGetterWebView: UIViewRepresentable {
     let dataStore: WKWebsiteDataStore
     let httpHeaderFields: [String: String]
 
-    func makeUIView(context: Context) -> WKWebView {
+    func makeUIView(context: Context) -> OPWebView {
         guard let url = URL(string: url)
         else {
-            return WKWebView()
+            return OPWebView()
         }
         dataStore
             .fetchDataRecords(
@@ -142,14 +142,14 @@ struct CookieGetterWebView: UIViewRepresentable {
             timeoutInterval: timeoutInterval
         )
         request.allHTTPHeaderFields = httpHeaderFields
-        let webview = WKWebView()
+        let webview = OPWebView()
         webview.configuration.websiteDataStore = dataStore
         webview.navigationDelegate = context.coordinator
         webview.load(request)
         return webview
     }
 
-    func updateUIView(_ uiView: WKWebView, context _: Context) {
+    func updateUIView(_ uiView: OPWebView, context _: Context) {
         if let url = URL(string: url) {
             let timeoutInterval: TimeInterval = 10
             var request = URLRequest(
