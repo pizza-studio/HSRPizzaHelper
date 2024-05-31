@@ -232,6 +232,8 @@ private struct DailyNoteCardErrorView: View {
         }
         .sheet(isPresented: $isEditAccountSheetShown, content: {
             EditAccountSheetView(account: account, isShown: $isEditAccountSheetShown)
+                .scrollContentBackground(.visible)
+                .restoreSystemTint()
         })
     }
 
