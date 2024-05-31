@@ -192,6 +192,15 @@ struct AvatarListItem: View {
 
     @State var condensed: Bool
 
+    var charName: String {
+        let idStr = avatar.id.description
+        if EnkaHSR.Sputnik.sharedDB.characters.keys.contains(idStr) {
+            return EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(id: idStr)
+        } else {
+            return avatar.name
+        }
+    }
+
     var body: some View {
         HStack(spacing: condensed ? 0 : 3) {
             ZStack(alignment: .bottomLeading) {
@@ -220,7 +229,7 @@ struct AvatarListItem: View {
             if !condensed {
                 VStack(spacing: 3) {
                     HStack(alignment: .lastTextBaseline, spacing: 5) {
-                        Text(avatar.name)
+                        Text(charName)
                             .font(.system(size: 20)).bold().fontWidth(.compressed)
                             .fixedSize(horizontal: true, vertical: false)
                             .minimumScaleFactor(0.5)
