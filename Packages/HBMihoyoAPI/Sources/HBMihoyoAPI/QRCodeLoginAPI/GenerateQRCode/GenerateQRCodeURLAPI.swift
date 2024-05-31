@@ -12,7 +12,7 @@ import UIKit
 
 extension MiHoYoAPI {
     public static func generateQRCodeURL(deviceId: UUID) async throws -> (url: URL, ticket: String) {
-        var request = URLRequest(url: URL(string: "https://hk4e-sdk.mihoyo.com/hk4e_cn/combo/panda/qrcode/fetch")!)
+        var request = URLRequest(url: URL(string: "https://hk4e-sdk.mihoyo.com/hkrpg_cn/combo/panda/qrcode/fetch")!)
         request.httpMethod = "POST"
 
         struct Body: Encodable {
