@@ -36,7 +36,7 @@ struct InAppDailyNoteCardView: View {
                 case let .success(note):
                     NoteView(account: account, note: note)
                 case let .failure(error):
-                    ErrorView(account: account, error: error)
+                    DailyNoteCardErrorView(account: account, error: error)
                 }
             }
         } header: {
@@ -201,15 +201,15 @@ extension ExpeditionInformation.Expedition: View {
     }
 }
 
-// MARK: - ErrorView
+// MARK: - DailyNoteCardErrorView
 
-private struct ErrorView: View {
-    // MARK: Internal
+private struct DailyNoteCardErrorView: View {
+    // MARK: Public
 
-    let account: Account
-    var error: Error
+    public let account: Account
+    public var error: Error
 
-    var body: some View {
+    public var body: some View {
         Button {
             isEditAccountSheetShown.toggle()
         } label: {
