@@ -11,9 +11,8 @@ import HBMihoyoAPI
 import HBPizzaHelperAPI
 import SwiftUI
 
-let detailPortalRefreshSubject: PassthroughSubject<Void, Never> = .init()
-
 typealias EnkaProfileEntity = EnkaHSR.QueryRelated.DetailInfo
+typealias CharInventoryEntity = MiHoYoAPI.CharacterInventory
 
 // MARK: - DetailPortalViewModel
 
@@ -48,10 +47,15 @@ final class DetailPortalViewModel: ObservableObject {
     // MARK: Public
 
     @Published public var currentBasicInfo: EnkaProfileEntity?
-
     @Published public var playerDetailStatus: PlayerDetailStatus = .standby
 
+    @Published public var currentCharInventory: CharInventoryEntity?
+    @Published public var characterInventoryStatus: CharInventoryStatus = .standby
+
     // MARK: Internal
+
+    typealias PlayerDetailStatus = Status<(EnkaProfileEntity, nextRefreshableDate: Date)>
+    typealias CharInventoryStatus = Status<CharInventoryEntity>
 
     enum Status<T> {
         case progress(Task<Void, Never>)
@@ -73,7 +77,7 @@ final class DetailPortalViewModel: ObservableObject {
         }
     }
 
-    typealias PlayerDetailStatus = Status<(EnkaProfileEntity, nextRefreshableDate: Date)>
+    static let refreshSubject: PassthroughSubject<Void, Never> = .init()
 
     let enkaDB = EnkaHSR.Sputnik.sharedDB
 
@@ -87,7 +91,8 @@ final class DetailPortalViewModel: ObservableObject {
     func refresh() {
         Task {
             await fetchPlayerDetail()
-            detailPortalRefreshSubject.send(())
+            await fetchCharacterInventoryList()
+            Self.refreshSubject.send(())
         }
     }
 
@@ -136,6 +141,38 @@ final class DetailPortalViewModel: ObservableObject {
         Task {
             withAnimation {
                 self.playerDetailStatus = .progress(task)
+            }
+        }
+    }
+
+    @MainActor
+    func fetchCharacterInventoryList() async {
+        guard let selectedAccount else { return }
+        if case let .progress(task) = characterInventoryStatus { task.cancel() }
+        let task = Task {
+            do {
+                let queryResult = try await MiHoYoAPI.characterInventory(
+                    server: selectedAccount.server,
+                    uid: selectedAccount.uid ?? "",
+                    cookie: selectedAccount.cookie ?? "",
+                    deviceFingerPrint: selectedAccount.deviceFingerPrint
+                )
+                Task {
+                    withAnimation {
+                        self.characterInventoryStatus = .succeed(queryResult)
+                    }
+                }
+            } catch {
+                Task {
+                    withAnimation {
+                        self.characterInventoryStatus = .fail(error)
+                    }
+                }
+            }
+        }
+        Task {
+            withAnimation {
+                self.characterInventoryStatus = .progress(task)
             }
         }
     }
