@@ -85,7 +85,7 @@ extension MiHoYoAPI {
     ///   - body: `Body` of request.
     ///   - cookie: cookie of request.
     /// - Returns: `URLRequest`
-    fileprivate static func generateRequest(
+    static func generateRequest(
         httpMethod: HTTPMethod = .get,
         region: Region,
         host: String,

@@ -49,9 +49,11 @@ extension MiHoYoAPI {
     ) async throws
         -> CharacterInventory {
         let queryItems: [URLQueryItem] = [
+            .init(name: "need_wiki", value: "false"),
             .init(name: "role_id", value: uid),
             .init(name: "server", value: server.rawValue),
         ]
+
         let additionalHeaders: [String: String]? = {
             if let deviceFingerPrint, !deviceFingerPrint.isEmpty {
                 return ["x-rpc-device_fp": deviceFingerPrint]
@@ -59,6 +61,13 @@ extension MiHoYoAPI {
                 return nil
             }
         }()
+
+        var cookie = cookie
+        if server.region == .mainlandChina {
+            let cookieToken = try await cookieToken(cookie: cookie)
+            cookie = "cookie_token=\(cookieToken.cookieToken); account_id=\(cookieToken.uid);"
+        }
+
         let request = try await Self.generateRecordAPIRequest(
             region: server.region,
             path: "/game_record/app/hkrpg/api/avatar/info",
