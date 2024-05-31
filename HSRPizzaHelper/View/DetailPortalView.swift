@@ -200,6 +200,9 @@ struct DetailPortalView: View {
             .navigationDestination(for: EnkaHSR.QueryRelated.DetailInfo.self) { result in
                 CaseQueryResultView(profile: result)
             }
+            .navigationDestination(for: CharInventoryEntity.self) { data in
+                CharacterInventoryView(data: data)
+            }
             .scrollContentBackground(.hidden)
             .listContainerBackground()
             .refreshable {
@@ -541,6 +544,7 @@ private struct PlayerDetailSection: View {
                     }
                 }
             }
+            CharInventoryNavigator(account: account, status: vmDPV.characterInventoryStatus)
         }
     }
 
@@ -550,6 +554,68 @@ private struct PlayerDetailSection: View {
 
     private var errorTextForBlankAvatars: String {
         "account.PlayerDetail.EmptyAvatarsFetched".localized()
+    }
+}
+
+// MARK: - CharInventoryNavigator
+
+private struct CharInventoryNavigator: View {
+    @EnvironmentObject private var vmDPV: DetailPortalViewModel
+
+    // MARK: Internal
+
+    let account: Account
+    var status: DetailPortalViewModel.Status<CharInventoryEntity>
+
+    var body: some View {
+        switch status {
+        case .progress:
+            InformationRowView("app.detailPortal.allAvatar.title") {
+                ProgressView()
+            }
+        case let .fail(error):
+            InformationRowView("app.detailPortal.allAvatar.title") {
+                DPVErrorView(
+                    account: account,
+                    apiPath: "https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/character",
+                    error: error
+                ) {
+                    Task {
+                        await vmDPV.fetchCharacterInventoryList()
+                    }
+                }
+            }
+        case let .succeed(data):
+            InformationRowView("app.detailPortal.allAvatar.title") {
+                let thisLabel = HStack(spacing: 3) {
+                    ForEach(data.avatarList.prefix(5), id: \.id) { avatar in
+                        if let charIdExp = EnkaHSR.AvatarSummarized.CharacterID(id: avatar.id.description) {
+                            charIdExp.avatarPhoto(
+                                size: 30, circleClipped: true, clipToHead: true
+                            )
+                        } else {
+                            Color.gray.frame(width: 30, height: 30, alignment: .top).clipShape(Circle())
+                                .overlay(alignment: .top) {
+                                    WebImage(urlStr: avatar.icon).clipShape(Circle())
+                                }
+                        }
+                    }
+                }
+                if #unavailable(macOS 14), OS.type == .macOS {
+                    SheetCaller(forceDarkMode: false) {
+                        CharacterInventoryView(data: data)
+                    } label: {
+                        thisLabel
+                    }
+                } else {
+                    NavigationLink(value: data) {
+                        thisLabel
+                    }
+                }
+            }
+        case .standby:
+            EmptyView()
+        }
     }
 }
 
@@ -565,20 +631,195 @@ private struct DPVErrorView: View {
     let completion: () -> Void
 
     var body: some View {
-        Button {
-            completion()
-        } label: {
-            Label {
-                HStack {
-                    Text(error.localizedDescription)
-                        .foregroundStyle(.primary)
-                    Spacer()
-                    Image(systemSymbol: .arrowClockwiseCircle)
-                }
-            } icon: {
-                Image(systemSymbol: .exclamationmarkCircle)
-                    .foregroundStyle(.red)
+        if let miHoYoAPIError = error as? MiHoYoAPIError,
+           case .verificationNeeded = miHoYoAPIError {
+            VerificationNeededView(account: account, challengePath: apiPath) {
+                vmDPV.refresh()
             }
+        } else {
+            Button {
+                completion()
+            } label: {
+                Label {
+                    HStack {
+                        Text(error.localizedDescription)
+                            .foregroundStyle(.primary)
+                        Spacer()
+                        Image(systemSymbol: .arrowClockwiseCircle)
+                    }
+                } icon: {
+                    Image(systemSymbol: .exclamationmarkCircle)
+                        .foregroundStyle(.red)
+                }
+            }
+        }
+    }
+}
+
+// MARK: - VerificationNeededView
+
+private struct VerificationNeededView: View {
+    // MARK: Internal
+
+    let account: Account
+    let challengePath: String
+    let completion: () -> Void
+
+    var disableButton: Bool {
+        if case .progressing = status {
+            true
+        } else if case .gotVerification = status {
+            true
+        } else {
+            false
+        }
+    }
+
+    var body: some View {
+        VStack {
+            Button {
+                status = .progressing
+                popVerificationWebSheet()
+            } label: {
+                Label {
+                    Text("account.test.verify.button")
+                } icon: {
+                    Image(systemSymbol: .exclamationmarkTriangle)
+                        .foregroundStyle(.yellow)
+                }
+            }
+            .disabled(disableButton)
+            .sheet(item: $sheetItem, content: { item in
+                switch item {
+                case let .gotVerification(verification):
+                    NavigationStack {
+                        GeetestValidateView(
+                            challenge: verification.challenge,
+                            gt: verification.gt,
+                            completion: { validate in
+                                Task {
+                                    status = .pending
+                                    verifyValidate(challenge: verification.challenge, validate: validate)
+                                    sheetItem = nil
+                                }
+                            }
+                        )
+                        .listContainerBackground()
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button("sys.cancel") {
+                                    status = .pending
+                                    sheetItem = nil
+                                }
+                            }
+                        }
+                        .navigationTitle("account.test.verify.web_sheet.title")
+                    }
+                }
+            })
+            if case let .fail(error) = status {
+                Text("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func popVerificationWebSheet() {
+        Task(priority: .userInitiated) {
+            do {
+                let verification = try await MiHoYoAPI.createVerification(
+                    cookie: account.cookie,
+                    deviceFingerPrint: account.deviceFingerPrint
+                )
+                Task {
+                    status = .gotVerification(verification)
+                    sheetItem = .gotVerification(verification)
+                }
+            } catch {
+                status = .fail(error)
+            }
+        }
+    }
+
+    func verifyValidate(challenge: String, validate: String) {
+        Task {
+            do {
+                _ = try await MiHoYoAPI.verifyVerification(
+                    challenge: challenge,
+                    validate: validate,
+                    cookie: account.cookie,
+                    deviceFingerPrint: account.deviceFingerPrint
+                )
+                completion()
+            } catch {
+                status = .fail(error)
+            }
+        }
+    }
+
+    // MARK: Private
+
+    private enum Status: CustomStringConvertible {
+        case pending
+        case progressing
+        case gotVerification(Verification)
+        case fail(Error)
+
+        // MARK: Internal
+
+        var description: String {
+            switch self {
+            case let .fail(error):
+                return "ERROR: \(error.localizedDescription)"
+            case .progressing:
+                return "gettingVerification"
+            case let .gotVerification(verification):
+                return "Challenge: \(verification.challenge)"
+            case .pending:
+                return "PENDING"
+            }
+        }
+    }
+
+    private enum SheetItem: Identifiable {
+        case gotVerification(Verification)
+
+        // MARK: Internal
+
+        var id: Int {
+            switch self {
+            case let .gotVerification(verification):
+                return verification.challenge.hashValue
+            }
+        }
+    }
+
+    @State private var status: Status = .pending
+
+    @State private var sheetItem: SheetItem?
+
+    @EnvironmentObject private var vmDPV: DetailPortalViewModel
+}
+
+// MARK: - InformationRowView
+
+private struct InformationRowView<L: View>: View {
+    // MARK: Lifecycle
+
+    init(_ title: LocalizedStringKey, @ViewBuilder labelContent: @escaping () -> L) {
+        self.title = title
+        self.labelContent = labelContent
+    }
+
+    // MARK: Internal
+
+    @ViewBuilder let labelContent: () -> L
+
+    let title: LocalizedStringKey
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title).bold()
+            labelContent()
         }
     }
 }

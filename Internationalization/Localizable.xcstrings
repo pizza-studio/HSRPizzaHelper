@@ -1504,6 +1504,199 @@
     "AlertToast - elai950\nhttps://github.com/elai950/AlertToast" : {
 
     },
+    "app.characters.count.character:%lld%lld%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are %lld characters in total, including %lld 5-star characters and %lld 4-star characters."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sa kabuuan, mayroong %lld na characters, kasama ang %lld 5-star na character at %lld 4-star na character."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are %lld characters in total, including %lld 5-star characters and %lld 4-star characters."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are %lld characters in total, including %lld 5-star characters and %lld 4-star characters."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld人のキャラがいます。（%lld人の星5キャラと%lld人の星4キャラを含め）"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are %lld characters in total, including %lld 5-star characters and %lld 4-star characters."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У вас %lld персонажей, включая %lld 5-звёздочных персонажей и %lld 4-звёздочных."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Có tổng cộng %lld nhân vật , bao gồm %lld nhân vật 5 sao và %lld nhân vật 4 sao."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共拥有%lld名角色，其中五星角色%lld名，四星角色%lld名。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共擁有%lld名角色，其中五星角色%lld名，四星角色%lld名。"
+          }
+        }
+      }
+    },
+    "app.characters.count.golds:%lld%lld%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acquired 5-star items %lld times from gacha, including 5-star characters %lld times and 5-star weapons %lld times. (Unequipped star 5 weapons and the trailblazer's paths are not counted)"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nakuha ang 5-star items %lld na beses mula sa gacha, kasama ng 5-star characters %lld na beses at 5-star weapons %lld na beses. (Hindi kasama sa bilang ang 5 star weapon na hindi ginagamit.)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acquired 5-star items %lld times from gacha, including 5-star characters %lld times and 5-star weapons %lld times. (Unequipped star 5 weapons and the trailblazer's paths are not counted)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acquired 5-star items %lld times from gacha, including 5-star characters %lld times and 5-star weapons %lld times. (Unequipped star 5 weapons and the trailblazer's paths are not counted)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ガチャで星5アイテムを%lld回獲得した、その中で星5キャラ%lld回、星５武器%lld回。（未装備の星5武器も芦毛ちゃんもカウントされません）"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acquired 5-star items %lld times from gacha, including 5-star characters %lld times and 5-star weapons %lld times. (Unequipped star 5 weapons and the trailblazer's paths are not counted)"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получено 5-звёздочных предметов %lld раз из молитвы, включая %lld раз 5-звёздочных персонажей и %lld раз(-а) 5-звёздочное оружие. (Не экипированное оружие не идёт в счёт)"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhận vật phẩm 5 sao %lld lần từ gacha, bao gồm nhân vật 5 sao %lld lần và vũ khí 5 sao %lld lần. (Vũ khí 5 sao chưa được trang bị không được tính)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共获得%lld金，其中角色%lld金，武器%lld金。（未统计小灰毛和无人装备的五星武器）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共獲得%lld金，其中角色%lld金，武器%lld金。（未統計小灰毛和無人裝備的五星武器）"
+          }
+        }
+      }
+    },
+    "app.characters.title" : {
+      "comment" : "MARK: - 2.5.2 & 2.5.3",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Characters"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Characters"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Characters"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Characters"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "私のキャラ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Characters"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мои персонажи"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhân vật của tôi"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的角色"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的角色"
+          }
+        }
+      }
+    },
     "app.dailynote.card.daily_training.label" : {
       "localizations" : {
         "en" : {
@@ -1684,6 +1877,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "模擬宇宙"
+          }
+        }
+      }
+    },
+    "app.detailPortal.allAvatar.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Characters"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Characters"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Characters"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Characters"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全てのキャラクター"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Characters"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Characters"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Characters"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所有角色清单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所有角色清單"
           }
         }
       }
@@ -3971,6 +4228,126 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "全角色身分證件照樣本"
+          }
+        }
+      }
+    },
+    "detailPortal.ECDDV.constellation.unit:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C%lld"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C%lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C%lld"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C%lld"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld凸"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C%lld"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "С%lld"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C%lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld命"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld命"
+          }
+        }
+      }
+    },
+    "detailPortal.inventoryView.collapse.tabText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collapse"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "畳む"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收起"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收起"
+          }
+        }
+      }
+    },
+    "detailPortal.inventoryView.expand.tabText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expand"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開く"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "展开"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "展開"
           }
         }
       }
@@ -18502,6 +18879,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "等待從iCloud同步"
+          }
+        }
+      }
+    },
+    "weapon.affix:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "R%lld"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "R%lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "R%lld"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "R%lld"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "R%lld"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "R%lld"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "R%lld"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "R%lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "精%lld"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "精%lld"
           }
         }
       }
