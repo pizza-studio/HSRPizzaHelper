@@ -204,60 +204,13 @@ extension EnkaHSR.AvatarSummarized {
 extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     @ViewBuilder
     public func avatarPhoto(size: CGFloat, circleClipped: Bool = true, clipToHead: Bool = false) -> some View {
-        let cutType: IDPhotoView.IconType = clipToHead ? .cutHead : .cutShoulder
-        if let idPhotoView = IDPhotoView(pid: uniqueCharId.description, size, cutType) {
-            idPhotoView
-        } else {
-            let result = ResIcon(photoFilePath) {
-                $0.resizable()
-            } placeholder: {
-                AnyView(Color.clear)
-            }
-            .aspectRatio(contentMode: .fit)
-            .scaleEffect(1.5, anchor: .top)
-            .scaleEffect(1.4)
-            .frame(maxWidth: size, maxHeight: size)
-            // Draw.
-            let bgColor = Color.black.opacity(0.165)
-            Group {
-                if circleClipped {
-                    result
-                        .background { bgColor }
-                        .clipShape(Circle())
-                        .contentShape(Circle())
-                } else {
-                    result
-                        .background { bgColor }
-                        .clipShape(Rectangle())
-                        .contentShape(Rectangle())
-                }
-            }
-            .compositingGroup()
-        }
+        idExpressable.avatarPhoto(size: size, circleClipped: circleClipped, clipToHead: clipToHead)
     }
 
     /// 显示角色的扑克牌尺寸肖像，以身份证素材裁切而成。
     @ViewBuilder
     public func cardIcon(size: CGFloat) -> some View {
-        if let idPhotoView = IDPhotoView(pid: uniqueCharId.description, size, .asCard) {
-            idPhotoView
-        } else {
-            ResIcon(photoFilePath) {
-                $0.resizable()
-            } placeholder: {
-                AnyView(Color.clear)
-            }
-            .aspectRatio(contentMode: .fit)
-            .scaleEffect(1.5, anchor: .top)
-            .scaleEffect(1.4)
-            .frame(width: size * 0.74, height: size)
-            .background {
-                Color.black.opacity(0.165)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: size / 10))
-            .contentShape(RoundedRectangle(cornerRadius: size / 10))
-            .compositingGroup()
-        }
+        idExpressable.cardIcon(size: size)
     }
 
     @ViewBuilder

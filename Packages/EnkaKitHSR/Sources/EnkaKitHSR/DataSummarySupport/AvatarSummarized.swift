@@ -32,6 +32,39 @@ extension EnkaHSR {
 // MARK: - EnkaHSR.AvatarSummarized.AvatarMainInfo
 
 extension EnkaHSR.AvatarSummarized {
+    public struct CharacterID: Identifiable, Codable, Hashable {
+        // MARK: Lifecycle
+
+        public init?(id: String) {
+            guard EnkaHSR.Sputnik.sharedDB.characters.keys.contains(id) else { return nil }
+            self.id = id
+        }
+
+        // MARK: Public
+
+        public let id: String
+
+        public var i18nNameForUI: String {
+            EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(id: id)
+        }
+
+        public var i18nNameFactoryVanilla: String {
+            EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(id: id, officialNameOnly: true)
+        }
+
+        public var photoFileName: String {
+            "\(id).png"
+        }
+
+        public var photoFilePath: String {
+            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character.rawValue)/\(photoFileName)"
+        }
+
+        public var avatarFilePath: String {
+            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.profileAvatar.rawValue)/\(photoFileName)"
+        }
+    }
+
     public struct AvatarMainInfo: Codable, Hashable {
         // MARK: Lifecycle
 
@@ -44,6 +77,7 @@ extension EnkaHSR.AvatarSummarized {
             terms: EnkaHSR.EnkaDB.ExtraTerms
         ) {
             guard let theCommonInfo = theDB.characters[charID.description] else { return nil }
+            guard let idExpressible = EnkaHSR.AvatarSummarized.CharacterID(id: charID.description) else { return nil }
             self.avatarLevel = avatarLv
             self.constellation = constellationLevel
             self.baseSkills = baseSkillSet
@@ -54,6 +88,7 @@ extension EnkaHSR.AvatarSummarized {
             self.localizedName = nameTyped.i18n(theDB: theDB, officialNameOnly: true)
             self.localizedRealName = nameTyped.i18n(theDB: theDB, officialNameOnly: false)
             self.terms = terms
+            self.idExpressable = idExpressible
         }
 
         // MARK: Public
@@ -63,6 +98,8 @@ extension EnkaHSR.AvatarSummarized {
         public let localizedRealName: String
         /// Unique Character ID number used by both Enka Network and MiHoYo.
         public let uniqueCharId: Int
+        /// Unique Character ID Expressable Object.
+        public let idExpressable: EnkaHSR.AvatarSummarized.CharacterID
         /// Character's Mastered Element.
         public let element: EnkaHSR.Element
         /// Character's LifePath.
@@ -79,15 +116,15 @@ extension EnkaHSR.AvatarSummarized {
         }
 
         public var photoFileName: String {
-            "\(uniqueCharId).png"
+            idExpressable.photoFileName
         }
 
         public var photoFilePath: String {
-            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character.rawValue)/\(photoFileName)"
+            idExpressable.photoFilePath
         }
 
         public var avatarFilePath: String {
-            "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.profileAvatar.rawValue)/\(photoFileName)"
+            idExpressable.avatarFilePath
         }
     }
 }

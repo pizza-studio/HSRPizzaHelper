@@ -7,6 +7,121 @@ import EnkaKitHSR
 import Foundation
 import SwiftUI
 
+// MARK: - CharacterIconView
+
+public struct CharacterIconView: View {
+    // MARK: Lifecycle
+
+    public init(
+        charID: String,
+        size: CGFloat,
+        circleClipped: Bool = true,
+        clipToHead: Bool = false
+    ) {
+        self.charID = charID
+        self.size = size
+        self.circleClipped = circleClipped
+        self.clipToHead = clipToHead
+        self.isCard = false
+    }
+
+    public init(
+        charID: String,
+        cardSize size: CGFloat
+    ) {
+        self.charID = charID
+        self.size = size
+        self.circleClipped = false
+        self.clipToHead = false
+        self.isCard = true
+    }
+
+    // MARK: Public
+
+    public var body: some View {
+        if isCard {
+            cardIcon
+        } else {
+            normalIcon
+        }
+    }
+
+    // MARK: Internal
+
+    @ViewBuilder var cardIcon: some View {
+        if let cidObj = EnkaHSR.AvatarSummarized.CharacterID(id: charID) {
+            if useGenshinStyleIcon, let idPhotoView = IDPhotoView(pid: charID.description, size, .asCard) {
+                idPhotoView
+            } else {
+                ResIcon(cidObj.photoFilePath) {
+                    $0.resizable()
+                } placeholder: {
+                    AnyView(Color.clear)
+                }
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(1.5, anchor: .top)
+                .scaleEffect(1.4)
+                .frame(width: size * 0.74, height: size)
+                .background {
+                    Color.black.opacity(0.165)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: size / 10))
+                .contentShape(RoundedRectangle(cornerRadius: size / 10))
+                .compositingGroup()
+            }
+        } else {
+            EmptyView()
+        }
+    }
+
+    @ViewBuilder var normalIcon: some View {
+        if let cidObj = EnkaHSR.AvatarSummarized.CharacterID(id: charID) {
+            let cutType: IDPhotoView.IconType = clipToHead ? .cutHead : .cutShoulder
+            if useGenshinStyleIcon, let idPhotoView = IDPhotoView(pid: charID.description, size, cutType) {
+                idPhotoView
+            } else {
+                let result = ResIcon(cidObj.photoFilePath) {
+                    $0.resizable()
+                } placeholder: {
+                    AnyView(Color.clear)
+                }
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(1.5, anchor: .top)
+                .scaleEffect(1.4)
+                .frame(maxWidth: size, maxHeight: size)
+                // Draw.
+                let bgColor = Color.black.opacity(0.165)
+                Group {
+                    if circleClipped {
+                        result
+                            .background { bgColor }
+                            .clipShape(Circle())
+                            .contentShape(Circle())
+                    } else {
+                        result
+                            .background { bgColor }
+                            .clipShape(Rectangle())
+                            .contentShape(Rectangle())
+                    }
+                }
+                .compositingGroup()
+            }
+        } else {
+            EmptyView()
+        }
+    }
+
+    // MARK: Private
+
+    @Default(.useGenshinStyleCharacterPhotos) private var useGenshinStyleIcon: Bool
+
+    private let isCard: Bool
+    private let charID: String
+    private let size: CGFloat
+    private let circleClipped: Bool
+    private let clipToHead: Bool
+}
+
 // MARK: - IDPhotoView
 
 public struct IDPhotoView: View {
