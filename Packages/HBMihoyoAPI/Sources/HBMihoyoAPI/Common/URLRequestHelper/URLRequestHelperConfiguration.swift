@@ -45,7 +45,7 @@ enum URLRequestHelperConfiguration {
         case .mainlandChina:
             return "https://api-takumi-record.mihoyo.com/"
         case .global:
-            return "https://bbs-api-os.mihoyo.com/"
+            return "https://bbs-api-os.hoyolab.com/"
         }
     }
 
