@@ -201,7 +201,9 @@ struct DetailPortalView: View {
                 CaseQueryResultView(profile: result)
             }
             .navigationDestination(for: CharInventoryEntity.self) { data in
-                CharacterInventoryView(data: data)
+                if !data.avatarList.isEmpty {
+                    CharacterInventoryView(data: data)
+                }
             }
             .scrollContentBackground(.hidden)
             .listContainerBackground()
@@ -577,7 +579,7 @@ private struct CharInventoryNavigator: View {
             InformationRowView("app.detailPortal.allAvatar.title") {
                 DPVErrorView(
                     account: account,
-                    apiPath: "https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/character",
+                    apiPath: "https://api-takumi-record.mihoyo.com/game_record/app/hkrpg/api/avatar/info",
                     error: error
                 ) {
                     Task {
@@ -601,15 +603,19 @@ private struct CharInventoryNavigator: View {
                         }
                     }
                 }
-                if #unavailable(macOS 14), OS.type == .macOS {
-                    SheetCaller(forceDarkMode: false) {
-                        CharacterInventoryView(data: data)
-                    } label: {
-                        thisLabel
-                    }
+                if data.avatarList.isEmpty {
+                    Text("app.detailPortal.allAvatar.EmptyInventoryResult").font(.caption)
                 } else {
-                    NavigationLink(value: data) {
-                        thisLabel
+                    if #unavailable(macOS 14), OS.type == .macOS {
+                        SheetCaller(forceDarkMode: false) {
+                            CharacterInventoryView(data: data)
+                        } label: {
+                            thisLabel
+                        }
+                    } else {
+                        NavigationLink(value: data) {
+                            thisLabel
+                        }
                     }
                 }
             }

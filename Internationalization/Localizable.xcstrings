@@ -1881,6 +1881,35 @@
         }
       }
     },
+    "app.detailPortal.allAvatar.EmptyInventoryResult" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The current account server returned empty inventory results. For game accounts in this server, you are recommended to use Miyoushe / HoYoLab app to check your character inventory status."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アカウントサーバーから何のキャラ所有状態統計資料もなかったようです。もしかしたら、このサーバーのアカウントのキャラ所有状態統計資料は、（MiHoYo 公式の）米遊社アプリ或いは（Cognosphere 社の） HoYoLab アプリで直接に読むのもいいかもしれません。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前账号区服并未返回可用的角色库存统计资料。就该区服的账号而言，不妨使用米游社 / HoYoLab 应用来检视相关统计资料。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "當前帳號區服並未返回可用的角色庫存統計資料。就該區服的帳號而言，不妨使用米遊社 / HoYoLab 應用來檢視相關統計資料。"
+          }
+        }
+      }
+    },
     "app.detailPortal.allAvatar.title" : {
       "localizations" : {
         "en" : {
