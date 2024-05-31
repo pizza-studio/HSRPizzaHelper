@@ -479,7 +479,7 @@ private struct PlayerDetailSection: View {
             case .progress:
                 InfiniteProgressBar().id(UUID())
             case let .fail(error):
-                ErrorView(account: account, apiPath: "", error: error) {
+                DPVErrorView(account: account, apiPath: "", error: error) {
                     Task {
                         await vmDPV.fetchPlayerDetail()
                     }
@@ -516,9 +516,9 @@ private struct PlayerDetailSection: View {
     }
 }
 
-// MARK: - ErrorView
+// MARK: - DPVErrorView
 
-private struct ErrorView: View {
+private struct DPVErrorView: View {
     @EnvironmentObject private var vmDPV: DetailPortalViewModel
 
     let account: Account
