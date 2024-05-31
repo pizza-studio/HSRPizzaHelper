@@ -193,9 +193,9 @@ struct AvatarListItem: View {
     @State var condensed: Bool
 
     var charName: String {
-        let idStr = avatar.id.description
-        if EnkaHSR.Sputnik.sharedDB.characters.keys.contains(idStr) {
-            return EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(id: idStr)
+        if EnkaHSR.Sputnik.sharedDB.characters.keys.contains(avatar.id.description) {
+            let nameObj = EnkaHSR.CharacterName(pid: avatar.id)
+            return nameObj.i18n(theDB: EnkaHSR.Sputnik.sharedDB)
         } else {
             return avatar.name
         }
