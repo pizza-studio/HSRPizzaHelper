@@ -8,8 +8,8 @@ import SwiftUI
 extension CGImage {
     func resized(size: CGSize, quality: CGInterpolationQuality = .high) -> CGImage? {
         // Ref: https://rockyshikoku.medium.com/resize-cgimage-baf23a0f58ab
-        let width = Int(size.width)
-        let height = Int(size.height)
+        let width = Int(floor(size.width))
+        let height = Int(floor(size.height))
 
         let bytesPerPixel = bitsPerPixel / bitsPerComponent
         let destBytesPerRow = width * bytesPerPixel
