@@ -48,7 +48,7 @@ extension MiHoYoAPI {
         deviceFingerPrint: String?
     ) async throws
         -> CharacterInventory {
-        let queryItems: [URLQueryItem] = [
+        var queryItems: [URLQueryItem] = [
             .init(name: "need_wiki", value: "false"),
             .init(name: "role_id", value: uid),
             .init(name: "server", value: server.rawValue),
@@ -62,17 +62,35 @@ extension MiHoYoAPI {
             }
         }()
 
-        var cookie = cookie
+        var newCookie = cookie
         if server.region == .mainlandChina {
+            queryItems.append(.init(name: "id", value: "1001"))
+            let newCookieWrapped = newCookie.replacingOccurrences(of: "; ", with: "\n")
+                .replacingOccurrences(of: ";", with: "\n")
+            var vars = [String: String]()
+            newCookieWrapped.enumerateLines { currentLine, _ in
+                let cells = currentLine.split(separator: "=")
+                guard cells.count == 2 else { return }
+                vars[cells[0].description] = cells[1].description
+            }
+
             let cookieToken = try await cookieToken(cookie: cookie)
-            cookie = "cookie_token=\(cookieToken.cookieToken); account_id=\(cookieToken.uid);"
+            vars["account_id"] = cookieToken.uid
+            vars["cookie_token"] = cookieToken.cookieToken
+
+            newCookie = "account_id=\(cookieToken.uid); cookie_token=\(cookieToken.cookieToken); " + cookie
+            newCookie.removeAll()
+            newCookie.append("account_id=\(vars["account_id"] ?? ""); ")
+            newCookie.append("cookie_token=\(vars["cookie_token"] ?? ""); ")
+            newCookie.append("ltoken=\(vars["ltoken"] ?? ""); ")
+            newCookie.append("ltuid=\(vars["ltuid"] ?? ""); ")
         }
 
         let request = try await Self.generateRecordAPIRequest(
             region: server.region,
             path: "/game_record/app/hkrpg/api/avatar/info",
             queryItems: queryItems,
-            cookie: cookie,
+            cookie: newCookie,
             additionalHeaders: additionalHeaders
         )
 
