@@ -18,6 +18,21 @@ public struct ResIcon: View {
         self.path = path
         self.imageHandler = imageHandler ?? { $0 }
         self.placeholder = placeholder ?? { .init(ProgressView()) }
+        #if os(OSX)
+        if let uiImg = NSImage(contentsOfFile: path) {
+            self.rawImage = Image(nsImage: uiImg)
+        } else {
+            self.rawImage = nil
+        }
+        #elseif os(iOS)
+        if let uiImg = UIImage(contentsOfFile: path) {
+            self.rawImage = Image(uiImage: uiImg)
+        } else {
+            self.rawImage = nil
+        }
+        #else
+        self.rawImage = nil
+        #endif
     }
 
     // MARK: Public
@@ -25,29 +40,21 @@ public struct ResIcon: View {
     public let path: String
     public let placeholder: () -> AnyView
     public let imageHandler: (Image) -> Image
+    public let rawImage: Image?
 
     public var body: some View {
-        #if os(OSX)
-        if let image = NSImage(contentsOfFile: path) {
-            imageHandler(Image(nsImage: image))
-        } else {
-            AsyncImage(url: .init(fileURLWithPath: path)) { image in
-                imageHandler(image)
-            } placeholder: {
-                placeholder()
+        Group {
+            if let theImage = rawImage {
+                imageHandler(theImage)
+            } else {
+                AsyncImage(url: .init(fileURLWithPath: path)) { image in
+                    imageHandler(image)
+                } placeholder: {
+                    placeholder()
+                }
             }
         }
-        #else
-        if let image = UIImage(contentsOfFile: path) {
-            imageHandler(Image(uiImage: image))
-        } else {
-            AsyncImage(url: .init(fileURLWithPath: path)) { image in
-                imageHandler(image)
-            } placeholder: {
-                placeholder()
-            }
-        }
-        #endif
+        .compositingGroup()
     }
 }
 
