@@ -23,38 +23,14 @@ public struct EachAvatarStatView: View {
 
     public var body: some View {
         // 按照 iPhone SE2-SE3 的标准画面解析度（375 × 667）制作。
-        VStack(spacing: outerContentSpacing) {
+        LazyVStack(spacing: outerContentSpacing) {
             Group {
                 data.mainInfo.asView(fontSize: fontSize)
-                VStack(spacing: 2 * Self.zoomFactor) {
+                LazyVStack(spacing: 2 * Self.zoomFactor) {
                     data.equippedWeapon?.asView(fontSize: fontSize)
-                    HStack {
-                        VStack(spacing: 0) {
-                            ForEach(data.avatarPropertiesA, id: \.type) { property in
-                                AttributeTagPair(
-                                    icon: property.type.iconFilePath,
-                                    title: property.localizedTitle,
-                                    valueStr: property.valueString,
-                                    fontSize: fontSize * 0.8
-                                )
-                            }
-                        }
-                        Divider().overlay {
-                            Color.primary.opacity(0.3)
-                        }
-                        VStack(spacing: 0) {
-                            ForEach(data.avatarPropertiesB, id: \.type) { property in
-                                AttributeTagPair(
-                                    icon: property.type.iconFilePath,
-                                    title: property.localizedTitle,
-                                    valueStr: property.valueString,
-                                    fontSize: fontSize * 0.8
-                                )
-                            }
-                        }
-                    }
-                    .fixedSize(horizontal: false, vertical: true)
-                    .minimumScaleFactor(0.5)
+                    propertyGrid
+                        .fixedSize(horizontal: false, vertical: true)
+                        .minimumScaleFactor(0.5)
                     if enableArtifactRatingInShowcase, let ratingResult = data.artifactRatingResult {
                         HStack {
                             Text(verbatim: " → " + data.mainInfo.terms.artifactRatingName)
@@ -79,16 +55,7 @@ public struct EachAvatarStatView: View {
                     Color.black.opacity(0.2)
                         .clipShape(.rect(cornerSize: .init(width: fontSize * 0.5, height: fontSize * 0.5)))
                 }
-                StaggeredGrid(
-                    columns: 2,
-                    outerPadding: false,
-                    scroll: false,
-                    spacing: outerContentSpacing, list: data.artifacts
-                ) { currentArtifact in
-                    currentArtifact.asView(fontSize: fontSize, langTag: data.mainInfo.terms.langTag)
-                }
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(.bottom, 18 * Self.zoomFactor)
+                artifactGrid
             }
             .frame(width: 353 * Self.zoomFactor)
             .padding(.top, 8 * Self.zoomFactor)
@@ -109,6 +76,41 @@ public struct EachAvatarStatView: View {
     // MARK: Internal
 
     @Default(.enableArtifactRatingInShowcase) var enableArtifactRatingInShowcase: Bool
+
+    @ViewBuilder var propertyGrid: some View {
+        let gridColumnsFixed = [GridItem](repeating: .init(.flexible()), count: 2)
+        LazyVGrid(columns: gridColumnsFixed, spacing: 0) {
+            let max = data.avatarPropertiesA.count
+            ForEach(0 ..< max, id: \.self) {
+                let property1 = data.avatarPropertiesA[$0]
+                let property2 = data.avatarPropertiesB[$0]
+                AttributeTagPair(
+                    icon: property1.type.iconFilePath,
+                    title: property1.localizedTitle,
+                    valueStr: property1.valueString,
+                    fontSize: fontSize * 0.8
+                )
+                AttributeTagPair(
+                    icon: property2.type.iconFilePath,
+                    title: property2.localizedTitle,
+                    valueStr: property2.valueString,
+                    fontSize: fontSize * 0.8
+                )
+            }
+        }
+        .fixedSize(horizontal: false, vertical: true)
+    }
+
+    @ViewBuilder var artifactGrid: some View {
+        let gridColumnsFixed = [GridItem](repeating: .init(), count: 2)
+        LazyVGrid(columns: gridColumnsFixed, spacing: outerContentSpacing) {
+            ForEach(data.artifacts) { currentArtifact in
+                currentArtifact.asView(fontSize: fontSize, langTag: data.mainInfo.terms.langTag)
+            }
+        }
+        .fixedSize(horizontal: false, vertical: true)
+        .padding(.bottom, 18 * Self.zoomFactor)
+    }
 
     // MARK: Private
 
@@ -207,7 +209,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
     public func asView(fontSize: CGFloat) -> some View {
         HStack(alignment: .bottom, spacing: fontSize * 0.55) {
             avatarPhoto(size: fontSize * 5)
-            VStack(spacing: 0) {
+            LazyVStack(spacing: 0) {
                 HStack(alignment: .bottom) {
                     Text(name)
                         .font(.system(size: fontSize * 1.6))
@@ -251,7 +253,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                 }
                 .shadow(radius: 5)
                 HStack {
-                    VStack(spacing: 1) {
+                    LazyVStack(spacing: 1) {
                         AttributeTagPair(
                             title: terms.levelName, valueStr: self.avatarLevel.description,
                             fontSize: fontSize * 0.8
@@ -290,7 +292,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
     @ViewBuilder
     public func asView(fontSize: CGFloat) -> some View {
         ZStack(alignment: .bottom) {
-            VStack {
+            LazyVStack {
                 ZStack(alignment: .center) {
                     Color.black.opacity(0.1)
                         .clipShape(Circle())
@@ -355,7 +357,7 @@ private struct WeaponPanelView: View {
                     verbatim: corneredTagText,
                     alignment: .bottom, textSize: fontSize * 0.8
                 )
-            VStack(alignment: .leading, spacing: 2) {
+            LazyVStack(alignment: .leading, spacing: 2) {
                 Text(weapon.localizedName)
                     .font(.system(size: fontSize, weight: .bold))
                     .fontWidth(.compressed)
@@ -432,7 +434,7 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
     private func coreBody(fontSize: CGFloat, langTag: String) -> some View {
         HStack(alignment: .top) {
             Color.clear.frame(width: fontSize * 2.6)
-            VStack(spacing: 0) {
+            LazyVStack(spacing: 0) {
                 AttributeTagPair(
                     icon: mainProp.iconFilePath,
                     title: "",
