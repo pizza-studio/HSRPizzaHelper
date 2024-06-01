@@ -173,6 +173,8 @@ public struct IDPhotoView: View {
 
     // MARK: Internal
 
+    @Environment(\.colorScheme) var colorScheme
+
     var coreBody: some View {
         switch iconType {
         case .asCard: return AnyView(cardView)
@@ -235,7 +237,8 @@ public struct IDPhotoView: View {
                 .scaleEffect(2)
                 .rotationEffect(.degrees(180))
                 .blur(radius: 12)
-        }.overlay {
+        }
+        .overlay {
             Image(decorative: coordinator.lifePathImage, scale: 1)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -246,6 +249,7 @@ public struct IDPhotoView: View {
                 .opacity(0.7)
                 .shadow(radius: size / 5)
         }
+        .background(baseWindowBGColor)
     }
 
     var elementColor: Color {
@@ -256,6 +260,17 @@ public struct IDPhotoView: View {
         default: break
         }
         return EnkaHSR.Sputnik.sharedDB.characters[pid]?.element.themeColor.suiColor.opacity(opacity) ?? .clear
+    }
+
+    var baseWindowBGColor: Color {
+        switch colorScheme {
+        case .dark:
+            return .init(cgColor: .init(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00))
+        case .light:
+            return .init(cgColor: .init(red: 0.80, green: 0.80, blue: 0.80, alpha: 1.00))
+        @unknown default:
+            return .gray
+        }
     }
 
     // MARK: Private
