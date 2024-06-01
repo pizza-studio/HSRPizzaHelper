@@ -35,8 +35,7 @@ public struct EachAvatarStatView: View {
                                     icon: property.type.iconFilePath,
                                     title: property.localizedTitle,
                                     valueStr: property.valueString,
-                                    fontSize: fontSize * 0.8,
-                                    dash: false
+                                    fontSize: fontSize * 0.8
                                 )
                             }
                         }
@@ -49,8 +48,7 @@ public struct EachAvatarStatView: View {
                                     icon: property.type.iconFilePath,
                                     title: property.localizedTitle,
                                     valueStr: property.valueString,
-                                    fontSize: fontSize * 0.8,
-                                    dash: false
+                                    fontSize: fontSize * 0.8
                                 )
                             }
                         }
@@ -264,11 +262,11 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                     VStack(spacing: 1) {
                         AttributeTagPair(
                             title: terms.levelName, valueStr: self.avatarLevel.description,
-                            fontSize: fontSize * 0.8, dash: false
+                            fontSize: fontSize * 0.8
                         )
                         AttributeTagPair(
                             title: terms.constellationName, valueStr: "E\(self.constellation)",
-                            fontSize: fontSize * 0.8, dash: false
+                            fontSize: fontSize * 0.8
                         )
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     HStack(alignment: .lastTextBaseline, spacing: 0) {
@@ -335,57 +333,85 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
     }
 }
 
-extension EnkaHSR.AvatarSummarized.WeaponPanel {
-    @ViewBuilder
-    public func asView(fontSize: CGFloat) -> some View {
+// MARK: - WeaponPanelView
+
+private struct WeaponPanelView: View {
+    // MARK: Lifecycle
+
+    public init(for weapon: EnkaHSR.AvatarSummarized.WeaponPanel, fontSize: CGFloat) {
+        self.fontSize = fontSize
+        self.weapon = weapon
+        self.resIcon = ResIcon(weapon.iconFilePath) {
+            $0.resizable()
+        } placeholder: {
+            AnyView(Color.clear)
+        }
+    }
+
+    // MARK: Public
+
+    public var body: some View {
         HStack(spacing: fontSize * 0.4) {
-            ResIcon(iconFilePath) {
-                $0.resizable()
-            } placeholder: {
-                AnyView(Color.clear)
-            }
-            .aspectRatio(contentMode: .fit)
-            .background {
-                Color.primary.opacity(0.075)
-                    .clipShape(Circle())
-            }
-            .frame(maxWidth: fontSize * 4.46)
-            .corneredTag(
-                verbatim: "Lv.\(trainedLevel) ★\(rarityStars) ❖\(refinement)",
-                alignment: .bottom, textSize: fontSize * 0.8
-            )
+            resIcon
+                .aspectRatio(contentMode: .fit)
+                .background {
+                    Color.primary.opacity(0.075)
+                        .clipShape(Circle())
+                }
+                .frame(maxWidth: fontSize * 4.46)
+                .corneredTag(
+                    verbatim: corneredTagText,
+                    alignment: .bottom, textSize: fontSize * 0.8
+                )
             VStack(alignment: .leading, spacing: 2) {
-                Text(localizedName)
+                Text(weapon.localizedName)
                     .font(.system(size: fontSize, weight: .bold))
                     .fontWidth(.compressed)
                 Divider().overlay {
                     Color.primary.opacity(0.6)
                 }.padding(.vertical, 2)
                 HStack {
-                    ForEach(basicProps, id: \.type) { propUnit in
+                    ForEach(weapon.basicProps, id: \.type) { propUnit in
                         AttributeTagPair(
                             icon: propUnit.iconFilePath,
                             title: "",
                             valueStr: "+\(propUnit.valueString)",
-                            fontSize: fontSize * 0.8,
-                            dash: false
+                            fontSize: fontSize * 0.8
                         ).fixedSize()
                     }
                 }
                 HStack {
-                    ForEach(specialProps, id: \.type) { propUnit in
+                    ForEach(weapon.specialProps, id: \.type) { propUnit in
                         AttributeTagPair(
                             icon: propUnit.iconFilePath,
                             title: "",
                             valueStr: "+\(propUnit.valueString)",
-                            fontSize: fontSize * 0.8,
-                            dash: false
+                            fontSize: fontSize * 0.8
                         )
                     }.fixedSize()
                 }
             }
         }
         .fixedSize(horizontal: false, vertical: true)
+    }
+
+    // MARK: Internal
+
+    var corneredTagText: String {
+        "Lv.\(weapon.trainedLevel) ★\(weapon.rarityStars) ❖\(weapon.refinement)"
+    }
+
+    // MARK: Private
+
+    private let weapon: EnkaHSR.AvatarSummarized.WeaponPanel
+    private let fontSize: CGFloat
+    private let resIcon: ResIcon
+}
+
+extension EnkaHSR.AvatarSummarized.WeaponPanel {
+    @ViewBuilder
+    public func asView(fontSize: CGFloat) -> some View {
+        WeaponPanelView(for: self, fontSize: fontSize)
     }
 }
 
@@ -419,8 +445,7 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
                     icon: mainProp.iconFilePath,
                     title: "",
                     valueStr: mainProp.valueString,
-                    fontSize: fontSize * 0.86,
-                    dash: false
+                    fontSize: fontSize * 0.86
                 )
                 Divider().overlay(.primary)
                 StaggeredGrid(
@@ -485,14 +510,29 @@ public struct AttributeTagPair: View {
         icon iconPath: String? = nil,
         title: String,
         valueStr: String,
-        fontSize givenFontSize: CGFloat,
-        dash withDashLine: Bool = true
+        fontSize givenFontSize: CGFloat
     ) {
         self.iconPath = iconPath
         self.title = title
         self.valueStr = valueStr
-        self.withDashLine = withDashLine
         self.fontSize = givenFontSize
+        self.shortenedTitle = {
+            var title = title
+            EnkaHSR.Element.elementConversionDict.forEach { key, value in
+                title = title.replacingOccurrences(of: key, with: value)
+            }
+            let suffix = title.count > 18 ? "…" : ""
+            return "\(title.prefix(18))\(suffix)"
+        }()
+        if let iconPath = iconPath {
+            self.resIcon = ResIcon(iconPath) {
+                $0.resizable()
+            } placeholder: {
+                AnyView(Color.clear)
+            }
+        } else {
+            self.resIcon = nil
+        }
     }
 
     // MARK: Public
@@ -500,40 +540,19 @@ public struct AttributeTagPair: View {
     public let iconPath: String?
     public let title: String
     public let valueStr: String
-    public let withDashLine: Bool
     public let fontSize: CGFloat
-
-    public var shortenedTitle: String {
-        var title = title
-        EnkaHSR.Element.elementConversionDict.forEach { key, value in
-            title = title.replacingOccurrences(of: key, with: value)
-        }
-        let suffix = title.count > 18 ? "…" : ""
-        return "\(title.prefix(18))\(suffix)"
-    }
+    public let shortenedTitle: String
+    public let resIcon: ResIcon?
 
     public var body: some View {
         HStack(spacing: 0) {
-            if let iconPath = iconPath {
-                ResIcon(iconPath) {
-                    $0.resizable()
-                } placeholder: {
-                    AnyView(Color.clear)
-                }
+            resIcon?
                 .aspectRatio(contentMode: .fit)
                 .frame(width: fontSize * 1.5, height: fontSize * 1.5)
-            }
             Text(shortenedTitle)
                 .fixedSize()
                 .lineLimit(1)
-            if withDashLine {
-                Rectangle()
-                    .fill(Color.secondary.opacity(0.2))
-                    .frame(height: 1, alignment: .center)
-                    .padding(.horizontal, 4)
-            } else {
-                Spacer().frame(minWidth: 1)
-            }
+            Spacer().frame(minWidth: 1)
             Text(valueStr)
                 .fixedSize()
                 .lineLimit(1)
