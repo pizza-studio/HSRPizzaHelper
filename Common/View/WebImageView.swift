@@ -97,6 +97,7 @@ class WebImageLoaderViewModel: ObservableObject {
             URLSession.shared.dataTask(with: imageURL) { data, _, _ in
                 if let data = data {
                     print("save: fileURL:\(imageFileURL)")
+                    // swiftlint:disable:next force_try
                     try! data.write(to: imageFileURL)
                 }
             }.resume()
@@ -110,6 +111,7 @@ class WebImageLoaderViewModel: ObservableObject {
         }
 
         if !FileManager.default.fileExists(atPath: imageFolderURL.path) {
+            // swiftlint:disable:next force_try
             try! FileManager.default.createDirectory(
                 at: imageFolderURL,
                 withIntermediateDirectories: true,
@@ -139,6 +141,7 @@ class WebImageLoaderViewModel: ObservableObject {
                 let imageFileURL = self.imageFolderURL
                     .appendingPathComponent(url!.lastPathComponent)
                 print("save: fileURL:\(imageFileURL)")
+                // swiftlint:disable:next force_try
                 try! data!.write(to: imageFileURL)
                 img = UIImage(data: data!)
                 DispatchQueue.main.async {
