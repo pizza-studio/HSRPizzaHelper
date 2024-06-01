@@ -25,44 +25,29 @@ struct WebImage: View {
     @ObservedObject var viewModel: WebImageLoaderViewModel
 
     var body: some View {
-        // 暂时弃用AsyncImage
-        if #available(iOS 114.514, watchOS 233.0, *) {
-            if viewModel.imageData == nil {
-                AsyncImage(
-                    url: URL(string: urlStr),
-                    transaction: Transaction(animation: .default)
-                ) { phase in
-                    switch phase {
-                    case let .success(image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .dispatchedTask {
-                                viewModel.saveImageCache(url: urlStr)
-                            }
-                    default:
-                        ProgressView()
-                            .onAppear {
-                                print("imageData is nil")
-                            }
-                    }
+        if viewModel.imageData == nil {
+            AsyncImage(
+                url: URL(string: urlStr),
+                transaction: Transaction(animation: .default)
+            ) { phase in
+                switch phase {
+                case let .success(image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .dispatchedTask {
+                            viewModel.saveImageCache(url: urlStr)
+                        }
+                default:
+                    ProgressView()
+                        .onAppear {
+                            print("imageData is nil")
+                        }
                 }
-            } else {
-                Image(uiImage: viewModel.imageData!)
-                    .resizable().aspectRatio(contentMode: .fit)
             }
-
         } else {
-            // Fallback on earlier versions
-            if viewModel.imageData == nil {
-                ProgressView()
-                    .onAppear {
-                        print("imageData is nil")
-                    }
-            } else {
-                Image(uiImage: viewModel.imageData!)
-                    .resizable().aspectRatio(contentMode: .fit)
-            }
+            Image(uiImage: viewModel.imageData!)
+                .resizable().aspectRatio(contentMode: .fit)
         }
     }
 }
