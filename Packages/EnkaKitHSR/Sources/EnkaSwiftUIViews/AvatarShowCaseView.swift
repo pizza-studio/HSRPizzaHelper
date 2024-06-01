@@ -57,7 +57,30 @@ public struct AvatarShowCaseView: View {
         TabView(selection: $showingCharacterIdentifier.animation()) {
             // TabView 以 EnkaID 为依据。
             ForEach(profile.summarizedAvatars) { avatar in
-                avatar.asView(background: false)
+                EachAvatarStatView(data: avatar, background: false)
+                    .fixedSize()
+                    .compositingGroup()
+                    .scaleEffect(scaleRatioCompatible)
+                    .contextMenu {
+                        Group {
+                            Button("app.detailPortal.avatar.summarzeToClipboard.asText") {
+                                Clipboard.writeString(avatar.asText)
+                            }
+                            Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
+                                Clipboard.writeString(avatar.asMarkDown)
+                            }
+                            #if os(OSX) || targetEnvironment(macCatalyst)
+                            Divider()
+                            ForEach(profile.summarizedAvatars) { theAvatar in
+                                Button(theAvatar.mainInfo.name) {
+                                    withAnimation {
+                                        showingCharacterIdentifier = theAvatar.mainInfo.uniqueCharId
+                                    }
+                                }
+                            }
+                            #endif
+                        }
+                    }
             }
         }
         #if !os(OSX)
@@ -85,6 +108,7 @@ public struct AvatarShowCaseView: View {
             }
         }
         .ignoresSafeArea()
+        .clipped()
         #if !os(OSX)
             .statusBarHidden(true)
         #endif
@@ -100,49 +124,29 @@ public struct AvatarShowCaseView: View {
                     }
                 }
             }
-            .contextMenu {
-                Group {
-                    if let avatar = avatar {
-                        Button("app.detailPortal.avatar.summarzeToClipboard.asText") {
-                            Clipboard.writeString(avatar.asText)
-                        }
-                        Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
-                            Clipboard.writeString(avatar.asMarkDown)
-                        }
-                        #if os(OSX) || targetEnvironment(macCatalyst)
-                        Divider()
-                        #endif
-                    }
-                    #if os(OSX) || targetEnvironment(macCatalyst)
-                    ForEach(profile.summarizedAvatars) { avatar in
-                        Button(avatar.mainInfo.name) {
-                            withAnimation {
-                                showingCharacterIdentifier = avatar.mainInfo.uniqueCharId
-                            }
-                        }
-                    }
-                    #endif
-                }
-            }
     }
 
-    // MARK: Internal
+    // MARK: Private
 
-    @State var selection: Int = 0
+    @State private var selection: Int = 0
 
-    let onClose: (() -> Void)?
+    private let onClose: (() -> Void)?
 
-    @State var showTabViewIndex: Bool = false
+    @State private var showTabViewIndex: Bool = false
 
-    @State var showingCharacterIdentifier: Int
+    @State private var showingCharacterIdentifier: Int
 
-    @ObservedObject var profile: EnkaHSR.ProfileSummarized
-    @StateObject var orientation = DeviceOrientation()
+    @ObservedObject private var profile: EnkaHSR.ProfileSummarized
+    @StateObject private var orientation = DeviceOrientation()
 
-    var avatar: EnkaHSR.AvatarSummarized? {
+    private var avatar: EnkaHSR.AvatarSummarized? {
         profile.summarizedAvatars.first(where: { avatar in
             avatar.mainInfo.uniqueCharId == showingCharacterIdentifier
         })
+    }
+
+    private var scaleRatioCompatible: CGFloat {
+        DeviceOrientation.scaleRatioCompatible
     }
 }
 

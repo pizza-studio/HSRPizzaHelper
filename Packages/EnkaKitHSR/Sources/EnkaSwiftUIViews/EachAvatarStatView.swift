@@ -26,7 +26,7 @@ public struct EachAvatarStatView: View {
         VStack(spacing: outerContentSpacing) {
             Group {
                 data.mainInfo.asView(fontSize: fontSize)
-                VStack(spacing: 2 * zoomFactor) {
+                VStack(spacing: 2 * Self.zoomFactor) {
                     data.equippedWeapon?.asView(fontSize: fontSize)
                     HStack {
                         VStack(spacing: 0) {
@@ -73,8 +73,8 @@ public struct EachAvatarStatView: View {
                         .padding(.top, 2)
                     }
                 }
-                .padding(.horizontal, 11 * zoomFactor)
-                .padding(.vertical, 6 * zoomFactor)
+                .padding(.horizontal, 11 * Self.zoomFactor)
+                .padding(.vertical, 6 * Self.zoomFactor)
                 .background {
                     Color.black.opacity(0.2)
                         .clipShape(.rect(cornerSize: .init(width: fontSize * 0.5, height: fontSize * 0.5)))
@@ -88,24 +88,22 @@ public struct EachAvatarStatView: View {
                     currentArtifact.asView(fontSize: fontSize, langTag: data.mainInfo.terms.langTag)
                 }
                 .fixedSize(horizontal: false, vertical: true)
-                .padding(.bottom, 18 * zoomFactor)
+                .padding(.bottom, 18 * Self.zoomFactor)
             }
-            .frame(width: 353 * zoomFactor)
-            .padding(.top, 8 * zoomFactor)
+            .frame(width: 353 * Self.zoomFactor)
+            .padding(.top, 8 * Self.zoomFactor)
             if shouldOptimizeForPhone {
                 Spacer().frame(maxHeight: 100)
             }
         }
         .preferredColorScheme(.dark)
-        .frame(width: 375 * zoomFactor) // 输出画面刚好 375*500，可同时相容于 iPad。
+        .frame(width: 375 * Self.zoomFactor) // 输出画面刚好 375*500，可同时相容于 iPad。
         .background {
             if showBackground {
                 data.asBackground()
             }
         }
         // .showDimension()
-        .scaleEffect(scaleRatioCompatible)
-        .clipped()
     }
 
     // MARK: Internal
@@ -114,16 +112,18 @@ public struct EachAvatarStatView: View {
 
     // MARK: Private
 
+    private static let zoomFactor: CGFloat = {
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
+        return 1.3
+        #else
+        return 1.66
+        #endif
+    }()
+
     @Environment(\.verticalSizeClass) private var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
 
-    @StateObject private var orientation = DeviceOrientation()
-
     private let showBackground: Bool
-
-    private var scaleRatioCompatible: CGFloat {
-        DeviceOrientation.scaleRatioCompatible
-    }
 
     private var shouldOptimizeForPhone: Bool {
         #if os(macOS) || targetEnvironment(macCatalyst)
@@ -137,24 +137,16 @@ public struct EachAvatarStatView: View {
         #endif
     }
 
-    private var zoomFactor: CGFloat {
-        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-        return 1.3
-        #else
-        return 1.66
-        #endif
-    }
-
     private var fontSize: CGFloat {
-        (shouldOptimizeForPhone ? 17 : 15) * zoomFactor
+        (shouldOptimizeForPhone ? 17 : 15) * Self.zoomFactor
     }
 
     private var outerContentSpacing: CGFloat {
-        (shouldOptimizeForPhone ? 8 : 4) * zoomFactor
+        (shouldOptimizeForPhone ? 8 : 4) * Self.zoomFactor
     }
 
     private var innerContentSpacing: CGFloat {
-        (shouldOptimizeForPhone ? 4 : 2) * zoomFactor
+        (shouldOptimizeForPhone ? 4 : 2) * Self.zoomFactor
     }
 }
 
