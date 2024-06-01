@@ -3,22 +3,56 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import Foundation
+import ImageIO
 import SwiftUI
 
 // MARK: - Image Constructor from path.
 
+extension CGImage {
+    public static func instantiate(filePath path: String) -> CGImage? {
+        guard let imageSource = CGImageSourceCreateWithURL(
+            URL(fileURLWithPath: path) as CFURL,
+            nil
+        ) else { return nil }
+        return CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
+    }
+
+    public func zoomed(_ factor: CGFloat, quality: CGInterpolationQuality = .high) -> CGImage? {
+        guard factor > 0 else { return nil }
+        let size: CGSize = .init(width: CGFloat(width) * factor, height: CGFloat(height) * factor)
+        return directResized(size: size, quality: quality)
+    }
+
+    internal func directResized(size: CGSize, quality: CGInterpolationQuality = .high) -> CGImage? {
+        // Ref: https://rockyshikoku.medium.com/resize-cgimage-baf23a0f58ab
+        let width = Int(floor(size.width))
+        let height = Int(floor(size.height))
+
+        let bytesPerPixel = bitsPerPixel / bitsPerComponent
+        let destBytesPerRow = width * bytesPerPixel
+
+        guard let colorSpace = colorSpace else { return nil }
+        guard let context = CGContext(
+            data: nil,
+            width: width,
+            height: height,
+            bitsPerComponent: bitsPerComponent,
+            bytesPerRow: destBytesPerRow,
+            space: colorSpace,
+            bitmapInfo: alphaInfo.rawValue
+        ) else { return nil }
+
+        context.interpolationQuality = quality
+        context.draw(self, in: CGRect(x: 0, y: 0, width: width, height: height))
+
+        return context.makeImage()
+    }
+}
+
 extension Image {
     public static func from(path: String) -> Image? {
-        #if os(OSX)
-        if let image = NSImage(contentsOfFile: path) {
-            return Image(nsImage: image)
-        }
-        #else
-        if let image = UIImage(contentsOfFile: path) {
-            return Image(uiImage: image)
-        }
-        #endif
-        return nil
+        guard let cgImage = CGImage.instantiate(filePath: path) else { return nil }
+        return Image(decorative: cgImage, scale: 1)
     }
 }
 
@@ -35,21 +69,7 @@ public struct ResIcon: View {
         self.path = path
         self.imageHandler = imageHandler ?? { $0 }
         self.placeholder = placeholder ?? { .init(ProgressView()) }
-        #if os(OSX)
-        if let uiImg = NSImage(contentsOfFile: path) {
-            self.rawImage = Image(nsImage: uiImg)
-        } else {
-            self.rawImage = nil
-        }
-        #elseif os(iOS)
-        if let uiImg = UIImage(contentsOfFile: path) {
-            self.rawImage = Image(uiImage: uiImg)
-        } else {
-            self.rawImage = nil
-        }
-        #else
-        self.rawImage = nil
-        #endif
+        self.rawImage = .from(path: path)
     }
 
     // MARK: Public
