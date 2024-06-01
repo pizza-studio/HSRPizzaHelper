@@ -36,14 +36,6 @@ final class DetailPortalViewModel: ObservableObject {
         }
     }
 
-    deinit {
-        Task {
-            if case let .progress(task) = await playerDetailStatus, !task.isCancelled {
-                task.cancel()
-            }
-        }
-    }
-
     // MARK: Public
 
     @Published public var currentBasicInfo: EnkaProfileEntity?
@@ -209,6 +201,11 @@ struct DetailPortalView: View {
             .listContainerBackground()
             .refreshable {
                 vmDPV.refresh()
+            }
+            .onDisappear {
+                if case let .progress(task) = vmDPV.playerDetailStatus, !task.isCancelled {
+                    task.cancel()
+                }
             }
         }
         .environmentObject(vmDPV)
