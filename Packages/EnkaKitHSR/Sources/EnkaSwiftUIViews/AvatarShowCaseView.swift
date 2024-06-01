@@ -19,7 +19,6 @@ public struct AvatarShowCaseView: View {
         let safeSelection = profile.summarizedAvatars.firstIndex {
             $0.mainInfo.uniqueCharId == selection
         } ?? 0
-        self.selection = safeSelection
         self.onClose = onClose
         self.profile = profile
         self.showingCharacterIdentifier = profile.summarizedAvatars[safeSelection].mainInfo.uniqueCharId
@@ -37,7 +36,7 @@ public struct AvatarShowCaseView: View {
                     .overlay(alignment: .top) {
                         HelpTextForScrollingOnDesktopComputer(.horizontal).padding()
                     }.onChange(of: geometry.size) { _ in
-                        showTabViewIndex = $showTabViewIndex.wrappedValue // 强制重新渲染整个画面。
+                        showingCharacterIdentifier = $showingCharacterIdentifier.wrappedValue // 强制重新渲染整个画面。
                     }
             }
         }
@@ -84,9 +83,7 @@ public struct AvatarShowCaseView: View {
             }
         }
         #if !os(OSX)
-        .tabViewStyle(
-            .page(indexDisplayMode: showTabViewIndex ? .automatic : .never)
-        )
+        .tabViewStyle(.page(indexDisplayMode: .automatic))
         #endif
         .onTapGesture {
             onClose?()
@@ -103,41 +100,21 @@ public struct AvatarShowCaseView: View {
             let selectionGenerator = UISelectionFeedbackGenerator()
             selectionGenerator.selectionChanged()
             #endif
-            withAnimation(.easeIn(duration: 0.1)) {
-                showTabViewIndex = true
-            }
         }
         .ignoresSafeArea()
         .clipped()
         #if !os(OSX)
             .statusBarHidden(true)
         #endif
-            .onAppear {
-                showTabViewIndex = true
-            }
-            .onChange(of: showTabViewIndex) { newValue in
-                if newValue == true {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
-                        withAnimation {
-                            showTabViewIndex = false
-                        }
-                    }
-                }
-            }
     }
 
     // MARK: Private
 
-    @State private var selection: Int = 0
-
-    private let onClose: (() -> Void)?
-
-    @State private var showTabViewIndex: Bool = false
-
     @State private var showingCharacterIdentifier: Int
-
     @ObservedObject private var profile: EnkaHSR.ProfileSummarized
     @StateObject private var orientation = DeviceOrientation()
+
+    private let onClose: (() -> Void)?
 
     private var avatar: EnkaHSR.AvatarSummarized? {
         profile.summarizedAvatars.first(where: { avatar in
