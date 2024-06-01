@@ -9,6 +9,7 @@ import AppKit
 #elseif os(iOS)
 import UIKit
 #endif
+import SwiftUI
 
 extension EnkaHSR {
     public static func queryImageAsset(for assetName: String) -> CGImage? {
@@ -22,5 +23,15 @@ extension EnkaHSR {
         #else
         return nil
         #endif
+    }
+
+    public static func queryImageAssetSUI(for assetName: String) -> Image? {
+        #if os(macOS)
+        let instance = Bundle.module.image(forResource: assetName)
+        #elseif os(iOS)
+        let instance = UIImage(named: assetName, in: Bundle.module, compatibleWith: nil)
+        #endif
+        guard instance != nil else { return nil }
+        return Image(assetName, bundle: Bundle.module)
     }
 }

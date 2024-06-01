@@ -5,6 +5,23 @@
 import Foundation
 import SwiftUI
 
+// MARK: - Image Constructor from path.
+
+extension Image {
+    public static func from(path: String) -> Image? {
+        #if os(OSX)
+        if let image = NSImage(contentsOfFile: path) {
+            return Image(nsImage: image)
+        }
+        #else
+        if let image = UIImage(contentsOfFile: path) {
+            return Image(uiImage: image)
+        }
+        #endif
+        return nil
+    }
+}
+
 // MARK: - ResIcon
 
 public struct ResIcon: View {

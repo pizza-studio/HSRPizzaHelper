@@ -136,14 +136,11 @@ public struct IDPhotoView: View {
     ) {
         guard Defaults[.useGenshinStyleCharacterPhotos] || forceRender else { return nil }
         self.pid = pid
-        let fallbackPID = EnkaHSR.CharacterName.convertPIDForProtagonist(pid)
-        guard let ref = EnkaHSR.queryImageAsset(for: "idp\(pid)")
-            ?? EnkaHSR.queryImageAsset(for: "idp\(fallbackPID)")
-        else { return nil }
+        guard let coordinator = IDPhotoView.Coordinator(pid: pid) else { return nil }
+        self.coordinator = coordinator
         let lifePath = EnkaHSR.Sputnik.sharedDB.characters[pid]?.avatarBaseType
         guard let lifePath = lifePath else { return nil }
         self.size = size
-        self.cgImageRef = ref
         self.iconType = type
         self.imageHandler = imageHandler ?? { $0 }
         self.lifePath = lifePath
@@ -169,8 +166,6 @@ public struct IDPhotoView: View {
             }
         }
     }
-
-    public let cgImageRef: CGImage
 
     public var body: some View {
         coreBody.compositingGroup()
@@ -227,35 +222,29 @@ public struct IDPhotoView: View {
     }
 
     var imageObj: some View {
-        imageHandler(Image(decorative: cgImageRef, scale: 1))
+        imageHandler(Image(decorative: coordinator.cgImageRef, scale: 1))
             .resizable()
             .aspectRatio(contentMode: .fit)
     }
 
     @ViewBuilder var backgroundObj: some View {
         Group {
-            if let img = backgroundImage {
-                Image(decorative: img, scale: 1)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .scaleEffect(2)
-                    .rotationEffect(.degrees(180))
-                    .blur(radius: 12)
-            } else {
-                Color.black.opacity(0.165)
-            }
+            Image(decorative: coordinator.backgroundImage, scale: 1)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .scaleEffect(2)
+                .rotationEffect(.degrees(180))
+                .blur(radius: 12)
         }.overlay {
-            if let lifePathImg = lifePathImage {
-                Image(decorative: lifePathImg, scale: 1)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .scaleEffect(1)
-                    .colorMultiply(elementColor)
-                    .saturation(0.5)
-                    .brightness(0.5)
-                    .opacity(0.7)
-                    .shadow(radius: size / 5)
-            }
+            Image(decorative: coordinator.lifePathImage, scale: 1)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(1)
+                .colorMultiply(elementColor)
+                .saturation(0.5)
+                .brightness(0.5)
+                .opacity(0.7)
+                .shadow(radius: size / 5)
         }
     }
 
@@ -269,25 +258,43 @@ public struct IDPhotoView: View {
         return EnkaHSR.Sputnik.sharedDB.characters[pid]?.element.themeColor.suiColor.opacity(opacity) ?? .clear
     }
 
-    var lifePathImage: CGImage? {
-        let path = lifePath.iconFilePath
-        let result = CGImage.instantiate(filePath: path)
-        return result
-    }
-
-    var backgroundImage: CGImage? {
-        let path = "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character.rawValue)/\(pid).png"
-        let result = CGImage.instantiate(filePath: path)
-        return result
-    }
-
     // MARK: Private
+
+    private class Coordinator: ObservableObject {
+        // MARK: Lifecycle
+
+        public init?(pid: String) {
+            self.pid = pid
+            let fallbackPID = EnkaHSR.CharacterName.convertPIDForProtagonist(pid)
+            guard let cgImageRef = EnkaHSR.queryImageAsset(for: "idp\(pid)")
+                ?? EnkaHSR.queryImageAsset(for: "idp\(fallbackPID)")
+            else { return nil }
+            let lifePath = EnkaHSR.Sputnik.sharedDB.characters[pid]?.avatarBaseType
+            guard let lifePath = lifePath else { return nil }
+            let lifePathImage = CGImage.instantiate(filePath: lifePath.iconFilePath)
+            let bgPath = "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character.rawValue)/\(pid).png"
+            let backgroundImage = CGImage.instantiate(filePath: bgPath)
+            guard let lifePathImage = lifePathImage else { return nil }
+            guard let backgroundImage = backgroundImage else { return nil }
+            self.lifePathImage = lifePathImage
+            self.backgroundImage = backgroundImage
+            self.cgImageRef = cgImageRef
+        }
+
+        // MARK: Internal
+
+        let pid: String
+        var lifePathImage: CGImage
+        var backgroundImage: CGImage
+        var cgImageRef: CGImage
+    }
 
     private let pid: String
     private let imageHandler: (Image) -> Image
     private let size: CGFloat
     private let iconType: IconType
     private let lifePath: EnkaHSR.DBModels.LifePath
+    private let coordinator: Coordinator
 }
 
 extension EnkaHSR.DBModels.Element {
