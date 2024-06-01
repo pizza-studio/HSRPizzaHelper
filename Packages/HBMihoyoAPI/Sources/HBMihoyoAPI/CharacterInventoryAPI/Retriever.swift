@@ -64,7 +64,7 @@ extension MiHoYoAPI {
 
         var newCookie = cookie
         if server.region == .mainlandChina {
-            queryItems.append(.init(name: "id", value: "1001"))
+            queryItems.insert(.init(name: "id", value: "1001"), at: 0)
             let newCookieWrapped = newCookie.replacingOccurrences(of: "; ", with: "\n")
                 .replacingOccurrences(of: ";", with: "\n")
             var vars = [String: String]()
@@ -74,7 +74,7 @@ extension MiHoYoAPI {
                 vars[cells[0].description] = cells[1].description
             }
 
-            let cookieToken = try await cookieToken(cookie: cookie)
+            let cookieToken = try await cookieToken(cookie: cookie, queryItems: queryItems)
             vars["account_id"] = cookieToken.uid
             vars["cookie_token"] = cookieToken.cookieToken
 
