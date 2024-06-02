@@ -81,12 +81,11 @@ struct CharacterInventoryView: View {
                     .background {
                         if let commonCharData = EnkaHSR.Sputnik.sharedDB.characters[avatar.id.description] {
                             let elementColor = commonCharData.element.themeColor.suiColor
-                            let bgPath = EnkaWebIcon(
-                                iconString: commonCharData.avatarBaseType.iconFilePath
-                            )
-                            .scaledToFill()
-                            .colorMultiply(elementColor)
-                            .opacity(0.05)
+                            let bgPath = EnkaHSR.queryImageAssetSUI(for: commonCharData.avatarBaseType.iconAssetName)?
+                                .resizable()
+                                .scaledToFill()
+                                .colorMultiply(elementColor)
+                                .opacity(0.05)
                             if #unavailable(iOS 17) {
                                 bgPath.frame(maxHeight: 63).clipped()
                             } else {
@@ -240,32 +239,31 @@ struct AvatarListItem: View {
                     }
 
                     HStack(spacing: 0) {
-                        if let artifacts = avatar.relics {
-                            ForEach(artifacts, id: \.id) { reliquary in
-                                Group {
-                                    WebImage(urlStr: reliquary.icon)
-                                        .scaledToFit()
+                        ForEach(avatar.allArtifacts, id: \.id) { artifact in
+                            Group {
+                                if let img = queryArtifactImg(for: artifact) {
+                                    img.resizable()
+                                } else {
+                                    WebImage(urlStr: artifact.icon).scaledToFit()
                                 }
-                                .frame(width: 20, height: 20)
                             }
-                        }
-                        if let artifactsExtra = avatar.ornaments {
-                            ForEach(artifactsExtra, id: \.id) { reliquary in
-                                Group {
-                                    WebImage(urlStr: reliquary.icon)
-                                        .scaledToFit()
-                                }
-                                .frame(width: 20, height: 20)
-                            }
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
                         }
                         Spacer().frame(height: 20)
                     }
                 }
                 if let equip = avatar.equip {
                     ZStack(alignment: .bottomLeading) {
-                        WebImage(urlStr: equip.icon)
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
+                        Group {
+                            if let img = EnkaHSR.queryWeaponImageSUI(for: equip.id.description) {
+                                img.resizable()
+                            } else {
+                                WebImage(urlStr: equip.icon)
+                            }
+                        }
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
                     }
                     .corneredTag(
                         LocalizedStringKey("weapon.affix:\(equip.rank)"),
@@ -278,5 +276,14 @@ struct AvatarListItem: View {
                 }
             }
         }
+    }
+
+    @MainActor
+    func queryArtifactImg(for target: any MiHoYoAPIArtifactProtocol) -> Image? {
+        guard let neutralData = EnkaHSR.Sputnik.sharedDB.artifacts[target.id.description] else { return nil }
+        guard let type = EnkaHSR.DBModels.Artifact.ArtifactType(typeID: target.pos)
+        else { return nil } // Might need fix.
+        let assetName = "relic_\(neutralData.setID)_\(type.assetSuffix)"
+        return EnkaHSR.queryImageAssetSUI(for: assetName)
     }
 }

@@ -21,6 +21,13 @@ extension MiHoYoAPI {
             public let relics: [HYArtifactOuter]?
             public let ornaments: [HYArtifactInner]?
             public let ranks: [HYSkillRank] // 技能樹
+
+            public var allArtifacts: [any MiHoYoAPIArtifactProtocol] {
+                var result = [any MiHoYoAPIArtifactProtocol]()
+                result.append(contentsOf: relics ?? [])
+                result.append(contentsOf: ornaments ?? [])
+                return result
+            }
         }
 
         public let avatarList: [HYAvatar]
@@ -31,6 +38,18 @@ extension MiHoYoAPI {
             case avatarList = "avatar_list"
         }
     }
+}
+
+// MARK: - MiHoYoAPIArtifactProtocol
+
+public protocol MiHoYoAPIArtifactProtocol: Codable, Hashable, Sendable, Identifiable {
+    var id: Int { get }
+    var level: Int { get }
+    var pos: Int { get }
+    var name: String { get }
+    var desc: String { get }
+    var icon: String { get }
+    var rarity: Int { get }
 }
 
 extension MiHoYoAPI.CharacterInventory.HYAvatar {
@@ -44,7 +63,7 @@ extension MiHoYoAPI.CharacterInventory.HYAvatar {
         public let rarity: Int
     }
 
-    public struct HYArtifactOuter: Codable, Hashable, Sendable, Identifiable {
+    public struct HYArtifactOuter: MiHoYoAPIArtifactProtocol {
         public let id: Int
         public let level: Int
         public let pos: Int
@@ -54,7 +73,7 @@ extension MiHoYoAPI.CharacterInventory.HYAvatar {
         public let rarity: Int
     }
 
-    public struct HYArtifactInner: Codable, Hashable, Sendable, Identifiable {
+    public struct HYArtifactInner: MiHoYoAPIArtifactProtocol {
         public let id: Int
         public let level: Int
         public let pos: Int
