@@ -1,4 +1,4 @@
-name: Update Asset Meta
+name: Update Assets
 
 on:
     workflow_dispatch: {}
@@ -7,7 +7,7 @@ on:
 
 jobs:
     update:
-        runs-on: ubuntu-latest
+        runs-on: macOS-latest
 
         steps:
             - name: Checkout code
@@ -34,6 +34,7 @@ jobs:
                 python ./Script/update_gacha_meta.py
                 python ./Script/update_other_meta.py
                 bash ./Script/RelocateGachaMetaJSON.sh
+                zsh ./Script/convertAssetsToHEIC.sh
                 swift ./Script/ImageAssetRegenerator.swift
 
             - name: Create Pull Request
