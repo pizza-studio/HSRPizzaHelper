@@ -442,31 +442,28 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
                     fontSize: fontSize * 0.86
                 )
                 Divider().overlay(.primary)
-                StaggeredGrid(
-                    columns: 2,
-                    outerPadding: false,
-                    scroll: false,
-                    spacing: 0,
-                    list: self.subProps
-                ) { prop in
-                    HStack(spacing: 0) {
-                        if let iconPath = prop.iconFilePath {
-                            ResIcon(iconPath) {
-                                $0.resizable()
-                            } placeholder: {
-                                AnyView(Color.clear)
+                let gridColumnsFixed = [GridItem](repeating: .init(), count: 2)
+                LazyVGrid(columns: gridColumnsFixed, spacing: 0) {
+                    ForEach(self.subProps) { prop in
+                        HStack(spacing: 0) {
+                            if let iconPath = prop.iconFilePath {
+                                ResIcon(iconPath) {
+                                    $0.resizable()
+                                } placeholder: {
+                                    AnyView(Color.clear)
+                                }
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: fontSize * 1.25, height: fontSize * 1.25)
                             }
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: fontSize * 1.25, height: fontSize * 1.25)
+                            Text(prop.valueString)
+                                .lineLimit(1)
+                                .font(.system(size: fontSize * 0.86))
+                                .fontWidth(.compressed)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .minimumScaleFactor(0.5)
                         }
-                        Text(prop.valueString)
-                            .lineLimit(1)
-                            .font(.system(size: fontSize * 0.86))
-                            .fontWidth(.compressed)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            .minimumScaleFactor(0.5)
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: .infinity)
                 }
             }
             .padding(.horizontal, 4)
