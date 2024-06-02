@@ -334,18 +334,18 @@ private struct AccountHeaderView<T: View>: View {
 
     let profileStatic: EnkaHSR.QueryRelated.DetailInfo?
 
-    var photoAssetName: String {
+    var avatarAssetName: String {
         guard let path = guardedProfile?.accountPhotoFilePath(theDB: vmDPV.enkaDB) else {
             return EnkaProfileEntity.nullPhotoAssetName
         }
-        let fileStem = path.split(separator: "/").last?.replacingOccurrences(of: ".png", with: "")
+        let fileStem = path.split(separator: "/").last?.replacingOccurrences(of: ".heic", with: "")
         guard let fileStem = fileStem else { return EnkaProfileEntity.nullPhotoAssetName }
         return "avatar_\(fileStem)"
     }
 
     @ViewBuilder var avatarIconRendered: some View {
         HStack {
-            EnkaHSR.queryImageAssetSUI(for: photoAssetName)?
+            EnkaHSR.queryImageAssetSUI(for: avatarAssetName)?
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .background {

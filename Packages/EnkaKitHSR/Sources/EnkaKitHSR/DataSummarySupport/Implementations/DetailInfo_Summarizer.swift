@@ -14,7 +14,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     public func accountPhotoFilePath(theDB: EnkaHSR.EnkaDB) -> String {
         let str = theDB.profileAvatars[headIcon.description]?
             .icon.split(separator: "/").last?.description ?? "114514.png"
-        return "\(Self.accountPhotoFilePathHeader)/\(str)"
+        return "\(Self.accountPhotoFilePathHeader)/\(str)".replacingOccurrences(of: ".png", with: ".heic")
     }
 
     public static var accountPhotoFilePathHeader: String {
@@ -22,7 +22,7 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     }
 
     public static var nullPhotoFilePath: String {
-        "\(accountPhotoFilePathHeader)/Anonymous.png"
+        "\(accountPhotoFilePathHeader)/Anonymous.heic"
     }
 
     public static var nullPhotoAssetName: String {

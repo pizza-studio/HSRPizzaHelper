@@ -91,9 +91,9 @@ extension EnkaHSR.DBModels {
 
 extension EnkaHSR.DBModels.Element {
     public var iconFileName: String {
-        var result = "\(rawValue).png"
+        var result = "\(rawValue).heic"
         switch self {
-        case .electro: result = "Lightning.png"
+        case .electro: result = "Lightning.heic"
         default: break
         }
         return result
@@ -104,7 +104,7 @@ extension EnkaHSR.DBModels.Element {
     }
 
     public var iconAssetName: String {
-        "element_\(iconFileName.replacingOccurrences(of: ".png", with: ""))"
+        "element_\(iconFileName.replacingOccurrences(of: ".heic", with: ""))"
     }
 
     public var damageAddedRatioProperty: EnkaHSR.PropertyType {
@@ -132,7 +132,7 @@ extension EnkaHSR.DBModels.Element {
 
 extension EnkaHSR.DBModels.LifePath {
     public var iconFileName: String {
-        String(describing: self).capitalized + ".png"
+        String(describing: self).capitalized + ".heic"
     }
 
     public var iconFilePath: String {
@@ -174,7 +174,7 @@ extension EnkaHSR.PropertyType {
     }
 
     internal var proposedIconFileName: String {
-        "\(proposedIconFileNameStem).png"
+        "\(proposedIconFileNameStem).heic"
     }
 
     internal var proposedIconFileNameStem: String {

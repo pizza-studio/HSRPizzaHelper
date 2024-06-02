@@ -16,11 +16,11 @@ extension EnkaHSR.EnkaDB {
     }
 
     public func queryGachaAssetPathForChar(id: String) -> String {
-        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.profileAvatar.rawValue)/\(id).png"
+        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.profileAvatar.rawValue)/\(id).heic"
     }
 
     public func queryGachaAssetPathForWeapon(id: String) -> String {
-        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.weapon.rawValue)/\(id).png"
+        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.weapon.rawValue)/\(id).heic"
     }
 }
 

@@ -46,7 +46,7 @@ public struct CaseQuerySection: View {
             if let result = delegate.currentInfo {
                 NavigationLink(value: result) {
                     HStack {
-                        EnkaHSR.queryImageAssetSUI(for: photoAssetName)?
+                        EnkaHSR.queryImageAssetSUI(for: avatarAssetName)?
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .background { Color.black.opacity(0.165) }
@@ -93,11 +93,11 @@ public struct CaseQuerySection: View {
     var focused: FocusState<Bool>.Binding?
     @FocusState var backupFocus: Bool
 
-    var photoAssetName: String {
+    var avatarAssetName: String {
         guard let path = delegate.currentInfo?.accountPhotoFilePath(theDB: theDB) else {
             return EnkaHSR.QueryRelated.DetailInfo.nullPhotoAssetName
         }
-        let fileStem = path.split(separator: "/").last?.replacingOccurrences(of: ".png", with: "")
+        let fileStem = path.split(separator: "/").last?.replacingOccurrences(of: ".heic", with: "")
         guard let fileStem = fileStem else { return EnkaHSR.QueryRelated.DetailInfo.nullPhotoAssetName }
         return "avatar_\(fileStem)"
     }

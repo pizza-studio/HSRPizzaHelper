@@ -4,7 +4,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_1.heic",
 		"SetID": 101
 	},
 	"31012": {
@@ -12,7 +12,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_2.heic",
 		"SetID": 101
 	},
 	"31013": {
@@ -20,7 +20,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.heic",
 		"SetID": 101
 	},
 	"31014": {
@@ -28,7 +28,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.heic",
 		"SetID": 101
 	},
 	"31021": {
@@ -36,7 +36,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_1.heic",
 		"SetID": 102
 	},
 	"31022": {
@@ -44,7 +44,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_2.heic",
 		"SetID": 102
 	},
 	"31023": {
@@ -52,7 +52,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.heic",
 		"SetID": 102
 	},
 	"31024": {
@@ -60,7 +60,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_4.heic",
 		"SetID": 102
 	},
 	"31031": {
@@ -68,7 +68,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_1.heic",
 		"SetID": 103
 	},
 	"31032": {
@@ -76,7 +76,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_2.heic",
 		"SetID": 103
 	},
 	"31033": {
@@ -84,7 +84,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.heic",
 		"SetID": 103
 	},
 	"31034": {
@@ -92,7 +92,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.heic",
 		"SetID": 103
 	},
 	"31041": {
@@ -100,7 +100,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_1.heic",
 		"SetID": 104
 	},
 	"31042": {
@@ -108,7 +108,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_2.heic",
 		"SetID": 104
 	},
 	"31043": {
@@ -116,7 +116,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_3.heic",
 		"SetID": 104
 	},
 	"31044": {
@@ -124,7 +124,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_4.heic",
 		"SetID": 104
 	},
 	"31051": {
@@ -132,7 +132,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_1.heic",
 		"SetID": 105
 	},
 	"31052": {
@@ -140,7 +140,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_2.heic",
 		"SetID": 105
 	},
 	"31053": {
@@ -148,7 +148,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.heic",
 		"SetID": 105
 	},
 	"31054": {
@@ -156,7 +156,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_4.heic",
 		"SetID": 105
 	},
 	"31061": {
@@ -164,7 +164,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_1.heic",
 		"SetID": 106
 	},
 	"31062": {
@@ -172,7 +172,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_2.heic",
 		"SetID": 106
 	},
 	"31063": {
@@ -180,7 +180,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_3.heic",
 		"SetID": 106
 	},
 	"31064": {
@@ -188,7 +188,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_4.heic",
 		"SetID": 106
 	},
 	"31071": {
@@ -196,7 +196,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_1.heic",
 		"SetID": 107
 	},
 	"31072": {
@@ -204,7 +204,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_2.heic",
 		"SetID": 107
 	},
 	"31073": {
@@ -212,7 +212,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_3.heic",
 		"SetID": 107
 	},
 	"31074": {
@@ -220,7 +220,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_4.heic",
 		"SetID": 107
 	},
 	"31081": {
@@ -228,7 +228,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_1.heic",
 		"SetID": 108
 	},
 	"31082": {
@@ -236,7 +236,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_2.heic",
 		"SetID": 108
 	},
 	"31083": {
@@ -244,7 +244,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_3.heic",
 		"SetID": 108
 	},
 	"31084": {
@@ -252,7 +252,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_4.heic",
 		"SetID": 108
 	},
 	"31091": {
@@ -260,7 +260,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_1.heic",
 		"SetID": 109
 	},
 	"31092": {
@@ -268,7 +268,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_2.heic",
 		"SetID": 109
 	},
 	"31093": {
@@ -276,7 +276,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_3.heic",
 		"SetID": 109
 	},
 	"31094": {
@@ -284,7 +284,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_4.heic",
 		"SetID": 109
 	},
 	"31101": {
@@ -292,7 +292,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_1.heic",
 		"SetID": 110
 	},
 	"31102": {
@@ -300,7 +300,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_2.heic",
 		"SetID": 110
 	},
 	"31103": {
@@ -308,7 +308,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_3.heic",
 		"SetID": 110
 	},
 	"31104": {
@@ -316,7 +316,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_4.heic",
 		"SetID": 110
 	},
 	"31111": {
@@ -324,7 +324,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_1.heic",
 		"SetID": 111
 	},
 	"31112": {
@@ -332,7 +332,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_2.heic",
 		"SetID": 111
 	},
 	"31113": {
@@ -340,7 +340,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_3.heic",
 		"SetID": 111
 	},
 	"31114": {
@@ -348,7 +348,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_4.heic",
 		"SetID": 111
 	},
 	"31121": {
@@ -356,7 +356,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_1.heic",
 		"SetID": 112
 	},
 	"31122": {
@@ -364,7 +364,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_2.heic",
 		"SetID": 112
 	},
 	"31123": {
@@ -372,7 +372,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_3.heic",
 		"SetID": 112
 	},
 	"31124": {
@@ -380,7 +380,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_4.heic",
 		"SetID": 112
 	},
 	"31131": {
@@ -388,7 +388,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_1.heic",
 		"SetID": 113
 	},
 	"31132": {
@@ -396,7 +396,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_2.heic",
 		"SetID": 113
 	},
 	"31133": {
@@ -404,7 +404,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_3.heic",
 		"SetID": 113
 	},
 	"31134": {
@@ -412,7 +412,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_4.heic",
 		"SetID": 113
 	},
 	"31141": {
@@ -420,7 +420,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_1.heic",
 		"SetID": 114
 	},
 	"31142": {
@@ -428,7 +428,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_2.heic",
 		"SetID": 114
 	},
 	"31143": {
@@ -436,7 +436,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_3.heic",
 		"SetID": 114
 	},
 	"31144": {
@@ -444,7 +444,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_4.heic",
 		"SetID": 114
 	},
 	"31151": {
@@ -452,7 +452,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_1.heic",
 		"SetID": 115
 	},
 	"31152": {
@@ -460,7 +460,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_2.heic",
 		"SetID": 115
 	},
 	"31153": {
@@ -468,7 +468,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_3.heic",
 		"SetID": 115
 	},
 	"31154": {
@@ -476,7 +476,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_4.heic",
 		"SetID": 115
 	},
 	"31161": {
@@ -484,7 +484,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_1.heic",
 		"SetID": 116
 	},
 	"31162": {
@@ -492,7 +492,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_2.heic",
 		"SetID": 116
 	},
 	"31163": {
@@ -500,7 +500,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_3.heic",
 		"SetID": 116
 	},
 	"31164": {
@@ -508,7 +508,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_4.heic",
 		"SetID": 116
 	},
 	"31171": {
@@ -516,7 +516,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_1.heic",
 		"SetID": 117
 	},
 	"31172": {
@@ -524,7 +524,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_2.heic",
 		"SetID": 117
 	},
 	"31173": {
@@ -532,7 +532,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_3.heic",
 		"SetID": 117
 	},
 	"31174": {
@@ -540,7 +540,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_4.heic",
 		"SetID": 117
 	},
 	"31181": {
@@ -548,7 +548,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 21,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_1.heic",
 		"SetID": 118
 	},
 	"31182": {
@@ -556,7 +556,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 22,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_2.heic",
 		"SetID": 118
 	},
 	"31183": {
@@ -564,7 +564,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 23,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_3.heic",
 		"SetID": 118
 	},
 	"31184": {
@@ -572,7 +572,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 24,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_4.heic",
 		"SetID": 118
 	},
 	"33015": {
@@ -580,7 +580,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_5.heic",
 		"SetID": 301
 	},
 	"33016": {
@@ -588,7 +588,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_6.heic",
 		"SetID": 301
 	},
 	"33025": {
@@ -596,7 +596,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_5.heic",
 		"SetID": 302
 	},
 	"33026": {
@@ -604,7 +604,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_6.heic",
 		"SetID": 302
 	},
 	"33035": {
@@ -612,7 +612,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_5.heic",
 		"SetID": 303
 	},
 	"33036": {
@@ -620,7 +620,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_6.heic",
 		"SetID": 303
 	},
 	"33045": {
@@ -628,7 +628,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_5.heic",
 		"SetID": 304
 	},
 	"33046": {
@@ -636,7 +636,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_6.heic",
 		"SetID": 304
 	},
 	"33055": {
@@ -644,7 +644,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_5.heic",
 		"SetID": 305
 	},
 	"33056": {
@@ -652,7 +652,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_6.heic",
 		"SetID": 305
 	},
 	"33065": {
@@ -660,7 +660,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_5.heic",
 		"SetID": 306
 	},
 	"33066": {
@@ -668,7 +668,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_6.heic",
 		"SetID": 306
 	},
 	"33075": {
@@ -676,7 +676,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_5.heic",
 		"SetID": 307
 	},
 	"33076": {
@@ -684,7 +684,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_6.heic",
 		"SetID": 307
 	},
 	"33085": {
@@ -692,7 +692,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_5.heic",
 		"SetID": 308
 	},
 	"33086": {
@@ -700,7 +700,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_6.heic",
 		"SetID": 308
 	},
 	"33095": {
@@ -708,7 +708,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_5.heic",
 		"SetID": 309
 	},
 	"33096": {
@@ -716,7 +716,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_6.heic",
 		"SetID": 309
 	},
 	"33105": {
@@ -724,7 +724,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_5.heic",
 		"SetID": 310
 	},
 	"33106": {
@@ -732,7 +732,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_6.heic",
 		"SetID": 310
 	},
 	"33115": {
@@ -740,7 +740,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_5.heic",
 		"SetID": 311
 	},
 	"33116": {
@@ -748,7 +748,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_6.heic",
 		"SetID": 311
 	},
 	"33125": {
@@ -756,7 +756,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_5.heic",
 		"SetID": 312
 	},
 	"33126": {
@@ -764,7 +764,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_6.heic",
 		"SetID": 312
 	},
 	"33135": {
@@ -772,7 +772,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_5.heic",
 		"SetID": 313
 	},
 	"33136": {
@@ -780,7 +780,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_6.heic",
 		"SetID": 313
 	},
 	"33145": {
@@ -788,7 +788,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 25,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_5.heic",
 		"SetID": 314
 	},
 	"33146": {
@@ -796,7 +796,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 26,
 		"SubAffixGroup": 2,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_6.heic",
 		"SetID": 314
 	},
 	"41011": {
@@ -804,7 +804,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_1.heic",
 		"SetID": 101
 	},
 	"41012": {
@@ -812,7 +812,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_2.heic",
 		"SetID": 101
 	},
 	"41013": {
@@ -820,7 +820,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.heic",
 		"SetID": 101
 	},
 	"41014": {
@@ -828,7 +828,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.heic",
 		"SetID": 101
 	},
 	"41021": {
@@ -836,7 +836,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_1.heic",
 		"SetID": 102
 	},
 	"41022": {
@@ -844,7 +844,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_2.heic",
 		"SetID": 102
 	},
 	"41023": {
@@ -852,7 +852,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.heic",
 		"SetID": 102
 	},
 	"41024": {
@@ -860,7 +860,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_4.heic",
 		"SetID": 102
 	},
 	"41031": {
@@ -868,7 +868,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_1.heic",
 		"SetID": 103
 	},
 	"41032": {
@@ -876,7 +876,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_2.heic",
 		"SetID": 103
 	},
 	"41033": {
@@ -884,7 +884,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.heic",
 		"SetID": 103
 	},
 	"41034": {
@@ -892,7 +892,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.heic",
 		"SetID": 103
 	},
 	"41041": {
@@ -900,7 +900,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_1.heic",
 		"SetID": 104
 	},
 	"41042": {
@@ -908,7 +908,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_2.heic",
 		"SetID": 104
 	},
 	"41043": {
@@ -916,7 +916,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_3.heic",
 		"SetID": 104
 	},
 	"41044": {
@@ -924,7 +924,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_4.heic",
 		"SetID": 104
 	},
 	"41051": {
@@ -932,7 +932,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_1.heic",
 		"SetID": 105
 	},
 	"41052": {
@@ -940,7 +940,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_2.heic",
 		"SetID": 105
 	},
 	"41053": {
@@ -948,7 +948,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.heic",
 		"SetID": 105
 	},
 	"41054": {
@@ -956,7 +956,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_4.heic",
 		"SetID": 105
 	},
 	"41061": {
@@ -964,7 +964,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_1.heic",
 		"SetID": 106
 	},
 	"41062": {
@@ -972,7 +972,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_2.heic",
 		"SetID": 106
 	},
 	"41063": {
@@ -980,7 +980,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_3.heic",
 		"SetID": 106
 	},
 	"41064": {
@@ -988,7 +988,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_4.heic",
 		"SetID": 106
 	},
 	"41071": {
@@ -996,7 +996,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_1.heic",
 		"SetID": 107
 	},
 	"41072": {
@@ -1004,7 +1004,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_2.heic",
 		"SetID": 107
 	},
 	"41073": {
@@ -1012,7 +1012,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_3.heic",
 		"SetID": 107
 	},
 	"41074": {
@@ -1020,7 +1020,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_4.heic",
 		"SetID": 107
 	},
 	"41081": {
@@ -1028,7 +1028,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_1.heic",
 		"SetID": 108
 	},
 	"41082": {
@@ -1036,7 +1036,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_2.heic",
 		"SetID": 108
 	},
 	"41083": {
@@ -1044,7 +1044,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_3.heic",
 		"SetID": 108
 	},
 	"41084": {
@@ -1052,7 +1052,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_4.heic",
 		"SetID": 108
 	},
 	"41091": {
@@ -1060,7 +1060,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_1.heic",
 		"SetID": 109
 	},
 	"41092": {
@@ -1068,7 +1068,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_2.heic",
 		"SetID": 109
 	},
 	"41093": {
@@ -1076,7 +1076,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_3.heic",
 		"SetID": 109
 	},
 	"41094": {
@@ -1084,7 +1084,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_4.heic",
 		"SetID": 109
 	},
 	"41101": {
@@ -1092,7 +1092,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_1.heic",
 		"SetID": 110
 	},
 	"41102": {
@@ -1100,7 +1100,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_2.heic",
 		"SetID": 110
 	},
 	"41103": {
@@ -1108,7 +1108,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_3.heic",
 		"SetID": 110
 	},
 	"41104": {
@@ -1116,7 +1116,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_4.heic",
 		"SetID": 110
 	},
 	"41111": {
@@ -1124,7 +1124,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_1.heic",
 		"SetID": 111
 	},
 	"41112": {
@@ -1132,7 +1132,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_2.heic",
 		"SetID": 111
 	},
 	"41113": {
@@ -1140,7 +1140,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_3.heic",
 		"SetID": 111
 	},
 	"41114": {
@@ -1148,7 +1148,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_4.heic",
 		"SetID": 111
 	},
 	"41121": {
@@ -1156,7 +1156,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_1.heic",
 		"SetID": 112
 	},
 	"41122": {
@@ -1164,7 +1164,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_2.heic",
 		"SetID": 112
 	},
 	"41123": {
@@ -1172,7 +1172,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_3.heic",
 		"SetID": 112
 	},
 	"41124": {
@@ -1180,7 +1180,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_4.heic",
 		"SetID": 112
 	},
 	"41131": {
@@ -1188,7 +1188,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_1.heic",
 		"SetID": 113
 	},
 	"41132": {
@@ -1196,7 +1196,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_2.heic",
 		"SetID": 113
 	},
 	"41133": {
@@ -1204,7 +1204,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_3.heic",
 		"SetID": 113
 	},
 	"41134": {
@@ -1212,7 +1212,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_4.heic",
 		"SetID": 113
 	},
 	"41141": {
@@ -1220,7 +1220,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_1.heic",
 		"SetID": 114
 	},
 	"41142": {
@@ -1228,7 +1228,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_2.heic",
 		"SetID": 114
 	},
 	"41143": {
@@ -1236,7 +1236,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_3.heic",
 		"SetID": 114
 	},
 	"41144": {
@@ -1244,7 +1244,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_4.heic",
 		"SetID": 114
 	},
 	"41151": {
@@ -1252,7 +1252,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_1.heic",
 		"SetID": 115
 	},
 	"41152": {
@@ -1260,7 +1260,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_2.heic",
 		"SetID": 115
 	},
 	"41153": {
@@ -1268,7 +1268,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_3.heic",
 		"SetID": 115
 	},
 	"41154": {
@@ -1276,7 +1276,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_4.heic",
 		"SetID": 115
 	},
 	"41161": {
@@ -1284,7 +1284,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_1.heic",
 		"SetID": 116
 	},
 	"41162": {
@@ -1292,7 +1292,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_2.heic",
 		"SetID": 116
 	},
 	"41163": {
@@ -1300,7 +1300,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_3.heic",
 		"SetID": 116
 	},
 	"41164": {
@@ -1308,7 +1308,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_4.heic",
 		"SetID": 116
 	},
 	"41171": {
@@ -1316,7 +1316,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_1.heic",
 		"SetID": 117
 	},
 	"41172": {
@@ -1324,7 +1324,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_2.heic",
 		"SetID": 117
 	},
 	"41173": {
@@ -1332,7 +1332,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_3.heic",
 		"SetID": 117
 	},
 	"41174": {
@@ -1340,7 +1340,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_4.heic",
 		"SetID": 117
 	},
 	"41181": {
@@ -1348,7 +1348,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 31,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_1.heic",
 		"SetID": 118
 	},
 	"41182": {
@@ -1356,7 +1356,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 32,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_2.heic",
 		"SetID": 118
 	},
 	"41183": {
@@ -1364,7 +1364,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 33,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_3.heic",
 		"SetID": 118
 	},
 	"41184": {
@@ -1372,7 +1372,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 34,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_4.heic",
 		"SetID": 118
 	},
 	"43015": {
@@ -1380,7 +1380,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_5.heic",
 		"SetID": 301
 	},
 	"43016": {
@@ -1388,7 +1388,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_6.heic",
 		"SetID": 301
 	},
 	"43025": {
@@ -1396,7 +1396,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_5.heic",
 		"SetID": 302
 	},
 	"43026": {
@@ -1404,7 +1404,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_6.heic",
 		"SetID": 302
 	},
 	"43035": {
@@ -1412,7 +1412,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_5.heic",
 		"SetID": 303
 	},
 	"43036": {
@@ -1420,7 +1420,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_6.heic",
 		"SetID": 303
 	},
 	"43045": {
@@ -1428,7 +1428,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_5.heic",
 		"SetID": 304
 	},
 	"43046": {
@@ -1436,7 +1436,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_6.heic",
 		"SetID": 304
 	},
 	"43055": {
@@ -1444,7 +1444,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_5.heic",
 		"SetID": 305
 	},
 	"43056": {
@@ -1452,7 +1452,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_6.heic",
 		"SetID": 305
 	},
 	"43065": {
@@ -1460,7 +1460,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_5.heic",
 		"SetID": 306
 	},
 	"43066": {
@@ -1468,7 +1468,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_6.heic",
 		"SetID": 306
 	},
 	"43075": {
@@ -1476,7 +1476,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_5.heic",
 		"SetID": 307
 	},
 	"43076": {
@@ -1484,7 +1484,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_6.heic",
 		"SetID": 307
 	},
 	"43085": {
@@ -1492,7 +1492,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_5.heic",
 		"SetID": 308
 	},
 	"43086": {
@@ -1500,7 +1500,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_6.heic",
 		"SetID": 308
 	},
 	"43095": {
@@ -1508,7 +1508,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_5.heic",
 		"SetID": 309
 	},
 	"43096": {
@@ -1516,7 +1516,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_6.heic",
 		"SetID": 309
 	},
 	"43105": {
@@ -1524,7 +1524,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_5.heic",
 		"SetID": 310
 	},
 	"43106": {
@@ -1532,7 +1532,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_6.heic",
 		"SetID": 310
 	},
 	"43115": {
@@ -1540,7 +1540,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_5.heic",
 		"SetID": 311
 	},
 	"43116": {
@@ -1548,7 +1548,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_6.heic",
 		"SetID": 311
 	},
 	"43125": {
@@ -1556,7 +1556,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_5.heic",
 		"SetID": 312
 	},
 	"43126": {
@@ -1564,7 +1564,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_6.heic",
 		"SetID": 312
 	},
 	"43135": {
@@ -1572,7 +1572,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_5.heic",
 		"SetID": 313
 	},
 	"43136": {
@@ -1580,7 +1580,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_6.heic",
 		"SetID": 313
 	},
 	"43145": {
@@ -1588,7 +1588,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 35,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_5.heic",
 		"SetID": 314
 	},
 	"43146": {
@@ -1596,7 +1596,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 36,
 		"SubAffixGroup": 3,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_6.heic",
 		"SetID": 314
 	},
 	"51011": {
@@ -1604,7 +1604,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_1.heic",
 		"SetID": 101
 	},
 	"51012": {
@@ -1612,7 +1612,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_2.heic",
 		"SetID": 101
 	},
 	"51013": {
@@ -1620,7 +1620,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.heic",
 		"SetID": 101
 	},
 	"51014": {
@@ -1628,7 +1628,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.heic",
 		"SetID": 101
 	},
 	"51021": {
@@ -1636,7 +1636,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_1.heic",
 		"SetID": 102
 	},
 	"51022": {
@@ -1644,7 +1644,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_2.heic",
 		"SetID": 102
 	},
 	"51023": {
@@ -1652,7 +1652,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.heic",
 		"SetID": 102
 	},
 	"51024": {
@@ -1660,7 +1660,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_4.heic",
 		"SetID": 102
 	},
 	"51031": {
@@ -1668,7 +1668,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_1.heic",
 		"SetID": 103
 	},
 	"51032": {
@@ -1676,7 +1676,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_2.heic",
 		"SetID": 103
 	},
 	"51033": {
@@ -1684,7 +1684,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.heic",
 		"SetID": 103
 	},
 	"51034": {
@@ -1692,7 +1692,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.heic",
 		"SetID": 103
 	},
 	"51041": {
@@ -1700,7 +1700,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_1.heic",
 		"SetID": 104
 	},
 	"51042": {
@@ -1708,7 +1708,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_2.heic",
 		"SetID": 104
 	},
 	"51043": {
@@ -1716,7 +1716,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_3.heic",
 		"SetID": 104
 	},
 	"51044": {
@@ -1724,7 +1724,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_4.heic",
 		"SetID": 104
 	},
 	"51051": {
@@ -1732,7 +1732,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_1.heic",
 		"SetID": 105
 	},
 	"51052": {
@@ -1740,7 +1740,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_2.heic",
 		"SetID": 105
 	},
 	"51053": {
@@ -1748,7 +1748,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.heic",
 		"SetID": 105
 	},
 	"51054": {
@@ -1756,7 +1756,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_4.heic",
 		"SetID": 105
 	},
 	"51061": {
@@ -1764,7 +1764,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_1.heic",
 		"SetID": 106
 	},
 	"51062": {
@@ -1772,7 +1772,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_2.heic",
 		"SetID": 106
 	},
 	"51063": {
@@ -1780,7 +1780,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_3.heic",
 		"SetID": 106
 	},
 	"51064": {
@@ -1788,7 +1788,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_4.heic",
 		"SetID": 106
 	},
 	"51071": {
@@ -1796,7 +1796,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_1.heic",
 		"SetID": 107
 	},
 	"51072": {
@@ -1804,7 +1804,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_2.heic",
 		"SetID": 107
 	},
 	"51073": {
@@ -1812,7 +1812,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_3.heic",
 		"SetID": 107
 	},
 	"51074": {
@@ -1820,7 +1820,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_4.heic",
 		"SetID": 107
 	},
 	"51081": {
@@ -1828,7 +1828,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_1.heic",
 		"SetID": 108
 	},
 	"51082": {
@@ -1836,7 +1836,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_2.heic",
 		"SetID": 108
 	},
 	"51083": {
@@ -1844,7 +1844,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_3.heic",
 		"SetID": 108
 	},
 	"51084": {
@@ -1852,7 +1852,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_4.heic",
 		"SetID": 108
 	},
 	"51091": {
@@ -1860,7 +1860,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_1.heic",
 		"SetID": 109
 	},
 	"51092": {
@@ -1868,7 +1868,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_2.heic",
 		"SetID": 109
 	},
 	"51093": {
@@ -1876,7 +1876,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_3.heic",
 		"SetID": 109
 	},
 	"51094": {
@@ -1884,7 +1884,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_4.heic",
 		"SetID": 109
 	},
 	"51101": {
@@ -1892,7 +1892,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_1.heic",
 		"SetID": 110
 	},
 	"51102": {
@@ -1900,7 +1900,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_2.heic",
 		"SetID": 110
 	},
 	"51103": {
@@ -1908,7 +1908,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_3.heic",
 		"SetID": 110
 	},
 	"51104": {
@@ -1916,7 +1916,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_4.heic",
 		"SetID": 110
 	},
 	"51111": {
@@ -1924,7 +1924,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_1.heic",
 		"SetID": 111
 	},
 	"51112": {
@@ -1932,7 +1932,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_2.heic",
 		"SetID": 111
 	},
 	"51113": {
@@ -1940,7 +1940,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_3.heic",
 		"SetID": 111
 	},
 	"51114": {
@@ -1948,7 +1948,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_4.heic",
 		"SetID": 111
 	},
 	"51121": {
@@ -1956,7 +1956,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_1.heic",
 		"SetID": 112
 	},
 	"51122": {
@@ -1964,7 +1964,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_2.heic",
 		"SetID": 112
 	},
 	"51123": {
@@ -1972,7 +1972,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_3.heic",
 		"SetID": 112
 	},
 	"51124": {
@@ -1980,7 +1980,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_4.heic",
 		"SetID": 112
 	},
 	"51131": {
@@ -1988,7 +1988,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_1.heic",
 		"SetID": 113
 	},
 	"51132": {
@@ -1996,7 +1996,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_2.heic",
 		"SetID": 113
 	},
 	"51133": {
@@ -2004,7 +2004,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_3.heic",
 		"SetID": 113
 	},
 	"51134": {
@@ -2012,7 +2012,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_4.heic",
 		"SetID": 113
 	},
 	"51141": {
@@ -2020,7 +2020,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_1.heic",
 		"SetID": 114
 	},
 	"51142": {
@@ -2028,7 +2028,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_2.heic",
 		"SetID": 114
 	},
 	"51143": {
@@ -2036,7 +2036,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_3.heic",
 		"SetID": 114
 	},
 	"51144": {
@@ -2044,7 +2044,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_4.heic",
 		"SetID": 114
 	},
 	"51151": {
@@ -2052,7 +2052,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_1.heic",
 		"SetID": 115
 	},
 	"51152": {
@@ -2060,7 +2060,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_2.heic",
 		"SetID": 115
 	},
 	"51153": {
@@ -2068,7 +2068,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_3.heic",
 		"SetID": 115
 	},
 	"51154": {
@@ -2076,7 +2076,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_4.heic",
 		"SetID": 115
 	},
 	"51161": {
@@ -2084,7 +2084,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_1.heic",
 		"SetID": 116
 	},
 	"51162": {
@@ -2092,7 +2092,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_2.heic",
 		"SetID": 116
 	},
 	"51163": {
@@ -2100,7 +2100,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_3.heic",
 		"SetID": 116
 	},
 	"51164": {
@@ -2108,7 +2108,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_4.heic",
 		"SetID": 116
 	},
 	"51171": {
@@ -2116,7 +2116,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_1.heic",
 		"SetID": 117
 	},
 	"51172": {
@@ -2124,7 +2124,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_2.heic",
 		"SetID": 117
 	},
 	"51173": {
@@ -2132,7 +2132,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_3.heic",
 		"SetID": 117
 	},
 	"51174": {
@@ -2140,7 +2140,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_4.heic",
 		"SetID": 117
 	},
 	"51181": {
@@ -2148,7 +2148,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 41,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_1.heic",
 		"SetID": 118
 	},
 	"51182": {
@@ -2156,7 +2156,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 42,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_2.heic",
 		"SetID": 118
 	},
 	"51183": {
@@ -2164,7 +2164,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 43,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_3.heic",
 		"SetID": 118
 	},
 	"51184": {
@@ -2172,7 +2172,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 44,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_4.heic",
 		"SetID": 118
 	},
 	"53015": {
@@ -2180,7 +2180,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_5.heic",
 		"SetID": 301
 	},
 	"53016": {
@@ -2188,7 +2188,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_6.heic",
 		"SetID": 301
 	},
 	"53025": {
@@ -2196,7 +2196,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_5.heic",
 		"SetID": 302
 	},
 	"53026": {
@@ -2204,7 +2204,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_6.heic",
 		"SetID": 302
 	},
 	"53035": {
@@ -2212,7 +2212,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_5.heic",
 		"SetID": 303
 	},
 	"53036": {
@@ -2220,7 +2220,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_6.heic",
 		"SetID": 303
 	},
 	"53045": {
@@ -2228,7 +2228,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_5.heic",
 		"SetID": 304
 	},
 	"53046": {
@@ -2236,7 +2236,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_6.heic",
 		"SetID": 304
 	},
 	"53055": {
@@ -2244,7 +2244,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_5.heic",
 		"SetID": 305
 	},
 	"53056": {
@@ -2252,7 +2252,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_6.heic",
 		"SetID": 305
 	},
 	"53065": {
@@ -2260,7 +2260,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_5.heic",
 		"SetID": 306
 	},
 	"53066": {
@@ -2268,7 +2268,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_6.heic",
 		"SetID": 306
 	},
 	"53075": {
@@ -2276,7 +2276,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_5.heic",
 		"SetID": 307
 	},
 	"53076": {
@@ -2284,7 +2284,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_6.heic",
 		"SetID": 307
 	},
 	"53085": {
@@ -2292,7 +2292,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_5.heic",
 		"SetID": 308
 	},
 	"53086": {
@@ -2300,7 +2300,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_6.heic",
 		"SetID": 308
 	},
 	"53095": {
@@ -2308,7 +2308,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_5.heic",
 		"SetID": 309
 	},
 	"53096": {
@@ -2316,7 +2316,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_6.heic",
 		"SetID": 309
 	},
 	"53105": {
@@ -2324,7 +2324,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_5.heic",
 		"SetID": 310
 	},
 	"53106": {
@@ -2332,7 +2332,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_6.heic",
 		"SetID": 310
 	},
 	"53115": {
@@ -2340,7 +2340,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_5.heic",
 		"SetID": 311
 	},
 	"53116": {
@@ -2348,7 +2348,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_6.heic",
 		"SetID": 311
 	},
 	"53125": {
@@ -2356,7 +2356,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_5.heic",
 		"SetID": 312
 	},
 	"53126": {
@@ -2364,7 +2364,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_6.heic",
 		"SetID": 312
 	},
 	"53135": {
@@ -2372,7 +2372,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_5.heic",
 		"SetID": 313
 	},
 	"53136": {
@@ -2380,7 +2380,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_6.heic",
 		"SetID": 313
 	},
 	"53145": {
@@ -2388,7 +2388,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 45,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_5.heic",
 		"SetID": 314
 	},
 	"53146": {
@@ -2396,7 +2396,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 46,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_6.heic",
 		"SetID": 314
 	},
 	"55001": {
@@ -2404,7 +2404,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 436,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.heic",
 		"SetID": 101
 	},
 	"55002": {
@@ -2412,7 +2412,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 441,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.heic",
 		"SetID": 101
 	},
 	"55003": {
@@ -2420,7 +2420,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 434,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.heic",
 		"SetID": 102
 	},
 	"55004": {
@@ -2428,7 +2428,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 433,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.heic",
 		"SetID": 103
 	},
 	"55005": {
@@ -2436,7 +2436,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 443,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.heic",
 		"SetID": 103
 	},
 	"55006": {
@@ -2444,7 +2444,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 434,
 		"SubAffixGroup": 4,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.heic",
 		"SetID": 105
 	},
 	"61011": {
@@ -2452,7 +2452,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_1.heic",
 		"SetID": 101
 	},
 	"61012": {
@@ -2460,7 +2460,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_2.heic",
 		"SetID": 101
 	},
 	"61013": {
@@ -2468,7 +2468,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_3.heic",
 		"SetID": 101
 	},
 	"61014": {
@@ -2476,7 +2476,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_101_4.heic",
 		"SetID": 101
 	},
 	"61021": {
@@ -2484,7 +2484,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_1.heic",
 		"SetID": 102
 	},
 	"61022": {
@@ -2492,7 +2492,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_2.heic",
 		"SetID": 102
 	},
 	"61023": {
@@ -2500,7 +2500,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_3.heic",
 		"SetID": 102
 	},
 	"61024": {
@@ -2508,7 +2508,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_102_4.heic",
 		"SetID": 102
 	},
 	"61031": {
@@ -2516,7 +2516,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_1.heic",
 		"SetID": 103
 	},
 	"61032": {
@@ -2524,7 +2524,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_2.heic",
 		"SetID": 103
 	},
 	"61033": {
@@ -2532,7 +2532,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_3.heic",
 		"SetID": 103
 	},
 	"61034": {
@@ -2540,7 +2540,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_103_4.heic",
 		"SetID": 103
 	},
 	"61041": {
@@ -2548,7 +2548,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_1.heic",
 		"SetID": 104
 	},
 	"61042": {
@@ -2556,7 +2556,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_2.heic",
 		"SetID": 104
 	},
 	"61043": {
@@ -2564,7 +2564,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_3.heic",
 		"SetID": 104
 	},
 	"61044": {
@@ -2572,7 +2572,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_104_4.heic",
 		"SetID": 104
 	},
 	"61051": {
@@ -2580,7 +2580,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_1.heic",
 		"SetID": 105
 	},
 	"61052": {
@@ -2588,7 +2588,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_2.heic",
 		"SetID": 105
 	},
 	"61053": {
@@ -2596,7 +2596,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_3.heic",
 		"SetID": 105
 	},
 	"61054": {
@@ -2604,7 +2604,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_105_4.heic",
 		"SetID": 105
 	},
 	"61061": {
@@ -2612,7 +2612,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_1.heic",
 		"SetID": 106
 	},
 	"61062": {
@@ -2620,7 +2620,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_2.heic",
 		"SetID": 106
 	},
 	"61063": {
@@ -2628,7 +2628,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_3.heic",
 		"SetID": 106
 	},
 	"61064": {
@@ -2636,7 +2636,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_106_4.heic",
 		"SetID": 106
 	},
 	"61071": {
@@ -2644,7 +2644,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_1.heic",
 		"SetID": 107
 	},
 	"61072": {
@@ -2652,7 +2652,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_2.heic",
 		"SetID": 107
 	},
 	"61073": {
@@ -2660,7 +2660,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_3.heic",
 		"SetID": 107
 	},
 	"61074": {
@@ -2668,7 +2668,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_107_4.heic",
 		"SetID": 107
 	},
 	"61081": {
@@ -2676,7 +2676,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_1.heic",
 		"SetID": 108
 	},
 	"61082": {
@@ -2684,7 +2684,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_2.heic",
 		"SetID": 108
 	},
 	"61083": {
@@ -2692,7 +2692,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_3.heic",
 		"SetID": 108
 	},
 	"61084": {
@@ -2700,7 +2700,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_108_4.heic",
 		"SetID": 108
 	},
 	"61091": {
@@ -2708,7 +2708,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_1.heic",
 		"SetID": 109
 	},
 	"61092": {
@@ -2716,7 +2716,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_2.heic",
 		"SetID": 109
 	},
 	"61093": {
@@ -2724,7 +2724,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_3.heic",
 		"SetID": 109
 	},
 	"61094": {
@@ -2732,7 +2732,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_109_4.heic",
 		"SetID": 109
 	},
 	"61101": {
@@ -2740,7 +2740,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_1.heic",
 		"SetID": 110
 	},
 	"61102": {
@@ -2748,7 +2748,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_2.heic",
 		"SetID": 110
 	},
 	"61103": {
@@ -2756,7 +2756,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_3.heic",
 		"SetID": 110
 	},
 	"61104": {
@@ -2764,7 +2764,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_110_4.heic",
 		"SetID": 110
 	},
 	"61111": {
@@ -2772,7 +2772,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_1.heic",
 		"SetID": 111
 	},
 	"61112": {
@@ -2780,7 +2780,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_2.heic",
 		"SetID": 111
 	},
 	"61113": {
@@ -2788,7 +2788,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_3.heic",
 		"SetID": 111
 	},
 	"61114": {
@@ -2796,7 +2796,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_111_4.heic",
 		"SetID": 111
 	},
 	"61121": {
@@ -2804,7 +2804,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_1.heic",
 		"SetID": 112
 	},
 	"61122": {
@@ -2812,7 +2812,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_2.heic",
 		"SetID": 112
 	},
 	"61123": {
@@ -2820,7 +2820,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_3.heic",
 		"SetID": 112
 	},
 	"61124": {
@@ -2828,7 +2828,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_112_4.heic",
 		"SetID": 112
 	},
 	"61131": {
@@ -2836,7 +2836,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_1.heic",
 		"SetID": 113
 	},
 	"61132": {
@@ -2844,7 +2844,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_2.heic",
 		"SetID": 113
 	},
 	"61133": {
@@ -2852,7 +2852,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_3.heic",
 		"SetID": 113
 	},
 	"61134": {
@@ -2860,7 +2860,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_113_4.heic",
 		"SetID": 113
 	},
 	"61141": {
@@ -2868,7 +2868,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_1.heic",
 		"SetID": 114
 	},
 	"61142": {
@@ -2876,7 +2876,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_2.heic",
 		"SetID": 114
 	},
 	"61143": {
@@ -2884,7 +2884,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_3.heic",
 		"SetID": 114
 	},
 	"61144": {
@@ -2892,7 +2892,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_114_4.heic",
 		"SetID": 114
 	},
 	"61151": {
@@ -2900,7 +2900,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_1.heic",
 		"SetID": 115
 	},
 	"61152": {
@@ -2908,7 +2908,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_2.heic",
 		"SetID": 115
 	},
 	"61153": {
@@ -2916,7 +2916,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_3.heic",
 		"SetID": 115
 	},
 	"61154": {
@@ -2924,7 +2924,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_115_4.heic",
 		"SetID": 115
 	},
 	"61161": {
@@ -2932,7 +2932,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_1.heic",
 		"SetID": 116
 	},
 	"61162": {
@@ -2940,7 +2940,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_2.heic",
 		"SetID": 116
 	},
 	"61163": {
@@ -2948,7 +2948,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_3.heic",
 		"SetID": 116
 	},
 	"61164": {
@@ -2956,7 +2956,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_116_4.heic",
 		"SetID": 116
 	},
 	"61171": {
@@ -2964,7 +2964,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_1.heic",
 		"SetID": 117
 	},
 	"61172": {
@@ -2972,7 +2972,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_2.heic",
 		"SetID": 117
 	},
 	"61173": {
@@ -2980,7 +2980,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_3.heic",
 		"SetID": 117
 	},
 	"61174": {
@@ -2988,7 +2988,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_117_4.heic",
 		"SetID": 117
 	},
 	"61181": {
@@ -2996,7 +2996,7 @@
 		"Type": "HEAD",
 		"MainAffixGroup": 51,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_1.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_1.heic",
 		"SetID": 118
 	},
 	"61182": {
@@ -3004,7 +3004,7 @@
 		"Type": "HAND",
 		"MainAffixGroup": 52,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_2.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_2.heic",
 		"SetID": 118
 	},
 	"61183": {
@@ -3012,7 +3012,7 @@
 		"Type": "BODY",
 		"MainAffixGroup": 53,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_3.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_3.heic",
 		"SetID": 118
 	},
 	"61184": {
@@ -3020,7 +3020,7 @@
 		"Type": "FOOT",
 		"MainAffixGroup": 54,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_4.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_118_4.heic",
 		"SetID": 118
 	},
 	"63015": {
@@ -3028,7 +3028,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_5.heic",
 		"SetID": 301
 	},
 	"63016": {
@@ -3036,7 +3036,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_301_6.heic",
 		"SetID": 301
 	},
 	"63025": {
@@ -3044,7 +3044,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_5.heic",
 		"SetID": 302
 	},
 	"63026": {
@@ -3052,7 +3052,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_302_6.heic",
 		"SetID": 302
 	},
 	"63035": {
@@ -3060,7 +3060,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_5.heic",
 		"SetID": 303
 	},
 	"63036": {
@@ -3068,7 +3068,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_303_6.heic",
 		"SetID": 303
 	},
 	"63045": {
@@ -3076,7 +3076,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_5.heic",
 		"SetID": 304
 	},
 	"63046": {
@@ -3084,7 +3084,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_304_6.heic",
 		"SetID": 304
 	},
 	"63055": {
@@ -3092,7 +3092,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_5.heic",
 		"SetID": 305
 	},
 	"63056": {
@@ -3100,7 +3100,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_305_6.heic",
 		"SetID": 305
 	},
 	"63065": {
@@ -3108,7 +3108,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_5.heic",
 		"SetID": 306
 	},
 	"63066": {
@@ -3116,7 +3116,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_306_6.heic",
 		"SetID": 306
 	},
 	"63075": {
@@ -3124,7 +3124,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_5.heic",
 		"SetID": 307
 	},
 	"63076": {
@@ -3132,7 +3132,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_307_6.heic",
 		"SetID": 307
 	},
 	"63085": {
@@ -3140,7 +3140,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_5.heic",
 		"SetID": 308
 	},
 	"63086": {
@@ -3148,7 +3148,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_308_6.heic",
 		"SetID": 308
 	},
 	"63095": {
@@ -3156,7 +3156,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_5.heic",
 		"SetID": 309
 	},
 	"63096": {
@@ -3164,7 +3164,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_309_6.heic",
 		"SetID": 309
 	},
 	"63105": {
@@ -3172,7 +3172,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_5.heic",
 		"SetID": 310
 	},
 	"63106": {
@@ -3180,7 +3180,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_310_6.heic",
 		"SetID": 310
 	},
 	"63115": {
@@ -3188,7 +3188,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_5.heic",
 		"SetID": 311
 	},
 	"63116": {
@@ -3196,7 +3196,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_311_6.heic",
 		"SetID": 311
 	},
 	"63125": {
@@ -3204,7 +3204,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_5.heic",
 		"SetID": 312
 	},
 	"63126": {
@@ -3212,7 +3212,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_312_6.heic",
 		"SetID": 312
 	},
 	"63135": {
@@ -3220,7 +3220,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_5.heic",
 		"SetID": 313
 	},
 	"63136": {
@@ -3228,7 +3228,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_313_6.heic",
 		"SetID": 313
 	},
 	"63145": {
@@ -3236,7 +3236,7 @@
 		"Type": "NECK",
 		"MainAffixGroup": 55,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_5.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_5.heic",
 		"SetID": 314
 	},
 	"63146": {
@@ -3244,7 +3244,7 @@
 		"Type": "OBJECT",
 		"MainAffixGroup": 56,
 		"SubAffixGroup": 5,
-		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_6.png",
+		"Icon": "SpriteOutput/ItemIcon/RelicIcons/IconRelic_314_6.heic",
 		"SetID": 314
 	}
 }

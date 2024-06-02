@@ -95,7 +95,7 @@ final class EnkaKitHSRTests: XCTestCase {
     }
 
     func testLifePathFileName() throws {
-        XCTAssertEqual(EnkaHSR.LifePath.nihility.iconFileName, "Nihility.png")
+        XCTAssertEqual(EnkaHSR.LifePath.nihility.iconFileName, "Nihility.heic")
     }
 
     func testWallpapers() throws {

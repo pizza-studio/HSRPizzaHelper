@@ -46,6 +46,7 @@ func generateJSON(fileName: String? = nil) -> String {
     return sampleJSONForFile.replacingOccurrences(of: "FILENAMEPLACEHOLDER", with: fileName)
 }
 
+// swiftlint:disable:next large_tuple
 func generateNewPath(newFileName: String) -> (filePath: String, jsonPath: String, setPath: String) {
     let newFileNameStem = newFileName.split(separator: ".").dropLast().joined(separator: ".")
     let setPath = "\(workSpaceDirPath)/\(newFileNameStem).imageset"
@@ -83,6 +84,7 @@ struct AssetFile: Codable, CustomStringConvertible {
     var description: String {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted]
+        // swiftlint:disable:next force_try
         let data = try! encoder.encode(self)
         return String(data: data, encoding: .utf8)!
     }
@@ -125,7 +127,7 @@ func cleanWorkspace() {
 func handleAllFiles() {
     let fileMgr = FileManager.default
     let allPaths: [String] = (fileMgr.subpaths(atPath: "./Assets/") ?? []).filter {
-        $0.contains("_meta") && $0.suffix(4).lowercased() == ".png"
+        $0.contains("_meta") && $0.suffix(5).lowercased() == ".heic"
     }
     let assets: [AssetFile] = allPaths.map { AssetFile(oldPath: "./Assets/" + $0) }
     assets.forEach {

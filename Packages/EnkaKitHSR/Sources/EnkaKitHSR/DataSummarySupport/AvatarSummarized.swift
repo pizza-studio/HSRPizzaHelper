@@ -53,7 +53,7 @@ extension EnkaHSR.AvatarSummarized {
         }
 
         public var photoFileName: String {
-            "\(id).png"
+            "\(id).heic"
         }
 
         public var photoFilePath: String {
@@ -190,7 +190,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
             public let type: SkillType
 
             public var iconFileName: String {
-                "\(charIDStr)_\(type.rawValue).png"
+                "\(charIDStr)_\(type.rawValue).heic"
             }
 
             public var iconFilePath: String {
@@ -362,7 +362,7 @@ extension EnkaHSR.AvatarSummarized {
         }
 
         public var iconFileName: String {
-            "\(enkaId).png"
+            "\(enkaId).heic"
         }
 
         public var iconFilePath: String {
@@ -437,7 +437,7 @@ extension EnkaHSR.AvatarSummarized {
         }
 
         public var iconFileName: String {
-            "\(commonInfo.setID)_\(type.assetSuffix).png"
+            "\(commonInfo.setID)_\(type.assetSuffix).heic"
         }
 
         public var iconFilePath: String {
