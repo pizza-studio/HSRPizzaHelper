@@ -13693,6 +13693,71 @@
         }
       }
     },
+    "settings.account.login.instruction" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click \"Done\" after you finish login to HoYoLAB in the following webpage.\n\nREMINDER: 3rd-party sign-in services like Google, Facebook, Twitter, Sign-in-with-Apple, etc. ARE NOT TECHNICALLY SUPPORTABLE IN THIS APP, please sign in with your username & password."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pindutin ang \"Tapos\" kapag tapos ka na mag login sa HoYoLAB sa susunod na pahina.\n\n Hindi magagamit ang Sign in via Google, Facebook o Twitter, maari mag-sign in gamit ng iyong username at password."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquer sur \"Compris\" après avoir fini de vous connecter à HoYoLAB dans le page web suivant.\n\nLa Connection via Google, Facebook et Twitter à HoYoLAB n'est pas supporté, merci d'utiliser compte et mot de passe pour vous connecter\n"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click \"Done\" after you finish login to HoYoLAB in the following webpage.\n\nREMINDER: 3rd-party sign-in services like Google, Facebook, Twitter, Sign-in-with-Apple, etc. ARE NOT TECHNICALLY SUPPORTABLE IN THIS APP, please sign in with your username & password."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次のウェブページでHoYoLABへのログインが完了したら、「完了」をクリックしてください。\n\nSNSアカウントでログインできません。アカウントとパスワードでログインしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click \"Done\" after you finish login to HoYoLAB in the following webpage.\n\nREMINDER: 3rd-party sign-in services like Google, Facebook, Twitter, Sign-in-with-Apple, etc. ARE NOT TECHNICALLY SUPPORTABLE IN THIS APP, please sign in with your username & password."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите \"Готово\" после авторизации в HoYoLAB в вебокне.\n\nВход через Google, Facebook или Twitter недоступен, используйте логин и пароль."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhấp vào \"Xong\" sau khi bạn hoàn tất đăng nhập vào HoYoLAB trong trang web sau.\n\nĐăng nhập qua Google, Facebook hoặc Twitter không khả dụng, vui lòng đăng nhập bằng tên người dùng và mật khẩu của bạn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在打开的网页完成登录米游社操作后点击「完成」。\n\n通过Google，Facebook或Twitter等第三方服务登录HoYoLAB的方式不受敝 App 支持，请使用账号密码登录。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請在打開的網頁完成登入米遊社操作後點擊「完成」。\n\n通過Google，Facebook或Twitter等第三方服務登入HoYoLAB的方式不受敝 App支援，請使用帳號密碼登入。"
+          }
+        }
+      }
+    },
     "settings.display.appWallpaper" : {
       "localizations" : {
         "en" : {
