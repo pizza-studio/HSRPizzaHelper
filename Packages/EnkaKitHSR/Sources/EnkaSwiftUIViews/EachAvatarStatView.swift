@@ -85,13 +85,13 @@ public struct EachAvatarStatView: View {
                 let property1 = data.avatarPropertiesA[$0]
                 let property2 = data.avatarPropertiesB[$0]
                 AttributeTagPair(
-                    icon: property1.type.iconFilePath,
+                    icon: property1.type.iconAssetName,
                     title: property1.localizedTitle,
                     valueStr: property1.valueString,
                     fontSize: fontSize * 0.8
                 )
                 AttributeTagPair(
-                    icon: property2.type.iconFilePath,
+                    icon: property2.type.iconAssetName,
                     title: property2.localizedTitle,
                     valueStr: property2.valueString,
                     fontSize: fontSize * 0.8
@@ -159,28 +159,22 @@ extension EnkaHSR.AvatarSummarized {
 
     @ViewBuilder
     public func asBackground() -> some View {
-        ResIcon(mainInfo.photoFilePath) {
-            $0.resizable()
-        } placeholder: {
-            AnyView(Color.clear)
-        }
-        .aspectRatio(contentMode: .fill)
-        .blur(radius: 60)
-        .saturation(3)
-        .opacity(0.47)
+        EnkaHSR.queryImageAssetSUI(for: mainInfo.idExpressable.avatarAssetName)?
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .blur(radius: 60)
+            .saturation(3)
+            .opacity(0.47)
     }
 
     @ViewBuilder
     public func asPortrait() -> some View {
-        ResIcon(mainInfo.photoFilePath) {
-            $0.resizable()
-        } placeholder: {
-            AnyView(Color.clear)
-        }
-        .aspectRatio(contentMode: .fit)
-        .background {
-            Color.black.opacity(0.165)
-        }
+        EnkaHSR.queryImageAssetSUI(for: mainInfo.idExpressable.avatarAssetName)?
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .background {
+                Color.black.opacity(0.165)
+            }
     }
 
     /// 显示角色的扑克牌尺寸肖像，以身份证素材裁切而成。
@@ -220,13 +214,9 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                     ZStack(alignment: .center) {
                         Color.black.opacity(0.1)
                             .clipShape(Circle())
-                        ResIcon(lifePath.iconFilePath) {
-                            $0.resizable()
-                        } placeholder: {
-                            AnyView(Color.clear)
-                        }
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
+                        EnkaHSR.queryImageAssetSUI(for: lifePath.iconAssetName)?.resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(Circle())
                     }.frame(
                         width: fontSize * 2.6,
                         height: fontSize * 2
@@ -234,14 +224,10 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                         ZStack(alignment: .center) {
                             Color.black.opacity(0.05)
                                 .clipShape(Circle())
-                            ResIcon(element.iconFilePath) {
-                                $0.resizable()
-                            } placeholder: {
-                                AnyView(Color.clear)
-                            }
-                            .brightness(0.1)
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(Circle())
+                            EnkaHSR.queryImageAssetSUI(for: element.iconAssetName)?.resizable()
+                                .brightness(0.1)
+                                .aspectRatio(contentMode: .fit)
+                                .clipShape(Circle())
                         }.frame(
                             width: fontSize * 0.95,
                             height: fontSize * 0.95
@@ -262,7 +248,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                             title: terms.constellationName, valueStr: "E\(self.constellation)",
                             fontSize: fontSize * 0.8
                         )
-                    }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    }.shadow(radius: 10)
                     HStack(alignment: .lastTextBaseline, spacing: 0) {
                         ForEach(baseSkills.toArray, id: \.type) { skill in
                             skill.asView(fontSize: fontSize).fixedSize()
@@ -296,15 +282,11 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
                 ZStack(alignment: .center) {
                     Color.black.opacity(0.1)
                         .clipShape(Circle())
-                    ResIcon(iconFilePath) {
-                        $0.resizable()
-                    } placeholder: {
-                        AnyView(Color.clear)
-                    }
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .scaleEffect(0.8)
-                    .shadow(radius: 5)
+                    EnkaHSR.queryImageAssetSUI(for: iconAssetName)?.resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .scaleEffect(0.8)
+                        .shadow(radius: 5)
                 }.frame(
                     width: fontSize * 2.2,
                     height: fontSize * 2
@@ -335,18 +317,15 @@ private struct WeaponPanelView: View {
     public init(for weapon: EnkaHSR.AvatarSummarized.WeaponPanel, fontSize: CGFloat) {
         self.fontSize = fontSize
         self.weapon = weapon
-        self.resIcon = ResIcon(weapon.iconFilePath) {
-            $0.resizable()
-        } placeholder: {
-            AnyView(Color.clear)
-        }
+        self.iconImg = EnkaHSR.queryWeaponImageSUI(for: weapon.enkaId.description)
     }
 
     // MARK: Public
 
     public var body: some View {
         HStack(spacing: fontSize * 0.4) {
-            resIcon
+            iconImg?
+                .resizable()
                 .aspectRatio(contentMode: .fit)
                 .background {
                     Color.primary.opacity(0.075)
@@ -367,7 +346,7 @@ private struct WeaponPanelView: View {
                 HStack {
                     ForEach(weapon.basicProps, id: \.type) { propUnit in
                         AttributeTagPair(
-                            icon: propUnit.iconFilePath,
+                            icon: propUnit.iconAssetName,
                             title: "",
                             valueStr: "+\(propUnit.valueString)",
                             fontSize: fontSize * 0.8
@@ -377,7 +356,7 @@ private struct WeaponPanelView: View {
                 HStack {
                     ForEach(weapon.specialProps, id: \.type) { propUnit in
                         AttributeTagPair(
-                            icon: propUnit.iconFilePath,
+                            icon: propUnit.iconAssetName,
                             title: "",
                             valueStr: "+\(propUnit.valueString)",
                             fontSize: fontSize * 0.8
@@ -399,7 +378,7 @@ private struct WeaponPanelView: View {
 
     private let weapon: EnkaHSR.AvatarSummarized.WeaponPanel
     private let fontSize: CGFloat
-    private let resIcon: ResIcon
+    private let iconImg: Image?
 }
 
 extension EnkaHSR.AvatarSummarized.WeaponPanel {
@@ -436,24 +415,23 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
             Color.clear.frame(width: fontSize * 2.6)
             LazyVStack(spacing: 0) {
                 AttributeTagPair(
-                    icon: mainProp.iconFilePath,
+                    icon: mainProp.iconAssetName,
                     title: "",
                     valueStr: mainProp.valueString,
                     fontSize: fontSize * 0.86
                 )
-                Divider().overlay(.primary)
+                Divider().overlay {
+                    Color.primary.opacity(0.6)
+                }
                 let gridColumnsFixed = [GridItem](repeating: .init(), count: 2)
                 LazyVGrid(columns: gridColumnsFixed, spacing: 0) {
                     ForEach(self.subProps) { prop in
                         HStack(spacing: 0) {
-                            if let iconPath = prop.iconFilePath {
-                                ResIcon(iconPath) {
-                                    $0.resizable()
-                                } placeholder: {
-                                    AnyView(Color.clear)
-                                }
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: fontSize * 1.25, height: fontSize * 1.25)
+                            if let assetName = prop.iconAssetName {
+                                EnkaHSR.queryImageAssetSUI(for: assetName)?
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: fontSize * 1.25, height: fontSize * 1.25)
                             }
                             Text(prop.valueString)
                                 .lineLimit(1)
@@ -476,18 +454,15 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
             alignment: .bottomLeading, textSize: fontSize * 0.7
         )
         .background(alignment: .topLeading) {
-            ResIcon(iconFilePath) {
-                $0.resizable()
-            } placeholder: {
-                AnyView(Color.clear)
-            }
-            .aspectRatio(contentMode: .fit)
-            .opacity(0.9)
-            .corneredTag(
-                verbatim: scoreText(lang: langTag),
-                alignment: .bottomLeading, textSize: fontSize * 0.8
-            )
-            .scaleEffect(0.8, anchor: .topLeading)
+            EnkaHSR.queryImageAssetSUI(for: iconAssetName)?
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .opacity(0.9)
+                .corneredTag(
+                    verbatim: scoreText(lang: langTag),
+                    alignment: .bottomLeading, textSize: fontSize * 0.8
+                )
+                .scaleEffect(0.8, anchor: .topLeading)
         }
     }
 }
@@ -498,12 +473,11 @@ public struct AttributeTagPair: View {
     // MARK: Lifecycle
 
     public init(
-        icon iconPath: String? = nil,
+        icon iconAssetName: String? = nil,
         title: String,
         valueStr: String,
         fontSize givenFontSize: CGFloat
     ) {
-        self.iconPath = iconPath
         self.title = title
         self.valueStr = valueStr
         self.fontSize = givenFontSize
@@ -515,29 +489,25 @@ public struct AttributeTagPair: View {
             let suffix = title.count > 18 ? "…" : ""
             return "\(title.prefix(18))\(suffix)"
         }()
-        if let iconPath = iconPath {
-            self.resIcon = ResIcon(iconPath) {
-                $0.resizable()
-            } placeholder: {
-                AnyView(Color.clear)
-            }
+
+        if let iconAssetName = iconAssetName, let img = EnkaHSR.queryImageAssetSUI(for: iconAssetName) {
+            self.iconImg = img.resizable()
         } else {
-            self.resIcon = nil
+            self.iconImg = nil
         }
     }
 
     // MARK: Public
 
-    public let iconPath: String?
     public let title: String
     public let valueStr: String
     public let fontSize: CGFloat
     public let shortenedTitle: String
-    public let resIcon: ResIcon?
+    public let iconImg: Image?
 
     public var body: some View {
         HStack(spacing: 0) {
-            resIcon?
+            iconImg?
                 .aspectRatio(contentMode: .fit)
                 .frame(width: fontSize * 1.5, height: fontSize * 1.5)
             Text(shortenedTitle)

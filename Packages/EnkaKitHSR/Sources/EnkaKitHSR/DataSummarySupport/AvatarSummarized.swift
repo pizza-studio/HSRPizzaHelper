@@ -63,6 +63,14 @@ extension EnkaHSR.AvatarSummarized {
         public var avatarFilePath: String {
             "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.profileAvatar.rawValue)/\(photoFileName)"
         }
+
+        public var avatarAssetName: String {
+            "avatar_\(id)"
+        }
+
+        public var photoAssetName: String {
+            "characters_\(id)"
+        }
     }
 
     public struct AvatarMainInfo: Codable, Hashable {
@@ -113,18 +121,6 @@ extension EnkaHSR.AvatarSummarized {
 
         public var name: String {
             Defaults[.useRealCharacterNames] ? localizedRealName : localizedName
-        }
-
-        public var photoFileName: String {
-            idExpressable.photoFileName
-        }
-
-        public var photoFilePath: String {
-            idExpressable.photoFilePath
-        }
-
-        public var avatarFilePath: String {
-            idExpressable.avatarFilePath
         }
     }
 }
@@ -199,6 +195,10 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
 
             public var iconFilePath: String {
                 "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.skills.rawValue)/\(iconFileName)"
+            }
+
+            public var iconAssetName: String {
+                "skill_\(charIDStr)_\(type.rawValue)"
             }
         }
 
@@ -278,6 +278,10 @@ extension EnkaHSR.AvatarSummarized {
 
         public var iconFileName: String? {
             type.iconFileName
+        }
+
+        public var iconAssetName: String? {
+            type.iconAssetName
         }
 
         public var iconFilePath: String? {
@@ -364,6 +368,10 @@ extension EnkaHSR.AvatarSummarized {
         public var iconFilePath: String {
             "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.weapon.rawValue)/\(iconFileName)"
         }
+
+        public var iconAssetName: String {
+            "light_cone_\(enkaId)"
+        }
     }
 }
 
@@ -434,6 +442,10 @@ extension EnkaHSR.AvatarSummarized {
 
         public var iconFilePath: String {
             "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.artifact.rawValue)/\(iconFileName)"
+        }
+
+        public var iconAssetName: String {
+            "relic_\(commonInfo.setID)_\(type.assetSuffix)"
         }
     }
 }

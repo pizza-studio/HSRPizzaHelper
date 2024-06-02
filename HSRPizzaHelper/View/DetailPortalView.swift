@@ -334,20 +334,25 @@ private struct AccountHeaderView<T: View>: View {
 
     let profileStatic: EnkaHSR.QueryRelated.DetailInfo?
 
+    var photoAssetName: String {
+        guard let path = guardedProfile?.accountPhotoFilePath(theDB: vmDPV.enkaDB) else {
+            return EnkaProfileEntity.nullPhotoAssetName
+        }
+        let fileStem = path.split(separator: "/").last?.replacingOccurrences(of: ".png", with: "")
+        guard let fileStem = fileStem else { return EnkaProfileEntity.nullPhotoAssetName }
+        return "avatar_\(fileStem)"
+    }
+
     @ViewBuilder var avatarIconRendered: some View {
         HStack {
-            let path = guardedProfile?.accountPhotoFilePath(theDB: vmDPV.enkaDB)
-            ResIcon(path ?? EnkaProfileEntity.nullPhotoFilePath) {
-                $0.resizable()
-            } placeholder: {
-                AnyView(Color.clear)
-            }
-            .aspectRatio(contentMode: .fit)
-            .background {
-                Color.black.opacity(0.165)
-            }
-            .clipShape(Circle())
-            .frame(width: 64, height: 64)
+            EnkaHSR.queryImageAssetSUI(for: photoAssetName)?
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .background {
+                    Color.black.opacity(0.165)
+                }
+                .clipShape(Circle())
+                .frame(width: 64, height: 64)
             #if os(OSX) || targetEnvironment(macCatalyst)
                 .contextMenu {
                     if let refreshAction = refreshAction {

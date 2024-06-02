@@ -53,21 +53,18 @@ public struct CharacterIconView: View {
             if useGenshinStyleIcon, let idPhotoView = IDPhotoView(pid: charID.description, size, .asCard) {
                 idPhotoView
             } else {
-                ResIcon(cidObj.photoFilePath) {
-                    $0.resizable()
-                } placeholder: {
-                    AnyView(Color.clear)
-                }
-                .aspectRatio(contentMode: .fit)
-                .scaleEffect(1.5, anchor: .top)
-                .scaleEffect(1.4)
-                .frame(width: size * 0.74, height: size)
-                .background {
-                    Color.black.opacity(0.165)
-                }
-                .clipShape(RoundedRectangle(cornerRadius: size / 10))
-                .contentShape(RoundedRectangle(cornerRadius: size / 10))
-                .compositingGroup()
+                EnkaHSR.queryImageAssetSUI(for: cidObj.photoAssetName)?
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .scaleEffect(1.5, anchor: .top)
+                    .scaleEffect(1.4)
+                    .frame(width: size * 0.74, height: size)
+                    .background {
+                        Color.black.opacity(0.165)
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: size / 10))
+                    .contentShape(RoundedRectangle(cornerRadius: size / 10))
+                    .compositingGroup()
             }
         } else {
             EmptyView()
@@ -80,15 +77,12 @@ public struct CharacterIconView: View {
             if useGenshinStyleIcon, let idPhotoView = IDPhotoView(pid: charID.description, size, cutType) {
                 idPhotoView
             } else {
-                let result = ResIcon(cidObj.photoFilePath) {
-                    $0.resizable()
-                } placeholder: {
-                    AnyView(Color.clear)
-                }
-                .aspectRatio(contentMode: .fit)
-                .scaleEffect(1.5, anchor: .top)
-                .scaleEffect(1.4)
-                .frame(maxWidth: size, maxHeight: size)
+                let result = EnkaHSR.queryImageAssetSUI(for: cidObj.photoAssetName)?
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .scaleEffect(1.5, anchor: .top)
+                    .scaleEffect(1.4)
+                    .frame(maxWidth: size, maxHeight: size)
                 // Draw.
                 let bgColor = Color.black.opacity(0.165)
                 Group {
@@ -224,14 +218,14 @@ public struct IDPhotoView: View {
     }
 
     var imageObj: some View {
-        imageHandler(Image(decorative: coordinator.cgImageRef, scale: 1))
+        imageHandler(coordinator.charAvatarImage)
             .resizable()
             .aspectRatio(contentMode: .fit)
     }
 
     @ViewBuilder var backgroundObj: some View {
         Group {
-            Image(decorative: coordinator.backgroundImage, scale: 1)
+            coordinator.backgroundImage
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .scaleEffect(2)
@@ -239,7 +233,7 @@ public struct IDPhotoView: View {
                 .blur(radius: 12)
         }
         .overlay {
-            Image(decorative: coordinator.lifePathImage, scale: 1)
+            coordinator.lifePathImage
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .scaleEffect(1)
@@ -279,29 +273,31 @@ public struct IDPhotoView: View {
         // MARK: Lifecycle
 
         public init?(pid: String) {
-            self.pid = pid
+            guard let cidObj = EnkaHSR.AvatarSummarized.CharacterID(id: pid) else { return nil }
+            self.cid = cidObj
             let fallbackPID = EnkaHSR.CharacterName.convertPIDForProtagonist(pid)
-            guard let cgImageRef = EnkaHSR.queryImageAsset(for: "idp\(pid)")
-                ?? EnkaHSR.queryImageAsset(for: "idp\(fallbackPID)")
+            guard let charAvatarImage = EnkaHSR.queryImageAssetSUI(for: "idp\(pid)")
+                ?? EnkaHSR.queryImageAssetSUI(for: "idp\(fallbackPID)")
             else { return nil }
             let lifePath = EnkaHSR.Sputnik.sharedDB.characters[pid]?.avatarBaseType
             guard let lifePath = lifePath else { return nil }
-            let lifePathImage = CGImage.instantiate(filePath: lifePath.iconFilePath)
-            let bgPath = "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.character.rawValue)/\(pid).png"
-            let backgroundImage = CGImage.instantiate(filePath: bgPath)
+            let lifePathImage = EnkaHSR.queryImageAssetSUI(for: lifePath.iconAssetName)
+            let backgroundImage = EnkaHSR.queryImageAssetSUI(for: cidObj.photoAssetName)
             guard let lifePathImage = lifePathImage else { return nil }
             guard let backgroundImage = backgroundImage else { return nil }
             self.lifePathImage = lifePathImage
             self.backgroundImage = backgroundImage
-            self.cgImageRef = cgImageRef
+            self.charAvatarImage = charAvatarImage
         }
 
         // MARK: Internal
 
-        let pid: String
-        var lifePathImage: CGImage
-        var backgroundImage: CGImage
-        var cgImageRef: CGImage
+        let cid: EnkaHSR.AvatarSummarized.CharacterID
+        var lifePathImage: Image
+        var backgroundImage: Image
+        var charAvatarImage: Image
+
+        var pid: String { cid.id }
     }
 
     private let pid: String

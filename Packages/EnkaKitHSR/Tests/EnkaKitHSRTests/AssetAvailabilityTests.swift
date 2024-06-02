@@ -38,13 +38,12 @@ final class AssetAvaiabilityTests: XCTestCase {
         }
         // 先测试「hasPropIcon」。
         XCTAssertEqual(affixes.filter { !$0.hasPropIcon }.count, 0)
-        // 再测试「proposedIconFileName accessibility」。
-        let fileMgr = FileManager.default
+        // 再测试「proposedIconAssetName accessibility」。
         var counter = 0
         affixes.forEach { affix in
-            let path = affix.proposedIconFilePath
-            if !fileMgr.fileExists(atPath: path) {
-                print(path)
+            let exists = EnkaHSR.queryImageAssetSUI(for: affix.proposedIconAssetName) != nil
+            if !exists {
+                print(affix.proposedIconAssetName)
                 counter += 1
             }
         }

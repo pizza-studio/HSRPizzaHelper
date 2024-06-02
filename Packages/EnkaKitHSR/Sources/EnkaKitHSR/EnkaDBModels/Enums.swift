@@ -103,6 +103,10 @@ extension EnkaHSR.DBModels.Element {
         "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.element.rawValue)/\(iconFileName)"
     }
 
+    public var iconAssetName: String {
+        "element_\(iconFileName.replacingOccurrences(of: ".png", with: ""))"
+    }
+
     public var damageAddedRatioProperty: EnkaHSR.PropertyType {
         switch self {
         case .physico: return .physicoAddedRatio
@@ -134,6 +138,10 @@ extension EnkaHSR.DBModels.LifePath {
     public var iconFilePath: String {
         "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.lifePath.rawValue)/\(iconFileName)"
     }
+
+    public var iconAssetName: String {
+        "path_\(String(describing: self).capitalized)"
+    }
 }
 
 extension EnkaHSR.PropertyType {
@@ -161,8 +169,15 @@ extension EnkaHSR.PropertyType {
         hasPropIcon ? proposedIconFileName : nil
     }
 
-    /// This variable is only for unit tests.
+    public var iconAssetName: String? {
+        hasPropIcon ? "property_\(proposedIconFileNameStem)" : nil
+    }
+
     internal var proposedIconFileName: String {
+        "\(proposedIconFileNameStem).png"
+    }
+
+    internal var proposedIconFileNameStem: String {
         var nameStem = rawValue
         switch self {
         case .baseHP, .hpAddedRatio, .hpDelta: nameStem = "MaxHP"
@@ -181,15 +196,16 @@ extension EnkaHSR.PropertyType {
         case .allDamageTypeAddedRatio: nameStem = "AllDamageTypeAddedRatio"
         default: break
         }
-        return "Icon\(nameStem).png"
+        return "Icon\(nameStem)"
+    }
+
+    /// This variable is only for unit tests.
+    internal var proposedIconAssetName: String {
+        "property_\(proposedIconFileNameStem)"
     }
 
     /// This variable is only for unit tests.
     internal var proposedIconFilePath: String {
-        if self == .allDamageTypeAddedRatio {
-            let result = Bundle.module.path(forResource: "IconAllDamageTypeAddedRatio", ofType: "png")
-            return result!
-        }
         let rawPathComponent = EnkaHSR.AssetPathComponents.property.rawValue
         return "\(EnkaHSR.assetPathRoot)/\(rawPathComponent)/\(proposedIconFileName)"
     }

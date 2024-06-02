@@ -23,8 +23,8 @@ public struct GachaItemIcon: View {
             if item.itemType == .characters,
                let idObj = EnkaHSR.AvatarSummarized.CharacterID(id: item.itemID) {
                 idObj.avatarPhoto(size: size, clipToHead: true)
-            } else if let uiImage = item.icon {
-                Image(uiImage: uiImage).resizable().scaledToFit()
+            } else if let icon = item.icon {
+                icon.resizable().scaledToFit()
             } else {
                 Image(systemSymbol: .questionmarkCircle).resizable().scaledToFit()
             }

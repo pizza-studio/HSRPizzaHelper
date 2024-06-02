@@ -24,4 +24,8 @@ extension EnkaHSR.QueryRelated.DetailInfo {
     public static var nullPhotoFilePath: String {
         "\(accountPhotoFilePathHeader)/Anonymous.png"
     }
+
+    public static var nullPhotoAssetName: String {
+        "avatar_Anonymous"
+    }
 }

@@ -46,16 +46,13 @@ public struct CaseQuerySection: View {
             if let result = delegate.currentInfo {
                 NavigationLink(value: result) {
                     HStack {
-                        ResIcon(result.accountPhotoFilePath(theDB: theDB)) {
-                            $0.resizable()
-                        } placeholder: {
-                            AnyView(Color.clear)
-                        }
-                        .aspectRatio(contentMode: .fit)
-                        .background { Color.black.opacity(0.165) }
-                        .clipShape(Circle())
-                        .contentShape(Circle())
-                        .frame(width: ceil(Font.baseFontSize * 3))
+                        EnkaHSR.queryImageAssetSUI(for: photoAssetName)?
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .background { Color.black.opacity(0.165) }
+                            .clipShape(Circle())
+                            .contentShape(Circle())
+                            .frame(width: ceil(Font.baseFontSize * 3))
                         VStack(alignment: .leading) {
                             Text(result.nickname).font(.headline).fontWeight(.bold)
                             Text(result.uid.description).font(.subheadline)
@@ -95,6 +92,15 @@ public struct CaseQuerySection: View {
 
     var focused: FocusState<Bool>.Binding?
     @FocusState var backupFocus: Bool
+
+    var photoAssetName: String {
+        guard let path = delegate.currentInfo?.accountPhotoFilePath(theDB: theDB) else {
+            return EnkaHSR.QueryRelated.DetailInfo.nullPhotoAssetName
+        }
+        let fileStem = path.split(separator: "/").last?.replacingOccurrences(of: ".png", with: "")
+        guard let fileStem = fileStem else { return EnkaHSR.QueryRelated.DetailInfo.nullPhotoAssetName }
+        return "avatar_\(fileStem)"
+    }
 
     @ViewBuilder var textFieldView: some View {
         TextField("UID", value: $givenUID, format: .number.grouping(.never))

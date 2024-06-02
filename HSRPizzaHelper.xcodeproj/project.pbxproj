@@ -26,7 +26,6 @@
 		5B55DD1E2BE9004800CEFDE0 /* GachaItemIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */; };
 		5B579DB52BFCEC9E0030C64D /* ViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B579DB42BFCEC9E0030C64D /* ViewTools.swift */; };
 		5B579DB72BFCF16E0030C64D /* SwiftUIColorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B579DB62BFCF16E0030C64D /* SwiftUIColorImpl.swift */; };
-		5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D9BC62BCFF50B0085E728 /* other_meta */; };
 		5B6162AC2BD4E0A200662F5A /* EnkaHSRImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */; };
 		5B62B7562BFB9B550051E097 /* NewsKitHSR in Frameworks */ = {isa = PBXBuildFile; productRef = 5B62B7552BFB9B550051E097 /* NewsKitHSR */; };
 		5B76D67B2C04711600E813C6 /* CGImageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11A2692C01FE9A006B0BF9 /* CGImageImpl.swift */; };
@@ -268,7 +267,6 @@
 		EAE8987E2A06A2A6000AF830 /* SquareWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987A2A06A1D3000AF830 /* SquareWidgetConfigurationIntentHandler.swift */; };
 		EAE898812A06A8D3000AF830 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */; };
 		EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */; };
-		EAEF1ABB2A84F4E90013AD48 /* gacha_meta in Resources */ = {isa = PBXBuildFile; fileRef = EAEF1ABA2A84F4E90013AD48 /* gacha_meta */; };
 		EAEF1ABD2A8533A20013AD48 /* GachaItem.Rank+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */; };
 		EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
 		EAF286522A124F5000F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
@@ -353,7 +351,6 @@
 		5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaItemIcon.swift; sourceTree = "<group>"; };
 		5B579DB42BFCEC9E0030C64D /* ViewTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTools.swift; sourceTree = "<group>"; };
 		5B579DB62BFCF16E0030C64D /* SwiftUIColorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIColorImpl.swift; sourceTree = "<group>"; };
-		5B5D9BC62BCFF50B0085E728 /* other_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = other_meta; sourceTree = "<group>"; };
 		5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnkaHSRImpl.swift; sourceTree = "<group>"; };
 		5B62B7572BFB9BAA0051E097 /* NewsKitHSR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NewsKitHSR; path = Packages/NewsKitHSR; sourceTree = "<group>"; };
 		5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig_SwiftUIImpl.swift; sourceTree = "<group>"; };
@@ -523,7 +520,6 @@
 		EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularWidgetConfigurationIntentHandler.swift; sourceTree = "<group>"; };
 		EAE898822A06A908000AF830 /* IntentAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentAccountExtension.swift; sourceTree = "<group>"; };
 		EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppDailyNoteCardView.swift; sourceTree = "<group>"; };
-		EAEF1ABA2A84F4E90013AD48 /* gacha_meta */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gacha_meta; sourceTree = "<group>"; };
 		EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GachaItem.Rank+Background.swift"; sourceTree = "<group>"; };
 		EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiHoYoAPIError+LocalizedError.swift"; sourceTree = "<group>"; };
 		EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetErrorView.swift; sourceTree = "<group>"; };
@@ -1169,8 +1165,6 @@
 		EAE519C12A0175F800EF23B7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5B5D9BC62BCFF50B0085E728 /* other_meta */,
-				EAEF1ABA2A84F4E90013AD48 /* gacha_meta */,
 				EAE519832A01738600EF23B7 /* Assets.xcassets */,
 				EA32764E2A03852C00774126 /* Icon.xcassets */,
 				EADA17C72A06B7BE00AF9784 /* background_image */,
@@ -1451,9 +1445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B5D9BC72BCFF50B0085E728 /* other_meta in Resources */,
 				EAB809242BD792C400FEC5FF /* PrivacyInfo.xcprivacy in Resources */,
-				EAEF1ABB2A84F4E90013AD48 /* gacha_meta in Resources */,
 				EADA17C82A06B7BE00AF9784 /* background_image in Resources */,
 				BFD051D92A08C2E9008343E8 /* HBPizzaHelperAPI in Resources */,
 				EAE519872A01738600EF23B7 /* Preview Assets.xcassets in Resources */,

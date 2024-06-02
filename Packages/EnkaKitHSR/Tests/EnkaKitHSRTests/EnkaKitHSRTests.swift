@@ -60,8 +60,7 @@ final class EnkaKitHSRTests: XCTestCase {
         XCTAssertEqual(summarized.equippedWeapon?.enkaId, 23024)
         XCTAssertEqual(summarized.equippedWeapon?.basicProps[0].localizedTitle, "基礎生命值")
         XCTAssertEqual(summarized.artifacts[0].enkaId, 61171)
-        print(summarized.mainInfo.photoFilePath)
-        XCTAssertTrue(FileManager.default.fileExists(atPath: summarized.mainInfo.photoFilePath))
+        XCTAssertTrue(EnkaHSR.queryImageAssetSUI(for: summarized.mainInfo.idExpressable.photoAssetName) != nil)
         // Check skill levels reinforced by constellations.
         let seijaku = detailInfo.avatarDetailList[4].summarize(theDB: enkaDatabase)
         XCTAssertNotNil(seijaku)
@@ -75,13 +74,12 @@ final class EnkaKitHSRTests: XCTestCase {
     }
 
     func testAllPropertyIconFileAccess() throws {
-        let fileMgr = FileManager.default
         EnkaHSR.PropertyType.allCases.filter(\.hasPropIcon).forEach { prop in
-            XCTAssertNotNil(prop.iconFilePath)
-            guard let iconPath = prop.iconFilePath else { return }
-            let exists = fileMgr.fileExists(atPath: iconPath)
+            XCTAssertNotNil(prop.iconAssetName)
+            guard let assetName = prop.iconAssetName else { return }
+            let exists = EnkaHSR.queryImageAssetSUI(for: assetName) != nil
             if !exists {
-                print("\nPath: \(iconPath)")
+                print("\nPath: \(assetName)")
                 XCTAssertTrue(exists)
                 print("\n")
             }

@@ -1,14 +1,12 @@
-//
-//  GachaItemExtension.swift
-//  HSRPizzaHelper
-//
-//  Created by 戴藏龙 on 2023/8/11.
-//
+// (c) 2023 and onwards Pizza Studio (GPL v3.0 License).
+// ====================
+// This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import EnkaKitHSR
 import Foundation
 import HBMihoyoAPI
 import SRGFKit
-import UIKit
+import SwiftUI
 
 extension GachaItemProtocol {
     var localizedName: String {
@@ -25,7 +23,12 @@ extension GachaItemProtocol {
         return initialValue ?? secondaryValue ?? "MissingName: \(itemID)"
     }
 
-    var icon: UIImage? {
-        GachaMetaManager.shared.getIcon(id: itemID, type: itemType)
+    var icon: Image? {
+        switch itemType {
+        case .lightCones:
+            EnkaHSR.queryWeaponImageSUI(for: itemID)
+        case .characters:
+            EnkaHSR.queryOfficialCharAvatarSUI(for: itemID)
+        }
     }
 }

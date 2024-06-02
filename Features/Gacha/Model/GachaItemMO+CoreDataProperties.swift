@@ -71,14 +71,6 @@ extension GachaItemMO: GachaItemProtocol {
 extension GachaItemMO: Identifiable {}
 
 extension GachaItemMO {
-    var localizedName: String {
-        GachaMetaManager.shared.getLocalizedName(id: itemID, type: itemType) ?? name
-    }
-
-    var icon: UIImage? {
-        GachaMetaManager.shared.getIcon(id: itemID, type: itemType)
-    }
-
     var isLose5050: Bool {
         guard rank == .five else { return true }
         switch itemID {
