@@ -220,19 +220,22 @@ private struct OtherSettingsView: View {
                 }
             }
 
-            Section {
-                Button("sys.account.force_push") {
-                    var accountInfo = "sys.account.force_push.received".localized()
-                    for account in accounts {
-                        accountInfo += "\(String(describing: account.name!)) (\(String(describing: account.uid!)))\n"
+            if WatchConnectivityManager.isSupported {
+                Section {
+                    Button("sys.account.force_push") {
+                        var accountInfo = "sys.account.force_push.received".localized()
+                        for account in accounts {
+                            accountInfo +=
+                                "\(String(describing: account.name!)) (\(String(describing: account.uid!)))\n"
+                        }
+                        for account in accounts {
+                            WatchConnectivityManager.shared.sendAccounts(account, accountInfo)
+                        }
                     }
-                    for account in accounts {
-                        WatchConnectivityManager.shared.sendAccounts(account, accountInfo)
-                    }
+                } footer: {
+                    Text("sys.account.force_push.footer")
+                        .textCase(.none)
                 }
-            } footer: {
-                Text("sys.account.force_push.footer")
-                    .textCase(.none)
             }
 
             Section {

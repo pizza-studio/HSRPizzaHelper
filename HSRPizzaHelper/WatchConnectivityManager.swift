@@ -30,6 +30,12 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         }
     }
 
+    // MARK: Public
+
+    public static var isSupported: Bool {
+        WCSession.isSupported()
+    }
+
     // MARK: Internal
 
     static let shared = WatchConnectivityManager()
