@@ -103,7 +103,7 @@ struct CharacterInventoryView: View {
 
     @ViewBuilder
     func renderAllAvatarListCondensed(canvasWidth: CGFloat) -> some View {
-        let lineCapacity = Int(floor((canvasWidth - 40) / 70))
+        let lineCapacity = Int(floor((canvasWidth - 40) / (70 + 5)))
         let gridColumnsFixed = [GridItem](repeating: .init(.flexible()), count: lineCapacity)
         LazyVGrid(columns: gridColumnsFixed, spacing: 2) {
             ForEach(showingAvatars, id: \.id) { avatar in
