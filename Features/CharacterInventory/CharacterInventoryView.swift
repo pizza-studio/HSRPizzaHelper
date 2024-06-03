@@ -2,6 +2,7 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Defaults
 import EnkaKitHSR
 import EnkaSwiftUIViews
 import Flow
@@ -189,20 +190,17 @@ struct CharacterInventoryView: View {
 // MARK: - AvatarListItem
 
 struct AvatarListItem: View {
-    let avatar: MiHoYoAPI.CharacterInventory.HYAvatar
+    // MARK: Lifecycle
 
-    @State var condensed: Bool
-
-    var charName: String {
-        if EnkaHSR.Sputnik.sharedDB.characters.keys.contains(avatar.id.description) {
-            let nameObj = EnkaHSR.CharacterName(pid: avatar.id)
-            return nameObj.i18n(theDB: EnkaHSR.Sputnik.sharedDB)
-        } else {
-            return avatar.name
-        }
+    public init(avatar: MiHoYoAPI.CharacterInventory.HYAvatar, condensed: Bool) {
+        self.avatar = avatar
+        self.condensed = condensed
+        self.useRealName = useRealName
     }
 
-    var body: some View {
+    // MARK: Public
+
+    public var body: some View {
         HStack(spacing: condensed ? 0 : 3) {
             ZStack(alignment: .bottomLeading) {
                 Group {
@@ -278,6 +276,17 @@ struct AvatarListItem: View {
         }
     }
 
+    // MARK: Internal
+
+    var charName: String {
+        if EnkaHSR.Sputnik.sharedDB.characters.keys.contains(avatar.id.description) {
+            let nameObj = EnkaHSR.CharacterName(pid: avatar.id)
+            return nameObj.i18n(theDB: EnkaHSR.Sputnik.sharedDB, officialNameOnly: !useRealName)
+        } else {
+            return avatar.name
+        }
+    }
+
     @MainActor
     func queryArtifactImg(for target: any MiHoYoAPIArtifactProtocol) -> Image? {
         guard let neutralData = EnkaHSR.Sputnik.sharedDB.artifacts[target.id.description] else { return nil }
@@ -286,4 +295,12 @@ struct AvatarListItem: View {
         let assetName = "relic_\(neutralData.setID)_\(type.assetSuffix)"
         return EnkaHSR.queryImageAssetSUI(for: assetName)
     }
+
+    // MARK: Private
+
+    private let avatar: MiHoYoAPI.CharacterInventory.HYAvatar
+
+    @State private var condensed: Bool
+
+    @Default(.useRealCharacterNames) private var useRealName: Bool
 }
