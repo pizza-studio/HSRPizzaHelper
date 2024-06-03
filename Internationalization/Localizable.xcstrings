@@ -12372,6 +12372,35 @@
         }
       }
     },
+    "setting.uirelated.restoreTabOnLaunching" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore previous tab on launch"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ起動の時、以前使っていたタブを復元する"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 App 启动时，还原之前的页签"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 App 啟動時，還原之前的頁簽"
+          }
+        }
+      }
+    },
     "setting.uirelated.showCase.animateOnCallingCharacterShowcase.title" : {
       "extractionState" : "manual",
       "localizations" : {

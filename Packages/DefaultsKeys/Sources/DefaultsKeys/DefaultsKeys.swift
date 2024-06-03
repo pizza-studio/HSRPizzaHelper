@@ -16,6 +16,12 @@ extension UserDefaults {
 extension Defaults.Keys {
     // MARK: - In app
 
+    /// Remembering the most-recent tab index.
+    public static let appTabIndex = Key<Int>("appTabIndex", default: 0, suite: .hsrSuite)
+
+    /// Remembering the most-recent tab index.
+    public static let restoreTabOnLaunching = Key<Bool>("restoreTabOnLaunching", default: true, suite: .hsrSuite)
+
     /// The version of the app for which the user was prompted to leave a review
     public static let lastVersionPromptedForReview = Key<String?>(
         "lastVersionPromptedForReview",

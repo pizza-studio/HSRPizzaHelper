@@ -74,6 +74,9 @@ struct DisplayOptionsView: View {
                     }
                 }
                 .pickerStyle(.navigationLink)
+                Toggle(isOn: $restoreTabOnLaunching) {
+                    Text("setting.uirelated.restoreTabOnLaunching")
+                }
             }
 
             Section {
@@ -130,6 +133,7 @@ struct DisplayOptionsView: View {
         localized: .init(stringLiteral: "detailPortal.AllCharacterPhotoSpecimen")
     )
 
+    @Default(.restoreTabOnLaunching) private var restoreTabOnLaunching: Bool
     @Default(.wallpaper) private var wallpaper: Wallpaper
     @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator
     @Default(.animateOnCallingCharacterShowcase) private var animateOnCallingCharacterShowcase: Bool

@@ -6,6 +6,8 @@
 //
 
 import CoreData
+import Defaults
+import DefaultsKeys
 import HBPizzaHelperAPI
 import SFSafeSymbols
 import SwiftUI
@@ -16,7 +18,7 @@ struct ContentView: View {
     // MARK: Internal
 
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: index) {
             HomeView()
                 .tag(0)
                 .tabItem {
@@ -47,9 +49,22 @@ struct ContentView: View {
         .initializeApp()
     }
 
+    var index: Binding<Int> { Binding(
+        get: { selection },
+        set: {
+            selection = $0
+            Defaults[.appTabIndex] = $0
+            UserDefaults.hsrSuite.synchronize()
+        }
+    ) }
+
     // MARK: Private
 
-    @State private var selection: Int = 0
+    @State private var selection: Int = {
+        guard Defaults[.restoreTabOnLaunching] else { return 0 }
+        guard (0 ..< 3).contains(Defaults[.appTabIndex]) else { return 0 }
+        return Defaults[.appTabIndex]
+    }()
 
     @Environment(\.colorScheme) private var colorScheme
 
