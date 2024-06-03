@@ -32,7 +32,7 @@ public struct AvatarShowCaseView: View {
             blankView()
         } else {
             GeometryReader { geometry in
-                actualView()
+                coreBody()
                     .environmentObject(orientation)
                     .overlay(alignment: .top) {
                         HelpTextForScrollingOnDesktopComputer(.horizontal).padding()
@@ -43,43 +43,12 @@ public struct AvatarShowCaseView: View {
         }
     }
 
-    public var hasNoAvatars: Bool {
-        profile.summarizedAvatars.isEmpty
-    }
-
     @ViewBuilder
-    public func blankView() -> some View {
-        Text("🗑️")
-    }
-
-    @ViewBuilder
-    public func actualView() -> some View {
+    public func coreBody() -> some View {
         TabView(selection: $showingCharacterIdentifier.animation()) {
             // TabView 以 EnkaID 为依据。
             ForEach(profile.summarizedAvatars) { avatar in
-                EachAvatarStatView(data: avatar, background: false)
-                    .fixedSize()
-                    .scaleEffect(scaleRatioCompatible)
-                    .contextMenu {
-                        Group {
-                            Button("app.detailPortal.avatar.summarzeToClipboard.asText") {
-                                Clipboard.writeString(avatar.asText)
-                            }
-                            Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
-                                Clipboard.writeString(avatar.asMarkDown)
-                            }
-                            #if os(OSX) || targetEnvironment(macCatalyst)
-                            Divider()
-                            ForEach(profile.summarizedAvatars) { theAvatar in
-                                Button(theAvatar.mainInfo.name) {
-                                    withAnimation {
-                                        showingCharacterIdentifier = theAvatar.mainInfo.uniqueCharId
-                                    }
-                                }
-                            }
-                            #endif
-                        }
-                    }
+                framedCoreView(avatar)
             }
         }
         #if !os(OSX)
@@ -96,6 +65,8 @@ public struct AvatarShowCaseView: View {
                 .scaleEffect(1.2)
                 .ignoresSafeArea(.all)
         }
+        .clipped()
+        .compositingGroup()
         .onChange(of: showingCharacterIdentifier) { _ in
             #if canImport(UIKit)
             let selectionGenerator = UISelectionFeedbackGenerator()
@@ -105,8 +76,6 @@ public struct AvatarShowCaseView: View {
                 showTabViewIndex = true
             }
         }
-        .clipped()
-        .compositingGroup()
         .ignoresSafeArea()
         .onAppear {
             showTabViewIndex = true
@@ -125,6 +94,47 @@ public struct AvatarShowCaseView: View {
         #endif
     }
 
+    // MARK: Internal
+
+    @ViewBuilder
+    func framedCoreView(_ avatar: EnkaHSR.AvatarSummarized) -> some View {
+        VStack {
+            Spacer().frame(width: 25, height: 10)
+            EachAvatarStatView(
+                data: avatar, background: false
+            ).frame(minWidth: 620, maxWidth: 830) // For iPad
+                .frame(width: 620)
+                .fixedSize()
+                .scaleEffect(scaleRatioCompatible)
+                .contextMenu {
+                    Group {
+                        Button("app.detailPortal.avatar.summarzeToClipboard.asText") {
+                            Clipboard.writeString(avatar.asText)
+                        }
+                        Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
+                            Clipboard.writeString(avatar.asMarkDown)
+                        }
+                        #if os(OSX) || targetEnvironment(macCatalyst)
+                        Divider()
+                        ForEach(profile.summarizedAvatars) { theAvatar in
+                            Button(theAvatar.mainInfo.name) {
+                                withAnimation {
+                                    showingCharacterIdentifier = theAvatar.mainInfo.uniqueCharId
+                                }
+                            }
+                        }
+                        #endif
+                    }
+                }
+            Spacer().frame(width: 25, height: bottomSpacerHeight)
+        }
+    }
+
+    @ViewBuilder
+    func blankView() -> some View {
+        Text("🗑️")
+    }
+
     // MARK: Private
 
     @State private var selection: Int = 0
@@ -137,6 +147,7 @@ public struct AvatarShowCaseView: View {
 
     @ObservedObject private var profile: EnkaHSR.ProfileSummarized
     @StateObject private var orientation = DeviceOrientation()
+    private let bottomSpacerHeight: CGFloat = 20
 
     private var avatar: EnkaHSR.AvatarSummarized? {
         profile.summarizedAvatars.first(where: { avatar in
@@ -144,9 +155,9 @@ public struct AvatarShowCaseView: View {
         })
     }
 
-    private var scaleRatioCompatible: CGFloat {
-        DeviceOrientation.scaleRatioCompatible
-    }
+    private var scaleRatioCompatible: CGFloat { DeviceOrientation.scaleRatioCompatible }
+
+    private var hasNoAvatars: Bool { profile.summarizedAvatars.isEmpty }
 }
 
 extension EnkaHSR.ProfileSummarized {
