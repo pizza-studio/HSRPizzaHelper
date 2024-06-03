@@ -24,47 +24,24 @@ public struct EachAvatarStatView: View {
     public var body: some View {
         // 按照 iPhone SE2-SE3 的标准画面解析度（375 × 667）制作。
         LazyVStack(spacing: outerContentSpacing) {
-            Group {
-                data.mainInfo.asView(fontSize: fontSize)
-                LazyVStack(spacing: 2 * Self.zoomFactor) {
-                    data.equippedWeapon?.asView(fontSize: fontSize)
-                    propertyGrid
-                        .fixedSize(horizontal: false, vertical: true)
-                        .minimumScaleFactor(0.5)
-                    if enableArtifactRatingInShowcase, let ratingResult = data.artifactRatingResult {
-                        HStack {
-                            Text(verbatim: " → " + data.mainInfo.terms.artifactRatingName)
-                                .fontWidth(.compressed)
-                            Spacer()
-                            Text(
-                                verbatim: ratingResult.sumExpression
-                                    + ratingResult.allpt.description
-                                    + "(\(ratingResult.result))"
-                            )
-                            .fontWeight(.bold)
-                            .fontWidth(.condensed)
-                        }
-                        .font(.system(size: fontSize * 0.7))
-                        .opacity(0.9)
-                        .padding(.top, 2)
-                    }
-                }
-                .padding(.horizontal, 11 * Self.zoomFactor)
-                .padding(.vertical, 6 * Self.zoomFactor)
-                .background {
-                    Color.black.opacity(0.2)
-                        .clipShape(.rect(cornerSize: .init(width: fontSize * 0.5, height: fontSize * 0.5)))
-                }
-                artifactGrid
+            data.mainInfo.asView(fontSize: fontSize)
+            LazyVStack(spacing: 2 * Self.zoomFactor) {
+                data.equippedWeapon?.asView(fontSize: fontSize)
+                propertyGrid
+                artifactRatingSummaryRow
             }
-            .frame(width: 353 * Self.zoomFactor)
-            .padding(.top, 8 * Self.zoomFactor)
-            if shouldOptimizeForPhone {
-                Spacer().frame(maxHeight: 100)
+            .padding(.horizontal, 11 * Self.zoomFactor)
+            .padding(.vertical, 6 * Self.zoomFactor)
+            .background {
+                Color.black.opacity(0.2)
+                    .clipShape(.rect(cornerSize: .init(width: fontSize * 0.5, height: fontSize * 0.5)))
             }
+            artifactGrid
         }
         .preferredColorScheme(.dark)
         .frame(width: 375 * Self.zoomFactor) // 输出画面刚好 375*500，可同时相容于 iPad。
+        .padding(Self.spacingDeltaAmount * 7)
+        .padding(.vertical, Self.spacingDeltaAmount * 5)
         .background {
             if showBackground {
                 data.asBackground()
@@ -76,6 +53,26 @@ public struct EachAvatarStatView: View {
     // MARK: Internal
 
     @Default(.enableArtifactRatingInShowcase) var enableArtifactRatingInShowcase: Bool
+
+    @ViewBuilder var artifactRatingSummaryRow: some View {
+        if enableArtifactRatingInShowcase, let ratingResult = data.artifactRatingResult {
+            HStack {
+                Text(verbatim: " → " + data.mainInfo.terms.artifactRatingName)
+                    .fontWidth(.compressed)
+                Spacer()
+                Text(
+                    verbatim: ratingResult.sumExpression
+                        + ratingResult.allpt.description
+                        + "(\(ratingResult.result))"
+                )
+                .fontWeight(.bold)
+                .fontWidth(.condensed)
+            }
+            .font(.system(size: fontSize * 0.7))
+            .opacity(0.9)
+            .padding(.top, 2)
+        }
+    }
 
     @ViewBuilder var propertyGrid: some View {
         let gridColumnsFixed = [GridItem](repeating: .init(.flexible()), count: 2)
@@ -98,7 +95,6 @@ public struct EachAvatarStatView: View {
                 )
             }
         }
-        .fixedSize(horizontal: false, vertical: true)
     }
 
     @ViewBuilder var artifactGrid: some View {
@@ -121,6 +117,8 @@ public struct EachAvatarStatView: View {
         return 1.66
         #endif
     }()
+
+    private static let spacingDeltaAmount: CGFloat = 5
 
     @Environment(\.verticalSizeClass) private var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
