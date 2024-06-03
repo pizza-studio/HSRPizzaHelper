@@ -59,7 +59,6 @@ public struct AvatarShowCaseView: View {
             ForEach(profile.summarizedAvatars) { avatar in
                 EachAvatarStatView(data: avatar, background: false)
                     .fixedSize()
-                    .compositingGroup()
                     .scaleEffect(scaleRatioCompatible)
                     .contextMenu {
                         Group {
@@ -107,22 +106,23 @@ public struct AvatarShowCaseView: View {
             }
         }
         .clipped()
-        .ignoresSafeArea(.all)
-        #if !os(OSX)
-            .statusBarHidden(true)
-        #endif
-            .onAppear {
-                showTabViewIndex = true
-            }
-            .onChange(of: showTabViewIndex) { newValue in
-                if newValue == true {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
-                        withAnimation {
-                            showTabViewIndex = false
-                        }
+        .compositingGroup()
+        .ignoresSafeArea()
+        .onAppear {
+            showTabViewIndex = true
+        }
+        .onChange(of: showTabViewIndex) { newValue in
+            if newValue == true {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
+                    withAnimation {
+                        showTabViewIndex = false
                     }
                 }
             }
+        }
+        #if !os(OSX)
+        .statusBarHidden(true)
+        #endif
     }
 
     // MARK: Private
