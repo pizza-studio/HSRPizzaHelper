@@ -242,7 +242,6 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                         }
                     }
                 }
-                .shadow(radius: 5)
                 HStack {
                     LazyVStack(spacing: 1) {
                         AttributeTagPair(
@@ -253,7 +252,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
                             title: terms.constellationName, valueStr: "E\(self.constellation)",
                             fontSize: fontSize * 0.8
                         )
-                    }.shadow(radius: 10)
+                    }
                     HStack(alignment: .lastTextBaseline, spacing: 0) {
                         ForEach(baseSkills.toArray, id: \.type) { skill in
                             skill.asView(fontSize: fontSize).fixedSize()
@@ -291,7 +290,6 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .scaleEffect(0.8)
-                        .shadow(radius: 5)
                 }.frame(
                     width: fontSize * 2.2,
                     height: fontSize * 2
@@ -305,10 +303,6 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
                     .clipShape(Capsule())
                 levelDisplay(size: fontSize * 0.9)
                     .padding(.horizontal, 4)
-                    .shadow(
-                        color: Color(.sRGBLinear, white: 0, opacity: 1),
-                        radius: 3
-                    )
             }.frame(height: fontSize).fixedSize()
         }
     }
@@ -453,7 +447,6 @@ extension EnkaHSR.AvatarSummarized.ArtifactInfo {
         }
         .frame(height: fontSize * 4)
         .fixedSize(horizontal: false, vertical: true)
-        .shadow(radius: 10)
         .corneredTag(
             verbatim: "Lv.\(trainedLevel) ★\(rarityStars)",
             alignment: .bottomLeading, textSize: fontSize * 0.7

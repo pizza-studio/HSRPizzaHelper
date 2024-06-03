@@ -241,7 +241,6 @@ public struct IDPhotoView: View {
                 .saturation(0.5)
                 .brightness(0.5)
                 .opacity(0.7)
-                .shadow(radius: size / 5)
         }
         .background(baseWindowBGColor)
     }
