@@ -515,21 +515,21 @@ private struct PlayerDetailSection: View {
             let theCase = currentShowCase
             switch vmDPV.playerDetailStatus {
             case .progress:
-                currentShowCase
+                theCase
                     .disabled(true)
                     .saturation(0)
                 InfiniteProgressBar().id(UUID())
             case let .fail(error):
-                currentShowCase
+                theCase
                 DPVErrorView(account: account, apiPath: "", error: error) {
                     Task {
                         await vmDPV.fetchPlayerDetail()
                     }
                 }
             case .standby:
-                currentShowCase
+                theCase
             case let .succeed((playerDetail, _)):
-                currentShowCase
+                theCase
                 if playerDetail.avatarDetailList.isEmpty {
                     Divider()
                     Button {
@@ -728,6 +728,8 @@ private struct VerificationNeededView: View {
                 Text("Error: \(error.localizedDescription)")
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .clipShape(Rectangle())
     }
 
     func popVerificationWebSheet() {
@@ -827,6 +829,8 @@ private struct InformationRowView<L: View>: View {
         VStack(alignment: .leading) {
             Text(title).bold()
             labelContent()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .clipShape(Rectangle())
         }
     }
 }
