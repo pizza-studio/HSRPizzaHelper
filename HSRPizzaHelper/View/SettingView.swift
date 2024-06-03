@@ -14,65 +14,33 @@ import SwiftUI
 // MARK: - SettingView
 
 struct SettingView: View {
-    // MARK: Internal
+    // MARK: Public
 
-    var body: some View {
-        NavigationView {
-            List {
+    @ViewBuilder public var body: some View {
+        NavigationSplitView(columnVisibility: .constant(.all)) {
+            List(selection: $selectedView) {
                 Section {
-                    NavigationLink {
-                        ManageAccountsView()
-                    } label: {
+                    NavigationLink(value: Navigation.accountManagement) {
                         Label("account.manage.title", systemSymbol: .personFill)
                     }
+                    NavigationLink(value: Navigation.theFAQ) {
+                        Label("sys.faq.title", systemSymbol: .personFillQuestionmark)
+                    }
                 }
+
                 Section {
-                    NavigationLink {
-                        WidgetSettingView()
-                    } label: {
+                    NavigationLink(value: Navigation.notificationSettings) {
+                        Label("setting.notification.title", systemSymbol: .bellBadgeFill)
+                    }
+                    NavigationLink(value: Navigation.widgetSettings) {
                         Label("setting.widget.title", systemSymbol: .platter2FilledIphone)
                     }
-                    NavigationLink {
-                        NotificationSettingView()
-                    } label: {
-                        Label {
-                            Text("setting.notification.title")
-                        } icon: {
-                            Image(systemSymbol: .bellBadgeFill)
-                        }
+                    NavigationLink(value: Navigation.uiSettings) {
+                        Label("setting.uirelated.title", systemSymbol: .pc)
                     }
-                    NavigationLink {
-                        DisplayOptionsView()
-                    } label: {
-                        Label {
-                            Text("setting.uirelated.title")
-                        } icon: {
-                            Image(systemSymbol: .uiwindowSplit2x1)
-                        }
-                    }
-                }
-                Section {
                     Button {
-                        ReviewHandler.requestReviewIfNotRequestedElseNavigateToAppStore()
-                    } label: {
-                        Label("sys.label.rate", systemSymbol: .starBubble)
-                    }
-                    NavigationLink(
-                        destination: GlobalDonateView()
-                    ) {
-                        Label("sys.label.support", systemSymbol: .giftcard)
-                    }
-                    NavigationLink(destination: ContactInfoView()) {
-                        Label("sys.label.contact", systemSymbol: .bubbleLeftAndBubbleRight)
-                    }
-                }
-                Section {
-                    Button {
-                        UIApplication.shared
-                            .open(URL(
-                                string: UIApplication
-                                    .openSettingsURLString
-                            )!)
+                        let urlMUISettings = URL(string: UIApplication.openSettingsURLString)!
+                        UIApplication.shared.open(urlMUISettings)
                     } label: {
                         Label {
                             Text("sys.label.preferredlang")
@@ -80,43 +48,83 @@ struct SettingView: View {
                             Image(systemSymbol: .globe)
                         }
                     }
+                }
 
-                    let url: String = {
-                        switch AppConfig.appLanguage {
-                        case .en:
-                            return "https://hsr.pizzastudio.org/static/faq_en"
-                        case .zhcn, .zhtw:
-                            return "https://hsr.pizzastudio.org/static/faq"
-                        case .ja:
-                            return "https://hsr.pizzastudio.org/static/faq_ja"
-                        }
-                    }()
-                    NavigationLink(
-                        destination: WebBrowserView(url: url)
-                            .navigationTitle("sys.faq.title")
-                            .navigationBarTitleDisplayMode(.inline)
-                    ) {
-                        Label("sys.faq.title", systemSymbol: .personFillQuestionmark)
-                    }
-                    NavigationLink {
-                        OtherSettingsView()
+                Section {
+                    Button {
+                        ReviewHandler.requestReviewIfNotRequestedElseNavigateToAppStore()
                     } label: {
+                        Label("sys.label.rate", systemSymbol: .starBubble)
+                    }
+                    NavigationLink(value: Navigation.donation) {
+                        Label("sys.label.support", systemSymbol: .giftcard)
+                    }
+                    NavigationLink(value: Navigation.contact) {
+                        Label("sys.label.contact", systemSymbol: .bubbleLeftAndBubbleRight)
+                    }
+                    NavigationLink(value: Navigation.moreSettings) {
                         Label("sys.more.title", systemSymbol: .ellipsis)
                     }
                 }
             }
             .listStyle(.insetGrouped)
             .navigationTitle("settings.title")
-            #if !os(watchOS)
-            if horizontalSizeClass != .compact {
-                DisplayOptionsView()
+        } detail: {
+            NavigationStack {
+                switch selectedView {
+                case .accountManagement:
+                    ManageAccountsView()
+                case .theFAQ:
+                    WebBrowserView(url: Self.faqURL)
+                        .navigationTitle("sys.faq.title")
+                        .navigationBarTitleDisplayMode(.inline)
+                case .widgetSettings:
+                    WidgetSettingView()
+                case .notificationSettings:
+                    NotificationSettingView()
+                case .uiSettings:
+                    DisplayOptionsView()
+                case .donation:
+                    GlobalDonateView()
+                case .contact:
+                    ContactInfoView()
+                case .moreSettings:
+                    OtherSettingsView()
+                default: // case nil.
+                    DisplayOptionsView()
+                }
             }
-            #endif
         }
-        .navigationViewStyle(.columns)
+        .alwaysShowSideBar()
+    }
+
+    // MARK: Internal
+
+    enum Navigation {
+        case accountManagement
+        case theFAQ
+        case widgetSettings
+        case notificationSettings
+        case uiSettings
+        case donation
+        case contact
+        case moreSettings
     }
 
     // MARK: Private
+
+    private static let faqURL: String = {
+        switch AppConfig.appLanguage {
+        case .en:
+            return "https://hsr.pizzastudio.org/static/faq_en"
+        case .zhcn, .zhtw:
+            return "https://hsr.pizzastudio.org/static/faq"
+        case .ja:
+            return "https://hsr.pizzastudio.org/static/faq_ja"
+        }
+    }()
+
+    @State private var selectedView: Navigation?
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
 }

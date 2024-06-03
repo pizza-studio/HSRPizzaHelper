@@ -32,6 +32,7 @@
 		5B76D67C2C04711600E813C6 /* CGImageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11A2692C01FE9A006B0BF9 /* CGImageImpl.swift */; };
 		5B7990312BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */; };
 		5B7CE2B82BCD2EAE0053FD7D /* EnkaKitHSR in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7CE2B72BCD2EAE0053FD7D /* EnkaKitHSR */; };
+		5B835D062C0E257C007B33A0 /* AlwaysShowSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B835D052C0E257C007B33A0 /* AlwaysShowSideBar.swift */; };
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
 		5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
@@ -355,6 +356,7 @@
 		5B62B7572BFB9BAA0051E097 /* NewsKitHSR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NewsKitHSR; path = Packages/NewsKitHSR; sourceTree = "<group>"; };
 		5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig_SwiftUIImpl.swift; sourceTree = "<group>"; };
 		5B7CE2B62BCD2DAF0053FD7D /* EnkaKitHSR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = EnkaKitHSR; path = Packages/EnkaKitHSR; sourceTree = "<group>"; };
+		5B835D052C0E257C007B33A0 /* AlwaysShowSideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwaysShowSideBar.swift; sourceTree = "<group>"; };
 		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
 		5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPortalView.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
@@ -826,6 +828,7 @@
 		EA60BE602A050C4000CBF10B /* View Modifier */ = {
 			isa = PBXGroup;
 			children = (
+				5B835D052C0E257C007B33A0 /* AlwaysShowSideBar.swift */,
 				5B4C5BA22C09EECC00A6EA05 /* DismissableSheet.swift */,
 				BFDF6A832A08CAE200048FF9 /* AutoSheetDismiss.swift */,
 				EA60BE612A050C5400CBF10B /* ScenePhaseOnChange.swift */,
@@ -1636,6 +1639,7 @@
 				EAE519CE2A017BD300EF23B7 /* FetchStatus.swift in Sources */,
 				EADA63772A0201B200BF070F /* HomeView.swift in Sources */,
 				5B579DB72BFCF16E0030C64D /* SwiftUIColorImpl.swift in Sources */,
+				5B835D062C0E257C007B33A0 /* AlwaysShowSideBar.swift in Sources */,
 				EA2C064C2A04A0CA00A328E6 /* Account+CoreDataClass.swift in Sources */,
 				EA477FF72A08899C0082D211 /* AccountExtension.swift in Sources */,
 				EA3BDCA42A83D20A001C3C6C /* GachaView.swift in Sources */,
