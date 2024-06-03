@@ -39,8 +39,9 @@ public struct EachAvatarStatView: View {
             artifactGrid
         }
         .preferredColorScheme(.dark)
+        .padding(Self.spacingDeltaAmount * 5)
         .frame(width: 375 * Self.zoomFactor) // 输出画面刚好 375*500，可同时相容于 iPad。
-        .padding(Self.spacingDeltaAmount * 7)
+        .padding(Self.spacingDeltaAmount * 2)
         .padding(.vertical, Self.spacingDeltaAmount * 5)
         .background {
             if showBackground {
@@ -49,6 +50,7 @@ public struct EachAvatarStatView: View {
                     data.asBackground()
                         .scaledToFill()
                         .scaleEffect(1.2)
+                        .clipped()
                 }
                 .compositingGroup()
                 .ignoresSafeArea(.all)

@@ -65,6 +65,7 @@ public struct AvatarShowCaseView: View {
                 avatar?.asBackground()
                     .scaledToFill()
                     .scaleEffect(1.2)
+                    .clipped()
             }
             .compositingGroup()
             .ignoresSafeArea(.all)
@@ -104,10 +105,8 @@ public struct AvatarShowCaseView: View {
     func framedCoreView(_ avatar: EnkaHSR.AvatarSummarized) -> some View {
         VStack {
             Spacer().frame(width: 25, height: 10)
-            EachAvatarStatView(
-                data: avatar, background: false
-            ).frame(minWidth: 620, maxWidth: 830) // For iPad
-                .frame(width: 620)
+            /// Width is locked inside the EachAvatarStatView.
+            EachAvatarStatView(data: avatar, background: false)
                 .fixedSize()
                 .scaleEffect(scaleRatioCompatible)
                 .contextMenu {
