@@ -195,7 +195,7 @@ struct WallpaperView: View {
     var wallpaperOverride: Wallpaper?
 
     var body: some View {
-        Image(decorative: (wallpaperOverride ?? wallpaper).imageData, scale: 1)
+        (wallpaperOverride ?? wallpaper).image?
             .resizable()
             .aspectRatio(contentMode: .fit)
             .scaledToFill()

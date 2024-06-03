@@ -62,7 +62,7 @@ struct DisplayOptionsView: View {
                             Circle()
                                 .foregroundStyle(Color.clear)
                                 .background(alignment: .topTrailing) {
-                                    Image(decorative: currentWP.imageData, scale: 1)
+                                    currentWP.image?
                                         .resizable()
                                         .scaledToFill()
                                         .scaleEffect(2)

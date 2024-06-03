@@ -35,8 +35,8 @@ extension Wallpaper {
         Self.langDB[rawValue.description] ?? String(describing: self)
     }
 
-    public var imageData: CGImage {
-        EnkaHSR.queryImageAsset(for: "WP\(rawValue)")!
+    public var image: Image? {
+        EnkaHSR.queryImageAssetSUI(for: "WP\(rawValue)")
     }
 }
 
