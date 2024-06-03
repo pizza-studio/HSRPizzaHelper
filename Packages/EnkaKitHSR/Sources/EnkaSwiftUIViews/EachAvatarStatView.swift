@@ -44,7 +44,14 @@ public struct EachAvatarStatView: View {
         .padding(.vertical, Self.spacingDeltaAmount * 5)
         .background {
             if showBackground {
-                data.asBackground()
+                ZStack {
+                    Color(hue: 0, saturation: 0, brightness: 0.1)
+                    data.asBackground()
+                        .scaledToFill()
+                        .scaleEffect(1.2)
+                }
+                .compositingGroup()
+                .ignoresSafeArea(.all)
             }
         }
         // .showDimension()
@@ -157,7 +164,7 @@ extension EnkaHSR.AvatarSummarized {
 
     @ViewBuilder
     public func asBackground() -> some View {
-        EnkaHSR.queryImageAssetSUI(for: mainInfo.idExpressable.avatarAssetName)?
+        EnkaHSR.queryImageAssetSUI(for: mainInfo.idExpressable.photoAssetName)?
             .resizable()
             .aspectRatio(contentMode: .fill)
             .blur(radius: 60)
@@ -167,7 +174,7 @@ extension EnkaHSR.AvatarSummarized {
 
     @ViewBuilder
     public func asPortrait() -> some View {
-        EnkaHSR.queryImageAssetSUI(for: mainInfo.idExpressable.avatarAssetName)?
+        EnkaHSR.queryImageAssetSUI(for: mainInfo.idExpressable.photoAssetName)?
             .resizable()
             .aspectRatio(contentMode: .fit)
             .background {

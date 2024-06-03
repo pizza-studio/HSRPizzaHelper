@@ -60,10 +60,14 @@ public struct AvatarShowCaseView: View {
             onClose?()
         }
         .background {
-            avatar?.asBackground()
-                .scaledToFill()
-                .scaleEffect(1.2)
-                .ignoresSafeArea(.all)
+            ZStack {
+                Color(hue: 0, saturation: 0, brightness: 0.1)
+                avatar?.asBackground()
+                    .scaledToFill()
+                    .scaleEffect(1.2)
+            }
+            .compositingGroup()
+            .ignoresSafeArea(.all)
         }
         .clipped()
         .compositingGroup()
