@@ -28,7 +28,7 @@ struct GachaView: View {
                 }
                 NavigationLink("gacha.manage.srgf.export") {
                     ExportGachaView()
-                }
+                }.disabled(noDataAvailable)
             }
             Section {
                 if !availableUIDAndNames.isEmpty {
@@ -64,6 +64,8 @@ struct GachaView: View {
     @State private var availableUIDAndNames: [(String, String?)] = []
 
     @Environment(\.managedObjectContext) private var viewContext
+
+    private var noDataAvailable: Bool { availableUIDAndNames.isEmpty }
 
     private func getAvailableUIDAndNames() -> [(String, String?)] {
         let request =

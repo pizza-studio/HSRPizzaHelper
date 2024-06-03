@@ -8110,43 +8110,43 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data. Get warp record first. "
+            "value" : "No data. Get warp record first. You can import warp record from SRGF record files or using your own gacha link URL."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data. Get warp record first. "
+            "value" : "No data. Get warp record first. You can import warp record from SRGF record files or using your own gacha link URL."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "データがありません。跳躍履歴を取得してください"
+            "value" : "データはございません。跳躍履歴を取得してください。SRGFファイルでも、ご自分のガチャURLでも、ガチャ記録を読み込むのも可能です。"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data. Get warp record first. "
+            "value" : "No data. Get warp record first. You can import warp record from SRGF record files or using your own gacha link URL."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data. Get warp record first. "
+            "value" : "No data. Get warp record first. You can import warp record from SRGF record files or using your own gacha link URL."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无数据。请先获取跃迁记录。"
+            "value" : "无数据。请先获取跃迁记录。您可以导入 SRGF 抽卡记录，或者使用自己的抽卡 URL 来获取抽卡记录。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無資料。請先獲取躍遷記錄。"
+            "value" : "無資料。請先獲取躍遷記錄。您可以匯入 SRGF 抽卡記錄，或者使用自己的抽卡 URL 來獲取抽卡記錄。"
           }
         }
       }
