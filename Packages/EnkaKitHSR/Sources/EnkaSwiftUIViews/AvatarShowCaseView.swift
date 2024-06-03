@@ -70,6 +70,28 @@ public struct AvatarShowCaseView: View {
             .compositingGroup()
             .ignoresSafeArea(.all)
         }
+        .contextMenu {
+            if let avatar = avatar {
+                Group {
+                    Button("app.detailPortal.avatar.summarzeToClipboard.asText") {
+                        Clipboard.writeString(avatar.asText)
+                    }
+                    Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
+                        Clipboard.writeString(avatar.asMarkDown)
+                    }
+                    #if os(OSX) || targetEnvironment(macCatalyst)
+                    Divider()
+                    ForEach(profile.summarizedAvatars) { theAvatar in
+                        Button(theAvatar.mainInfo.name) {
+                            withAnimation {
+                                showingCharacterIdentifier = theAvatar.mainInfo.uniqueCharId
+                            }
+                        }
+                    }
+                    #endif
+                }
+            }
+        }
         .clipped()
         .compositingGroup()
         .onChange(of: showingCharacterIdentifier) { _ in
@@ -109,26 +131,6 @@ public struct AvatarShowCaseView: View {
             EachAvatarStatView(data: avatar, background: false)
                 .fixedSize()
                 .scaleEffect(scaleRatioCompatible)
-                .contextMenu {
-                    Group {
-                        Button("app.detailPortal.avatar.summarzeToClipboard.asText") {
-                            Clipboard.writeString(avatar.asText)
-                        }
-                        Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
-                            Clipboard.writeString(avatar.asMarkDown)
-                        }
-                        #if os(OSX) || targetEnvironment(macCatalyst)
-                        Divider()
-                        ForEach(profile.summarizedAvatars) { theAvatar in
-                            Button(theAvatar.mainInfo.name) {
-                                withAnimation {
-                                    showingCharacterIdentifier = theAvatar.mainInfo.uniqueCharId
-                                }
-                            }
-                        }
-                        #endif
-                    }
-                }
             Spacer().frame(width: 25, height: bottomSpacerHeight)
         }
     }
