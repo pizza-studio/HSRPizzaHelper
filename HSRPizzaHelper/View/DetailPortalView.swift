@@ -63,10 +63,6 @@ final class DetailPortalViewModel: ObservableObject {
             default: return false
             }
         }
-
-        var saturationValue: CGFloat {
-            isBusy ? 0 : 1
-        }
     }
 
     static let refreshSubject: PassthroughSubject<Void, Never> = .init()
@@ -505,8 +501,6 @@ private struct PlayerDetailSection: View {
 
     @ViewBuilder var currentShowCase: some View {
         vmDPV.currentBasicInfo?.asView(theDB: vmDPV.enkaDB)
-            .disabled(vmDPV.playerDetailStatus.isBusy)
-            .saturation(vmDPV.playerDetailStatus.saturationValue)
     }
 
     var isUpdating: Bool {
@@ -518,19 +512,24 @@ private struct PlayerDetailSection: View {
 
     var body: some View {
         Section {
-            currentShowCase
+            let theCase = currentShowCase
             switch vmDPV.playerDetailStatus {
             case .progress:
+                currentShowCase
+                    .disabled(true)
+                    .saturation(0)
                 InfiniteProgressBar().id(UUID())
             case let .fail(error):
+                currentShowCase
                 DPVErrorView(account: account, apiPath: "", error: error) {
                     Task {
                         await vmDPV.fetchPlayerDetail()
                     }
                 }
             case .standby:
-                EmptyView()
+                currentShowCase
             case let .succeed((playerDetail, _)):
+                currentShowCase
                 if playerDetail.avatarDetailList.isEmpty {
                     Divider()
                     Button {
