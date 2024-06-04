@@ -88,7 +88,7 @@ public struct CaseQuerySection: View {
 
     // MARK: Internal
 
-    @State var givenUID: Int?
+    @State var givenUID: String = ""
 
     var focused: FocusState<Bool>.Binding?
     @FocusState var backupFocus: Bool
@@ -103,7 +103,7 @@ public struct CaseQuerySection: View {
     }
 
     @ViewBuilder var textFieldView: some View {
-        TextField("UID", value: $givenUID, format: .number.grouping(.never))
+        TextField("UID", text: $givenUID)
             .focused(focused ?? $backupFocus)
             .onReceive(Just(givenUID)) { _ in formatText() }
         #if !os(OSX) && !targetEnvironment(macCatalyst)
@@ -124,7 +124,7 @@ public struct CaseQuerySection: View {
 
     func triggerUpdateTask() {
         Task {
-            delegate.update(givenUID: givenUID)
+            delegate.update(givenUID: Int(givenUID))
         }
     }
 
@@ -134,15 +134,18 @@ public struct CaseQuerySection: View {
     @StateObject private var delegate: Coordinator = .init()
 
     private var isUIDValid: Bool {
-        guard let givenUID = givenUID else { return false }
-        return (100_000_000 ... 9_999_999_999).contains(givenUID)
+        guard let givenUIDInt = Int(givenUID) else { return false }
+        return (100_000_000 ... 9_999_999_999).contains(givenUIDInt)
     }
 
     private func formatText() {
         let maxCharInputLimit = 10
-        if let givenUIDGuarded = givenUID?.description, givenUIDGuarded.count > maxCharInputLimit {
-            givenUID = Int(givenUIDGuarded.prefix(maxCharInputLimit))
+        let pattern = "[^0-9]+"
+        var toHandle = givenUID.replacingOccurrences(of: pattern, with: "", options: [.regularExpression])
+        if toHandle.count > maxCharInputLimit {
+            toHandle = toHandle.prefix(maxCharInputLimit).description
         }
+        givenUID = toHandle
     }
 }
 
