@@ -21,7 +21,12 @@ extension DecodableFromMiHoYoAPIJSONResult {
             // swiftlint:disable:next force_unwrapping
             return result.data!
         } else {
-            throw MiHoYoAPIError(retcode: result.retcode, message: result.message)
+            var msg = result.message
+            if ![1034, 10035].contains(result.retcode),
+               let retrievedJSONStr = String(data: data, encoding: .utf8) {
+                msg += "\n\n\(retrievedJSONStr)"
+            }
+            throw MiHoYoAPIError(retcode: result.retcode, message: msg)
         }
     }
 
@@ -32,7 +37,12 @@ extension DecodableFromMiHoYoAPIJSONResult {
             // swiftlint:disable:next force_unwrapping
             return result.data!
         } else {
-            throw MiHoYoAPIError(retcode: result.retcode, message: result.message)
+            var msg = result.message
+            if ![1034, 10035].contains(result.retcode),
+               let retrievedJSONStr = String(data: data, encoding: .utf8) {
+                msg += "\n\n\(retrievedJSONStr)"
+            }
+            throw MiHoYoAPIError(retcode: result.retcode, message: msg)
         }
     }
 }
