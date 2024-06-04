@@ -638,12 +638,34 @@ private struct DPVErrorView: View {
     let completion: () -> Void
 
     var body: some View {
-        if let miHoYoAPIError = error as? MiHoYoAPIError,
-           case .verificationNeeded = miHoYoAPIError {
+        switch error {
+        case MiHoYoAPIError.verificationNeeded:
             VerificationNeededView(account: account, challengePath: apiPath) {
                 vmDPV.refresh()
             }
-        } else {
+        case let MiHoYoAPIError.other(retcode, message):
+            let messages = breakMessages(message)
+            VStack(alignment: .leading) {
+                Button {
+                    completion()
+                } label: {
+                    Label {
+                        HStack {
+                            Text(messages.mainMsg)
+                                .foregroundStyle(.primary)
+                            Spacer()
+                            Image(systemSymbol: .arrowClockwiseCircle)
+                        }
+                    } icon: {
+                        Image(systemSymbol: .exclamationmarkCircle)
+                            .foregroundStyle(.red)
+                    }
+                }
+                if let subMsg = messages.subMsg {
+                    Text(subMsg).font(.caption2)
+                }
+            }.frame(maxWidth: .infinity)
+        default:
             Button {
                 completion()
             } label: {
@@ -660,6 +682,16 @@ private struct DPVErrorView: View {
                 }
             }
         }
+    }
+
+    private func breakMessages(_ target: String) -> (mainMsg: String, subMsg: String?) {
+        guard !target.isEmpty else { return ("N/A", nil) }
+        var cells = target.components(separatedBy: "\n\n")
+        guard let firstCell = cells.first else { return (target, nil) }
+        cells.remove(at: 0)
+        let jointSubMsg = cells.joined(separator: "\n\n")
+        guard !jointSubMsg.isEmpty else { return (target, nil) }
+        return (target, jointSubMsg)
     }
 }
 
