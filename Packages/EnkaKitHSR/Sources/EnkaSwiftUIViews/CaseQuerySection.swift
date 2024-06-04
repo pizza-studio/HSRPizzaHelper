@@ -105,6 +105,7 @@ public struct CaseQuerySection: View {
     @ViewBuilder var textFieldView: some View {
         TextField("UID", value: $givenUID, format: .number.grouping(.never))
             .focused(focused ?? $backupFocus)
+            .onReceive(Just(givenUID)) { _ in formatText() }
         #if !os(OSX) && !targetEnvironment(macCatalyst)
             .keyboardType(.numberPad)
         #endif
@@ -135,6 +136,13 @@ public struct CaseQuerySection: View {
     private var isUIDValid: Bool {
         guard let givenUID = givenUID else { return false }
         return (100_000_000 ... 9_999_999_999).contains(givenUID)
+    }
+
+    private func formatText() {
+        let maxCharInputLimit = 10
+        if let givenUIDGuarded = givenUID?.description, givenUIDGuarded.count > maxCharInputLimit {
+            givenUID = Int(givenUIDGuarded.prefix(maxCharInputLimit))
+        }
     }
 }
 
