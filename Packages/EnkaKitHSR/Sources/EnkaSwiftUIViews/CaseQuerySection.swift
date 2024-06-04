@@ -145,7 +145,8 @@ public struct CaseQuerySection: View {
         if toHandle.count > maxCharInputLimit {
             toHandle = toHandle.prefix(maxCharInputLimit).description
         }
-        givenUID = toHandle
+        // 仅当结果相异时，才会写入。
+        if givenUID != toHandle { givenUID = toHandle }
     }
 }
 
