@@ -24,57 +24,43 @@ struct AccountGachaDetailView: View {
     var body: some View {
         List {
             Section {
-                Picker("gacha.account_detail.detail.filter.gacha_type", selection: $gachaType) {
-                    ForEach(GachaType.allCases, id: \.rawValue) { type in
-                        Text(type.description).tag(type)
+                Group {
+                    Picker(
+                        "gacha.account_detail.detail.filter.gacha_type",
+                        selection: $gachaType.animation()
+                    ) {
+                        ForEach(GachaType.allCases, id: \.rawValue) { type in
+                            Text(type.description).tag(type)
+                        }
                     }
-                }
-                Picker("gacha.account_detail.detail.filter.rank", selection: $rankFilter) {
-                    ForEach(RankFilter.allCases, id: \.rawValue) { filter in
-                        Text("\(filter.description)").tag(filter)
+                    Picker(
+                        "gacha.account_detail.detail.filter.rank",
+                        selection: $rankFilter.animation()
+                    ) {
+                        ForEach(RankFilter.allCases, id: \.rawValue) { filter in
+                            Text("\(filter.description)").tag(filter)
+                        }
                     }
+                    Toggle(
+                        "gacha.account_detail.detail.filter.display_option.show_time",
+                        isOn: $showTime.animation()
+                    )
                 }
+                .controlSize(.small)
             } header: {
-                Text("gacha.account_detail.detail.filter.header")
-            } footer: {
-                HStack {
-                    Spacer()
-                    Button("gacha.account_detail.detail.filter.display_option.button") {
-                        isDisplayOptionShow.toggle()
-                    }
-                }
-                .font(.footnote)
+                Text("gacha.account_detail.detail.filter.display_option.title")
             }
             Section {
                 GachaItemDetail(uid: uid, gachaType: gachaType, rankFilter: rankFilter, showTime: showTime)
             }
         }
-        .sheet(isPresented: $isDisplayOptionShow) {
-            displayOptionSheet()
-        }
         .inlineNavigationTitle("gacha.account_detail.detail.title")
-    }
-
-    @ViewBuilder
-    func displayOptionSheet() -> some View {
-        NavigationView {
-            List {
-                Toggle("gacha.account_detail.detail.filter.display_option.show_time", isOn: $showTime)
-            }
-            .toolbar {
-                Button("sys.done") {
-                    isDisplayOptionShow.toggle()
-                }
-            }
-        }
-        .inlineNavigationTitle("gacha.account_detail.detail.filter.display_option.title")
     }
 
     // MARK: Private
 
     @State private var rankFilter: RankFilter = .fiveOnly
 
-    @State private var isDisplayOptionShow: Bool = false
     @State private var showTime: Bool = false
 }
 
