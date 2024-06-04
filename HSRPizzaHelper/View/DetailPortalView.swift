@@ -643,7 +643,7 @@ private struct DPVErrorView: View {
             VerificationNeededView(account: account, challengePath: apiPath) {
                 vmDPV.refresh()
             }
-        case let MiHoYoAPIError.other(retcode, message):
+        case let MiHoYoAPIError.other(_, message):
             let messages = breakMessages(message)
             VStack(alignment: .leading) {
                 Button {
@@ -651,7 +651,7 @@ private struct DPVErrorView: View {
                 } label: {
                     Label {
                         HStack {
-                            Text(messages.mainMsg)
+                            Text(error.localizedDescription)
                                 .foregroundStyle(.primary)
                             Spacer()
                             Image(systemSymbol: .arrowClockwiseCircle)
@@ -660,6 +660,9 @@ private struct DPVErrorView: View {
                         Image(systemSymbol: .exclamationmarkCircle)
                             .foregroundStyle(.red)
                     }
+                }
+                if !messages.mainMsg.isEmpty {
+                    Text(messages.mainMsg).font(.caption2)
                 }
                 if let subMsg = messages.subMsg {
                     Text(subMsg).font(.caption2)
@@ -691,7 +694,7 @@ private struct DPVErrorView: View {
         cells.remove(at: 0)
         let jointSubMsg = cells.joined(separator: "\n\n")
         guard !jointSubMsg.isEmpty else { return (target, nil) }
-        return (target, jointSubMsg)
+        return (firstCell, jointSubMsg)
     }
 }
 
