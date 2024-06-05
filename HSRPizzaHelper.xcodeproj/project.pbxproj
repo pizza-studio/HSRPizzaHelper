@@ -34,6 +34,7 @@
 		5B7CE2B82BCD2EAE0053FD7D /* EnkaKitHSR in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7CE2B72BCD2EAE0053FD7D /* EnkaKitHSR */; };
 		5B835D062C0E257C007B33A0 /* AlwaysShowSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B835D052C0E257C007B33A0 /* AlwaysShowSideBar.swift */; };
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
+		5BB792B22C1067C400AFCBF5 /* GetCookieQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB792B12C1067C400AFCBF5 /* GetCookieQRCodeView.swift */; };
 		5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
@@ -358,6 +359,7 @@
 		5B7CE2B62BCD2DAF0053FD7D /* EnkaKitHSR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = EnkaKitHSR; path = Packages/EnkaKitHSR; sourceTree = "<group>"; };
 		5B835D052C0E257C007B33A0 /* AlwaysShowSideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwaysShowSideBar.swift; sourceTree = "<group>"; };
 		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
+		5BB792B12C1067C400AFCBF5 /* GetCookieQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCookieQRCodeView.swift; sourceTree = "<group>"; };
 		5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPortalView.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
@@ -768,6 +770,7 @@
 		EA2C06502A04AC5200A328E6 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				5BB792B12C1067C400AFCBF5 /* GetCookieQRCodeView.swift */,
 				EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */,
 				EA2C064E2A04AAE000A328E6 /* EditAccountView.swift */,
 				EA2C06512A04AC5A00A328E6 /* TestAccountSectionView.swift */,
@@ -1666,6 +1669,7 @@
 				BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */,
 				EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */,
 				5B579DB52BFCEC9E0030C64D /* ViewTools.swift in Sources */,
+				5BB792B22C1067C400AFCBF5 /* GetCookieQRCodeView.swift in Sources */,
 				EA2C064F2A04AAE000A328E6 /* EditAccountView.swift in Sources */,
 				EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EAE605BD2A8B2B24005A9EDC /* GachaRelatedDescriptionExtension.swift in Sources */,

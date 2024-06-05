@@ -243,7 +243,7 @@ private struct RequireLoginView: View {
                     region: region
                 )
             case .mainlandChina:
-                QRCodeGetCookieView(cookie: $unsavedCookie)
+                GetCookieQRCodeView(cookie: $unsavedCookie)
             }
         })
     }
