@@ -32,7 +32,7 @@ struct GetCookieQRCodeView: View {
         guard let imgResized = qrCodeAndTicket.qrCode.resized(
             size: newSize,
             quality: .none
-        ) else { return nil }
+        ) else { return nil } // 应该不会出现这种情况。
         return Image(decorative: imgResized, scale: 1)
     }
 
@@ -46,6 +46,10 @@ struct GetCookieQRCodeView: View {
         "https://apps.apple.com/cn/app/id1470182559"
     }
 
+    private var shouldShowRetryButton: Bool {
+        viewModel.qrCodeAndTicket != nil || viewModel.error != nil
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -56,11 +60,11 @@ struct GetCookieQRCodeView: View {
                         } icon: {
                             Image(systemSymbol: .exclamationmarkCircle)
                                 .foregroundStyle(.red)
+                        }.onAppear {
+                            viewModel.qrCodeAndTicket = nil
                         }
-                        Button("sys.retry") {
-                            viewModel.reCreateQRCode()
-                        }
-                    } else if let qrCodeAndTicket = viewModel.qrCodeAndTicket, let qrImage = qrImage {
+                    }
+                    if let qrCodeAndTicket = viewModel.qrCodeAndTicket, let qrImage = qrImage {
                         HStack(alignment: .center) {
                             Spacer()
                             ShareLink(
@@ -125,30 +129,31 @@ struct GetCookieQRCodeView: View {
                                 }
                             }
                         }
-
-                        if Self.isMiyousheInstalled {
-                            Link(
-                                destination: URL(
-                                    string: Self.miyousheHeader + "me"
-                                )!
-                            ) {
-                                Text("account.qr_code_login.open_miyoushe")
-                            }
-                        } else {
-                            Link(
-                                destination: URL(
-                                    string: Self.miyousheStorePage
-                                )!
-                            ) {
-                                Text("account.qr_code_login.open_miyoushe_mas_page")
-                            }
-                        }
-
-                        Button("account.qr_code_login.regenerate_qrcode") {
-                            viewModel.reCreateQRCode()
-                        }
                     } else {
                         ProgressView()
+                    }
+                    if shouldShowRetryButton {
+                        Button("account.qr_code_login.regenerate_qrcode") {
+                            simpleTaptic(type: .light)
+                            viewModel.reCreateQRCode()
+                        }
+                    }
+                    if Self.isMiyousheInstalled {
+                        Link(
+                            destination: URL(
+                                string: Self.miyousheHeader + "me"
+                            )!
+                        ) {
+                            Text("account.qr_code_login.open_miyoushe")
+                        }
+                    } else {
+                        Link(
+                            destination: URL(
+                                string: Self.miyousheStorePage
+                            )!
+                        ) {
+                            Text("account.qr_code_login.open_miyoushe_mas_page")
+                        }
                     }
                 } footer: {
                     Text("account.qr_code_login.footer")
@@ -189,7 +194,6 @@ class GetCookieQRCodeViewModel: ObservableObject {
         taskId = .init()
         Task.detached { @MainActor in
             do {
-                self.qrCodeAndTicket = nil
                 self.qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: self.taskId)
             } catch {
                 self.error = error
@@ -203,5 +207,12 @@ class GetCookieQRCodeViewModel: ObservableObject {
 
     @Published var qrCodeAndTicket: (qrCode: CGImage, ticket: String)?
     @Published var taskId: UUID
-    @Published var error: Error?
+
+    @Published var error: Error? {
+        didSet {
+            if error != nil {
+                qrCodeAndTicket = nil
+            }
+        }
+    }
 }
