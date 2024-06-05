@@ -174,30 +174,23 @@ struct GetCookieQRCodeView: View {
 
 // MARK: - GetCookieQRCodeViewModel
 
-// Credit: Bill Haku for the fix in commit bef5d1a.
+// Credit: Bill Haku for the fix.
 class GetCookieQRCodeViewModel: ObservableObject {
     // MARK: Lifecycle
 
     init() {
         self.taskId = .init()
-        Task {
-            do {
-                self.qrCodeAndTicket = nil
-                self.qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: taskId)
-            } catch {
-                self.error = error
-            }
-        }
+        reCreateQRCode()
     }
 
     // MARK: Public
 
     public func reCreateQRCode() {
         taskId = .init()
-        Task {
+        Task.detached { @MainActor in
             do {
                 self.qrCodeAndTicket = nil
-                self.qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: taskId)
+                self.qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: self.taskId)
             } catch {
                 self.error = error
             }
