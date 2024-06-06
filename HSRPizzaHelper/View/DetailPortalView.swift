@@ -651,7 +651,7 @@ private struct DPVErrorView: View {
                 } label: {
                     Label {
                         HStack {
-                            Text(error.localizedDescription)
+                            Text(breakMessages(error.localizedDescription).mainMsg)
                                 .foregroundStyle(.primary)
                             Spacer()
                             Image(systemSymbol: .arrowClockwiseCircle)
