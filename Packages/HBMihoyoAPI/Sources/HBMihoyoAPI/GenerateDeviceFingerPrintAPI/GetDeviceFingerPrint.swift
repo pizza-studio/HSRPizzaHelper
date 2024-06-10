@@ -32,6 +32,7 @@ extension MiHoYoAPI {
         let deviceId = UUID().uuidString
         #endif
         let platformID: Int = region == .mainlandChina ? 1 : 5
+        let initialRandomFp = deviceId.md5.prefix(13).description // 根据 deviceId 生成初始指纹。
         let body: [String: String] = [
             "seed_id": generateSeed(),
             "device_id": deviceId,
@@ -39,7 +40,7 @@ extension MiHoYoAPI {
             "seed_time": "\(Int(Date().timeIntervalSince1970) * 1000)",
             "ext_fields": region.getFpExtFields(deviceID: deviceId),
             "app_name": region.appNameStringForFp,
-            "device_fp": region.deviceFpString,
+            "device_fp": initialRandomFp,
         ]
         var request = URLRequest(url: url)
         request.httpBody = try JSONEncoder().encode(body)
@@ -73,13 +74,6 @@ extension Region {
         switch self {
         case .mainlandChina: return "account_cn"
         case .global: return "hkrpg_global"
-        }
-    }
-
-    fileprivate var deviceFpString: String {
-        switch self {
-        case .mainlandChina: return "38d7f0fa36179"
-        case .global: return "38d7f2364db95"
         }
     }
 
