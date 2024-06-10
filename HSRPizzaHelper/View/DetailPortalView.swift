@@ -644,37 +644,12 @@ private struct DPVErrorView: View {
     let completion: () -> Void
 
     var body: some View {
-        switch error {
-        case MiHoYoAPIError.verificationNeeded:
+        if let miHoYoAPIError = error as? MiHoYoAPIError,
+           case .verificationNeeded = miHoYoAPIError {
             VerificationNeededView(account: account, challengePath: apiPath) {
                 vmDPV.refresh()
             }
-        case let MiHoYoAPIError.other(_, message):
-            let messages = breakMessages(message)
-            VStack(alignment: .leading) {
-                Button {
-                    completion()
-                } label: {
-                    Label {
-                        HStack {
-                            Text(breakMessages(error.localizedDescription).mainMsg)
-                                .foregroundStyle(.primary)
-                            Spacer()
-                            Image(systemSymbol: .arrowClockwiseCircle)
-                        }
-                    } icon: {
-                        Image(systemSymbol: .exclamationmarkCircle)
-                            .foregroundStyle(.red)
-                    }
-                }
-                if !messages.mainMsg.isEmpty {
-                    Text(messages.mainMsg).font(.caption2)
-                }
-                if let subMsg = messages.subMsg {
-                    Text(subMsg).font(.caption2)
-                }
-            }.frame(maxWidth: .infinity)
-        default:
+        } else {
             Button {
                 completion()
             } label: {
@@ -691,16 +666,6 @@ private struct DPVErrorView: View {
                 }
             }
         }
-    }
-
-    private func breakMessages(_ target: String) -> (mainMsg: String, subMsg: String?) {
-        guard !target.isEmpty else { return ("N/A", nil) }
-        var cells = target.components(separatedBy: "\n\n")
-        guard let firstCell = cells.first else { return (target, nil) }
-        cells.remove(at: 0)
-        let jointSubMsg = cells.joined(separator: "\n\n")
-        guard !jointSubMsg.isEmpty else { return (target, nil) }
-        return (firstCell, jointSubMsg)
     }
 }
 
