@@ -515,37 +515,39 @@ private struct PlayerDetailSection: View {
 
     var body: some View {
         Section {
-            let theCase = currentShowCase
-            switch vmDPV.playerDetailStatus {
-            case .progress:
-                theCase
-                    .disabled(true)
-                    .saturation(0)
-                InfiniteProgressBar().id(UUID())
-            case let .fail(error):
-                theCase
-                DPVErrorView(account: account, apiPath: "", error: error) {
-                    Task {
-                        await vmDPV.fetchPlayerDetail()
+            LazyVStack {
+                let theCase = currentShowCase
+                switch vmDPV.playerDetailStatus {
+                case .progress:
+                    theCase
+                        .disabled(true)
+                        .saturation(0)
+                    InfiniteProgressBar().id(UUID())
+                case let .fail(error):
+                    theCase
+                    DPVErrorView(account: account, apiPath: "", error: error) {
+                        Task {
+                            await vmDPV.fetchPlayerDetail()
+                        }
                     }
-                }
-            case .standby:
-                theCase
-            case let .succeed((playerDetail, _)):
-                theCase
-                if playerDetail.avatarDetailList.isEmpty {
-                    Divider()
-                    Button {
-                        vmDPV.refresh()
-                    } label: {
-                        Label {
-                            VStack {
-                                Text(errorTextForBlankAvatars)
-                                    .foregroundColor(.secondary)
+                case .standby:
+                    theCase
+                case let .succeed((playerDetail, _)):
+                    theCase
+                    if playerDetail.avatarDetailList.isEmpty {
+                        Divider()
+                        Button {
+                            vmDPV.refresh()
+                        } label: {
+                            Label {
+                                VStack {
+                                    Text(errorTextForBlankAvatars)
+                                        .foregroundColor(.secondary)
+                                }
+                            } icon: {
+                                Image(systemSymbol: .xmarkCircle)
+                                    .foregroundColor(.red)
                             }
-                        } icon: {
-                            Image(systemSymbol: .xmarkCircle)
-                                .foregroundColor(.red)
                         }
                     }
                 }
