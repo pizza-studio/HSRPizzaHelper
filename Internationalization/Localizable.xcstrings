@@ -1827,6 +1827,35 @@
         }
       }
     },
+    "app.characters.miyousheLimitations.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The game server of this account limits the fetchable types of intels, hence the lack of intels regarding equipped weapons and artifacts."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サーバーからの一方的な制限のため、「すでにキャラに装備した武器・聖遺物」の統計情報はございませんでした。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前区服限制了可以查询的库存资料种类，所以无法呈现任何被角色所装备的武器与圣遗物的资讯。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "當前區服限制了可以查詢的庫存資料種類，所以無法呈現任何被角色所裝備的武器與聖遺物的資訊。"
+          }
+        }
+      }
+    },
     "app.characters.title" : {
       "comment" : "MARK: - 2.5.2 & 2.5.3",
       "localizations" : {

@@ -13,11 +13,14 @@ import SwiftUI
 // MARK: - CharacterInventoryView
 
 struct CharacterInventoryView: View {
+    // MARK: Lifecycle
+
+    public init(data: MiHoYoAPI.CharacterInventory, isMiyousheUID: Bool) {
+        self.data = data
+        self.isMiyousheUID = isMiyousheUID
+    }
+
     // MARK: Internal
-
-    @EnvironmentObject var vmDPV: DetailPortalViewModel
-
-    var data: MiHoYoAPI.CharacterInventory
 
     @State var expanded: Bool = false
 
@@ -29,7 +32,11 @@ struct CharacterInventoryView: View {
                 Section {
                     VStack(alignment: .leading, spacing: 3) {
                         Text(characterStats)
-                        Text(goldStats)
+                        if !isMiyousheUID {
+                            Text(goldStats)
+                        } else {
+                            Text("app.characters.miyousheLimitations.description")
+                        }
                     }.font(.footnote)
                 }.listRowMaterialBackground()
                 Group {
@@ -66,9 +73,6 @@ struct CharacterInventoryView: View {
                     }
                 }
             }
-            .refreshable {
-                vmDPV.refresh()
-            }
         }
     }
 
@@ -76,7 +80,7 @@ struct CharacterInventoryView: View {
     func renderAllAvatarListFull() -> some View {
         Section {
             ForEach(showingAvatars, id: \.id) { avatar in
-                AvatarListItem(avatar: avatar, condensed: false)
+                AvatarListItem(avatar: avatar, condensed: false, limited: isMiyousheUID)
                     .padding(.horizontal)
                     .padding(.vertical, 4)
                     .background {
@@ -156,6 +160,9 @@ struct CharacterInventoryView: View {
         case star4 = "app.characters.filter.4star"
     }
 
+    private let data: MiHoYoAPI.CharacterInventory
+    private let isMiyousheUID: Bool
+
     @Environment(\.dismiss) private var dismiss
 
     @State private var allAvatarListDisplayType: AllAvatarListDisplayType = .all
@@ -192,10 +199,10 @@ struct CharacterInventoryView: View {
 struct AvatarListItem: View {
     // MARK: Lifecycle
 
-    public init(avatar: MiHoYoAPI.CharacterInventory.HYAvatar, condensed: Bool) {
+    public init(avatar: MiHoYoAPI.CharacterInventory.HYAvatar, condensed: Bool, limited: Bool = false) {
         self.avatar = avatar
         self.condensed = condensed
-        self.useRealName = useRealName
+        self.limited = limited // 是否被米游社限制了可提供的资料种类。
     }
 
     // MARK: Public
@@ -251,26 +258,40 @@ struct AvatarListItem: View {
                         Spacer().frame(height: 20)
                     }
                 }
-                if let equip = avatar.equip {
-                    ZStack(alignment: .bottomLeading) {
-                        Group {
-                            if let img = EnkaHSR.queryWeaponImageSUI(for: equip.id.description) {
-                                img.resizable()
-                            } else {
-                                WebImage(urlStr: equip.icon)
+                if !limited {
+                    if let equip = avatar.equip {
+                        ZStack(alignment: .bottomLeading) {
+                            Group {
+                                if let img = EnkaHSR.queryWeaponImageSUI(for: equip.id.description) {
+                                    img.resizable()
+                                } else {
+                                    WebImage(urlStr: equip.icon)
+                                }
                             }
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
                         }
-                        .scaledToFit()
-                        .frame(width: 50, height: 50)
+                        .corneredTag(
+                            LocalizedStringKey("weapon.affix:\(equip.rank)"),
+                            alignment: .topLeading
+                        )
+                        .corneredTag(
+                            verbatim: "Lv.\(equip.level)",
+                            alignment: .bottomTrailing
+                        )
                     }
-                    .corneredTag(
-                        LocalizedStringKey("weapon.affix:\(equip.rank)"),
-                        alignment: .topLeading
-                    )
-                    .corneredTag(
-                        verbatim: "Lv.\(equip.level)",
-                        alignment: .bottomTrailing
-                    )
+                } else {
+                    if let commonCharData = EnkaHSR.Sputnik.sharedDB.characters[avatar.id.description] {
+                        EnkaHSR.queryImageAssetSUI(for: commonCharData.avatarBaseType.iconAssetName)?
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                            .padding(10)
+                            .background {
+                                Color.black.opacity(0.2).clipShape(Circle())
+                            }
+                            .frame(width: 50, height: 50)
+                    }
                 }
             }
         }
@@ -299,6 +320,7 @@ struct AvatarListItem: View {
     // MARK: Private
 
     private let avatar: MiHoYoAPI.CharacterInventory.HYAvatar
+    private let limited: Bool
 
     @State private var condensed: Bool
 

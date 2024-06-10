@@ -189,8 +189,11 @@ struct DetailPortalView: View {
                 CaseQueryResultView(profile: result)
             }
             .navigationDestination(for: CharInventoryEntity.self) { data in
-                if !data.avatarList.isEmpty {
-                    CharacterInventoryView(data: data)
+                if let account = vmDPV.selectedAccount, !data.avatarList.isEmpty {
+                    CharacterInventoryView(
+                        data: data,
+                        isMiyousheUID: account.server.region == .mainlandChina
+                    )
                 }
             }
             .scrollContentBackground(.hidden)
@@ -609,7 +612,10 @@ private struct CharInventoryNavigator: View {
                 } else {
                     if #unavailable(macOS 14), OS.type == .macOS {
                         SheetCaller(forceDarkMode: false) {
-                            CharacterInventoryView(data: data)
+                            CharacterInventoryView(
+                                data: data,
+                                isMiyousheUID: account.server.region == .mainlandChina
+                            )
                         } label: {
                             thisLabel
                         }
