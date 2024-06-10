@@ -86,7 +86,8 @@ final class DetailPortalViewModel: ObservableObject {
 
     @MainActor
     func fetchPlayerDetail() async {
-        guard let selectedAccount else { return }
+        // UID 需要单独 guard-let，因为 Apple Store Connect 那边有收到过与此有关的 force-unwrap 崩溃报告。
+        guard let selectedAccountUID = selectedAccount?.uid else { return }
         if case let .succeed((_, refreshableDate)) = playerDetailStatus {
             guard Date() > refreshableDate else { return }
         }
@@ -94,12 +95,12 @@ final class DetailPortalViewModel: ObservableObject {
         let task = Task {
             do {
                 let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
-                    for: selectedAccount.uid,
+                    for: selectedAccountUID,
                     dateWhenNextRefreshable: nil
                 )
                 let queryResultAwaited = queryResult.merge(old: currentBasicInfo)
                 currentBasicInfo = queryResultAwaited
-                Defaults[.queriedEnkaProfiles][selectedAccount.uid] = queryResultAwaited
+                Defaults[.queriedEnkaProfiles][selectedAccountUID] = queryResultAwaited
                 await enkaDB.updateExpiryStatus(against: queryResultAwaited)
                 if enkaDB.isExpired {
                     let factoryDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)
@@ -135,13 +136,13 @@ final class DetailPortalViewModel: ObservableObject {
 
     @MainActor
     func fetchCharacterInventoryList() async {
-        guard let selectedAccount else { return }
+        guard let selectedAccount, let selectedAccountUID = selectedAccount.uid else { return }
         if case let .progress(task) = characterInventoryStatus { task.cancel() }
         let task = Task {
             do {
                 let queryResult = try await MiHoYoAPI.characterInventory(
                     server: selectedAccount.server,
-                    uid: selectedAccount.uid ?? "",
+                    uid: selectedAccountUID,
                     cookie: selectedAccount.cookie ?? "",
                     deviceFingerPrint: selectedAccount.deviceFingerPrint
                 )
