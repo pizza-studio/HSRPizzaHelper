@@ -49,7 +49,6 @@ extension MiHoYoAPI {
     ) async throws
         -> CharacterInventory {
         var queryItems: [URLQueryItem] = [
-            .init(name: "need_wiki", value: "false"),
             .init(name: "role_id", value: uid),
             .init(name: "server", value: server.rawValue),
         ]
@@ -64,14 +63,17 @@ extension MiHoYoAPI {
 
         var newCookie = cookie
         if server.region == .mainlandChina {
-            queryItems.insert(.init(name: "id", value: "1001"), at: 0)
+            // queryItems.insert(.init(name: "id", value: "1001"), at: 0)
+            queryItems.insert(.init(name: "rolePageAccessNotAllowed", value: ""), at: 0)
             let cookieToken = try await cookieToken(cookie: cookie, queryItems: queryItems)
             newCookie = "account_id=\(cookieToken.uid); cookie_token=\(cookieToken.cookieToken); " + cookie
+        } else {
+            queryItems.insert(.init(name: "need_wiki", value: "false"), at: 0)
         }
 
         let request = try await Self.generateRecordAPIRequest(
             region: server.region,
-            path: "/game_record/app/hkrpg/api/avatar/info",
+            path: server.region.inventoryRetrivalPath,
             queryItems: queryItems,
             cookie: newCookie,
             additionalHeaders: additionalHeaders
@@ -80,5 +82,14 @@ extension MiHoYoAPI {
         let (data, _) = try await URLSession.shared.data(for: request)
 
         return try await .decodeFromMiHoYoAPIJSONResult(data: data, with: request)
+    }
+}
+
+extension Region {
+    fileprivate var inventoryRetrivalPath: String {
+        switch self {
+        case .mainlandChina: return "/game_record/app/hkrpg/api/avatar/basic"
+        case .global: return "/game_record/app/hkrpg/api/avatar/info"
+        }
     }
 }

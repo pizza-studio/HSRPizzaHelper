@@ -9,18 +9,18 @@ extension MiHoYoAPI {
         // MARK: Public
 
         public struct HYAvatar: Codable, Hashable, Sendable, Identifiable {
-            public let id: Int
-            public let level: Int
-            public let name: String
-            public let element: String
-            public let icon: String
-            public let rarity: Int
-            public let rank: Int // 命之座
-            public let image: String
-            public let equip: HYEquip?
-            public let relics: [HYArtifactOuter]?
-            public let ornaments: [HYArtifactInner]?
-            public let ranks: [HYSkillRank] // 技能樹
+            public let id: Int // 七大基础参数之一
+            public let level: Int // 七大基础参数之一
+            public let name: String // 七大基础参数之一
+            public let element: String // 七大基础参数之一
+            public let icon: String // 七大基础参数之一
+            public let rarity: Int // 七大基础参数之一
+            public let rank: Int // 七大基础参数之一；命之座
+            public let image: String? // 无法在 basic 模式下提供
+            public let equip: HYEquip? // 无法在 basic 模式下提供
+            public let relics: [HYArtifactOuter]? // 无法在 basic 模式下提供
+            public let ornaments: [HYArtifactInner]? // 无法在 basic 模式下提供
+            public let ranks: [HYSkillRank]? // 技能樹；无法在 basic 模式下提供
 
             public var allArtifacts: [any MiHoYoAPIArtifactProtocol] {
                 var result = [any MiHoYoAPIArtifactProtocol]()
