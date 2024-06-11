@@ -13,13 +13,11 @@ import UIKit
 #endif
 
 extension MiHoYoAPI {
-    public struct FingerPrintDataSet {
-        public let deviceFP: String
-        public let seedID: String
-        public let seedTime: Int
-    }
+    public static func getDeviceFingerPrint(region: Region) async throws -> String {
+        if let fingerPrint = Defaults[.deviceFingerPrint], !fingerPrint.isEmpty {
+            return fingerPrint
+        }
 
-    public static func getDeviceFingerPrint(region: Region) async throws -> FingerPrintDataSet {
         struct DeviceFingerPrintResult: DecodableFromMiHoYoAPIJSONResult {
             let msg: String
             // swiftlint:disable:next identifier_name
@@ -34,14 +32,12 @@ extension MiHoYoAPI {
         let deviceId = UUID().uuidString
         #endif
         let platformID: Int = region == .mainlandChina ? 1 : 5
-        let seedID = generateSeed()
-        let seedTime = Int(Date().timeIntervalSince1970) * 1000
         let initialRandomFp = deviceId.md5.prefix(13).description // 根据 deviceId 生成初始指纹。
         let body: [String: String] = [
-            "seed_id": seedID,
+            "seed_id": generateSeed(),
             "device_id": deviceId,
             "platform": "\(platformID)",
-            "seed_time": "\(seedTime)",
+            "seed_time": "\(Int(Date().timeIntervalSince1970) * 1000)",
             "ext_fields": region.getFpExtFields(deviceID: deviceId),
             "app_name": region.appNameStringForFp,
             "device_fp": initialRandomFp,
@@ -52,7 +48,7 @@ extension MiHoYoAPI {
         let (data, _) = try await URLSession.shared.data(for: request)
         let fingerPrint = try DeviceFingerPrintResult.decodeFromMiHoYoAPIJSONResult(data: data)
             .device_fp
-        return .init(deviceFP: fingerPrint, seedID: seedID, seedTime: seedTime)
+        return fingerPrint
     }
 }
 

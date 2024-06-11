@@ -110,12 +110,7 @@ struct CreateAccountSheetView: View {
                     }
                     // Get device finger print
                     if account.server.region == .mainlandChina {
-                        let fpResult = try await MiHoYoAPI.getDeviceFingerPrint(region: region)
-                        account.deviceFingerPrint = fpResult.deviceFP
-                        var extraStr = "DEVICEFP=\(fpResult.deviceFP); "
-                        extraStr += "DEVICEFP_SEED_ID=\(fpResult.seedID); "
-                        extraStr += "DEVICEFP_SEED_TIME=\(fpResult.seedTime); "
-                        account.cookie.append(extraStr)
+                        account.deviceFingerPrint = try await MiHoYoAPI.getDeviceFingerPrint(region: region)
                     }
                     status = .gotAccount
                 } catch {
