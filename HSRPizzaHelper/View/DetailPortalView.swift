@@ -516,7 +516,7 @@ private struct PlayerDetailSection: View {
 
     var body: some View {
         Section {
-            LazyVStack {
+            VStack {
                 let theCase = currentShowCase
                 switch vmDPV.playerDetailStatus {
                 case .progress:
