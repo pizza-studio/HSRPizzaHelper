@@ -175,7 +175,7 @@ struct DetailPortalView: View {
     var body: some View {
         NavigationStack {
             List {
-                SelectAccountSection(selectedAccount: $vmDPV.selectedAccount)
+                SelectAccountSection(selectedAccount: $vmDPV.selectedAccount.animation())
                     .listRowMaterialBackground()
                     .onTapGesture { uidInputFieldFocus = false }
                 if let account = vmDPV.selectedAccount {
