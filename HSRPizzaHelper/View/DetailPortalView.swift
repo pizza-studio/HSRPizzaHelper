@@ -379,7 +379,7 @@ private struct AccountHeaderView<T: View>: View {
     @StateObject private var vmDPV: DetailPortalViewModel = .init()
 
     private var uidStr: String {
-        guard let strUid = guardedProfile?.uid.description else { return "" }
+        guard let strUid = guardedProfile?.uid.description else { return "……" }
         return "UID: \(strUid)"
     }
 
