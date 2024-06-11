@@ -195,6 +195,7 @@ class GetCookieQRCodeViewModel: ObservableObject {
         Task.detached { @MainActor in
             do {
                 self.qrCodeAndTicket = try await MiHoYoAPI.generateLoginQRCode(deviceId: self.taskId)
+                self.error = nil
             } catch {
                 self.error = error
             }
