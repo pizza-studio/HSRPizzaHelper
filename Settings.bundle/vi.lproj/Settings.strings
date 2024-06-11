@@ -1,0 +1,7 @@
+/* A single strings file, whose title is specified in your preferences schema. The strings files provide the localized content to display to the user for each of your preferences. */
+
+"⚠️If you don't see the \"Preferred language\" option here" = "⚠️Nếu bạn không nhìn thấy \"ngôn ngữ ưa thích\" tùy chọn ở đây";
+
+"Please go to 📱 [Settings] -> [General] -> [Language & Region] and add the language you wish to set as the second language. " = "Vui lòng chọn 📱 [Cài Đặt] -> [Cài Đặt Chung] -> [Ngôn Ngữ & Vùng] và thêm ngôn ngữ bạn muốn đặt làm ngôn ngữ thứ hai. EN";
+
+"🌐 Supported Languages" = "🌐 Ngôn ngữ được hỗ trợ";

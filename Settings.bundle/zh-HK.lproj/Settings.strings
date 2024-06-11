@@ -1,0 +1,7 @@
+/* A single strings file, whose title is specified in your preferences schema. The strings files provide the localized content to display to the user for each of your preferences. */
+
+"⚠️If you don't see the \"Preferred language\" option here" = "⚠️如果你沒有在此找到「偏好語言」選項";
+
+"Please go to 📱 [Settings] -> [General] -> [Language & Region] and add the language you wish to set as the second language. " = "請前往📱 [設定] App -> [一般] -> [語言與地區]，添加你希望修改的語言為第二語言。";
+
+"🌐 Supported Languages" = "🌐本App支援的語言";
