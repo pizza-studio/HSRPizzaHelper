@@ -48,8 +48,4 @@ extension Defaults.Keys {
         default: nil,
         suite: .hsrSuite
     )
-
-    // MARK: - For Packages
-
-    public static let deviceFingerPrint = Key<String?>("device_finger_print", default: nil, suite: .hsrSuite)
 }

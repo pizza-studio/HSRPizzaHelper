@@ -14,10 +14,6 @@ import UIKit
 
 extension MiHoYoAPI {
     public static func getDeviceFingerPrint(region: Region) async throws -> String {
-        if let fingerPrint = Defaults[.deviceFingerPrint], !fingerPrint.isEmpty {
-            return fingerPrint
-        }
-
         struct DeviceFingerPrintResult: DecodableFromMiHoYoAPIJSONResult {
             let msg: String
             // swiftlint:disable:next identifier_name
