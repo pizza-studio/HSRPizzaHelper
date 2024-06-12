@@ -108,10 +108,7 @@ struct CreateAccountSheetView: View {
                     } else {
                         getAccountError = .customize("account.login.error.no.account.found")
                     }
-                    // Get device finger print
-                    if account.server.region == .mainlandChina {
-                        account.deviceFingerPrint = try await MiHoYoAPI.getDeviceFingerPrint(region: region)
-                    }
+                    // Device fingerPrint for MiYouShe accounts are already fetched in GetCookieQRCodeView.
                     status = .gotAccount
                 } catch {
                     getAccountError = .source(error)
@@ -125,7 +122,7 @@ struct CreateAccountSheetView: View {
     @ViewBuilder
     func pendingView() -> some View {
         Section {
-            RequireLoginView(unsavedCookie: $account.cookie, region: $region)
+            RequireLoginView(unsavedCookie: $account.cookie, unsavedFP: $account.deviceFingerPrint, region: $region)
         } footer: {
             VStack(alignment: .leading) {
                 HStack {
@@ -203,6 +200,7 @@ struct CreateAccountSheetView: View {
 private struct RequireLoginView: View {
     @State var getCookieWebViewRegion: Region?
     @Binding var unsavedCookie: String?
+    @Binding var unsavedFP: String
     @Binding var region: Region
 
     var body: some View {
@@ -243,7 +241,7 @@ private struct RequireLoginView: View {
                     region: region
                 )
             case .mainlandChina:
-                GetCookieQRCodeView(cookie: $unsavedCookie)
+                GetCookieQRCodeView(cookie: $unsavedCookie, deviceFP: $unsavedFP)
             }
         })
     }

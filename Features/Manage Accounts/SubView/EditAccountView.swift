@@ -23,6 +23,7 @@ struct EditAccountView: View {
         Section {
             RequireLoginView(
                 unsavedCookie: $account.cookie,
+                unsavedFP: $account.deviceFingerPrint,
                 region: account.server.region
             )
         }
@@ -84,6 +85,7 @@ struct EditAccountView: View {
 
 private struct RequireLoginView: View {
     @Binding var unsavedCookie: String?
+    @Binding var unsavedFP: String
 
     @State private var isGetCookieWebViewShown: Bool = false
 
@@ -102,7 +104,7 @@ private struct RequireLoginView: View {
         .sheet(isPresented: $isGetCookieWebViewShown, content: {
             switch region {
             case .mainlandChina:
-                GetCookieQRCodeView(cookie: $unsavedCookie)
+                GetCookieQRCodeView(cookie: $unsavedCookie, deviceFP: $unsavedFP)
             case .global:
                 GetCookieWebView(
                     isShown: $isGetCookieWebViewShown,

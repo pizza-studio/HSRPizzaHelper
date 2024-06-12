@@ -14,6 +14,8 @@ struct GetCookieQRCodeView: View {
 
     @Binding var cookie: String!
 
+    @Binding var deviceFP: String
+
     @State private var isNotScannedAlertShow: Bool = false
 
     @State private var isCheckingScanning = false
@@ -116,7 +118,13 @@ struct GetCookieQRCodeView: View {
                                             cookie += "ltuid=" + accountId + "; "
                                             cookie += "ltoken=" + ltoken + "; "
                                             cookie += "mid=" + mid + "; "
+                                            let fpResult = try await MiHoYoAPI
+                                                .getDeviceFingerPrint(region: .mainlandChina)
+                                            // cookie += "DEVICEFP=\(fpResult.deviceFP); "
+                                            // cookie += "DEVICEFP_SEED_ID=\(fpResult.seedID); "
+                                            // cookie += "DEVICEFP_SEED_TIME=\(fpResult.seedTime); "
                                             self.cookie = cookie
+                                            deviceFP = fpResult.deviceFP
 
                                             dismiss()
                                         } else {
