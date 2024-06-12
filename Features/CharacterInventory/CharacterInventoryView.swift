@@ -32,10 +32,12 @@ struct CharacterInventoryView: View {
                 Section {
                     VStack(alignment: .leading, spacing: 3) {
                         Text(characterStats)
-                        if !isMiyousheUID {
-                            Text(goldStats)
-                        } else {
-                            Text("app.characters.miyousheLimitations.description")
+                        if expanded {
+                            if !isMiyousheUID {
+                                Text(goldStats)
+                            } else {
+                                Text("app.characters.miyousheLimitations.description")
+                            }
                         }
                     }.font(.footnote)
                 }.listRowMaterialBackground()
