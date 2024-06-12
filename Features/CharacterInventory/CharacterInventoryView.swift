@@ -240,7 +240,7 @@ struct AvatarListItem: View {
                 alignment: .topTrailing
             )
             .corneredTag(
-                "detailPortal.ECDDV.constellation.unit:\(avatar.rank)",
+                "detailPortal.ECDDV.eidolonResonance.unit:\(avatar.rank)",
                 alignment: .trailing
             )
             if !condensed {

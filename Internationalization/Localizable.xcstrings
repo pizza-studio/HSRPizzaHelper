@@ -1404,7 +1404,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "如果持續要求真人認證的話，建議參考[該教學指引](https://hsr.pizzastudio.org/static/fp_tutorial)抓包填入裝置指紋、以規避該故障。"
+            "value" : "如果持續要求人機驗證的話，建議參考[該教學指引](https://hsr.pizzastudio.org/static/fp_tutorial)抓包填入裝置指紋、以規避該故障。"
           }
         }
       }
@@ -1450,7 +1450,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請點擊這裡進行真人認證"
+            "value" : "請點擊這裡進行人機驗證"
           }
         }
       }
@@ -1490,13 +1490,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "验证"
+            "value" : "人机验证"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "認證"
+            "value" : "人機驗證"
           }
         }
       }
@@ -2008,7 +2008,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "需要認證"
+            "value" : "需要人機驗證"
           }
         }
       }
@@ -3961,7 +3961,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您可以選擇您相冊中的圖片以自訂小組件背景。"
+            "value" : "您可以選擇您相冊中的圖片以自訂小工具背景。"
           }
         }
       }
@@ -4007,7 +4007,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自訂小組件背景"
+            "value" : "自訂小工具背景"
           }
         }
       }
@@ -4053,7 +4053,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "長按小組件以找到更多個性化設定。"
+            "value" : "長按小工具以找到更多個性化設定。"
           }
         }
       }
@@ -4099,7 +4099,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更多小組件設定"
+            "value" : "更多小工具設定"
           }
         }
       }
@@ -4237,7 +4237,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我們提供了兩種風格的主畫面小組件和數種風格的鎖定屏幕小組件。"
+            "value" : "我們提供了兩種風格的主畫面小工具和數種風格的鎖定畫面小工具。"
           }
         }
       }
@@ -4283,7 +4283,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "小組件"
+            "value" : "小工具"
           }
         }
       }
@@ -4485,30 +4485,30 @@
         }
       }
     },
-    "detailPortal.ECDDV.constellation.unit:%lld" : {
+    "detailPortal.ECDDV.eidolonResonance.unit:%lld" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "C%lld"
+            "value" : "E%lld"
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "C%lld"
+            "value" : "E%lld"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "C%lld"
+            "value" : "E%lld"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "C%lld"
+            "value" : "E%lld"
           }
         },
         "ja" : {
@@ -4520,31 +4520,31 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "C%lld"
+            "value" : "E%lld"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "С%lld"
+            "value" : "E%lld"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "C%lld"
+            "value" : "E%lld"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld命"
+            "value" : "%lld魂"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld命"
+            "value" : "%lld魂"
           }
         }
       }
@@ -10251,7 +10251,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "需要認證"
+            "value" : "需要人機驗證"
           }
         }
       }
@@ -10298,7 +10298,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請進入App完成真人認證。"
+            "value" : "請進入App完成人機驗證。"
           }
         }
       }
@@ -13016,7 +13016,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "長方形小組件背景"
+            "value" : "長方形小工具背景"
           }
         }
       }
@@ -13062,7 +13062,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正方形小組件背景"
+            "value" : "正方形小工具背景"
           }
         }
       }
@@ -13478,7 +13478,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "小組件背景"
+            "value" : "小工具背景"
           }
         }
       }
@@ -13524,7 +13524,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在小組件界面長按小組件可以詳細編輯小組件"
+            "value" : "在小工具界面長按小工具可以詳細編輯小工具"
           }
         }
       }
@@ -13570,7 +13570,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "小組件每6分鐘重新載入一次，每2小時同步一次。也可以通過進入App或在主頁下拉重新載入手動同步小組件。"
+            "value" : "小工具每6分鐘重新載入一次，每2小時同步一次。也可以通過進入App或在主頁下拉重新載入手動同步小工具。"
           }
         }
       }
@@ -13803,7 +13803,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使所有小組件同步"
+            "value" : "使所有小工具同步"
           }
         }
       }
@@ -13849,7 +13849,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "小組件"
+            "value" : "小工具"
           }
         }
       }
