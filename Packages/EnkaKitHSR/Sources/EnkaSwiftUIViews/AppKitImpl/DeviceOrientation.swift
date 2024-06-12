@@ -12,10 +12,10 @@ import UIKit
 
 // MARK: - DeviceOrientation
 
-final class DeviceOrientation: ObservableObject {
+public final class DeviceOrientation: ObservableObject {
     // MARK: Lifecycle
 
-    init() {
+    public init() {
         #if canImport(UIKit)
         self.orientation = UIDevice.current.orientation
             .isLandscape ? .landscape : .portrait
@@ -41,12 +41,14 @@ final class DeviceOrientation: ObservableObject {
         listener?.cancel()
     }
 
-    // MARK: Internal
+    // MARK: Public
 
-    enum Orientation {
+    public enum Orientation {
         case portrait
         case landscape
     }
+
+    // MARK: Internal
 
     @Published var orientation: Orientation
 
