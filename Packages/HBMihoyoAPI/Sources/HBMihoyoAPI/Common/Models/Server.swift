@@ -79,17 +79,17 @@ extension Server: CustomStringConvertible {
     public var description: String {
         switch self {
         case .china:
-            return "星穹列车"
+            return String(localized: .init(stringLiteral: "server.name.celestia"))
         case .bilibili:
-            return "无名客"
+            return String(localized: .init(stringLiteral: "server.name.irminsul"))
         case .unitedStates:
-            return "America"
+            return String(localized: .init(stringLiteral: "server.name.america"))
         case .europe:
-            return "Europe"
+            return String(localized: .init(stringLiteral: "server.name.europe"))
         case .asia:
-            return "Asia"
+            return String(localized: .init(stringLiteral: "server.name.asia"))
         case .hongKongMacauTaiwan:
-            return "TW/HK/MO"
+            return String(localized: .init(stringLiteral: "server.name.twhkmo"))
         }
     }
 }
