@@ -150,7 +150,13 @@ public struct ShowCaseListView: View {
 
 // MARK: - Int + Identifiable
 
-extension Int: Identifiable {
+#if hasFeature(RetroactiveAttribute)
+extension Int: @retroactive Identifiable {}
+#else
+extension Int: Identifiable {}
+#endif
+
+extension Int {
     public var id: String { description }
 }
 

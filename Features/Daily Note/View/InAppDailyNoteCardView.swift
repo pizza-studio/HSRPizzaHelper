@@ -154,7 +154,13 @@ private struct NoteView: View {
 
 // MARK: - ExpeditionInformation.Expedition + View
 
-extension ExpeditionInformation.Expedition: View {
+#if hasFeature(RetroactiveAttribute)
+extension ExpeditionInformation.Expedition: @retroactive View {}
+#else
+extension ExpeditionInformation.Expedition: View {}
+#endif
+
+extension ExpeditionInformation.Expedition {
     public var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .center, spacing: 4) {

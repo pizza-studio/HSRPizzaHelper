@@ -8,7 +8,13 @@
 import Foundation
 import HBMihoyoAPI
 
-extension MiHoYoAPIError: LocalizedError {
+#if hasFeature(RetroactiveAttribute)
+extension MiHoYoAPIError: @retroactive LocalizedError {}
+#else
+extension MiHoYoAPIError: LocalizedError {}
+#endif
+
+extension MiHoYoAPIError {
     public var errorDescription: String? {
         switch self {
         case let .other(retcode: retcode, message: message):

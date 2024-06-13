@@ -50,7 +50,13 @@ extension NewsKitHSR {
 
 // MARK: - View + View
 
-extension [any NewsKitHSR.NewsElement]: View {
+#if hasFeature(RetroactiveAttribute)
+extension [any NewsKitHSR.NewsElement]: @retroactive View {}
+#else
+extension [any NewsKitHSR.NewsElement]: View {}
+#endif
+
+extension [any NewsKitHSR.NewsElement] {
     public var body: some View {
         List {
             ForEach(self, id: \.id) { newsElement in

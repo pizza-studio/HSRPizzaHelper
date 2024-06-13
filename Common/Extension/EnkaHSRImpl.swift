@@ -5,7 +5,13 @@
 import EnkaKitHSR
 import Foundation
 
-extension EnkaHSR.QueryRelated.Exception: LocalizedError {
+#if hasFeature(RetroactiveAttribute)
+extension EnkaHSR.QueryRelated.Exception: @retroactive LocalizedError {}
+#else
+extension EnkaHSR.QueryRelated.Exception: LocalizedError {}
+#endif
+
+extension EnkaHSR.QueryRelated.Exception {
     public var errorDescription: String? {
         switch self {
         case let .enkaDBOnlineFetchFailure(details: details):

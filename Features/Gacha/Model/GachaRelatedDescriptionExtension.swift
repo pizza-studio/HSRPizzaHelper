@@ -10,7 +10,13 @@ import HBMihoyoAPI
 
 // MARK: - GachaError + LocalizedError
 
-extension GachaError: LocalizedError {
+#if hasFeature(RetroactiveAttribute)
+extension GachaError: @retroactive LocalizedError {}
+#else
+extension GachaError: LocalizedError {}
+#endif
+
+extension GachaError {
     public var errorDescription: String? {
         switch self {
         case let .fetchDataError(page: page, size: size, gachaType: gachaType, error: error):
@@ -28,7 +34,13 @@ extension GachaError: LocalizedError {
 
 // MARK: - ParseGachaURLError + LocalizedError
 
-extension ParseGachaURLError: LocalizedError {
+#if hasFeature(RetroactiveAttribute)
+extension ParseGachaURLError: @retroactive LocalizedError {}
+#else
+extension ParseGachaURLError: LocalizedError {}
+#endif
+
+extension ParseGachaURLError {
     public var errorDescription: String? {
         switch self {
         case .invalidURL:
@@ -49,7 +61,13 @@ extension ParseGachaURLError: LocalizedError {
 
 // MARK: - GachaType + CustomStringConvertible
 
-extension GachaType: CustomStringConvertible {
+#if hasFeature(RetroactiveAttribute)
+extension GachaType: @retroactive CustomStringConvertible {}
+#else
+extension GachaType: CustomStringConvertible {}
+#endif
+
+extension GachaType {
     public var description: String {
         switch self {
         case .characterEventWarp:
@@ -66,7 +84,13 @@ extension GachaType: CustomStringConvertible {
 
 // MARK: - GachaItem.ItemType + CustomStringConvertible
 
-extension GachaItem.ItemType: CustomStringConvertible {
+#if hasFeature(RetroactiveAttribute)
+extension GachaItem.ItemType: @retroactive CustomStringConvertible {}
+#else
+extension GachaItem.ItemType: CustomStringConvertible {}
+#endif
+
+extension GachaItem.ItemType {
     public var description: String {
         switch self {
         case .lightCones:
