@@ -10,18 +10,6 @@
     " (%@)" : {
 
     },
-    " / %lld" : {
-
-    },
-    " / 240" : {
-
-    },
-    ", " : {
-
-    },
-    "…" : {
-
-    },
     "*DEBUG* Print all notification" : {
 
     },
@@ -48,16 +36,6 @@
         }
       }
     },
-    "%@: %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@: %2$@"
-          }
-        }
-      }
-    },
     "%lld" : {
 
     },
@@ -78,9 +56,6 @@
 
     },
     "100%" : {
-
-    },
-    "794277219" : {
 
     },
     "account.added.success" : {
@@ -1500,9 +1475,6 @@
           }
         }
       }
-    },
-    "AlertToast - elai950\nhttps://github.com/elai950/AlertToast" : {
-
     },
     "app.characters.count.character:%lld%lld%lld" : {
       "localizations" : {
@@ -4453,9 +4425,6 @@
     "daicanglong@gmail.com" : {
 
     },
-    "Defaults - Sindre Sorhus\nhttps://github.com/sindresorhus/Defaults" : {
-
-    },
     "detailPortal.AllCharacterPhotoSpecimen" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4878,9 +4847,6 @@
           }
         }
       }
-    },
-    "English Channel" : {
-
     },
     "err.mfe" : {
       "extractionState" : "migrated",
@@ -10159,9 +10125,6 @@
     "Leading" : {
 
     },
-    "Mantis - guoyingtao\nhttps://github.com/guoyingtao/Mantis" : {
-
-    },
     "mihoyoapi.error.errdesc" : {
       "extractionState" : "migrated",
       "localizations" : {
@@ -14339,9 +14302,6 @@
         }
       }
     },
-    "SFSafeSymbols\nhttps://github.com/SFSafeSymbols/SFSafeSymbols" : {
-
-    },
     "Shiki Suen (孙志贵)" : {
       "localizations" : {
         "ja" : {
@@ -14362,9 +14322,6 @@
 
     },
     "Successfully obtained..." : {
-
-    },
-    "SwifterSwift\nhttps://github.com/SwifterSwift/SwifterSwift" : {
 
     },
     "sys.about.opensource.footer" : {
@@ -20612,9 +20569,6 @@
           }
         }
       }
-    },
-    "中文频道" : {
-
     },
     "错误信息：%@" : {
 
