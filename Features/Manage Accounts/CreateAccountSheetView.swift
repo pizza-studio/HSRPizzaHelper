@@ -73,7 +73,9 @@ struct CreateAccountSheetView: View {
 
     func saveAccount() {
         guard account.isValid else {
-            saveAccountError = .missingFieldError("err.mfe")
+            saveAccountError = .missingFieldError(
+                String(localized: .init(stringLiteral: "err.mfe"))
+            )
             isSaveAccountFailAlertShown.toggle()
             return
         }
