@@ -5,7 +5,6 @@
 import Defaults
 import EnkaKitHSR
 import EnkaSwiftUIViews
-import Flow
 import HBMihoyoAPI
 import SFSafeSymbols
 import SwiftUI
