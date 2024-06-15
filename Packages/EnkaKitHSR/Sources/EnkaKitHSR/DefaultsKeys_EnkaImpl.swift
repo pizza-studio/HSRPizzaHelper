@@ -6,6 +6,9 @@ import Defaults
 import DefaultsKeys
 import Foundation
 
+// swiftlint:disable force_try
+// swiftlint:disable force_unwrapping
+
 #if !os(watchOS)
 extension UserDefaults {
     public static let enkaSuite = UserDefaults(suiteName: "group.Canglong.HSRPizzaHelper.storageForEnka") ?? .hsrSuite
@@ -17,6 +20,11 @@ extension Defaults.Keys {
     public static let lastEnkaDBDataCheckDate = Key<Date>(
         "lastEnkaDBDataCheckDate",
         default: .init(timeIntervalSince1970: 0),
+        suite: .enkaSuite
+    )
+    public static let srsModelData = Key<ArtifactRating.StatScoreModelDecodable.Dict>(
+        "srsModelData",
+        default: try! .localConstruct()!,
         suite: .enkaSuite
     )
     public static let enkaDBData = Key<EnkaHSR.EnkaDB>(
@@ -87,6 +95,10 @@ extension EnkaHSR.EnkaDB: _DefaultsSerializable {}
 
 extension EnkaHSR.QueryRelated.DetailInfo: _DefaultsSerializable {}
 
+// MARK: - ArtifactRating.StatScoreModelDecodable + _DefaultsSerializable
+
+extension ArtifactRating.StatScoreModelDecodable: _DefaultsSerializable {}
+
 // MARK: - EnkaHSR.HostType + _DefaultsSerializable
 
 extension EnkaHSR.HostType: _DefaultsSerializable {
@@ -97,3 +109,6 @@ extension EnkaHSR.HostType: _DefaultsSerializable {
         }
     }
 }
+
+// swiftlint:enable force_try
+// swiftlint:enable force_unwrapping

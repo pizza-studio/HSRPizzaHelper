@@ -101,8 +101,7 @@ final class EnkaKitHSRTests: XCTestCase {
     func testWallpapers() throws {
         Wallpaper.allCases.forEach { thisCase in
             print(thisCase.localizedTitle)
-            print(thisCase.imageData.width)
-            print(thisCase.imageData.height)
+            XCTAssertNotNil(thisCase.image)
         }
     }
 }

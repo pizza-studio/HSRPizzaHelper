@@ -2,18 +2,30 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Defaults
+import DefaultsKeys
 import Foundation
 
-extension ArtifactRating.StatScoreModelOptimized.Dict {
-    private typealias DecodableModelDict = ArtifactRating.StatScoreModelDecodable.Dict
+private typealias DecodableModelDict = ArtifactRating.StatScoreModelDecodable.Dict
 
-    public static func construct() throws -> Self? {
+extension ArtifactRating.StatScoreModelOptimized.Dict {
+    public static func construct() -> Self {
+        Defaults[.srsModelData].optimized
+    }
+}
+
+extension ArtifactRating.StatScoreModelDecodable.Dict {
+    public static func localConstruct() throws -> Self? {
         let url = Bundle.module.url(forResource: "StarRailScore", withExtension: "json", subdirectory: nil)
         guard let url = url else { return nil }
         let data = try Data(contentsOf: url)
         let rawDB = try JSONDecoder().decode(DecodableModelDict.self, from: data)
+        return rawDB
+    }
+
+    public var optimized: ArtifactRating.StatScoreModelOptimized.Dict {
         var newDB = ArtifactRating.StatScoreModelOptimized.Dict()
-        rawDB.forEach { charID, rawModel in
+        forEach { charID, rawModel in
             var newModel = ArtifactRating.StatScoreModelOptimized()
             newModel.max = rawModel.max
             // 副词条

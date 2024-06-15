@@ -82,7 +82,7 @@ final class ArtifactAppraiserTests: XCTestCase {
     }
 
     func testPrintAllScoreModels() throws {
-        let scoreDB = (try? ArtifactRating.StatScoreModelOptimized.Dict.construct()) ?? [:]
+        let scoreDB = ArtifactRating.StatScoreModelOptimized.Dict.construct()
         print(scoreDB)
         XCTAssertTrue(!scoreDB.isEmpty)
     }

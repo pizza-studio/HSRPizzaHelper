@@ -64,7 +64,9 @@ extension ArtifactRating {
         let max: Double
     }
 
-    public static let sharedStatScoreModelDB: StatScoreModelOptimized.Dict = try! .construct()!
+    public static var sharedStatScoreModelDB: StatScoreModelOptimized.Dict = .construct()
+
+    public static func reloadSharedStatScoreModelDB() { sharedStatScoreModelDB = .construct() }
 }
 
 // swiftlint:enable force_try
