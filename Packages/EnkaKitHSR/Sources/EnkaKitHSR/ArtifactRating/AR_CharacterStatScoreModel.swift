@@ -37,8 +37,6 @@ extension ArtifactRating.CharacterStatScoreModel {
     }
 }
 
-// swiftlint:disable force_try
-// swiftlint:disable force_unwrapping
 extension ArtifactRating {
     public struct StatScoreModelOptimized {
         // MARK: Public
@@ -69,9 +67,6 @@ extension ArtifactRating {
 
     public static var sharedStatScoreModelDB: StatScoreModelOptimized.Dict = .construct()
 }
-
-// swiftlint:enable force_try
-// swiftlint:enable force_unwrapping
 
 extension ArtifactRating {
     public static func resetFactoryScoreModel() {
