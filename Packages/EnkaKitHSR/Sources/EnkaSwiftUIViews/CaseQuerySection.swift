@@ -182,16 +182,29 @@ extension CaseQuerySection {
                     do {
                         let profile = try await EnkaHSR.Sputnik.getEnkaProfile(for: givenUID.description)
                         let enkaDB = EnkaHSR.Sputnik.sharedDB
-                        await enkaDB.updateExpiryStatus(against: profile)
+
+                        // 检查本地 EnkaDB 是否过期，过期了的话就尝试更新。
+                        enkaDB.updateExpiryStatus(against: profile)
                         if enkaDB.isExpired {
                             let factoryDB = EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)
-                            await factoryDB?.updateExpiryStatus(against: profile)
+                            factoryDB?.updateExpiryStatus(against: profile)
                             if let factoryDB = factoryDB, !factoryDB.isExpired {
                                 enkaDB.update(new: factoryDB)
                             } else {
                                 enkaDB.update(new: try await EnkaHSR.Sputnik.getEnkaDB())
                             }
                         }
+
+                        // 检查本地圣遗物评分模型是否过期，过期了的话就尝试更新。
+                        if ArtifactRating.isScoreModelExpired(against: profile) {
+                            ArtifactRating.resetFactoryScoreModel()
+                            if ArtifactRating.isScoreModelExpired(against: profile) {
+                                // 圣遗物评分非刚需体验。
+                                // 如果在这个过程内出错的话，顶多就是该当角色没有圣遗物评分可用。
+                                _ = await ArtifactRating.onlineUpdateScoreModel()
+                            }
+                        }
+
                         self.currentInfo = profile
                         state = .standBy
                         errorMsg = nil

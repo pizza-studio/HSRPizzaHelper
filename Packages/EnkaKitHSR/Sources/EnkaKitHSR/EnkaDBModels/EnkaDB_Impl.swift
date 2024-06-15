@@ -27,8 +27,7 @@ extension EnkaHSR.EnkaDB {
 // MARK: - APIs for Checking Expiry Status.
 
 extension EnkaHSR.EnkaDB {
-    @MainActor
-    public func updateExpiryStatus(against profile: EnkaHSR.QueryRelated.DetailInfo? = nil) async {
+    public func updateExpiryStatus(against profile: EnkaHSR.QueryRelated.DetailInfo? = nil) {
         var arrProfiles = [EnkaHSR.QueryRelated.DetailInfo]()
         if let profile = profile {
             arrProfiles.append(profile)

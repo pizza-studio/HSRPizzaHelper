@@ -2,6 +2,9 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+import Defaults
+import Foundation
+
 // MARK: - ArtifactRating.CharacterStatScoreModel
 
 extension ArtifactRating {
@@ -65,9 +68,30 @@ extension ArtifactRating {
     }
 
     public static var sharedStatScoreModelDB: StatScoreModelOptimized.Dict = .construct()
-
-    public static func reloadSharedStatScoreModelDB() { sharedStatScoreModelDB = .construct() }
 }
 
 // swiftlint:enable force_try
 // swiftlint:enable force_unwrapping
+
+extension ArtifactRating {
+    public static func resetFactoryScoreModel() {
+        Defaults.reset([.srsModelData])
+        sharedStatScoreModelDB = .construct()
+    }
+
+    public static func onlineUpdateScoreModel() async -> Bool {
+        let initialServer = Defaults[.defaultDBQueryHost]
+        do {
+            let data = try await EnkaHSR.Sputnik.fetchArtifactModelData(from: initialServer)
+            sharedStatScoreModelDB = data.optimized
+        } catch {
+            return false
+        }
+        return true
+    }
+
+    public static func isScoreModelExpired(against profile: EnkaHSR.QueryRelated.DetailInfo) -> Bool {
+        let targetIDs: Set<String> = .init(profile.avatarDetailList.map(\.avatarId.description))
+        return !targetIDs.isSubset(of: Set<String>(sharedStatScoreModelDB.keys))
+    }
+}

@@ -132,7 +132,7 @@ extension EnkaHSR.Sputnik {
     /// - Parameters:
     ///     - uid: 用户UID
     ///     - completion: 资料
-    public static func fetchEnkaProfileRAW(
+    static func fetchEnkaProfileRAW(
         _ uid: String,
         dateWhenNextRefreshable: Date? = nil
     ) async throws
@@ -227,6 +227,52 @@ extension EnkaHSR.Sputnik {
                 print("// DEBUG: [Enka.Sputnik.fetchEnkaDBData] Data Fetch Failed: \(dataType.rawValue).json")
             } else {
                 print("// DEBUG: [Enka.Sputnik.fetchEnkaDBData] Data Parse Failed: \(dataType.rawValue).json")
+            }
+            print(error.localizedDescription)
+            throw error
+        }
+    }
+
+    /// 从 EnkaNetwork 获取具体单笔 EnkaDB 子类型资料
+    /// - Parameters:
+    ///     - completion: 资料
+    static func fetchArtifactModelData(
+        from serverType: EnkaHSR.HostType = .enkaGlobal
+    ) async throws
+        -> DecodableSRSModelDict {
+        var dataToParse = Data([])
+        do {
+            let (data, _) = try await URLSession.shared.data(
+                for: URLRequest(url: serverType.srsModelURL)
+            )
+            dataToParse = data
+        } catch {
+            print(error.localizedDescription)
+            print("// [Enka.Sputnik.fetchEnkaDBData] Attempt using alternative JSON server source.")
+            do {
+                let (data, _) = try await URLSession.shared.data(
+                    for: URLRequest(url: serverType.viceVersa().srsModelURL)
+                )
+                dataToParse = data
+                // 如果这次成功的话，就自动修改偏好设定、今后就用这个资料源。
+                var successMsg = "// [Enka.Sputnik.fetchEnkaDBData] 2nd attempt succeeded."
+                successMsg += " Will use this JSON server source from now on."
+                print(successMsg)
+                EnkaHSR.HostType.toggleEnkaDBQueryHost()
+            } catch {
+                print("// [Enka.Sputnik.fetchEnkaDBData] Final attempt failed:")
+                print(error.localizedDescription)
+                throw error
+            }
+        }
+        do {
+            let requestResult = try JSONDecoder().decode(DecodableSRSModelDict.self, from: dataToParse)
+            return requestResult
+        } catch {
+            if dataToParse.isEmpty {
+                print("// DEBUG: [Enka.Sputnik.fetchArtifactModelData] Data Fetch Failed: score.json")
+            } else {
+                print("// DEBUG: [Enka.Sputnik.fetchArtifactModelData] Data Parse Failed: score.json")
             }
             print(error.localizedDescription)
             throw error

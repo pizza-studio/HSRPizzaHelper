@@ -6,7 +6,7 @@ import Defaults
 import DefaultsKeys
 import Foundation
 
-private typealias DecodableModelDict = ArtifactRating.StatScoreModelDecodable.Dict
+internal typealias DecodableSRSModelDict = ArtifactRating.StatScoreModelDecodable.Dict
 
 extension ArtifactRating.StatScoreModelOptimized.Dict {
     public static func construct() -> Self {
@@ -19,7 +19,7 @@ extension ArtifactRating.StatScoreModelDecodable.Dict {
         let url = Bundle.module.url(forResource: "StarRailScore", withExtension: "json", subdirectory: nil)
         guard let url = url else { return nil }
         let data = try Data(contentsOf: url)
-        let rawDB = try JSONDecoder().decode(DecodableModelDict.self, from: data)
+        let rawDB = try JSONDecoder().decode(DecodableSRSModelDict.self, from: data)
         return rawDB
     }
 

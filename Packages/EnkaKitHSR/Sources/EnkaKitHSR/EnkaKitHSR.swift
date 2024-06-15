@@ -175,6 +175,20 @@ extension EnkaHSR {
             }
         }
 
+        public var srsModelURL: URL {
+            // swiftlint:disable force_unwrapping
+            switch self {
+            case .mainlandChina:
+                let baseURL = "https://www.gitlink.org.cn/api/ShikiSuen/StarRailScore/raw/score.json"
+                let urlStr = Self.gitLinkURLWrapper(baseURL)
+                return .init(string: urlStr)!
+            case .enkaGlobal:
+                let urlStr = "https://raw.githubusercontent.com/Mar-7th/StarRailScore/master/score.json"
+                return .init(string: urlStr)!
+            }
+            // swiftlint:enable force_unwrapping
+        }
+
         public func viceVersa() -> Self {
             switch self {
             case .enkaGlobal: return .mainlandChina
@@ -193,6 +207,12 @@ extension EnkaHSR {
             // swiftlint:disable force_unwrapping
             .init(string: profileQueryURLPrefix + uid + profileQueryURLSuffix)!
             // swiftlint:enable force_unwrapping
+        }
+
+        // MARK: Private
+
+        private static func gitLinkURLWrapper(_ urlStr: String) -> String {
+            "https://gitlink.org.cn/attachments/entries/get_file?download_url=\(urlStr)?ref=master"
         }
     }
 }
