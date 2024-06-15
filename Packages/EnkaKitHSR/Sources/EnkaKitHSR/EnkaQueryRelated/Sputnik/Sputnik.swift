@@ -155,7 +155,7 @@ extension EnkaHSR.Sputnik {
                 print(error.localizedDescription)
                 print("// [Enka.Sputnik.fetchEnkaProfileRAW] Attempt using alternative profile query server source.")
                 do {
-                    server = server.viceVersa()
+                    server = server.viceVersa
                     let (data, _) = try await URLSession.shared.data(
                         for: URLRequest(url: server.enkaProfileQueryURL(uid: uid))
                     )
@@ -205,7 +205,7 @@ extension EnkaHSR.Sputnik {
             print("// [Enka.Sputnik.fetchEnkaDBData] Attempt using alternative JSON server source.")
             do {
                 let (data, _) = try await URLSession.shared.data(
-                    for: URLRequest(url: serverType.viceVersa().enkaDBSourceURL(type: dataType))
+                    for: URLRequest(url: serverType.viceVersa.enkaDBSourceURL(type: dataType))
                 )
                 dataToParse = data
                 // 如果这次成功的话，就自动修改偏好设定、今后就用这个资料源。
@@ -251,7 +251,7 @@ extension EnkaHSR.Sputnik {
             print("// [Enka.Sputnik.fetchEnkaDBData] Attempt using alternative JSON server source.")
             do {
                 let (data, _) = try await URLSession.shared.data(
-                    for: URLRequest(url: serverType.viceVersa().srsModelURL)
+                    for: URLRequest(url: serverType.viceVersa.srsModelURL)
                 )
                 dataToParse = data
                 // 如果这次成功的话，就自动修改偏好设定、今后就用这个资料源。

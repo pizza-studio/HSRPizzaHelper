@@ -154,51 +154,38 @@ extension EnkaHSR {
 
         // MARK: Public
 
-        public var enkaDBSourceURLPrefix: String {
-            switch self {
-            case .mainlandChina: return "https://www.gitlink.org.cn/api/ShikiSuen/Enka-API-docs/raw/"
-            case .enkaGlobal: return "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/"
-            }
-        }
-
-        public var profileQueryURLPrefix: String {
-            switch self {
-            case .mainlandChina: return "https://api.mihomo.me/sr_info/"
-            case .enkaGlobal: return "https://enka.network/api/hsr/uid/"
-            }
-        }
-
-        public var profileQueryURLSuffix: String {
-            switch self {
-            case .mainlandChina: return "?is_force_update=true"
-            case .enkaGlobal: return ""
-            }
-        }
-
-        public var srsModelURL: URL {
-            // swiftlint:disable force_unwrapping
-            switch self {
-            case .mainlandChina:
-                let baseURL = "https://www.gitlink.org.cn/api/ShikiSuen/StarRailScore/raw/score.json"
-                let urlStr = Self.gitLinkURLWrapper(baseURL)
-                return .init(string: urlStr)!
-            case .enkaGlobal:
-                let urlStr = "https://raw.githubusercontent.com/Mar-7th/StarRailScore/master/score.json"
-                return .init(string: urlStr)!
-            }
-            // swiftlint:enable force_unwrapping
-        }
-
-        public func viceVersa() -> Self {
+        public var viceVersa: Self {
             switch self {
             case .enkaGlobal: return .mainlandChina
             case .mainlandChina: return .enkaGlobal
             }
         }
 
-        public func enkaDBSourceURL(type: EnkaHSR.JSONType) -> URL {
+        public var srsModelURL: URL {
+            var urlStr: String = {
+                switch self {
+                case .mainlandChina: return "https://www.gitlink.org.cn/api/ShikiSuen/StarRailScore/raw/"
+                case .enkaGlobal: return "https://raw.githubusercontent.com/Mar-7th/StarRailScore/master/"
+                }
+            }()
+            urlStr += "score.json"
+            if self == .mainlandChina {
+                urlStr = Self.gitLinkURLWrapper(urlStr)
+            }
             // swiftlint:disable force_unwrapping
-            var urlStr = "\(enkaDBSourceURLPrefix)store/hsr/\(type.rawValue).json"
+            return .init(string: urlStr)!
+            // swiftlint:enable force_unwrapping
+        }
+
+        public func enkaDBSourceURL(type: EnkaHSR.JSONType) -> URL {
+            var urlStr: String = {
+                switch self {
+                case .mainlandChina: return "https://www.gitlink.org.cn/api/ShikiSuen/Enka-API-docs/raw/"
+                case .enkaGlobal: return "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/"
+                }
+            }()
+            // swiftlint:disable force_unwrapping
+            urlStr += "store/hsr/\(type.rawValue).json"
             if self == .mainlandChina {
                 urlStr = Self.gitLinkURLWrapper(urlStr)
             }
@@ -213,6 +200,20 @@ extension EnkaHSR {
         }
 
         // MARK: Private
+
+        private var profileQueryURLPrefix: String {
+            switch self {
+            case .mainlandChina: return "https://api.mihomo.me/sr_info/"
+            case .enkaGlobal: return "https://enka.network/api/hsr/uid/"
+            }
+        }
+
+        private var profileQueryURLSuffix: String {
+            switch self {
+            case .mainlandChina: return "?is_force_update=true"
+            case .enkaGlobal: return ""
+            }
+        }
 
         private static func gitLinkURLWrapper(_ urlStr: String) -> String {
             "https://gitlink.org.cn/attachments/entries/get_file?download_url=\(urlStr)?ref=master"
