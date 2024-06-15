@@ -156,7 +156,7 @@ extension EnkaHSR {
 
         public var enkaDBSourceURLPrefix: String {
             switch self {
-            case .mainlandChina: return "https://gitcode.net/SHIKISUEN/Enka-API-docs/-/raw/master/"
+            case .mainlandChina: return "https://www.gitlink.org.cn/api/ShikiSuen/Enka-API-docs/raw/"
             case .enkaGlobal: return "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/"
             }
         }
@@ -198,7 +198,10 @@ extension EnkaHSR {
 
         public func enkaDBSourceURL(type: EnkaHSR.JSONType) -> URL {
             // swiftlint:disable force_unwrapping
-            let urlStr = "\(enkaDBSourceURLPrefix)store/hsr/\(type.rawValue).json"
+            var urlStr = "\(enkaDBSourceURLPrefix)store/hsr/\(type.rawValue).json"
+            if self == .mainlandChina {
+                urlStr = Self.gitLinkURLWrapper(urlStr)
+            }
             return .init(string: urlStr)!
             // swiftlint:enable force_unwrapping
         }
