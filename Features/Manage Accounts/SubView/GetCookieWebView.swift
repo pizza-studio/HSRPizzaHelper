@@ -23,7 +23,7 @@ struct GetCookieWebView: View {
     var body: some View {
         NavigationStack {
             CookieGetterWebView(
-                url: getURL(region: region),
+                url: getAccountPageLoginURL(region: region),
                 dataStore: dataStore,
                 httpHeaderFields: getHTTPHeaderFields(region: region)
             )
@@ -174,15 +174,6 @@ struct CookieGetterWebView: UIViewRepresentable {
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
-    }
-}
-
-private func getURL(region: Region) -> String {
-    switch region {
-    case .mainlandChina:
-        return "https://user.mihoyo.com/#/login/captcha"
-    case .global:
-        return "https://www.hoyolab.com/"
     }
 }
 
