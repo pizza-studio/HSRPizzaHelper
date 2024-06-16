@@ -138,6 +138,7 @@ public struct IDPhotoView: View {
         self.iconType = type
         self.imageHandler = imageHandler ?? { $0 }
         self.lifePath = lifePath
+        self.pathTotemVisible = type.pathTotemVisible
     }
 
     // MARK: Public
@@ -150,6 +151,10 @@ public struct IDPhotoView: View {
         case cutFaceRoundedRect = 3
 
         // MARK: Internal
+
+        var pathTotemVisible: Bool {
+            ![.cutHead, .cutFace, .cutFaceRoundedRect].contains(self)
+        }
 
         func shiftedAmount(containerSize size: CGFloat) -> CGFloat {
             let fixedRawValue = min(2, max(1, rawValue))
@@ -233,14 +238,16 @@ public struct IDPhotoView: View {
                 .blur(radius: 12)
         }
         .overlay {
-            coordinator.lifePathImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .scaleEffect(1)
-                .colorMultiply(elementColor)
-                .saturation(0.5)
-                .brightness(0.5)
-                .opacity(0.7)
+            if pathTotemVisible {
+                coordinator.lifePathImage
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .scaleEffect(1)
+                    .colorMultiply(elementColor)
+                    .saturation(0.5)
+                    .brightness(0.5)
+                    .opacity(0.7)
+            }
         }
         .background(baseWindowBGColor)
     }
@@ -303,6 +310,7 @@ public struct IDPhotoView: View {
     private let imageHandler: (Image) -> Image
     private let size: CGFloat
     private let iconType: IconType
+    private let pathTotemVisible: Bool
     private let lifePath: EnkaHSR.DBModels.LifePath
     private let coordinator: Coordinator
 }
