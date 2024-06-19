@@ -22,10 +22,12 @@ public struct ShowCaseListView: View {
     @State public var expanded: Bool
 
     public var body: some View {
-        if !expanded {
-            bodyAsCardCase
-        } else {
-            bodyAsNavList
+        if !profile.summarizedAvatars.isEmpty {
+            if !expanded {
+                bodyAsCardCase
+            } else {
+                bodyAsNavList
+            }
         }
     }
 
