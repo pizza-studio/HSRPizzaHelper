@@ -539,6 +539,7 @@ private struct PlayerDetailSection: View {
                     InfiniteProgressBar().id(UUID())
                 case let .fail(error):
                     theCase
+                    Divider()
                     DPVErrorView(account: account, apiPath: "", error: error) {
                         Task {
                             await vmDPV.fetchPlayerDetail()
