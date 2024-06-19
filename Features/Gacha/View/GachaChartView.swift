@@ -75,12 +75,13 @@ private struct GachaItemChart: View {
     }
 
     var body: some View {
+        let items: [(GachaItemMO, count: Int)] = items
         if !fiveStarItems.isEmpty {
             VStack(spacing: -12) {
                 ForEach(fiveStarItems.chunked(into: 60), id: \.first!.0.id) { items in
                     let isFirst = Bool(equalCheck: fiveStarItems.first?.0.id, against: items.first?.0.id)
                     let isLast = Bool(equalCheck: fiveStarItems.last?.0.id, against: items.last?.0.id)
-                    subChart(isFirst: isFirst, isLast: isLast).padding(isFirst ? .top : [])
+                    subChart(items: items, isFirst: isFirst, isLast: isLast).padding(isFirst ? .top : [])
                 }
             }
         } else {
@@ -90,7 +91,7 @@ private struct GachaItemChart: View {
     }
 
     @ViewBuilder
-    func subChart(isFirst: Bool, isLast: Bool) -> some View {
+    func subChart(items: [(GachaItemMO, count: Int)], isFirst: Bool, isLast: Bool) -> some View {
         Chart {
             ForEach(items, id: \.0.id) { item in
                 drawChartContent(for: item)

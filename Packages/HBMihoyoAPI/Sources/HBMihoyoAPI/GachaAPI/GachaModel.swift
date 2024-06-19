@@ -153,7 +153,17 @@ public struct GachaItem: Codable, GachaItemProtocol {
         // MARK: Public
 
         public static func < (lhs: GachaItem.Rank, rhs: GachaItem.Rank) -> Bool {
-            Int(lhs.rawValue)! < Int(rhs.rawValue)!
+            lhs.intValue < rhs.intValue
+        }
+
+        // MARK: Internal
+
+        var intValue: Int {
+            switch self {
+            case .three: 3
+            case .four: 4
+            case .five: 5
+            }
         }
     }
 
