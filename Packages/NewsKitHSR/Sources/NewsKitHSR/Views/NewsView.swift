@@ -88,6 +88,15 @@ extension NewsKitHSR {
         public var body: some View {
             NavigationStack {
                 currentTabContent
+                    .overlay {
+                        if coordinator.isLoading {
+                            Color.clear
+                                .frame(width: 128, height: 128)
+                                .background(.regularMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                .overlay { ProgressView().frame(width: 100, height: 100) }
+                        }
+                    }
                     .toolbar {
                         #if os(OSX) || targetEnvironment(macCatalyst)
                         ToolbarItem(placement: .topBarTrailing) {
@@ -136,13 +145,17 @@ extension NewsKitHSR {
 
             public func updateData() {
                 Task {
+                    isLoading = true
                     data = await (try? NewsKitHSR.fetchAndAggregate()) ?? .init()
+                    isLoading = false
                 }
             }
 
             // MARK: Internal
 
             @Published var data: NewsKitHSR.AggregatedResult
+
+            @Published var isLoading: Bool = false
         }
 
         @ObservedObject private var coordinator: Coordinator = .init()
