@@ -199,8 +199,8 @@ struct LatestVersionInfoView: View {
             let showRate = Bool.random()
             if showRate {
                 DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
-                        ReviewHandler.requestReview()
-                    }
+                    ReviewHandler.requestReview()
+                }
             }
         }
         isShow.toggle()
