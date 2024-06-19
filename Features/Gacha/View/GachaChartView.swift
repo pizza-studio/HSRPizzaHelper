@@ -62,26 +62,21 @@ private struct GachaItemChart: View {
 
     // MARK: Internal
 
-    var items: [(GachaItemMO, count: Int)] {
-        Array(zip(gachaItemsResult, calculateGachaItemsDrawCount(gachaItemsResult)))
-    }
-
-    var fiveStarItems: [(GachaItemMO, count: Int)] {
-        items.filter { $0.0.rank == .five }
-    }
-
-    var averagePullsCount: Int {
-        fiveStarItems.map(\.count).reduce(0, +) / max(fiveStarItems.count, 1)
-    }
-
     var body: some View {
-        let items: [(GachaItemMO, count: Int)] = items
-        if !fiveStarItems.isEmpty {
+        let frozenItems: [ItemPair] = items
+        let itemsOf5Star = extract5Stars(frozenItems)
+        if !itemsOf5Star.isEmpty {
             VStack(spacing: -12) {
-                ForEach(fiveStarItems.chunked(into: 60), id: \.first!.0.id) { items in
-                    let isFirst = Bool(equalCheck: fiveStarItems.first?.0.id, against: items.first?.0.id)
-                    let isLast = Bool(equalCheck: fiveStarItems.last?.0.id, against: items.last?.0.id)
-                    subChart(items: items, isFirst: isFirst, isLast: isLast).padding(isFirst ? .top : [])
+                ForEach(itemsOf5Star.chunked(into: 60), id: \.first!.0.id) { chunkedItems in
+                    let chunkedItemsOf5Star = extract5Stars(chunkedItems)
+                    let isFirst = Bool(equalCheck: itemsOf5Star.first?.0.id, against: chunkedItems.first?.0.id)
+                    let isLast = Bool(equalCheck: itemsOf5Star.last?.0.id, against: chunkedItems.last?.0.id)
+                    subChart(
+                        givenItems: chunkedItems,
+                        fiveStarItems: chunkedItemsOf5Star,
+                        isFirst: isFirst,
+                        isLast: isLast
+                    ).padding(isFirst ? .top : [])
                 }
             }
         } else {
@@ -90,14 +85,44 @@ private struct GachaItemChart: View {
         }
     }
 
+    // MARK: Private
+
+    private typealias ItemPair = (GachaItemMO, count: Int)
+
+    @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator: Bool
+    @Default(.useRealCharacterNames) private var useRealCharacterNames: Bool
+
+    private let gachaType: GachaType
+
+    @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
+
+    private var items: [ItemPair] {
+        Array(zip(gachaItemsResult, calculateGachaItemsDrawCount(gachaItemsResult)))
+    }
+
+    private var lose5050IconStr: String {
+        useGuestGachaEvaluator ? "UI_EmotionIcon5" : "Pom-Pom_Sticker_32"
+    }
+
+    private func extract5Stars(_ source: [ItemPair]) -> [ItemPair] {
+        source.filter { $0.0.rank == .five }
+    }
+
     @ViewBuilder
-    func subChart(items: [(GachaItemMO, count: Int)], isFirst: Bool, isLast: Bool) -> some View {
+    private func subChart(
+        givenItems: borrowing [ItemPair],
+        fiveStarItems: borrowing [ItemPair],
+        isFirst: Bool,
+        isLast: Bool
+    )
+        -> some View {
+        let averagePullsCount: Int = fiveStarItems.map(\.count).reduce(0, +) / max(fiveStarItems.count, 1)
         Chart {
-            ForEach(items, id: \.0.id) { item in
+            ForEach(givenItems, id: \.0.id) { item in
                 drawChartContent(for: item)
             }
             if !fiveStarItems.isEmpty {
-                RuleMark(x: .value("gacha.account_detail.chart.average", mappedValuesX))
+                RuleMark(x: .value("gacha.account_detail.chart.average", averagePullsCount))
                     .foregroundStyle(.gray)
                     .lineStyle(StrokeStyle(lineWidth: 2, dash: [5]))
                     .annotation(alignment: .topLeading) {
@@ -115,7 +140,7 @@ private struct GachaItemChart: View {
             AxisMarks(preset: .aligned, position: .leading) { value in
                 AxisValueLabel(content: {
                     if let id = value.as(String.self),
-                       let item = matchedItems(with: id).first {
+                       let item = matchedItems(among: givenItems, with: id).first {
                         GachaItemIcon(item: item, size: 45)
                     } else {
                         EmptyView()
@@ -125,9 +150,9 @@ private struct GachaItemChart: View {
             AxisMarks { value in
                 AxisValueLabel(content: {
                     if let theValue = value.as(String.self),
-                       let item = matchedItems(with: theValue).first {
+                       let item = matchedItems(among: givenItems, with: theValue).first {
                         item.localizedNameView(officialNameOnly: !useRealCharacterNames)
-                            .offset(y: items.count == 1 ? 0 : 8)
+                            .offset(y: givenItems.count == 1 ? 0 : 8)
                     } else {
                         EmptyView()
                     }
@@ -147,34 +172,21 @@ private struct GachaItemChart: View {
             }
         })
         .chartXScale(domain: 0 ... 110)
-        .frame(height: CGFloat(items.count * 65))
-        .chartForegroundStyleScale(range: colors(items: items))
+        .frame(height: CGFloat(givenItems.count * 65))
+        .chartForegroundStyleScale(range: colors(items: fiveStarItems))
         .chartLegend(.hidden)
     }
 
-    // MARK: Private
-
-    @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator: Bool
-    @Default(.useRealCharacterNames) private var useRealCharacterNames: Bool
-
-    private let gachaType: GachaType
-
-    @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
-
-    private var lose5050IconStr: String {
-        useGuestGachaEvaluator ? "UI_EmotionIcon5" : "Pom-Pom_Sticker_32"
+    private func matchedItems(
+        among source: borrowing [ItemPair],
+        with value: String
+    )
+        -> [GachaItemMO] {
+        source.map(\.0).filter { $0.id == value }
     }
 
-    private var mappedValuesX: Int {
-        fiveStarItems.map(\.count).reduce(0, +) / max(fiveStarItems.count, 1)
-    }
-
-    private func matchedItems(with value: String) -> [GachaItemMO] {
-        items.map(\.0).filter { $0.id == value }
-    }
-
-    private func colors(items: [(GachaItemMO, count: Int)]) -> [Color] {
-        fiveStarItems.map { _, count in
+    private func colors(items: borrowing [ItemPair]) -> [Color] {
+        items.map { _, count in
             switch count {
             case 0 ..< 62:
                 return .green
