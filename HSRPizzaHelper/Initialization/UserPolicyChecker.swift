@@ -166,25 +166,17 @@ private struct ContactInfoForWelcomeView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section(
                     header: Text("sys.contact.opensource.title.2"),
                     footer: Text("sys.contact.opensource.footer.2").textCase(.none)
                 ) {
-                    Link(
-                        destination: URL(
-                            string: "https://github.com/pizza-studio/hsrpizzahelper"
-                        )!
-                    ) {
-                        Label {
-                            Text("sys.contact.github")
-                        } icon: {
-                            Image("icon.github")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
+                    LinkLabelItem(
+                        "sys.contact.github",
+                        imageKey: "icon.github",
+                        url: "https://github.com/pizza-studio/hsrpizzahelper"
+                    )
                 }
 
                 // app contact
@@ -193,34 +185,12 @@ private struct ContactInfoForWelcomeView: View {
                     footer: Text(groupFooterText).textCase(.none)
                 ) {
                     Menu {
-                        Link(
-                            destination: URL(
-                                string: "https://pd.qq.com/s/9z504ipbc"
-                            )!
-                        ) {
-                            Label {
-                                Text("sys.contact.qq.channel")
-                            } icon: {
-                                Image("icon.qq.circle")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
-
-                        Link(
-                            destination: URL(
-                                // swiftlint:disable:next line_length
-                                string: "mqqapi://card/show_pslcard?src_type=internal&version=1&card_type=group&uin=794277219"
-                            )!
-                        ) {
-                            Label {
-                                Text(verbatim: "794277219")
-                            } icon: {
-                                Image("icon.qq")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
+                        LinkLabelItem(
+                            "sys.contact.qq.channel",
+                            imageKey: "icon.qq.circle",
+                            url: "https://pd.qq.com/s/9z504ipbc"
+                        )
+                        LinkLabelItem(qqGroup: "794277219")
                     } label: {
                         Label {
                             Text("sys.contact.qq.group")
@@ -231,47 +201,24 @@ private struct ContactInfoForWelcomeView: View {
                         }
                     }
 
-                    Link(
-                        destination: URL(string: "https://discord.gg/g8nCgKsaMe")!
-                    ) {
-                        Label {
-                            Text("sys.contact.discord")
-                        } icon: {
-                            Image("icon.discord")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
+                    LinkLabelItem(
+                        "sys.contact.discord",
+                        imageKey: "icon.discord",
+                        url: "https://discord.gg/g8nCgKsaMe"
+                    )
 
                     if AppConfig.appLanguage != .ja {
                         Menu {
-                            Link(
-                                destination: URL(
-                                    string: "https://t.me/hsrhelper_zh"
-                                )!
-                            ) {
-                                Label {
-                                    Text(verbatim: "中文频道")
-                                } icon: {
-                                    Image("telegram")
-                                        .resizable()
-                                        .scaledToFit()
-                                }
-                            }
-
-                            Link(
-                                destination: URL(
-                                    string: "https://t.me/hsrhelper_en"
-                                )!
-                            ) {
-                                Label {
-                                    Text(verbatim: "English Channel")
-                                } icon: {
-                                    Image("telegram")
-                                        .resizable()
-                                        .scaledToFit()
-                                }
-                            }
+                            LinkLabelItem(
+                                verbatim: "Telegram 中文频道",
+                                imageKey: "telegram",
+                                url: "https://t.me/hsrhelper_zh"
+                            )
+                            LinkLabelItem(
+                                verbatim: "Telegram English Channel",
+                                imageKey: "telegram",
+                                url: "https://t.me/hsrhelper_en"
+                            )
                         } label: {
                             Label {
                                 Text("sys.contact.telegram")
@@ -289,21 +236,10 @@ private struct ContactInfoForWelcomeView: View {
                         header: Text("sys.contact.hakubill.twitter.header").textCase(.none),
                         footer: Text("sys.contact.hakubill.twitter.footer").textCase(.none)
                     ) {
-                        Link(
-                            destination: isInstallation(urlString: "twitter://") ?
-                                URL(
-                                    string: "twitter://user?id=890517369637847040"
-                                )! :
-                                URL(string: "https://twitter.com/Haku_Bill")!
-                        ) {
-                            Label {
-                                Text("sys.contact.hakubill.twitter")
-                            } icon: {
-                                Image("icon.twitter")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
+                        LinkLabelItem(
+                            twitter: "PizzaStudio_jp",
+                            titleOverride: "sys.contact.hakubill.twitter"
+                        )
                     }
                 }
             }

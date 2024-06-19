@@ -52,88 +52,104 @@ struct GetCookieQRCodeView: View {
         viewModel.qrCodeAndTicket != nil || viewModel.error != nil
     }
 
+    private func loginCheckScannedButtonDidPressed(ticket: String) async {
+        isCheckingScanning = true
+        do {
+            let status = try await MiHoYoAPI.queryQRCodeStatus(
+                deviceId: viewModel.taskId,
+                ticket: ticket
+            )
+
+            if case let .confirmed(accountId: accountId, token: gameToken) = status {
+                let stokenResult = try await MiHoYoAPI.gameToken2StokenV2(
+                    accountId: accountId,
+                    gameToken: gameToken
+                )
+                let stoken = stokenResult.stoken
+                let mid = stokenResult.mid
+
+                let ltoken = try await MiHoYoAPI.stoken2LTokenV1(
+                    mid: mid,
+                    stoken: stoken
+                ).ltoken
+
+                var cookie = ""
+                cookie += "stuid=" + accountId + "; "
+                cookie += "stoken=" + stoken + "; "
+                cookie += "ltuid=" + accountId + "; "
+                cookie += "ltoken=" + ltoken + "; "
+                cookie += "mid=" + mid + "; "
+                let fpResult = try await MiHoYoAPI
+                    .getDeviceFingerPrint(region: .mainlandChina)
+                // cookie += "DEVICEFP=\(fpResult.deviceFP); "
+                // cookie += "DEVICEFP_SEED_ID=\(fpResult.seedID); "
+                // cookie += "DEVICEFP_SEED_TIME=\(fpResult.seedTime); "
+                self.cookie = cookie
+                deviceFP = fpResult.deviceFP
+
+                dismiss()
+            } else {
+                isNotScannedAlertShow = true
+            }
+        } catch {
+            viewModel.error = error
+        }
+        isCheckingScanning = false
+    }
+
+    @ViewBuilder
+    private func errorView() -> some View {
+        if let error = viewModel.error {
+            Label {
+                Text(error.localizedDescription)
+            } icon: {
+                Image(systemSymbol: .exclamationmarkCircle)
+                    .foregroundStyle(.red)
+            }.onAppear {
+                viewModel.qrCodeAndTicket = nil
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func qrImageView(_ image: Image) -> some View {
+        HStack(alignment: .center) {
+            Spacer()
+            ShareLink(
+                item: image,
+                preview: SharePreview("account.qr_code_login.shared_qr_code_title", image: image)
+            ) {
+                image
+                    .interpolation(.none)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: qrWidth, height: qrWidth + 12, alignment: .top)
+                    .padding()
+            }
+            Spacer()
+        }
+        .overlay(alignment: .bottom) {
+            Text("account.qr_code_login.click_qr_to_save").font(.footnote)
+                .padding(4)
+                .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.primary.opacity(0.05)))
+        }
+    }
+
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    if let error = viewModel.error {
-                        Label {
-                            Text(error.localizedDescription)
-                        } icon: {
-                            Image(systemSymbol: .exclamationmarkCircle)
-                                .foregroundStyle(.red)
-                        }.onAppear {
-                            viewModel.qrCodeAndTicket = nil
-                        }
-                    }
+                    errorView()
                     if let qrCodeAndTicket = viewModel.qrCodeAndTicket, let qrImage = qrImage {
-                        HStack(alignment: .center) {
-                            Spacer()
-                            ShareLink(
-                                item: qrImage,
-                                preview: SharePreview("account.qr_code_login.shared_qr_code_title", image: qrImage)
-                            ) {
-                                qrImage
-                                    .interpolation(.none)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: qrWidth, height: qrWidth + 12, alignment: .top)
-                                    .padding()
-                            }
-                            Spacer()
-                        }
-                        .overlay(alignment: .bottom) {
-                            Text("account.qr_code_login.click_qr_to_save").font(.footnote)
-                                .padding(4)
-                                .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.primary.opacity(0.05)))
-                        }
+                        qrImageView(qrImage)
                         if isCheckingScanning {
                             ProgressView()
                         } else {
                             Button("account.qr_code_login.check_scanned") {
                                 Task {
-                                    isCheckingScanning = true
-                                    do {
-                                        let status = try await MiHoYoAPI.queryQRCodeStatus(
-                                            deviceId: viewModel.taskId,
-                                            ticket: qrCodeAndTicket.ticket
-                                        )
-
-                                        if case let .confirmed(accountId: accountId, token: gameToken) = status {
-                                            let stokenResult = try await MiHoYoAPI.gameToken2StokenV2(
-                                                accountId: accountId,
-                                                gameToken: gameToken
-                                            )
-                                            let stoken = stokenResult.stoken
-                                            let mid = stokenResult.mid
-
-                                            let ltoken = try await MiHoYoAPI.stoken2LTokenV1(
-                                                mid: mid,
-                                                stoken: stoken
-                                            ).ltoken
-
-                                            var cookie = ""
-                                            cookie += "stuid=" + accountId + "; "
-                                            cookie += "stoken=" + stoken + "; "
-                                            cookie += "ltuid=" + accountId + "; "
-                                            cookie += "ltoken=" + ltoken + "; "
-                                            cookie += "mid=" + mid + "; "
-                                            let fpResult = try await MiHoYoAPI
-                                                .getDeviceFingerPrint(region: .mainlandChina)
-                                            // cookie += "DEVICEFP=\(fpResult.deviceFP); "
-                                            // cookie += "DEVICEFP_SEED_ID=\(fpResult.seedID); "
-                                            // cookie += "DEVICEFP_SEED_TIME=\(fpResult.seedTime); "
-                                            self.cookie = cookie
-                                            deviceFP = fpResult.deviceFP
-
-                                            dismiss()
-                                        } else {
-                                            isNotScannedAlertShow = true
-                                        }
-                                    } catch {
-                                        viewModel.error = error
-                                    }
-                                    isCheckingScanning = false
+                                    await loginCheckScannedButtonDidPressed(
+                                        ticket: qrCodeAndTicket.ticket
+                                    )
                                 }
                             }
                         }
@@ -147,19 +163,11 @@ struct GetCookieQRCodeView: View {
                         }
                     }
                     if Self.isMiyousheInstalled {
-                        Link(
-                            destination: URL(
-                                string: Self.miyousheHeader + "me"
-                            )!
-                        ) {
+                        Link(destination: URL(string: Self.miyousheHeader + "me")!) {
                             Text("account.qr_code_login.open_miyoushe")
                         }
                     } else {
-                        Link(
-                            destination: URL(
-                                string: Self.miyousheStorePage
-                            )!
-                        ) {
+                        Link(destination: URL(string: Self.miyousheStorePage)!) {
                             Text("account.qr_code_login.open_miyoushe_mas_page")
                         }
                     }

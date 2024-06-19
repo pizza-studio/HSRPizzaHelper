@@ -93,23 +93,20 @@ public struct ThirdPartyToolsView: View {
     @ViewBuilder
     func mapNavigationLink() -> some View {
         let regions = availableRegions.isEmpty ? Region.allCases : availableRegions
+        let showEmoji = regions.count > 1
         ForEach(regions, id: \.self) { region in
-            let emoji = region == .mainlandChina ? " 🇨🇳" : " 🌏"
-            let additionalFlag = regions.count > 1 ? emoji : ""
+            let localizedTitle = region.menuTitle(showEmoji: showEmoji)
+            let navLink = NavigationLink(value: ToolView.Navigation.map(region)) {
+                Text(localizedTitle)
+            }
             #if os(OSX) || targetEnvironment(macCatalyst)
             if let url = region.hsrInteractiveMapURL {
-                Link(destination: url) {
-                    Text("tools.hsrInteractiveMap".localized() + additionalFlag)
-                }
+                Link(destination: url) { Text(localizedTitle) }
             } else {
-                NavigationLink(value: ToolView.Navigation.map(region)) {
-                    Text("tools.hsrInteractiveMap".localized() + additionalFlag)
-                }
+                navLink
             }
             #else
-            NavigationLink(value: ToolView.Navigation.map(region)) {
-                Text("tools.hsrInteractiveMap".localized() + additionalFlag)
-            }
+            navLink
             #endif
         }
     }
@@ -120,13 +117,21 @@ public struct ThirdPartyToolsView: View {
 extension Region {
     // MARK: Public
 
-    public var hsrInteractiveMapURL: URL? {
+    public var hsrInteractiveMapURL: URL! {
         switch self {
         case .mainlandChina:
             URL(string: "https://webstatic.mihoyo.com/sr/app/interactive-map/index.html")
         case .global:
             URL(string: "https://act.hoyolab.com/sr/app/interactive-map/index.html")
         }
+    }
+
+    public func menuTitle(showEmoji: Bool) -> String {
+        var localizedTitle = String(localized: .init(stringLiteral: "tools.hsrInteractiveMap"))
+        if showEmoji {
+            localizedTitle.append(self == .mainlandChina ? " 🇨🇳" : " 🌏")
+        }
+        return localizedTitle
     }
 }
 

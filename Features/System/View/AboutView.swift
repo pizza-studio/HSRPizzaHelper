@@ -68,27 +68,14 @@ struct DevelopSettings: View {
     @State var alertMessage = ""
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section {
-                    Button("Clean All User Defaults Key") {
-                        Defaults.removeAll()
-                    }
-                    .buttonStyle(.borderless)
+                    Button("Clean All User Defaults Key") { Defaults.removeAll() }
+                        .buttonStyle(.borderless)
 
                     NavigationLink("Arranged Notifications") {
-                        ScrollView {
-                            Text(alertMessage)
-                                .font(.footnote)
-                                .padding()
-                                .onAppear {
-                                    Task {
-                                        for message in await HSRNotificationCenter.getAllNotificationsDescriptions() {
-                                            alertMessage += message + "\n"
-                                        }
-                                    }
-                                }
-                        }
+                        arrangedNotificationsView
                     }
                 } footer: {
                     Text("Pizza Helper for HSR v\(appVersion) (\(buildVersion))")
@@ -103,6 +90,21 @@ struct DevelopSettings: View {
             }
             .navigationTitle("Develop Settings")
             .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+
+    @ViewBuilder var arrangedNotificationsView: some View {
+        ScrollView {
+            Text(alertMessage)
+                .font(.footnote)
+                .padding()
+                .onAppear {
+                    Task {
+                        for message in await HSRNotificationCenter.getAllNotificationsDescriptions() {
+                            alertMessage += message + "\n"
+                        }
+                    }
+                }
         }
     }
 }

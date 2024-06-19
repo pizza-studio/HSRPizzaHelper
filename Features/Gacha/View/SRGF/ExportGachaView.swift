@@ -95,27 +95,7 @@ struct ExportGachaView: View {
     func main() -> some View {
         List {
             Section {
-                Picker("app.gacha.account.select.title", selection: $params.uid) {
-                    Group {
-                        if params.uid == nil {
-                            Text("app.gacha.account.select.notSelected").tag(String?(nil))
-                        }
-                        ForEach(
-                            allAvaliableAccountUID,
-                            id: \.self
-                        ) { uid in
-                            if let name = accounts
-                                .first(where: { $0.uid! == uid })?
-                                .name {
-                                Text("\(name) (\(uid))")
-                                    .tag(Optional(uid))
-                            } else {
-                                Text("\(uid)")
-                                    .tag(Optional(uid))
-                            }
-                        }
-                    }
-                }
+                accountPicker()
             }
             Section {
                 Picker("gacha.export.chooseLanguage", selection: $params.lang) {
@@ -173,6 +153,22 @@ struct ExportGachaView: View {
 
     @State private var srgfJson: SRGFv1?
 
+    private var accountPickerPairs: [(value: String, tag: String?)] {
+        var result = [(value: String, tag: String?)]()
+        if params.uid == nil {
+            let i18nStr = String(localized: .init(stringLiteral: "app.gacha.account.select.notSelected"))
+            result.append((i18nStr, nil))
+        }
+        result.append(contentsOf: allAvaliableAccountUID.map { uid in
+            if let name = firstAccount(uid: uid)?.name {
+                return (value: "\(name) (\(uid))", tag: uid)
+            } else {
+                return (value: "UID: \(uid)", tag: uid)
+            }
+        })
+        return result
+    }
+
     @State private var alert: AlertType? {
         didSet {
             if let alert = alert {
@@ -195,6 +191,21 @@ struct ExportGachaView: View {
 
     private var file: JsonFile? {
         srgfJson?.asDocument
+    }
+
+    @ViewBuilder
+    private func accountPicker() -> some View {
+        Picker("app.gacha.account.select.title", selection: $params.uid) {
+            Group {
+                ForEach(accountPickerPairs, id: \.tag) { value, tag in
+                    Text(value).tag(tag)
+                }
+            }
+        }
+    }
+
+    private func firstAccount(uid: String) -> Account? {
+        accounts.first(where: { $0.uid! == uid })
     }
 }
 

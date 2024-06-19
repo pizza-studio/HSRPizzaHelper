@@ -12,18 +12,23 @@ import Foundation
 public struct StaminaInformation {
     // MARK: Public
 
-    /// Each stamina needs 6 minutes to recover
+    /// Each primary stamina needs 6 minutes to recover
     public static let eachStaminaRecoveryTime: TimeInterval = 60 * 6
 
     /// Each backup stamina needs 6 minutes to recover
     public static let eachBackupStaminaRecoveryTime: TimeInterval = 60 * 18
 
-    /// Max stamina.
+    /// Max stamina (Primary).
     public let maxStamina: Int
 
-    /// Current stamina
+    /// Current stamina (Primary)
     public var currentStamina: Int {
         maxStamina - restOfStamina
+    }
+
+    // Is Primiary Stamina Full.
+    public var isPrimaryStaminaFull: Bool {
+        restOfStamina == 0 || currentStamina >= maxStamina
     }
 
     /// Rest of recovery time

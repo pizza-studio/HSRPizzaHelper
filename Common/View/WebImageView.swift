@@ -129,7 +129,7 @@ class WebImageLoaderViewModel: ObservableObject {
                 // swiftlint:disable:next force_try
                 try! data!.write(to: imageFileURL)
                 img = UIImage(data: data!)
-                DispatchQueue.main.async {
+                Task.detached { @MainActor [img] in
                     self.imageData = img
                 }
             }

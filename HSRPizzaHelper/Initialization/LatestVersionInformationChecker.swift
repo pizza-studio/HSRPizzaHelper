@@ -83,80 +83,32 @@ private struct LatestVersionInformationChecker: ViewModifier {
 // MARK: - LatestVersionInfoView
 
 struct LatestVersionInfoView: View {
+    // MARK: Internal
+
     @Binding var isShow: Bool
     @Binding var newestVersionInfos: NewestVersion?
     @Binding var isJustUpdated: Bool
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading) {
                     HStack {
-                        Text(newestVersionInfos?.shortVersion ?? "Error")
-                            .font(.largeTitle).bold() +
-                            Text(
-                                " (\(String(newestVersionInfos?.buildVersion ?? -1)))"
-                            )
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                        versionView()
                         Spacer()
                         Image("AppIconHD")
                             .resizable()
                             .frame(width: 50, height: 50)
                             .cornerRadius(10)
                     }
-                    Divider()
-                        .padding(.bottom)
-                    if !getLocalizedNoticeInfos(meta: newestVersionInfos!)
-                        .isEmpty {
-                        Text("update.announcement")
-                            .bold()
-                            .font(.title2)
-                            .padding(.vertical, 2)
-                        ForEach(
-                            getLocalizedNoticeInfos(meta: newestVersionInfos!),
-                            id: \.self
-                        ) { item in
-                            Text("∙ ") + Text(item.toAttributedString())
-                        }
-                        Divider()
-                            .padding(.vertical)
-                    }
-                    Text("update.content")
-                        .bold()
-                        .font(.title2)
-                        .padding(.vertical, 2)
-                    if newestVersionInfos != nil {
-                        ForEach(
-                            getLocalizedUpdateInfos(meta: newestVersionInfos!),
-                            id: \.self
-                        ) { item in
-                            Text("∙ ") + Text(item.toAttributedString())
-                        }
-                    } else {
-                        Text("Error")
-                    }
+                    Divider().padding(.bottom)
+                    updateAnnouncementView()
                     if !isJustUpdated {
-                        switch AppConfig.appConfiguration {
-                        case .debug, .testFlight:
-                            Link(
-                                destination: URL(
-                                    string: "itms-beta://beta.itunes.apple.com/v1/app/6448894222"
-                                )!
-                            ) {
-                                Text("update.move.tf")
-                            }
-                            .padding(.top)
-                        case .appStore:
-                            Link(
-                                destination: URL(
-                                    string: "itms-apps://apps.apple.com/us/app/id6448894222"
-                                )!
-                            ) {
-                                Text("update.move.as")
-                            }
-                            .padding(.top)
+                        let pair = AppConfig.appConfiguration.urlTextPair
+                        Link(destination: pair.url) {
+                            Text(String(localized: .init(stringLiteral: pair.i18nKey)))
                         }
+                        .padding(.top)
                     }
                     Spacer()
                 }
@@ -166,27 +118,48 @@ struct LatestVersionInfoView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("update.read") {
-                        var checkedUpdateVersions = Defaults[.checkedUpdateVersions]
-                        checkedUpdateVersions
-                            .append(newestVersionInfos!.buildVersion)
-                        Defaults[.checkedUpdateVersions] = checkedUpdateVersions
-                        if isJustUpdated {
-                            let showRate = Bool.random()
-                            if showRate {
-                                DispatchQueue.global()
-                                    .asyncAfter(deadline: .now() + 2) {
-                                        ReviewHandler.requestReview()
-                                    }
-                            }
-                        }
-                        isShow.toggle()
+                        updateDidRead()
                     }
                 }
             }
         }
     }
 
-    func getLocalizedUpdateInfos(meta: NewestVersion) -> [String] {
+    // MARK: Private
+
+    @ViewBuilder
+    private func versionView() -> some View {
+        let shortVersion: String = newestVersionInfos?.shortVersion ?? "Error"
+        let buildVersion = " (\(newestVersionInfos?.buildVersion ?? -1))"
+        Text(shortVersion).font(.largeTitle).bold() + Text(buildVersion).font(.caption).foregroundColor(.secondary)
+    }
+
+    @ViewBuilder
+    private func updateAnnouncementView() -> some View {
+        if !getLocalizedNoticeInfos(meta: newestVersionInfos!).isEmpty {
+            Text("update.announcement")
+                .bold()
+                .font(.title2)
+                .padding(.vertical, 2)
+            ForEach(getLocalizedNoticeInfos(meta: newestVersionInfos!), id: \.self) { item in
+                Text(verbatim: "∙ ") + Text(item.toAttributedString())
+            }
+            Divider().padding(.vertical)
+        }
+        Text("update.content").bold().font(.title2).padding(.vertical, 2)
+        if newestVersionInfos != nil {
+            ForEach(
+                getLocalizedUpdateInfos(meta: newestVersionInfos!),
+                id: \.self
+            ) { item in
+                Text(verbatim: "∙ ") + Text(item.toAttributedString())
+            }
+        } else {
+            Text("Error")
+        }
+    }
+
+    private func getLocalizedUpdateInfos(meta: NewestVersion) -> [String] {
         let locale = Bundle.main.preferredLocalizations.first
         switch locale {
         case "zh-Hans":
@@ -202,7 +175,7 @@ struct LatestVersionInfoView: View {
         }
     }
 
-    func getLocalizedNoticeInfos(meta: NewestVersion) -> [String] {
+    private func getLocalizedNoticeInfos(meta: NewestVersion) -> [String] {
         let locale = Bundle.main.preferredLocalizations.first
         switch locale {
         case "zh-Hans":
@@ -217,11 +190,39 @@ struct LatestVersionInfoView: View {
             return meta.notice.en
         }
     }
+
+    private func updateDidRead() {
+        var checkedUpdateVersions = Defaults[.checkedUpdateVersions]
+        checkedUpdateVersions.append(newestVersionInfos!.buildVersion)
+        Defaults[.checkedUpdateVersions] = checkedUpdateVersions
+        if isJustUpdated {
+            let showRate = Bool.random()
+            if showRate {
+                DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+                        ReviewHandler.requestReview()
+                    }
+            }
+        }
+        isShow.toggle()
+    }
+}
+
+extension AppConfiguration {
+    fileprivate var urlTextPair: (url: URL, i18nKey: String) {
+        switch self {
+        case .debug, .testFlight:
+            return (URL(string: "itms-beta://beta.itunes.apple.com/v1/app/6448894222")!, "update.move.tf")
+        case .appStore:
+            return (URL(string: "itms-apps://apps.apple.com/us/app/id6448894222")!, "update.move.as")
+        }
+    }
 }
 
 // MARK: - HistoryVersionInfoView
 
 struct HistoryVersionInfoView: View {
+    // MARK: Internal
+
     let buildVersion = Int((Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? "") ?? 0
     @State var newestVersionInfos: NewestVersion?
     @State var isJustUpdated: Bool = false
@@ -230,100 +231,23 @@ struct HistoryVersionInfoView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack {
-                    Text(newestVersionInfos?.shortVersion ?? "Error")
-                        .font(.largeTitle).bold() +
-                        Text(
-                            " (\(String(newestVersionInfos?.buildVersion ?? -1)))"
-                        )
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    newestVersionMetaTexts()
                     Spacer()
                     Image("AppIconHD")
                         .resizable()
                         .frame(width: 50, height: 50)
                         .cornerRadius(10)
                 }
-                Divider()
-                    .padding(.bottom)
-                if let newestVersionInfos = newestVersionInfos {
-                    if !getLocalizedNoticeInfos(meta: newestVersionInfos)
-                        .isEmpty {
-                        Text("update.announcement")
-                            .bold()
-                            .font(.title2)
-                            .padding(.vertical, 2)
-                        ForEach(
-                            getLocalizedNoticeInfos(meta: newestVersionInfos),
-                            id: \.self
-                        ) { item in
-                            Text("∙ ") + Text(item.toAttributedString())
-                        }
-                        Divider()
-                            .padding(.vertical)
-                    }
-                }
-                Text("update.content")
-                    .bold()
-                    .font(.title2)
-                    .padding(.vertical, 2)
-                if newestVersionInfos != nil {
-                    ForEach(
-                        getLocalizedUpdateInfos(meta: newestVersionInfos!),
-                        id: \.self
-                    ) { item in
-                        Text("∙ ") + Text(item.toAttributedString())
-                    }
-                } else {
-                    Text("Error")
-                }
+                Divider().padding(.bottom)
+                updateAnnouncementView()
                 if !isJustUpdated {
-                    switch AppConfig.appConfiguration {
-                    case .debug, .testFlight:
-                        Link(
-                            destination: URL(
-                                string: "itms-beta://beta.itunes.apple.com/v1/app/6448894222"
-                            )!
-                        ) {
-                            Text("update.move.tf")
-                        }
-                        .padding(.top)
-                    case .appStore:
-                        Link(
-                            destination: URL(
-                                string: "itms-apps://apps.apple.com/us/app/id6448894222"
-                            )!
-                        ) {
-                            Text("update.move.as")
-                        }
-                        .padding(.top)
+                    let pair = AppConfig.appConfiguration.urlTextPair
+                    Link(destination: pair.url) {
+                        Text(String(localized: .init(stringLiteral: pair.i18nKey)))
                     }
+                    .padding(.top)
                 } else {
-                    if let newestVersionInfos = newestVersionInfos {
-                        Divider()
-                            .padding(.vertical)
-                        Text("update.history.title")
-                            .bold()
-                            .font(.title2)
-                            .padding(.vertical, 2)
-                        ForEach(
-                            newestVersionInfos.updateHistory,
-                            id: \.buildVersion
-                        ) { versionItem in
-                            Text(
-                                "\(versionItem.shortVersion) (\(String(versionItem.buildVersion)))"
-                            )
-                            .bold()
-                            .padding(.top, 1)
-                            ForEach(
-                                getLocalizedHistoryUpdateInfos(
-                                    meta: versionItem
-                                ),
-                                id: \.self
-                            ) { item in
-                                Text("∙ ") + Text(item.toAttributedString())
-                            }
-                        }
-                    }
+                    justUpdatedView()
                 }
                 Spacer()
             }
@@ -409,5 +333,65 @@ struct HistoryVersionInfoView: View {
                 }
             }
         } catch {}
+    }
+
+    // MARK: Private
+
+    @ViewBuilder
+    private func newestVersionMetaTexts() -> some View {
+        let shortVersion = newestVersionInfos?.shortVersion ?? "Error"
+        let buildVersion = " (\(newestVersionInfos?.buildVersion ?? -1))"
+        Text(shortVersion).font(.largeTitle).bold() + Text(buildVersion).font(.caption).foregroundColor(.secondary)
+    }
+
+    @ViewBuilder
+    private func updateAnnouncementView() -> some View {
+        if let newestVersionInfos = newestVersionInfos {
+            if !getLocalizedNoticeInfos(meta: newestVersionInfos)
+                .isEmpty {
+                Text("update.announcement")
+                    .bold()
+                    .font(.title2)
+                    .padding(.vertical, 2)
+                ForEach(
+                    getLocalizedNoticeInfos(meta: newestVersionInfos),
+                    id: \.self
+                ) { item in
+                    Text("∙ ") + Text(item.toAttributedString())
+                }
+                Divider()
+                    .padding(.vertical)
+            }
+        }
+        Text("update.content")
+            .bold()
+            .font(.title2)
+            .padding(.vertical, 2)
+        if newestVersionInfos != nil {
+            ForEach(
+                getLocalizedUpdateInfos(meta: newestVersionInfos!),
+                id: \.self
+            ) { item in
+                Text("∙ ") + Text(item.toAttributedString())
+            }
+        } else {
+            Text("Error")
+        }
+    }
+
+    @ViewBuilder
+    private func justUpdatedView() -> some View {
+        if let newestVersionInfos = newestVersionInfos {
+            Divider().padding(.vertical)
+            Text("update.history.title").bold().font(.title2).padding(.vertical, 2)
+            ForEach(newestVersionInfos.updateHistory, id: \.buildVersion) { versionItem in
+                Text(verbatim: "\(versionItem.shortVersion) (\(versionItem.buildVersion))")
+                    .bold()
+                    .padding(.top, 1)
+                ForEach(getLocalizedHistoryUpdateInfos(meta: versionItem), id: \.self) { item in
+                    Text("∙ ") + Text(item.toAttributedString())
+                }
+            }
+        }
     }
 }

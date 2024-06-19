@@ -33,7 +33,7 @@ enum HttpMethod<T: Codable> {
         let networkReachability = NetworkReachability()
 
         if networkReachability.reachable {
-            DispatchQueue.global(qos: .userInteractive).async {
+            Task(priority: .userInitiated) {
                 let baseStr: String = hostType.hostBase
                 let url = URLComponents(string: baseStr + urlStr)!
                 var request = URLRequest(url: url.url!)

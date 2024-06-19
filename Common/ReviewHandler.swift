@@ -36,14 +36,14 @@ class ReviewHandler {
             let lastVersionPromptedForReview = Defaults[.lastVersionPromptedForReview]
 
             // Get the current bundle version for the app.
-            let infoDictionaryKey = kCFBundleVersionKey as String
-            guard let currentVersion = Bundle.main.object(forInfoDictionaryKey: infoDictionaryKey) as? String
-            else { fatalError("Expected to find a bundle version in the info dictionary.") }
+            let infoDictionaryKey: String = kCFBundleVersionKey as String
+            let currentVersion = Bundle.main.object(forInfoDictionaryKey: infoDictionaryKey)
+            guard let currentVersion = currentVersion as? String else {
+                fatalError("Expected to find a bundle version in the info dictionary.")
+            }
             // Verify the user completes the process several times and doesn’t receive a prompt for this app version.
             if currentVersion != lastVersionPromptedForReview {
-                if let windowScene = UIApplication.shared.connectedScenes
-                    .first(where: { $0.activationState == .foregroundActive
-                    }) as? UIWindowScene {
+                if let windowScene = getCurrentUIWindowScene() {
                     SKStoreReviewController.requestReview(in: windowScene)
                     Defaults[.lastVersionPromptedForReview] = currentVersion
                 }
@@ -66,5 +66,12 @@ class ReviewHandler {
             else { fatalError("Expected a valid URL") }
             UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
         }
+    }
+
+    // MARK: Private
+
+    private static func getCurrentUIWindowScene() -> UIWindowScene? {
+        UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
     }
 }

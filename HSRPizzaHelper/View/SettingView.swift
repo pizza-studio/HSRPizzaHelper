@@ -39,8 +39,7 @@ struct SettingView: View {
                         Label("setting.uirelated.title", systemSymbol: .pc)
                     }
                     Button {
-                        let urlMUISettings = URL(string: UIApplication.openSettingsURLString)!
-                        UIApplication.shared.open(urlMUISettings)
+                        callMUISettings()
                     } label: {
                         Label {
                             Text("sys.label.preferredlang")
@@ -70,30 +69,7 @@ struct SettingView: View {
             .listStyle(.insetGrouped)
             .navigationTitle("settings.title")
         } detail: {
-            NavigationStack {
-                switch selectedView {
-                case .accountManagement:
-                    ManageAccountsView()
-                case .theFAQ:
-                    WebBrowserView(url: Self.faqURL)
-                        .navigationTitle("sys.faq.title")
-                        .navigationBarTitleDisplayMode(.inline)
-                case .widgetSettings:
-                    WidgetSettingView()
-                case .notificationSettings:
-                    NotificationSettingView()
-                case .uiSettings:
-                    DisplayOptionsView()
-                case .donation:
-                    GlobalDonateView()
-                case .contact:
-                    ContactInfoView()
-                case .moreSettings:
-                    OtherSettingsView()
-                default: // case nil.
-                    DisplayOptionsView()
-                }
-            }
+            navigationDetail(selection: $selectedView)
         }
         .alwaysShowSideBar()
     }
@@ -127,6 +103,38 @@ struct SettingView: View {
     @State private var selectedView: Navigation?
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass: UserInterfaceSizeClass?
+
+    private func callMUISettings() {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
+
+    @ViewBuilder
+    private func navigationDetail(selection: Binding<Navigation?>) -> some View {
+        NavigationStack {
+            switch selection.wrappedValue {
+            case .accountManagement:
+                ManageAccountsView()
+            case .theFAQ:
+                WebBrowserView(url: Self.faqURL)
+                    .navigationTitle("sys.faq.title")
+                    .navigationBarTitleDisplayMode(.inline)
+            case .widgetSettings:
+                WidgetSettingView()
+            case .notificationSettings:
+                NotificationSettingView()
+            case .uiSettings:
+                DisplayOptionsView()
+            case .donation:
+                GlobalDonateView()
+            case .contact:
+                ContactInfoView()
+            case .moreSettings:
+                OtherSettingsView()
+            default: // case nil.
+                DisplayOptionsView()
+            }
+        }
+    }
 }
 
 // MARK: - OtherSettingsView
@@ -151,42 +159,18 @@ private struct OtherSettingsView: View {
             }
 
             Section {
-                Link(destination: URL(string: "https://apps.apple.com/cn/app/id1635319193")!) {
-                    HStack {
-                        Image("icon.ophelper")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(10)
-                        VStack(alignment: .leading) {
-                            Text("ophelper.name")
-                                .foregroundColor(.primary)
-                            Text("ophelper.intro")
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                        }
-
-                        Spacer()
-                        Image(systemSymbol: .chevronForward)
-                    }
-                }
-                Link(destination: URL(string: "https://apps.apple.com/cn/app/id6450712191")!) {
-                    HStack {
-                        Image("icon.herta_terminal")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(10)
-                        VStack(alignment: .leading) {
-                            Text("herta_terminal.name")
-                                .foregroundColor(.primary)
-                            Text("herta_terminal.intro")
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                        }
-
-                        Spacer()
-                        Image(systemSymbol: .chevronForward)
-                    }
-                }
+                PizzaAppMetaSet(
+                    imageName: "icon.ophelper",
+                    nameKey: "ophelper.name",
+                    introKey: "ophelper.intro",
+                    urlStr: "https://apps.apple.com/cn/app/id1635319193"
+                )
+                PizzaAppMetaSet(
+                    imageName: "icon.herta_terminal",
+                    nameKey: "herta_terminal.name",
+                    introKey: "herta_terminal.intro",
+                    urlStr: "https://apps.apple.com/cn/app/id6450712191"
+                )
             } header: {
                 Text("sys.about.otherapp.title")
             }
@@ -195,9 +179,7 @@ private struct OtherSettingsView: View {
                     Label {
                         Text("sys.about.opensource.title")
                     } icon: {
-                        Image("icon.github")
-                            .resizable()
-                            .scaledToFit()
+                        Image("icon.github").resizable().scaledToFit()
                     }
                 }
             } footer: {
@@ -216,8 +198,7 @@ private struct OtherSettingsView: View {
                     Text("sys.manage_hoyolab_account")
                 }
             } footer: {
-                Text("sys.manage_hoyolab_account.footer")
-                    .textCase(.none)
+                Text("sys.manage_hoyolab_account.footer").textCase(.none)
             }
 
             Section {
@@ -230,19 +211,9 @@ private struct OtherSettingsView: View {
 
             if WatchConnectivityManager.isSupported {
                 Section {
-                    Button("sys.account.force_push") {
-                        var accountInfo = "sys.account.force_push.received".localized()
-                        for account in accounts {
-                            accountInfo +=
-                                "\(String(describing: account.name!)) (\(String(describing: account.uid!)))\n"
-                        }
-                        for account in accounts {
-                            WatchConnectivityManager.shared.sendAccounts(account, accountInfo)
-                        }
-                    }
+                    Button("sys.account.force_push") { forcePushAppleWatchContents() }
                 } footer: {
-                    Text("sys.account.force_push.footer")
-                        .textCase(.none)
+                    Text("sys.account.force_push.footer").textCase(.none)
                 }
             }
 
@@ -278,4 +249,55 @@ private struct OtherSettingsView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Account.priority, ascending: true)],
         animation: .default
     ) private var accounts: FetchedResults<Account>
+
+    private func forcePushAppleWatchContents() {
+        var accountInfo = "sys.account.force_push.received".localized()
+        for account in accounts {
+            accountInfo += "\(account.name!) (\(account.uid!))\n"
+        }
+        for account in accounts {
+            WatchConnectivityManager.shared.sendAccounts(account, accountInfo)
+        }
+    }
+}
+
+// MARK: OtherSettingsView.PizzaAppMetaSet
+
+extension OtherSettingsView {
+    private struct PizzaAppMetaSet: Sendable, Identifiable, View {
+        // MARK: Lifecycle
+
+        public init(imageName: String, nameKey: String, introKey: String, urlStr: String) {
+            self.imageName = imageName
+            self.name = String(localized: .init(stringLiteral: nameKey))
+            self.introduction = String(localized: .init(stringLiteral: introKey))
+            self.destination = URL(string: urlStr)!
+        }
+
+        // MARK: Public
+
+        public let name: String
+        public let introduction: String
+        public let destination: URL
+
+        public var body: some View {
+            Link(destination: destination) {
+                HStack {
+                    Image(imageName).resizable().frame(width: 50, height: 50).cornerRadius(10)
+                    VStack(alignment: .leading) {
+                        Text(verbatim: name).foregroundColor(.primary)
+                        Text(verbatim: introduction).font(.footnote).foregroundColor(.secondary)
+                    }
+                    Spacer()
+                    Image(systemSymbol: .chevronForward)
+                }
+            }
+        }
+
+        // MARK: Internal
+
+        let imageName: String
+
+        var id: String { name }
+    }
 }

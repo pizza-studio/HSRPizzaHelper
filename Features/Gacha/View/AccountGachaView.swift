@@ -116,32 +116,17 @@ private struct GachaSmallChart: View {
         ScrollView(.horizontal) {
             Chart {
                 ForEach(fiveStarItems, id: \.0.id) { item in
-                    BarMark(
-                        x: .value("gacha.account_detail.small_chart.character", item.0.id),
-                        y: .value("gacha.account_detail.small_chart.pull_count", item.drawCount)
-                    )
-                    .annotation(position: .top) {
-                        Text("\(item.drawCount)").foregroundColor(.gray)
-                            .font(.caption)
-                    }
-                    .foregroundStyle(by: .value("gacha.account_detail.small_chart.pull_count", item.0.id))
+                    drawChartContent(for: item)
                 }
                 if !fiveStarItems.isEmpty {
-                    RuleMark(y: .value(
-                        "gacha.account_detail.small_chart.average",
-                        fiveStarItems.map { $0.drawCount }
-                            .reduce(0) { $0 + $1 } / max(fiveStarItems.count, 1)
-                    ))
-                    .foregroundStyle(.gray)
-                    .lineStyle(StrokeStyle(lineWidth: 2, dash: [5]))
+                    drawChartContentRuleMarks()
                 }
             }
             .chartXAxis(content: {
                 AxisMarks { value in
                     AxisValueLabel(content: {
                         if let id = value.as(String.self),
-                           let item = fiveStarItems
-                           .first(where: { $0.0.id == id })?.0 {
+                           let item = matchedItem(from: fiveStarItems, with: id) {
                             GachaItemIcon(item: item)
                         } else {
                             EmptyView()
@@ -150,9 +135,7 @@ private struct GachaSmallChart: View {
                 }
             })
             .chartLegend(position: .top)
-            .chartYAxis(content: {
-                AxisMarks(position: .leading)
-            })
+            .chartYAxis { AxisMarks(position: .leading) }
             .chartForegroundStyleScale(range: colors)
             .chartLegend(.hidden)
             .frame(width: CGFloat(fiveStarItems.count * 50))
@@ -165,6 +148,38 @@ private struct GachaSmallChart: View {
     // MARK: Private
 
     @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
+
+    private func matchedItem(
+        from source: [(GachaItemMO, drawCount: Int)],
+        with value: String
+    )
+        -> GachaItemMO? {
+        source.first(where: { $0.0.id == value })?.0
+    }
+
+    @ChartContentBuilder
+    private func drawChartContent(for item: (GachaItemMO, drawCount: Int)) -> some ChartContent {
+        BarMark(
+            x: .value("gacha.account_detail.small_chart.character", item.0.id),
+            y: .value("gacha.account_detail.small_chart.pull_count", item.drawCount)
+        )
+        .annotation(position: .top) {
+            Text("\(item.drawCount)").foregroundColor(.gray)
+                .font(.caption)
+        }
+        .foregroundStyle(by: .value("gacha.account_detail.small_chart.pull_count", item.0.id))
+    }
+
+    @ChartContentBuilder
+    private func drawChartContentRuleMarks() -> some ChartContent {
+        RuleMark(y: .value(
+            "gacha.account_detail.small_chart.average",
+            fiveStarItems.map { $0.drawCount }
+                .reduce(0) { $0 + $1 } / max(fiveStarItems.count, 1)
+        ))
+        .foregroundStyle(.gray)
+        .lineStyle(StrokeStyle(lineWidth: 2, dash: [5]))
+    }
 }
 
 // MARK: - GachaStatisticSectionView
@@ -191,58 +206,13 @@ private struct GachaStatisticSectionView: View {
         case five
     }
 
-    let gachaType: GachaType
-
-    var itemsWithDrawCount: [(GachaItemMO, drawCount: Int)] {
-        Array(zip(gachaItemsResult, calculateGachaItemsDrawCount(gachaItemsResult)))
-    }
-
-    var fiveStarItemsWithDrawCount: [(GachaItemMO, drawCount: Int)] { itemsWithDrawCount.filter { item, _ in
-        item.rank == .five
-    } }
-
-    var fiveStarsNotLose: [GachaItemMO] { gachaItemsResult.filter { item in
-        item.rank == .five && !item.isLose5050
-    }}
-
-    var limitedDrawCount: Int { fiveStarItemsWithDrawCount
-        .map(\.drawCount)
-        .reduce(0, +) /
-        max(
-            fiveStarsNotLose.count,
-            1
-        )
-    }
-
-    // 如果获得的第一个五星是限定，默认其不歪
-    var lose5050percentage: Double {
-        1.0 -
-            Double(
-                fiveStarItemsWithDrawCount.count - fiveStarsNotLose
-                    .count // 歪次数 = 非限定五星数量
-            ) /
-            Double(
-                fiveStarsNotLose
-                    .count +
-                    ((fiveStarItemsWithDrawCount.last?.0.isLose5050 ?? false) ? 1 : 0)
-            ) // 小保底次数 = 限定五星数量（如果抽的第一个是非限定，则多一次小保底）
-    }
-
-    var average5StarDraw: Int { fiveStarItemsWithDrawCount.map { $0.drawCount }
-        .reduce(0) { $0 + $1 } /
-        max(fiveStarItemsWithDrawCount.count, 1)
-    }
-
     var body: some View {
         Section {
             HStack {
                 Label("gacha.account_detail.statistic.after_last_5_star", systemSymbol: .flagFill)
                 Spacer()
                 Text(
-                    String(
-                        format: "gacha.account_detail.statistic.pull".localized(),
-                        itemsWithDrawCount.firstIndex(where: { $0.0.rank == .five }) ?? itemsWithDrawCount.count
-                    )
+                    String(format: "gacha.account_detail.statistic.pull".localized(), drawCountableAmount)
                 )
             }
             HStack {
@@ -268,63 +238,108 @@ private struct GachaStatisticSectionView: View {
                         systemSymbol: .starFill
                     )
                     Spacer()
-                    Text(
-                        "\(limitedDrawCount)"
-                    )
+                    Text("\(limitedDrawCount)")
                 }
                 HStack {
-                    let fmt: NumberFormatter = {
-                        let fmt = NumberFormatter()
-                        fmt.maximumFractionDigits = 2
-                        fmt.numberStyle = .percent
-                        return fmt
-                    }()
-
                     Label("gacha.account_detail.statistic.won_5050", systemSymbol: .chartPieFill)
                     Spacer()
                     Text(
-                        "\(fmt.string(from: lose5050percentage as NSNumber)!)"
+                        "\(Self.fmtPerc.string(from: lose5050percentage as NSNumber)!)"
                     )
                 }
-                VStack {
-                    HStack {
-                        let keyPaimon: LocalizedStringKey = "gacha.account_detail.statistic.paimon_review"
-                        let keyPomPom: LocalizedStringKey = "gacha.account_detail.statistic.pom_pom_review"
-                        Text(useGuestGachaEvaluator ? keyPaimon : keyPomPom)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        let judgedRank = Rank.judge(
-                            limitedDrawNumber: limitedDrawCount,
-                            gachaType: gachaType
-                        )
-                        ForEach(Rank.allCases, id: \.rawValue) { rank in
-                            Group {
-                                if judgedRank == rank {
-                                    rank.image(neighborGame: useGuestGachaEvaluator).resizable()
-                                        .scaledToFit()
-                                } else {
-                                    rank.image(neighborGame: useGuestGachaEvaluator).resizable()
-                                        .scaledToFit()
-                                        .opacity(0.25)
-                                }
-                            }
-                            .frame(width: 50, height: 50)
-                            Spacer()
-                        }
-                    }
-                }
+                guestEvaluatorView()
             }
         }
     }
 
     // MARK: Private
 
+    private static let fmtPerc: NumberFormatter = {
+        let fmt = NumberFormatter()
+        fmt.maximumFractionDigits = 2
+        fmt.numberStyle = .percent
+        return fmt
+    }()
+
+    private let gachaType: GachaType
+
     @Default(.useGuestGachaEvaluator) private var useGuestGachaEvaluator: Bool
     @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
+
+    private var itemsWithDrawCount: [(GachaItemMO, drawCount: Int)] {
+        Array(zip(gachaItemsResult, calculateGachaItemsDrawCount(gachaItemsResult)))
+    }
+
+    private var fiveStarItemsWithDrawCount: [(GachaItemMO, drawCount: Int)] { itemsWithDrawCount.filter { item, _ in
+        item.rank == .five
+    } }
+
+    private var fiveStarsNotLose: [GachaItemMO] { gachaItemsResult.filter { item in
+        item.rank == .five && !item.isLose5050
+    }}
+
+    private var limitedDrawCount: Int { fiveStarItemsWithDrawCount
+        .map(\.drawCount)
+        .reduce(0, +) /
+        max(
+            fiveStarsNotLose.count,
+            1
+        )
+    }
+
+    // 如果获得的第一个五星是限定，默认其不歪
+    private var lose5050percentage: Double {
+        // 歪次数 = 非限定五星数量
+        let countSurinuked = Double(fiveStarItemsWithDrawCount.count - fiveStarsNotLose.count)
+        // 小保底次数 = 限定五星数量
+        var countEnsured = Double(fiveStarsNotLose.count)
+        // 如果抽的第一个是非限定，则多一次小保底
+        if fiveStarItemsWithDrawCount.last?.0.isLose5050 ?? false {
+            countEnsured += 1
+        }
+        return 1.0 - countSurinuked / countEnsured
+    }
+
+    private var average5StarDraw: Int { fiveStarItemsWithDrawCount.map { $0.drawCount }
+        .reduce(0) { $0 + $1 } /
+        max(fiveStarItemsWithDrawCount.count, 1)
+    }
+
+    private var drawCountableAmount: Int {
+        itemsWithDrawCount.firstIndex(where: { $0.0.rank == .five }) ?? itemsWithDrawCount.count
+    }
+
+    @ViewBuilder
+    private func guestEvaluatorView() -> some View {
+        VStack {
+            HStack {
+                let keyPaimon: LocalizedStringKey = "gacha.account_detail.statistic.paimon_review"
+                let keyPomPom: LocalizedStringKey = "gacha.account_detail.statistic.pom_pom_review"
+                Text(useGuestGachaEvaluator ? keyPaimon : keyPomPom)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                let judgedRank = Rank.judge(limitedDrawNumber: limitedDrawCount, gachaType: gachaType)
+                ForEach(Rank.allCases, id: \.rawValue) { rank in
+                    Group {
+                        if judgedRank == rank {
+                            rank.image(neighborGame: useGuestGachaEvaluator).resizable()
+                                .scaledToFit()
+                        } else {
+                            rank.image(neighborGame: useGuestGachaEvaluator).resizable()
+                                .scaledToFit()
+                                .opacity(0.25)
+                        }
+                    }
+                    .frame(width: 50, height: 50)
+                    Spacer()
+                }
+            }
+        }
+    }
 }
 
 extension GachaStatisticSectionView.Rank {

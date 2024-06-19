@@ -78,13 +78,9 @@ private struct GachaItemChart: View {
         if !fiveStarItems.isEmpty {
             VStack(spacing: -12) {
                 ForEach(fiveStarItems.chunked(into: 60), id: \.first!.0.id) { items in
-                    let isFirst = fiveStarItems.first!.0.id == items.first!.0.id
-                    let isLast = fiveStarItems.last!.0.id == items.last!.0.id
-                    if isFirst {
-                        subChart(items: items, isFirst: isFirst, isLast: isLast).padding(.top)
-                    } else {
-                        subChart(items: items, isFirst: isFirst, isLast: isLast)
-                    }
+                    let isFirst = Bool(equalCheck: fiveStarItems.first?.0.id, against: items.first?.0.id)
+                    let isLast = Bool(equalCheck: fiveStarItems.last?.0.id, against: items.last?.0.id)
+                    subChart(isFirst: isFirst, isLast: isLast).padding(isFirst ? .top : [])
                 }
             }
         } else {
@@ -93,77 +89,32 @@ private struct GachaItemChart: View {
         }
     }
 
-    var lose5050IconStr: String {
-        useGuestGachaEvaluator ? "UI_EmotionIcon5" : "Pom-Pom_Sticker_32"
-    }
-
-    func matchedItems(with value: String) -> [GachaItemMO] {
-        items.map(\.0).filter { $0.id == value }
-    }
-
-    func colors(items: [(GachaItemMO, count: Int)]) -> [Color] {
-        fiveStarItems.map { _, count in
-            switch count {
-            case 0 ..< 62:
-                return .green
-            case 62 ..< 80:
-                return .yellow
-            default:
-                return .red
-            }
-        }
-    }
-
     @ViewBuilder
-    func subChart(items: [(GachaItemMO, count: Int)], isFirst: Bool, isLast: Bool) -> some View {
+    func subChart(isFirst: Bool, isLast: Bool) -> some View {
         Chart {
             ForEach(items, id: \.0.id) { item in
-                BarMark(
-                    x: .value("gacha.account_detail.chart.pull_count", item.count),
-                    y: .value("gacha.account_detail.chart.character", item.0.id),
-                    width: 20
-                )
-                .annotation(position: .trailing) {
-                    HStack(spacing: 3) {
-                        let frame: CGFloat = 35
-                        Text("\(item.count)").foregroundColor(.gray)
-                            .font(.caption)
-                        if gachaType.isLimitedWarp, item.0.isLose5050 {
-                            Image(lose5050IconStr).resizable().scaledToFit()
-                                .frame(width: frame, height: frame)
-                                .offset(y: -5)
-                        } else {
-                            EmptyView()
-                        }
-                    }
-                }
-                .foregroundStyle(by: .value("gacha.account_detail.chart.pull_count", item.0.id))
+                drawChartContent(for: item)
             }
             if !fiveStarItems.isEmpty {
-                RuleMark(x: .value(
-                    "gacha.account_detail.chart.average",
-                    fiveStarItems.map { $0.count }
-                        .reduce(0, +) / max(fiveStarItems.count, 1)
-                ))
-                .foregroundStyle(.gray)
-                .lineStyle(StrokeStyle(lineWidth: 2, dash: [5]))
-                .annotation(alignment: .topLeading) {
-                    if isFirst {
-                        Text(
-                            "gacha.account_detail.chart.avg_pull_count"
-                                .localized() + averagePullsCount.description
-                        )
-                        .font(.caption).foregroundColor(.gray)
+                RuleMark(x: .value("gacha.account_detail.chart.average", mappedValuesX))
+                    .foregroundStyle(.gray)
+                    .lineStyle(StrokeStyle(lineWidth: 2, dash: [5]))
+                    .annotation(alignment: .topLeading) {
+                        if isFirst {
+                            Text(
+                                "gacha.account_detail.chart.avg_pull_count"
+                                    .localized() + averagePullsCount.description
+                            )
+                            .font(.caption).foregroundColor(.gray)
+                        }
                     }
-                }
             }
         }
         .chartYAxis(content: {
             AxisMarks(preset: .aligned, position: .leading) { value in
                 AxisValueLabel(content: {
                     if let id = value.as(String.self),
-                       let item = items
-                       .first(where: { $0.0.id == id })?.0 {
+                       let item = matchedItems(with: id).first {
                         GachaItemIcon(item: item, size: 45)
                     } else {
                         EmptyView()
@@ -208,6 +159,54 @@ private struct GachaItemChart: View {
     private let gachaType: GachaType
 
     @FetchRequest private var gachaItemsResult: FetchedResults<GachaItemMO>
+
+    private var lose5050IconStr: String {
+        useGuestGachaEvaluator ? "UI_EmotionIcon5" : "Pom-Pom_Sticker_32"
+    }
+
+    private var mappedValuesX: Int {
+        fiveStarItems.map(\.count).reduce(0, +) / max(fiveStarItems.count, 1)
+    }
+
+    private func matchedItems(with value: String) -> [GachaItemMO] {
+        items.map(\.0).filter { $0.id == value }
+    }
+
+    private func colors(items: [(GachaItemMO, count: Int)]) -> [Color] {
+        fiveStarItems.map { _, count in
+            switch count {
+            case 0 ..< 62:
+                return .green
+            case 62 ..< 80:
+                return .yellow
+            default:
+                return .red
+            }
+        }
+    }
+
+    @ChartContentBuilder
+    private func drawChartContent(for item: (GachaItemMO, count: Int)) -> some ChartContent {
+        BarMark(
+            x: .value("gacha.account_detail.chart.pull_count", item.count),
+            y: .value("gacha.account_detail.chart.character", item.0.id),
+            width: 20
+        )
+        .annotation(position: .trailing) {
+            HStack(spacing: 3) {
+                let frame: CGFloat = 35
+                Text("\(item.count)").foregroundColor(.gray).font(.caption)
+                if gachaType.isLimitedWarp, item.0.isLose5050 {
+                    Image(lose5050IconStr).resizable().scaledToFit()
+                        .frame(width: frame, height: frame)
+                        .offset(y: -5)
+                } else {
+                    EmptyView()
+                }
+            }
+        }
+        .foregroundStyle(by: .value("gacha.account_detail.chart.pull_count", item.0.id))
+    }
 }
 
 // MARK: - GachaTypeDateCountAndIfContain5Star
@@ -233,5 +232,12 @@ extension Collection {
         stride(from: 0, to: count, by: size).map {
             Array(self[$0 ..< Swift.min($0 + size, self.count)])
         }
+    }
+}
+
+extension Bool {
+    fileprivate init<T: Comparable>(equalCheck lhs: T?, against rhs: T?) {
+        guard let lhs, let rhs else { self = false; return }
+        self = lhs == rhs
     }
 }

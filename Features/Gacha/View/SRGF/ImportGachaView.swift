@@ -76,7 +76,7 @@ struct ImportGachaView: View {
     }
 
     func processJson(url: URL) {
-        DispatchQueue.global(qos: .userInteractive).async {
+        Task(priority: .userInitiated) {
             status = .reading
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

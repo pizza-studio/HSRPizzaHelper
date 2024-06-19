@@ -49,6 +49,11 @@ public struct ExpeditionInformation {
             Date(timeInterval: _remainingTime, since: fetchTime)
         }
 
+        /// Percentage of Completion
+        public var percOfCompletion: Double {
+            1.0 - remainingTime / Self.totalTime
+        }
+
         // MARK: Private
 
         // MARK: CodingKeys

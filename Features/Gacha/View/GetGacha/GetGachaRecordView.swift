@@ -245,6 +245,8 @@ struct FailFetchingView: View {
 // MARK: - FinishedView
 
 struct FinishedView: View {
+    // MARK: Internal
+
     let typeFetchedCount: [GachaType: Int]
     let initialize: () -> Void
 
@@ -263,13 +265,17 @@ struct FinishedView: View {
             }
         } footer: {
             VStack(alignment: .leading) {
-                Text("New Record Count: ") + Text(
-                    typeFetchedCount.sorted(by: \.key).map { gachaType, count in
-                        "\(gachaType.description) - \(count); "
-                    }.reduce("") { $0 + $1 }
-                )
+                Text("New Record Count: ") + Text(newRecordCount)
             }
         }
+    }
+
+    // MARK: Private
+
+    private var newRecordCount: String {
+        typeFetchedCount.sorted(by: \.key).map { gachaType, count in
+            "\(gachaType.description) - \(count); "
+        }.reduce("", +)
     }
 }
 

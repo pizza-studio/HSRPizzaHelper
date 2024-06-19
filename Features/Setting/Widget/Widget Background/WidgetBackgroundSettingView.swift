@@ -329,71 +329,10 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
             Text(error.localizedDescription)
         }
         .alert("setting.widget.background.manage.add.needname", isPresented: $isAskForNameAlertShow) {
-            TextField("setting.widget.background.manage.add.name", text: $backgroundName)
-                .foregroundColor(backgroundNameIsNotNamed ? .secondary : .primary)
-                .onFocused {
-                    if backgroundNameIsNotNamed {
-                        backgroundName = ""
-                    }
-                }
-            if let rawImageCG = image?.cgImage?.resized(width: 860.0),
-               let data = UIImage(cgImage: rawImageCG).jpegData(compressionQuality: 0.8) {
-                Button("sys.save") {
-                    guard backgroundName != "" else {
-                        isNeedNameAlertShow.toggle()
-                        return
-                    }
-
-                    do {
-                        // Check if name is existed
-                        let fileManager = FileManager.default
-                        let folderURL = try getFolderUrl()
-                        let contents = try fileManager.contentsOfDirectory(
-                            at: folderURL,
-                            includingPropertiesForKeys: nil
-                        )
-                        guard contents.allSatisfy({ fileUrl in
-                            fileUrl.lastPathComponent.deletingPathExtension != backgroundName
-                        }) else {
-                            isNameDuplicatedAlertShow.toggle()
-                            return
-                        }
-
-                        // Save image data
-                        let fileUrl = folderURL.appendingPathComponent(backgroundName, conformingTo: .png)
-                        try data.write(to: fileUrl)
-                        isShow.toggle()
-                    } catch {
-                        self.error = .init(source: error)
-                        isErrorAlertShow.toggle()
-                    }
-                }
-            }
-            Button("sys.cancel", role: .cancel) {
-                isAskForNameAlertShow.toggle()
-            }
+            alertContentView()
         }
         .onAppear {
-            // Set an default name for image
-            var name = 1
-            let fileManager = FileManager.default
-            guard let folderURL = try? getFolderUrl() else { return }
-            while true {
-                do {
-                    let contents = try fileManager.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
-                    let pendingName = "setting.widget.background.manage.add.notname".localized() + " " + "\(name)"
-                    if contents.allSatisfy({ fileUrl in
-                        fileUrl.lastPathComponent.deletingPathExtension != pendingName
-                    }) {
-                        backgroundName = pendingName
-                        break
-                    } else {
-                        name += 1
-                    }
-                } catch {
-                    print("Error while enumerating files \(folderURL.path): \(error.localizedDescription)")
-                }
-            }
+            viewDidAppear()
         }
     }
 
@@ -428,6 +367,74 @@ private struct AddWidgetBackgroundCover: View, ContainBackgroundType {
         backgroundName.starts(
             with: "setting.widget.background.manage.add.notname".localized()
         )
+    }
+
+    @MainActor
+    private func viewDidAppear() {
+        // Set an default name for image
+        var name = 1
+        let fileManager = FileManager.default
+        guard let folderURL = try? getFolderUrl() else { return }
+        do {
+            let contents = try fileManager.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
+            let pendingName = "setting.widget.background.manage.add.notname".localized() + " " + "\(name)"
+            if contents.allSatisfy({ fileUrl in
+                fileUrl.lastPathComponent.deletingPathExtension != pendingName
+            }) {
+                backgroundName = pendingName
+            } else {
+                name += 1
+            }
+        } catch {
+            print("Error while enumerating files \(folderURL.path): \(error.localizedDescription)")
+        }
+    }
+
+    @ViewBuilder
+    private func alertContentView() -> some View {
+        TextField("setting.widget.background.manage.add.name", text: $backgroundName)
+            .foregroundColor(backgroundNameIsNotNamed ? .secondary : .primary)
+            .onFocused {
+                if backgroundNameIsNotNamed {
+                    backgroundName = ""
+                }
+            }
+        if let rawImageCG = image?.cgImage?.resized(width: 860.0),
+           let data = UIImage(cgImage: rawImageCG).jpegData(compressionQuality: 0.8) {
+            Button("sys.save") {
+                guard backgroundName != "" else {
+                    isNeedNameAlertShow.toggle()
+                    return
+                }
+
+                do {
+                    // Check if name is existed
+                    let fileManager = FileManager.default
+                    let folderURL = try getFolderUrl()
+                    let contents = try fileManager.contentsOfDirectory(
+                        at: folderURL,
+                        includingPropertiesForKeys: nil
+                    )
+                    guard contents.allSatisfy({ fileUrl in
+                        fileUrl.lastPathComponent.deletingPathExtension != backgroundName
+                    }) else {
+                        isNameDuplicatedAlertShow.toggle()
+                        return
+                    }
+
+                    // Save image data
+                    let fileUrl = folderURL.appendingPathComponent(backgroundName, conformingTo: .png)
+                    try data.write(to: fileUrl)
+                    isShow.toggle()
+                } catch {
+                    self.error = .init(source: error)
+                    isErrorAlertShow.toggle()
+                }
+            }
+        }
+        Button("sys.cancel", role: .cancel) {
+            isAskForNameAlertShow.toggle()
+        }
     }
 }
 
@@ -506,12 +513,11 @@ private struct BackgroundPreviewView: View, ContainBackgroundType {
                             Text("\(60)")
                                 .font(.title)
                                 .shadow(radius: 10)
-                            (
-                                Text(Date(timeIntervalSinceNow: (240 - 60) * 6 * 60), style: .time)
-                                    + Text("\n")
-                                    + Text(Date(timeIntervalSinceNow: (240 - 60) * 6 * 60), style: .relative)
-                            )
-                            .lineLimit(2)
+                            let date = Date(timeIntervalSinceNow: (240.0 - 60.0) * 6.0 * 60.0)
+                            VStack(alignment: .leading) {
+                                Text(date, style: .time).lineLimit(1)
+                                Text(date, style: .relative).lineLimit(1)
+                            }
                             .multilineTextAlignment(.leading)
                             .minimumScaleFactor(0.5)
                             .font(.caption2)

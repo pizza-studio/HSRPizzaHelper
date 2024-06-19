@@ -32,13 +32,9 @@ struct WidgetStaminaInformationCard: View {
                     .shadow(radius: 10)
                 Group {
                     if info.currentStamina != info.maxStamina {
-                        (
-                            Text(dateFormatter.string(from: info.fullTime))
-                                + Text("\n")
-                                + Text(timeIntervalFormatter.string(from: info.remainingTime)!)
-                        )
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
+                        Text(staminaText())
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
                     } else {
                         Text(verbatim: " / 240")
                     }
@@ -51,6 +47,13 @@ struct WidgetStaminaInformationCard: View {
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
         .accessibilityBackground(enable: useAccessibilityBackground)
+    }
+
+    func staminaText() -> String {
+        var result = dateFormatter.string(from: info.fullTime)
+        result += "\n"
+        result += timeIntervalFormatter.string(from: info.remainingTime) ?? ""
+        return result
     }
 
     private var iconFrame: CGFloat {

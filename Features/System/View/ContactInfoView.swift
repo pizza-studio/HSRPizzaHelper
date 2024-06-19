@@ -23,282 +23,16 @@ struct ContactInfoView: View {
 
     var body: some View {
         List {
-            // developer - lava
-            Section(header: Text("sys.contact.title.developer")) {
-                HStack {
-                    Image("avatar.lava")
-                        .resizable()
-                        .clipShape(Circle())
-                        .frame(width: 50, height: 50)
-                    VStack(alignment: .leading) {
-                        Text("sys.contact.lava")
-                            .bold()
-                            .padding(.vertical, 5)
-                    }
-                    Spacer()
-                    Image(systemSymbol: .chevronRight)
-                        .rotationEffect(.degrees(isLavaDetailShow ? 90 : 0))
-                }
-                .onTapGesture {
-                    simpleTaptic(type: .light)
-                    withAnimation {
-                        isLavaDetailShow.toggle()
-                    }
-                }
-                if isLavaDetailShow {
-                    Link(
-                        destination: URL(
-                            string: "mailto:daicanglong@gmail.com"
-                        )!
-                    ) {
-                        Label {
-                            Text("daicanglong@gmail.com")
-                        } icon: {
-                            Image("icon.email")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Link(
-                        destination: URL(
-                            string: "https://space.bilibili.com/13079935"
-                        )!
-                    ) {
-                        Label {
-                            Text("sys.contact.title.bilibili")
-                        } icon: {
-                            Image("icon.bilibili")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Link(
-                        destination: URL(
-                            string: "https://github.com/CanglongCl"
-                        )!
-                    ) {
-                        Label {
-                            Text("sys.contact.title.github")
-                        } icon: {
-                            Image("icon.github")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                }
-
-                // developer - hakubill
-                HStack {
-                    Image("avatar.hakubill")
-                        .resizable()
-                        .clipShape(Circle())
-                        .frame(width: 50, height: 50)
-                    VStack(alignment: .leading) {
-                        Text("sys.contact.hakubill")
-                            .bold()
-                            .padding(.vertical, 5)
-                    }
-                    Spacer()
-                    Image(systemSymbol: .chevronRight)
-                        .rotationEffect(.degrees(isHakubillDetailShow ? 90 : 0))
-                }
-                .onTapGesture {
-                    simpleTaptic(type: .light)
-                    withAnimation {
-                        isHakubillDetailShow.toggle()
-                    }
-                }
-                if isHakubillDetailShow {
-                    Link(destination: URL(string: "https://hakubill.tech")!) {
-                        Label {
-                            Text("sys.contact.title.homepage")
-                        } icon: {
-                            Image("icon.homepage")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Link(destination: URL(string: "mailto:i@hakubill.tech")!) {
-                        Label {
-                            Text("i@hakubill.tech")
-                        } icon: {
-                            Image("icon.email")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Link(
-                        destination: isInstallation(urlString: "twitter://") ?
-                            URL(
-                                string: "twitter://user?id=890517369637847040"
-                            )! :
-                            URL(string: "https://twitter.com/Haku_Bill")!
-                    ) {
-                        Label {
-                            Text("sys.contact.title.twitter")
-                        } icon: {
-                            Image("icon.twitter")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Link(
-                        destination: URL(
-                            string: "https://www.youtube.com/channel/UC0ABPKMmJa2hd5nNKh5HGqw"
-                        )!
-                    ) {
-                        Label {
-                            Text("sys.contact.title.youtube")
-                        } icon: {
-                            Image("icon.youtube")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Link(
-                        destination: URL(
-                            string: "https://space.bilibili.com/158463764"
-                        )!
-                    ) {
-                        Label {
-                            Text("sys.contact.title.bilibili")
-                        } icon: {
-                            Image("icon.bilibili")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Link(
-                        destination: URL(
-                            string: "https://github.com/Bill-Haku"
-                        )!
-                    ) {
-                        Label {
-                            Text("sys.contact.title.github")
-                        } icon: {
-                            Image("icon.github")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                }
-
-                // developer - ShikiSuen
-                Section {
-                    HStack {
-                        Image("avatar.shikisuen")
-                            .resizable()
-                            .clipShape(Circle())
-                            .frame(width: 50, height: 50)
-                        VStack(alignment: .leading) {
-                            Text("Shiki Suen (孙志贵)")
-                                .bold()
-                                .padding(.vertical, 5)
-                        }
-                        Spacer()
-                        Image(systemSymbol: .chevronRight)
-                            .rotationEffect(.degrees(isShikiDetailShow ? 90 : 0))
-                    }
-                    .onTapGesture {
-                        simpleTaptic(type: .light)
-                        withAnimation {
-                            isShikiDetailShow.toggle()
-                        }
-                    }
-                    if isShikiDetailShow {
-                        Link(
-                            destination: URL(string: "https://music.163.com/#/artist/desc?id=60323623")!
-                        ) {
-                            Label {
-                                Text("sys.contact.title.163MusicArtistHP")
-                            } icon: {
-                                Image("icon.163CloudMusic")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
-                        Link(
-                            destination: URL(string: "https://shikisuen.gitee.io/")!
-                        ) {
-                            Label {
-                                Text("sys.contact.title.homepage")
-                            } icon: {
-                                Image("icon.homepage")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
-                        Link(destination: URL(string: "mailto:shikisuen@yeah.net")!) {
-                            Label {
-                                Text(verbatim: "shikisuen@yeah.net")
-                            } icon: {
-                                Image("icon.email")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
-                        Link(
-                            destination: isInstallation(urlString: "twitter://") ?
-                                URL(
-                                    string: "twitter://user?id=176288731"
-                                )! :
-                                URL(string: "https://twitter.com/ShikiSuen")!
-                        ) {
-                            Label {
-                                Text("sys.contact.title.twitter")
-                            } icon: {
-                                Image("icon.twitter")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
-                        Link(
-                            destination: URL(
-                                string: "https://space.bilibili.com/911304"
-                            )!
-                        ) {
-                            Label {
-                                Text("sys.contact.title.bilibili")
-                            } icon: {
-                                Image("icon.bilibili")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
-                        Link(
-                            destination: URL(
-                                string: "https://github.com/ShikiSuen"
-                            )!
-                        ) {
-                            Label {
-                                Text("sys.contact.title.github")
-                            } icon: {
-                                Image("icon.github")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
-                    }
-                }
-            }
-
+            mainDeveloperTeamSection()
             Section(
                 header: Text("sys.contact.opensource.title"),
                 footer: Text("sys.contact.opensource.footer").textCase(.none)
             ) {
-                Link(
-                    destination: URL(
-                        string: "https://github.com/pizza-studio/hsrpizzahelper"
-                    )!
-                ) {
-                    Label {
-                        Text("sys.contact.github")
-                    } icon: {
-                        Image("icon.github")
-                            .resizable()
-                            .scaledToFit()
-                    }
-                }
+                LinkLabelItem(
+                    "sys.contact.github",
+                    imageKey: "icon.github",
+                    url: "https://github.com/pizza-studio/hsrpizzahelper"
+                )
             }
 
             // app contact
@@ -307,34 +41,8 @@ struct ContactInfoView: View {
                 footer: Text(groupFooterText).textCase(.none)
             ) {
                 Menu {
-                    Link(
-                        destination: URL(
-                            string: "https://pd.qq.com/s/9z504ipbc"
-                        )!
-                    ) {
-                        Label {
-                            Text("sys.contact.qq.channel")
-                        } icon: {
-                            Image("icon.qq.circle")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-
-                    Link(
-                        destination: URL(
-                            // swiftlint:disable:next line_length
-                            string: "mqqapi://card/show_pslcard?src_type=internal&version=1&card_type=group&uin=794277219"
-                        )!
-                    ) {
-                        Label {
-                            Text(verbatim: "794277219")
-                        } icon: {
-                            Image("icon.qq")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
+                    LinkLabelItem(qqChannel: "9z504ipbc")
+                    LinkLabelItem(qqGroup: "794277219")
                 } label: {
                     Label {
                         Text("sys.contact.qq.group")
@@ -345,47 +53,24 @@ struct ContactInfoView: View {
                     }
                 }
 
-                Link(
-                    destination: URL(string: "https://discord.gg/g8nCgKsaMe")!
-                ) {
-                    Label {
-                        Text("sys.contact.discord")
-                    } icon: {
-                        Image("icon.discord")
-                            .resizable()
-                            .scaledToFit()
-                    }
-                }
+                LinkLabelItem(
+                    "sys.contact.discord",
+                    imageKey: "icon.discord",
+                    url: "https://discord.gg/g8nCgKsaMe"
+                )
 
                 if AppConfig.appLanguage != .ja {
                     Menu {
-                        Link(
-                            destination: URL(
-                                string: "https://t.me/hsrhelper_zh"
-                            )!
-                        ) {
-                            Label {
-                                Text(verbatim: "中文频道")
-                            } icon: {
-                                Image("telegram")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
-
-                        Link(
-                            destination: URL(
-                                string: "https://t.me/hsrhelper_en"
-                            )!
-                        ) {
-                            Label {
-                                Text(verbatim: "English Channel")
-                            } icon: {
-                                Image("telegram")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                        }
+                        LinkLabelItem(
+                            verbatim: "Telegram 中文频道",
+                            imageKey: "telegram",
+                            url: "https://t.me/hsrhelper_zh"
+                        )
+                        LinkLabelItem(
+                            verbatim: "Telegram English Channel",
+                            imageKey: "telegram",
+                            url: "https://t.me/hsrhelper_en"
+                        )
                     } label: {
                         Label {
                             Text("sys.contact.telegram")
@@ -422,34 +107,8 @@ struct ContactInfoView: View {
                         .clipShape(Circle())
                 }
                 Menu {
-                    Link(
-                        destination: isInstallation(urlString: "twitter://") ?
-                            URL(
-                                string: "twitter://user?id=1593423596545724416"
-                            )! :
-                            URL(string: "https://twitter.com/hutao_hati")!
-                    ) {
-                        Label {
-                            Text("sys.contact.title.twitter")
-                        } icon: {
-                            Image("icon.twitter")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Link(
-                        destination: URL(
-                            string: "https://youtube.com/c/hutao_taotao"
-                        )!
-                    ) {
-                        Label {
-                            Text("sys.contact.title.youtube")
-                        } icon: {
-                            Image("icon.youtube")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
+                    LinkLabelItem(twitter: "hutao_hati")
+                    LinkLabelItem(youtube: "https://youtube.com/c/hutao_taotao")
                 } label: {
                     Label { Text("sys.contact.tao") } icon: {
                         Image("avatar.tao")
@@ -479,7 +138,7 @@ struct ContactInfoView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    func isInstallation(urlString: String?) -> Bool {
+    func isInstalled(urlString: String?) -> Bool {
         let url = URL(string: urlString!)
         if url == nil {
             return false
@@ -492,9 +151,114 @@ struct ContactInfoView: View {
 
     // MARK: Private
 
-    @State private var isHakubillDetailShow = false
-    @State private var isLavaDetailShow = false
-    @State private var isShikiDetailShow = false
+    @State private var isPizzaStudioDetailVisible = false
+    @State private var isLavaDetailVisible = false
+    @State private var isHakubillDetailVisible = false
+    @State private var isShikiDetailVisible = false
+
+    @ViewBuilder
+    private func mainDeveloperTeamSection() -> some View {
+        Section(header: Text("sys.contact.title.developer")) {
+            // developer - Pizza Studio
+            HStack {
+                Image("AppIcon256").resizable().clipShape(Circle())
+                    .frame(width: 50, height: 50)
+                VStack(alignment: .leading) {
+                    Text(verbatim: "Pizza Studio").bold().padding(.vertical, 5)
+                }
+                Spacer()
+                Image(systemSymbol: .chevronRight)
+                    .rotationEffect(.degrees(isPizzaStudioDetailVisible ? 90 : 0))
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                simpleTaptic(type: .light)
+                withAnimation { isPizzaStudioDetailVisible.toggle() }
+            }
+            if isPizzaStudioDetailVisible {
+                LinkLabelItem(officialWebsite: "https://pizzastudio.org")
+                LinkLabelItem(email: "contact@pizzastudio.org")
+                LinkLabelItem(github: "pizza-studio")
+                if AppConfig.appLanguage == .ja {
+                    LinkLabelItem(twitter: "PizzaStudio_jp")
+                }
+            }
+
+            // developer - lava
+            HStack {
+                Image("avatar.lava").resizable().clipShape(Circle())
+                    .frame(width: 50, height: 50)
+                VStack(alignment: .leading) {
+                    Text("sys.contact.lava").bold().padding(.vertical, 5)
+                }
+                Spacer()
+                Image(systemSymbol: .chevronRight)
+                    .rotationEffect(.degrees(isLavaDetailVisible ? 90 : 0))
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                simpleTaptic(type: .light)
+                withAnimation { isLavaDetailVisible.toggle() }
+            }
+            if isLavaDetailVisible {
+                LinkLabelItem(email: "daicanglong@gmail.com")
+                LinkLabelItem(bilibiliSpace: "13079935")
+                LinkLabelItem(github: "CanglongCl")
+            }
+
+            // developer - hakubill
+            HStack {
+                Image("avatar.hakubill").resizable().clipShape(Circle())
+                    .frame(width: 50, height: 50)
+                VStack(alignment: .leading) {
+                    Text("sys.contact.hakubill").bold().padding(.vertical, 5)
+                }
+                Spacer()
+                Image(systemSymbol: .chevronRight)
+                    .rotationEffect(.degrees(isHakubillDetailVisible ? 90 : 0))
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                simpleTaptic(type: .light)
+                withAnimation { isHakubillDetailVisible.toggle() }
+            }
+            if isHakubillDetailVisible {
+                LinkLabelItem(homePage: "https://hakubill.tech")
+                LinkLabelItem(email: "i@hakubill.tech")
+                LinkLabelItem(twitter: "Haku_Bill")
+                LinkLabelItem(youtube: "https://www.youtube.com/channel/UC0ABPKMmJa2hd5nNKh5HGqw")
+                LinkLabelItem(bilibiliSpace: "158463764")
+                LinkLabelItem(github: "Bill-Haku")
+            }
+
+            // developer - ShikiSuen
+            Section {
+                HStack {
+                    Image("avatar.shikisuen").resizable().clipShape(Circle())
+                        .frame(width: 50, height: 50)
+                    VStack(alignment: .leading) {
+                        Text("Shiki Suen (孙志贵)").bold().padding(.vertical, 5)
+                    }
+                    Spacer()
+                    Image(systemSymbol: .chevronRight)
+                        .rotationEffect(.degrees(isShikiDetailVisible ? 90 : 0))
+                }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    simpleTaptic(type: .light)
+                    withAnimation { isShikiDetailVisible.toggle() }
+                }
+                if isShikiDetailVisible {
+                    LinkLabelItem(neteaseMusic: "60323623")
+                    LinkLabelItem(homePage: "https://shikisuen.github.io")
+                    LinkLabelItem(email: "shikisuen@yeah.net")
+                    LinkLabelItem(twitter: "ShikiSuen")
+                    LinkLabelItem(bilibiliSpace: "911304")
+                    LinkLabelItem(github: "ShikiSuen")
+                }
+            }
+        }
+    }
 }
 
 // MARK: - CaptionLabelStyle

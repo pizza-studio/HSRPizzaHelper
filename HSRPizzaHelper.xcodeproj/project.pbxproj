@@ -24,6 +24,7 @@
 		5B4C5BA62C09F20300A6EA05 /* CharacterInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C5BA52C09F20300A6EA05 /* CharacterInventoryView.swift */; };
 		5B4C5BA92C09F26F00A6EA05 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 5B4C5BA82C09F26F00A6EA05 /* Flow */; };
 		5B4C5BAB2C09F3BD00A6EA05 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C5BAA2C09F3BD00A6EA05 /* WebImageView.swift */; };
+		5B4D13C12C22CF3500EB7945 /* LinkLabelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4D13C02C22CF3500EB7945 /* LinkLabelItem.swift */; };
 		5B55DD1E2BE9004800CEFDE0 /* GachaItemIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */; };
 		5B579DB52BFCEC9E0030C64D /* ViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B579DB42BFCEC9E0030C64D /* ViewTools.swift */; };
 		5B579DB72BFCF16E0030C64D /* SwiftUIColorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B579DB62BFCF16E0030C64D /* SwiftUIColorImpl.swift */; };
@@ -353,6 +354,7 @@
 		5B4C5BA22C09EECC00A6EA05 /* DismissableSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissableSheet.swift; sourceTree = "<group>"; };
 		5B4C5BA52C09F20300A6EA05 /* CharacterInventoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterInventoryView.swift; sourceTree = "<group>"; };
 		5B4C5BAA2C09F3BD00A6EA05 /* WebImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		5B4D13C02C22CF3500EB7945 /* LinkLabelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLabelItem.swift; sourceTree = "<group>"; };
 		5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaItemIcon.swift; sourceTree = "<group>"; };
 		5B579DB42BFCEC9E0030C64D /* ViewTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTools.swift; sourceTree = "<group>"; };
 		5B579DB62BFCF16E0030C64D /* SwiftUIColorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIColorImpl.swift; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 				EADCE9382A0B985F008D81A9 /* OptionalSpacer.swift */,
 				5B579DB42BFCEC9E0030C64D /* ViewTools.swift */,
 				5B579DB62BFCF16E0030C64D /* SwiftUIColorImpl.swift */,
+				5B4D13C02C22CF3500EB7945 /* LinkLabelItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1717,6 +1720,7 @@
 				5B55DD1E2BE9004800CEFDE0 /* GachaItemIcon.swift in Sources */,
 				EA120C3E2A8396620069BE1D /* GetGachaRecordView.swift in Sources */,
 				EA09B19B2A091A7400986D46 /* ApplicationIconBadgeNumberCleaner.swift in Sources */,
+				5B4D13C12C22CF3500EB7945 /* LinkLabelItem.swift in Sources */,
 				EA8D287E2A86012000B47869 /* AccountGachaDetailView.swift in Sources */,
 				5B4C5BA62C09F20300A6EA05 /* CharacterInventoryView.swift in Sources */,
 				BF58D26A2A57AD4300CC0DC6 /* WatchConnectivityManager.swift in Sources */,
