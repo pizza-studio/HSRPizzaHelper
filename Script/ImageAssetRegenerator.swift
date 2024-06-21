@@ -13,6 +13,7 @@ let folderJSONContents = #"""
     "version" : 1
   }
 }
+
 """#
 
 let sampleJSONForFile = #"""
@@ -37,6 +38,7 @@ let sampleJSONForFile = #"""
     "version" : 1
   }
 }
+
 """#
 
 func generateJSON(fileName: String? = nil) -> String {
