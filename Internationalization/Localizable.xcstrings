@@ -1010,6 +1010,35 @@
         }
       }
     },
+    "account.notice.bewareof" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beware of these things before you proceed:\n\n→ This app is NOT made for the creation nor deletion of HoYoLAB / Miyoushe account. Such actions are supposed to be done through HoYoLAB / Miyoushe app or official website services provided by MiHoYo / Cognosphere.\n\n→ A HoYoLAB / Miyoushe account must have been used to play the game (Houkai: Star Rail) AT LEAST ONCE in order to be usable in this app.\n\n→ A related game account (under the managment of its related HoYoLAB / Miyoushe account) must enable the public visibility of the character showcase through in-game settings in order to let the related information displayable in this app."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下記の事項をご注意してからご続行ください：\n\n→ 米遊社 ・ HoYoLAB アカウントの入会・管理・退会についての一切機能は、弊アプリのサポート対象外です。米遊社 ・ HoYoLAB アプリを使うか、あるいは MiHoYo / Cognosphere 社からの公式 Web サービスで該当事項をお行いください。\n\n→ いずれの米遊社 ・ HoYoLAB 新規アカウントは、必ず該当ゲーム（崩壊：スターレイル）で少なくとも一回お遊びしてから、弊アプリで利用可能です。\n\n→ いずれの米遊社 ・ HoYoLAB アカウントでも、それに管理している該当ゲームのアカウントは、必ずゲーム内の設定でキャラクターショウケースの内容を公開と設定してから、弊アプリでそのショウケースの内容は見えます。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有几点需要您事先知悉的事项：\n\n→ 敝 App 不负责米游社/HoYoLAB 新帐号的注册与删除，且相关流程得通过米游社 / HoYoLAB 及由 MiHoYo / Cognosphere 提供的相关服务来完成。\n\n→ 任何用于敝 App 的米游社 / HoYoLAB 新帐号均已经至少用来游玩过该游戏（崩坏：星穹铁道），否则在技术上无法用于敝 App。\n\n→ 任何用于敝 App 的米游社 / HoYoLAB 帐号下的游戏帐号，除非手动在游戏内启用展柜等相关内容的公开显示，否则敝 App 无权显示相关内容。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有幾點需要您事先知悉的事項：\n\n→ 敝 App 不負責米遊社 / HoYoLAB 新帳號的註冊與刪除，且相關流程得通過米遊社 / HoYoLAB 及由 MiHoYo / Cognosphere 提供的相關服務來完成。\n\n→ 任何用於敝 App 的米遊社 / HoYoLAB 新帳號均已經至少用來遊玩過該遊戲（崩壞：星穹鐵道），否則在技術上無法用於敝 App。\n\n→ 任何用於敝 App 的米遊社 / HoYoLAB 帳號下的遊戲帳號，除非手動在遊戲內啟用展櫃等相關內容的公開顯示，否則敝 App 無權顯示相關內容。"
+          }
+        }
+      }
+    },
     "account.PlayerDetail.EmptyAvatarsFetched" : {
       "localizations" : {
         "en" : {

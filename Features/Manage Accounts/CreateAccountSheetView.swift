@@ -318,22 +318,49 @@ private enum GetAccountError: LocalizedError {
 // MARK: - ExplanationView
 
 private struct ExplanationView: View {
+    // MARK: Internal
+
     var body: some View {
         Group {
             Divider()
                 .padding(.vertical)
-            Text("account.explanation.title.1")
-                .font(.footnote)
-                .bold()
-            Text("account.explanation.1")
-                .font(.footnote)
-            Text("\n")
-                .font(.footnote)
-            Text("account.explanation.title.2")
-                .font(.footnote)
-                .bold()
-            Text("account.explanation.2")
-                .font(.footnote)
+            VStack(alignment: .leading, spacing: 9) {
+                Text(verbatim: beareOfTextHeader)
+                    .font(.footnote)
+                    .bold()
+                    .foregroundColor(.red)
+                ForEach(beareOfTextContents, id: \.self) { currentLine in
+                    Text(verbatim: currentLine)
+                        .font(.footnote)
+                        .foregroundColor(.red)
+                }
+                Text("account.explanation.title.1")
+                    .font(.footnote)
+                    .bold()
+                    .padding(.top)
+                Text("account.explanation.1")
+                    .font(.footnote)
+                Text("account.explanation.title.2")
+                    .font(.footnote)
+                    .bold()
+                    .padding(.top)
+                Text("account.explanation.2")
+                    .font(.footnote)
+            }
         }
+    }
+
+    // MARK: Private
+
+    private let bewareOfTextLines: [String] = String(
+        localized: .init(stringLiteral: "account.notice.bewareof")
+    ).split(separator: "\n\n").map(\.description)
+
+    private var beareOfTextHeader: String {
+        bewareOfTextLines.first ?? "BewareOf_Header"
+    }
+
+    private var beareOfTextContents: [String] {
+        Array(bewareOfTextLines.dropFirst())
     }
 }
