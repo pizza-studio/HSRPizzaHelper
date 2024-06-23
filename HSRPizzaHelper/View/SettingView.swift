@@ -189,10 +189,10 @@ private struct OtherSettingsView: View {
             Section {
                 Menu {
                     Link(destination: URL(string: "https://user.mihoyo.com/")!) {
-                        Text("sys.server.cn")
+                        Text("sys.server.cn") + Text(verbatim: " - ") + Text("app.miyoushe")
                     }
                     Link(destination: URL(string: "https://account.hoyoverse.com/")!) {
-                        Text("sys.server.os")
+                        Text("sys.server.os") + Text(verbatim: " - HoYoLAB")
                     }
                 } label: {
                     Text("sys.manage_hoyolab_account")
