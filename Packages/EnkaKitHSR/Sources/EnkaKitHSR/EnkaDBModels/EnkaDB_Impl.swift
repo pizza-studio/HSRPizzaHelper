@@ -7,10 +7,16 @@ import Defaults
 // MARK: - Local Query APIs.
 
 extension EnkaHSR.EnkaDB {
-    public func queryLocalizedNameForChar(id: String, officialNameOnly: Bool = false) -> String {
-        guard let character = characters[id] else { return "NULL-CHAR(\(id))" }
+    public func queryLocalizedNameForChar(
+        id: String,
+        officialNameOnly: Bool = false,
+        fallbackValue: (() -> String)? = nil
+    )
+        -> String {
+        guard let character = characters[id] else { return fallbackValue?() ?? "NULL-CHAR(\(id))" }
         let nameHash = character.avatarName.hash
-        let officialName = EnkaHSR.Sputnik.sharedDB.locTable[nameHash.description] ?? "NULL-LOC(\(id))"
+        let officialName = EnkaHSR.Sputnik.sharedDB
+            .locTable[nameHash.description] ?? fallbackValue?() ?? "NULL-LOC(\(id))"
         let realName = EnkaHSR.Sputnik.sharedDB.realNameTable[id]
         return officialNameOnly ? officialName : realName ?? officialName
     }

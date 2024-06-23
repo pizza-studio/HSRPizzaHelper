@@ -21,7 +21,9 @@ extension GachaNameViewRenderable {
         let resultText = EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(
             id: itemID,
             officialNameOnly: officialNameOnly
-        )
+        ) {
+            localizedName
+        }
         return Text(verbatim: resultText)
     }
 }
