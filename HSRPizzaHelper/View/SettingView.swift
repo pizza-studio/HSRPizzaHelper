@@ -139,12 +139,19 @@ struct SettingView: View {
 
 // MARK: - OtherSettingsView
 
-private struct OtherSettingsView: View {
-    // MARK: Internal
+public struct OtherSettingsView: View {
+    // MARK: Public
 
-    @State var isDevelopSettingsShow = false
+    @ViewBuilder public static var linksForManagingHoYoLabAccounts: some View {
+        Link(destination: URL(string: "https://user.mihoyo.com/")!) {
+            Text("sys.server.cn") + Text(verbatim: " - ") + Text("app.miyoushe")
+        }
+        Link(destination: URL(string: "https://account.hoyoverse.com/")!) {
+            Text("sys.server.os") + Text(verbatim: " - HoYoLAB")
+        }
+    }
 
-    var body: some View {
+    public var body: some View {
         List {
             if AppConfig.isDebug {
                 Button("Develop Settings") {
@@ -188,12 +195,7 @@ private struct OtherSettingsView: View {
 
             Section {
                 Menu {
-                    Link(destination: URL(string: "https://user.mihoyo.com/")!) {
-                        Text("sys.server.cn") + Text(verbatim: " - ") + Text("app.miyoushe")
-                    }
-                    Link(destination: URL(string: "https://account.hoyoverse.com/")!) {
-                        Text("sys.server.os") + Text(verbatim: " - HoYoLAB")
-                    }
+                    Self.linksForManagingHoYoLabAccounts
                 } label: {
                     Text("sys.manage_hoyolab_account")
                 }
@@ -242,6 +244,10 @@ private struct OtherSettingsView: View {
         .navigationTitle("sys.more.title")
         .navigationBarTitleDisplayMode(.inline)
     }
+
+    // MARK: Internal
+
+    @State var isDevelopSettingsShow = false
 
     // MARK: Private
 

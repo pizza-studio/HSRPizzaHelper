@@ -142,10 +142,17 @@ struct CreateAccountSheetView: View {
                         Text("account.login.manual.2")
                             .font(.footnote)
                     }
+                    Text(verbatim: " || ")
+                    Menu {
+                        OtherSettingsView.linksForManagingHoYoLabAccounts
+                    } label: {
+                        Group {
+                            Text("sys.manage_hoyolab_account") + Text(verbatim: "(Safari)")
+                        }
+                        .font(.footnote)
+                    }
                 }
-                if !account.isValid {
-                    ExplanationView()
-                }
+                ExplanationView()
             }
         }
         .onChange(of: account.cookie) { newValue in
@@ -326,26 +333,26 @@ private struct ExplanationView: View {
                 .padding(.vertical)
             VStack(alignment: .leading, spacing: 9) {
                 Text(verbatim: beareOfTextHeader)
-                    .font(.footnote)
+                    .font(.callout)
                     .bold()
                     .foregroundColor(.red)
                 ForEach(beareOfTextContents, id: \.self) { currentLine in
                     Text(verbatim: currentLine)
-                        .font(.footnote)
+                        .font(.subheadline)
                         .foregroundColor(.red)
                 }
                 Text("account.explanation.title.1")
-                    .font(.footnote)
+                    .font(.callout)
                     .bold()
                     .padding(.top)
                 Text("account.explanation.1")
-                    .font(.footnote)
+                    .font(.subheadline)
                 Text("account.explanation.title.2")
-                    .font(.footnote)
+                    .font(.callout)
                     .bold()
                     .padding(.top)
                 Text("account.explanation.2")
-                    .font(.footnote)
+                    .font(.subheadline)
             }
         }
     }
