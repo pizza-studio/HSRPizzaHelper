@@ -203,43 +203,43 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To get resin and other data from HoYoLAB, UID and login cookie of your account is needed. After logging into HoYoLAB, we will store them locally as well as on your private iCloud. Then our app will use the stored UID and cookie to get the resin and other information in a way similar to HoYoLAB app, then display them on your widget. Your private information will not be sent to other places other than HoYoLAB and iCloud, including us, so your personal information will be very secure. This App is an opensource project. Everyone can check and supervise all the underlying behaviors of this program."
+            "value" : "To get resin and other data from HoYoLAB / Miyoushe, UID and login cookie of your account is needed. After logging into HoYoLAB / Miyoushe, we will store them locally as well as on your private iCloud. Then our app will use the stored UID and cookie to get the resin and other information in a way similar to HoYoLAB / Miyoushe app, then display them on your widget. Your private information will not be sent to other places other than HoYoLAB / Miyoushe and iCloud, including us, so your personal information will be very secure. This App is an opensource project. Everyone can check and supervise all the underlying behaviors of this program."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para obtener resina y otros datos de HoYoLAB, el UID y cookie de inicio de sesión de tu cuenta es necesario. Después de iniciar sesión en HoYoLAB, los almacenaremos localmente así como en tu iCloud privado. Posteriormente, nuestra aplicación va a usar el UID y cookie de inicio de sesión almacenado para obtener la información acerca de la resina entre otras de una manera similar a la de la aplicación de HoYoLAB y luego la mostrará en tu widget. Tu información privada no será enviada a otros lugares más que HoYoLAB y iCloud, incluyendonos, así que tu información personal estará muy segura. Esta aplicación es un proyecto de código abierto. Cualquiera puede comprobar y supervisar todos los comportamientos subyacentes de este programa."
+            "value" : "Para obtener resina y otros datos de HoYoLAB / Miyoushe, el UID y cookie de inicio de sesión de tu cuenta es necesario. Después de iniciar sesión en HoYoLAB / Miyoushe, los almacenaremos localmente así como en tu iCloud privado. Posteriormente, nuestra aplicación va a usar el UID y cookie de inicio de sesión almacenado para obtener la información acerca de la resina entre otras de una manera similar a la de la aplicación de HoYoLAB / Miyoushe y luego la mostrará en tu widget. Tu información privada no será enviada a otros lugares más que HoYoLAB / Miyoushe y iCloud, incluyendonos, así que tu información personal estará muy segura. Esta aplicación es un proyecto de código abierto. Cualquiera puede comprobar y supervisar todos los comportamientos subyacentes de este programa."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "あなたのゲーム内データをリクエストするためには、データ取得に必要な、UIDとCookieを取得する必要があります。 次のページでログインした後、あなたの個人データをローカルファイルおよびiCloudに保存します。 そして、HoYoLABと同様の方法で、あなたのゲーム内データの情報を取得します。 あなたの個人情報は、私どもを含め、誰にも提供されない。あなたの個人情報はあなたのスマホの中で管理されます。このAppはオープンソース プログラムであり、誰もがこのプログラムの基本的な動作をすべてチェックおよび監視できます。"
+            "value" : "あなたのゲーム内データをリクエストするためには、データ取得に必要な、UIDとCookieを取得する必要があります。 次のページでログインした後、あなたの個人データをローカルファイルおよびiCloudに保存します。 そして、HoYoLAB ・ Miyousheと同様の方法で、あなたのゲーム内データの情報を取得します。 あなたの個人情報は、私どもを含め、誰にも提供されない。あなたの個人情報はあなたのスマホの中で管理されます。このAppはオープンソース プログラムであり、誰もがこのプログラムの基本的な動作をすべてチェックおよび監視できます。"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Чтобы получить информацию о смоле и прочее с HoYoLAB, нам нужны ваши UID и Cookie-файлы аккаунта. После входа через HoYoLAB, мы храним его локально и настолько приватно, насколько может iCloud. Затем наше приложение использует UID и Cookie, чтобы получить информацию о смоле и прочее как это делается в приложении HoYoLAB и после она показывается в ваших виджетах. Ваша приватная информация не попадает к нам и не отправляется в какие либо места, кроме HoYoLAB и iCloud, так что можете быть спокойны. И ещё, наше приложение - творение, сделанное на основе библиотек с открытым исходным кодом. Каждый может внести свой вклад в развитие этого проекта."
+            "value" : "Чтобы получить информацию о смоле и прочее с HoYoLAB / Miyoushe, нам нужны ваши UID и Cookie-файлы аккаунта. После входа через HoYoLAB / Miyoushe, мы храним его локально и настолько приватно, насколько может iCloud. Затем наше приложение использует UID и Cookie, чтобы получить информацию о смоле и прочее как это делается в приложении HoYoLAB / Miyoushe и после она показывается в ваших виджетах. Ваша приватная информация не попадает к нам и не отправляется в какие либо места, кроме HoYoLAB / Miyoushe и iCloud, так что можете быть спокойны. И ещё, наше приложение - творение, сделанное на основе библиотек с открытым исходным кодом. Каждый может внести свой вклад в развитие этого проекта."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Để lấy nhựa khai phá và dữ liệu khác từ HoYoLAB, cần có UID và cookie đăng nhập của tài khoản của bạn. Sau khi đăng nhập vào HoYoLAB, chúng tôi sẽ lưu trữ chúng cục bộ cũng như trên iCloud riêng tư của bạn. Sau đó, ứng dụng của chúng tôi sẽ sử dụng UID và cookie được lưu trữ để lấy nhựa và các thông tin khác theo cách tương tự như ứng dụng HoYoLAB, sau đó hiển thị chúng trên tiện ích của bạn. Thông tin cá nhân của bạn sẽ không được gửi đến những nơi khác ngoài HoYoLAB và iCloud, bao gồm cả chúng tôi, vì vậy thông tin cá nhân của bạn sẽ rất an toàn. Ứng dụng này là một dự án mã nguồn mở. Mọi người có thể kiểm tra và giám sát tất cả các hành vi cơ bản của chương trình này."
+            "value" : "Để lấy nhựa khai phá và dữ liệu khác từ HoYoLAB / Miyoushe, cần có UID và cookie đăng nhập của tài khoản của bạn. Sau khi đăng nhập vào HoYoLAB / Miyoushe, chúng tôi sẽ lưu trữ chúng cục bộ cũng như trên iCloud riêng tư của bạn. Sau đó, ứng dụng của chúng tôi sẽ sử dụng UID và cookie được lưu trữ để lấy nhựa và các thông tin khác theo cách tương tự như ứng dụng HoYoLAB / Miyoushe, sau đó hiển thị chúng trên tiện ích của bạn. Thông tin cá nhân của bạn sẽ không được gửi đến những nơi khác ngoài HoYoLAB / Miyoushe và iCloud, bao gồm cả chúng tôi, vì vậy thông tin cá nhân của bạn sẽ rất an toàn. Ứng dụng này là một dự án mã nguồn mở. Mọi người có thể kiểm tra và giám sát tất cả các hành vi cơ bản của chương trình này."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，这是获取数据的必要参数。您在接下来的网页登录后，我们会在您的本地和iCloud存储您的个人数据。然后我们通过类似米游社的方式获取您的游戏内的数据信息。您的个人信息不会发送给任何人，包括我们自己。您的个人信息将会是非常安全的。本程序是开源程序，每个人都可以检查和监督本程序的全部底层行为。"
+            "value" : "为了请求您的游戏内的数据，我们需要获取您的UID和Cookie，这是获取数据的必要参数。您在接下来的网页登录后，我们会在您的本地和iCloud存储您的个人数据。然后我们通过类似米游社 / HoYoLAB 的方式获取您的游戏内的数据信息。您的个人信息不会发送给任何人，包括我们自己。您的个人信息将会是非常安全的。本程序是开源程序，每个人都可以检查和监督本程序的全部底层行为。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "為了請求您的遊戲內的資料，我們需要獲取您的UID和Cookie，這是獲取資料的必要參數。您在接下來的網頁登入後，我們會在您的本地和iCloud存儲您的個人資料。然後我們通過類似米遊社的方式獲取您的遊戲內的資料。您的個人資訊不會傳送給任何人，包括我們自己。您的個人資訊將會是非常安全的。敝軟體是開放原始碼軟體，每個人都可以檢查和監督敝軟體的全部底層行為。"
+            "value" : "為了請求您的遊戲內的資料，我們需要獲取您的UID和Cookie，這是獲取資料的必要參數。您在接下來的網頁登入後，我們會在您的本地和iCloud存儲您的個人資料。然後我們通過類似米遊社 / HoYoLAB 的方式獲取您的遊戲內的資料。您的個人資訊不會傳送給任何人，包括我們自己。您的個人資訊將會是非常安全的。敝軟體是開放原始碼軟體，每個人都可以檢查和監督敝軟體的全部底層行為。"
           }
         }
       }
@@ -693,43 +693,43 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This HoYoLAB account is not bound to any game character."
+            "value" : "This HoYoLAB / Miyoushe account is not bound to any game character."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Esta cuenta de HoYoLAB no está vinculada a ningún personaje del juego."
+            "value" : "Esta cuenta de HoYoLAB / Miyoushe no está vinculada a ningún personaje del juego."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "このHoYoLABアカウントはゲームアカウントとは関連付けられていません。"
+            "value" : "このHoYoLAB ・ Miyousheアカウントはゲームアカウントとは関連付けられていません。"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "У этого HoYoLAB аккаунта нет персонажей в HSR."
+            "value" : "У этого HoYoLAB / Miyoushe аккаунта нет персонажей в HSR."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tài khoản HoYoLAB này không bị ràng buộc với bất kỳ nhân vật trò chơi nào ."
+            "value" : "Tài khoản HoYoLAB / Miyoushe này không bị ràng buộc với bất kỳ nhân vật trò chơi nào ."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "该米游社帐号未绑定游戏角色。"
+            "value" : "该米游社 / HoYoLAB 帐号未绑定游戏角色。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "該米遊社帳號未綁定遊戲角色。"
+            "value" : "該米遊社 / HoYoLAB 帳號未綁定遊戲角色。"
           }
         }
       }
@@ -2083,7 +2083,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The current account server returned empty inventory results. For game accounts in this server, you are recommended to use Miyoushe / HoYoLab app to check your character inventory status."
+            "value" : "The current account server returned empty inventory results. For game accounts in this server, you are recommended to use HoYoLAB / Miyoushe app to check your character inventory status."
           }
         },
         "ja" : {
@@ -2095,13 +2095,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "当前账号区服并未返回可用的角色库存统计资料。就该区服的账号而言，不妨使用米游社 / HoYoLab 应用来检视相关统计资料。"
+            "value" : "当前账号区服并未返回可用的角色库存统计资料。就该区服的账号而言，不妨使用米游社 / HoYoLAB 应用来检视相关统计资料。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "當前帳號區服並未返回可用的角色庫存統計資料。就該區服的帳號而言，不妨使用米遊社 / HoYoLab 應用來檢視相關統計資料。"
+            "value" : "當前帳號區服並未返回可用的角色庫存統計資料。就該區服的帳號而言，不妨使用米遊社 / HoYoLAB 應用來檢視相關統計資料。"
           }
         }
       }
@@ -14217,13 +14217,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请在打开的网页完成登录米游社操作后点击「完成」。\n\n通过Google，Facebook或Twitter等第三方服务登录HoYoLAB的方式不受敝 App 支持，请使用账号密码登录。"
+            "value" : "请在打开的网页完成登录 HoYoLab 操作后点击「完成」。\n\n通过Google，Facebook或Twitter等第三方服务登录 HoYoLAB 的方式不受敝 App 支持，请使用账号密码登录。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請在打開的網頁完成登入米遊社操作後點擊「完成」。\n\n通過Google，Facebook或Twitter等第三方服務登入HoYoLAB的方式不受敝 App支援，請使用帳號密碼登入。"
+            "value" : "請在打開的網頁完成登入 HoYoLab 操作後點擊「完成」。\n\n通過Google，Facebook或Twitter等第三方服務登入 HoYoLAB 的方式不受敝 App支援，請使用帳號密碼登入。"
           }
         }
       }
@@ -16911,13 +16911,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manage your HoYoLAB account"
+            "value" : "Manage your HoYoLAB / Miyoushe account"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Administra tu cuenta de HoYoLAB"
+            "value" : "Administra tu cuenta de HoYoLAB / Miyoushe"
           }
         },
         "ja" : {
@@ -16929,25 +16929,25 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Управление моей учетной записью HoYoLAB"
+            "value" : "Управление моей учетной записью HoYoLAB / Miyoushe"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quản lý tài khoản HoYoLAB của bạn"
+            "value" : "Quản lý tài khoản HoYoLAB / Miyoushe của bạn"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "管理米游社通行证"
+            "value" : "管理米游社 / HoYoLAB 通行证"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "管理HoYoLAB通行證"
+            "value" : "管理米游社 / HoYoLAB 通行證"
           }
         }
       }
@@ -16957,43 +16957,43 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can delete your HoYoLAB account here."
+            "value" : "You can register / manage / delete your HoYoLAB / Miyoushe account through the proceeding web page."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puedes borrar tu cuenta de HoYoLAB aquí."
+            "value" : "Puede registrar/administrar/eliminar su cuenta HoYoLAB/Miyoushe a través de la página web correspondiente."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ここでHOYOVERSE通行証の記録の取り除きはできます。"
+            "value" : "ここでタップしてからのWebページで米遊社通行証・HOYOVERSE通行証のアカウントの「入会申込・管理・退会削除」はできます。"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Вы можете удалить свой аккаунт HoYoLAB здесь."
+            "value" : "Вы можете зарегистрировать/управлять/удалить свою учетную запись HoYoLAB/Miyoushe через соответствующую веб-страницу."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bạn có thể xóa tài khoản HoYoLAB của mình tại đây."
+            "value" : "Bạn có thể đăng ký/quản lý/xóa tài khoản HoYoLAB / Miyoushe của mình thông qua trang web tiếp tục."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你可以在此注销你的米游社通行证。"
+            "value" : "您可以在点击该按钮之后前往的网页内注册/管理/注销您的米游社 / HoYoLAB 通行证。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你可以在此處刪除HoYoLAB通行證。"
+            "value" : "您可以在點擊該按鈕之後前往的網頁內註冊/管理/註銷您的米游社 / HoYoLAB 通行證。"
           }
         }
       }
@@ -17456,53 +17456,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "開放原始碼組件與第三方API致謝"
-          }
-        }
-      }
-    },
-    "sys.warning.osservers" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Note**: Due to the lack of API support from HoYoLAB for international servers (America, Asia, Europe, TW/HK/MO servers), players on international servers are currently unable to use the main features of this app. We will adapt the app as soon as HoYoLAB provides the API for international servers."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Nota**: Debido a la falta de soporte API de HoYoLAB para servidores internacionales (Servidores de América, Asia, Europa, TW/HK/MO), los jugadores de servidores internacionales no pueden utilizar las características principales de esta aplicación. Adaptaremos la aplicación tan pronto como HoYoLAB proporcione la API para servidores internacionales."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**注意**：HoYoLABが国際サーバー（Asia、America、Europe、TW/HK/MOサーバー）のアカウントに対するAPIを提供していないため、国際サーバーのプレイヤーは現時点ではこのアプリの主要な機能を利用することができません。HoYoLABがAPIを提供した場合、私たちはすぐに対応いたします。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Note**: Due to the lack of API support from HoYoLAB for international servers (America, Asia, Europe, TW/HK/MO servers), players on international servers are currently unable to use the main features of this app. We will adapt the app as soon as HoYoLAB provides the API for international servers."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Lưu ý**: Do HoYoLAB thiếu hỗ trợ API cho các máy chủ quốc tế (máy chủ Mỹ, Châu Á, Châu Âu, TW/HK/MO), người chơi trên các máy chủ quốc tế hiện không thể sử dụng các tính năng chính của ứng dụng này. Chúng tôi sẽ điều chỉnh ứng dụng ngay khi HoYoLAB cung cấp API cho các máy chủ quốc tế."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**注意**：由于HoYoLAB未提供对国际服（America, Asia, Europe, TW/HK/MO服务器）帐号的API，因此国际服玩家暂时无法使用本App的主要功能。我们将在HoYoLAB提供API后第一时间适配。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**注意**：由於HoYoLAB未提供對國際伺服器（America, Asia, Europe, TW/HK/MO伺服器）帳號的API，因此國際服玩家暫時無法使用本App的主要功能。我們將在HoYoLAB提供API後第一時間適配。"
           }
         }
       }
