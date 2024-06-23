@@ -200,28 +200,41 @@ struct CreateAccountSheetView: View {
 // MARK: - RequireLoginView
 
 private struct RequireLoginView: View {
-    @State var getCookieWebViewRegion: Region?
+    @State private var getCookieWebViewRegion: Region?
     @Binding var unsavedCookie: String?
     @Binding var unsavedFP: String
     @Binding var region: Region
 
+    private var isUnsavedCookieInvalid: Bool {
+        (unsavedCookie ?? "").isEmpty
+    }
+
+    private var isCookieWebViewShown: Binding<Bool> {
+        .init(get: {
+            getCookieWebViewRegion != nil
+        }, set: { newValue in
+            if !newValue {
+                getCookieWebViewRegion = nil
+            }
+        })
+    }
+
+    private func assign(region givenRegion: Region) {
+        getCookieWebViewRegion = givenRegion
+        region = givenRegion
+    }
+
     var body: some View {
         Menu {
             Button("sys.server.cn") {
-                getCookieWebViewRegion = .mainlandChina
-                region = .mainlandChina
+                assign(region: .mainlandChina)
             }
             Button("sys.server.os") {
-                getCookieWebViewRegion = .global
-                region = .global
+                assign(region: .global)
             }
         } label: {
             Group {
-                if unsavedCookie == "" || unsavedCookie == nil {
-                    Text("account.label.login")
-                } else {
-                    Text("account.label.relogin")
-                }
+                Text(isUnsavedCookieInvalid ? "account.label.login" : "account.label.relogin")
             }
             .frame(
                 maxWidth: .infinity,
@@ -232,13 +245,7 @@ private struct RequireLoginView: View {
             switch region {
             case .global:
                 GetCookieWebView(
-                    isShown: .init(get: {
-                        getCookieWebViewRegion != nil
-                    }, set: { newValue in
-                        if !newValue {
-                            getCookieWebViewRegion = nil
-                        }
-                    }),
+                    isShown: isCookieWebViewShown,
                     cookie: $unsavedCookie,
                     region: region
                 )
