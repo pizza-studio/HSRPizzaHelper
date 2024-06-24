@@ -16,10 +16,6 @@ struct GetCookieQRCodeView: View {
 
     @Binding var deviceFP: String
 
-    @State private var isNotScannedAlertShow: Bool = false
-
-    @State private var isCheckingScanning = false
-
     private var qrWidth: CGFloat {
         #if os(OSX) || targetEnvironment(macCatalyst)
         340
@@ -53,21 +49,26 @@ struct GetCookieQRCodeView: View {
     }
 
     private func loginCheckScannedButtonDidPressed(ticket: String) async {
-        isCheckingScanning = true
-        do {
-            let status = try await MiHoYoAPI.queryQRCodeStatus(
-                deviceId: viewModel.taskId,
-                ticket: ticket
-            )
-            if let parsedResult = try await status.parsed() {
-                try await parseGameToken(from: parsedResult, dismiss: true)
-            } else {
-                isNotScannedAlertShow = true
-            }
-        } catch {
-            viewModel.error = error
+        if case let .automatically(task) = viewModel.scanningConfirmationStatus {
+            task.cancel()
         }
-        isCheckingScanning = false
+        let task = Task.detached { @MainActor in
+            do {
+                let status = try await MiHoYoAPI.queryQRCodeStatus(
+                    deviceId: viewModel.taskId,
+                    ticket: ticket
+                )
+                if let parsedResult = try await status.parsed() {
+                    try await parseGameToken(from: parsedResult, dismiss: true)
+                } else {
+                    viewModel.isNotScannedAlertShown = true
+                }
+            } catch {
+                viewModel.error = error
+            }
+            viewModel.scanningConfirmationStatus = .idle
+        }
+        viewModel.scanningConfirmationStatus = .manually(task)
     }
 
     private func parseGameToken(
@@ -130,7 +131,7 @@ struct GetCookieQRCodeView: View {
                     errorView()
                     if let qrCodeAndTicket = viewModel.qrCodeAndTicket, let qrImage = qrImage {
                         qrImageView(qrImage)
-                        if isCheckingScanning {
+                        if case .manually = viewModel.scanningConfirmationStatus {
                             ProgressView()
                         } else {
                             Button("account.qr_code_login.check_scanned") {
@@ -163,11 +164,11 @@ struct GetCookieQRCodeView: View {
                     Text("account.qr_code_login.footer")
                 }
             }
-            .alert("account.qr_code_login.not_scanned_alert", isPresented: $isNotScannedAlertShow, actions: {
+            .alert("account.qr_code_login.not_scanned_alert", isPresented: $viewModel.isNotScannedAlertShown) {
                 Button("sys.done") {
-                    isNotScannedAlertShow.toggle()
+                    viewModel.isNotScannedAlertShown.toggle()
                 }
-            })
+            }
             .navigationTitle("account.qr_code_login.title")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -208,10 +209,27 @@ class GetCookieQRCodeViewModel: ObservableObject {
 
     // MARK: Internal
 
+    enum ScanningConfirmationStatus {
+        case manually(Task<Void, Never>)
+        case automatically(Task<Void, Never>)
+        case idle
+
+        // MARK: Internal
+
+        var isBusy: Bool {
+            switch self {
+            case .automatically, .manually: return true
+            case .idle: return false
+            }
+        }
+    }
+
     static var shared: GetCookieQRCodeViewModel = .init()
 
     @Published var qrCodeAndTicket: (qrCode: CGImage, ticket: String)?
     @Published var taskId: UUID
+    @Published var scanningConfirmationStatus: ScanningConfirmationStatus = .idle
+    @Published var isNotScannedAlertShown: Bool = false
 
     @Published var error: Error? {
         didSet {
