@@ -43,6 +43,11 @@ struct CreateAccountSheetView: View {
                             globalDailyNoteCardRefreshSubject.send(())
                             alertToastVariable.isDoneButtonTapped.toggle()
                         }
+                        .disabled(status != .gotAccount)
+                    }
+                } else {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        menuForManagingHoYoLabAccounts()
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -124,20 +129,19 @@ struct CreateAccountSheetView: View {
     }
 
     @ViewBuilder
+    func menuForManagingHoYoLabAccounts() -> some View {
+        Menu {
+            OtherSettingsView.linksForManagingHoYoLabAccounts
+        } label: {
+            Text("account.login.manageLink.shortened")
+        }
+    }
+
+    @ViewBuilder
     func pendingView() -> some View {
         Group {
             Section {
                 RequireLoginView(unsavedCookie: $account.cookie, unsavedFP: $account.deviceFingerPrint, region: $region)
-                Menu {
-                    OtherSettingsView.linksForManagingHoYoLabAccounts
-                } label: {
-                    Color.clear.overlay {
-                        Group {
-                            Text("sys.manage_hoyolab_account") + Text(verbatim: "(Safari)")
-                        }
-                        .font(.footnote)
-                    }.clipShape(Rectangle())
-                }
             } footer: {
                 VStack(alignment: .leading) {
                     HStack {
