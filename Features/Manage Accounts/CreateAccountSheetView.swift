@@ -36,11 +36,13 @@ struct CreateAccountSheetView: View {
             .navigationTitle("account.new")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("sys.done") {
-                        saveAccount()
-                        globalDailyNoteCardRefreshSubject.send(())
-                        alertToastVariable.isDoneButtonTapped.toggle()
+                if status != .pending {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("sys.done") {
+                            saveAccount()
+                            globalDailyNoteCardRefreshSubject.send(())
+                            alertToastVariable.isDoneButtonTapped.toggle()
+                        }
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -123,40 +125,43 @@ struct CreateAccountSheetView: View {
 
     @ViewBuilder
     func pendingView() -> some View {
-        Section {
-            RequireLoginView(unsavedCookie: $account.cookie, unsavedFP: $account.deviceFingerPrint, region: $region)
-        } footer: {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("account.login.manual.1")
-                        .font(.footnote)
-                    NavigationLink {
-                        AccountDetailView(
-                            unsavedName: $account.name,
-                            unsavedUid: $account.uid,
-                            unsavedCookie: $account.cookie,
-                            unsavedServer: $account.server,
-                            unsavedDeviceFingerPrint: $account.deviceFingerPrint
-                        )
-                    } label: {
-                        Text("account.login.manual.2")
-                            .font(.footnote)
-                    }
-                    Text(verbatim: " || ")
-                    Menu {
-                        OtherSettingsView.linksForManagingHoYoLabAccounts
-                    } label: {
+        Group {
+            Section {
+                RequireLoginView(unsavedCookie: $account.cookie, unsavedFP: $account.deviceFingerPrint, region: $region)
+                Menu {
+                    OtherSettingsView.linksForManagingHoYoLabAccounts
+                } label: {
+                    Color.clear.overlay {
                         Group {
                             Text("sys.manage_hoyolab_account") + Text(verbatim: "(Safari)")
                         }
                         .font(.footnote)
-                    }
+                    }.clipShape(Rectangle())
                 }
-                ExplanationView()
+            } footer: {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("account.login.manual.1")
+                        NavigationLink {
+                            AccountDetailView(
+                                unsavedName: $account.name,
+                                unsavedUid: $account.uid,
+                                unsavedCookie: $account.cookie,
+                                unsavedServer: $account.server,
+                                unsavedDeviceFingerPrint: $account.deviceFingerPrint
+                            )
+                        } label: {
+                            Text("account.login.manual.2")
+                                .font(.footnote)
+                        }
+                    }
+                    Divider().padding(.vertical)
+                    ExplanationView()
+                }
             }
         }
-        .onChange(of: account.cookie) { newValue in
-            if newValue != nil, newValue != "" {
+        .onChange(of: account.cookie) { _ in
+            if account.hasValidCookie {
                 status = .gotCookie
             }
         }
@@ -329,8 +334,6 @@ private struct ExplanationView: View {
 
     var body: some View {
         Group {
-            Divider()
-                .padding(.vertical)
             VStack(alignment: .leading, spacing: 9) {
                 Text(verbatim: beareOfTextHeader)
                     .font(.callout)

@@ -46,6 +46,10 @@ extension Account {
     /// The UID of the account.
     @NSManaged public var deviceFingerPrintInner: String?
 
+    public var hasValidCookie: Bool {
+        !(cookie ?? "").isEmpty
+    }
+
     var deviceFingerPrint: String {
         get {
             deviceFingerPrintInner ?? ""
