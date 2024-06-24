@@ -110,8 +110,8 @@ private struct GachaItemChart: View {
 
     @ViewBuilder
     private func subChart(
-        givenItems: borrowing [ItemPair],
-        fiveStarItems: borrowing [ItemPair],
+        givenItems: [ItemPair],
+        fiveStarItems: [ItemPair],
         isFirst: Bool,
         isLast: Bool
     )
@@ -178,14 +178,14 @@ private struct GachaItemChart: View {
     }
 
     private func matchedItems(
-        among source: borrowing [ItemPair],
+        among source: [ItemPair],
         with value: String
     )
         -> [GachaItemMO] {
         source.map(\.0).filter { $0.id == value }
     }
 
-    private func colors(items: borrowing [ItemPair]) -> [Color] {
+    private func colors(items: [ItemPair]) -> [Color] {
         items.map { _, count in
             switch count {
             case 0 ..< 62:
