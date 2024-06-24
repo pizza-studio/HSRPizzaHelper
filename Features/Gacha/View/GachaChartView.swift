@@ -136,41 +136,12 @@ private struct GachaItemChart: View {
                     }
             }
         }
-        .chartYAxis(content: {
-            AxisMarks(preset: .aligned, position: .leading) { value in
-                AxisValueLabel(content: {
-                    if let id = value.as(String.self),
-                       let item = matchedItems(among: givenItems, with: id).first {
-                        GachaItemIcon(item: item, size: 45)
-                    } else {
-                        EmptyView()
-                    }
-                })
-            }
-            AxisMarks { value in
-                AxisValueLabel(content: {
-                    if let theValue = value.as(String.self),
-                       let item = matchedItems(among: givenItems, with: theValue).first {
-                        item.localizedNameView(officialNameOnly: !useRealCharacterNames)
-                            .offset(y: givenItems.count == 1 ? 0 : 8)
-                    } else {
-                        EmptyView()
-                    }
-                })
-            }
-        })
-        .chartXAxis(content: {
-            AxisMarks(values: [0, 25, 50, 75, 100]) { _ in
-                AxisGridLine()
-                if isLast {
-                    AxisValueLabel()
-                } else {
-                    AxisValueLabel {
-                        EmptyView()
-                    }
-                }
-            }
-        })
+        .chartYAxis {
+            axisContentY(items: givenItems)
+        }
+        .chartXAxis {
+            axisContentX(isLast: isLast)
+        }
         .chartXScale(domain: 0 ... 110)
         .frame(height: CGFloat(givenItems.count * 65))
         .chartForegroundStyleScale(range: colors(items: fiveStarItems))
@@ -199,7 +170,7 @@ private struct GachaItemChart: View {
     }
 
     @ChartContentBuilder
-    private func drawChartContent(for item: (GachaItemMO, count: Int)) -> some ChartContent {
+    private func drawChartContent(for item: ItemPair) -> some ChartContent {
         BarMark(
             x: .value("gacha.account_detail.chart.pull_count", item.count),
             y: .value("gacha.account_detail.chart.character", item.0.id),
@@ -219,6 +190,45 @@ private struct GachaItemChart: View {
             }
         }
         .foregroundStyle(by: .value("gacha.account_detail.chart.pull_count", item.0.id))
+    }
+
+    @AxisContentBuilder
+    private func axisContentY(items givenItems: [ItemPair]) -> some AxisContent {
+        AxisMarks(preset: .aligned, position: .leading) { value in
+            AxisValueLabel(content: {
+                if let id = value.as(String.self),
+                   let item = matchedItems(among: givenItems, with: id).first {
+                    GachaItemIcon(item: item, size: 45)
+                } else {
+                    EmptyView()
+                }
+            })
+        }
+        AxisMarks { value in
+            AxisValueLabel(content: {
+                if let theValue = value.as(String.self),
+                   let item = matchedItems(among: givenItems, with: theValue).first {
+                    item.localizedNameView(officialNameOnly: !useRealCharacterNames)
+                        .offset(y: givenItems.count == 1 ? 0 : 8)
+                } else {
+                    EmptyView()
+                }
+            })
+        }
+    }
+
+    @AxisContentBuilder
+    private func axisContentX(isLast: Bool) -> some AxisContent {
+        AxisMarks(values: [0, 25, 50, 75, 100]) { _ in
+            AxisGridLine()
+            if isLast {
+                AxisValueLabel()
+            } else {
+                AxisValueLabel {
+                    EmptyView()
+                }
+            }
+        }
     }
 }
 
