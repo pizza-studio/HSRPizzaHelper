@@ -59,35 +59,8 @@ struct GetCookieQRCodeView: View {
                 deviceId: viewModel.taskId,
                 ticket: ticket
             )
-
-            if case let .confirmed(accountId: accountId, token: gameToken) = status {
-                let stokenResult = try await MiHoYoAPI.gameToken2StokenV2(
-                    accountId: accountId,
-                    gameToken: gameToken
-                )
-                let stoken = stokenResult.stoken
-                let mid = stokenResult.mid
-
-                let ltoken = try await MiHoYoAPI.stoken2LTokenV1(
-                    mid: mid,
-                    stoken: stoken
-                ).ltoken
-
-                var cookie = ""
-                cookie += "stuid=" + accountId + "; "
-                cookie += "stoken=" + stoken + "; "
-                cookie += "ltuid=" + accountId + "; "
-                cookie += "ltoken=" + ltoken + "; "
-                cookie += "mid=" + mid + "; "
-                let fpResult = try await MiHoYoAPI
-                    .getDeviceFingerPrint(region: .mainlandChina)
-                // cookie += "DEVICEFP=\(fpResult.deviceFP); "
-                // cookie += "DEVICEFP_SEED_ID=\(fpResult.seedID); "
-                // cookie += "DEVICEFP_SEED_TIME=\(fpResult.seedTime); "
-                self.cookie = cookie
-                deviceFP = fpResult.deviceFP
-
-                dismiss()
+            if let parsedResult = try await status.parsed() {
+                try await parseGameToken(from: parsedResult, dismiss: true)
             } else {
                 isNotScannedAlertShow = true
             }
@@ -95,6 +68,21 @@ struct GetCookieQRCodeView: View {
             viewModel.error = error
         }
         isCheckingScanning = false
+    }
+
+    private func parseGameToken(
+        from parsedResult: QueryQRCodeStatus.ParsedResult,
+        dismiss shouldDismiss: Bool = true
+    ) async throws {
+        var cookie = ""
+        cookie += "stuid=" + parsedResult.accountId + "; "
+        cookie += "stoken=" + parsedResult.stoken + "; "
+        cookie += "ltuid=" + parsedResult.accountId + "; "
+        cookie += "ltoken=" + parsedResult.ltoken + "; "
+        cookie += "mid=" + parsedResult.mid + "; "
+        try await extraCookieProcess(cookie: &cookie)
+        self.cookie = cookie
+        if shouldDismiss { dismiss() }
     }
 
     @ViewBuilder

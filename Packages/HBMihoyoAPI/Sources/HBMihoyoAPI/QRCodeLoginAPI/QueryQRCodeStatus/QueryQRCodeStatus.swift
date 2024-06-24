@@ -36,6 +36,36 @@ public enum QueryQRCodeStatus: Decodable {
         }
     }
 
+    // MARK: Public
+
+    public struct ParsedResult: Sendable {
+        public let accountId: String
+        public let stoken: String
+        public let ltoken: String
+        public let mid: String
+    }
+
+    public func parsed() async throws -> ParsedResult? {
+        guard case let .confirmed(accountId, gameToken) = self else { return nil }
+        let stokenResult = try await MiHoYoAPI.gameToken2StokenV2(
+            accountId: accountId,
+            gameToken: gameToken
+        )
+        let stoken = stokenResult.stoken
+        let mid = stokenResult.mid
+
+        let ltoken = try await MiHoYoAPI.stoken2LTokenV1(
+            mid: mid,
+            stoken: stoken
+        ).ltoken
+        return .init(
+            accountId: accountId,
+            stoken: stoken,
+            ltoken: ltoken,
+            mid: mid
+        )
+    }
+
     // MARK: Internal
 
     // decode helper

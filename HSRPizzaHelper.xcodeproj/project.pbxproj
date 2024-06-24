@@ -38,6 +38,7 @@
 		5BB58AF52C1F4FE300793C0A /* GetCookieWebView_HSR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB58AF42C1F4FE300793C0A /* GetCookieWebView_HSR.swift */; };
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
 		5BB792B22C1067C400AFCBF5 /* GetCookieQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB792B12C1067C400AFCBF5 /* GetCookieQRCodeView.swift */; };
+		5BCBAEF32C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCBAEF22C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift */; };
 		5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
@@ -366,6 +367,7 @@
 		5BB58AF42C1F4FE300793C0A /* GetCookieWebView_HSR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCookieWebView_HSR.swift; sourceTree = "<group>"; };
 		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
 		5BB792B12C1067C400AFCBF5 /* GetCookieQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCookieQRCodeView.swift; sourceTree = "<group>"; };
+		5BCBAEF22C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCookieQRCodeView_HSR.swift; sourceTree = "<group>"; };
 		5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPortalView.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
@@ -778,6 +780,7 @@
 			isa = PBXGroup;
 			children = (
 				5BB792B12C1067C400AFCBF5 /* GetCookieQRCodeView.swift */,
+				5BCBAEF22C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift */,
 				EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */,
 				5BB58AF42C1F4FE300793C0A /* GetCookieWebView_HSR.swift */,
 				EA2C064E2A04AAE000A328E6 /* EditAccountView.swift */,
@@ -1681,6 +1684,7 @@
 				5B579DB52BFCEC9E0030C64D /* ViewTools.swift in Sources */,
 				5BB792B22C1067C400AFCBF5 /* GetCookieQRCodeView.swift in Sources */,
 				5BB58AF52C1F4FE300793C0A /* GetCookieWebView_HSR.swift in Sources */,
+				5BCBAEF32C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift in Sources */,
 				EA2C064F2A04AAE000A328E6 /* EditAccountView.swift in Sources */,
 				EAE5198C2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld in Sources */,
 				EAE605BD2A8B2B24005A9EDC /* GachaRelatedDescriptionExtension.swift in Sources */,
