@@ -51,8 +51,9 @@ struct GetCookieQRCodeView: View {
     private func fireAutoCheckScanningConfirmationStatus() async {
         guard !viewModel.scanningConfirmationStatus.isBusy else { return }
         guard let ticket = viewModel.qrCodeAndTicket?.ticket else { return }
-        let task = Task.detached { @MainActor in
-            loopTask: while true {
+        let task = Task.detached { @MainActor [weak viewModel] in
+            loopTask: while case .automatically = viewModel?.scanningConfirmationStatus {
+                guard let viewModel = viewModel else { break loopTask }
                 do {
                     let status = try await MiHoYoAPI.queryQRCodeStatus(
                         deviceId: viewModel.taskId,
@@ -60,7 +61,6 @@ struct GetCookieQRCodeView: View {
                     )
                     if let parsedResult = try await status.parsed() {
                         try await parseGameToken(from: parsedResult, dismiss: true)
-                        viewModel.scanningConfirmationStatus = .idle
                         break loopTask
                     }
                     try await Task.sleep(nanoseconds: 3 * 1_000_000_000) // 3sec.
@@ -69,6 +69,7 @@ struct GetCookieQRCodeView: View {
                     break loopTask
                 }
             }
+            viewModel?.scanningConfirmationStatus = .idle
         }
         viewModel.scanningConfirmationStatus = .automatically(task)
     }
@@ -218,6 +219,10 @@ class GetCookieQRCodeViewModel: ObservableObject {
     init() {
         self.taskId = .init()
         reCreateQRCode()
+    }
+
+    deinit {
+        scanningConfirmationStatus = .idle
     }
 
     // MARK: Public

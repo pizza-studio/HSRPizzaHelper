@@ -98,7 +98,7 @@ final class DetailPortalViewModel: ObservableObject {
                     for: selectedAccountUID,
                     dateWhenNextRefreshable: nil
                 )
-                let queryResultAwaited = queryResult.merge(old: self.currentBasicInfo)
+                let queryResultAwaited = queryResult.merge(old: currentBasicInfo)
                 currentBasicInfo = queryResultAwaited
                 Defaults[.queriedEnkaProfiles][selectedAccountUID] = queryResultAwaited
 
