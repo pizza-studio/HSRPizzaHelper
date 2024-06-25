@@ -250,7 +250,11 @@ private struct RequireLoginView: View {
             }
         } label: {
             Group {
-                Text(isUnsavedCookieInvalid ? "account.label.login" : "account.label.relogin")
+                Text(
+                    isUnsavedCookieInvalid
+                        ? "settings.account.loginViaMiyousheOrHoyoLab"
+                        : "settings.account.loginViaMiyousheOrHoyoLab.relogin"
+                )
             }
             .frame(
                 maxWidth: .infinity,

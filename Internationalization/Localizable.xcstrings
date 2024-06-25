@@ -475,6 +475,7 @@
       }
     },
     "account.label.login" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -567,6 +568,7 @@
       }
     },
     "account.label.relogin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -14246,6 +14248,136 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "請在打開的網頁完成登入 HoYoLab 操作後點擊「完成」。\n\n通過Google，Facebook或Twitter等第三方服務登入 HoYoLAB 的方式不受敝 App支援，請使用帳號密碼登入。"
+          }
+        }
+      }
+    },
+    "settings.account.loginViaMiyousheOrHoyoLab" : {
+      "comment" : "Add account",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login via HoYoLAB / Miyoushe"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mag-login gamit ng HoYoLAB / Miyoushe"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection via HoYoLAB / Miyoushe"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login via HoYoLAB / Miyoushe"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HoYoLAB・米遊社通行証ログイン"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login via HoYoLAB / Miyoushe"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Войти с помощью HoYoLAB / Miyoushe"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đăng nhập bằng HoYoLAB / Miyoushe"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登录米游社 / HoYoLAB 通行证"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登入米遊社 / HoYoLAB 通行證"
+          }
+        }
+      }
+    },
+    "settings.account.loginViaMiyousheOrHoyoLab.relogin" : {
+      "comment" : "Account detail",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relogin to HoYoLAB / Miyoushe"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mag-login ulit sa HoYoLAB / Miyoushe"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reconnection à HoYoLAB / Miyoushe"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relogin to HoYoLAB / Miyoushe"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HoYoLAB・米遊社通行証の再ログイン"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relogin to HoYoLAB / Miyoushe"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перезайти в HoYoLAB / Miyoushe"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đăng nhập lại bằng HoYoLAB / Miyoushe"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新登录米游社 / HoYoLAB 通行证"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新登入米遊社 / HoYoLAB 通行證"
           }
         }
       }
