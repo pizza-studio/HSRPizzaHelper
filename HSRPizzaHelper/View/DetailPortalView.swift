@@ -77,7 +77,7 @@ final class DetailPortalViewModel: ObservableObject {
     }
 
     func refresh() {
-        Task {
+        Task.detached { @MainActor [self] in
             await fetchPlayerDetail()
             await fetchCharacterInventoryList()
             Self.refreshSubject.send(())
@@ -92,7 +92,7 @@ final class DetailPortalViewModel: ObservableObject {
             guard Date() > refreshableDate else { return }
         }
         if case let .progress(task) = playerDetailStatus { task.cancel() }
-        let task = Task {
+        let task = Task.detached { @MainActor [self] in
             do {
                 let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
                     for: selectedAccountUID,
@@ -124,7 +124,7 @@ final class DetailPortalViewModel: ObservableObject {
                     }
                 }
 
-                Task {
+                Task.detached { @MainActor in
                     withAnimation {
                         self.playerDetailStatus = .succeed((
                             queryResultAwaited,
@@ -133,14 +133,14 @@ final class DetailPortalViewModel: ObservableObject {
                     }
                 }
             } catch {
-                Task {
+                Task.detached { @MainActor in
                     withAnimation {
                         self.playerDetailStatus = .fail(error)
                     }
                 }
             }
         }
-        Task {
+        Task.detached { @MainActor in
             withAnimation {
                 self.playerDetailStatus = .progress(task)
             }
@@ -151,7 +151,7 @@ final class DetailPortalViewModel: ObservableObject {
     func fetchCharacterInventoryList() async {
         guard let selectedAccount, let selectedAccountUID = selectedAccount.uid else { return }
         if case let .progress(task) = characterInventoryStatus { task.cancel() }
-        let task = Task {
+        let task = Task.detached { @MainActor in
             do {
                 let queryResult = try await MiHoYoAPI.characterInventory(
                     server: selectedAccount.server,
@@ -159,20 +159,20 @@ final class DetailPortalViewModel: ObservableObject {
                     cookie: selectedAccount.cookie ?? "",
                     deviceFingerPrint: selectedAccount.deviceFingerPrint
                 )
-                Task {
+                Task.detached { @MainActor in
                     withAnimation {
                         self.characterInventoryStatus = .succeed(queryResult)
                     }
                 }
             } catch {
-                Task {
+                Task.detached { @MainActor in
                     withAnimation {
                         self.characterInventoryStatus = .fail(error)
                     }
                 }
             }
         }
-        Task {
+        Task.detached { @MainActor in
             withAnimation {
                 self.characterInventoryStatus = .progress(task)
             }
@@ -541,7 +541,7 @@ private struct PlayerDetailSection: View {
                     theCase
                     Divider()
                     DPVErrorView(account: account, apiPath: "", error: error) {
-                        Task {
+                        Task.detached { @MainActor in
                             await vmDPV.fetchPlayerDetail()
                         }
                     }
@@ -603,7 +603,7 @@ private struct CharInventoryNavigator: View {
                     apiPath: "https://api-takumi-record.mihoyo.com/game_record/app/hkrpg/api/avatar/info",
                     error: error
                 ) {
-                    Task {
+                    Task.detached { @MainActor in
                         await vmDPV.fetchCharacterInventoryList()
                     }
                 }
@@ -727,7 +727,7 @@ private struct VerificationNeededView: View {
                             challenge: verification.challenge,
                             gt: verification.gt,
                             completion: { validate in
-                                Task {
+                                Task.detached { @MainActor in
                                     status = .pending
                                     verifyValidate(challenge: verification.challenge, validate: validate)
                                     sheetItem = nil
@@ -762,7 +762,7 @@ private struct VerificationNeededView: View {
                     cookie: account.cookie,
                     deviceFingerPrint: account.deviceFingerPrint
                 )
-                Task {
+                Task.detached { @MainActor in
                     status = .gotVerification(verification)
                     sheetItem = .gotVerification(verification)
                 }
@@ -773,7 +773,7 @@ private struct VerificationNeededView: View {
     }
 
     func verifyValidate(challenge: String, validate: String) {
-        Task {
+        Task.detached { @MainActor in
             do {
                 _ = try await MiHoYoAPI.verifyVerification(
                     challenge: challenge,
