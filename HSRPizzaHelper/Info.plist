@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This permission allows this app to write generated images to Photos library when user requested this app to do, including QR Codes, etc.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

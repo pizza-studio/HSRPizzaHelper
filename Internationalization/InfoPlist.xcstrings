@@ -103,7 +103,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "permission.photo"
+            "value" : "This permission allows this app to write generated images to Photos library when user requested this app to do, including QR Codes, etc."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザーの命令により、アプリが生成した画像（QRコードなど）をPhotosアプリに書き出す権限許可です。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该准许令将允许该 App 在使用者要求的时候将生成的图片档案（比如 QR Code 二维码）写入到系统内建的照片应用内。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "該准許令將允許該 App 在使用者要求的時候將生成的圖片檔案（比如 QR Code）寫入到系統內建的照片應用內。"
           }
         }
       }
