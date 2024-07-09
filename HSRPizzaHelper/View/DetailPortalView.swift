@@ -529,40 +529,38 @@ private struct PlayerDetailSection: View {
 
     var body: some View {
         Section {
-            VStack {
-                let theCase = currentShowCase
-                switch vmDPV.playerDetailStatus {
-                case .progress:
+            let theCase = currentShowCase
+            switch vmDPV.playerDetailStatus {
+            case .progress:
+                VStack {
                     theCase
                         .disabled(true)
                         .saturation(0)
                     InfiniteProgressBar().id(UUID())
-                case let .fail(error):
-                    theCase
-                    Divider()
-                    DPVErrorView(account: account, apiPath: "", error: error) {
-                        Task.detached { @MainActor in
-                            await vmDPV.fetchPlayerDetail()
-                        }
+                }
+            case let .fail(error):
+                theCase
+                DPVErrorView(account: account, apiPath: "", error: error) {
+                    Task.detached { @MainActor in
+                        await vmDPV.fetchPlayerDetail()
                     }
-                case .standby:
-                    theCase
-                case let .succeed((playerDetail, _)):
-                    theCase
-                    if playerDetail.avatarDetailList.isEmpty {
-                        Divider()
-                        Button {
-                            vmDPV.refresh()
-                        } label: {
-                            Label {
-                                VStack {
-                                    Text(errorTextForBlankAvatars)
-                                        .foregroundColor(.secondary)
-                                }
-                            } icon: {
-                                Image(systemSymbol: .xmarkCircle)
-                                    .foregroundColor(.red)
+                }
+            case .standby:
+                theCase
+            case let .succeed((playerDetail, _)):
+                theCase
+                if playerDetail.avatarDetailList.isEmpty {
+                    Button {
+                        vmDPV.refresh()
+                    } label: {
+                        Label {
+                            VStack {
+                                Text(errorTextForBlankAvatars)
+                                    .foregroundColor(.secondary)
                             }
+                        } icon: {
+                            Image(systemSymbol: .xmarkCircle)
+                                .foregroundColor(.red)
                         }
                     }
                 }
