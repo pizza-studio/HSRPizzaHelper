@@ -5,7 +5,7 @@
 import Foundation
 
 /// This Struct is the codable clone of GachaItemMO.
-/// We can do the data conversion inside the SRGFKit into GachaEntry
+/// We can do the data conversion inside the GachaKit into GachaEntry
 /// and then use encode-decode method to convert GachaEntry into GachaItemMO.
 /// This allows easier implementation of Unit Tests.
 public struct GachaEntry: Codable, Sendable, Hashable, Identifiable {

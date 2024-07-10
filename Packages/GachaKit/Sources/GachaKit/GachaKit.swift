@@ -5,9 +5,9 @@
 import Foundation
 import HBMihoyoAPI
 
-// MARK: - SRGFKit
+// MARK: - GachaKit
 
-public enum SRGFKit {}
+public enum GachaKit {}
 
 extension DateFormatter {
     public static func forSRGFEntry(

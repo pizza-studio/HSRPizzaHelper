@@ -8,8 +8,8 @@
 
 import CoreData
 import Foundation
+import GachaKit
 import HBMihoyoAPI
-import SRGFKit
 import UIKit
 
 // MARK: - GachaItemMO + GachaItemProtocol

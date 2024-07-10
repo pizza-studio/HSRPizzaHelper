@@ -3,9 +3,9 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import AlertToast
+import GachaKit
 import HBMihoyoAPI
 import SFSafeSymbols
-import SRGFKit
 import SwiftUI
 import UniformTypeIdentifiers
 

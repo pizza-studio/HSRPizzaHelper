@@ -6,8 +6,8 @@ import CoreData
 import Defaults
 import EnkaKitHSR
 import Foundation
+import GachaKit
 import HBMihoyoAPI
-import SRGFKit
 import SwiftUI
 
 extension GachaItemMO {

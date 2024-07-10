@@ -2,8 +2,8 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
+@testable import GachaKit
 import HBMihoyoAPI
-@testable import SRGFKit
 import XCTest
 
 private let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Tests" }).joined(
@@ -12,10 +12,10 @@ private let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(
 
 private let testDataPath: String = packageRootPath + "/Tests/TestData/"
 
-// MARK: - SRGFKitTests
+// MARK: - GachaKitTests
 
-final class SRGFKitTests: XCTestCase {
-    func testDecoding() throws {
+final class GachaKitTests: XCTestCase {
+    func testDecodingSRGF() throws {
         let filePath: String = testDataPath + "SRGFv1_Sample.json"
         let url = URL(fileURLWithPath: filePath)
         let data = try Data(contentsOf: url)
@@ -37,7 +37,7 @@ final class SRGFKitTests: XCTestCase {
         print(y.compactMap(\.name).joined(separator: "\n"))
     }
 
-    func testConsistency() throws {
+    func testConsistencySRGF() throws {
         let filePath: String = testDataPath + "SRGFv1_Sample.json"
         let url = URL(fileURLWithPath: filePath)
         let data = try Data(contentsOf: url)

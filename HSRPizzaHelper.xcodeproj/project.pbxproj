@@ -18,7 +18,7 @@
 		5B28F8FE2BDE41F7004B271E /* ImportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */; };
 		5B28F8FF2BDE41F7004B271E /* ExportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */; };
 		5B28F9042BDE5045004B271E /* LocaleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F9032BDE5045004B271E /* LocaleImpl.swift */; };
-		5B499B322BDBB918004919F5 /* SRGFKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5B499B312BDBB918004919F5 /* SRGFKit */; };
+		5B499B322BDBB918004919F5 /* GachaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5B499B312BDBB918004919F5 /* GachaKit */; };
 		5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */; };
 		5B4C5BA32C09EECC00A6EA05 /* DismissableSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C5BA22C09EECC00A6EA05 /* DismissableSheet.swift */; };
 		5B4C5BA62C09F20300A6EA05 /* CharacterInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C5BA52C09F20300A6EA05 /* CharacterInventoryView.swift */; };
@@ -350,7 +350,7 @@
 		5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportGachaView.swift; sourceTree = "<group>"; };
 		5B28F9032BDE5045004B271E /* LocaleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocaleImpl.swift; sourceTree = "<group>"; };
 		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
-		5B499B302BDBB8FC004919F5 /* SRGFKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SRGFKit; path = Packages/SRGFKit; sourceTree = "<group>"; };
+		5B499B302BDBB8FC004919F5 /* GachaKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GachaKit; path = Packages/GachaKit; sourceTree = "<group>"; };
 		5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
 		5B4C5BA22C09EECC00A6EA05 /* DismissableSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissableSheet.swift; sourceTree = "<group>"; };
 		5B4C5BA52C09F20300A6EA05 /* CharacterInventoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterInventoryView.swift; sourceTree = "<group>"; };
@@ -579,7 +579,7 @@
 				EA143BC82A01808200AE1FCA /* HBMihoyoAPI in Frameworks */,
 				EA37AEB42A02CDB900E4AADA /* SwifterSwift in Frameworks */,
 				BFA4A8492A0BD07400239BB0 /* Mantis in Frameworks */,
-				5B499B322BDBB918004919F5 /* SRGFKit in Frameworks */,
+				5B499B322BDBB918004919F5 /* GachaKit in Frameworks */,
 				5B7CE2B82BCD2EAE0053FD7D /* EnkaKitHSR in Frameworks */,
 				EAE519B42A01752A00EF23B7 /* AlertToast in Frameworks */,
 			);
@@ -1132,12 +1132,12 @@
 		EAE519B72A01757400EF23B7 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				5B62B7572BFB9BAA0051E097 /* NewsKitHSR */,
 				5B24EC4B2ADC32C700E58A5C /* DefaultsKeys */,
 				5B7CE2B62BCD2DAF0053FD7D /* EnkaKitHSR */,
+				5B499B302BDBB8FC004919F5 /* GachaKit */,
 				EAE519B92A01759D00EF23B7 /* HBMihoyoAPI */,
 				BFD051D82A08C2DE008343E8 /* HBPizzaHelperAPI */,
-				5B499B302BDBB8FC004919F5 /* SRGFKit */,
+				5B62B7572BFB9BAA0051E097 /* NewsKitHSR */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -1339,7 +1339,7 @@
 				EABA18072A87A908005A639E /* Collections */,
 				5B1033752ADC309F00B1DA08 /* Defaults */,
 				5B7CE2B72BCD2EAE0053FD7D /* EnkaKitHSR */,
-				5B499B312BDBB918004919F5 /* SRGFKit */,
+				5B499B312BDBB918004919F5 /* GachaKit */,
 				5B62B7552BFB9B550051E097 /* NewsKitHSR */,
 				5B4C5BA82C09F26F00A6EA05 /* Flow */,
 			);
@@ -2332,9 +2332,9 @@
 			package = 5B1033742ADC309F00B1DA08 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
 		};
-		5B499B312BDBB918004919F5 /* SRGFKit */ = {
+		5B499B312BDBB918004919F5 /* GachaKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = SRGFKit;
+			productName = GachaKit;
 		};
 		5B4C5BA82C09F26F00A6EA05 /* Flow */ = {
 			isa = XCSwiftPackageProductDependency;
