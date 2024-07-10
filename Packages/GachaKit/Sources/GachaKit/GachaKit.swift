@@ -10,7 +10,7 @@ import HBMihoyoAPI
 public enum GachaKit {}
 
 extension DateFormatter {
-    public static func forSRGFEntry(
+    public static func forUIGFEntry(
         timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
     )
         -> DateFormatter {
@@ -21,7 +21,7 @@ extension DateFormatter {
         return dateFormatter
     }
 
-    public static var forSRGFFileName: DateFormatter {
+    public static var forUIGFFileName: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmm"
         dateFormatter.locale = .init(identifier: "en_US_POSIX")
@@ -30,11 +30,11 @@ extension DateFormatter {
 }
 
 extension Date {
-    public func asSRGFDate(
+    public func asUIGFDate(
         timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
     )
         -> String {
-        DateFormatter.forSRGFEntry(timeZoneDelta: timeZoneDelta).string(from: self)
+        DateFormatter.forUIGFEntry(timeZoneDelta: timeZoneDelta).string(from: self)
     }
 }
 

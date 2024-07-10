@@ -128,7 +128,7 @@ extension SRGFv1 {
 
 extension SRGFv1 {
     public var defaultFileNameStem: String {
-        let dateFormatter = DateFormatter.forSRGFFileName
+        let dateFormatter = DateFormatter.forUIGFFileName
         return "SRGF_\(info.uid)_\(dateFormatter.string(from: info.maybeDateExported ?? Date()))"
     }
 
@@ -166,7 +166,7 @@ extension SRGFv1.DataEntry {
         let name = GachaMetaManager.shared.getLocalizedName(
             id: itemID, type: newItemType, langOverride: lang
         ) ?? name
-        let timeTyped: Date? = DateFormatter.forSRGFEntry(timeZoneDelta: timeZoneDelta).date(from: time)
+        let timeTyped: Date? = DateFormatter.forUIGFEntry(timeZoneDelta: timeZoneDelta).date(from: time)
         return .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
             gachaID: gachaID,
@@ -200,7 +200,7 @@ extension GachaEntry {
         return .init(
             gachaID: gachaID,
             itemID: itemID,
-            time: timeRawValue ?? time.asSRGFDate(timeZoneDelta: timeZoneDelta),
+            time: timeRawValue ?? time.asUIGFDate(timeZoneDelta: timeZoneDelta),
             id: id,
             gachaType: .init(rawValue: gachaTypeRawValue) ?? .departureWarp,
             name: name,
@@ -214,8 +214,6 @@ extension GachaEntry {
 // MARK: - SRGFv1.Document
 
 extension SRGFv1 {
-    // MARK: - JsonFile
-
     public struct Document: FileDocument {
         // MARK: Lifecycle
 
