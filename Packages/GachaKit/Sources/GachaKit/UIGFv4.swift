@@ -483,3 +483,159 @@ extension UIGFv4 {
     }
 }
 
+// MARK: - Extensions
+
+extension UIGFv4 {
+    public typealias DataEntry = ProfileHSR.GachaItemHSR // 注意这个地方是否与所属 App 一致。
+
+    public enum SupportedHoYoGames: String {
+        case genshinImpact = "GI"
+        case starRail = "HSR"
+        case zenlessZoneZero = "ZZZ"
+    }
+
+    public init() {
+        self.info = .init()
+        self.giProfiles = []
+        self.hsrProfiles = []
+        self.zzzProfiles = []
+    }
+
+    public var defaultFileNameStem: String {
+        let dateFormatter = DateFormatter.forUIGFFileName
+        return "\(Self.initials)\(dateFormatter.string(from: info.maybeDateExported ?? Date()))"
+    }
+
+    private static let initials = "UIGFv4_"
+
+    public func getFileNameStem(
+        uid: String? = nil,
+        for game: SupportedHoYoGames? = .starRail
+    )
+        -> String {
+        var stack = Self.initials
+        if let game { stack += "\(game.rawValue)_" }
+        if let uid { stack += "\(uid)_" }
+        return defaultFileNameStem.replacingOccurrences(of: Self.initials, with: stack)
+    }
+
+    public var asDocument: Document {
+        .init(model: self)
+    }
+}
+
+extension UIGFv4.Info {
+    // MARK: Lifecycle
+
+    public init() {
+        self.exportApp = "PizzaHelper4HSR"
+        let shortVer = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        self.exportAppVersion = shortVer ?? "1.14.514"
+        self.exportTimestamp = Int(Date.now.timeIntervalSince1970).description
+        self.version = "v4.0"
+    }
+
+    public var maybeDateExported: Date? {
+        guard let exportTimestamp = Double(exportTimestamp) else { return nil }
+        return .init(timeIntervalSince1970: Double(exportTimestamp))
+    }
+}
+
+extension UIGFv4.DataEntry {
+    public func toGachaEntry(
+        uid: String,
+        lang: GachaLanguageCode?,
+        timeZoneDelta: Int
+    )
+        -> GachaEntry {
+        let lang = lang ?? .enUS // UIGFv4 不強制要求 lang，但這會導致一些問題。
+        let newItemType = GachaItem.ItemType(itemID: itemID)
+        let name = GachaMetaManager.shared.getLocalizedName(
+            id: itemID, type: newItemType, langOverride: lang
+        ) ?? name
+        let timeTyped: Date? = DateFormatter.forUIGFEntry(timeZoneDelta: timeZoneDelta).date(from: time)
+        return .init(
+            count: Int32(count ?? "1") ?? 1, // Default is 1.
+            gachaID: gachaID ?? "114_514_1919810",
+            gachaTypeRawValue: gachaType.rawValue,
+            id: id,
+            itemID: itemID,
+            itemTypeRawValue: newItemType.rawValue, // 披萨助手有内部专用的 Item Type Raw Value。
+            langRawValue: lang.rawValue,
+            name: name ?? "#NAME:\(id)#",
+            rankRawValue: rankType ?? "3",
+            time: timeTyped ?? Date(),
+            timeRawValue: time,
+            uid: uid
+        )
+    }
+}
+
+extension GachaEntry {
+    public func toUIGFEntry(
+        langOverride: GachaLanguageCode? = nil,
+        timeZoneDeltaOverride: Int? = nil
+    )
+        -> UIGFv4.DataEntry {
+        // 导出的时候按照 server 时区那样来导出，
+        // 这样可以直接沿用爬取伺服器数据时拿到的 time raw string，
+        // 借此做到对导出的 JSON 内容的最大程度的传真。
+        let timeZoneDelta: Int = timeZoneDeltaOverride ?? GachaItem.getServerTimeZoneDelta(uid)
+        let langOverride = langOverride ?? Locale.gachaLangauge
+        let newItemType = GachaItem.ItemType(itemID: itemID)
+        let name = GachaMetaManager.shared.getLocalizedName(
+            id: itemID, type: newItemType, langOverride: langOverride
+        ) ?? name
+        // 每次导出 UIGF 资料时，都根据当前语言来重新生成 `item_type` 资料值。
+        let itemTypeTranslated = newItemType.translatedRaw(for: langOverride)
+        return .init(
+            count: count.description, // Default is 1.
+            gachaID: gachaID,
+            gachaType: .init(rawValue: gachaTypeRawValue) ?? .departureWarp,
+            id: id,
+            itemID: itemID,
+            itemType: itemTypeTranslated,
+            name: name,
+            rankType: rankRawValue,
+            time: timeRawValue ?? time.asUIGFDate(timeZoneDelta: timeZoneDelta)
+        )
+    }
+}
+
+// MARK: - UIGFv4.Document
+
+extension UIGFv4 {
+    public struct Document: FileDocument {
+        // MARK: Lifecycle
+
+        public init(configuration: ReadConfiguration) throws {
+            self.model = try JSONDecoder()
+                .decode(
+                    UIGFv4.self,
+                    from: configuration.file.regularFileContents!
+                )
+        }
+
+        public init(model: UIGFv4) {
+            self.model = model
+        }
+
+        // MARK: Public
+
+        public static var readableContentTypes: [UTType] = [.json]
+
+        public let model: UIGFv4
+
+        public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = .init(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            encoder.dateEncodingStrategy = .formatted(dateFormatter)
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            let data = try encoder.encode(model)
+            return FileWrapper(regularFileWithContents: data)
+        }
+    }
+}
