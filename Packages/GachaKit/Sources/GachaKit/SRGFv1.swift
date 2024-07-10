@@ -150,9 +150,8 @@ extension SRGFv1.Info {
     }
 
     public var maybeDateExported: Date? {
-        guard let exportTimestampStr = exportApp else { return nil }
-        guard let exportTimestampValue = Double(exportTimestampStr) else { return nil }
-        return .init(timeIntervalSince1970: exportTimestampValue)
+        guard let exportTimestamp = exportTimestamp else { return nil }
+        return .init(timeIntervalSince1970: Double(exportTimestamp))
     }
 }
 
