@@ -15,6 +15,8 @@ private let testDataPath: String = packageRootPath + "/Tests/TestData/"
 // MARK: - GachaKitTests
 
 final class GachaKitTests: XCTestCase {
+    // MARK: - SRGFv1
+
     func testDecodingSRGF() throws {
         let filePath: String = testDataPath + "SRGFv1_Sample.json"
         let url = URL(fileURLWithPath: filePath)
@@ -55,6 +57,60 @@ final class GachaKitTests: XCTestCase {
         }
         let newList = gachaEntries.map {
             $0.toSRGFEntry(langOverride: gachaLang, timeZoneDeltaOverride: timeZone)
+        }.sorted { $0.id < $1.id }
+        XCTAssertEqual(rawList, newList)
+    }
+
+    // MARK: - UIGFv4
+
+    func testDecodingUIGFv4() throws {
+        let filePath: String = testDataPath + "UIGFv4_Sample.json"
+        let url = URL(fileURLWithPath: filePath)
+        let data = try Data(contentsOf: url)
+        let decoded = try JSONDecoder().decode(UIGFv4.self, from: data)
+        XCTAssertEqual(decoded.info.exportApp, "DodocoTales.StarRail")
+        guard let profile = decoded.hsrProfiles?.first else {
+            assertionFailure("No profile found.")
+            return
+        }
+        let x = profile.list.filter {
+            $0.gachaType == .characterEventWarp
+                && $0.rankType == "5"
+                && GachaItem.ItemType(itemID: $0.itemID) == .characters
+        }
+        XCTAssertEqual(x.count, 3)
+        print(x.compactMap(\.name).joined(separator: "\n"))
+        let y = profile.list.filter {
+            $0.gachaType == .lightConeEventWarp
+                && $0.rankType == "5"
+                && GachaItem.ItemType(itemID: $0.itemID) == .lightCones
+        }
+        XCTAssertEqual(y.count, 0)
+        print(y.compactMap(\.name).joined(separator: "\n"))
+    }
+
+    func testListConsistencyUIGFv4() throws {
+        let filePath: String = testDataPath + "UIGFv4_Sample.json"
+        let url = URL(fileURLWithPath: filePath)
+        let data = try Data(contentsOf: url)
+        let decoded = try JSONDecoder().decode(UIGFv4.self, from: data)
+        guard let profile = decoded.hsrProfiles?.first else {
+            assertionFailure("No profile found.")
+            return
+        }
+        let gachaLang = profile.lang ?? .enUS
+        let rawList = profile.list.sorted { $0.id < $1.id }.map { oldValue in
+            var newValue = oldValue
+            let newType = GachaItem.ItemType(itemID: oldValue.itemID)
+            newValue.itemType = newType.translatedRaw(for: gachaLang)
+            return newValue
+        }
+        let timeZone = profile.timezone
+        let gachaEntries = rawList.map {
+            $0.toGachaEntry(uid: "114514810", lang: gachaLang, timeZoneDelta: timeZone)
+        }
+        let newList = gachaEntries.map {
+            $0.toUIGFEntry(langOverride: gachaLang, timeZoneDeltaOverride: timeZone)
         }.sorted { $0.id < $1.id }
         XCTAssertEqual(rawList, newList)
     }
