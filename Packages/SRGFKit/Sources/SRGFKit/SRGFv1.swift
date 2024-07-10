@@ -142,7 +142,7 @@ extension SRGFv1.Info {
         self.uid = uid
         self.lang = lang
         self.srgfVersion = "v1.0"
-        self.regionTimeZone = GachaItem.getServerTimeZoneDelta(uid)
+        self.regionTimeZone = (TimeZone.current.secondsFromGMT() / 3600)
         self.exportTimestamp = Int(Date.now.timeIntervalSince1970)
         self.exportApp = "PizzaHelper4HSR"
         let shortVer = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
