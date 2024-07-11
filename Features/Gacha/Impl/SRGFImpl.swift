@@ -13,12 +13,12 @@ import SwiftUI
 extension GachaItemMO {
     public func toSRGFEntry(
         langOverride: GachaLanguageCode? = nil,
-        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
+        timeZoneDeltaOverride: Int? = nil
     )
         -> SRGFv1.DataEntry {
         toEntry().toSRGFEntry(
             langOverride: langOverride,
-            timeZoneDelta: timeZoneDelta
+            timeZoneDeltaOverride: timeZoneDeltaOverride
         )
     }
 }

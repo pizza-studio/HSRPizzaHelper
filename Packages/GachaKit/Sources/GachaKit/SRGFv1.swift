@@ -142,7 +142,7 @@ extension SRGFv1.Info {
         self.uid = uid
         self.lang = lang
         self.srgfVersion = "v1.0"
-        self.regionTimeZone = (TimeZone.current.secondsFromGMT() / 3600)
+        self.regionTimeZone = GachaItem.getServerTimeZoneDelta(uid)
         self.exportTimestamp = Int(Date.now.timeIntervalSince1970)
         self.exportApp = "PizzaHelper4HSR"
         let shortVer = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
@@ -187,9 +187,13 @@ extension SRGFv1.DataEntry {
 extension GachaEntry {
     public func toSRGFEntry(
         langOverride: GachaLanguageCode? = nil,
-        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
+        timeZoneDeltaOverride: Int? = nil
     )
         -> SRGFv1.DataEntry {
+        // 导出的时候按照 server 时区那样来导出，
+        // 这样可以直接沿用爬取伺服器数据时拿到的 time raw string，
+        // 借此做到对导出的 JSON 内容的最大程度的传真。
+        let timeZoneDelta: Int = timeZoneDeltaOverride ?? GachaItem.getServerTimeZoneDelta(uid)
         let langOverride = langOverride ?? Locale.gachaLangauge
         let newItemType = GachaItem.ItemType(itemID: itemID)
         let name = GachaMetaManager.shared.getLocalizedName(

@@ -124,8 +124,10 @@ struct ExportGachaView: View {
     func exportButtonClicked() {
         let uid = params.uid!
         let items = fetchAllMO(uid: uid).map {
-            let timeZoneDelta = GachaItem.getServerTimeZoneDelta(uid)
-            return $0.toSRGFEntry(langOverride: params.lang, timeZoneDelta: timeZoneDelta)
+            $0.toSRGFEntry(
+                langOverride: params.lang,
+                timeZoneDeltaOverride: nil
+            )
         }
         srgfJson = .init(
             info: .init(uid: uid, lang: params.lang),
