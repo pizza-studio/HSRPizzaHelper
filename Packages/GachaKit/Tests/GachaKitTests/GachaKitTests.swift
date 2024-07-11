@@ -49,8 +49,13 @@ final class GachaKitTests: XCTestCase {
             newValue.itemType = newType.translatedRaw(for: gachaLang)
             return newValue
         }
-        let gachaEntries = rawList.map { $0.toGachaEntry(uid: "114514810", lang: gachaLang) }
-        let newList = gachaEntries.map { $0.toSRGFEntry(langOverride: gachaLang) }.sorted { $0.id < $1.id }
+        let timeZone = decoded.info.regionTimeZone
+        let gachaEntries = rawList.map {
+            $0.toGachaEntry(uid: "114514810", lang: gachaLang, timeZoneDelta: timeZone)
+        }
+        let newList = gachaEntries.map {
+            $0.toSRGFEntry(langOverride: gachaLang, timeZoneDeltaOverride: timeZone)
+        }.sorted { $0.id < $1.id }
         XCTAssertEqual(rawList, newList)
     }
 }

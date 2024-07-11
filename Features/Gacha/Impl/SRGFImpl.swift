@@ -27,7 +27,7 @@ extension SRGFv1.DataEntry {
     public func toManagedModel(
         uid: String,
         lang: GachaLanguageCode,
-        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
+        timeZoneDelta: Int
     )
         -> GachaItemMO {
         let rawResult = toGachaEntry(uid: uid, lang: lang, timeZoneDelta: timeZoneDelta)
@@ -37,7 +37,7 @@ extension SRGFv1.DataEntry {
     public func toManagedModel(
         uid: String,
         lang: GachaLanguageCode,
-        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600),
+        timeZoneDelta: Int,
         context: NSManagedObjectContext
     )
         -> GachaItemMO {

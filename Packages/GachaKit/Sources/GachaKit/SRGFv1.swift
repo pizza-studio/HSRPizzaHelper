@@ -159,7 +159,7 @@ extension SRGFv1.DataEntry {
     public func toGachaEntry(
         uid: String,
         lang: GachaLanguageCode,
-        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
+        timeZoneDelta: Int
     )
         -> GachaEntry {
         let newItemType = GachaItem.ItemType(itemID: itemID)

@@ -120,7 +120,8 @@ struct ImportGachaView: View {
         let newCount = addRecordItems(
             items,
             uid: info.uid,
-            lang: info.lang
+            lang: info.lang,
+            timeZoneDelta: info.regionTimeZone // 优先尊重 JSON 里面写的 TimeZone 资料值。
         )
         return .init(uid: info.uid, totalCount: items.count, newCount: newCount)
     }
@@ -129,7 +130,8 @@ struct ImportGachaView: View {
     func addRecordItems(
         _ items: [SRGFv1.DataEntry],
         uid: String,
-        lang: GachaLanguageCode
+        lang: GachaLanguageCode,
+        timeZoneDelta: Int? = nil
     )
         -> Int {
         var count = 0
@@ -142,7 +144,7 @@ struct ImportGachaView: View {
                 if !checkIDAndUIDExists(uid: uid, id: item.id) {
                     _ = item.toManagedModel(
                         uid: uid, lang: lang,
-                        timeZoneDelta: GachaItem.getServerTimeZoneDelta(uid),
+                        timeZoneDelta: timeZoneDelta ?? GachaItem.getServerTimeZoneDelta(uid),
                         context: viewContext
                     )
                     count += 1

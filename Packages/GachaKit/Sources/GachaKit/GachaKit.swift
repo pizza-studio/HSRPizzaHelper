@@ -11,7 +11,7 @@ public enum GachaKit {}
 
 extension DateFormatter {
     public static func forUIGFEntry(
-        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
+        timeZoneDelta: Int
     )
         -> DateFormatter {
         let dateFormatter = DateFormatter()
@@ -31,7 +31,7 @@ extension DateFormatter {
 
 extension Date {
     public func asUIGFDate(
-        timeZoneDelta: Int = (TimeZone.current.secondsFromGMT() / 3600)
+        timeZoneDelta: Int
     )
         -> String {
         DateFormatter.forUIGFEntry(timeZoneDelta: timeZoneDelta).string(from: self)
