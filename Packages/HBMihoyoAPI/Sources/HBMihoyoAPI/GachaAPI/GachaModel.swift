@@ -73,7 +73,11 @@ public struct GachaResult: DecodableFromMiHoYoAPIJSONResult {
         self.size = Int(try container.decode(String.self, forKey: .size))!
         self.region = try container.decode(Server.self, forKey: .region)
         self.regionTimeZone = try container.decode(Int.self, forKey: .regionTimeZone)
-        self.list = try container.decode([GachaItem].self, forKey: .list)
+        var decodedList = try container.decode([GachaItem].self, forKey: .list)
+        for i in 0 ..< decodedList.count {
+            decodedList[i].updateTime(newTimeZone: regionTimeZone)
+        }
+        self.list = decodedList
     }
 
     // MARK: Public
@@ -204,7 +208,7 @@ public struct GachaItem: Codable, GachaItemProtocol {
     }
 
     public let uid: String
-    public let time: Date
+    public private(set) var time: Date
     public let timeRawValue: String
     public let gachaID: String
     public let gachaType: GachaType
@@ -228,6 +232,17 @@ public struct GachaItem: Codable, GachaItemProtocol {
         case "6": return -5
         case "7": return 1
         default: return 8
+        }
+    }
+
+    public mutating func updateTime(newTimeZone regionTimeZone: Int) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        // 抽卡记录的网页固定显示伺服器时间。
+        dateFormatter.timeZone = .init(secondsFromGMT: regionTimeZone * 3600)
+        if let time = dateFormatter.date(from: timeRawValue) {
+            self.time = time
         }
     }
 
