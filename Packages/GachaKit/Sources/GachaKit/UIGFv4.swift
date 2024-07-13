@@ -268,7 +268,7 @@ extension UIGFv4 {
 
             public init(
                 count: String?,
-                gachaID: String?,
+                gachaID: String,
                 gachaType: GachaTypeHSR,
                 id: String,
                 itemID: String,
@@ -313,7 +313,7 @@ extension UIGFv4 {
             /// 物品个数，一般为1，API返回
             public var count: String?
             /// 卡池 Id
-            public var gachaID: String?
+            public var gachaID: String
             /// 卡池类型
             public var gachaType: GachaTypeHSR
             /// 内部 Id
@@ -556,7 +556,7 @@ extension UIGFv4.DataEntry {
         let timeTyped: Date? = DateFormatter.forUIGFEntry(timeZoneDelta: timeZoneDelta).date(from: time)
         return .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
-            gachaID: gachaID ?? "114_514_1919810",
+            gachaID: gachaID,
             gachaTypeRawValue: gachaType.rawValue,
             id: id,
             itemID: itemID,
