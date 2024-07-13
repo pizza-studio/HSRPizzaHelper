@@ -2,17 +2,19 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
-extension NewsKitHSR {
-    public protocol NewsElement: Codable, Sendable, Hashable, Identifiable {
-        var id: String { get }
-        var createdAt: Int { get }
-        var description: String { get }
-        var title: String { get }
-        var url: String { get }
-        var isValid: Bool { get }
-        static var urlStemForQuery: String { get }
-    }
+// MARK: - NewsElement
 
+public protocol NewsElement: Codable, Sendable, Hashable, Identifiable {
+    var id: String { get }
+    var createdAt: Int { get }
+    var description: String { get }
+    var title: String { get }
+    var url: String { get }
+    var isValid: Bool { get }
+    static var urlStemForQuery: String { get }
+}
+
+extension NewsKitHSR {
     public struct EventElement: Codable, Sendable, Hashable {
         public static let urlStemForQuery = "https://api.ennead.cc/starrail/news/events?lang="
 

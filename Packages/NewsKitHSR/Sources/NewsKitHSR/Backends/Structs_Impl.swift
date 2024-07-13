@@ -20,8 +20,8 @@ extension NewsKitHSR {
         public var intels: [NewsKitHSR.IntelElement] = []
         public var notices: [NewsKitHSR.NoticeElement] = []
 
-        public var smashed: [any NewsKitHSR.NewsElement] {
-            var results: [any NewsKitHSR.NewsElement] = []
+        public var smashed: [any NewsElement] {
+            var results: [any NewsElement] = []
             results.append(contentsOf: events)
             results.append(contentsOf: intels)
             results.append(contentsOf: notices)
@@ -48,7 +48,7 @@ extension NewsKitHSR {
     }
 }
 
-extension NewsKitHSR.NewsElement {
+extension NewsElement {
     public var dateCreated: Date { Date(timeIntervalSince1970: Double(createdAt)) }
 
     public var dateCreatedStr: String {
@@ -86,9 +86,9 @@ extension NewsKitHSR.NewsElement {
     }
 }
 
-// MARK: - NewsKitHSR.EventElement + NewsKitHSR.NewsElement
+// MARK: - NewsKitHSR.EventElement + NewsElement
 
-extension NewsKitHSR.EventElement: NewsKitHSR.NewsElement {
+extension NewsKitHSR.EventElement: NewsElement {
     public var dateStarted: Date { Date(timeIntervalSince1970: Double(startAt)) }
 
     public var dateEnded: Date { Date(timeIntervalSince1970: Double(endAt)) }
@@ -108,15 +108,15 @@ extension NewsKitHSR.EventElement: NewsKitHSR.NewsElement {
     }
 }
 
-// MARK: - NewsKitHSR.IntelElement + NewsKitHSR.NewsElement
+// MARK: - NewsKitHSR.IntelElement + NewsElement
 
-extension NewsKitHSR.IntelElement: NewsKitHSR.NewsElement {
+extension NewsKitHSR.IntelElement: NewsElement {
     public var isValid: Bool { true }
 }
 
-// MARK: - NewsKitHSR.NoticeElement + NewsKitHSR.NewsElement
+// MARK: - NewsKitHSR.NoticeElement + NewsElement
 
-extension NewsKitHSR.NoticeElement: NewsKitHSR.NewsElement {
+extension NewsKitHSR.NoticeElement: NewsElement {
     public var isValid: Bool { true }
 }
 
