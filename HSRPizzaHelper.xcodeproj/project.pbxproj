@@ -39,6 +39,7 @@
 		5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */; };
 		5BB792B22C1067C400AFCBF5 /* GetCookieQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB792B12C1067C400AFCBF5 /* GetCookieQRCodeView.swift */; };
 		5BCBAEF32C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCBAEF22C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift */; };
+		5BE468222C42410800D5FE38 /* UIGFImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE468212C42410800D5FE38 /* UIGFImpl.swift */; };
 		5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
@@ -368,6 +369,7 @@
 		5BB6BD6F2ACAC529001D6847 /* DisplayOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOptionsView.swift; sourceTree = "<group>"; };
 		5BB792B12C1067C400AFCBF5 /* GetCookieQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCookieQRCodeView.swift; sourceTree = "<group>"; };
 		5BCBAEF22C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCookieQRCodeView_HSR.swift; sourceTree = "<group>"; };
+		5BE468212C42410800D5FE38 /* UIGFImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGFImpl.swift; sourceTree = "<group>"; };
 		5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPortalView.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				5B16985D2BDBEE770017660A /* SRGFImpl.swift */,
+				5BE468212C42410800D5FE38 /* UIGFImpl.swift */,
 				5B23404C2BFA7C6700F1974A /* GachaNameViewRenderable.swift */,
 			);
 			path = Impl;
@@ -1666,6 +1669,7 @@
 				5B4C5BAB2C09F3BD00A6EA05 /* WebImageView.swift in Sources */,
 				EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */,
 				EA80CFE12A0E8F2700002B53 /* RequestNotification.swift in Sources */,
+				5BE468222C42410800D5FE38 /* UIGFImpl.swift in Sources */,
 				EA1DE41F2A08C4DB00CFB37C /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
 				EA09B19D2A091B0200986D46 /* LatestVersionInformationChecker.swift in Sources */,
 				EA5F23322A0BE87000D6D024 /* OnFocused.swift in Sources */,
