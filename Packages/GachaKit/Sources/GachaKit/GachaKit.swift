@@ -5,6 +5,17 @@
 import Foundation
 import HBMihoyoAPI
 
+// MARK: - UIGFFormat
+
+public enum UIGFFormat: String, Identifiable, Sendable, Hashable {
+    case uigfv4
+    case srgfv1
+
+    // MARK: Public
+
+    public var id: String { rawValue }
+}
+
 // MARK: - GachaKit
 
 public enum GachaKit {}
