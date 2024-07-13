@@ -2424,6 +2424,34 @@
         }
       }
     },
+    "app.gacha.account.select.selectAll" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select All"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部書き出す"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部账号"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部帳號"
+          }
+        }
+      }
+    },
     "app.gacha.account.select.title" : {
       "localizations" : {
         "en" : {
@@ -2511,7 +2539,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Export SRGF Wish Records"
+            "value" : "Export"
           }
         },
         "ja" : {
@@ -2732,66 +2760,196 @@
         }
       }
     },
-    "app.gacha.import.help.srgf.button" : {
+    "app.gacha.import.fromSRGF" : {
+      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apps Supporting SRGF"
+            "value" : "Import SRGFv1 JSON wish records"
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mga softwares na sumusuporta sa SRGF"
+            "value" : "Import SRGFv1 JSON wish records"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logiciels prenant en charge SRGF"
+            "value" : "Importer les enregistrements de vœux au format JSON SRGFv1"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Softwares Supporting SRGF"
+            "value" : "Import SRGFv1 JSON wish records"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SRGFフォーマットをサポートしているアプリ"
+            "value" : "SRGFv1 規格に準ずる JSON ファイルから読み込む"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Softwares Supporting SRGF"
+            "value" : "Import SRGFv1 JSON wish records"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Программы поддерживающие SRGF"
+            "value" : "Импортировать SRGFv1 JSON записи молитв"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Phần Mềm Hỗ Trợ SRGF"
+            "value" : "Nhập bản ghi SRGFv1 JSON"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "支持SRGF的软件"
+            "value" : "导入 SRGFv1 JSON 格式祈愿记录"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "支援SRGF的軟體"
+            "value" : "匯入 SRGFv1 JSON 格式祈願記錄"
+          }
+        }
+      }
+    },
+    "app.gacha.import.fromUIGF" : {
+      "extractionState" : "migrated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import UIGFv4 JSON wish records"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import UIGFv4 JSON wish records"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importer les enregistrements de vœux au format JSON UIGFv4"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import UIGFv4 JSON wish records"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIGFv4 規格に準ずる JSON ファイルから読み込む"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import UIGFv4 JSON wish records"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Импортировать UIGFv4 JSON записи молитв"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhập bản ghi UIGFv4 JSON"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入 UIGFv4 JSON 格式祈愿记录"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "匯入 UIGFv4 JSON 格式祈願記錄"
+          }
+        }
+      }
+    },
+    "app.gacha.import.help.uigf.button" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apps Supporting UIGF"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mga softwares na sumusuporta sa UIGF"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logiciels prenant en charge UIGF"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Softwares Supporting UIGF"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIGF フォーマットをサポートしているアプリ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Softwares Supporting UIGF"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Программы поддерживающие UIGF"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phần Mềm Hỗ Trợ UIGF"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持 UIGF 的软件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支援 UIGF 的軟體"
           }
         }
       }
@@ -3120,263 +3278,6 @@
         }
       }
     },
-    "app.gacha.import.srgf" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Import SRGF Wish Log"
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mag-Import ng SRGF Wish Log"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Importer le journal de souhaits SRGF"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Import SRGF Wish Log"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SRGF祈願履歴データを読み込む"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Import SRGF Wish Log"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Импорт журнала круток SRGF"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nhập Vào Lịch Sử Cầu Nguyện Định Dạng SRGF"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导入SRGF祈愿记录"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "匯入SRGF祈願記錄"
-          }
-        }
-      }
-    },
-    "app.gacha.import.srgf.json" : {
-      "extractionState" : "migrated",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Import SRGF JSON wish records"
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Import SRGF JSON wish records"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Importer les enregistrements de vœux au format JSON SRGF"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Import SRGF JSON wish records"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SRGF（JSON）フォーマットの祈願履歴を読み込む"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Import SRGF JSON wish records"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Импортировать SRGF JSON записи молитв"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nhập bản ghi SRGF JSON"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导入SRGF JSON格式祈愿记录"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "匯入SRGF JSON格式祈願記錄"
-          }
-        }
-      }
-    },
-    "app.gacha.import.srgf.verified.note.1" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We support all export files that strictly comply with the SRGF standard. For a list of supported apps and corresponding export formats, please click on the top right corner to open help page."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sinusuportahan namin ang lahat ng mga export files na mahigpit na sumunod sa pamantayan ng SRGF. Para sa isang listahan ng mga suportadong apps at kaukulang mga format ng pag-export, mangyaring mag-click sa kanang tuktok na sulok upang buksan ang pahina ng tulong."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nous prenons en charge tous les fichiers d'exportation qui respectent strictement la norme SRGF. Pour une liste des applications prises en charge et des formats d'exportation correspondants, veuillez cliquer sur le coin supérieur droit pour ouvrir la page d'aide."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We support all export files that strictly comply with the SRGF standard. For a list of supported apps and corresponding export formats, please click on the top right corner to open help page."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SRGFフォーマット標準を厳しくしたアプリ・サービスから書き出したそのファイルデータ限り、ここで読み込めます。その標準をサポートしたアプリ・サービスとそれに応ずるフォーマットについての情報は、画面の右上をタップしてから参考説明ページに記されております。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We support all export files that strictly comply with the SRGF standard. For a list of supported apps and corresponding export formats, please click on the top right corner to open help page."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Мы поддерживаем все файлы экспорта, которые строго соответствуют стандарту SRGF. Чтобы просмотреть список поддерживаемых приложений и соответствующих форматов экспорта, нажмите в правом верхнем углу, чтобы открыть страницу справки."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chúng tôi hỗ trợ tất cả các tệp xuất tuân thủ nghiêm ngặt tiêu chuẩn SRGF. Để biết danh sách các ứng dụng được hỗ trợ và các định dạng xuất tương ứng, vui lòng nhấp vào góc trên cùng bên phải để mở trang trợ giúp."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们支持所有严格遵守SRGF标准的导出文件。受支持的App及对应导出格式请点击右上角参阅帮助页面。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們支援所有嚴格遵守SRGF標準的匯出檔案。受支援的App及對應匯出格式請點擊右上角參閱說明頁面。"
-          }
-        }
-      }
-    },
-    "app.gacha.import.srgf.verified.note.2" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We support importing all files that comply with the SRGF format, but we have found that some software that claims to support SRGF that do not meet the standard. The following software has been verified to be able to import smoothly into this App."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sinusuportahan namin ang pag-import ng lahat ng mga file na sumunod sa format ng SRGF, ngunit natagpuan namin na ang ilang software na nagsasabing suportahan ang SRGF na hindi nakakatugon sa pamantayan. Ang sumusunod na software ay napatunayan upang ma-import nang maayos sa app na ito."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nous prenons en charge l'importation de tous les fichiers conformes au format SRGF, mais nous avons constaté que certains logiciels qui prétendent prendre en charge SRGF ne respectent pas la norme. Les logiciels suivants ont été vérifiés pour pouvoir être importés sans problème dans cette application."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We support importing all files that comply with the SRGF format, but we have found that some software that claims to support SRGF that do not meet the standard. The following software has been verified to be able to import smoothly into this App."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SRGFフォーマット標準を厳しくしたアプリ・サービスから書き出したそのファイルデータ限り、ここで読み込めます。ですが、一部のアプリ・サービスはそれを宣言したとしても、互換性のないファイルを書き出したことはございます。下記のは「書き出したファイルはここで利用可能」だと検証済みのアプリ・サービス。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We support importing all files that comply with the SRGF format, but we have found that some software that claims to support SRGF that do not meet the standard. The following software has been verified to be able to import smoothly into this App."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Мы поддерживаем импорт всех файлов, соответствующих формату SRGF, но обнаружили, что некоторые программы, заявленные как поддерживающие SRGF, не соответствуют этому. Следующее ПО было проверено на возможность беспрепятственного импорта в GIPH."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chúng tôi hỗ trợ nhập tất cả các tệp tuân thủ định dạng SRGF, nhưng chúng tôi đã phát hiện ra rằng một số phần mềm tuyên bố hỗ trợ SRGF không đáp ứng tiêu chuẩn. Phần mềm sau đã được xác minh để có thể nhập trơn tru vào ứng dụng này."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们支持导入所有符合SRGF格式的文件，但我们仍发现部分宣称已支持SRGF的软件导出的记录不合标准。以下为经验证能够顺利导入本App的软件。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們支援匯入所有符合SRGF格式的檔案，但我們仍發現部分宣稱已支援SRGF的軟體匯出的記錄不合標準。以下為經驗證能夠順利匯入本App的軟體。"
-          }
-        }
-      }
-    },
     "app.gacha.import.success" : {
       "localizations" : {
         "en" : {
@@ -3437,6 +3338,198 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "成功匯入祈願資料"
+          }
+        }
+      }
+    },
+    "app.gacha.import.uigf" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import UIGF / SRGF Wish Log"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mag-Import ng UIGF / SRGF Wish Log"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importer le journal de souhaits UIGF / SRGF"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import UIGF / SRGF Wish Log"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIGF / SRGF 祈願履歴データを読み込む"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import UIGF / SRGF Wish Log"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Импорт журнала круток UIGF / SRGF"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhập Vào Lịch Sử Cầu Nguyện Định Dạng UIGF / SRGF"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入 UIGF / SRGF 祈愿记录"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "匯入 UIGF / SRGF 祈願記錄"
+          }
+        }
+      }
+    },
+    "app.gacha.import.uigf.verified.note.1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We support all export files that strictly comply with the UIGF / SRGF standard. For a list of supported apps and corresponding export formats, please click on the top right corner to open help page."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinusuportahan namin ang lahat ng mga export files na mahigpit na sumunod sa pamantayan ng UIGF / SRGF. Para sa isang listahan ng mga suportadong apps at kaukulang mga format ng pag-export, mangyaring mag-click sa kanang tuktok na sulok upang buksan ang pahina ng tulong."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous prenons en charge tous les fichiers d'exportation qui respectent strictement la norme UIGF / SRGF. Pour une liste des applications prises en charge et des formats d'exportation correspondants, veuillez cliquer sur le coin supérieur droit pour ouvrir la page d'aide."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We support all export files that strictly comply with the UIGF / SRGF standard. For a list of supported apps and corresponding export formats, please click on the top right corner to open help page."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIGF / SRGF フォーマット標準を厳しくしたアプリ・サービスから書き出したそのファイルデータ限り、ここで読み込めます。その標準をサポートしたアプリ・サービスとそれに応ずるフォーマットについての情報は、画面の右上をタップしてから参考説明ページに記されております。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We support all export files that strictly comply with the UIGF / SRGF standard. For a list of supported apps and corresponding export formats, please click on the top right corner to open help page."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы поддерживаем все файлы экспорта, которые строго соответствуют стандарту UIGF / SRGF. Чтобы просмотреть список поддерживаемых приложений и соответствующих форматов экспорта, нажмите в правом верхнем углу, чтобы открыть страницу справки."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chúng tôi hỗ trợ tất cả các tệp xuất tuân thủ nghiêm ngặt tiêu chuẩn UIGF / SRGF. Để biết danh sách các ứng dụng được hỗ trợ và các định dạng xuất tương ứng, vui lòng nhấp vào góc trên cùng bên phải để mở trang trợ giúp."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们支持所有严格遵守 UIGF / SRGF 标准的导出文件。受支持的App及对应导出格式请点击右上角参阅帮助页面。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我們支援所有嚴格遵守 UIGF / SRGF 標準的匯出檔案。受支援的App及對應匯出格式請點擊右上角參閱說明頁面。"
+          }
+        }
+      }
+    },
+    "app.gacha.import.uigf.verified.note.2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We support importing all files that comply with the UIGF / SRGF format, but we have found that some software that claims to support UIGF / SRGF that do not meet the standard. The following software has been verified to be able to import smoothly into this App."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinusuportahan namin ang pag-import ng lahat ng mga file na sumunod sa format ng UIGF / SRGF, ngunit natagpuan namin na ang ilang software na nagsasabing suportahan ang UIGF / SRGF na hindi nakakatugon sa pamantayan. Ang sumusunod na software ay napatunayan upang ma-import nang maayos sa app na ito."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous prenons en charge l'importation de tous les fichiers conformes au format UIGF / SRGF, mais nous avons constaté que certains logiciels qui prétendent prendre en charge UIGF / SRGF ne respectent pas la norme. Les logiciels suivants ont été vérifiés pour pouvoir être importés sans problème dans cette application."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We support importing all files that comply with the UIGF / SRGF format, but we have found that some software that claims to support UIGF / SRGF that do not meet the standard. The following software has been verified to be able to import smoothly into this App."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIGF / SRGF フォーマット標準を厳しくしたアプリ・サービスから書き出したそのファイルデータ限り、ここで読み込めます。ですが、一部のアプリ・サービスはそれを宣言したとしても、互換性のないファイルを書き出したことはございます。下記のは「書き出したファイルはここで利用可能」だと検証済みのアプリ・サービス。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We support importing all files that comply with the UIGF / SRGF format, but we have found that some software that claims to support UIGF / SRGF that do not meet the standard. The following software has been verified to be able to import smoothly into this App."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мы поддерживаем импорт всех файлов, соответствующих формату UIGF / SRGF, но обнаружили, что некоторые программы, заявленные как поддерживающие UIGF / SRGF, не соответствуют этому. Следующее ПО было проверено на возможность беспрепятственного импорта в GIPH."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chúng tôi hỗ trợ nhập tất cả các tệp tuân thủ định dạng UIGF / SRGF, nhưng chúng tôi đã phát hiện ra rằng một số phần mềm tuyên bố hỗ trợ UIGF / SRGF không đáp ứng tiêu chuẩn. Phần mềm sau đã được xác minh để có thể nhập trơn tru vào ứng dụng này."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们支持导入所有符合 UIGF / SRGF 格式的文件，但我们仍发现部分宣称已支持 UIGF / SRGF 的软件导出的记录不合标准。以下为经验证能够顺利导入本App的软件。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我們支援匯入所有符合 UIGF / SRGF 格式的檔案，但我們仍發現部分宣稱已支援 UIGF / SRGF 的軟體匯出的記錄不合標準。以下為經驗證能夠順利匯入本App的軟體。"
           }
         }
       }
@@ -3511,25 +3604,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[About SRGF v1.0 format, a UIGF standard.](https://uigf.org/)"
+            "value" : "[About UIGF v4.0 and SRGF v1.0 format, a UIGF standard.](https://uigf.org/)"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[UIGF 委員会の SRGF v1.0 ガチャ記録規格について](https://uigf.org/)"
+            "value" : "[UIGF 委員会の UIGF v4.0 と SRGF v1.0 ガチャ記録規格について](https://uigf.org/)"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[关于 UIGF 组织所规范的星穹铁道抽卡记录标准 SRGF v1.0 格式](https://uigf.org/)"
+            "value" : "[关于 UIGF 组织所规范的「米哈游游戏统一抽卡记录交换标准 UIGF v4.0」以及其前任「星穹铁道抽卡记录交换标准 SRGF v1.0」格式](https://uigf.org/)"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[關於 UIGF 組織所規範的星穹鐵道抽卡記錄標準 SRGF v1.0 格式](https://uigf.org/)"
+            "value" : "[關於 UIGF 組織所規範的「米哈遊遊戲統一抽卡記錄交換標準 UIGF v4.0」以及其前任「星穹鐵道抽卡記錄交換標準 SRGF v1.0」格式](https://uigf.org/)"
           }
         }
       }
@@ -6534,6 +6627,34 @@
         }
       }
     },
+    "gacha.export.chooseFormat" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Output format"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このフォーマットで書き出す"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输出格式"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸出格式"
+          }
+        }
+      }
+    },
     "gacha.export.chooseLanguage" : {
       "localizations" : {
         "en" : {
@@ -6599,32 +6720,57 @@
       }
     },
     "gacha.export.failedInSavingToFile" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed from dumping UIGF / SRGF file."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "残念ながら、UIGF / SRGF ファイルは書き出しできませんでした。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIGF / SRGF 文件没能成功导出。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIGF / SRGF 檔案沒能成功匯出。"
+          }
+        }
+      }
     },
     "gacha.export.fileSavedTo:%@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Successfully dumped SRGF file to:\n\n%@"
+            "value" : "Successfully dumped UIGF / SRGF file to:\n\n%@"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SRGF ファイルは無事でここで書き出しました:\n\n%@"
+            "value" : "UIGF / SRGF ファイルは無事でここで書き出しました:\n\n%@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SRGF 文件已成功导出至:\n\n%@"
+            "value" : "UIGF / SRGF 文件已成功导出至:\n\n%@"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SRGF 檔案已成功匯出至:\n\n%@"
+            "value" : "UIGF / SRGF 檔案已成功匯出至:\n\n%@"
           }
         }
       }
@@ -6634,25 +6780,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Successfully dumped SRGF file."
+            "value" : "Successfully dumped UIGF / SRGF file."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SRGF ファイルは無事で書き出しました。"
+            "value" : "UIGF / SRGF ファイルは無事で書き出しました。"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SRGF 文件已成功导出。"
+            "value" : "UIGF / SRGF 文件已成功导出。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SRGF 檔案已成功匯出。"
+            "value" : "UIGF / SRGF 檔案已成功匯出。"
           }
         }
       }
@@ -8101,43 +8247,43 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data. Get warp record first. You can import warp record from SRGF record files or using your own gacha link URL."
+            "value" : "No data. Get warp record first. You can import warp record from UIGF / SRGF record files or using your own gacha link URL."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data. Get warp record first. You can import warp record from SRGF record files or using your own gacha link URL."
+            "value" : "No data. Get warp record first. You can import warp record from UIGF / SRGF record files or using your own gacha link URL."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "データはございません。跳躍履歴を取得してください。SRGFファイルでも、ご自分のガチャURLでも、ガチャ記録を読み込むのも可能です。"
+            "value" : "データはございません。跳躍履歴を取得してください。UIGF / SRGF ファイルでも、ご自分のガチャURLでも、ガチャ記録を読み込むのも可能です。"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data. Get warp record first. You can import warp record from SRGF record files or using your own gacha link URL."
+            "value" : "No data. Get warp record first. You can import warp record from UIGF / SRGF record files or using your own gacha link URL."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No data. Get warp record first. You can import warp record from SRGF record files or using your own gacha link URL."
+            "value" : "No data. Get warp record first. You can import warp record from UIGF / SRGF record files or using your own gacha link URL."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无数据。请先获取跃迁记录。您可以导入 SRGF 抽卡记录，或者使用自己的抽卡 URL 来获取抽卡记录。"
+            "value" : "无数据。请先获取跃迁记录。您可以导入 UIGF / SRGF 抽卡记录，或者使用自己的抽卡 URL 来获取抽卡记录。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無資料。請先獲取躍遷記錄。您可以匯入 SRGF 抽卡記錄，或者使用自己的抽卡 URL 來獲取抽卡記錄。"
+            "value" : "無資料。請先獲取躍遷記錄。您可以匯入 UIGF / SRGF 抽卡記錄，或者使用自己的抽卡 URL 來獲取抽卡記錄。"
           }
         }
       }
@@ -9507,90 +9653,6 @@
         }
       }
     },
-    "gacha.manage.srgf.export" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Export to SRGF file"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SRGF ファイルとしてデータを書き出す"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导出数据为 SRGF 文件"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "將資料匯出為 SRGF 檔案"
-          }
-        }
-      }
-    },
-    "gacha.manage.srgf.export.toolbarTitle" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Export"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "書き出す"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导出"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "匯出"
-          }
-        }
-      }
-    },
-    "gacha.manage.srgf.import" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Import from SRGF file"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SRGF ファイルからデータを読み込む"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自 SRGF 文件读入数据"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自 SRGF 檔案匯入資料"
-          }
-        }
-      }
-    },
     "gacha.manage.title" : {
       "localizations" : {
         "en" : {
@@ -9633,6 +9695,90 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "管理資料"
+          }
+        }
+      }
+    },
+    "gacha.manage.uigf.export" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export to UIGF / SRGF file"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SRGF ファイルとしてデータを書き出す"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出数据为 UIGF / SRGF 文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將資料匯出為 UIGF / SRGF 檔案"
+          }
+        }
+      }
+    },
+    "gacha.manage.uigf.export.toolbarTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書き出す"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "匯出"
+          }
+        }
+      }
+    },
+    "gacha.manage.uigf.import" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import from UIGF / SRGF file"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIGF / SRGF ファイルからデータを読み込む"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自 UIGF / SRGF 文件读入数据"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自 UIGF / SRGF 檔案匯入資料"
           }
         }
       }
@@ -20804,9 +20950,6 @@
           }
         }
       }
-    },
-    "错误信息：%@" : {
-
     }
   },
   "version" : "1.0"

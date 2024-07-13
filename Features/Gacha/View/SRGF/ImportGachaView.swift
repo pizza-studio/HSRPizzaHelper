@@ -12,39 +12,33 @@ import UniformTypeIdentifiers
 // MARK: - ImportGachaView
 
 struct ImportGachaView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
     // MARK: Internal
 
     struct GachaImportReport {
         let uid: String, totalCount: Int, newCount: Int
     }
 
-    @State var isHelpSheetShow: Bool = false
-
-    @State var isCompleteAlertShow: Bool = false
-
     var body: some View {
         ImportView(status: $status, alert: $alert)
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        isHelpSheetShow.toggle()
+                        isHelpSheetShown.toggle()
                     } label: {
                         Image(systemSymbol: .questionmarkCircle)
                     }
                 }
             })
-            .sheet(isPresented: $isHelpSheetShow, content: {
-                HelpSheet(isShow: $isHelpSheetShow)
+            .sheet(isPresented: $isHelpSheetShown, content: {
+                HelpSheet(isShown: $isHelpSheetShown)
             })
-            .navigationTitle("app.gacha.import.srgf")
+            .navigationTitle("app.gacha.import.uigf")
             .onChange(of: status, perform: { newValue in
                 if case .succeed = newValue {
-                    isCompleteAlertShow.toggle()
+                    isCompleteAlertShown.toggle()
                 }
             })
-            .toast(isPresenting: $isCompleteAlertShow, alert: {
+            .toast(isPresenting: $isCompleteAlertShown, alert: {
                 .init(
                     displayMode: .alert,
                     type: .complete(.green),
@@ -53,7 +47,7 @@ struct ImportGachaView: View {
             })
             .alert(
                 "gacha.import.startImport".localized(),
-                isPresented: isReadyToStartAlertShow,
+                isPresented: isReadyToStartAlertShown,
                 presenting: alert,
                 actions: { thisAlert in
                     Button(
@@ -61,8 +55,8 @@ struct ImportGachaView: View {
                         role: .destructive,
                         action: {
                             switch thisAlert {
-                            case let .readyToStartJson(url: url):
-                                processJson(url: url)
+                            case let .readyToStartJson(url: url, format: format):
+                                processJson(url: url, format: format)
                             }
                         }
                     )
@@ -75,7 +69,36 @@ struct ImportGachaView: View {
             )
     }
 
-    func processJson(url: URL) {
+    // MARK: Private
+
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @State private var isHelpSheetShown: Bool = false
+    @State private var isCompleteAlertShown: Bool = false
+    @State private var currentFormat: UIGFFormat = .uigfv4
+    @State private var fallbackLanguage: GachaLanguageCode = .enUS
+    @State private var status: ImportStatus = .pending
+
+    @State private var alert: AlertType?
+
+    private var isReadyToStartAlertShown: Binding<Bool> {
+        .init {
+            alert != nil
+        } set: { newValue in
+            if newValue == false {
+                alert = nil
+            }
+        }
+    }
+
+    private var dateFormatter: DateFormatter {
+        let fmt = DateFormatter()
+        fmt.dateStyle = .medium
+        fmt.timeStyle = .medium
+        return fmt
+    }
+
+    private func processJson(url: URL, format: UIGFFormat) {
         Task(priority: .userInitiated) {
             status = .reading
         }
@@ -84,23 +107,48 @@ struct ImportGachaView: View {
                 do {
                     let decoder = JSONDecoder()
                     let data: Data = try Data(contentsOf: url)
-                    let srgfModel: SRGFv1 = try decoder
-                        .decode(
-                            SRGFv1.self,
-                            from: data
+                    var result = [GachaImportReport]()
+                    let appMeta: String?
+                    let dateMeta: Date?
+                    switch format {
+                    case .uigfv4:
+                        let uigfModel: UIGFv4 = try decoder
+                            .decode(
+                                UIGFv4.self,
+                                from: data
+                            )
+                        result = importGachaFromUIGFv4(
+                            uigfJson: uigfModel
                         )
-                    let result = importGachaFromSRGFv1(
-                        srgfJson: srgfModel
-                    )
-                    status = .succeed(ImportSucceedInfo(
-                        uid: result.uid,
-                        totalCount: result.totalCount,
-                        newCount: result.newCount,
-                        app: srgfModel.info.exportApp,
-                        exportDate: srgfModel.info.exportDate,
-                        timeZone: GachaItem.getServerTimeZoneDelta(result.uid)
-                    ))
-                    isCompleteAlertShow.toggle()
+                        appMeta = uigfModel.info.exportApp
+                        dateMeta = uigfModel.info.maybeDateExported
+                    case .srgfv1:
+                        let srgfModel: SRGFv1 = try decoder
+                            .decode(
+                                SRGFv1.self,
+                                from: data
+                            )
+                        result = importGachaFromSRGFv1(
+                            srgfJson: srgfModel
+                        )
+                        appMeta = srgfModel.info.exportApp
+                        dateMeta = srgfModel.info.maybeDateExported
+                    }
+                    var succeededMessages: [ImportSucceedInfo] = []
+                    result.forEach { currentMsg in
+                        succeededMessages.append(
+                            ImportSucceedInfo(
+                                uid: currentMsg.uid,
+                                totalCount: currentMsg.totalCount,
+                                newCount: currentMsg.newCount,
+                                app: appMeta,
+                                exportDate: dateMeta,
+                                timeZone: GachaItem.getServerTimeZoneDelta(currentMsg.uid)
+                            )
+                        )
+                    }
+                    status = .succeed(succeededMessages)
+                    isCompleteAlertShown.toggle()
                 } catch {
                     status = .failure(error.localizedDescription)
                 }
@@ -111,23 +159,44 @@ struct ImportGachaView: View {
         }
     }
 
-    func importGachaFromSRGFv1(
+    private func importGachaFromSRGFv1(
         srgfJson: SRGFv1
     )
-        -> GachaImportReport {
+        -> [GachaImportReport] {
         let info = srgfJson.info
         let items = srgfJson.list
-        let newCount = addRecordItems(
+        let newCount = addRecordItemsSRGFv1(
             items,
             uid: info.uid,
             lang: info.lang,
             timeZoneDelta: info.regionTimeZone // 优先尊重 JSON 里面写的 TimeZone 资料值。
         )
-        return .init(uid: info.uid, totalCount: items.count, newCount: newCount)
+        return [.init(uid: info.uid, totalCount: items.count, newCount: newCount)]
+    }
+
+    private func importGachaFromUIGFv4(
+        uigfJson: UIGFv4
+    )
+        -> [GachaImportReport] {
+        let info = uigfJson.info
+        var resultStack = [GachaImportReport]()
+        uigfJson.hsrProfiles?.forEach { profile in
+            let items = profile.list
+            let newCount = addRecordItemsUIGFv4(
+                items,
+                uid: profile.uid,
+                lang: profile.lang ?? fallbackLanguage,
+                timeZoneDelta: profile.timezone // 优先尊重 JSON 里面写的 TimeZone 资料值。
+            )
+            resultStack.append(
+                .init(uid: profile.uid, totalCount: items.count, newCount: newCount)
+            )
+        }
+        return resultStack
     }
 
     /// 返回已保存的新数据数量
-    func addRecordItems(
+    private func addRecordItemsSRGFv1(
         _ items: [SRGFv1.DataEntry],
         uid: String,
         lang: GachaLanguageCode,
@@ -155,7 +224,36 @@ struct ImportGachaView: View {
         return count
     }
 
-    func checkIDAndUIDExists(uid: String, id: String) -> Bool {
+    /// 返回已保存的新数据数量
+    private func addRecordItemsUIGFv4(
+        _ items: [UIGFv4.DataEntry],
+        uid: String,
+        lang: GachaLanguageCode,
+        timeZoneDelta: Int? = nil
+    )
+        -> Int {
+        var count = 0
+        viewContext.performAndWait {
+            items.enumerated().forEach { index, item in
+                var item = item
+                if item.id.isEmpty {
+                    item.id = String(index)
+                }
+                if !checkIDAndUIDExists(uid: uid, id: item.id) {
+                    _ = item.toManagedModel(
+                        uid: uid, lang: lang,
+                        timeZoneDelta: timeZoneDelta ?? GachaItem.getServerTimeZoneDelta(uid),
+                        context: viewContext
+                    )
+                    count += 1
+                }
+            }
+        }
+        save()
+        return count
+    }
+
+    private func checkIDAndUIDExists(uid: String, id: String) -> Bool {
         let request = GachaItemMO.fetchRequest()
         let predicate = NSPredicate(format: "(id = %@) AND (uid = %@)", id, uid)
         request.predicate = predicate
@@ -169,44 +267,19 @@ struct ImportGachaView: View {
         }
     }
 
-    func save() {
+    private func save() {
         do {
             try viewContext.save()
         } catch {
             print("ERROR SAVING. \(error.localizedDescription)")
         }
     }
-
-    // MARK: Fileprivate
-
-    @State fileprivate var status: ImportStatus = .pending
-
-    fileprivate var isReadyToStartAlertShow: Binding<Bool> {
-        .init {
-            alert != nil
-        } set: { newValue in
-            if newValue == false {
-                alert = nil
-            }
-        }
-    }
-
-    // MARK: Private
-
-    @State private var alert: AlertType?
-
-    private var dateFormatter: DateFormatter {
-        let fmt = DateFormatter()
-        fmt.dateStyle = .medium
-        fmt.timeStyle = .medium
-        return fmt
-    }
 }
 
 // MARK: - AlertType
 
 private enum AlertType: Identifiable {
-    case readyToStartJson(url: URL)
+    case readyToStartJson(url: URL, format: UIGFFormat)
 
     // MARK: Internal
 
@@ -223,7 +296,7 @@ private enum AlertType: Identifiable {
 private enum ImportStatus {
     case pending
     case reading
-    case succeed(ImportSucceedInfo)
+    case succeed([ImportSucceedInfo])
     case failure(String)
 }
 
@@ -250,7 +323,7 @@ extension ImportStatus: Identifiable {
 
 // MARK: - ImportSucceedInfo
 
-private struct ImportSucceedInfo: Equatable {
+private struct ImportSucceedInfo: Equatable, Identifiable {
     // MARK: Lifecycle
 
     init(
@@ -271,24 +344,63 @@ private struct ImportSucceedInfo: Equatable {
 
     // MARK: Internal
 
+    let id = UUID().uuidString
     let uid: String
     let totalCount: Int
     let newCount: Int
     let app: String?
     let exportDate: Date?
     let timeZoneDelta: Int
-}
 
-// MARK: - ImportFileSourceType
+    @ViewBuilder var timeView: some View {
+        if let date = exportDate {
+            VStack(alignment: .leading) {
+                let timeInfo = String(
+                    format: "app.gacha.import.info.time:%@".localized(),
+                    dateFormatterCurrent.string(from: date)
+                )
+                Text(timeInfo)
+                if importedTimeZone.secondsFromGMT() != TimeZone.autoupdatingCurrent.secondsFromGMT() {
+                    let timeInfo2 = "UTC\(timeZoneDeltaValueText): " + dateFormatterAsImported.string(from: date)
+                    Text(timeInfo2).font(.caption).foregroundStyle(.secondary)
+                }
+            }
+        }
+    }
 
-private enum ImportFileSourceType {
-    case SRGFJSON
+    // MARK: Private
+
+    private var timeZoneDeltaValueText: String {
+        switch timeZoneDelta {
+        case 0...: return "+\(timeZoneDelta)"
+        default: return "\(timeZoneDelta)"
+        }
+    }
+
+    private var importedTimeZone: TimeZone {
+        .init(secondsFromGMT: 3600 * timeZoneDelta) ?? .autoupdatingCurrent
+    }
+
+    private var dateFormatterAsImported: DateFormatter {
+        let fmt = DateFormatter()
+        fmt.dateStyle = .medium
+        fmt.timeStyle = .medium
+        return fmt
+    }
+
+    private var dateFormatterCurrent: DateFormatter {
+        let fmt = DateFormatter()
+        fmt.dateStyle = .medium
+        fmt.timeStyle = .medium
+        fmt.timeZone = .init(secondsFromGMT: 3600 * timeZoneDelta)
+        return fmt
+    }
 }
 
 // MARK: - HelpSheet
 
 private struct HelpSheet: View {
-    @Binding var isShow: Bool
+    @Binding var isShown: Bool
 
     var body: some View {
         NavigationStack {
@@ -300,12 +412,12 @@ private struct HelpSheet: View {
                         )!
                     ) {
                         Label(
-                            "app.gacha.import.help.srgf.button",
+                            "app.gacha.import.help.uigf.button",
                             systemSymbol: .appBadgeCheckmark
                         )
                     }
                 } footer: {
-                    Text("app.gacha.import.srgf.verified.note.2")
+                    Text("app.gacha.import.uigf.verified.note.2")
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
@@ -314,7 +426,7 @@ private struct HelpSheet: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("sys.done") {
-                        isShow.toggle()
+                        isShown.toggle()
                     }
                 }
             }
@@ -332,13 +444,13 @@ private struct PopFileButton: View {
 
     let completion: (Result<URL, Error>) -> Void
 
-    @State var isFileImporterShow: Bool = false
+    @State var isFileImporterShown: Bool = false
 
     var body: some View {
         Button(title.localized()) {
-            isFileImporterShow.toggle()
+            isFileImporterShown.toggle()
         }
-        .fileImporter(isPresented: $isFileImporterShow, allowedContentTypes: allowedContentTypes) { result in
+        .fileImporter(isPresented: $isFileImporterShown, allowedContentTypes: allowedContentTypes) { result in
             completion(result)
         }
     }
@@ -358,7 +470,7 @@ private struct StatusView<V: View>: View {
             case .reading:
                 ReadingView()
             case let .succeed(info):
-                SucceedView(status: $status, info: info)
+                SucceedView(status: $status, infoMsgs: info)
             case let .failure(string):
                 FailureView(status: $status, errorMessage: string)
             }
@@ -385,17 +497,8 @@ private struct FailureView: View {
 // MARK: - SucceedView
 
 private struct SucceedView: View {
-    // MARK: Internal
-
     @Binding var status: ImportStatus
-    let info: ImportSucceedInfo
-
-    var timeZoneDeltaValueText: String {
-        switch info.timeZoneDelta {
-        case 0...: return "+\(info.timeZoneDelta)"
-        default: return "\(info.timeZoneDelta)"
-        }
-    }
+    let infoMsgs: [ImportSucceedInfo]
 
     var body: some View {
         Section {
@@ -405,55 +508,25 @@ private struct SucceedView: View {
                 Image(systemSymbol: .checkmarkCircle)
                     .foregroundColor(.green)
             }
-            Text(verbatim: "UID: \(info.uid)")
-            if let app = info.app {
+            if let app = infoMsgs.first?.app {
                 let sourceInfo = String(format: "app.gacha.import.info.source:%@".localized(), app)
                 Text(sourceInfo)
             }
-            if let date = info.exportDate {
-                VStack(alignment: .leading) {
-                    let timeInfo = String(
-                        format: "app.gacha.import.info.time:%@".localized(),
-                        dateFormatterCurrent.string(from: date)
-                    )
-                    Text(timeInfo)
-                    if importedTimeZone.secondsFromGMT() != TimeZone.autoupdatingCurrent.secondsFromGMT() {
-                        let timeInfo2 = "UTC\(timeZoneDeltaValueText): " + dateFormatterAsImported.string(from: date)
-                        Text(timeInfo2).font(.caption).foregroundStyle(.secondary)
-                    }
-                }
-            }
         }
-        Section {
-            let importInfo = String(format: "app.gacha.import.info.import:%lld".localized(), info.totalCount)
-            let storageInfo = String(format: "app.gacha.import.info.storage:%lld".localized(), info.newCount)
-            Text(importInfo)
-            Text(storageInfo)
+        ForEach(infoMsgs, id: \.id) { info in
+            Section {
+                info.timeView
+                let importInfo = String(format: "app.gacha.import.info.import:%lld".localized(), info.totalCount)
+                let storageInfo = String(format: "app.gacha.import.info.storage:%lld".localized(), info.newCount)
+                Text(importInfo)
+                Text(storageInfo)
+            } header: {
+                Text(verbatim: "UID: \(info.uid)")
+            }
         }
         Button("app.gacha.import.continue") {
             status = .pending
         }
-    }
-
-    // MARK: Private
-
-    private var importedTimeZone: TimeZone {
-        .init(secondsFromGMT: 3600 * info.timeZoneDelta) ?? .autoupdatingCurrent
-    }
-
-    private var dateFormatterAsImported: DateFormatter {
-        let fmt = DateFormatter()
-        fmt.dateStyle = .medium
-        fmt.timeStyle = .medium
-        return fmt
-    }
-
-    private var dateFormatterCurrent: DateFormatter {
-        let fmt = DateFormatter()
-        fmt.dateStyle = .medium
-        fmt.timeStyle = .medium
-        fmt.timeZone = .init(secondsFromGMT: 3600 * info.timeZoneDelta)
-        return fmt
     }
 }
 
@@ -478,10 +551,24 @@ private struct ImportView: View {
     var body: some View {
         StatusView(status: $status) {
             Section {
-                PopFileButton(title: "app.gacha.import.srgf.json", allowedContentTypes: [.json]) { result in
+                PopFileButton(
+                    title: "app.gacha.import.fromUIGF",
+                    allowedContentTypes: [.json]
+                ) { result in
                     switch result {
                     case let .success(url):
-                        alert = .readyToStartJson(url: url)
+                        alert = .readyToStartJson(url: url, format: .uigfv4)
+                    case let .failure(error):
+                        status = .failure(error.localizedDescription)
+                    }
+                }
+                PopFileButton(
+                    title: "app.gacha.import.fromSRGF",
+                    allowedContentTypes: [.json]
+                ) { result in
+                    switch result {
+                    case let .success(url):
+                        alert = .readyToStartJson(url: url, format: .srgfv1)
                     case let .failure(error):
                         status = .failure(error.localizedDescription)
                     }
@@ -489,7 +576,7 @@ private struct ImportView: View {
             } footer: {
                 VStack(alignment: .leading) {
                     Text(
-                        "app.gacha.import.srgf.verified.note.1"
+                        "app.gacha.import.uigf.verified.note.1"
                     )
                     Text("app.gacha.srgf.affLink.[SRGF](https://uigf.org/)")
                 }
