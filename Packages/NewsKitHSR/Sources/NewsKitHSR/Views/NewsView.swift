@@ -10,7 +10,7 @@ extension NewsKitHSR {
     public struct NewsElementView: View {
         // MARK: Lifecycle
 
-        public init(_ givenData: any NewsElement) {
+        public init(_ givenData: some NewsElement) {
             self.data = givenData
         }
 
@@ -144,7 +144,7 @@ extension NewsKitHSR {
             // MARK: Public
 
             public func updateData() {
-                Task {
+                Task.detached { @MainActor [self] in
                     isLoading = true
                     data = await (try? NewsKitHSR.fetchAndAggregate()) ?? .init()
                     isLoading = false
