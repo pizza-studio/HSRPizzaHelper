@@ -91,5 +91,3 @@ struct GachaView: View {
         }
     }
 }
-
-// MARK: - AccountGachaView
