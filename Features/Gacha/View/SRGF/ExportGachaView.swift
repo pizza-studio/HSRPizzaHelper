@@ -31,10 +31,7 @@ struct ExportGachaView: View {
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
-                                Button("app.gacha.data.export.button") {
-                                    exportButtonClicked()
-                                }
-                                .disabled(params.uid == nil)
+                                exportButton()
                             }
                         }
                 }
@@ -45,17 +42,10 @@ struct ExportGachaView: View {
             isPresented: $isSucceedAlertShown,
             presenting: alert,
             actions: { _ in
-                Button("button.okay") {
-                    isSucceedAlertShown = false
-                }
+                Button("button.okay") { isSucceedAlertShown = false }
             },
-            message: { thisAlert in
-                switch thisAlert {
-                case let .succeed(url):
-                    Text("gacha.export.fileSavedTo:\(url)")
-                default:
-                    EmptyView()
-                }
+            message: { _ in
+                postAlertMessage()
             }
         )
         .alert(
@@ -63,31 +53,27 @@ struct ExportGachaView: View {
             isPresented: $isFailureAlertShown,
             presenting: alert,
             actions: { _ in
-                Button("button.okay") {
-                    isFailureAlertShown = false
-                }
+                Button("button.okay") { isSucceedAlertShown = false }
             },
-            message: { thisAlert in
-                switch thisAlert {
-                case let .failure(error):
-                    Text("错误信息：\(error)")
-                default:
-                    EmptyView()
-                }
+            message: { _ in
+                postAlertMessage()
             }
         )
         .fileExporter(
-            isPresented: $isExporterPresented,
-            document: file,
+            isPresented: $isSRGFExporterPresented,
+            document: srgfJson?.asDocument,
             contentType: .json,
-            defaultFilename: defaultFileName
+            defaultFilename: fileNameStem
         ) { result in
-            switch result {
-            case let .success(url):
-                alert = .succeed(url: url.absoluteString)
-            case let .failure(failure):
-                alert = .failure(message: failure.localizedDescription)
-            }
+            handleFileExporterResult(result)
+        }
+        .fileExporter(
+            isPresented: $isUIGFExporterPresented,
+            document: uigfJson?.asDocument,
+            contentType: .json,
+            defaultFilename: fileNameStem
+        ) { result in
+            handleFileExporterResult(result)
         }
     }
 
@@ -103,6 +89,10 @@ struct ExportGachaView: View {
                         Text(code.localized).tag(code)
                     }
                 }
+                Picker("gacha.export.chooseFormat", selection: $currentFormat) {
+                    Text(verbatim: "UIGFv4").tag(UIGFFormat.uigfv4)
+                    Text(verbatim: "SRGFv1").tag(UIGFFormat.srgfv1)
+                }
             } footer: {
                 Text("app.gacha.srgf.affLink.[SRGF](https://uigf.org/)")
             }
@@ -111,29 +101,28 @@ struct ExportGachaView: View {
 
     @ViewBuilder
     func compactMain() -> some View {
-        Menu("gacha.manage.srgf.export.toolbarTitle") {
-            ForEach(GachaLanguageCode.allCases, id: \.rawValue) { code in
-                Button(code.localized) {
-                    params.lang = code
-                    exportButtonClicked()
+        Menu("gacha.manage.uigf.export.toolbarTitle") {
+            Menu {
+                ForEach(GachaLanguageCode.allCases, id: \.rawValue) { code in
+                    Button(code.localized) {
+                        params.lang = code
+                        exportButtonClicked(format: .uigfv4)
+                    }
                 }
+            } label: {
+                Text(verbatim: "UIGFv4")
+            }
+            Menu {
+                ForEach(GachaLanguageCode.allCases, id: \.rawValue) { code in
+                    Button(code.localized) {
+                        params.lang = code
+                        exportButtonClicked(format: .srgfv1)
+                    }
+                }
+            } label: {
+                Text(verbatim: "SRGFv1")
             }
         }
-    }
-
-    func exportButtonClicked() {
-        let uid = params.uid!
-        let items = fetchAllMO(uid: uid).map {
-            $0.toSRGFEntry(
-                langOverride: params.lang,
-                timeZoneDeltaOverride: nil
-            )
-        }
-        srgfJson = .init(
-            info: .init(uid: uid, lang: params.lang),
-            list: items
-        )
-        isExporterPresented.toggle()
     }
 
     // MARK: Private
@@ -151,14 +140,30 @@ struct ExportGachaView: View {
 
     @ObservedObject private var params: ExportGachaParams = .init()
 
-    @State private var isExporterPresented: Bool = false
+    @State private var isSRGFExporterPresented: Bool = false
+    @State private var isUIGFExporterPresented: Bool = false
 
     @State private var srgfJson: SRGFv1?
+    @State private var uigfJson: UIGFv4?
+    @State private var currentFormat: UIGFFormat = .uigfv4
+
+    private var fileNameStem: String {
+        switch currentFormat {
+        case .uigfv4:
+            return uigfJson?.getFileNameStem(uid: params.uid, for: .starRail) ?? "Untitled"
+        case .srgfv1:
+            return srgfJson?.defaultFileNameStem ?? "Untitled"
+        }
+    }
 
     private var accountPickerPairs: [(value: String, tag: String?)] {
         var result = [(value: String, tag: String?)]()
         if params.uid == nil {
-            let i18nStr = String(localized: .init(stringLiteral: "app.gacha.account.select.notSelected"))
+            var i18nKey = "app.gacha.account.select.selectAll"
+            if currentFormat == .srgfv1 {
+                i18nKey = "app.gacha.account.select.notSelected"
+            }
+            let i18nStr = String(localized: .init(stringLiteral: i18nKey))
             result.append((i18nStr, nil))
         }
         result.append(contentsOf: allAvaliableAccountUID.map { uid in
@@ -187,12 +192,45 @@ struct ExportGachaView: View {
         }
     }
 
-    private var defaultFileName: String {
-        srgfJson?.defaultFileNameStem ?? "Untitled"
-    }
-
-    private var file: JsonFile? {
-        srgfJson?.asDocument
+    private func exportButtonClicked(format: UIGFFormat) {
+        switch format {
+        case .uigfv4:
+            currentFormat = format
+            srgfJson = nil
+            if let uid = params.uid {
+                let itemsUIGF = fetchAllMO(uid: uid).map {
+                    $0.toUIGFEntry(
+                        langOverride: params.lang,
+                        timeZoneDeltaOverride: nil
+                    )
+                }
+                let hsrProfile = UIGFv4.ProfileHSR(
+                    lang: params.lang,
+                    list: itemsUIGF,
+                    timezone: nil,
+                    uid: uid
+                )
+                uigfJson = .init(info: .init(), hsrProfiles: [hsrProfile])
+            } else {
+                uigfJson = exportAllAccountDataIntoSingleUIGFv4()
+            }
+            isUIGFExporterPresented.toggle()
+        case .srgfv1:
+            guard let uid = params.uid else { return }
+            currentFormat = format
+            uigfJson = nil
+            let itemsSRGF = fetchAllMO(uid: uid).map {
+                $0.toSRGFEntry(
+                    langOverride: params.lang,
+                    timeZoneDeltaOverride: nil
+                )
+            }
+            srgfJson = .init(
+                info: .init(uid: uid, lang: params.lang),
+                list: itemsSRGF
+            )
+            isSRGFExporterPresented.toggle()
+        }
     }
 
     @ViewBuilder
@@ -208,6 +246,32 @@ struct ExportGachaView: View {
 
     private func firstAccount(uid: String) -> Account? {
         accounts.first(where: { $0.uid! == uid })
+    }
+
+    private func handleFileExporterResult(_ result: Result<URL, any Error>) {
+        switch result {
+        case let .success(url):
+            alert = .succeed(url: url.absoluteString)
+        case let .failure(failure):
+            alert = .failure(message: failure.localizedDescription)
+        }
+    }
+
+    @ViewBuilder
+    private func postAlertMessage() -> some View {
+        switch alert {
+        case let .succeed(url): Text("gacha.export.fileSavedTo:\(url)")
+        case let .failure(message): Text(verbatim: "⚠︎ \(message)")
+        case nil: EmptyView()
+        }
+    }
+
+    @ViewBuilder
+    private func exportButton() -> some View {
+        Button("app.gacha.data.export.button") {
+            exportButtonClicked(format: currentFormat)
+        }
+        .disabled(params.uid == nil && currentFormat == .srgfv1)
     }
 }
 
@@ -250,16 +314,34 @@ extension ExportGachaView {
     }
 }
 
+// MARK: - Batch Export Support (UIGFv4 Only).
+
+extension ExportGachaView {
+    public func exportAllAccountDataIntoSingleUIGFv4() -> UIGFv4 {
+        let profiles: [UIGFv4.ProfileHSR] = allAvaliableAccountUID.compactMap { uid in
+            let itemsUIGF = fetchAllMO(uid: uid).map {
+                $0.toUIGFEntry(
+                    langOverride: params.lang,
+                    timeZoneDeltaOverride: nil
+                )
+            }
+            return !itemsUIGF.isEmpty ? UIGFv4.ProfileHSR(
+                lang: params.lang,
+                list: itemsUIGF,
+                timezone: nil,
+                uid: uid
+            ) : nil
+        }
+        return .init(info: .init(), hsrProfiles: profiles)
+    }
+}
+
 // MARK: - ExportGachaParams
 
 private class ExportGachaParams: ObservableObject {
     @Published var uid: String?
     @Published var lang: GachaLanguageCode = .zhHans
 }
-
-// MARK: - JsonFile
-
-typealias JsonFile = SRGFv1.Document
 
 // MARK: - AlertType
 
