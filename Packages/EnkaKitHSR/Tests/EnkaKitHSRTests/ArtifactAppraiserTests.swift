@@ -86,4 +86,17 @@ final class ArtifactAppraiserTests: XCTestCase {
         print(scoreDB)
         XCTAssertTrue(!scoreDB.isEmpty)
     }
+
+    func testScoreModelValidity() throws {
+        print("----------------------------------")
+        let scoreDB = ArtifactRating.StatScoreModelOptimized.Dict.construct()
+        var invalidIDs = [String]()
+        scoreDB.forEach { theID, theModel in
+            if ![theModel].areAllContentsValid {
+                invalidIDs.append(theID)
+            }
+        }
+        print("Artifact Rating Model Invalid for character id: \(invalidIDs.joined(separator: ", ")).")
+        print("----------------------------------")
+    }
 }

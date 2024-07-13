@@ -87,6 +87,19 @@ extension ArtifactRating {
 
     public static func isScoreModelExpired(against profile: EnkaHSR.QueryRelated.DetailInfo) -> Bool {
         let targetIDs: Set<String> = .init(profile.avatarDetailList.map(\.avatarId.description))
-        return !targetIDs.isSubset(of: Set<String>(sharedStatScoreModelDB.keys))
+        guard targetIDs.isSubset(of: Set<String>(sharedStatScoreModelDB.keys)) else { return true }
+        let effectiveModels = sharedStatScoreModelDB.compactMap { theKey, theModel in
+            targetIDs.contains(theKey) ? theModel : nil
+        }
+        return effectiveModels.areAllContentsValid
+    }
+}
+
+extension [ArtifactRating.StatScoreModelOptimized] {
+    public var areAllContentsValid: Bool {
+        let effectiveCount: Int = map { theModel in
+            theModel.weight.map(\.value.rawValue).reduce(0, +) > 0 ? 1 : 0
+        }.reduce(0, +)
+        return effectiveCount == count
     }
 }
