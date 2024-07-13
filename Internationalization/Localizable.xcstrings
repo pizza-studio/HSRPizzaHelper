@@ -1047,7 +1047,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Beware of these things before you proceed:\n\n→ This app is NOT made for the creation nor deletion of HoYoLAB / Miyoushe account. Such actions are supposed to be done through HoYoLAB / Miyoushe app or official website services provided by MiHoYo / Cognosphere. You may tab the management link (see the top-trailing corner of this window) to proceed to that website service page.\n\n→ A HoYoLAB / Miyoushe account must have been used to play the game (Houkai: Star Rail) AT LEAST ONCE in order to be usable in this app.\n\n→ A related game account (under the managment of its related HoYoLAB / Miyoushe account) must enable the public visibility of the character showcase through in-game settings in order to let the related information displayable in this app."
+            "value" : "Beware of these things before you proceed:\n\n→ This app is NOT made for the creation nor deletion of HoYoLAB / Miyoushe account. Such actions are supposed to be done through HoYoLAB / Miyoushe app or official website services provided by MiHoYo / Cognosphere. You may tap the management link (see the top-trailing corner of this window) to proceed to that website service page.\n\n→ A HoYoLAB / Miyoushe account must have been used to play the game (Houkai: Star Rail) AT LEAST ONCE in order to be usable in this app.\n\n→ A related game account (under the managment of its related HoYoLAB / Miyoushe account) must enable the public visibility of the character showcase through in-game settings in order to let the related information displayable in this app."
           }
         },
         "ja" : {
