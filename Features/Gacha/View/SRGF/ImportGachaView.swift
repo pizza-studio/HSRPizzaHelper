@@ -178,7 +178,6 @@ struct ImportGachaView: View {
         uigfJson: UIGFv4
     )
         -> [GachaImportReport] {
-        let info = uigfJson.info
         var resultStack = [GachaImportReport]()
         uigfJson.hsrProfiles?.forEach { profile in
             let items = profile.list
