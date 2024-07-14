@@ -447,7 +447,7 @@ private struct PopFileButton: View {
     @State var isFileImporterShown: Bool = false
 
     var body: some View {
-        Button(title.localized()) {
+        Button(title) {
             isFileImporterShown.toggle()
         }
         .fileImporter(isPresented: $isFileImporterShown, allowedContentTypes: allowedContentTypes) { result in
@@ -552,7 +552,7 @@ private struct ImportView: View {
         StatusView(status: $status) {
             Section {
                 PopFileButton(
-                    title: "app.gacha.import.fromUIGF",
+                    title: "app.gacha.import.fromUIGF".localized() + " (Beta)",
                     allowedContentTypes: [.json]
                 ) { result in
                     switch result {
@@ -563,7 +563,7 @@ private struct ImportView: View {
                     }
                 }
                 PopFileButton(
-                    title: "app.gacha.import.fromSRGF",
+                    title: "app.gacha.import.fromSRGF".localized(),
                     allowedContentTypes: [.json]
                 ) { result in
                     switch result {

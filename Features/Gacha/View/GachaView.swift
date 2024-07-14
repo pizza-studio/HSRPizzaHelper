@@ -29,6 +29,8 @@ struct GachaView: View {
                 NavigationLink("gacha.manage.uigf.export") {
                     ExportGachaView()
                 }.disabled(noDataAvailable)
+            } footer: {
+                Text("gacha.home.explainBetaUIGF")
             }
             Section {
                 if !availableUIDAndNames.isEmpty {
@@ -48,6 +50,7 @@ struct GachaView: View {
                 } else {
                     Text("gacha.home.no_data")
                         .foregroundColor(.secondary)
+                        .font(.subheadline)
                 }
             } header: {
                 Text("gacha.home.analysis")
