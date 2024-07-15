@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Server
 
 /// The server of an StarRail account.
-public enum Server: String, CaseIterable {
+public enum Server: String, CaseIterable, Sendable {
     case china = "prod_gf_cn"
     case bilibili = "prod_qd_cn"
     case unitedStates = "prod_official_usa"

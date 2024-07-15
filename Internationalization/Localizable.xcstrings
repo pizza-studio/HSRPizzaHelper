@@ -666,25 +666,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sorry, login feature for China mainland server (Celestia and Irminsul server) is temporary down. We are working on this. You can now manually config your account with your own effective Miyoushe Cookie. "
+            "value" : "Sorry, login feature for China mainland server (Celestia-AstralExpress and Irminsul-Nameless server) is temporary down. We are working on this. You can now manually config your account with your own effective Miyoushe Cookie. "
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "深く残念ながら、中国大陸のサーバー（天空の島サーバーと世界樹サーバー）のアカウントのログインは現時点でできません。一刻も早く使えるよう、我らは策を練っています。幸い、使える「米遊社Cookieデータ」がお持ちしている場合、ご自分でそれを書き込んでログインするのは可能です。"
+            "value" : "深く残念ながら、中国大陸のサーバー（天空の島(星穹列車)サーバーと世界樹(ナナシビト)サーバー）のアカウントのログインは現時点でできません。一刻も早く使えるよう、我らは策を練っています。幸い、使える「米遊社Cookieデータ」がお持ちしている場合、ご自分でそれを書き込んでログインするのは可能です。"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "抱歉，中国大陆服务器（天空岛＆世界树）的登录功能暂时无法使用。我们正在努力寻求解决方案。目前您仍可以通过「自行填写有效米游社Cookie」的方式来手动登录。"
+            "value" : "抱歉，中国大陆服务器（天空岛(星穹列车)＆世界树(无名客)）的登录功能暂时无法使用。我们正在努力寻求解决方案。目前您仍可以通过「自行填写有效米游社Cookie」的方式来手动登录。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "抱歉，中國大陸伺服器（天空島＆世界樹）的登入功能暫時無法使用。我們正在努力尋求解決方案。目前您仍可以藉由「自行填寫有效米遊社Cookie」的方式來手動登入。"
+            "value" : "抱歉，中國大陸伺服器（天空島(星穹列車)＆世界樹(無名客)）的登入功能暫時無法使用。我們正在努力尋求解決方案。目前您仍可以藉由「自行填寫有效米遊社Cookie」的方式來手動登入。"
           }
         }
       }
@@ -4971,25 +4971,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ShowCase Query Result Provider depends on which server the UID belongs to:\n* MiHoMo Origin API (Celestia & Irminsul Servers).\n* Enka Networks (All other servers)."
+            "value" : "ShowCase Query Result Provider depends on which server the UID belongs to:\n* MiHoMo Origin API (Celestia-AstralExpress and Irminsul-Nameless server).\n* Enka Networks (All other servers)."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ショーケースのデータのAPI提供者:\n* 天空の島と世界樹サーバー限定: MiHoMo Origin API。\n* 他のすべてのサーバー: Enka Networks。"
+            "value" : "ショーケースのデータのAPI提供者:\n* 天空の島(星穹列車)と世界樹(ナナシビト)サーバー限定: MiHoMo Origin API。\n* 他のすべてのサーバー: Enka Networks。"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "展柜查询结果由下述来源提供:\n* 天空岛＆世界树: MiHoMo Origin API。\n* 其余区服: Enka Networks。"
+            "value" : "展柜查询结果由下述来源提供:\n* 天空岛(星穹列车)＆世界树(无名客): MiHoMo Origin。\n* 其余区服: Enka Networks。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "展櫃查詢結果由下述來源提供:\n* 天空島＆世界樹: MiHoMo Origin API。\n* 其餘區服: Enka Networks。"
+            "value" : "展櫃查詢結果由下述來源提供:\n* 天空島(星穹列車)＆世界樹(無名客): MiHoMo Origin。\n* 其餘區服: Enka Networks。"
           }
         }
       }
