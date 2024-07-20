@@ -196,7 +196,10 @@ struct AccountWithdrawalView: View {
                 }
                 .font(.headline)
             } footer: {
-                Text("account.withdrawal.warning.footer")
+                VStack(alignment: .leading) {
+                    Text("account.withdrawal.warning.footer")
+                    Text("account.withdrawal.whyAddedThisPage.description")
+                }.multilineTextAlignment(.leading)
             }
 
             Section {

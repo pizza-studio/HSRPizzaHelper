@@ -1788,6 +1788,34 @@
         }
       }
     },
+    "account.withdrawal.whyAddedThisPage.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This page is made in compliance with what requested by App Store Review Board."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このページは App Store 審査委員会が命じて作られたものである。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该页面乃应 App Store 审委会之要求而实作。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "該頁面乃應 App Store 審委會之要求而實作。"
+          }
+        }
+      }
+    },
     "app.characters.count.character:%lld%lld%lld" : {
       "localizations" : {
         "en" : {
