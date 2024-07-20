@@ -99,7 +99,7 @@ extension EnkaHSR {
                 }
 
                 Defaults[.enkaDBData] = newDB
-
+                Self.sharedDB.update(new: newDB)
                 Defaults[.lastEnkaDBDataCheckDate] = Date()
 
                 return newDB

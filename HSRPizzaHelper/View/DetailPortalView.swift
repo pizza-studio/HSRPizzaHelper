@@ -67,7 +67,9 @@ final class DetailPortalViewModel: ObservableObject {
 
     static let refreshSubject: PassthroughSubject<Void, Never> = .init()
 
-    let enkaDB = EnkaHSR.Sputnik.sharedDB
+    var enkaDB: EnkaHSR.EnkaDB {
+        EnkaHSR.Sputnik.sharedDB
+    }
 
     @Published var selectedAccount: Account? {
         didSet {
