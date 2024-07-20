@@ -1732,6 +1732,62 @@
         }
       }
     },
+    "account.withdrawal.warning" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You acknowledge and agree that as a result of deleting your Account, you will lose access to all services related to all games developed by MiHoYo / Cognosphere, including the account information, subscriptions and all game-related information linked to such Account and permanently lose the possibility to access other services through the Account."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "貴殿は、貴殿の本アカウントの削除の結果、貴殿が本アカウントに紐づけられたアカウント情報、サブスクリプション及び（MiHoYo & Cognosphere の開発したすべての）ゲーム関連情報を含め、ゲーム関連サービスへのアクセス権を永遠的に失い、本アカウントを通じて他のサービスにアクセスする可能性を失うことを確認し同意します。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您认可并同意：由于删除您的账号，您将无法登入（任何由米哈游 / Cognosphere 开发的）游戏相关服务，包括与该账号相关联的账号资讯、订阅和游戏的相关资讯，并永久丧失任何通过该账号访问其他服务的权利。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您認可並同意：由於刪除您的帳號，您將無法登入（任何由米哈遊 / Cognosphere 開發的）遊戲相關服務，包括與該帳號相關聯的帳號資訊、訂閱和遊戲的相關資訊，並永久喪失任何藉由該帳號存取其他服務的權利。"
+          }
+        }
+      }
+    },
+    "account.withdrawal.warning.footer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You may confirm this consequence by consulting HoYoLAB / Miyoushe support."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "と上記の結果・責任につきましては HoYoLAB・米遊社 のサポートにお問い合わせください。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您可自行向米游社 / HoYoLAB 客户服务确认上述后果是否真实。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您可自行向米遊社 / HoYoLAB 客戶服務確認上述後果是否真實。"
+          }
+        }
+      }
+    },
     "app.characters.count.character:%lld%lld%lld" : {
       "localizations" : {
         "en" : {

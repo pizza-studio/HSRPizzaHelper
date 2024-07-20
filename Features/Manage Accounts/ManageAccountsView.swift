@@ -185,6 +185,21 @@ struct AccountWithdrawalView: View {
         let urlStrMiyoushe = "https://user.mihoyo.com/#/account/closeAccount"
         List {
             Section {
+                Label {
+                    HStack {
+                        Text("account.withdrawal.warning")
+                            .foregroundStyle(.red)
+                    }
+                } icon: {
+                    Image(systemSymbol: .exclamationmarkOctagonFill)
+                        .foregroundStyle(.red)
+                }
+                .font(.headline)
+            } footer: {
+                Text("account.withdrawal.warning.footer")
+            }
+
+            Section {
                 Link(destination: URL(string: Self.hoyolabStorePage)!) {
                     Text(verbatim: "HoYoLAB on App Store")
                 }
