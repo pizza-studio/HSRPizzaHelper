@@ -29,6 +29,13 @@ struct ManageAccountsView: View {
                 } label: {
                     Label("account.new", systemSymbol: .plusCircle)
                 }
+            } footer: {
+                NavigationLink {
+                    AccountWithdrawalView()
+                } label: {
+                    Text("account.withdraw.entrylink.title")
+                        .font(.footnote)
+                }
             }
             Section {
                 ForEach(accounts) { account in
@@ -166,4 +173,77 @@ struct ManageAccountsView: View {
             }
         }
     }
+}
+
+// MARK: - AccountWithdrawalView
+
+struct AccountWithdrawalView: View {
+    // MARK: Internal
+
+    var body: some View {
+        let urlStrHoYoLab = "https://account.hoyoverse.com/#/account/safetySettings"
+        let urlStrMiyoushe = "https://user.mihoyo.com/#/account/closeAccount"
+        List {
+            Section {
+                Link(destination: URL(string: Self.hoyolabStorePage)!) {
+                    Text(verbatim: "HoYoLAB on App Store")
+                }
+                NavigationLink {
+                    WebBrowserView(url: urlStrHoYoLab)
+                        .navigationTitle("account.withdrawal.navTitle.hoyolab")
+                        .navigationBarTitleDisplayMode(.inline)
+                } label: {
+                    Text("sys.server.os") + Text(verbatim: " - HoYoLAB")
+                }
+            } footer: {
+                VStack(alignment: .leading) {
+                    Text("account.withdrawal.linkTo:\(urlStrHoYoLab)")
+                    Text("account.withdrawal.readme.hoyolab.specialNotice")
+                }
+            }
+
+            Section {
+                if Self.isMiyousheInstalled {
+                    Link(destination: URL(string: Self.miyousheHeader + "me")!) {
+                        Text("account.qr_code_login.open_miyoushe")
+                    }
+                } else {
+                    Link(destination: URL(string: Self.miyousheStorePage)!) {
+                        Text("account.qr_code_login.open_miyoushe_mas_page")
+                    }
+                }
+                NavigationLink {
+                    WebBrowserView(url: urlStrMiyoushe)
+                        .navigationTitle("account.withdrawal.navTitle.miyoushe")
+                        .navigationBarTitleDisplayMode(.inline)
+                } label: {
+                    Text("sys.server.cn") + Text(verbatim: " - ") + Text("app.miyoushe")
+                }
+            } footer: {
+                VStack(alignment: .leading) {
+                    Text("account.withdrawal.linkTo:\(urlStrMiyoushe)")
+                    Text("account.withdrawal.readme.miyoushe.specialNotice")
+                }
+            }
+        }.navigationTitle("account.withdraw.view.title")
+    }
+
+    // MARK: Private
+
+    private static var isMiyousheInstalled: Bool {
+        UIApplication.shared.canOpenURL(URL(string: miyousheHeader)!)
+    }
+
+    private static var miyousheHeader: String { "mihoyobbs://" }
+
+    private static var miyousheStorePage: String {
+        "https://apps.apple.com/cn/app/id1470182559"
+    }
+
+    private static var hoyolabStorePage: String {
+        "https://apps.apple.com/app/hoyolab/id1559483982"
+    }
+
+    @State private var sheetHoyolabPresented: Bool = false
+    @State private var sheetMiyoushePresented: Bool = false
 }

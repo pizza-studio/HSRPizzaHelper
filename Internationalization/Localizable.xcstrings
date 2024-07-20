@@ -1536,6 +1536,202 @@
         }
       }
     },
+    "account.withdraw.entrylink.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regarding how to Manage or Delete your HoYoLAB / Miyoushe account"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HoYoLAB・米遊社通行証の管理・退会削除方法"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解如何对 米游社 / HoYoLAB 帐号进行 管理 或 注销(删号)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解如何對 米遊社 / HoYoLAB 帳號進行 管理 或 註銷(删号)"
+          }
+        }
+      }
+    },
+    "account.withdraw.view.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regarding Account Deletion"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アカウント退会について"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注销(删号)说明"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "註銷(删号)說明"
+          }
+        }
+      }
+    },
+    "account.withdrawal.linkTo:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The above link guides you to: %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上記のリンク先：%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上述链接将前往: %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上述鏈接將前往: %@"
+          }
+        }
+      }
+    },
+    "account.withdrawal.navTitle.hoyolab" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account Deletion (HoYoLAB)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アカウント退会 (HoYoLAB)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注销(删号) - HoYoLAB"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "註銷(删号) - HoYoLAB"
+          }
+        }
+      }
+    },
+    "account.withdrawal.navTitle.miyoushe" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account Deletion (Miyoushe)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アカウント退会 (米遊社)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注销(删号) - 米游社"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "註銷(删号) - 米遊社"
+          }
+        }
+      }
+    },
+    "account.withdrawal.readme.hoyolab.specialNotice" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nThe above link works on all devices. Users can also use HoYoLAB App (iPhone) to finish the account withdrawal (deletion)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nHoYoLABアカウントの退会(削除)は、上記の（端末不制限の）リンクでも、HoYoLAB アプリでも行えます。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nHoYoLAB 账号的注销可借由任何设备使用上述链接来完成，也可以使用 HoYoLAB 的 App 来完成。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nHoYoLAB 帳號的註銷可藉由任何設備使用上述鏈接來完成，也可以使用 HoYoLAB 的 App 來完成。"
+          }
+        }
+      }
+    },
+    "account.withdrawal.readme.miyoushe.specialNotice" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nMiyoushe expects that users need to use either cellphone or Miyoushe App (iPhone) to finish the account withdrawal (deletion). \n\nIf you are on macOS, you can change the user-agent of your Safari browser to iPhone in order to see the account deletion link. For more information regarding how to use the developer menu in Safari on macOS to change its user-agent, please contact Apple Support. \n\nThe above link, if directly clicked, will automatically apply the user-agent of iPhone."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\n米遊社は、ユーザーが米遊社アカウントの退会(削除)を完了するには、スマホまたは米遊社アプリのいずれかを使用してしまえと想定しています。\n\nmacOS で米遊社アカウント削除リンクを表示するために、Safari ブラウザのユーザーエージェント(User-Agent, UA)を iPhone のUAと変更する必要でございます。macOS の Safari の開発者メニューを使用して UA を変更する方法については、Apple サポートにお問い合わせください。\n\n弊アプリで直接に上記のリンクをクリックした場合、自動的に iPhone の UA を適用します。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\n米游社期望用户使用手机或米游社App（iPhone）来完成账号注销（删除）。\n\n如果您使用的是 macOS，则可以将 Safari 浏览器的用户代理（UA, User-Agent）变更为 iPhone，以便看到账号删除专用链接入口。有关如何使用 macOS 上 Safari 中的开发者选单更改其用户代理的方法，请联系 Apple 支持。\n\n在敝 App 内直接点击上述链接的话，会在前往该页面时自动套用 iPhone 的用户代理（UA）。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\n米遊社期望用戶使用手機或米遊社App（iPhone）來完成帳號註銷（刪除）。\n\n如果您使用的是 macOS，則可以將 Safari 瀏覽器的使用者代理（UA, User-Agent）變更為 iPhone，以便看到帳號刪除專用鏈接入口。有關如何使用 macOS 上 Safari 中的開發者選單更改其使用者代理的方法，請聯絡 Apple 支援。\n\n在敝 App 內直接點按上述鏈接的話，會在前往該頁面時自動套用 iPhone 的使用者代理（UA）。"
+          }
+        }
+      }
+    },
     "app.characters.count.character:%lld%lld%lld" : {
       "localizations" : {
         "en" : {

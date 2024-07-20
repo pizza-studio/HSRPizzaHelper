@@ -35,10 +35,10 @@ struct WebBrowserView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         guard let url = URL(string: url)
         else {
-            return WKWebView()
+            return OPWebView()
         }
         let request = URLRequest(url: url)
-        let webview = WKWebView()
+        let webview = OPWebView()
         webview.load(request)
         return webview
     }
