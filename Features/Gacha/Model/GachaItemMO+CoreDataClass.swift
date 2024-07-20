@@ -4,7 +4,7 @@
 
 import CoreData
 import Foundation
-import GachaKit
+import GachaKitHSR
 
 // MARK: - GachaItemMO
 

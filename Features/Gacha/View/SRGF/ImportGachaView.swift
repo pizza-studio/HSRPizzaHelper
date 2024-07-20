@@ -3,7 +3,7 @@
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
 import AlertToast
-import GachaKit
+import GachaKitHSR
 import HBMihoyoAPI
 import SFSafeSymbols
 import SwiftUI

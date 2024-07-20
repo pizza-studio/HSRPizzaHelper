@@ -2,7 +2,7 @@
 // ====================
 // This code is released under the GPL v3.0 License (SPDX-License-Identifier: GPL-3.0)
 
-@testable import GachaKit
+@testable import GachaKitHSR
 import HBMihoyoAPI
 import XCTest
 
@@ -12,9 +12,9 @@ private let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(
 
 private let testDataPath: String = packageRootPath + "/Tests/TestData/"
 
-// MARK: - GachaKitTests
+// MARK: - GachaKitHSRTests
 
-final class GachaKitTests: XCTestCase {
+final class GachaKitHSRTests: XCTestCase {
     // MARK: - SRGFv1
 
     func testDecodingSRGF() throws {

@@ -8,7 +8,7 @@
 
 import CoreData
 import Foundation
-import GachaKit
+import GachaKitHSR
 import HBMihoyoAPI
 import UIKit
 

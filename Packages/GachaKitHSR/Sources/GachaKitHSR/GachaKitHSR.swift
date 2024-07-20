@@ -16,9 +16,9 @@ public enum UIGFFormat: String, Identifiable, Sendable, Hashable {
     public var id: String { rawValue }
 }
 
-// MARK: - GachaKit
+// MARK: - GachaKitHSR
 
-public enum GachaKit {}
+public enum GachaKitHSR {}
 
 extension DateFormatter {
     public static func forUIGFEntry(

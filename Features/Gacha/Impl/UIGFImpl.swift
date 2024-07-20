@@ -6,7 +6,7 @@ import CoreData
 import Defaults
 import EnkaKitHSR
 import Foundation
-import GachaKit
+import GachaKitHSR
 import HBMihoyoAPI
 import SwiftUI
 
