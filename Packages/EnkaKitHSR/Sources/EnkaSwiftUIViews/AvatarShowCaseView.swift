@@ -79,7 +79,6 @@ public struct AvatarShowCaseView: View {
                     Button("app.detailPortal.avatar.summarzeToClipboard.asMD") {
                         Clipboard.writeString(avatar.asMarkDown)
                     }
-                    #if os(OSX) || targetEnvironment(macCatalyst)
                     Divider()
                     ForEach(profile.summarizedAvatars) { theAvatar in
                         Button(theAvatar.mainInfo.name) {
@@ -88,7 +87,6 @@ public struct AvatarShowCaseView: View {
                             }
                         }
                     }
-                    #endif
                 }
             }
         }
