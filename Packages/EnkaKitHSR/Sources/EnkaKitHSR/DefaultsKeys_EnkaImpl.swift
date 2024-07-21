@@ -32,13 +32,8 @@ extension Defaults.Keys {
         default: EnkaHSR.EnkaDB(locTag: Locale.langCodeForEnkaAPI)!,
         suite: .enkaSuite
     )
-    public static let lastEnkaQueryDate = Key<[String: Date]>(
-        "lastEnkaDBDataCheckDate",
-        default: [:],
-        suite: .enkaSuite
-    )
     public static let queriedEnkaProfiles = Key<[String: EnkaHSR.QueryRelated.DetailInfo]>(
-        "lastEnkaDBDataCheckDate",
+        "queriedEnkaProfiles",
         default: [:],
         suite: .enkaSuite
     )
