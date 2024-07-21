@@ -39,14 +39,14 @@ final class DetailPortalViewModel: ObservableObject {
     // MARK: Public
 
     @Published public var currentEnkaProfile: EnkaProfileEntity?
-    @Published public var playerDetailStatus: PlayerDetailStatus = .standby
+    @Published public var enkaProfileStatus: EnkaProfileStatus = .standby
 
     @Published public var currentCharInventory: CharInventoryEntity?
     @Published public var characterInventoryStatus: CharInventoryStatus = .standby
 
     // MARK: Internal
 
-    typealias PlayerDetailStatus = Status<(EnkaProfileEntity, nextRefreshableDate: Date)>
+    typealias EnkaProfileStatus = Status<(EnkaProfileEntity, nextRefreshableDate: Date)>
     typealias CharInventoryStatus = Status<CharInventoryEntity>
 
     enum Status<T> {
@@ -90,10 +90,10 @@ final class DetailPortalViewModel: ObservableObject {
     func fetchEnkaPlayerProfile() async {
         // UID 需要单独 guard-let，因为 Apple Store Connect 那边有收到过与此有关的 force-unwrap 崩溃报告。
         guard let selectedAccountUID = selectedAccount?.uid else { return }
-        if case let .succeed((_, refreshableDate)) = playerDetailStatus {
+        if case let .succeed((_, refreshableDate)) = enkaProfileStatus {
             guard Date() > refreshableDate else { return }
         }
-        if case let .progress(task) = playerDetailStatus { task.cancel() }
+        if case let .progress(task) = enkaProfileStatus { task.cancel() }
         let task = Task.detached { @MainActor [self] in
             do {
                 let queryResult = try await EnkaHSR.Sputnik.getEnkaProfile(
@@ -128,7 +128,7 @@ final class DetailPortalViewModel: ObservableObject {
 
                 Task.detached { @MainActor in
                     withAnimation {
-                        self.playerDetailStatus = .succeed((
+                        self.enkaProfileStatus = .succeed((
                             queryResultAwaited,
                             Date()
                         ))
@@ -137,14 +137,14 @@ final class DetailPortalViewModel: ObservableObject {
             } catch {
                 Task.detached { @MainActor in
                     withAnimation {
-                        self.playerDetailStatus = .fail(error)
+                        self.enkaProfileStatus = .fail(error)
                     }
                 }
             }
         }
         Task.detached { @MainActor in
             withAnimation {
-                self.playerDetailStatus = .progress(task)
+                self.enkaProfileStatus = .progress(task)
             }
         }
     }
@@ -218,7 +218,7 @@ struct DetailPortalView: View {
                 vmDPV.refresh()
             }
             .onDisappear {
-                if case let .progress(task) = vmDPV.playerDetailStatus, !task.isCancelled {
+                if case let .progress(task) = vmDPV.enkaProfileStatus, !task.isCancelled {
                     task.cancel()
                 }
             }
@@ -430,7 +430,7 @@ private struct SelectAccountSection: View {
 
     var body: some View {
         if let selectedAccount {
-            switch vmDPV.playerDetailStatus {
+            switch vmDPV.enkaProfileStatus {
             case .succeed:
                 normalAccountPickerView(
                     selectedAccount: selectedAccount
@@ -523,7 +523,7 @@ private struct PlayerDetailSection: View {
     }
 
     var isUpdating: Bool {
-        switch vmDPV.playerDetailStatus {
+        switch vmDPV.enkaProfileStatus {
         case .progress: true
         default: false
         }
@@ -532,7 +532,7 @@ private struct PlayerDetailSection: View {
     var body: some View {
         Section {
             let theCase = currentShowCase
-            switch vmDPV.playerDetailStatus {
+            switch vmDPV.enkaProfileStatus {
             case .progress:
                 VStack {
                     theCase
