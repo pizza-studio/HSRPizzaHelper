@@ -28,6 +28,15 @@ extension EnkaHSR.EnkaDB {
     public func queryGachaAssetPathForWeapon(id: String) -> String {
         "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.weapon.rawValue)/\(id).heic"
     }
+
+    public func asyncOnMainAndForceUpdateEnkaDB() {
+        isExpired = true
+        Task.detached { @MainActor [self] in
+            if let newDB = try? await EnkaHSR.Sputnik.getEnkaDB() {
+                update(new: newDB)
+            }
+        }
+    }
 }
 
 // MARK: - APIs for Checking Expiry Status.

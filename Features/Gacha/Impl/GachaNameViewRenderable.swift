@@ -16,13 +16,22 @@ protocol GachaNameViewRenderable {
 }
 
 extension GachaNameViewRenderable {
+    @MainActor
     func localizedNameView(officialNameOnly: Bool) -> Text {
         guard itemType == .characters else { return Text(verbatim: localizedName) }
+
+        func provideFallbackValue() -> String {
+            defer {
+                EnkaHSR.Sputnik.sharedDB.asyncOnMainAndForceUpdateEnkaDB()
+            }
+            return localizedName
+        }
+
         let resultText = EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(
             id: itemID,
             officialNameOnly: officialNameOnly
         ) {
-            localizedName
+            provideFallbackValue()
         }
         return Text(verbatim: resultText)
     }
