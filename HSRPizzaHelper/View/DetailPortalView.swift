@@ -518,8 +518,16 @@ private struct PlayerDetailSection: View {
 
     let account: Account
 
+    var enkaProfileStatus: DetailPortalViewModel.Status<(EnkaProfileEntity, nextRefreshableDate: Date)> {
+        vmDPV.enkaProfileStatus
+    }
+
     @ViewBuilder var currentShowCase: some View {
-        vmDPV.currentEnkaProfile?.asView(theDB: vmDPV.enkaDB)
+        if let profile = vmDPV.currentEnkaProfile {
+            profile.asView(theDB: vmDPV.enkaDB)
+        } else if case let .succeed((profile, _)) = enkaProfileStatus {
+            profile.asView(theDB: vmDPV.enkaDB)
+        }
     }
 
     var isUpdating: Bool {
