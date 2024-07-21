@@ -80,14 +80,14 @@ final class DetailPortalViewModel: ObservableObject {
 
     func refresh() {
         Task.detached { @MainActor [self] in
-            await fetchPlayerDetail()
+            await fetchEnkaPlayerProfile()
             await fetchCharacterInventoryList()
             Self.refreshSubject.send(())
         }
     }
 
     @MainActor
-    func fetchPlayerDetail() async {
+    func fetchEnkaPlayerProfile() async {
         // UID 需要单独 guard-let，因为 Apple Store Connect 那边有收到过与此有关的 force-unwrap 崩溃报告。
         guard let selectedAccountUID = selectedAccount?.uid else { return }
         if case let .succeed((_, refreshableDate)) = playerDetailStatus {
@@ -544,7 +544,7 @@ private struct PlayerDetailSection: View {
                 theCase
                 DPVErrorView(account: account, apiPath: "", error: error) {
                     Task.detached { @MainActor in
-                        await vmDPV.fetchPlayerDetail()
+                        await vmDPV.fetchEnkaPlayerProfile()
                     }
                 }
             case .standby:
