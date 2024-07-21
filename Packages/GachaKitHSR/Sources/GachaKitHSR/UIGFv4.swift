@@ -554,6 +554,7 @@ extension UIGFv4.DataEntry {
             id: itemID, type: newItemType, langOverride: lang
         ) ?? name
         let timeTyped: Date? = DateFormatter.forUIGFEntry(timeZoneDelta: timeZoneDelta).date(from: time)
+        let fallbackRankType = GachaMetaManager.shared.getRankType(id: itemID, type: newItemType)
         return .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
             gachaID: gachaID,
@@ -563,7 +564,7 @@ extension UIGFv4.DataEntry {
             itemTypeRawValue: newItemType.rawValue, // 披萨助手有内部专用的 Item Type Raw Value。
             langRawValue: lang.rawValue,
             name: name ?? "#NAME:\(id)#",
-            rankRawValue: rankType ?? "3",
+            rankRawValue: rankType ?? fallbackRankType?.rawValue ?? "3",
             time: timeTyped ?? Date(),
             timeRawValue: time,
             uid: uid

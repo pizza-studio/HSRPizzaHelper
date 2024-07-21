@@ -41,6 +41,10 @@ public class GachaMetaManager {
         return meta.nameLocalizationMap[langOverride ?? Locale.gachaLangauge]!
     }
 
+    public func getRankType(id: String, type: GachaItem.ItemType) -> GachaItem.Rank? {
+        getMeta(id: id, type: type)?.rank
+    }
+
     #if canImport(UIKit)
     public func getIcon(id: String, type: GachaItem.ItemType) -> UIImage? {
         guard let meta = getMeta(id: id, type: type) else { return nil }
