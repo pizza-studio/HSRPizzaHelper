@@ -29,7 +29,7 @@ final class DetailPortalViewModel: ObservableObject {
 
         if let account = accounts?.first {
             self._selectedAccount = .init(initialValue: account)
-            self.currentBasicInfo = Defaults[.queriedEnkaProfiles][account.uid]
+            self.currentEnkaProfile = Defaults[.queriedEnkaProfiles][account.uid]
             refresh()
         } else {
             self._selectedAccount = .init(initialValue: nil)
@@ -38,7 +38,7 @@ final class DetailPortalViewModel: ObservableObject {
 
     // MARK: Public
 
-    @Published public var currentBasicInfo: EnkaProfileEntity?
+    @Published public var currentEnkaProfile: EnkaProfileEntity?
     @Published public var playerDetailStatus: PlayerDetailStatus = .standby
 
     @Published public var currentCharInventory: CharInventoryEntity?
@@ -73,7 +73,7 @@ final class DetailPortalViewModel: ObservableObject {
 
     @Published var selectedAccount: Account? {
         didSet {
-            currentBasicInfo = Defaults[.queriedEnkaProfiles][selectedAccount?.uid ?? "-1"]
+            currentEnkaProfile = Defaults[.queriedEnkaProfiles][selectedAccount?.uid ?? "-1"]
             refresh()
         }
     }
@@ -100,8 +100,8 @@ final class DetailPortalViewModel: ObservableObject {
                     for: selectedAccountUID,
                     dateWhenNextRefreshable: nil
                 )
-                let queryResultAwaited = queryResult.merge(old: currentBasicInfo)
-                currentBasicInfo = queryResultAwaited
+                let queryResultAwaited = queryResult.merge(old: currentEnkaProfile)
+                currentEnkaProfile = queryResultAwaited
                 Defaults[.queriedEnkaProfiles][selectedAccountUID] = queryResultAwaited
 
                 // 检查本地 EnkaDB 是否过期，过期了的话就尝试更新。
@@ -448,7 +448,7 @@ private struct SelectAccountSection: View {
         selectedAccount: Account
     )
         -> some View {
-        AccountHeaderView(profile: $vmDPV.currentBasicInfo) {
+        AccountHeaderView(profile: $vmDPV.currentEnkaProfile) {
             vmDPV.refresh()
         } additionalView: {
             SelectAccountMenu {
@@ -519,7 +519,7 @@ private struct PlayerDetailSection: View {
     let account: Account
 
     @ViewBuilder var currentShowCase: some View {
-        vmDPV.currentBasicInfo?.asView(theDB: vmDPV.enkaDB)
+        vmDPV.currentEnkaProfile?.asView(theDB: vmDPV.enkaDB)
     }
 
     var isUpdating: Bool {
