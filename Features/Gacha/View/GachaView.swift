@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import EnkaKitHSR
 import HBMihoyoAPI
 import SwiftUI
 
@@ -60,11 +61,14 @@ struct GachaView: View {
         .onAppear {
             availableUIDAndNames = getAvailableUIDAndNames()
         }
+        .environmentObject(enkaDB)
     }
 
     // MARK: Private
 
     @State private var availableUIDAndNames: [(String, String?)] = []
+
+    @ObservedObject private var enkaDB = EnkaHSR.Sputnik.sharedDB
 
     @Environment(\.managedObjectContext) private var viewContext
 
