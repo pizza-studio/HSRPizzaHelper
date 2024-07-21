@@ -16,7 +16,7 @@ extension EnkaHSR {
             self.summarizedAvatars = rawInfo.summarizeAllAvatars(theDB: theDB)
             cancellables.append(
                 theDB.objectWillChange.sink {
-                    self.update(newRawInfo: rawInfo)
+                    self.update(newRawInfo: self.rawInfo)
                 }
             )
         }
