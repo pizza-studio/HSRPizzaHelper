@@ -1,0 +1,3202 @@
+{
+  "1001" : {
+    "id" : 1001,
+    "l10nMap" : {
+      "de-de" : "7. März",
+      "en-us" : "March 7th",
+      "es-es" : "Siete de Marzo",
+      "fr-fr" : "March 7th",
+      "id-id" : "March 7th",
+      "ja-jp" : "三月なのか",
+      "ko-kr" : "Mar. 7th",
+      "pt-pt" : "7 de Março",
+      "ru-ru" : "Март 7",
+      "th-th" : "March 7th",
+      "vi-vn" : "March 7th",
+      "zh-cn" : "三月七",
+      "zh-tw" : "三月七"
+    },
+    "nameTextMapHash" : -531793651,
+    "rank" : 4
+  },
+  "1002" : {
+    "id" : 1002,
+    "l10nMap" : {
+      "de-de" : "Dan Heng",
+      "en-us" : "Dan Heng",
+      "es-es" : "Dan Heng",
+      "fr-fr" : "Dan Heng",
+      "id-id" : "Dan Heng",
+      "ja-jp" : "丹恒",
+      "ko-kr" : "단항",
+      "pt-pt" : "Dan Heng",
+      "ru-ru" : "Дань Хэн",
+      "th-th" : "Dan Heng",
+      "vi-vn" : "Dan Heng",
+      "zh-cn" : "丹恒",
+      "zh-tw" : "丹恆"
+    },
+    "nameTextMapHash" : -935078178,
+    "rank" : 4
+  },
+  "1003" : {
+    "id" : 1003,
+    "l10nMap" : {
+      "de-de" : "Himeko",
+      "en-us" : "Himeko",
+      "es-es" : "Himeko",
+      "fr-fr" : "Himeko",
+      "id-id" : "Himeko",
+      "ja-jp" : "姫子",
+      "ko-kr" : "히메코",
+      "pt-pt" : "Himeko",
+      "ru-ru" : "Химеко",
+      "th-th" : "Himeko",
+      "vi-vn" : "Himeko",
+      "zh-cn" : "姬子",
+      "zh-tw" : "姬子"
+    },
+    "nameTextMapHash" : 631005763,
+    "rank" : 5
+  },
+  "1004" : {
+    "id" : 1004,
+    "l10nMap" : {
+      "de-de" : "Welt",
+      "en-us" : "Welt",
+      "es-es" : "Welt",
+      "fr-fr" : "Welt",
+      "id-id" : "Welt",
+      "ja-jp" : "ヴェルト",
+      "ko-kr" : "웰트",
+      "pt-pt" : "Welt",
+      "ru-ru" : "Вельт",
+      "th-th" : "Welt",
+      "vi-vn" : "Welt",
+      "zh-cn" : "瓦尔特",
+      "zh-tw" : "瓦爾特"
+    },
+    "nameTextMapHash" : 227721236,
+    "rank" : 5
+  },
+  "1005" : {
+    "id" : 1005,
+    "l10nMap" : {
+      "de-de" : "Kafka",
+      "en-us" : "Kafka",
+      "es-es" : "Kafka",
+      "fr-fr" : "Kafka",
+      "id-id" : "Kafka",
+      "ja-jp" : "カフカ",
+      "ko-kr" : "카프카",
+      "pt-pt" : "Kafka",
+      "ru-ru" : "Кафка",
+      "th-th" : "Kafka",
+      "vi-vn" : "Kafka",
+      "zh-cn" : "卡芙卡",
+      "zh-tw" : "卡芙卡"
+    },
+    "nameTextMapHash" : 1793805177,
+    "rank" : 5
+  },
+  "1006" : {
+    "id" : 1006,
+    "l10nMap" : {
+      "de-de" : "Silberwolf",
+      "en-us" : "Silver Wolf",
+      "es-es" : "Silver Wolf",
+      "fr-fr" : "Louve d'argent",
+      "id-id" : "Silver Wolf",
+      "ja-jp" : "銀狼",
+      "ko-kr" : "은랑",
+      "pt-pt" : "Loba Prateada",
+      "ru-ru" : "Серебряный Волк",
+      "th-th" : "Silver Wolf",
+      "vi-vn" : "Sói Bạc",
+      "zh-cn" : "银狼",
+      "zh-tw" : "銀狼"
+    },
+    "nameTextMapHash" : 1390520650,
+    "rank" : 5
+  },
+  "1008" : {
+    "id" : 1008,
+    "l10nMap" : {
+      "de-de" : "Arlan",
+      "en-us" : "Arlan",
+      "es-es" : "Arlan",
+      "fr-fr" : "Arlan",
+      "id-id" : "Arlan",
+      "ja-jp" : "アーラン",
+      "ko-kr" : "아를란",
+      "pt-pt" : "Arlan",
+      "ru-ru" : "Арлан",
+      "th-th" : "Arlan",
+      "vi-vn" : "Arlan",
+      "zh-cn" : "阿兰",
+      "zh-tw" : "阿蘭"
+    },
+    "nameTextMapHash" : 1840859344,
+    "rank" : 4
+  },
+  "1009" : {
+    "id" : 1009,
+    "l10nMap" : {
+      "de-de" : "Asta",
+      "en-us" : "Asta",
+      "es-es" : "Asta",
+      "fr-fr" : "Asta",
+      "id-id" : "Asta",
+      "ja-jp" : "アスター",
+      "ko-kr" : "아스타",
+      "pt-pt" : "Asta",
+      "ru-ru" : "Аста",
+      "th-th" : "Asta",
+      "vi-vn" : "Asta",
+      "zh-cn" : "艾丝妲",
+      "zh-tw" : "艾絲妲"
+    },
+    "nameTextMapHash" : -888024011,
+    "rank" : 4
+  },
+  "1013" : {
+    "id" : 1013,
+    "l10nMap" : {
+      "de-de" : "Herta",
+      "en-us" : "Herta",
+      "es-es" : "Herta",
+      "fr-fr" : "Herta",
+      "id-id" : "Herta",
+      "ja-jp" : "ヘルタ",
+      "ko-kr" : "헤르타",
+      "pt-pt" : "Herta",
+      "ru-ru" : "Герта",
+      "th-th" : "Herta",
+      "vi-vn" : "Herta",
+      "zh-cn" : "黑塔",
+      "zh-tw" : "黑塔"
+    },
+    "nameTextMapHash" : 631005764,
+    "rank" : 4
+  },
+  "1101" : {
+    "id" : 1101,
+    "l10nMap" : {
+      "de-de" : "Bronya",
+      "en-us" : "Bronya",
+      "es-es" : "Bronya",
+      "fr-fr" : "Bronya",
+      "id-id" : "Bronya",
+      "ja-jp" : "ブローニャ",
+      "ko-kr" : "브로냐",
+      "pt-pt" : "Bronya",
+      "ru-ru" : "Броня",
+      "th-th" : "Bronya",
+      "vi-vn" : "Bronya",
+      "zh-cn" : "布洛妮娅",
+      "zh-tw" : "布洛妮婭"
+    },
+    "nameTextMapHash" : -2077674616,
+    "rank" : 5
+  },
+  "1102" : {
+    "id" : 1102,
+    "l10nMap" : {
+      "de-de" : "Seele",
+      "en-us" : "Seele",
+      "es-es" : "Seele",
+      "fr-fr" : "Seele",
+      "id-id" : "Seele",
+      "ja-jp" : "ゼーレ",
+      "ko-kr" : "제레",
+      "pt-pt" : "Seele",
+      "ru-ru" : "Зеле",
+      "th-th" : "Seele",
+      "vi-vn" : "Seele",
+      "zh-cn" : "希儿",
+      "zh-tw" : "希兒"
+    },
+    "nameTextMapHash" : 651208739,
+    "rank" : 5
+  },
+  "1103" : {
+    "id" : 1103,
+    "l10nMap" : {
+      "de-de" : "Serval",
+      "en-us" : "Serval",
+      "es-es" : "Serval",
+      "fr-fr" : "Serval",
+      "id-id" : "Serval",
+      "ja-jp" : "セーバル",
+      "ko-kr" : "서벌",
+      "pt-pt" : "Serval",
+      "ru-ru" : "Сервал",
+      "th-th" : "Serval",
+      "vi-vn" : "Serval",
+      "zh-cn" : "希露瓦",
+      "zh-tw" : "希露瓦"
+    },
+    "nameTextMapHash" : -914875202,
+    "rank" : 4
+  },
+  "1104" : {
+    "id" : 1104,
+    "l10nMap" : {
+      "de-de" : "Gepard",
+      "en-us" : "Gepard",
+      "es-es" : "Gepard",
+      "fr-fr" : "Gepard",
+      "id-id" : "Gepard",
+      "ja-jp" : "ジェパード",
+      "ko-kr" : "게파드",
+      "pt-pt" : "Gepard",
+      "ru-ru" : "Гепард",
+      "th-th" : "Gepard",
+      "vi-vn" : "Gepard",
+      "zh-cn" : "杰帕德",
+      "zh-tw" : "傑帕德"
+    },
+    "nameTextMapHash" : 1814008153,
+    "rank" : 5
+  },
+  "1105" : {
+    "id" : 1105,
+    "l10nMap" : {
+      "de-de" : "Natasha",
+      "en-us" : "Natasha",
+      "es-es" : "Natasha",
+      "fr-fr" : "Natasha",
+      "id-id" : "Natasha",
+      "ja-jp" : "ナターシャ",
+      "ko-kr" : "나타샤",
+      "pt-pt" : "Natasha",
+      "ru-ru" : "Наташа",
+      "th-th" : "Natasha",
+      "vi-vn" : "Natasha",
+      "zh-cn" : "娜塔莎",
+      "zh-tw" : "娜塔莎"
+    },
+    "nameTextMapHash" : 247924212,
+    "rank" : 4
+  },
+  "1106" : {
+    "id" : 1106,
+    "l10nMap" : {
+      "de-de" : "Pela",
+      "en-us" : "Pela",
+      "es-es" : "Pela",
+      "fr-fr" : "Pela",
+      "id-id" : "Pela",
+      "ja-jp" : "ペラ",
+      "ko-kr" : "페라",
+      "pt-pt" : "Pela",
+      "ru-ru" : "Пела",
+      "th-th" : "Pela",
+      "vi-vn" : "Pela",
+      "zh-cn" : "佩拉",
+      "zh-tw" : "佩拉"
+    },
+    "nameTextMapHash" : -1318159729,
+    "rank" : 4
+  },
+  "1107" : {
+    "id" : 1107,
+    "l10nMap" : {
+      "de-de" : "Clara",
+      "en-us" : "Clara",
+      "es-es" : "Clara",
+      "fr-fr" : "Clara",
+      "id-id" : "Clara",
+      "ja-jp" : "クラーラ",
+      "ko-kr" : "클라라",
+      "pt-pt" : "Clara",
+      "ru-ru" : "Клара",
+      "th-th" : "Clara",
+      "vi-vn" : "Clara",
+      "zh-cn" : "克拉拉",
+      "zh-tw" : "克拉拉"
+    },
+    "nameTextMapHash" : 1410723626,
+    "rank" : 5
+  },
+  "1108" : {
+    "id" : 1108,
+    "l10nMap" : {
+      "de-de" : "Sampo",
+      "en-us" : "Sampo",
+      "es-es" : "Sampo",
+      "fr-fr" : "Sampo",
+      "id-id" : "Sampo",
+      "ja-jp" : "サンポ",
+      "ko-kr" : "삼포",
+      "pt-pt" : "Sampo",
+      "ru-ru" : "Сампо",
+      "th-th" : "Sampo",
+      "vi-vn" : "Sampo",
+      "zh-cn" : "桑博",
+      "zh-tw" : "桑博"
+    },
+    "nameTextMapHash" : -867821035,
+    "rank" : 4
+  },
+  "1109" : {
+    "id" : 1109,
+    "l10nMap" : {
+      "de-de" : "Hook",
+      "en-us" : "Hook",
+      "es-es" : "Hook",
+      "fr-fr" : "Hook",
+      "id-id" : "Hook",
+      "ja-jp" : "フック",
+      "ko-kr" : "후크",
+      "pt-pt" : "Hook",
+      "ru-ru" : "Хук",
+      "th-th" : "Hook",
+      "vi-vn" : "Hook",
+      "zh-cn" : "虎克",
+      "zh-tw" : "虎克"
+    },
+    "nameTextMapHash" : 1861062320,
+    "rank" : 4
+  },
+  "1110" : {
+    "id" : 1110,
+    "l10nMap" : {
+      "de-de" : "Lynx",
+      "en-us" : "Lynx",
+      "es-es" : "Lynx",
+      "fr-fr" : "Lynx",
+      "id-id" : "Lynx",
+      "ja-jp" : "リンクス",
+      "ko-kr" : "링스",
+      "pt-pt" : "Lynx",
+      "ru-ru" : "Рысь",
+      "th-th" : "Lynx",
+      "vi-vn" : "Lynx",
+      "zh-cn" : "玲可",
+      "zh-tw" : "玲可"
+    },
+    "nameTextMapHash" : -511590674,
+    "rank" : 4
+  },
+  "1111" : {
+    "id" : 1111,
+    "l10nMap" : {
+      "de-de" : "Luka",
+      "en-us" : "Luka",
+      "es-es" : "Luka",
+      "fr-fr" : "Luka",
+      "id-id" : "Luka",
+      "ja-jp" : "ルカ",
+      "ko-kr" : "루카",
+      "pt-pt" : "Luka",
+      "ru-ru" : "Лука",
+      "th-th" : "Luka",
+      "vi-vn" : "Luka",
+      "zh-cn" : "卢卡",
+      "zh-tw" : "盧卡"
+    },
+    "nameTextMapHash" : -2077674615,
+    "rank" : 4
+  },
+  "1112" : {
+    "id" : 1112,
+    "l10nMap" : {
+      "de-de" : "Topaz & Kontie",
+      "en-us" : "Topaz & Numby",
+      "es-es" : "Topaz y Conti",
+      "fr-fr" : "Topaz et Compti",
+      "id-id" : "Topaz & Numby",
+      "ja-jp" : "トパーズ&カブ",
+      "ko-kr" : "토파즈&복순이",
+      "pt-pt" : "Topaz e Dinheirinho",
+      "ru-ru" : "Топаз и Счетовод",
+      "th-th" : "Topaz & Numby",
+      "vi-vn" : "Topaz & Numby",
+      "zh-cn" : "托帕&账账",
+      "zh-tw" : "托帕&帳帳"
+    },
+    "nameTextMapHash" : 651208740,
+    "rank" : 5
+  },
+  "1201" : {
+    "id" : 1201,
+    "l10nMap" : {
+      "de-de" : "Qingque",
+      "en-us" : "Qingque",
+      "es-es" : "Qingque",
+      "fr-fr" : "Qingque",
+      "id-id" : "Qingque",
+      "ja-jp" : "青雀",
+      "ko-kr" : "청작",
+      "pt-pt" : "Qingque",
+      "ru-ru" : "Цинцюэ",
+      "th-th" : "Qingque",
+      "vi-vn" : "Qingque",
+      "zh-cn" : "青雀",
+      "zh-tw" : "青雀"
+    },
+    "nameTextMapHash" : -814118653,
+    "rank" : 4
+  },
+  "1202" : {
+    "id" : 1202,
+    "l10nMap" : {
+      "de-de" : "Tingyun",
+      "en-us" : "Tingyun",
+      "es-es" : "Tingyun",
+      "fr-fr" : "Tingyun",
+      "id-id" : "Tingyun",
+      "ja-jp" : "停雲",
+      "ko-kr" : "정운",
+      "pt-pt" : "Tingyun",
+      "ru-ru" : "Тинъюнь",
+      "th-th" : "Tingyun",
+      "vi-vn" : "Tingyun",
+      "zh-cn" : "停云",
+      "zh-tw" : "停雲"
+    },
+    "nameTextMapHash" : 751965288,
+    "rank" : 4
+  },
+  "1203" : {
+    "id" : 1203,
+    "l10nMap" : {
+      "de-de" : "Luocha",
+      "en-us" : "Luocha",
+      "es-es" : "Luocha",
+      "fr-fr" : "Luocha",
+      "id-id" : "Luocha",
+      "ja-jp" : "羅刹",
+      "ko-kr" : "나찰",
+      "pt-pt" : "Luocha",
+      "ru-ru" : "Лоча",
+      "th-th" : "Luocha",
+      "vi-vn" : "Luocha",
+      "zh-cn" : "罗刹",
+      "zh-tw" : "羅剎"
+    },
+    "nameTextMapHash" : -1976918067,
+    "rank" : 5
+  },
+  "1204" : {
+    "id" : 1204,
+    "l10nMap" : {
+      "de-de" : "Jing Yuan",
+      "en-us" : "Jing Yuan",
+      "es-es" : "Jing Yuan",
+      "fr-fr" : "Jing Yuan",
+      "id-id" : "Jing Yuan",
+      "ja-jp" : "景元",
+      "ko-kr" : "경원",
+      "pt-pt" : "Jing Yuan",
+      "ru-ru" : "Цзин Юань",
+      "th-th" : "Jing Yuan",
+      "vi-vn" : "Jing Yuan",
+      "zh-cn" : "景元",
+      "zh-tw" : "景元"
+    },
+    "nameTextMapHash" : -54603766,
+    "rank" : 5
+  },
+  "1205" : {
+    "id" : 1205,
+    "l10nMap" : {
+      "de-de" : "Blade",
+      "en-us" : "Blade",
+      "es-es" : "Blade",
+      "fr-fr" : "Blade",
+      "id-id" : "Blade",
+      "ja-jp" : "刃",
+      "ko-kr" : "블레이드",
+      "pt-pt" : "Blade",
+      "ru-ru" : "Блэйд",
+      "th-th" : "Blade",
+      "vi-vn" : "Blade",
+      "zh-cn" : "刃",
+      "zh-tw" : "刃"
+    },
+    "nameTextMapHash" : 1511480175,
+    "rank" : 5
+  },
+  "1206" : {
+    "id" : 1206,
+    "l10nMap" : {
+      "de-de" : "Sushang",
+      "en-us" : "Sushang",
+      "es-es" : "Sushang",
+      "fr-fr" : "Sushang",
+      "id-id" : "Sushang",
+      "ja-jp" : "素裳",
+      "ko-kr" : "소상",
+      "pt-pt" : "Sushang",
+      "ru-ru" : "Сушан",
+      "th-th" : "Sushang",
+      "vi-vn" : "Sushang",
+      "zh-cn" : "素裳",
+      "zh-tw" : "素裳"
+    },
+    "nameTextMapHash" : -1217403180,
+    "rank" : 4
+  },
+  "1207" : {
+    "id" : 1207,
+    "l10nMap" : {
+      "de-de" : "Yukong",
+      "en-us" : "Yukong",
+      "es-es" : "Yukong",
+      "fr-fr" : "Yukong",
+      "id-id" : "Yukong",
+      "ja-jp" : "御空",
+      "ko-kr" : "어공",
+      "pt-pt" : "Yukong",
+      "ru-ru" : "Юйкун",
+      "th-th" : "Yukong",
+      "vi-vn" : "Yukong",
+      "zh-cn" : "驭空",
+      "zh-tw" : "馭空"
+    },
+    "nameTextMapHash" : 348680761,
+    "rank" : 4
+  },
+  "1208" : {
+    "id" : 1208,
+    "l10nMap" : {
+      "de-de" : "Fu Xuan",
+      "en-us" : "Fu Xuan",
+      "es-es" : "Fu Xuan",
+      "fr-fr" : "Fu Xuan",
+      "id-id" : "Fu Xuan",
+      "ja-jp" : "符玄",
+      "ko-kr" : "부현",
+      "pt-pt" : "Fu Xuan",
+      "ru-ru" : "Фу Сюань",
+      "th-th" : "Fu Xuan",
+      "vi-vn" : "Fu Xuan",
+      "zh-cn" : "符玄",
+      "zh-tw" : "符玄"
+    },
+    "nameTextMapHash" : 1558534342,
+    "rank" : 5
+  },
+  "1209" : {
+    "id" : 1209,
+    "l10nMap" : {
+      "de-de" : "Yanqing",
+      "en-us" : "Yanqing",
+      "es-es" : "Yanqing",
+      "fr-fr" : "Yanqing",
+      "id-id" : "Yanqing",
+      "ja-jp" : "彦卿",
+      "ko-kr" : "연경",
+      "pt-pt" : "Yanqing",
+      "ru-ru" : "Яньцин",
+      "th-th" : "Yanqing",
+      "vi-vn" : "Yanqing",
+      "zh-cn" : "彦卿",
+      "zh-tw" : "彥卿"
+    },
+    "nameTextMapHash" : -1170349013,
+    "rank" : 5
+  },
+  "1210" : {
+    "id" : 1210,
+    "l10nMap" : {
+      "de-de" : "Guinaifen",
+      "en-us" : "Guinaifen",
+      "es-es" : "Guinaifen",
+      "fr-fr" : "Guinaifen",
+      "id-id" : "Guinaifen",
+      "ja-jp" : "桂乃芬",
+      "ko-kr" : "계네빈",
+      "pt-pt" : "Guinaifen",
+      "ru-ru" : "Гуйнайфэнь",
+      "th-th" : "Guinaifen",
+      "vi-vn" : "Guinaifen",
+      "zh-cn" : "桂乃芬",
+      "zh-tw" : "桂乃芬"
+    },
+    "nameTextMapHash" : 1914764703,
+    "rank" : 4
+  },
+  "1211" : {
+    "id" : 1211,
+    "l10nMap" : {
+      "de-de" : "Bailu",
+      "en-us" : "Bailu",
+      "es-es" : "Bailu",
+      "fr-fr" : "Bailu",
+      "id-id" : "Bailu",
+      "ja-jp" : "白露",
+      "ko-kr" : "백로",
+      "pt-pt" : "Bailu",
+      "ru-ru" : "Байлу",
+      "th-th" : "Bailu",
+      "vi-vn" : "Bailu",
+      "zh-cn" : "白露",
+      "zh-tw" : "白露"
+    },
+    "nameTextMapHash" : -814118652,
+    "rank" : 5
+  },
+  "1212" : {
+    "id" : 1212,
+    "l10nMap" : {
+      "de-de" : "Jingliu",
+      "en-us" : "Jingliu",
+      "es-es" : "Jingliu",
+      "fr-fr" : "Jingliu",
+      "id-id" : "Jingliu",
+      "ja-jp" : "鏡流",
+      "ko-kr" : "경류",
+      "pt-pt" : "Jingliu",
+      "ru-ru" : "Цзинлю",
+      "th-th" : "Jingliu",
+      "vi-vn" : "Jingliu",
+      "zh-cn" : "镜流",
+      "zh-tw" : "鏡流"
+    },
+    "nameTextMapHash" : 751965289,
+    "rank" : 5
+  },
+  "1213" : {
+    "id" : 1213,
+    "l10nMap" : {
+      "de-de" : "Dan Heng – Imbibitor Lunae",
+      "en-us" : "Dan Heng • Imbibitor Lunae",
+      "es-es" : "Dan Heng - Imbibitor Lunae",
+      "fr-fr" : "Dan Heng • Imbibitor Lunae",
+      "id-id" : "Dan Heng · Imbibitor Lunae",
+      "ja-jp" : "丹恒・飲月",
+      "ko-kr" : "단항•음월",
+      "pt-pt" : "Dan Heng - Embebidor Lunae",
+      "ru-ru" : "Дань Хэн: Пожиратель Луны",
+      "th-th" : "Dan Heng - จ้าวยลจันทรา",
+      "vi-vn" : "Dan Heng - Ẩm Nguyệt",
+      "zh-cn" : "丹恒•饮月",
+      "zh-tw" : "丹恆•飲月"
+    },
+    "nameTextMapHash" : -1976918066,
+    "rank" : 5
+  },
+  "1214" : {
+    "id" : 1214,
+    "l10nMap" : {
+      "de-de" : "Xueyi",
+      "en-us" : "Xueyi",
+      "es-es" : "Xueyi",
+      "fr-fr" : "Xueyi",
+      "id-id" : "Xueyi",
+      "ja-jp" : "雪衣",
+      "ko-kr" : "설의",
+      "pt-pt" : "Xueyi",
+      "ru-ru" : "Сюэи",
+      "th-th" : "Xueyi",
+      "vi-vn" : "Xueyi",
+      "zh-cn" : "雪衣",
+      "zh-tw" : "雪衣"
+    },
+    "nameTextMapHash" : -54603765,
+    "rank" : 4
+  },
+  "1215" : {
+    "id" : 1215,
+    "l10nMap" : {
+      "de-de" : "Hanya",
+      "en-us" : "Hanya",
+      "es-es" : "Hanya",
+      "fr-fr" : "Hanya",
+      "id-id" : "Hanya",
+      "ja-jp" : "寒鴉",
+      "ko-kr" : "한아",
+      "pt-pt" : "Hanya",
+      "ru-ru" : "Ханья",
+      "th-th" : "Hanya",
+      "vi-vn" : "Hanya",
+      "zh-cn" : "寒鸦",
+      "zh-tw" : "寒鴉"
+    },
+    "nameTextMapHash" : 1511480176,
+    "rank" : 4
+  },
+  "1217" : {
+    "id" : 1217,
+    "l10nMap" : {
+      "de-de" : "Huohuo",
+      "en-us" : "Huohuo",
+      "es-es" : "Huohuo",
+      "fr-fr" : "Huohuo",
+      "id-id" : "Huohuo",
+      "ja-jp" : "フォフォ",
+      "ko-kr" : "곽향",
+      "pt-pt" : "Huohuo",
+      "ru-ru" : "Хохо",
+      "th-th" : "Huohuo",
+      "vi-vn" : "Huohuo",
+      "zh-cn" : "藿藿",
+      "zh-tw" : "藿藿"
+    },
+    "nameTextMapHash" : 348680762,
+    "rank" : 5
+  },
+  "1301" : {
+    "id" : 1301,
+    "l10nMap" : {
+      "de-de" : "Gallagher",
+      "en-us" : "Gallagher",
+      "es-es" : "Gallagher",
+      "fr-fr" : "Gallagher",
+      "id-id" : "Gallagher",
+      "ja-jp" : "ギャラガー",
+      "ko-kr" : "갤러거",
+      "pt-pt" : "Gallagher",
+      "ru-ru" : "Галлахер",
+      "th-th" : "Gallagher",
+      "vi-vn" : "Gallagher",
+      "zh-cn" : "加拉赫",
+      "zh-tw" : "加拉赫"
+    },
+    "nameTextMapHash" : 1934967678,
+    "rank" : 4
+  },
+  "1302" : {
+    "id" : 1302,
+    "l10nMap" : {
+      "de-de" : "Argenti",
+      "en-us" : "Argenti",
+      "es-es" : "Argenti",
+      "fr-fr" : "Argenti",
+      "id-id" : "Argenti",
+      "ja-jp" : "アルジェンティ",
+      "ko-kr" : "아젠티",
+      "pt-pt" : "Argenti",
+      "ru-ru" : "Аргенти",
+      "th-th" : "Argenti",
+      "vi-vn" : "Argenti",
+      "zh-cn" : "银枝",
+      "zh-tw" : "銀枝"
+    },
+    "nameTextMapHash" : -1956715091,
+    "rank" : 5
+  },
+  "1303" : {
+    "id" : 1303,
+    "l10nMap" : {
+      "de-de" : "Ruan Mei",
+      "en-us" : "Ruan Mei",
+      "es-es" : "Ruan Mei",
+      "fr-fr" : "Ruan Mei",
+      "id-id" : "Ruan Mei",
+      "ja-jp" : "ルアン・メェイ",
+      "ko-kr" : "완•매",
+      "pt-pt" : "Ruan Mei",
+      "ru-ru" : "Жуань Мэй",
+      "th-th" : "Ruan Mei",
+      "vi-vn" : "Ruan Mei",
+      "zh-cn" : "阮•梅",
+      "zh-tw" : "阮•梅"
+    },
+    "nameTextMapHash" : 772168264,
+    "rank" : 5
+  },
+  "1304" : {
+    "id" : 1304,
+    "l10nMap" : {
+      "de-de" : "Aventurin",
+      "en-us" : "Aventurine",
+      "es-es" : "Aventurino",
+      "fr-fr" : "Aventurine",
+      "id-id" : "Aventurine",
+      "ja-jp" : "アベンチュリン",
+      "ko-kr" : "어벤츄린",
+      "pt-pt" : "Aventurine",
+      "ru-ru" : "Авантюрин",
+      "th-th" : "Aventurine",
+      "vi-vn" : "Aventurine",
+      "zh-cn" : "砂金",
+      "zh-tw" : "砂金"
+    },
+    "nameTextMapHash" : 1531683151,
+    "rank" : 5
+  },
+  "1305" : {
+    "id" : 1305,
+    "l10nMap" : {
+      "de-de" : "Dr. Wahrheit",
+      "en-us" : "Dr. Ratio",
+      "es-es" : "Dr. Ratio",
+      "fr-fr" : "Dr Ratio",
+      "id-id" : "Dr. Ratio",
+      "ja-jp" : "Dr.レイシオ",
+      "ko-kr" : "Dr. 레이시오",
+      "pt-pt" : "Dr. Ratio",
+      "ru-ru" : "Доктор Рацио",
+      "th-th" : "Dr. Ratio",
+      "vi-vn" : "Dr. Ratio",
+      "zh-cn" : "真理医生",
+      "zh-tw" : "真理醫生"
+    },
+    "nameTextMapHash" : -34400790,
+    "rank" : 5
+  },
+  "1306" : {
+    "id" : 1306,
+    "l10nMap" : {
+      "de-de" : "Sparkle",
+      "en-us" : "Sparkle",
+      "es-es" : "Sparkle",
+      "fr-fr" : "Sparkle",
+      "id-id" : "Sparkle",
+      "ja-jp" : "花火",
+      "ko-kr" : "스파클",
+      "pt-pt" : "Sparkle",
+      "ru-ru" : "Искорка",
+      "th-th" : "Sparkle",
+      "vi-vn" : "Sparkle",
+      "zh-cn" : "花火",
+      "zh-tw" : "花火"
+    },
+    "nameTextMapHash" : 368883737,
+    "rank" : 5
+  },
+  "1307" : {
+    "id" : 1307,
+    "l10nMap" : {
+      "de-de" : "Schwarzer Schwan",
+      "en-us" : "Black Swan",
+      "es-es" : "Cisne Negro",
+      "fr-fr" : "Cygne noir",
+      "id-id" : "Black Swan",
+      "ja-jp" : "ブラックスワン",
+      "ko-kr" : "블랙 스완",
+      "pt-pt" : "Cisne Negro",
+      "ru-ru" : "Чёрный Лебедь",
+      "th-th" : "Black Swan",
+      "vi-vn" : "Black Swan",
+      "zh-cn" : "黑天鹅",
+      "zh-tw" : "黑天鵝"
+    },
+    "nameTextMapHash" : -1197200204,
+    "rank" : 5
+  },
+  "1308" : {
+    "id" : 1308,
+    "l10nMap" : {
+      "de-de" : "Acheron",
+      "en-us" : "Acheron",
+      "es-es" : "Acheron",
+      "fr-fr" : "Achéron",
+      "id-id" : "Acheron",
+      "ja-jp" : "黄泉",
+      "ko-kr" : "아케론",
+      "pt-pt" : "Acheron",
+      "ru-ru" : "Ахерон",
+      "th-th" : "Acheron",
+      "vi-vn" : "Acheron",
+      "zh-cn" : "黄泉",
+      "zh-tw" : "黃泉"
+    },
+    "nameTextMapHash" : -1150146037,
+    "rank" : 5
+  },
+  "1309" : {
+    "id" : 1309,
+    "l10nMap" : {
+      "de-de" : "Robin",
+      "en-us" : "Robin",
+      "es-es" : "Robin",
+      "fr-fr" : "Robin",
+      "id-id" : "Robin",
+      "ja-jp" : "ロビン",
+      "ko-kr" : "로빈",
+      "pt-pt" : "Robin",
+      "ru-ru" : "Зарянка",
+      "th-th" : "Robin",
+      "vi-vn" : "Robin",
+      "zh-cn" : "知更鸟",
+      "zh-tw" : "知更鳥"
+    },
+    "nameTextMapHash" : 1578737318,
+    "rank" : 5
+  },
+  "1310" : {
+    "id" : 1310,
+    "l10nMap" : {
+      "de-de" : "Glühwürmchen",
+      "en-us" : "Firefly",
+      "es-es" : "Luciérnaga",
+      "fr-fr" : "Luciole",
+      "id-id" : "Firefly",
+      "ja-jp" : "ホタル",
+      "ko-kr" : "반디",
+      "pt-pt" : "Vaga-lume",
+      "ru-ru" : "Светлячок",
+      "th-th" : "Firefly",
+      "vi-vn" : "Firefly",
+      "zh-cn" : "流萤",
+      "zh-tw" : "流螢"
+    },
+    "nameTextMapHash" : -793915676,
+    "rank" : 5
+  },
+  "1312" : {
+    "id" : 1312,
+    "l10nMap" : {
+      "de-de" : "Misha",
+      "en-us" : "Misha",
+      "es-es" : "Misha",
+      "fr-fr" : "Micha",
+      "id-id" : "Misha",
+      "ja-jp" : "ミーシャ",
+      "ko-kr" : "미샤",
+      "pt-pt" : "Misha",
+      "ru-ru" : "Миша",
+      "th-th" : "Misha",
+      "vi-vn" : "Misha",
+      "zh-cn" : "米沙",
+      "zh-tw" : "米沙"
+    },
+    "nameTextMapHash" : -1956715090,
+    "rank" : 4
+  },
+  "1314" : {
+    "id" : 1314,
+    "l10nMap" : {
+      "de-de" : "Jade",
+      "en-us" : "Jade",
+      "es-es" : "Jade",
+      "fr-fr" : "Jade",
+      "id-id" : "Jade",
+      "ja-jp" : "ジェイド",
+      "ko-kr" : "제이드",
+      "pt-pt" : "Jade",
+      "ru-ru" : "Яшма",
+      "th-th" : "Jade",
+      "vi-vn" : "Jade",
+      "zh-cn" : "翡翠",
+      "zh-tw" : "翡翠"
+    },
+    "nameTextMapHash" : 1531683152,
+    "rank" : 5
+  },
+  "1315" : {
+    "id" : 1315,
+    "l10nMap" : {
+      "de-de" : "Boothill",
+      "en-us" : "Boothill",
+      "es-es" : "Boothill",
+      "fr-fr" : "Le Fossoyeur",
+      "id-id" : "Boothill",
+      "ja-jp" : "ブートヒル",
+      "ko-kr" : "부트힐",
+      "pt-pt" : "Boothill",
+      "ru-ru" : "Бутхилл",
+      "th-th" : "Boothill",
+      "vi-vn" : "Boothill",
+      "zh-cn" : "波提欧",
+      "zh-tw" : "波提歐"
+    },
+    "nameTextMapHash" : -34400789,
+    "rank" : 5
+  },
+  "8001" : {
+    "id" : 8001,
+    "l10nMap" : {
+      "de-de" : "Caelus",
+      "en-us" : "Caelus",
+      "es-es" : "Caelus",
+      "fr-fr" : "Caelus",
+      "id-id" : "Caelus",
+      "ja-jp" : "穹",
+      "ko-kr" : "카일루스",
+      "pt-pt" : "Caelus",
+      "ru-ru" : "Келус",
+      "th-th" : "Caelus",
+      "vi-vn" : "Caelus",
+      "zh-cn" : "穹",
+      "zh-tw" : "穹"
+    },
+    "nameTextMapHash" : -531793818,
+    "rank" : 5
+  },
+  "8002" : {
+    "id" : 8002,
+    "l10nMap" : {
+      "de-de" : "Stella",
+      "en-us" : "Stelle",
+      "es-es" : "Estela",
+      "fr-fr" : "Stelle",
+      "id-id" : "Stelle",
+      "ja-jp" : "星",
+      "ko-kr" : "스텔레",
+      "pt-pt" : "Stelle",
+      "ru-ru" : "Стелла",
+      "th-th" : "Stelle",
+      "vi-vn" : "Stelle",
+      "zh-cn" : "星",
+      "zh-tw" : "星"
+    },
+    "nameTextMapHash" : -935078345,
+    "rank" : 5
+  },
+  "8003" : {
+    "id" : 8003,
+    "l10nMap" : {
+      "de-de" : "Caelus",
+      "en-us" : "Caelus",
+      "es-es" : "Caelus",
+      "fr-fr" : "Caelus",
+      "id-id" : "Caelus",
+      "ja-jp" : "穹",
+      "ko-kr" : "카일루스",
+      "pt-pt" : "Caelus",
+      "ru-ru" : "Келус",
+      "th-th" : "Caelus",
+      "vi-vn" : "Caelus",
+      "zh-cn" : "穹",
+      "zh-tw" : "穹"
+    },
+    "nameTextMapHash" : 631005596,
+    "rank" : 5
+  },
+  "8004" : {
+    "id" : 8004,
+    "l10nMap" : {
+      "de-de" : "Stella",
+      "en-us" : "Stelle",
+      "es-es" : "Estela",
+      "fr-fr" : "Stelle",
+      "id-id" : "Stelle",
+      "ja-jp" : "星",
+      "ko-kr" : "스텔레",
+      "pt-pt" : "Stelle",
+      "ru-ru" : "Стелла",
+      "th-th" : "Stelle",
+      "vi-vn" : "Stelle",
+      "zh-cn" : "星",
+      "zh-tw" : "星"
+    },
+    "nameTextMapHash" : 227721069,
+    "rank" : 5
+  },
+  "8005" : {
+    "id" : 8005,
+    "l10nMap" : {
+      "de-de" : "Caelus",
+      "en-us" : "Caelus",
+      "es-es" : "Caelus",
+      "fr-fr" : "Caelus",
+      "id-id" : "Caelus",
+      "ja-jp" : "穹",
+      "ko-kr" : "카일루스",
+      "pt-pt" : "Caelus",
+      "ru-ru" : "Келус",
+      "th-th" : "Caelus",
+      "vi-vn" : "Caelus",
+      "zh-cn" : "穹",
+      "zh-tw" : "穹"
+    },
+    "nameTextMapHash" : 1793805010,
+    "rank" : 5
+  },
+  "8006" : {
+    "id" : 8006,
+    "l10nMap" : {
+      "de-de" : "Stella",
+      "en-us" : "Stelle",
+      "es-es" : "Estela",
+      "fr-fr" : "Stelle",
+      "id-id" : "Stelle",
+      "ja-jp" : "星",
+      "ko-kr" : "스텔레",
+      "pt-pt" : "Stelle",
+      "ru-ru" : "Стелла",
+      "th-th" : "Stelle",
+      "vi-vn" : "Stelle",
+      "zh-cn" : "星",
+      "zh-tw" : "星"
+    },
+    "nameTextMapHash" : 1390520483,
+    "rank" : 5
+  },
+  "20000" : {
+    "id" : 20000,
+    "l10nMap" : {
+      "de-de" : "Pfeile",
+      "en-us" : "Arrows",
+      "es-es" : "Flechas",
+      "fr-fr" : "Flèches",
+      "id-id" : "Arrows",
+      "ja-jp" : "矢じり",
+      "ko-kr" : "화살촉",
+      "pt-pt" : "Flechas",
+      "ru-ru" : "Стрелы",
+      "th-th" : "Arrows",
+      "vi-vn" : "Mũi Tên",
+      "zh-cn" : "锋镝",
+      "zh-tw" : "鋒鏑"
+    },
+    "nameTextMapHash" : -234052537,
+    "rank" : 3
+  },
+  "20001" : {
+    "id" : 20001,
+    "l10nMap" : {
+      "de-de" : "Füllhorn",
+      "en-us" : "Cornucopia",
+      "es-es" : "Cornucopia",
+      "fr-fr" : "Corne d'abondance",
+      "id-id" : "Cornucopia",
+      "ja-jp" : "物穣",
+      "ko-kr" : "풍작",
+      "pt-pt" : "Cornucópia",
+      "ru-ru" : "Рог изобилия",
+      "th-th" : "Cornucopia",
+      "vi-vn" : "Dồi Dào",
+      "zh-cn" : "物穰",
+      "zh-tw" : "物穰"
+    },
+    "nameTextMapHash" : -234052538,
+    "rank" : 3
+  },
+  "20002" : {
+    "id" : 20002,
+    "l10nMap" : {
+      "de-de" : "Zusammenbruch des Himmels",
+      "en-us" : "Collapsing Sky",
+      "es-es" : "Colapso celeste",
+      "fr-fr" : "Effondrement céleste",
+      "id-id" : "Collapsing Sky",
+      "ja-jp" : "天傾",
+      "ko-kr" : "천경",
+      "pt-pt" : "Céu Colapsado",
+      "ru-ru" : "Падение небес",
+      "th-th" : "Collapsing Sky",
+      "vi-vn" : "Trời Sập",
+      "zh-cn" : "天倾",
+      "zh-tw" : "天傾"
+    },
+    "nameTextMapHash" : -234052535,
+    "rank" : 3
+  },
+  "20003" : {
+    "id" : 20003,
+    "l10nMap" : {
+      "de-de" : "Bernstein",
+      "en-us" : "Amber",
+      "es-es" : "Ámbar",
+      "fr-fr" : "Ambre",
+      "id-id" : "Amber",
+      "ja-jp" : "琥珀",
+      "ko-kr" : "앰버",
+      "pt-pt" : "Âmbar",
+      "ru-ru" : "Янтарь",
+      "th-th" : "Amber",
+      "vi-vn" : "Hổ Phách",
+      "zh-cn" : "琥珀",
+      "zh-tw" : "琥珀"
+    },
+    "nameTextMapHash" : -234052536,
+    "rank" : 3
+  },
+  "20004" : {
+    "id" : 20004,
+    "l10nMap" : {
+      "de-de" : "Leere",
+      "en-us" : "Void",
+      "es-es" : "Vacío",
+      "fr-fr" : "Néant",
+      "id-id" : "Void",
+      "ja-jp" : "幽邃",
+      "ko-kr" : "그윽",
+      "pt-pt" : "Vazio",
+      "ru-ru" : "Пустота",
+      "th-th" : "Void",
+      "vi-vn" : "Tĩnh Mịch",
+      "zh-cn" : "幽邃",
+      "zh-tw" : "幽邃"
+    },
+    "nameTextMapHash" : -234052541,
+    "rank" : 3
+  },
+  "20005" : {
+    "id" : 20005,
+    "l10nMap" : {
+      "de-de" : "Chor",
+      "en-us" : "Chorus",
+      "es-es" : "Coro",
+      "fr-fr" : "Chœur",
+      "id-id" : "Chorus",
+      "ja-jp" : "斉頌",
+      "ko-kr" : "합창",
+      "pt-pt" : "Refrão",
+      "ru-ru" : "Хор",
+      "th-th" : "Chorus",
+      "vi-vn" : "Điệp Khúc",
+      "zh-cn" : "齐颂",
+      "zh-tw" : "齊頌"
+    },
+    "nameTextMapHash" : -234052542,
+    "rank" : 3
+  },
+  "20006" : {
+    "id" : 20006,
+    "l10nMap" : {
+      "de-de" : "Datenbank",
+      "en-us" : "Data Bank",
+      "es-es" : "Archivos",
+      "fr-fr" : "Banque de données",
+      "id-id" : "Data Bank",
+      "ja-jp" : "アーカイブ",
+      "ko-kr" : "아카이브",
+      "pt-pt" : "Banco de Dados",
+      "ru-ru" : "База данных",
+      "th-th" : "Data Bank",
+      "vi-vn" : "Kho Lưu Trữ",
+      "zh-cn" : "智库",
+      "zh-tw" : "智庫"
+    },
+    "nameTextMapHash" : -234052539,
+    "rank" : 3
+  },
+  "20007" : {
+    "id" : 20007,
+    "l10nMap" : {
+      "de-de" : "Wurfpfeil",
+      "en-us" : "Darting Arrow",
+      "es-es" : "Flecha voladora",
+      "fr-fr" : "Flèche plongeante",
+      "id-id" : "Darting Arrow",
+      "ja-jp" : "離弦",
+      "ko-kr" : "시위를 떠난 화살",
+      "pt-pt" : "Flecha Veloz",
+      "ru-ru" : "Выпущенная стрела",
+      "th-th" : "Darting Arrow",
+      "vi-vn" : "Tên Bắn",
+      "zh-cn" : "离弦",
+      "zh-tw" : "離弦"
+    },
+    "nameTextMapHash" : -234052540,
+    "rank" : 3
+  },
+  "20008" : {
+    "id" : 20008,
+    "l10nMap" : {
+      "de-de" : "Feines Obst",
+      "en-us" : "Fine Fruit",
+      "es-es" : "Fruto excelente",
+      "fr-fr" : "Fruit délicat",
+      "id-id" : "Fine Fruit",
+      "ja-jp" : "嘉果",
+      "ko-kr" : "알찬 열매",
+      "pt-pt" : "Fruta Delicada",
+      "ru-ru" : "Спелый плод",
+      "th-th" : "Fine Fruit",
+      "vi-vn" : "Trái Ngọt",
+      "zh-cn" : "嘉果",
+      "zh-tw" : "嘉果"
+    },
+    "nameTextMapHash" : -234052545,
+    "rank" : 3
+  },
+  "20009" : {
+    "id" : 20009,
+    "l10nMap" : {
+      "de-de" : "Zerstörtes Zuhause",
+      "en-us" : "Shattered Home",
+      "es-es" : "Hogar destrozado",
+      "fr-fr" : "Demeure brisée",
+      "id-id" : "Shattered Home",
+      "ja-jp" : "楽壊",
+      "ko-kr" : "무너진 행복",
+      "pt-pt" : "Casa Destruída",
+      "ru-ru" : "Расколовшийся дом",
+      "th-th" : "Shattered Home",
+      "vi-vn" : "Đổ Nát",
+      "zh-cn" : "乐圮",
+      "zh-tw" : "樂圮"
+    },
+    "nameTextMapHash" : -234052546,
+    "rank" : 3
+  },
+  "20010" : {
+    "id" : 20010,
+    "l10nMap" : {
+      "de-de" : "Verteidigung",
+      "en-us" : "Defense",
+      "es-es" : "Blindaje",
+      "fr-fr" : "Défense",
+      "id-id" : "Defense",
+      "ja-jp" : "防衛",
+      "ko-kr" : "수비",
+      "pt-pt" : "Defesa",
+      "ru-ru" : "Оборона",
+      "th-th" : "Defense",
+      "vi-vn" : "Phòng Thủ",
+      "zh-cn" : "戍御",
+      "zh-tw" : "戍禦"
+    },
+    "nameTextMapHash" : 1332031404,
+    "rank" : 3
+  },
+  "20011" : {
+    "id" : 20011,
+    "l10nMap" : {
+      "de-de" : "Schleife",
+      "en-us" : "Loop",
+      "es-es" : "Bucle",
+      "fr-fr" : "Boucle",
+      "id-id" : "Loop",
+      "ja-jp" : "淵環",
+      "ko-kr" : "심연의 고리",
+      "pt-pt" : "Loop",
+      "ru-ru" : "Петля",
+      "th-th" : "Loop",
+      "vi-vn" : "Xoáy Ốc",
+      "zh-cn" : "渊环",
+      "zh-tw" : "淵環"
+    },
+    "nameTextMapHash" : 1332031403,
+    "rank" : 3
+  },
+  "20012" : {
+    "id" : 20012,
+    "l10nMap" : {
+      "de-de" : "Einklang der Zahnräder",
+      "en-us" : "Meshing Cogs",
+      "es-es" : "Rueda mecánica",
+      "fr-fr" : "Roues d'engrenage",
+      "id-id" : "Meshing Cogs",
+      "ja-jp" : "輪契",
+      "ko-kr" : "맞물린 톱니",
+      "pt-pt" : "Rede de Engrenagens",
+      "ru-ru" : "Сцепленные шестерни",
+      "th-th" : "Meshing Cogs",
+      "vi-vn" : "Luân Hồi",
+      "zh-cn" : "轮契",
+      "zh-tw" : "輪契"
+    },
+    "nameTextMapHash" : 1332031406,
+    "rank" : 3
+  },
+  "20013" : {
+    "id" : 20013,
+    "l10nMap" : {
+      "de-de" : "Generalschlüssel",
+      "en-us" : "Passkey",
+      "es-es" : "Llave maestra",
+      "fr-fr" : "Clé du savoir",
+      "id-id" : "Passkey",
+      "ja-jp" : "霊鍵",
+      "ko-kr" : "영험한 열쇠",
+      "pt-pt" : "Chave Mestra",
+      "ru-ru" : "Ключ от всех дверей",
+      "th-th" : "Passkey",
+      "vi-vn" : "Chìa Khóa Linh Hồn",
+      "zh-cn" : "灵钥",
+      "zh-tw" : "靈鑰"
+    },
+    "nameTextMapHash" : 1332031405,
+    "rank" : 3
+  },
+  "20014" : {
+    "id" : 20014,
+    "l10nMap" : {
+      "de-de" : "Gegensätzliches",
+      "en-us" : "Adversarial",
+      "es-es" : "Antagonista",
+      "fr-fr" : "Résistance",
+      "id-id" : "Adversarial",
+      "ja-jp" : "相抗",
+      "ko-kr" : "대립",
+      "pt-pt" : "Antagonista",
+      "ru-ru" : "Противостояние",
+      "th-th" : "Adversarial",
+      "vi-vn" : "Đối Kháng",
+      "zh-cn" : "相抗",
+      "zh-tw" : "相抗"
+    },
+    "nameTextMapHash" : 1332031400,
+    "rank" : 3
+  },
+  "20015" : {
+    "id" : 20015,
+    "l10nMap" : {
+      "de-de" : "Aufschwung",
+      "en-us" : "Multiplication",
+      "es-es" : "Multiplicación",
+      "fr-fr" : "Démultiplication",
+      "id-id" : "Multiplication",
+      "ja-jp" : "蕃殖",
+      "ko-kr" : "증식",
+      "pt-pt" : "Multiplicação",
+      "ru-ru" : "Размножение",
+      "th-th" : "Multiplication",
+      "vi-vn" : "Sinh Sôi",
+      "zh-cn" : "蕃息",
+      "zh-tw" : "蕃息"
+    },
+    "nameTextMapHash" : 1332031399,
+    "rank" : 3
+  },
+  "20016" : {
+    "id" : 20016,
+    "l10nMap" : {
+      "de-de" : "Gemeinsamer Untergang",
+      "en-us" : "Mutual Demise",
+      "es-es" : "Final mutuo",
+      "fr-fr" : "Destruction mutuelle",
+      "id-id" : "Mutual Demise",
+      "ja-jp" : "倶歿",
+      "ko-kr" : "전멸",
+      "pt-pt" : "Morte Mútua",
+      "ru-ru" : "Совместная гибель",
+      "th-th" : "Mutual Demise",
+      "vi-vn" : "Hủy Diệt Tất Cả",
+      "zh-cn" : "俱殁",
+      "zh-tw" : "俱歿"
+    },
+    "nameTextMapHash" : 1332031402,
+    "rank" : 3
+  },
+  "20017" : {
+    "id" : 20017,
+    "l10nMap" : {
+      "de-de" : "Pionierarbeit",
+      "en-us" : "Pioneering",
+      "es-es" : "Colonización",
+      "fr-fr" : "Expansion",
+      "id-id" : "Pioneering",
+      "ja-jp" : "新天地",
+      "ko-kr" : "강토 개척",
+      "pt-pt" : "Pioneirismo",
+      "ru-ru" : "Новые горизонты",
+      "th-th" : "Pioneering",
+      "vi-vn" : "Mở Rộng",
+      "zh-cn" : "开疆",
+      "zh-tw" : "開疆"
+    },
+    "nameTextMapHash" : 1332031401,
+    "rank" : 3
+  },
+  "20018" : {
+    "id" : 20018,
+    "l10nMap" : {
+      "de-de" : "Verborgener Schatten",
+      "en-us" : "Hidden Shadow",
+      "es-es" : "Sombra oculta",
+      "fr-fr" : "Ombre cachée",
+      "id-id" : "Hidden Shadow",
+      "ja-jp" : "匿影",
+      "ko-kr" : "숨은 그림자",
+      "pt-pt" : "Sombra Oculta",
+      "ru-ru" : "Скрытая тень",
+      "th-th" : "Hidden Shadow",
+      "vi-vn" : "Bóng Ẩn",
+      "zh-cn" : "匿影",
+      "zh-tw" : "匿影"
+    },
+    "nameTextMapHash" : 1332031396,
+    "rank" : 3
+  },
+  "20019" : {
+    "id" : 20019,
+    "l10nMap" : {
+      "de-de" : "Vermittlung",
+      "en-us" : "Mediation",
+      "es-es" : "Mediación",
+      "fr-fr" : "Harmonisation",
+      "id-id" : "Mediation",
+      "ja-jp" : "同調",
+      "ko-kr" : "어울림",
+      "pt-pt" : "Mediação",
+      "ru-ru" : "Созвучие",
+      "th-th" : "Mediation",
+      "vi-vn" : "Hài Hòa",
+      "zh-cn" : "调和",
+      "zh-tw" : "調和"
+    },
+    "nameTextMapHash" : 1332031395,
+    "rank" : 3
+  },
+  "20020" : {
+    "id" : 20020,
+    "l10nMap" : {
+      "de-de" : "Weisheit",
+      "en-us" : "Sagacity",
+      "es-es" : "Sagacidad",
+      "fr-fr" : "Sagacité",
+      "id-id" : "Sagacity",
+      "ja-jp" : "見識",
+      "ko-kr" : "식견",
+      "pt-pt" : "Sagacidade",
+      "ru-ru" : "Проницательность",
+      "th-th" : "Sagacity",
+      "vi-vn" : "Thông Tuệ",
+      "zh-cn" : "睿见",
+      "zh-tw" : "睿見"
+    },
+    "nameTextMapHash" : 928746877,
+    "rank" : 3
+  },
+  "21000" : {
+    "id" : 21000,
+    "l10nMap" : {
+      "de-de" : "Ein Gespräch nach der OP",
+      "en-us" : "Post-Op Conversation",
+      "es-es" : "Conversación en el postoperatorio",
+      "fr-fr" : "Conversation post-opératoire",
+      "id-id" : "Post-Op Conversation",
+      "ja-jp" : "手術後の会話",
+      "ko-kr" : "수술 후의 대화",
+      "pt-pt" : "Conversa Pós-Operatória",
+      "ru-ru" : "Беседа после операции",
+      "th-th" : "Post-Op Conversation",
+      "vi-vn" : "Buổi Trò Chuyện Hậu Phẫu",
+      "zh-cn" : "一场术后对话",
+      "zh-tw" : "一場術後對話"
+    },
+    "nameTextMapHash" : 1352234380,
+    "rank" : 4
+  },
+  "21001" : {
+    "id" : 21001,
+    "l10nMap" : {
+      "de-de" : "Gute Nacht, schlaf schön",
+      "en-us" : "Good Night and Sleep Well",
+      "es-es" : "Buenas noches, que duermas bien",
+      "fr-fr" : "Bonne nuit et dors bien",
+      "id-id" : "Good Night and Sleep Well",
+      "ja-jp" : "おやすみなさいと寝顔",
+      "ko-kr" : "밤 인사와 잠든 얼굴",
+      "pt-pt" : "Boa Noite e Durma Bem",
+      "ru-ru" : "Спокойной ночи и мирного сна",
+      "th-th" : "Good Night and Sleep Well",
+      "vi-vn" : "Chúc Ngủ Ngon",
+      "zh-cn" : "晚安与睡颜",
+      "zh-tw" : "晚安與睡顏"
+    },
+    "nameTextMapHash" : 1352234379,
+    "rank" : 4
+  },
+  "21002" : {
+    "id" : 21002,
+    "l10nMap" : {
+      "de-de" : "Der erste Tag meines neuen Lebens",
+      "en-us" : "Day One of My New Life",
+      "es-es" : "El primer día del resto de mi vida",
+      "fr-fr" : "Premier jour de ma nouvelle vie",
+      "id-id" : "Day One of My New Life",
+      "ja-jp" : "余生の初日",
+      "ko-kr" : "여생의 첫날",
+      "pt-pt" : "Primeiro Dia da Minha Vida Nova",
+      "ru-ru" : "Первый день моей новой жизни",
+      "th-th" : "Day One of My New Life",
+      "vi-vn" : "Ngày Đầu Tiên",
+      "zh-cn" : "余生的第一天",
+      "zh-tw" : "餘生的第一天"
+    },
+    "nameTextMapHash" : 1352234382,
+    "rank" : 4
+  },
+  "21003" : {
+    "id" : 21003,
+    "l10nMap" : {
+      "de-de" : "Nur die Stille bleibt",
+      "en-us" : "Only Silence Remains",
+      "es-es" : "Solo queda silencio",
+      "fr-fr" : "Seul le silence subsiste",
+      "id-id" : "Only Silence Remains",
+      "ja-jp" : "沈黙のみ",
+      "ko-kr" : "침묵만이",
+      "pt-pt" : "Apenas o Silêncio Sobrou",
+      "ru-ru" : "Остаётся лишь тишина",
+      "th-th" : "Only Silence Remains",
+      "vi-vn" : "Sự Trầm Mặc Duy Nhất",
+      "zh-cn" : "唯有沉默",
+      "zh-tw" : "唯有沉默"
+    },
+    "nameTextMapHash" : 1352234381,
+    "rank" : 4
+  },
+  "21004" : {
+    "id" : 21004,
+    "l10nMap" : {
+      "de-de" : "Erinnerungen an die Vergangenheit",
+      "en-us" : "Memories of the Past",
+      "es-es" : "Imagen en el recuerdo",
+      "fr-fr" : "Souvenirs du passé",
+      "id-id" : "Memories of the Past",
+      "ja-jp" : "記憶の中の姿",
+      "ko-kr" : "기억 속 모습",
+      "pt-pt" : "Memórias do Passado",
+      "ru-ru" : "Воспоминания о прошлом",
+      "th-th" : "Memories of the Past",
+      "vi-vn" : "Dáng Hình Trong Ký Ức",
+      "zh-cn" : "记忆中的模样",
+      "zh-tw" : "記憶中的模樣"
+    },
+    "nameTextMapHash" : 1352234376,
+    "rank" : 4
+  },
+  "21005" : {
+    "id" : 21005,
+    "l10nMap" : {
+      "de-de" : "Die Maulwürfe heißen dich willkommen",
+      "en-us" : "The Moles Welcome You",
+      "es-es" : "Los Topos te dan la bienvenida",
+      "fr-fr" : "Bienvenue chez les Taupes",
+      "id-id" : "The Moles Welcome You",
+      "ja-jp" : "モグラ党へようこそ",
+      "ko-kr" : "두더지파가 환영해",
+      "pt-pt" : "As Toupeiras Te Dão Boas-vindas",
+      "ru-ru" : "Кроты приветствуют тебя",
+      "th-th" : "The Moles Welcome You",
+      "vi-vn" : "Băng Chuột Chũi Hoan Nghênh",
+      "zh-cn" : "鼹鼠党欢迎你",
+      "zh-tw" : "鼴鼠黨歡迎你"
+    },
+    "nameTextMapHash" : 1352234375,
+    "rank" : 4
+  },
+  "21006" : {
+    "id" : 21006,
+    "l10nMap" : {
+      "de-de" : "Die Geburt des Selbst",
+      "en-us" : "The Birth of the Self",
+      "es-es" : "El nacimiento del yo",
+      "fr-fr" : "La naissance du moi",
+      "id-id" : "The Birth of the Self",
+      "ja-jp" : "「私」の誕生",
+      "ko-kr" : "「나」의 탄생",
+      "pt-pt" : "Meu Próprio Nascimento",
+      "ru-ru" : "Зарождение себя",
+      "th-th" : "The Birth of the Self",
+      "vi-vn" : "Sự Ra Đời Của \"Tôi\"",
+      "zh-cn" : "「我」的诞生",
+      "zh-tw" : "「我」的誕生"
+    },
+    "nameTextMapHash" : 1352234378,
+    "rank" : 4
+  },
+  "21007" : {
+    "id" : 21007,
+    "l10nMap" : {
+      "de-de" : "Gefühl der Gemeinsamkeit",
+      "en-us" : "Shared Feeling",
+      "es-es" : "Sentimiento compartido",
+      "fr-fr" : "Sentiment partagé",
+      "id-id" : "Shared Feeling",
+      "ja-jp" : "同じ気持ち",
+      "ko-kr" : "같은 심정",
+      "pt-pt" : "Sentimento Compartilhado",
+      "ru-ru" : "Общие чувства",
+      "th-th" : "Shared Feeling",
+      "vi-vn" : "Cùng Một Tâm Trạng",
+      "zh-cn" : "同一种心情",
+      "zh-tw" : "同一種心情"
+    },
+    "nameTextMapHash" : 1352234377,
+    "rank" : 4
+  },
+  "21008" : {
+    "id" : 21008,
+    "l10nMap" : {
+      "de-de" : "Die Augen der Beute",
+      "en-us" : "Eyes of the Prey",
+      "es-es" : "Visión de presa",
+      "fr-fr" : "Les yeux de la proie",
+      "id-id" : "Eyes of the Prey",
+      "ja-jp" : "獲物の視線",
+      "ko-kr" : "사냥감의 시선",
+      "pt-pt" : "Olhos da Presa",
+      "ru-ru" : "Взгляд жертвы",
+      "th-th" : "Eyes of the Prey",
+      "vi-vn" : "Tầm Mắt Của Con Mồi",
+      "zh-cn" : "猎物的视线",
+      "zh-tw" : "獵物的視線"
+    },
+    "nameTextMapHash" : 1352234372,
+    "rank" : 4
+  },
+  "21009" : {
+    "id" : 21009,
+    "l10nMap" : {
+      "de-de" : "Landaus Wahl",
+      "en-us" : "Landau's Choice",
+      "es-es" : "La elección de Landau",
+      "fr-fr" : "Le choix de Landau",
+      "id-id" : "Landau's Choice",
+      "ja-jp" : "ランドゥーの選択",
+      "ko-kr" : "랜도의 선택",
+      "pt-pt" : "A Escolha dos Landau",
+      "ru-ru" : "Выбор Ландау",
+      "th-th" : "Landau's Choice",
+      "vi-vn" : "Sự Lựa Chọn Của Landau",
+      "zh-cn" : "朗道的选择",
+      "zh-tw" : "朗道的選擇"
+    },
+    "nameTextMapHash" : 1352234371,
+    "rank" : 4
+  },
+  "21010" : {
+    "id" : 21010,
+    "l10nMap" : {
+      "de-de" : "Schwertkampf",
+      "en-us" : "Swordplay",
+      "es-es" : "Juego de espadas",
+      "fr-fr" : "Jeu d'épée",
+      "id-id" : "Swordplay",
+      "ja-jp" : "論剣",
+      "ko-kr" : "논검",
+      "pt-pt" : "Jogo de Espadas",
+      "ru-ru" : "Фехтование",
+      "th-th" : "Swordplay",
+      "vi-vn" : "Luận Kiếm",
+      "zh-cn" : "论剑",
+      "zh-tw" : "論劍"
+    },
+    "nameTextMapHash" : -213849561,
+    "rank" : 4
+  },
+  "21011" : {
+    "id" : 21011,
+    "l10nMap" : {
+      "de-de" : "Planetarisches Rendezvous",
+      "en-us" : "Planetary Rendezvous",
+      "es-es" : "Encuentro planetario",
+      "fr-fr" : "Rendez-vous avec les planètes",
+      "id-id" : "Planetary Rendezvous",
+      "ja-jp" : "惑星との出会い",
+      "ko-kr" : "행성과의 만남",
+      "pt-pt" : "Encontro Planetário",
+      "ru-ru" : "Свидание со звёздами",
+      "th-th" : "Planetary Rendezvous",
+      "vi-vn" : "Điểm Hẹn Hành Tinh",
+      "zh-cn" : "与行星相会",
+      "zh-tw" : "與行星相會"
+    },
+    "nameTextMapHash" : -213849562,
+    "rank" : 4
+  },
+  "21012" : {
+    "id" : 21012,
+    "l10nMap" : {
+      "de-de" : "Ein geheimes Gelübde",
+      "en-us" : "A Secret Vow",
+      "es-es" : "Juramento secreto",
+      "fr-fr" : "Vœu secret",
+      "id-id" : "A Secret Vow",
+      "ja-jp" : "秘密の誓い",
+      "ko-kr" : "비밀 맹세",
+      "pt-pt" : "Um Voto Secreto",
+      "ru-ru" : "Тайная клятва",
+      "th-th" : "A Secret Vow",
+      "vi-vn" : "Lời Thề Bí Mật",
+      "zh-cn" : "秘密誓心",
+      "zh-tw" : "秘密誓心"
+    },
+    "nameTextMapHash" : -213849559,
+    "rank" : 4
+  },
+  "21013" : {
+    "id" : 21013,
+    "l10nMap" : {
+      "de-de" : "Die Welt in Aufruhr versetzen",
+      "en-us" : "Make the World Clamor",
+      "es-es" : "Que el mundo clame",
+      "fr-fr" : "Clameur du monde",
+      "id-id" : "Make the World Clamor",
+      "ja-jp" : "この世界に喧噪を",
+      "ko-kr" : "세상을 진정시키지 마",
+      "pt-pt" : "Faça o Mundo Clamar",
+      "ru-ru" : "Пусть мир не стихает",
+      "th-th" : "Make the World Clamor",
+      "vi-vn" : "Đừng Để Thế Giới Lạnh Lẽo",
+      "zh-cn" : "别让世界静下来",
+      "zh-tw" : "別讓世界靜下來"
+    },
+    "nameTextMapHash" : -213849560,
+    "rank" : 4
+  },
+  "21014" : {
+    "id" : 21014,
+    "l10nMap" : {
+      "de-de" : "Perfektes Timing",
+      "en-us" : "Perfect Timing",
+      "es-es" : "El momento oportuno",
+      "fr-fr" : "Timing parfait",
+      "id-id" : "Perfect Timing",
+      "ja-jp" : "今が丁度",
+      "ko-kr" : "알맞은 타이밍",
+      "pt-pt" : "Momento Perfeito",
+      "ru-ru" : "Идеальное время",
+      "th-th" : "Perfect Timing",
+      "vi-vn" : "Vừa Đúng Lúc",
+      "zh-cn" : "此时恰好",
+      "zh-tw" : "此時恰好"
+    },
+    "nameTextMapHash" : -213849565,
+    "rank" : 4
+  },
+  "21015" : {
+    "id" : 21015,
+    "l10nMap" : {
+      "de-de" : "Die Entschlusskraft glitzert als Schweißperlen",
+      "en-us" : "Resolution Shines As Pearls of Sweat",
+      "es-es" : "Determinación reluciente",
+      "fr-fr" : "Résolution brillante",
+      "id-id" : "Resolution Shines As Pearls of Sweat",
+      "ja-jp" : "決意は汗のように輝く",
+      "ko-kr" : "땀방울처럼 빛나는 결심",
+      "pt-pt" : "A Determinação Brilha Como Gotas de Suor",
+      "ru-ru" : "Решимость блестит подобно жемчужинам пота",
+      "th-th" : "Resolution Shines As Pearls of Sweat",
+      "vi-vn" : "Sự Quyết Tâm Như Giọt Mồ Hôi Lấp Lánh",
+      "zh-cn" : "决心如汗珠般闪耀",
+      "zh-tw" : "決心如汗珠般閃耀"
+    },
+    "nameTextMapHash" : -213849566,
+    "rank" : 4
+  },
+  "21016" : {
+    "id" : 21016,
+    "l10nMap" : {
+      "de-de" : "Trend des universellen Markts",
+      "en-us" : "Trend of the Universal Market",
+      "es-es" : "Tendencias del mercado universal",
+      "fr-fr" : "Tendance du marché cosmique",
+      "id-id" : "Trend of the Universal Market",
+      "ja-jp" : "星間市場のトレンド",
+      "ko-kr" : "우주 시장 동향",
+      "pt-pt" : "Tendência do Mercado Universal",
+      "ru-ru" : "Тренд галактического рынка",
+      "th-th" : "Trend of the Universal Market",
+      "vi-vn" : "Xu Hướng Thị Trường Vũ Trụ",
+      "zh-cn" : "宇宙市场趋势",
+      "zh-tw" : "宇宙市場趨勢"
+    },
+    "nameTextMapHash" : -213849563,
+    "rank" : 4
+  },
+  "21017" : {
+    "id" : 21017,
+    "l10nMap" : {
+      "de-de" : "Abonniere für mehr!",
+      "en-us" : "Subscribe for More!",
+      "es-es" : "¡Suscríbanse a mi canal!",
+      "fr-fr" : "Abonnez-vous !",
+      "id-id" : "Subscribe for More!",
+      "ja-jp" : "フォローして！",
+      "ko-kr" : "팔로우를 부탁해!",
+      "pt-pt" : "Inscreva-se Para Mais!",
+      "ru-ru" : "Больше подписок!",
+      "th-th" : "Subscribe for More!",
+      "vi-vn" : "Hãy Theo Dõi Nào!",
+      "zh-cn" : "点个关注吧！",
+      "zh-tw" : "按個追蹤吧！"
+    },
+    "nameTextMapHash" : -213849564,
+    "rank" : 4
+  },
+  "21018" : {
+    "id" : 21018,
+    "l10nMap" : {
+      "de-de" : "Tanz! Tanz! Tanz!",
+      "en-us" : "Dance! Dance! Dance!",
+      "es-es" : "¡A bailar!",
+      "fr-fr" : "Ça n'arrête pas de danser !",
+      "id-id" : "Dance! Dance! Dance!",
+      "ja-jp" : "ダンス！ダンス！ダンス！",
+      "ko-kr" : "댄스! 댄스! 댄스!",
+      "pt-pt" : "Dance! Dance! Dance!",
+      "ru-ru" : "Танцуй! Танцуй! Танцуй!",
+      "th-th" : "Dance! Dance! Dance!",
+      "vi-vn" : "Múa! Múa! Múa!",
+      "zh-cn" : "舞！舞！舞！",
+      "zh-tw" : "舞！舞！舞！"
+    },
+    "nameTextMapHash" : -213849569,
+    "rank" : 4
+  },
+  "21019" : {
+    "id" : 21019,
+    "l10nMap" : {
+      "de-de" : "Unter dem blauen Himmel",
+      "en-us" : "Under the Blue Sky",
+      "es-es" : "Bajo el cielo azul",
+      "fr-fr" : "Sous le ciel bleu",
+      "id-id" : "Under the Blue Sky",
+      "ja-jp" : "青空の下で",
+      "ko-kr" : "푸른 하늘 아래",
+      "pt-pt" : "Sob o Céu Azul",
+      "ru-ru" : "Под голубым небом",
+      "th-th" : "Under the Blue Sky",
+      "vi-vn" : "Dưới Bầu Trời Xanh",
+      "zh-cn" : "在蓝天下",
+      "zh-tw" : "在藍天下"
+    },
+    "nameTextMapHash" : -213849570,
+    "rank" : 4
+  },
+  "21020" : {
+    "id" : 21020,
+    "l10nMap" : {
+      "de-de" : "Die Rast der Genies",
+      "en-us" : "Geniuses' Repose",
+      "es-es" : "El reposo de los genios",
+      "fr-fr" : "Repos des génies",
+      "id-id" : "Geniuses' Repose",
+      "ja-jp" : "天才たちの休息",
+      "ko-kr" : "천재들의 휴식",
+      "pt-pt" : "Repouso dos Gênios",
+      "ru-ru" : "Отдых гениев",
+      "th-th" : "Geniuses' Repose",
+      "vi-vn" : "Sự Nghỉ Ngơi Của Thiên Tài",
+      "zh-cn" : "天才们的休憩",
+      "zh-tw" : "天才們的休憩"
+    },
+    "nameTextMapHash" : -1779933502,
+    "rank" : 4
+  },
+  "21021" : {
+    "id" : 21021,
+    "l10nMap" : {
+      "de-de" : "Quid pro quo",
+      "en-us" : "Quid Pro Quo",
+      "es-es" : "Intercambio equivalente",
+      "fr-fr" : "Échange de bons procédés",
+      "id-id" : "Quid Pro Quo",
+      "ja-jp" : "等価交換",
+      "ko-kr" : "등가교환",
+      "pt-pt" : "Quid Pro Quo",
+      "ru-ru" : "Равноценный обмен",
+      "th-th" : "Quid Pro Quo",
+      "vi-vn" : "Đổi Ngang Giá",
+      "zh-cn" : "等价交换",
+      "zh-tw" : "等價交換"
+    },
+    "nameTextMapHash" : -1779933503,
+    "rank" : 4
+  },
+  "21022" : {
+    "id" : 21022,
+    "l10nMap" : {
+      "de-de" : "Fermate",
+      "en-us" : "Fermata",
+      "es-es" : "Calderón",
+      "fr-fr" : "Point d'orgue",
+      "id-id" : "Fermata",
+      "ja-jp" : "フェルマータ",
+      "ko-kr" : "페르마타",
+      "pt-pt" : "Fermata",
+      "ru-ru" : "Фермата",
+      "th-th" : "Fermata",
+      "vi-vn" : "Ký Hiệu Kéo Dài",
+      "zh-cn" : "延长记号",
+      "zh-tw" : "延長記號"
+    },
+    "nameTextMapHash" : -1779933500,
+    "rank" : 4
+  },
+  "21023" : {
+    "id" : 21023,
+    "l10nMap" : {
+      "de-de" : "Wir sind Wildfeuer",
+      "en-us" : "We Are Wildfire",
+      "es-es" : "Somos Llamarada",
+      "fr-fr" : "On est les Feux sauvages",
+      "id-id" : "We Are Wildfire",
+      "ja-jp" : "我ら地炎",
+      "ko-kr" : "우리는 와일드 파이어",
+      "pt-pt" : "Somos Fogo Vivo",
+      "ru-ru" : "Мы - Дикий Огонь",
+      "th-th" : "We Are Wildfire",
+      "vi-vn" : "Chúng Ta Là Lửa Ngầm",
+      "zh-cn" : "我们是地火",
+      "zh-tw" : "我們是地火"
+    },
+    "nameTextMapHash" : -1779933501,
+    "rank" : 4
+  },
+  "21024" : {
+    "id" : 21024,
+    "l10nMap" : {
+      "de-de" : "Flüsse plätschern im Frühling",
+      "en-us" : "River Flows in Spring",
+      "es-es" : "El río nace en primavera",
+      "fr-fr" : "Une rivière au printemps",
+      "id-id" : "River Flows in Spring",
+      "ja-jp" : "春水に初生する",
+      "ko-kr" : "움트는 봄물",
+      "pt-pt" : "O Rio Corre na Primavera",
+      "ru-ru" : "Весенние потоки рек",
+      "th-th" : "River Flows in Spring",
+      "vi-vn" : "Làn Nước Xuân Xuất Hiện",
+      "zh-cn" : "春水初生",
+      "zh-tw" : "春水初生"
+    },
+    "nameTextMapHash" : -1779933506,
+    "rank" : 4
+  },
+  "21025" : {
+    "id" : 21025,
+    "l10nMap" : {
+      "de-de" : "Vergangenheit und Zukunft",
+      "en-us" : "Past and Future",
+      "es-es" : "El pasado y el futuro",
+      "fr-fr" : "Passé et futur",
+      "id-id" : "Past and Future",
+      "ja-jp" : "過去と未来",
+      "ko-kr" : "과거와 미래",
+      "pt-pt" : "Passado e Futuro",
+      "ru-ru" : "Прошлое и будущее",
+      "th-th" : "Past and Future",
+      "vi-vn" : "Quá Khứ Tương Lai",
+      "zh-cn" : "过往未来",
+      "zh-tw" : "過往未來"
+    },
+    "nameTextMapHash" : -1779933507,
+    "rank" : 4
+  },
+  "21026" : {
+    "id" : 21026,
+    "l10nMap" : {
+      "de-de" : "Wuff! Zeit zum Laufen!",
+      "en-us" : "Woof! Walk Time!",
+      "es-es" : "¡Guau! ¡Hora de pasear!",
+      "fr-fr" : "Ouaf ! C'est l'heure de la promenade !",
+      "id-id" : "Woof! Walk Time!",
+      "ja-jp" : "ワン！散歩の時間！",
+      "ko-kr" : "멍! 산책 시간!",
+      "pt-pt" : "Au! Hora de Passear!",
+      "ru-ru" : "Гав! Время прогулок!",
+      "th-th" : "Woof! Walk Time!",
+      "vi-vn" : "Gâu! Thời Gian Tản Bộ",
+      "zh-cn" : "汪！散步时间！",
+      "zh-tw" : "汪！散步時間！"
+    },
+    "nameTextMapHash" : -1779933504,
+    "rank" : 4
+  },
+  "21027" : {
+    "id" : 21027,
+    "l10nMap" : {
+      "de-de" : "Die Ernsthaftigkeit des Frühstücks",
+      "en-us" : "The Seriousness of Breakfast",
+      "es-es" : "La solemnidad del desayuno",
+      "fr-fr" : "Le petit-déjeuner, c'est sacré",
+      "id-id" : "The Seriousness of Breakfast",
+      "ja-jp" : "朝食の儀式感",
+      "ko-kr" : "느낌 있는 아침 식사 루틴",
+      "pt-pt" : "A Solenidade do Café da Manhã",
+      "ru-ru" : "Важность завтрака",
+      "th-th" : "The Seriousness of Breakfast",
+      "vi-vn" : "Bữa Sáng Đúng Điệu",
+      "zh-cn" : "早餐的仪式感",
+      "zh-tw" : "早餐的儀式感"
+    },
+    "nameTextMapHash" : -1779933505,
+    "rank" : 4
+  },
+  "21028" : {
+    "id" : 21028,
+    "l10nMap" : {
+      "de-de" : "Warme Nächte dauern nicht lange",
+      "en-us" : "Warmth Shortens Cold Nights",
+      "es-es" : "Las noches cálidas no duran",
+      "fr-fr" : "Chaleur au cœur de la nuit froide",
+      "id-id" : "Warmth Shortens Cold Nights",
+      "ja-jp" : "暖かい夜は長くない",
+      "ko-kr" : "따듯한 밤은 길지 않고",
+      "pt-pt" : "O Calor Encurta as Noites Geladas",
+      "ru-ru" : "Холодные ночи короче, когда ты рядом",
+      "th-th" : "Warmth Shortens Cold Nights",
+      "vi-vn" : "Đêm Ấm Sẽ Chóng Qua",
+      "zh-cn" : "暖夜不会漫长",
+      "zh-tw" : "暖夜不會漫長"
+    },
+    "nameTextMapHash" : -1779933510,
+    "rank" : 4
+  },
+  "21029" : {
+    "id" : 21029,
+    "l10nMap" : {
+      "de-de" : "Wir werden uns wiedersehen",
+      "en-us" : "We Will Meet Again",
+      "es-es" : "Volveremos a encontrarnos",
+      "fr-fr" : "Ce n'est que partie remise",
+      "id-id" : "We Will Meet Again",
+      "ja-jp" : "またお会いしましょう",
+      "ko-kr" : "훗날 기약",
+      "pt-pt" : "Ainda nos Veremos de Novo",
+      "ru-ru" : "Мы ещё встретимся",
+      "th-th" : "We Will Meet Again",
+      "vi-vn" : "Hẹn Gặp Lại",
+      "zh-cn" : "后会有期",
+      "zh-tw" : "後會有期"
+    },
+    "nameTextMapHash" : -1779933511,
+    "rank" : 4
+  },
+  "21030" : {
+    "id" : 21030,
+    "l10nMap" : {
+      "de-de" : "Das bin ich!",
+      "en-us" : "This Is Me!",
+      "es-es" : "¡Así soy yo!",
+      "fr-fr" : "C'est moi !",
+      "id-id" : "This Is Me!",
+      "ja-jp" : "これがウチだよ！",
+      "ko-kr" : "이게 바로 나야!",
+      "pt-pt" : "Essa Sou Eu!",
+      "ru-ru" : "Это я!",
+      "th-th" : "This Is Me!",
+      "vi-vn" : "Đó Chính Là Tôi!",
+      "zh-cn" : "这就是我啦！",
+      "zh-tw" : "這就是我啦！"
+    },
+    "nameTextMapHash" : 948949853,
+    "rank" : 4
+  },
+  "21031" : {
+    "id" : 21031,
+    "l10nMap" : {
+      "de-de" : "Rückkehr in die Dunkelheit",
+      "en-us" : "Return to Darkness",
+      "es-es" : "Regreso a la oscuridad",
+      "fr-fr" : "Retour aux ténèbres",
+      "id-id" : "Return to Darkness",
+      "ja-jp" : "幽冥に帰す",
+      "ko-kr" : "또다시 저승으로",
+      "pt-pt" : "Retorno à Escuridão",
+      "ru-ru" : "Назад во тьму",
+      "th-th" : "Return to Darkness",
+      "vi-vn" : "U Tối Trở Lại",
+      "zh-cn" : "重返幽冥",
+      "zh-tw" : "重返幽冥"
+    },
+    "nameTextMapHash" : 948949852,
+    "rank" : 4
+  },
+  "21032" : {
+    "id" : 21032,
+    "l10nMap" : {
+      "de-de" : "Den Mond schnitzen, die Wolken weben",
+      "en-us" : "Carve the Moon, Weave the Clouds",
+      "es-es" : "Esculpir la luna y tejer las nubes",
+      "fr-fr" : "Nuages taillés dans la lune",
+      "id-id" : "Carve the Moon, Weave the Clouds",
+      "ja-jp" : "彫月裁雲の意",
+      "ko-kr" : "누월재운의 뜻",
+      "pt-pt" : "Esculpindo a Lua, Tecendo as Nuvens",
+      "ru-ru" : "Вырезать луну и кроить облака",
+      "th-th" : "Carve the Moon, Weave the Clouds",
+      "vi-vn" : "Khắc Lên Ánh Trăng",
+      "zh-cn" : "镂月裁云之意",
+      "zh-tw" : "鏤月裁雲之意"
+    },
+    "nameTextMapHash" : 948949855,
+    "rank" : 4
+  },
+  "21033" : {
+    "id" : 21033,
+    "l10nMap" : {
+      "de-de" : "Nirgends zu fliehen",
+      "en-us" : "Nowhere to Run",
+      "es-es" : "Sin escapatoria",
+      "fr-fr" : "Sans échappatoire",
+      "id-id" : "Nowhere to Run",
+      "ja-jp" : "逃げ場なし",
+      "ko-kr" : "도망칠 곳은 없다",
+      "pt-pt" : "Sem Escapatória",
+      "ru-ru" : "Бежать некуда",
+      "th-th" : "Nowhere to Run",
+      "vi-vn" : "Không Nơi Ẩn Náu",
+      "zh-cn" : "无处可逃",
+      "zh-tw" : "無處可逃"
+    },
+    "nameTextMapHash" : 948949854,
+    "rank" : 4
+  },
+  "21034" : {
+    "id" : 21034,
+    "l10nMap" : {
+      "de-de" : "Heute ist wieder ein friedlicher Tag",
+      "en-us" : "Today Is Another Peaceful Day",
+      "es-es" : "Hoy es otro día tranquilo",
+      "fr-fr" : "Encore une belle journée qui s'annonce",
+      "id-id" : "Today Is Another Peaceful Day",
+      "ja-jp" : "今日も平和な一日",
+      "ko-kr" : "오늘도 평화로운 하루",
+      "pt-pt" : "Hoje é Mais um Dia de Paz",
+      "ru-ru" : "Сегодня тоже мирный день",
+      "th-th" : "Today Is Another Peaceful Day",
+      "vi-vn" : "Hôm Nay Là Ngày Yên Lành",
+      "zh-cn" : "今日亦是和平的一日",
+      "zh-tw" : "今日亦是和平的一日"
+    },
+    "nameTextMapHash" : 948949849,
+    "rank" : 4
+  },
+  "21035" : {
+    "id" : 21035,
+    "l10nMap" : {
+      "de-de" : "Sache der Wahrheit",
+      "en-us" : "What Is Real?",
+      "es-es" : "Cuestión de verdad",
+      "fr-fr" : "Réalité et faux-semblants",
+      "id-id" : "What Is Real?",
+      "ja-jp" : "何が真か",
+      "ko-kr" : "무엇이 진실인가",
+      "pt-pt" : "O Que É Real?",
+      "ru-ru" : "Что есть реальность?",
+      "th-th" : "What Is Real?",
+      "vi-vn" : "Đâu Là Thật?",
+      "zh-cn" : "何物为真",
+      "zh-tw" : "何物為真"
+    },
+    "nameTextMapHash" : 948949848,
+    "rank" : 4
+  },
+  "21036" : {
+    "id" : 21036,
+    "l10nMap" : {
+      "de-de" : "Abenteuer in Traumstadt",
+      "en-us" : "Dreamville Adventure",
+      "es-es" : "Aventuras en Villa Ensueño",
+      "fr-fr" : "Aventure à Rêvopolis",
+      "id-id" : "Dreamville Adventure",
+      "ja-jp" : "ドリームタウンの大冒険",
+      "ko-kr" : "좋은꿈 마을 대모험",
+      "pt-pt" : "Aventura de Sonhópolis",
+      "ru-ru" : "Приключения Грёзавиля",
+      "th-th" : "Dreamville Adventure",
+      "vi-vn" : "Chuyến Thám Hiểm Thị Trấn Mộng Đẹp",
+      "zh-cn" : "美梦小镇大冒险",
+      "zh-tw" : "美夢小鎮大冒險"
+    },
+    "nameTextMapHash" : 948949851,
+    "rank" : 4
+  },
+  "21037" : {
+    "id" : 21037,
+    "l10nMap" : {
+      "de-de" : "Endgültiger Sieger",
+      "en-us" : "Final Victor",
+      "es-es" : "Ganador final",
+      "fr-fr" : "Pari gagnant",
+      "id-id" : "Final Victor",
+      "ja-jp" : "最後の勝者",
+      "ko-kr" : "최후의 승자",
+      "pt-pt" : "O Último Vencedor",
+      "ru-ru" : "Единственный победитель",
+      "th-th" : "Final Victor",
+      "vi-vn" : "Người Chiến Thắng Cuối Cùng",
+      "zh-cn" : "最后的赢家",
+      "zh-tw" : "最後的贏家"
+    },
+    "nameTextMapHash" : 948949850,
+    "rank" : 4
+  },
+  "21038" : {
+    "id" : 21038,
+    "l10nMap" : {
+      "de-de" : "Feuer in der Ferne",
+      "en-us" : "Flames Afar",
+      "es-es" : "Lejos del fuego",
+      "fr-fr" : "Flammes lointaines",
+      "id-id" : "Flames Afar",
+      "ja-jp" : "烈火の彼方",
+      "ko-kr" : "불의 먼 곳에서",
+      "pt-pt" : "Chamas Distantes",
+      "ru-ru" : "Вдали от огня",
+      "th-th" : "Flames Afar",
+      "vi-vn" : "Ở Nơi Xa Ngọn Lửa",
+      "zh-cn" : "在火的远处",
+      "zh-tw" : "在火的遠處"
+    },
+    "nameTextMapHash" : 948949845,
+    "rank" : 4
+  },
+  "21039" : {
+    "id" : 21039,
+    "l10nMap" : {
+      "de-de" : "Schicksalsfaden",
+      "en-us" : "Destiny's Threads Forewoven",
+      "es-es" : "Los hilos del destino",
+      "fr-fr" : "Fils du destin",
+      "id-id" : "Destiny's Threads Forewoven",
+      "ja-jp" : "運命を紡ぐ糸",
+      "ko-kr" : "운명의 실을 엮다",
+      "pt-pt" : "Fios Forjados do Destino",
+      "ru-ru" : "Плетение нитей судьбы",
+      "th-th" : "Destiny's Threads Forewoven",
+      "vi-vn" : "Dây Thêu Dệt Vận Mệnh",
+      "zh-cn" : "织造命运之线",
+      "zh-tw" : "織造命運之線"
+    },
+    "nameTextMapHash" : 948949844,
+    "rank" : 4
+  },
+  "21040" : {
+    "id" : 21040,
+    "l10nMap" : {
+      "de-de" : "Tag des kosmischen Kollapses",
+      "en-us" : "The Day The Cosmos Fell",
+      "es-es" : "Día del colapso cósmico",
+      "fr-fr" : "Le jour de l'effondrement du cosmos",
+      "id-id" : "The Day The Cosmos Fell",
+      "ja-jp" : "銀河が陥落した日",
+      "ko-kr" : "은하 함락의 날",
+      "pt-pt" : "O Dia em que o Cosmos Caiu",
+      "ru-ru" : "День падения вселенной",
+      "th-th" : "The Day The Cosmos Fell",
+      "vi-vn" : "Ngày Ngân Hà Sụp Đổ",
+      "zh-cn" : "银河沦陷日",
+      "zh-tw" : "銀河淪陷日"
+    },
+    "nameTextMapHash" : -973364448,
+    "rank" : 4
+  },
+  "21041" : {
+    "id" : 21041,
+    "l10nMap" : {
+      "de-de" : "Vorhang auf",
+      "en-us" : "It's Showtime",
+      "es-es" : "Arriba el telón",
+      "fr-fr" : "Que le spectacle commence",
+      "id-id" : "It's Showtime",
+      "ja-jp" : "ショーの始まり",
+      "ko-kr" : "쇼타임",
+      "pt-pt" : "É Hora do Show",
+      "ru-ru" : "Шоу начинается",
+      "th-th" : "It's Showtime",
+      "vi-vn" : "Vai Diễn Bắt Đầu",
+      "zh-cn" : "好戏开演",
+      "zh-tw" : "好戲開演"
+    },
+    "nameTextMapHash" : -973364449,
+    "rank" : 4
+  },
+  "21042" : {
+    "id" : 21042,
+    "l10nMap" : {
+      "de-de" : "Verewigtes Versprechen",
+      "en-us" : "Indelible Promise",
+      "es-es" : "Promesa grabada",
+      "fr-fr" : "Promesse indélébile",
+      "id-id" : "Indelible Promise",
+      "ja-jp" : "心に刻まれた約束",
+      "ko-kr" : "마음에 새긴 약속",
+      "pt-pt" : "Promessa Indelével",
+      "ru-ru" : "Хранящееся в сердце обещание",
+      "th-th" : "Indelible Promise",
+      "vi-vn" : "Ước Hẹn Khắc Ghi",
+      "zh-cn" : "铭记于心的约定",
+      "zh-tw" : "銘記於心的約定"
+    },
+    "nameTextMapHash" : -973364446,
+    "rank" : 4
+  },
+  "21043" : {
+    "id" : 21043,
+    "l10nMap" : {
+      "de-de" : "Konzert für zwei",
+      "en-us" : "Concert for Two",
+      "es-es" : "Concierto para dos",
+      "fr-fr" : "Concert pour deux",
+      "id-id" : "Concert for Two",
+      "ja-jp" : "二人だけのコンサート",
+      "ko-kr" : "두 사람의 콘서트",
+      "pt-pt" : "Concerto para Dois",
+      "ru-ru" : "Концерт для двоих",
+      "th-th" : "Concert for Two",
+      "vi-vn" : "Buổi Hòa Nhạc Hai Người",
+      "zh-cn" : "两个人的演唱会",
+      "zh-tw" : "兩個人的演唱會"
+    },
+    "nameTextMapHash" : -973364447,
+    "rank" : 4
+  },
+  "21044" : {
+    "id" : 21044,
+    "l10nMap" : {
+      "de-de" : "Grenzenloser Tanz",
+      "en-us" : "Boundless Choreo",
+      "es-es" : "Tango ilimitado",
+      "fr-fr" : "Danse endiablée",
+      "id-id" : "Boundless Choreo",
+      "ja-jp" : "終わりなき舞踏",
+      "ko-kr" : "끝없는 춤",
+      "pt-pt" : "Dança Ilimitada",
+      "ru-ru" : "Безграничный танец",
+      "th-th" : "Boundless Choreo",
+      "vi-vn" : "Vũ Điệu Vô Biên",
+      "zh-cn" : "无边曼舞",
+      "zh-tw" : "無邊曼舞"
+    },
+    "nameTextMapHash" : -973364452,
+    "rank" : 4
+  },
+  "21045" : {
+    "id" : 21045,
+    "l10nMap" : {
+      "de-de" : "Nach dem Fall der Harmonie",
+      "en-us" : "After the Charmony Fall",
+      "es-es" : "Tras el silencio de La Armonía",
+      "fr-fr" : "Après la chute",
+      "id-id" : "After the Charmony Fall",
+      "ja-jp" : "調和が沈黙した後",
+      "ko-kr" : "조화가 침묵한 후",
+      "pt-pt" : "Depois que a Harmonia se Dissipa",
+      "ru-ru" : "После затишья Гармонии",
+      "th-th" : "After the Charmony Fall",
+      "vi-vn" : "Sau Sự Im Lặng Hài Hòa",
+      "zh-cn" : "谐乐静默之后",
+      "zh-tw" : "諧樂靜默之後"
+    },
+    "nameTextMapHash" : -973364453,
+    "rank" : 4
+  },
+  "22000" : {
+    "id" : 22000,
+    "l10nMap" : {
+      "de-de" : "Bevor das Tutorial beginnt",
+      "en-us" : "Before the Tutorial Mission Starts",
+      "es-es" : "Antes de que comience la misión del tutorial",
+      "fr-fr" : "Avant que le tutoriel ne commence",
+      "id-id" : "Before the Tutorial Mission Starts",
+      "ja-jp" : "初めてのクエストの前に",
+      "ko-kr" : "초보자 임무 시작 전",
+      "pt-pt" : "Antes do Início da Missão do Tutorial",
+      "ru-ru" : "Перед началом тренировочной миссии",
+      "th-th" : "Before the Tutorial Mission Starts",
+      "vi-vn" : "Trước Khi Bắt Đầu Nhiệm Vụ Tân Thủ",
+      "zh-cn" : "新手任务开始前",
+      "zh-tw" : "新手任務開始前"
+    },
+    "nameTextMapHash" : -516377539,
+    "rank" : 4
+  },
+  "22001" : {
+    "id" : 22001,
+    "l10nMap" : {
+      "de-de" : "Hey, ich bin hier",
+      "en-us" : "Hey, Over Here",
+      "es-es" : "Ey, estoy aquí",
+      "fr-fr" : "Hé, par ici !",
+      "id-id" : "Hey, Over Here",
+      "ja-jp" : "よぉ、ここにいるぜ",
+      "ko-kr" : "저기, 나 여기 있어",
+      "pt-pt" : "Ei, Estou Aqui!",
+      "ru-ru" : "Эй, я здесь",
+      "th-th" : "Hey, Over Here",
+      "vi-vn" : "Hi, Tôi Ở Đây",
+      "zh-cn" : "嘿，我在这儿",
+      "zh-tw" : "嘿，我在這裡"
+    },
+    "nameTextMapHash" : -516377540,
+    "rank" : 4
+  },
+  "22002" : {
+    "id" : 22002,
+    "l10nMap" : {
+      "de-de" : "Für die Reise von morgen",
+      "en-us" : "For Tomorrow's Journey",
+      "es-es" : "Para el viaje de mañana",
+      "fr-fr" : "Au nom du voyage de demain",
+      "id-id" : "For Tomorrow's Journey",
+      "ja-jp" : "明日のための旅",
+      "ko-kr" : "내일을 위한 여정",
+      "pt-pt" : "Pela Jornada do Amanhã",
+      "ru-ru" : "За завтрашнее путешествие",
+      "th-th" : "For Tomorrow's Journey",
+      "vi-vn" : "Vì Hành Trình Ngày Mai",
+      "zh-cn" : "为了明日的旅途",
+      "zh-tw" : "為了明日的旅途"
+    },
+    "nameTextMapHash" : -516377537,
+    "rank" : 4
+  },
+  "23000" : {
+    "id" : 23000,
+    "l10nMap" : {
+      "de-de" : "Nacht auf der Milchstraße",
+      "en-us" : "Night on the Milky Way",
+      "es-es" : "Noche en la Vía Láctea",
+      "fr-fr" : "Nuit sur la voie lactée",
+      "id-id" : "Night on the Milky Way",
+      "ja-jp" : "銀河鉄道の夜",
+      "ko-kr" : "은하철도의 밤",
+      "pt-pt" : "Noite na Via Láctea",
+      "ru-ru" : "Ночь на Млечном Пути",
+      "th-th" : "Night on the Milky Way",
+      "vi-vn" : "Chuyến Tàu Đêm Trên Dải Ngân Hà",
+      "zh-cn" : "银河铁道之夜",
+      "zh-tw" : "銀河鐵道之夜"
+    },
+    "nameTextMapHash" : 1069909378,
+    "rank" : 5
+  },
+  "23001" : {
+    "id" : 23001,
+    "l10nMap" : {
+      "de-de" : "In der Nacht",
+      "en-us" : "In the Night",
+      "es-es" : "En la noche",
+      "fr-fr" : "Dans la nuit",
+      "id-id" : "In the Night",
+      "ja-jp" : "夜の帳の中で",
+      "ko-kr" : "야경 속에서",
+      "pt-pt" : "Na Noite",
+      "ru-ru" : "В ночи",
+      "th-th" : "In the Night",
+      "vi-vn" : "Trong Đêm Tối",
+      "zh-cn" : "于夜色中",
+      "zh-tw" : "於夜色中"
+    },
+    "nameTextMapHash" : 1069909377,
+    "rank" : 5
+  },
+  "23002" : {
+    "id" : 23002,
+    "l10nMap" : {
+      "de-de" : "Etwas Unersetzliches",
+      "en-us" : "Something Irreplaceable",
+      "es-es" : "Algo insustituible",
+      "fr-fr" : "Quelque chose d'irremplaçable",
+      "id-id" : "Something Irreplaceable",
+      "ja-jp" : "かけがえのないもの",
+      "ko-kr" : "대체할 수 없는 것",
+      "pt-pt" : "Algo Insubstituível",
+      "ru-ru" : "Что-то незаменимое",
+      "th-th" : "Something Irreplaceable",
+      "vi-vn" : "Vật Không Thể Thay Thế",
+      "zh-cn" : "无可取代的东西",
+      "zh-tw" : "無可取代的東西"
+    },
+    "nameTextMapHash" : 1069909380,
+    "rank" : 5
+  },
+  "23003" : {
+    "id" : 23003,
+    "l10nMap" : {
+      "de-de" : "Der Kampf ist nicht vorbei",
+      "en-us" : "But the Battle Isn't Over",
+      "es-es" : "La batalla no ha terminado",
+      "fr-fr" : "Le combat n'est pas terminé",
+      "id-id" : "But the Battle Isn't Over",
+      "ja-jp" : "だが戦争は終わらない",
+      "ko-kr" : "아직 전투는 끝나지 않았다",
+      "pt-pt" : "Mas a Batalha Não Acabou",
+      "ru-ru" : "Битва не окончена",
+      "th-th" : "But the Battle Isn't Over",
+      "vi-vn" : "Cuộc Chiến Chưa Nguôi",
+      "zh-cn" : "但战斗还未结束",
+      "zh-tw" : "但戰鬥還未結束"
+    },
+    "nameTextMapHash" : 1069909379,
+    "rank" : 5
+  },
+  "23004" : {
+    "id" : 23004,
+    "l10nMap" : {
+      "de-de" : "Im Namen der Welt",
+      "en-us" : "In the Name of the World",
+      "es-es" : "En nombre del mundo",
+      "fr-fr" : "Au nom du monde",
+      "id-id" : "In the Name of the World",
+      "ja-jp" : "世界の名を以て",
+      "ko-kr" : "세계의 이름으로",
+      "pt-pt" : "Em Nome do Mundo",
+      "ru-ru" : "Во имя мира",
+      "th-th" : "In the Name of the World",
+      "vi-vn" : "Nhân Danh Thế Giới",
+      "zh-cn" : "以世界之名",
+      "zh-tw" : "以世界之名"
+    },
+    "nameTextMapHash" : 1069909374,
+    "rank" : 5
+  },
+  "23005" : {
+    "id" : 23005,
+    "l10nMap" : {
+      "de-de" : "Moment des Sieges",
+      "en-us" : "Moment of Victory",
+      "es-es" : "El momento de la victoria",
+      "fr-fr" : "Moment de victoire",
+      "id-id" : "Moment of Victory",
+      "ja-jp" : "勝利の刹那",
+      "ko-kr" : "승리의 순간",
+      "pt-pt" : "Momento de Vitória",
+      "ru-ru" : "Момент победы",
+      "th-th" : "Moment of Victory",
+      "vi-vn" : "Giây Phút Thắng Lợi",
+      "zh-cn" : "制胜的瞬间",
+      "zh-tw" : "制勝的瞬間"
+    },
+    "nameTextMapHash" : 1069909373,
+    "rank" : 5
+  },
+  "23006" : {
+    "id" : 23006,
+    "l10nMap" : {
+      "de-de" : "Nur Geduld",
+      "en-us" : "Patience Is All You Need",
+      "es-es" : "Solo hay que esperar",
+      "fr-fr" : "Juste de la patience",
+      "id-id" : "Patience Is All You Need",
+      "ja-jp" : "待つのみ",
+      "ko-kr" : "필요한 건 기다림뿐",
+      "pt-pt" : "Você Só Precisa de Paciência",
+      "ru-ru" : "Просто надо подождать",
+      "th-th" : "Patience Is All You Need",
+      "vi-vn" : "Chỉ Cần Chờ Đợi",
+      "zh-cn" : "只需等待",
+      "zh-tw" : "只需等待"
+    },
+    "nameTextMapHash" : 1069909376,
+    "rank" : 5
+  },
+  "23007" : {
+    "id" : 23007,
+    "l10nMap" : {
+      "de-de" : "Unaufhörlicher Regen",
+      "en-us" : "Incessant Rain",
+      "es-es" : "Lluvia incesante",
+      "fr-fr" : "Pluie incessante",
+      "id-id" : "Incessant Rain",
+      "ja-jp" : "降りやまぬ雨",
+      "ko-kr" : "계속 내리는 비",
+      "pt-pt" : "Chuva Constante",
+      "ru-ru" : "Непрекращающийся дождь",
+      "th-th" : "Incessant Rain",
+      "vi-vn" : "Cơn Mưa Tầm Tã",
+      "zh-cn" : "雨一直下",
+      "zh-tw" : "雨一直下"
+    },
+    "nameTextMapHash" : 1069909375,
+    "rank" : 5
+  },
+  "23008" : {
+    "id" : 23008,
+    "l10nMap" : {
+      "de-de" : "Echos des Sarges",
+      "en-us" : "Echoes of the Coffin",
+      "es-es" : "Ecos del ataúd",
+      "fr-fr" : "Échos du cercueil",
+      "id-id" : "Echoes of the Coffin",
+      "ja-jp" : "棺のこだま",
+      "ko-kr" : "관의 울림",
+      "pt-pt" : "Ecos do Caixão",
+      "ru-ru" : "Эхо из гроба",
+      "th-th" : "Echoes of the Coffin",
+      "vi-vn" : "Tiếng Vọng Của Quan Tài",
+      "zh-cn" : "棺的回响",
+      "zh-tw" : "棺的迴響"
+    },
+    "nameTextMapHash" : 1069909370,
+    "rank" : 5
+  },
+  "23009" : {
+    "id" : 23009,
+    "l10nMap" : {
+      "de-de" : "Unerreichbares Jenseits",
+      "en-us" : "The Unreachable Side",
+      "es-es" : "Orilla inalcanzable",
+      "fr-fr" : "Traversée impossible",
+      "id-id" : "The Unreachable Side",
+      "ja-jp" : "着かない彼岸",
+      "ko-kr" : "닿을 수 없는 저편",
+      "pt-pt" : "O Lado Inacessível",
+      "ru-ru" : "Недоступная сторона",
+      "th-th" : "The Unreachable Side",
+      "vi-vn" : "Bến Bờ Xa Diệu Vợi",
+      "zh-cn" : "到不了的彼岸",
+      "zh-tw" : "到不了的彼岸"
+    },
+    "nameTextMapHash" : 1069909369,
+    "rank" : 5
+  },
+  "23010" : {
+    "id" : 23010,
+    "l10nMap" : {
+      "de-de" : "Vor der Dämmerung",
+      "en-us" : "Before Dawn",
+      "es-es" : "Antes del amanecer",
+      "fr-fr" : "Avant l'aube",
+      "id-id" : "Before Dawn",
+      "ja-jp" : "夜明け前",
+      "ko-kr" : "동트기 전",
+      "pt-pt" : "Antes do Amanhecer",
+      "ru-ru" : "До рассвета",
+      "th-th" : "Before Dawn",
+      "vi-vn" : "Trước Buổi Bình Minh",
+      "zh-cn" : "拂晓之前",
+      "zh-tw" : "拂曉之前"
+    },
+    "nameTextMapHash" : -496174563,
+    "rank" : 5
+  },
+  "23011" : {
+    "id" : 23011,
+    "l10nMap" : {
+      "de-de" : "Ihre Augen sind bereits geschlossen",
+      "en-us" : "She Already Shut Her Eyes",
+      "es-es" : "Ya ha cerrado los ojos",
+      "fr-fr" : "Elle a déjà fermé les yeux",
+      "id-id" : "She Already Shut Her Eyes",
+      "ja-jp" : "閉ざした瞳",
+      "ko-kr" : "그녀는 두 눈을 감았네",
+      "pt-pt" : "Ela Já Fechou Seus Olhos",
+      "ru-ru" : "Она закрыла глаза",
+      "th-th" : "She Already Shut Her Eyes",
+      "vi-vn" : "Đôi Mắt Đã Nhắm Lại",
+      "zh-cn" : "她已闭上双眼",
+      "zh-tw" : "她已閉上雙眼"
+    },
+    "nameTextMapHash" : -496174564,
+    "rank" : 5
+  },
+  "23012" : {
+    "id" : 23012,
+    "l10nMap" : {
+      "de-de" : "Schlafen wie die Toten",
+      "en-us" : "Sleep Like the Dead",
+      "es-es" : "Dormir como un tronco",
+      "fr-fr" : "D'un sommeil de mort",
+      "id-id" : "Sleep Like the Dead",
+      "ja-jp" : "泥の如き眠り",
+      "ko-kr" : "깊게 든 단잠",
+      "pt-pt" : "Sono Profundo",
+      "ru-ru" : "Мертвецкий сон",
+      "th-th" : "Sleep Like the Dead",
+      "vi-vn" : "Giấc Ngủ Say Mềm",
+      "zh-cn" : "如泥酣眠",
+      "zh-tw" : "如泥酣眠"
+    },
+    "nameTextMapHash" : -496174561,
+    "rank" : 5
+  },
+  "23013" : {
+    "id" : 23013,
+    "l10nMap" : {
+      "de-de" : "Die Zeit wartet auf niemanden",
+      "en-us" : "Time Waits for No One",
+      "es-es" : "El tiempo no espera",
+      "fr-fr" : "Le temps n'attend pas",
+      "id-id" : "Time Waits for No One",
+      "ja-jp" : "時節は居らず",
+      "ko-kr" : "세월은 흐를 뿐",
+      "pt-pt" : "O Tempo Não Espera por Ninguém",
+      "ru-ru" : "Время никого не ждёт",
+      "th-th" : "Time Waits for No One",
+      "vi-vn" : "Thời Gian Không Ngừng Lại",
+      "zh-cn" : "时节不居",
+      "zh-tw" : "時節不居"
+    },
+    "nameTextMapHash" : -496174562,
+    "rank" : 5
+  },
+  "23014" : {
+    "id" : 23014,
+    "l10nMap" : {
+      "de-de" : "Eins mit dem Schwert",
+      "en-us" : "I Shall Be My Own Sword",
+      "es-es" : "Yo seré mi propia espada",
+      "fr-fr" : "Ma propre épée, je serai",
+      "id-id" : "I Shall Be My Own Sword",
+      "ja-jp" : "この身は剣なり",
+      "ko-kr" : "이 몸이 검이니",
+      "pt-pt" : "Eu Serei Minha Própria Espada",
+      "ru-ru" : "Отныне я сама буду мечом",
+      "th-th" : "I Shall Be My Own Sword",
+      "vi-vn" : "Thân Này Là Kiếm",
+      "zh-cn" : "此身为剑",
+      "zh-tw" : "此身為劍"
+    },
+    "nameTextMapHash" : -496174567,
+    "rank" : 5
+  },
+  "23015" : {
+    "id" : 23015,
+    "l10nMap" : {
+      "de-de" : "Heller als die Sonne",
+      "en-us" : "Brighter Than the Sun",
+      "es-es" : "Más brillante que el sol",
+      "fr-fr" : "Plus brillant que le soleil",
+      "id-id" : "Brighter Than the Sun",
+      "ja-jp" : "陽光より輝くもの",
+      "ko-kr" : "태양보다 밝게 빛나는 것",
+      "pt-pt" : "Mais Claro do que o Sol",
+      "ru-ru" : "Ярче солнца",
+      "th-th" : "Brighter Than the Sun",
+      "vi-vn" : "Rực Rỡ Hơn Mặt Trời",
+      "zh-cn" : "比阳光更明亮的",
+      "zh-tw" : "比陽光更明亮的"
+    },
+    "nameTextMapHash" : -496174568,
+    "rank" : 5
+  },
+  "23016" : {
+    "id" : 23016,
+    "l10nMap" : {
+      "de-de" : "Besorgt doch glückselig",
+      "en-us" : "Worrisome, Blissful",
+      "es-es" : "Preocupaciones y felicidad",
+      "fr-fr" : "Inquiétude et soulagement",
+      "id-id" : "Worrisome, Blissful",
+      "ja-jp" : "悩んで笑って",
+      "ko-kr" : "고민, 그리고 행복",
+      "pt-pt" : "Inquietante, Extasiante",
+      "ru-ru" : "Тревога и блаженство",
+      "th-th" : "Worrisome, Blissful",
+      "vi-vn" : "Phiền Não, Hạnh Phúc",
+      "zh-cn" : "烦恼着，幸福着",
+      "zh-tw" : "煩惱著，幸福著"
+    },
+    "nameTextMapHash" : -496174565,
+    "rank" : 5
+  },
+  "23017" : {
+    "id" : 23017,
+    "l10nMap" : {
+      "de-de" : "Nacht der Angst",
+      "en-us" : "Night of Fright",
+      "es-es" : "Noche terrorífica",
+      "fr-fr" : "Nuit de l'épouvante",
+      "id-id" : "Night of Fright",
+      "ja-jp" : "驚魂の夜",
+      "ko-kr" : "섬뜩한 밤",
+      "pt-pt" : "Noite Aterrorizante",
+      "ru-ru" : "Ночь страха",
+      "th-th" : "Night of Fright",
+      "vi-vn" : "Đêm Kinh Hoàng",
+      "zh-cn" : "惊魂夜",
+      "zh-tw" : "驚魂夜"
+    },
+    "nameTextMapHash" : -496174566,
+    "rank" : 5
+  },
+  "23018" : {
+    "id" : 23018,
+    "l10nMap" : {
+      "de-de" : "Ein unvergesslicher Augenblick",
+      "en-us" : "An Instant Before A Gaze",
+      "es-es" : "Instante grabado a fuego",
+      "fr-fr" : "Moment de grâce",
+      "id-id" : "An Instant Before A Gaze",
+      "ja-jp" : "その一刻、目に焼き付けて",
+      "ko-kr" : "눈에 담긴 순간",
+      "pt-pt" : "Um Instante Eternamente Adorado",
+      "ru-ru" : "Остановись, мгновенье",
+      "th-th" : "An Instant Before A Gaze",
+      "vi-vn" : "Khoảnh Khắc Nơi Đáy Mắt",
+      "zh-cn" : "片刻，留在眼底",
+      "zh-tw" : "片刻，留在眼底"
+    },
+    "nameTextMapHash" : -496174571,
+    "rank" : 5
+  },
+  "23019" : {
+    "id" : 23019,
+    "l10nMap" : {
+      "de-de" : "Das Ich im Spiegel",
+      "en-us" : "Past Self in Mirror",
+      "es-es" : "Mi pasado en el espejo",
+      "fr-fr" : "Reflet du passé",
+      "id-id" : "Past Self in Mirror",
+      "ja-jp" : "鏡の中の私",
+      "ko-kr" : "거울 속 지난날의 나",
+      "pt-pt" : "Meu Passado no Espelho",
+      "ru-ru" : "Отражение прошлой меня",
+      "th-th" : "Past Self in Mirror",
+      "vi-vn" : "Tôi Trong Gương Ngày Ấy",
+      "zh-cn" : "镜中故我",
+      "zh-tw" : "鏡中故我"
+    },
+    "nameTextMapHash" : -496174572,
+    "rank" : 5
+  },
+  "23020" : {
+    "id" : 23020,
+    "l10nMap" : {
+      "de-de" : "Taufe des reinen Denkens",
+      "en-us" : "Baptism of Pure Thought",
+      "es-es" : "El bautismo del pensamiento puro",
+      "fr-fr" : "Baptême de pure réflexion",
+      "id-id" : "Baptism of Pure Thought",
+      "ja-jp" : "純粋なる思惟の洗礼",
+      "ko-kr" : "순수 사유의 세례",
+      "pt-pt" : "O Batismo de Pensamento Puro",
+      "ru-ru" : "Крещение чистой мысли",
+      "th-th" : "Baptism of Pure Thought",
+      "vi-vn" : "Lễ Rửa Tội Thuần Khiết",
+      "zh-cn" : "纯粹思维的洗礼",
+      "zh-tw" : "純粹思維的洗禮"
+    },
+    "nameTextMapHash" : -92890036,
+    "rank" : 5
+  },
+  "23021" : {
+    "id" : 23021,
+    "l10nMap" : {
+      "de-de" : "Eskapade auf Erden",
+      "en-us" : "Earthly Escapade",
+      "es-es" : "Mundo de juegos",
+      "fr-fr" : "Escapade terrestre",
+      "id-id" : "Earthly Escapade",
+      "ja-jp" : "人生は遊び",
+      "ko-kr" : "속세에서의 유희",
+      "pt-pt" : "Fuga Terrena",
+      "ru-ru" : "Мирские шалости",
+      "th-th" : "Earthly Escapade",
+      "vi-vn" : "Trò Đùa Trần Thế",
+      "zh-cn" : "游戏尘寰",
+      "zh-tw" : "遊戲塵寰"
+    },
+    "nameTextMapHash" : -92890037,
+    "rank" : 5
+  },
+  "23022" : {
+    "id" : 23022,
+    "l10nMap" : {
+      "de-de" : "Restaurierte Erinnerung",
+      "en-us" : "Reforged Remembrance",
+      "es-es" : "Recuerdos reconstruidos",
+      "fr-fr" : "Souvenirs refaçonnés",
+      "id-id" : "Reforged Remembrance",
+      "ja-jp" : "時間の記憶を再構築して",
+      "ko-kr" : "시간의 기억에 대한 재구성",
+      "pt-pt" : "Recordação Reforjada",
+      "ru-ru" : "Изменённые воспоминания",
+      "th-th" : "Reforged Remembrance",
+      "vi-vn" : "Hun Đúc Ký Ức Thời Gian",
+      "zh-cn" : "重塑时光之忆",
+      "zh-tw" : "重塑時光之憶"
+    },
+    "nameTextMapHash" : -92890034,
+    "rank" : 5
+  },
+  "23023" : {
+    "id" : 23023,
+    "l10nMap" : {
+      "de-de" : "Ungerechtes Schicksal",
+      "en-us" : "Inherently Unjust Destiny",
+      "es-es" : "El destino nunca es justo",
+      "fr-fr" : "Destin injuste",
+      "id-id" : "Inherently Unjust Destiny",
+      "ja-jp" : "運命は常に不公平",
+      "ko-kr" : "언제나 불공평한 운명",
+      "pt-pt" : "Destino Inerentemente Injusto",
+      "ru-ru" : "Несправедливая судьба",
+      "th-th" : "Inherently Unjust Destiny",
+      "vi-vn" : "Vận Mệnh Chưa Từng Công Bằng",
+      "zh-cn" : "命运从未公平",
+      "zh-tw" : "命運從未公平"
+    },
+    "nameTextMapHash" : -92890035,
+    "rank" : 5
+  },
+  "23024" : {
+    "id" : 23024,
+    "l10nMap" : {
+      "de-de" : "Entlang am vorbeiziehenden Ufer",
+      "en-us" : "Along the Passing Shore",
+      "es-es" : "En las orillas transitorias",
+      "fr-fr" : "Le long de la rive",
+      "id-id" : "Along the Passing Shore",
+      "ja-jp" : "流れ逝く岸を歩いて",
+      "ko-kr" : "흘러가는 강가를 따라",
+      "pt-pt" : "Ao Longo da Margem Transitória",
+      "ru-ru" : "Вдоль уходящего берега",
+      "th-th" : "Along the Passing Shore",
+      "vi-vn" : "Bước Theo Bến Bờ Thời Gian",
+      "zh-cn" : "行于流逝的岸",
+      "zh-tw" : "行於流逝的岸"
+    },
+    "nameTextMapHash" : -92890040,
+    "rank" : 5
+  },
+  "23025" : {
+    "id" : 23025,
+    "l10nMap" : {
+      "de-de" : "Wohin sollen die Träume gehen",
+      "en-us" : "Whereabouts Should Dreams Rest",
+      "es-es" : "A donde regresan los sueños",
+      "fr-fr" : "Là où les rêves se reposent",
+      "id-id" : "Whereabouts Should Dreams Rest",
+      "ja-jp" : "夢が帰り着く場所",
+      "ko-kr" : "꿈은 어디로 돌아가야 하는가",
+      "pt-pt" : "Onde os Sonhos Deveriam Repousar",
+      "ru-ru" : "Куда возвращаются сны",
+      "th-th" : "Whereabouts Should Dreams Rest",
+      "vi-vn" : "Giấc Mộng Sẽ Đi Về Đâu",
+      "zh-cn" : "梦应归于何处",
+      "zh-tw" : "夢應歸於何處"
+    },
+    "nameTextMapHash" : -92890041,
+    "rank" : 5
+  },
+  "23026" : {
+    "id" : 23026,
+    "l10nMap" : {
+      "de-de" : "Schillernde Nacht",
+      "en-us" : "Flowing Nightglow",
+      "es-es" : "Luces de la noche",
+      "fr-fr" : "Lumières nocturnes",
+      "id-id" : "Flowing Nightglow",
+      "ja-jp" : "光あふれる夜",
+      "ko-kr" : "찬란하게 빛나는 밤",
+      "pt-pt" : "Luzes Noturnas",
+      "ru-ru" : "Мимолётные ночные огни",
+      "th-th" : "Flowing Nightglow",
+      "vi-vn" : "Sắc Đêm Rực Sáng",
+      "zh-cn" : "夜色流光溢彩",
+      "zh-tw" : "夜色流光溢彩"
+    },
+    "nameTextMapHash" : -92890038,
+    "rank" : 5
+  },
+  "23027" : {
+    "id" : 23027,
+    "l10nMap" : {
+      "de-de" : "Auf zu einem zweiten Leben",
+      "en-us" : "Sailing Towards a Second Life",
+      "es-es" : "Hacia una segunda vida",
+      "fr-fr" : "Le début d'une seconde vie",
+      "id-id" : "Sailing Towards a Second Life",
+      "ja-jp" : "二度目の生に向かって",
+      "ko-kr" : "두 번째 생명을 향해",
+      "pt-pt" : "Velejando em Direção a uma Segunda Vida",
+      "ru-ru" : "Отплытие ко второй жизни",
+      "th-th" : "Sailing Towards a Second Life",
+      "vi-vn" : "Hướng Đến Sinh Mệnh Thứ Hai",
+      "zh-cn" : "驶向第二次生命",
+      "zh-tw" : "駛向第二次生命"
+    },
+    "nameTextMapHash" : -92890039,
+    "rank" : 5
+  },
+  "23028" : {
+    "id" : 23028,
+    "l10nMap" : {
+      "de-de" : "Doch Hoffnung ist unbezahlbar",
+      "en-us" : "Yet Hope Is Priceless",
+      "es-es" : "La esperanza no tiene precio",
+      "fr-fr" : "L'espoir n'a pas de prix",
+      "id-id" : "Yet Hope Is Priceless",
+      "ja-jp" : "されど希望の銘は無価",
+      "ko-kr" : "값을 매길 수 없는 건 희망뿐",
+      "pt-pt" : "A Esperança é Inestimável",
+      "ru-ru" : "Но надежда бесценна",
+      "th-th" : "Yet Hope Is Priceless",
+      "vi-vn" : "Hi Vọng Là Vô Giá",
+      "zh-cn" : "偏偏希望无价",
+      "zh-tw" : "偏偏希望無價"
+    },
+    "nameTextMapHash" : -92890044,
+    "rank" : 5
+  },
+  "24000" : {
+    "id" : 24000,
+    "l10nMap" : {
+      "de-de" : "Der Niedergang eines Äons",
+      "en-us" : "On the Fall of an Aeon",
+      "es-es" : "Sobre la caída de un Eón",
+      "fr-fr" : "La chute d'un Aiôn",
+      "id-id" : "On the Fall of an Aeon",
+      "ja-jp" : "とある星神の殞落を記す",
+      "ko-kr" : "어떤 에이언즈의 몰락",
+      "pt-pt" : "Na Queda de Um Aeon",
+      "ru-ru" : "О падении Эона",
+      "th-th" : "On the Fall of an Aeon",
+      "vi-vn" : "Sự Sụp Đổ Của Aeon",
+      "zh-cn" : "记一位星神的陨落",
+      "zh-tw" : "記一位星神的殞落"
+    },
+    "nameTextMapHash" : 330597467,
+    "rank" : 5
+  },
+  "24001" : {
+    "id" : 24001,
+    "l10nMap" : {
+      "de-de" : "Fahrt durch das Sternenmeer",
+      "en-us" : "Cruising in the Stellar Sea",
+      "es-es" : "Crucero estelar",
+      "fr-fr" : "Exploration de la mer stellaire",
+      "id-id" : "Cruising in the Stellar Sea",
+      "ja-jp" : "星海巡航",
+      "ko-kr" : "별바다 순항",
+      "pt-pt" : "Percorrendo o Mar Estelar",
+      "ru-ru" : "Круиз по галактике",
+      "th-th" : "Cruising in the Stellar Sea",
+      "vi-vn" : "Du Hành Trên Biển Sao",
+      "zh-cn" : "星海巡航",
+      "zh-tw" : "星海巡航"
+    },
+    "nameTextMapHash" : 330597466,
+    "rank" : 5
+  },
+  "24002" : {
+    "id" : 24002,
+    "l10nMap" : {
+      "de-de" : "Textur der Erinnerungen",
+      "en-us" : "Texture of Memories",
+      "es-es" : "La textura de los recuerdos",
+      "fr-fr" : "Texture des Mémoires",
+      "id-id" : "Texture of Memories",
+      "ja-jp" : "記憶の素材",
+      "ko-kr" : "기억의 소재",
+      "pt-pt" : "Textura de Memórias",
+      "ru-ru" : "Материя памяти",
+      "th-th" : "Texture of Memories",
+      "vi-vn" : "Chất Liệu Ký Ức",
+      "zh-cn" : "记忆的质料",
+      "zh-tw" : "記憶的質料"
+    },
+    "nameTextMapHash" : 330597469,
+    "rank" : 5
+  },
+  "24003" : {
+    "id" : 24003,
+    "l10nMap" : {
+      "de-de" : "Einzelne Heilung",
+      "en-us" : "Solitary Healing",
+      "es-es" : "Sanación solitaria",
+      "fr-fr" : "Remède à la solitude",
+      "id-id" : "Solitary Healing",
+      "ja-jp" : "孤独の癒し",
+      "ko-kr" : "고독의 치유",
+      "pt-pt" : "Cura Solitária",
+      "ru-ru" : "Одинокое исцеление",
+      "th-th" : "Solitary Healing",
+      "vi-vn" : "Một Mình Chữa Trị",
+      "zh-cn" : "孤独的疗愈",
+      "zh-tw" : "孤獨的療癒"
+    },
+    "nameTextMapHash" : 330597468,
+    "rank" : 5
+  },
+  "24004" : {
+    "id" : 24004,
+    "l10nMap" : {
+      "de-de" : "Unermüdliche Berechnung",
+      "en-us" : "Eternal Calculus",
+      "es-es" : "Cálculo interminable",
+      "fr-fr" : "Calcul éternel",
+      "id-id" : "Eternal Calculus",
+      "ja-jp" : "絶え間ない演算",
+      "ko-kr" : "멈추지 않는 연산",
+      "pt-pt" : "Cálculo Ininterrupto",
+      "ru-ru" : "Беспрерывные вычисления",
+      "th-th" : "Eternal Calculus",
+      "vi-vn" : "Ngoại Suy Vô Tận",
+      "zh-cn" : "不息的演算",
+      "zh-tw" : "不息的演算"
+    },
+    "nameTextMapHash" : 330597463,
+    "rank" : 5
+  }
+}
