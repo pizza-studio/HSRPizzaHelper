@@ -53,7 +53,7 @@ extension Date {
 extension GachaItem.ItemType {
     func translatedRaw(for lang: GachaLanguageCode) -> String {
         switch (self, lang) {
-        case (.characters, .de): return "Figuren"
+        case (.characters, .de): return "Figur"
         case (.characters, .enUS): return "Character"
         case (.characters, .es): return "Personaje"
         case (.characters, .fr): return "Personnage"
@@ -61,7 +61,7 @@ extension GachaItem.ItemType {
         case (.characters, .ja): return "キャラクター"
         case (.characters, .ko): return "캐릭터"
         case (.characters, .pt): return "Personagem"
-        case (.characters, .ru): return "Персонажи"
+        case (.characters, .ru): return "Персонаж"
         case (.characters, .th): return "ตัวละคร"
         case (.characters, .vi): return "Nhân Vật"
         case (.characters, .zhHans): return "角色"
@@ -74,7 +74,7 @@ extension GachaItem.ItemType {
         case (.lightCones, .ja): return "光円錐"
         case (.lightCones, .ko): return "광추"
         case (.lightCones, .pt): return "Cone de Luz"
-        case (.lightCones, .ru): return "Световые конусы"
+        case (.lightCones, .ru): return "Световой конус"
         case (.lightCones, .th): return "Light Cone"
         case (.lightCones, .vi): return "Nón Ánh Sáng"
         case (.lightCones, .zhHans): return "光锥"

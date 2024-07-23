@@ -184,6 +184,7 @@ public struct GachaItem: Codable, GachaItemProtocol {
             }
         }
 
+        /// 除非必要，否则尽量不要用。
         public init?(rawString: String) {
             switch rawString.lowercased() {
             case "角色", "character", "characters", "figur", "figuren",
