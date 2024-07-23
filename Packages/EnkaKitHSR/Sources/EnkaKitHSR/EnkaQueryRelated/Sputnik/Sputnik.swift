@@ -267,6 +267,7 @@ extension EnkaHSR.Sputnik {
         }
         do {
             let requestResult = try JSONDecoder().decode(DecodableSRSModelDict.self, from: dataToParse)
+            Defaults[.srsModelData] = requestResult
             return requestResult
         } catch {
             if dataToParse.isEmpty {
