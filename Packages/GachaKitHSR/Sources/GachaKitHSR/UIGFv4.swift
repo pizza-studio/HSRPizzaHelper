@@ -743,7 +743,7 @@ extension UIGFv4 {
 
         public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
             let encoder = JSONEncoder()
-            encoder.outputFormatting = .prettyPrinted
+            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
             let dateFormatter = DateFormatter()
             dateFormatter.locale = .init(identifier: "en_US_POSIX")
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
