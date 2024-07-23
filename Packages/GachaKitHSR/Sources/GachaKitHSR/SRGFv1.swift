@@ -26,6 +26,16 @@ public struct SRGFv1: Codable, Hashable, Sendable {
 }
 
 extension SRGFv1 {
+    fileprivate static func makeDecodingError(_ key: CodingKey) -> Error {
+        let keyName = key.description
+        var msg = "\(keyName) value is invalid or empty. "
+        msg += "// \(keyName) 不得是空值或不可用值。 "
+        msg += "// \(keyName) は必ず有効な値しか処理できません。"
+        return DecodingError.dataCorrupted(.init(codingPath: [key], debugDescription: msg))
+    }
+}
+
+extension SRGFv1 {
     // MARK: - Info
 
     public struct Info: Codable, Hashable, Sendable {
@@ -96,9 +106,44 @@ extension SRGFv1 {
             self.itemType = itemType
         }
 
+        public init(from decoder: any Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            var error: Error?
+
+            self.count = try container.decodeIfPresent(String.self, forKey: .count)
+            if Int(count ?? "") == nil { error = SRGFv1.makeDecodingError(CodingKeys.count) }
+
+            self.gachaType = try container.decode(GachaType.self, forKey: .gachaType)
+
+            self.id = try container.decode(String.self, forKey: .id)
+            if Int(id) == nil { error = SRGFv1.makeDecodingError(CodingKeys.id) }
+
+            self.itemID = try container.decode(String.self, forKey: .itemID)
+            if Int(itemID) == nil { error = SRGFv1.makeDecodingError(CodingKeys.itemID) }
+
+            self.itemType = try container.decodeIfPresent(String.self, forKey: .itemType)
+            if itemType?.isEmpty ?? false { error = SRGFv1.makeDecodingError(CodingKeys.itemType) }
+
+            self.gachaID = try container.decode(String.self, forKey: .gachaID)
+            if Int(gachaID) == nil { error = SRGFv1.makeDecodingError(CodingKeys.gachaID) }
+
+            self.name = try container.decodeIfPresent(String.self, forKey: .name)
+            if name?.isEmpty ?? false { error = SRGFv1.makeDecodingError(CodingKeys.name) }
+
+            self.rankType = try container.decodeIfPresent(String.self, forKey: .rankType)
+            if Int(rankType ?? "") == nil { error = SRGFv1.makeDecodingError(CodingKeys.rankType) }
+
+            self.time = try container.decode(String.self, forKey: .time)
+            if DateFormatter.forUIGFEntry(timeZoneDelta: 0).date(from: time) == nil {
+                error = SRGFv1.makeDecodingError(CodingKeys.time)
+            }
+
+            if let error = error { throw error }
+        }
+
         // MARK: Public
 
-        public typealias GachaType = HBMihoyoAPI.GachaType
+        public typealias GachaType = UIGFv4.ProfileHSR.GachaItemHSR.GachaTypeHSR
 
         public var gachaID, itemID, time, id: String
         public var gachaType: GachaType

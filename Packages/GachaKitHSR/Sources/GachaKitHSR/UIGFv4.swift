@@ -42,6 +42,16 @@ public struct UIGFv4: Codable, Hashable, Sendable {
     public var zzzProfiles: [ProfileZZZ]?
 }
 
+extension UIGFv4 {
+    fileprivate static func makeDecodingError(_ key: CodingKey) -> Error {
+        let keyName = key.description
+        var msg = "\(keyName) value is invalid or empty. "
+        msg += "// \(keyName) 不得是空值或不可用值。 "
+        msg += "// \(keyName) は必ず有効な値しか処理できません。"
+        return DecodingError.dataCorrupted(.init(codingPath: [key], debugDescription: msg))
+    }
+}
+
 // MARK: UIGFv4.Info
 
 extension UIGFv4 {
@@ -110,7 +120,7 @@ extension UIGFv4 {
             self.lang = try container.decode(GachaLanguageCode.self, forKey: .lang)
             self.timezone = try container.decode(Int.self, forKey: .timezone)
 
-            if let x = try? container.decode(String.self, forKey: .uid) {
+            if let x = try? container.decode(String.self, forKey: .uid), !x.isEmpty {
                 self.uid = x
             } else if let x = try? container.decode(Int.self, forKey: .uid) {
                 self.uid = x.description
@@ -150,6 +160,40 @@ extension UIGFv4 {
                 self.rankType = rankType
                 self.time = time
                 self.uigfGachaType = uigfGachaType
+            }
+
+            public init(from decoder: any Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                var error: Error?
+
+                self.count = try container.decodeIfPresent(String.self, forKey: .count)
+                if Int(count ?? "") == nil { error = UIGFv4.makeDecodingError(CodingKeys.count) }
+
+                self.gachaType = try container.decode(GachaTypeGI.self, forKey: .gachaType)
+
+                self.id = try container.decode(String.self, forKey: .id)
+                if Int(id) == nil { error = UIGFv4.makeDecodingError(CodingKeys.id) }
+
+                self.itemID = try container.decode(String.self, forKey: .itemID)
+                if Int(itemID) == nil { error = UIGFv4.makeDecodingError(CodingKeys.itemID) }
+
+                self.itemType = try container.decodeIfPresent(String.self, forKey: .itemType)
+                if itemType?.isEmpty ?? false { error = UIGFv4.makeDecodingError(CodingKeys.itemType) }
+
+                self.name = try container.decodeIfPresent(String.self, forKey: .name)
+                if name?.isEmpty ?? false { error = UIGFv4.makeDecodingError(CodingKeys.name) }
+
+                self.rankType = try container.decodeIfPresent(String.self, forKey: .rankType)
+                if Int(rankType ?? "") == nil { error = UIGFv4.makeDecodingError(CodingKeys.rankType) }
+
+                self.time = try container.decode(String.self, forKey: .time)
+                if DateFormatter.forUIGFEntry(timeZoneDelta: 0).date(from: time) == nil {
+                    error = UIGFv4.makeDecodingError(CodingKeys.time)
+                }
+
+                self.uigfGachaType = try container.decode(UIGFGachaTypeGI.self, forKey: .uigfGachaType)
+
+                if let error = error { throw error }
             }
 
             // MARK: Public
@@ -246,7 +290,7 @@ extension UIGFv4 {
             self.lang = try container.decode(GachaLanguageCode.self, forKey: .lang)
             self.timezone = try container.decode(Int.self, forKey: .timezone)
 
-            if let x = try? container.decode(String.self, forKey: .uid) {
+            if let x = try? container.decode(String.self, forKey: .uid), !x.isEmpty {
                 self.uid = x
             } else if let x = try? container.decode(Int.self, forKey: .uid) {
                 self.uid = x.description
@@ -286,6 +330,41 @@ extension UIGFv4 {
                 self.name = name
                 self.rankType = rankType
                 self.time = time
+            }
+
+            public init(from decoder: any Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                var error: Error?
+
+                self.count = try container.decodeIfPresent(String.self, forKey: .count)
+                if Int(count ?? "") == nil { error = UIGFv4.makeDecodingError(CodingKeys.count) }
+
+                self.gachaType = try container.decode(GachaTypeHSR.self, forKey: .gachaType)
+
+                self.id = try container.decode(String.self, forKey: .id)
+                if Int(id) == nil { error = UIGFv4.makeDecodingError(CodingKeys.id) }
+
+                self.itemID = try container.decode(String.self, forKey: .itemID)
+                if Int(itemID) == nil { error = UIGFv4.makeDecodingError(CodingKeys.itemID) }
+
+                self.itemType = try container.decodeIfPresent(String.self, forKey: .itemType)
+                if itemType?.isEmpty ?? false { error = UIGFv4.makeDecodingError(CodingKeys.itemType) }
+
+                self.gachaID = try container.decode(String.self, forKey: .gachaID)
+                if Int(gachaID) == nil { error = UIGFv4.makeDecodingError(CodingKeys.gachaID) }
+
+                self.name = try container.decodeIfPresent(String.self, forKey: .name)
+                if name?.isEmpty ?? false { error = UIGFv4.makeDecodingError(CodingKeys.name) }
+
+                self.rankType = try container.decodeIfPresent(String.self, forKey: .rankType)
+                if Int(rankType ?? "") == nil { error = UIGFv4.makeDecodingError(CodingKeys.rankType) }
+
+                self.time = try container.decode(String.self, forKey: .time)
+                if DateFormatter.forUIGFEntry(timeZoneDelta: 0).date(from: time) == nil {
+                    error = UIGFv4.makeDecodingError(CodingKeys.time)
+                }
+
+                if let error = error { throw error }
             }
 
             // MARK: Public
@@ -359,7 +438,7 @@ extension UIGFv4 {
             self.lang = try container.decode(GachaLanguageCode.self, forKey: .lang)
             self.timezone = try container.decode(Int.self, forKey: .timezone)
 
-            if let x = try? container.decode(String.self, forKey: .uid) {
+            if let x = try? container.decode(String.self, forKey: .uid), !x.isEmpty {
                 self.uid = x
             } else if let x = try? container.decode(Int.self, forKey: .uid) {
                 self.uid = x.description
@@ -399,6 +478,41 @@ extension UIGFv4 {
                 self.name = name
                 self.rankType = rankType
                 self.time = time
+            }
+
+            public init(from decoder: any Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                var error: Error?
+
+                self.count = try container.decodeIfPresent(String.self, forKey: .count)
+                if Int(count ?? "") == nil { error = UIGFv4.makeDecodingError(CodingKeys.count) }
+
+                self.gachaType = try container.decode(GachaTypeZZZ.self, forKey: .gachaType)
+
+                self.id = try container.decode(String.self, forKey: .id)
+                if Int(id) == nil { error = UIGFv4.makeDecodingError(CodingKeys.id) }
+
+                self.itemID = try container.decode(String.self, forKey: .itemID)
+                if Int(itemID) == nil { error = UIGFv4.makeDecodingError(CodingKeys.itemID) }
+
+                self.itemType = try container.decodeIfPresent(String.self, forKey: .itemType)
+                if itemType?.isEmpty ?? false { error = UIGFv4.makeDecodingError(CodingKeys.itemType) }
+
+                self.gachaID = try container.decodeIfPresent(String.self, forKey: .gachaID)
+                if Int(gachaID ?? "") == nil { error = UIGFv4.makeDecodingError(CodingKeys.gachaID) }
+
+                self.name = try container.decodeIfPresent(String.self, forKey: .name)
+                if name?.isEmpty ?? false { error = UIGFv4.makeDecodingError(CodingKeys.name) }
+
+                self.rankType = try container.decodeIfPresent(String.self, forKey: .rankType)
+                if Int(rankType ?? "") == nil { error = UIGFv4.makeDecodingError(CodingKeys.rankType) }
+
+                self.time = try container.decode(String.self, forKey: .time)
+                if DateFormatter.forUIGFEntry(timeZoneDelta: 0).date(from: time) == nil {
+                    error = UIGFv4.makeDecodingError(CodingKeys.time)
+                }
+
+                if let error = error { throw error }
             }
 
             // MARK: Public
