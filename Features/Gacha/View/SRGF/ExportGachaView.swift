@@ -101,7 +101,7 @@ struct ExportGachaView: View {
 
     @ViewBuilder
     func compactMain() -> some View {
-        Menu("gacha.manage.uigf.export.toolbarTitle") {
+        Menu {
             Menu {
                 ForEach(GachaLanguageCode.allCases, id: \.rawValue) { code in
                     Button(code.localized) {
@@ -122,6 +122,8 @@ struct ExportGachaView: View {
             } label: {
                 Text(verbatim: "SRGFv1")
             }
+        } label: {
+            Label("gacha.manage.uigf.export.toolbarTitle", systemSymbol: .squareAndArrowUpOnSquare)
         }
     }
 
