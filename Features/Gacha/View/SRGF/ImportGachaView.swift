@@ -107,7 +107,7 @@ struct ImportGachaView: View {
                 do {
                     let decoder = JSONDecoder()
                     let data: Data = try Data(contentsOf: url)
-                    var result = [GachaImportReport]()
+                    var results = [GachaImportReport]()
                     let appMeta: String?
                     let dateMeta: Date?
                     switch format {
@@ -117,7 +117,7 @@ struct ImportGachaView: View {
                                 UIGFv4.self,
                                 from: data
                             )
-                        result = importGachaFromUIGFv4(
+                        results = importGachaFromUIGFv4(
                             uigfJson: uigfModel
                         )
                         appMeta = uigfModel.info.exportApp
@@ -128,14 +128,14 @@ struct ImportGachaView: View {
                                 SRGFv1.self,
                                 from: data
                             )
-                        result = importGachaFromSRGFv1(
+                        results = importGachaFromSRGFv1(
                             srgfJson: srgfModel
                         )
                         appMeta = srgfModel.info.exportApp
                         dateMeta = srgfModel.info.maybeDateExported
                     }
                     var succeededMessages: [ImportSucceedInfo] = []
-                    result.forEach { currentMsg in
+                    results.forEach { currentMsg in
                         succeededMessages.append(
                             ImportSucceedInfo(
                                 uid: currentMsg.uid,
