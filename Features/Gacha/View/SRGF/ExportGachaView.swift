@@ -94,7 +94,7 @@ struct ExportGachaView: View {
                     Text(verbatim: "SRGFv1").tag(UIGFFormat.srgfv1)
                 }
             } footer: {
-                Text("app.gacha.srgf.affLink.[SRGF](https://uigf.org/)")
+                Text("app.gacha.uigf.affLink.[UIGF](https://uigf.org/)")
             }
         }
     }

@@ -430,8 +430,9 @@ private struct HelpSheet: View {
                         )
                     }
                 } footer: {
-                    Text("app.gacha.import.uigf.verified.note.2")
-                        .fixedSize(horizontal: false, vertical: true)
+                    Text("gacha.home.explainBetaUIGF")
+                        + Text(verbatim: "\n\n")
+                        + Text("app.gacha.uigf.affLink.[UIGF](https://uigf.org/)")
                 }
             }
             .navigationTitle("sys.help")
@@ -598,7 +599,7 @@ private struct ImportView: View {
                     Text(
                         "app.gacha.import.uigf.verified.note.1"
                     )
-                    Text("app.gacha.srgf.affLink.[SRGF](https://uigf.org/)")
+                    Text("app.gacha.uigf.affLink.[UIGF](https://uigf.org/)")
                 }
             }
         }
