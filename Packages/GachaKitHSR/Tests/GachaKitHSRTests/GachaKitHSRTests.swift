@@ -61,10 +61,10 @@ final class GachaKitHSRTests: XCTestCase {
         XCTAssertEqual(rawList, newList)
     }
 
-    // MARK: - UIGFv4
+    // MARK: - UIGFv4 (HSR)
 
-    func testDecodingUIGFv4() throws {
-        let filePath: String = testDataPath + "UIGFv4_Sample.json"
+    func testDecodingUIGFv4HSR() throws {
+        let filePath: String = testDataPath + "UIGFv4_Sample-HSR.json"
         let url = URL(fileURLWithPath: filePath)
         let data = try Data(contentsOf: url)
         let decoded = try JSONDecoder().decode(UIGFv4.self, from: data)
@@ -89,8 +89,8 @@ final class GachaKitHSRTests: XCTestCase {
         print(y.compactMap(\.name).joined(separator: "\n"))
     }
 
-    func testListConsistencyUIGFv4() throws {
-        let filePath: String = testDataPath + "UIGFv4_Sample.json"
+    func testListConsistencyUIGFv4HSR() throws {
+        let filePath: String = testDataPath + "UIGFv4_Sample-HSR.json"
         let url = URL(fileURLWithPath: filePath)
         let data = try Data(contentsOf: url)
         let decoded = try JSONDecoder().decode(UIGFv4.self, from: data)
@@ -113,5 +113,24 @@ final class GachaKitHSRTests: XCTestCase {
             $0.toUIGFEntry(langOverride: gachaLang, timeZoneDeltaOverride: timeZone)
         }.sorted { $0.id < $1.id }
         XCTAssertEqual(rawList, newList)
+    }
+
+    // MARK: - UIGFv4 (Genshin Impact)
+
+    func testDecodingUIGFv4GI() throws {
+        let filePath: String = testDataPath + "UIGFv4_Sample-GI.json"
+        let url = URL(fileURLWithPath: filePath)
+        let data = try Data(contentsOf: url)
+        let decoded = try JSONDecoder().decode(UIGFv4.self, from: data)
+        XCTAssertEqual(decoded.info.exportApp, "Snap Hutao")
+        guard let profile = decoded.giProfiles?.first else {
+            assertionFailure("No profile found.")
+            return
+        }
+        let x = profile.list.filter {
+            $0.uigfGachaType == .characterEvent
+        }
+        XCTAssertEqual(x.count, 2260)
+        print(x.compactMap(\.name).joined(separator: "\n"))
     }
 }

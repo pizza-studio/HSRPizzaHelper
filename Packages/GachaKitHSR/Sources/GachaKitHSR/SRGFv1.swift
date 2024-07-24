@@ -111,7 +111,7 @@ extension SRGFv1 {
             var error: Error?
 
             self.count = try container.decodeIfPresent(String.self, forKey: .count)
-            if Int(count ?? "") == nil { error = SRGFv1.makeDecodingError(CodingKeys.count) }
+            if Int(count ?? "1") == nil { error = SRGFv1.makeDecodingError(CodingKeys.count) }
 
             self.gachaType = try container.decode(GachaType.self, forKey: .gachaType)
 
@@ -131,7 +131,7 @@ extension SRGFv1 {
             if name?.isEmpty ?? false { error = SRGFv1.makeDecodingError(CodingKeys.name) }
 
             self.rankType = try container.decodeIfPresent(String.self, forKey: .rankType)
-            if Int(rankType ?? "") == nil { error = SRGFv1.makeDecodingError(CodingKeys.rankType) }
+            if Int(rankType ?? "3") == nil { error = SRGFv1.makeDecodingError(CodingKeys.rankType) }
 
             self.time = try container.decode(String.self, forKey: .time)
             if DateFormatter.forUIGFEntry(timeZoneDelta: 0).date(from: time) == nil {
