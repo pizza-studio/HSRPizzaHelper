@@ -90,7 +90,7 @@ struct ExportGachaView: View {
                     }
                 }
                 Picker("gacha.export.chooseFormat", selection: $currentFormat) {
-                    Text(verbatim: "UIGFv4").tag(UIGFFormat.uigfv4)
+                    Text(verbatim: "UIGFv4.0").tag(UIGFFormat.uigfv4)
                     Text(verbatim: "SRGFv1").tag(UIGFFormat.srgfv1)
                 }
             } footer: {
@@ -110,7 +110,7 @@ struct ExportGachaView: View {
                     }
                 }
             } label: {
-                Text(verbatim: "UIGFv4")
+                Text(verbatim: "UIGFv4.0")
             }
             Menu {
                 ForEach(GachaLanguageCode.allCases, id: \.rawValue) { code in
