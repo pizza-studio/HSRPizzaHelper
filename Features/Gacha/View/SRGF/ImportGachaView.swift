@@ -430,7 +430,7 @@ private struct HelpSheet: View {
                         )
                     }
                 } footer: {
-                    Text("gacha.home.explainBetaUIGF")
+                    Text("gacha.home.explainUIGF")
                         + Text(verbatim: "\n\n")
                         + Text("app.gacha.uigf.affLink.[UIGF](https://uigf.org/)")
                 }
@@ -573,7 +573,7 @@ private struct ImportView: View {
         StatusView(status: $status) {
             Section {
                 PopFileButton(
-                    title: "app.gacha.import.fromUIGF".localized() + " (Beta)",
+                    title: "app.gacha.import.fromUIGF".localized(),
                     allowedContentTypes: [.json]
                 ) { result in
                     switch result {

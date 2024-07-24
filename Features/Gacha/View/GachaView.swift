@@ -31,7 +31,7 @@ struct GachaView: View {
                     ExportGachaView()
                 }.disabled(noDataAvailable)
             } footer: {
-                Text("gacha.home.explainBetaUIGF")
+                Text("gacha.home.explainUIGF")
             }
             Section {
                 if !availableUIDAndNames.isEmpty {
