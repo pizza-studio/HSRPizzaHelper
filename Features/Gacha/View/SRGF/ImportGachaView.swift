@@ -367,6 +367,20 @@ private struct ImportSucceedInfo: Equatable, Identifiable {
         }
     }
 
+    @ViewBuilder var timeViewSimple: some View {
+        if let date = exportDate {
+            let timeInfo = String(
+                format: "app.gacha.import.info.time:%@".localized(),
+                dateFormatterCurrent.string(from: date)
+            )
+            Text(timeInfo)
+        }
+    }
+
+    @ViewBuilder var timeZoneView: some View {
+        Text(verbatim: "UTC\(timeZoneDeltaValueText)")
+    }
+
     // MARK: Private
 
     private var timeZoneDeltaValueText: String {
@@ -511,16 +525,23 @@ private struct SucceedView: View {
                 let sourceInfo = String(format: "app.gacha.import.info.source:%@".localized(), app)
                 Text(sourceInfo)
             }
+        } footer: {
+            if let firstInfo = infoMsgs.first {
+                firstInfo.timeViewSimple
+            }
         }
         ForEach(infoMsgs, id: \.id) { info in
             Section {
-                info.timeView
                 let importInfo = String(format: "app.gacha.import.info.import:%lld".localized(), info.totalCount)
                 let storageInfo = String(format: "app.gacha.import.info.storage:%lld".localized(), info.newCount)
                 Text(importInfo)
                 Text(storageInfo)
             } header: {
-                Text(verbatim: "UID: \(info.uid)")
+                HStack {
+                    Text(verbatim: "UID: \(info.uid)")
+                    Spacer()
+                    info.timeZoneView
+                }
             }
         }
         Button("app.gacha.import.continue") {
