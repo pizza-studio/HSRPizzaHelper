@@ -147,11 +147,20 @@ private struct GachaItemBar: View {
     let drawCount: Int
     let showTime: Bool
 
+    @MainActor var itemIDText: Text {
+        if showTime {
+            Text(verbatim: "  \(item.itemID)")
+                .font(.caption).foregroundColor(.secondary)
+        } else {
+            Text(verbatim: "")
+        }
+    }
+
     var body: some View {
         HStack {
             GachaItemIcon(item: item)
             HStack {
-                item.localizedNameView(officialNameOnly: !useRealCharacterNames)
+                item.localizedNameView(officialNameOnly: !useRealCharacterNames) + itemIDText
                 Spacer()
                 VStack(alignment: .trailing) {
                     if item.rank != .three {
@@ -167,6 +176,8 @@ private struct GachaItemBar: View {
             }
             #if DEBUG
             .contextMenu {
+                    Text(verbatim: "Debug Info")
+                    Divider()
                     Text(item.langRawValue)
                     Text(item.itemTypeRawValue)
                     Text(item.gachaTypeRawValue)
