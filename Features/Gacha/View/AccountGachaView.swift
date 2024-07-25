@@ -23,7 +23,7 @@ struct AccountGachaView: View {
     var body: some View {
         List {
             Section {
-                Picker("gacha.account_detail.gacha_type", selection: $gachaType) {
+                Picker("gacha.account_detail.gacha_type", selection: $gachaType.animation()) {
                     ForEach(GachaType.allCases, id: \.rawValue) { type in
                         Text(type.description).tag(type)
                     }
