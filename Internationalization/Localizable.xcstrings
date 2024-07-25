@@ -8389,25 +8389,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "// UIGFv4.0, established by the UIGF committee, is a coalescent exchangeable format for gacha records of many games produced by Cognosphere and MiHoYo. The current implementation regarding the support of UIGFv4.0 in this app is only for Star Rail and is considered final."
+            "value" : "UIGFv4.0, established by the UIGF committee, is a coalescent exchangeable format for gacha records of many games produced by Cognosphere and MiHoYo. The current implementation regarding the support of UIGFv4.0 in this app is only for Star Rail and is considered final."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "// UIGF委員会によって確立されたUIGFv4.0フォーマット規格は、CognosphereとMiHoYoによって制作された多くのゲームのガチャレコードのために作った統合交換可能なフォーマットです。弊アプリでのUIGFv4.0のサポートに関する現在の実作は「崩壊：星穹鉄道（スターレイル）」のみのためであり、最終実作と見なされています。"
+            "value" : "UIGF委員会によって確立されたUIGFv4.0フォーマット規格は、CognosphereとMiHoYoによって制作された多くのゲームのガチャレコードのために作った統合交換可能なフォーマットです。弊アプリでのUIGFv4.0のサポートに関する現在の実作は「崩壊：星穹鉄道（スターレイル）」のみのためであり、最終実作と見なされています。"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "// UIGFv4.0 是由 UIGF 委员会制定的聚合型资讯交换格式，用于多款由 Cognosphere 和米哈遊制作发行的的电玩们的抽卡记录的交换。敝 App 中有关 UIGFv4.0 支援的目前实作仅适用于《崩坏：星穹铁道》，并被视为最终实作。"
+            "value" : "UIGFv4.0 是由 UIGF 委员会制定的聚合型资讯交换格式，用于多款由 Cognosphere 和米哈遊制作发行的的电玩们的抽卡记录的交换。敝 App 中有关 UIGFv4.0 支援的目前实作仅适用于《崩坏：星穹铁道》，并被视为最终实作。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "// UIGFv4.0 是由 UIGF 委員會制定的聚合型資訊交換格式，用於多款由 Cognosphere 和米哈遊製作發行的的電玩們的抽卡記錄的交換。敝 App 中有關 UIGFv4.0 支援的目前實作僅適用於《崩壞：星穹鐵道》，並被視為最終實作。"
+            "value" : "UIGFv4.0 是由 UIGF 委員會制定的聚合型資訊交換格式，用於多款由 Cognosphere 和米哈遊製作發行的的電玩們的抽卡記錄的交換。敝 App 中有關 UIGFv4.0 支援的目前實作僅適用於《崩壞：星穹鐵道》，並被視為最終實作。"
           }
         }
       }
