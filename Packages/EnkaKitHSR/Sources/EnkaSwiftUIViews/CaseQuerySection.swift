@@ -94,12 +94,8 @@ public struct CaseQuerySection: View {
     @FocusState var backupFocus: Bool
 
     var avatarAssetName: String {
-        guard let path = delegate.currentInfo?.accountPhotoFilePath(theDB: theDB) else {
-            return EnkaHSR.QueryRelated.DetailInfo.nullPhotoAssetName
-        }
-        let fileStem = path.split(separator: "/").last?.replacingOccurrences(of: ".heic", with: "")
-        guard let fileStem = fileStem else { return EnkaHSR.QueryRelated.DetailInfo.nullPhotoAssetName }
-        return "avatar_\(fileStem)"
+        delegate.currentInfo?.accountPhotoFileNameStem(theDB: theDB)
+            ?? EnkaHSR.QueryRelated.DetailInfo.nullPhotoAssetName
     }
 
     @ViewBuilder var textFieldView: some View {

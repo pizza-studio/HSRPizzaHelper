@@ -11,18 +11,10 @@ extension EnkaHSR.QueryRelated.DetailInfo {
         .init(theDB: theDB, rawInfo: self)
     }
 
-    public func accountPhotoFilePath(theDB: EnkaHSR.EnkaDB) -> String {
+    public func accountPhotoFileNameStem(theDB: EnkaHSR.EnkaDB) -> String {
         let str = theDB.profileAvatars[headIcon.description]?
             .icon.split(separator: "/").last?.description ?? "114514.png"
-        return "\(Self.accountPhotoFilePathHeader)/\(str)".replacingOccurrences(of: ".png", with: ".heic")
-    }
-
-    public static var accountPhotoFilePathHeader: String {
-        "\(EnkaHSR.assetPathRoot)/\(EnkaHSR.AssetPathComponents.profileAvatar.rawValue)/"
-    }
-
-    public static var nullPhotoFilePath: String {
-        "\(accountPhotoFilePathHeader)/Anonymous.heic"
+        return "avatar_\(str)".replacingOccurrences(of: ".png", with: "")
     }
 
     public static var nullPhotoAssetName: String {
