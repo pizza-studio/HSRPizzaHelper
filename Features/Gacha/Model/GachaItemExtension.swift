@@ -10,7 +10,7 @@ import SwiftUI
 
 extension GachaItemProtocol {
     var localizedName: String {
-        let initialValue = GachaMetaManager.shared.getLocalizedName(id: itemID, type: itemType)
+        let initialValue = GachaMetaManager.shared.getLocalizedName(id: itemID)
         let secondaryValue: String? = {
             if let this = self as? GachaItemMO {
                 return this.name

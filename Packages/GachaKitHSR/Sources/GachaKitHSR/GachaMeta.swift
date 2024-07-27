@@ -34,23 +34,19 @@ public class GachaMetaManager {
 
     public static let shared: GachaMetaManager = .init()
 
-    public func getLocalizedName(
-        id: String, type: GachaItem.ItemType,
-        langOverride: GachaLanguageCode? = nil
-    )
-        -> String? {
-        guard let meta = getMeta(id: id, type: type) else { return nil }
+    public func getLocalizedName(id: String, langOverride: GachaLanguageCode? = nil) -> String? {
+        guard let meta = getMeta(id: id) else { return nil }
         return meta.l10nMap?[(langOverride ?? Locale.gachaLangauge).rawValue] ?? "ID:\(id)"
     }
 
-    public func getRankType(id: String, type: GachaItem.ItemType) -> GachaItem.Rank? {
-        guard let initialValue = getMeta(id: id, type: type)?.rank else { return nil }
+    public func getRankType(id: String) -> GachaItem.Rank? {
+        guard let initialValue = getMeta(id: id)?.rank else { return nil }
         return .init(rawValue: initialValue.description)
     }
 
     // MARK: Private
 
-    private func getMeta(id: String, type: GachaItem.ItemType) -> ItemMeta? {
+    private func getMeta(id: String) -> ItemMeta? {
         let result = GachaMetaDB.shared.mainDB[id]
         if result == nil {
             Task.detached { @MainActor in
