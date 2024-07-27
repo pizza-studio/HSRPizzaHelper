@@ -350,6 +350,7 @@
 		5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportGachaView.swift; sourceTree = "<group>"; };
 		5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportGachaView.swift; sourceTree = "<group>"; };
 		5B28F9032BDE5045004B271E /* LocaleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocaleImpl.swift; sourceTree = "<group>"; };
+		5B2CBE182C54F68F0056CDC0 /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
 		5B499B302BDBB8FC004919F5 /* GachaKitHSR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GachaKitHSR; path = Packages/GachaKitHSR; sourceTree = "<group>"; };
 		5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
@@ -1080,6 +1081,7 @@
 		EAE519732A01738600EF23B7 = {
 			isa = PBXGroup;
 			children = (
+				5B2CBE182C54F68F0056CDC0 /* .github */,
 				5B12AE722C180BC2009B7B75 /* Settings.bundle */,
 				BFCACD112A04922E009B0B85 /* README.md */,
 				BFCACD0F2A0491E9009B0B85 /* LICENSE */,

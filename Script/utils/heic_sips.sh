@@ -35,7 +35,7 @@ if [[ "$2" = "subfolders" || "$3" = "subfolders" ]]; then
   path_wildcard="**/*/"
 fi
 
-exts=("jpg" "jpeg" "bmp" "png" "dng" "cr2" "tif" "arw")
+exts=("jpg" "jpeg" "bmp" "png" "dng" "cr2" "tif" "arw" "webp")
 
 echoo "CONVERTING FILES WITH EXTENSIONS: $exts"
 if [[ $subfolders -eq 1 ]]; then

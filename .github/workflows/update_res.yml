@@ -28,12 +28,10 @@ jobs:
               id: latest_sha
               run: echo "::set-output name=sha::$(git ls-remote https://github.com/Mar-7th/StarRailRes.git HEAD | cut -f1)"
 
-            - name: Run Python update asset meta script
+            - name: Run Python update asset script
               id: compare_shas
               run: |
-                python ./Script/update_gacha_meta.py
-                python ./Script/update_other_meta.py
-                bash ./Script/RelocateGachaMetaJSON.sh
+                swift ./Script/RawAssetsPuller.swift
                 zsh ./Script/convertAssetsToHEIC.sh
                 swift ./Script/ImageAssetRegenerator.swift
 
@@ -41,14 +39,14 @@ jobs:
               uses: peter-evans/create-pull-request@v3
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
-                branch: update-gacha-meta-${{ github.run_number }}
+                branch: update-assets-${{ github.run_number }}
                 base: dev
-                title: "Update Asset Meta"
+                title: "Update Assets"
                 body: |
-                  This PR updates the gacha meta and other assets (see update_other_meta.py for details).
+                  This PR updates the assets.
                 delete-branch: true
                 assignees: ShikiSuen
-                reviewers: CanglongCl
+                reviewers: ShikiSuen
                 team-reviewers: |
                   owners
                   maintainers

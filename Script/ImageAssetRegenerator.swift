@@ -65,7 +65,7 @@ struct AssetFile: Codable, CustomStringConvertible {
     public init(oldPath: String) {
         self.oldPath = oldPath
         let oldPathCells = oldPath.split(separator: "/").split(separator: #"\"#).reduce([], +).map(\.description)
-        let newFileName = oldPathCells.suffix(2).joined(separator: "_")
+        let newFileName = oldPathCells.suffix(1).joined(separator: "_")
         self.fileName = newFileName
         let newPaths = generateNewPath(newFileName: newFileName)
         self.newPath = newPaths.filePath
@@ -117,8 +117,7 @@ func initNewWorkspace() {
 
 func cleanWorkspace() {
     do {
-        try FileManager.default.removeItem(atPath: "./Assets/gacha_meta")
-        try FileManager.default.removeItem(atPath: "./Assets/other_meta")
+        try FileManager.default.removeItem(atPath: "./Assets/AssetTemp")
     } catch {
         assertionFailure(error.localizedDescription)
     }
@@ -129,7 +128,7 @@ func cleanWorkspace() {
 func handleAllFiles() {
     let fileMgr = FileManager.default
     let allPaths: [String] = (fileMgr.subpaths(atPath: "./Assets/") ?? []).filter {
-        $0.contains("_meta") && $0.suffix(5).lowercased() == ".heic"
+        $0.contains("AssetTemp") && $0.suffix(5).lowercased() == ".heic"
     }
     let assets: [AssetFile] = allPaths.map { AssetFile(oldPath: "./Assets/" + $0) }
     assets.forEach {

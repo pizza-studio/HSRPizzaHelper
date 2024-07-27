@@ -91,12 +91,7 @@ extension EnkaHSR.DBModels {
 
 extension EnkaHSR.DBModels.Element {
     public var iconFileName: String {
-        var result = "\(rawValue).heic"
-        switch self {
-        case .electro: result = "Lightning.heic"
-        default: break
-        }
-        return result
+        "\(rawValue).heic"
     }
 
     public var iconFilePath: String {
