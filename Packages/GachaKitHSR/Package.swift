@@ -16,6 +16,9 @@ let package = Package(
         ),
     ],
     dependencies: [
+        .package(url: "https://github.com/sindresorhus/Defaults", from: "7.3.1"),
+        .package(url: "./Packages/DefaultsKeys", from: "1.0.0"),
+        .package(url: "https://github.com/pizza-studio/GachaMetaGenerator", from: "2.0.3"),
         .package(url: "./Packages/HBMihoyoAPI", from: "1.0.0"),
     ],
     targets: [
@@ -24,11 +27,12 @@ let package = Package(
         .target(
             name: "GachaKitHSR",
             dependencies: [
+                .product(name: "Defaults", package: "Defaults"),
+                .product(name: "DefaultsKeys", package: "DefaultsKeys"),
+                .product(name: "GachaMetaDB", package: "GachaMetaGenerator"),
                 .product(name: "HBMihoyoAPI", package: "HBMihoyoAPI"),
             ],
-            resources: [
-                .process("Assets/gacha_meta.json"),
-            ]
+            resources: []
         ),
         .testTarget(
             name: "GachaKitHSRTests",
