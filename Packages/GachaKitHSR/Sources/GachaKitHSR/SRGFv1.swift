@@ -204,10 +204,10 @@ extension SRGFv1.DataEntry {
         -> GachaEntry {
         let newItemType = GachaItem.ItemType(itemID: itemID)
         let name = GachaMetaManager.shared.getLocalizedName(
-            id: itemID, type: newItemType, langOverride: lang
+            id: itemID, langOverride: lang
         ) ?? name
         let timeTyped: Date? = DateFormatter.forUIGFEntry(timeZoneDelta: timeZoneDelta).date(from: time)
-        let fallbackRankType = GachaMetaManager.shared.getRankType(id: itemID, type: newItemType)
+        let fallbackRankType = GachaMetaManager.shared.getRankType(id: itemID)
         return .init(
             count: Int32(count ?? "1") ?? 1, // Default is 1.
             gachaID: gachaID,
@@ -238,7 +238,7 @@ extension GachaEntry {
         let langOverride = langOverride ?? Locale.gachaLangauge
         let newItemType = GachaItem.ItemType(itemID: itemID)
         let name = GachaMetaManager.shared.getLocalizedName(
-            id: itemID, type: newItemType, langOverride: langOverride
+            id: itemID, langOverride: langOverride
         ) ?? name
         // 每次导出 SRGF 资料时，都根据当前语言来重新生成 `item_type` 资料值。
         let itemTypeTranslated = newItemType.translatedRaw(for: langOverride)
