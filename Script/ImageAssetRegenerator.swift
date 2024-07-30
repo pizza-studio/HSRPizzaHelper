@@ -72,6 +72,7 @@ struct AssetFile: Codable, CustomStringConvertible {
         self.setPath = newPaths.setPath
         self.jsonPath = newPaths.jsonPath
         self.jsonText = generateJSON(fileName: fileName)
+        print(description)
     }
 
     // MARK: Internal
@@ -85,7 +86,7 @@ struct AssetFile: Codable, CustomStringConvertible {
 
     var description: String {
         let encoder = JSONEncoder()
-        encoder.outputFormatting = [.prettyPrinted]
+        encoder.outputFormatting = [.prettyPrinted, .withoutEscapingSlashes, .sortedKeys]
         // swiftlint:disable:next force_try
         let data = try! encoder.encode(self)
         return String(data: data, encoding: .utf8)!
