@@ -292,6 +292,7 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo.BaseSkillSet.BaseSkill {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .scaleEffect(0.8)
+                        .blendMode(.colorDodge)
                 }.frame(
                     width: fontSize * 2.2,
                     height: fontSize * 2
