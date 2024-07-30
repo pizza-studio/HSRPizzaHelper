@@ -177,10 +177,10 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
 
         public struct BaseSkill: Codable, Hashable {
             public enum SkillType: String, Codable, Hashable {
-                case basicAttack = "basic_atk"
-                case elementalSkill = "skill"
-                case elementalBurst = "ultimate"
-                case talent
+                case basicAttack = "Normal"
+                case elementalSkill = "BP"
+                case elementalBurst = "Ultra"
+                case talent = "Passive"
             }
 
             public let charIDStr: String
