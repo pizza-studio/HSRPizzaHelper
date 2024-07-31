@@ -31,7 +31,9 @@ extension GachaMetaDB {
         public init() {
             cancellables.append(
                 Defaults.publisher(.localGachaMetaDB).sink { _ in
-                    self.mainDB = Defaults[.localGachaMetaDB]
+                    Task.detached { @MainActor in
+                        self.mainDB = Defaults[.localGachaMetaDB]
+                    }
                 }
             )
         }
