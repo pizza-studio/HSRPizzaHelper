@@ -16,7 +16,9 @@ extension EnkaHSR {
             self.summarizedAvatars = rawInfo.summarizeAllAvatars(theDB: theDB)
             cancellables.append(
                 theDB.objectWillChange.sink {
-                    self.update(newRawInfo: self.rawInfo)
+                    Task.detached { @MainActor in
+                        self.update(newRawInfo: self.rawInfo)
+                    }
                 }
             )
         }
@@ -34,6 +36,7 @@ extension EnkaHSR {
 }
 
 extension EnkaHSR.ProfileSummarized {
+    @MainActor
     public func update(
         newRawInfo: EnkaHSR.QueryRelated.DetailInfo, dropExistingData: Bool = false
     ) {
