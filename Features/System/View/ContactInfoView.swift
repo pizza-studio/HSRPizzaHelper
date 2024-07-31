@@ -126,7 +126,7 @@ struct ContactInfoView: View {
             }
 
             Section(header: Text("sys.contact.i18n.zhtw")) {
-                Label { Text("ShikiSuen") } icon: {
+                Label { Text("contact.nameText.shikisuen") } icon: {
                     Image("avatar.shikisuen")
                         .resizable()
                         .scaledToFit()
@@ -237,7 +237,7 @@ struct ContactInfoView: View {
                     Image("avatar.shikisuen").resizable().clipShape(Circle())
                         .frame(width: 50, height: 50)
                     VStack(alignment: .leading) {
-                        Text("Shiki Suen (孙志贵)").bold().padding(.vertical, 5)
+                        Text("contact.nameText.shikisuen").bold().padding(.vertical, 5)
                     }
                     Spacer()
                     Image(systemSymbol: .chevronRight)

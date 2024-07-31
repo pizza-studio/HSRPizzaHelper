@@ -2848,6 +2848,70 @@
         }
       }
     },
+    "app.gacha.get.running" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Successfully obtained…"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nakuha…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenu avec succès…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Successfully obtained…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取得したデータ…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Successfully obtained…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Успешно получено…"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thu được thành công…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功获取到一批…"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功獲取到一批…"
+          }
+        }
+      }
+    },
     "app.gacha.import.continue" : {
       "localizations" : {
         "en" : {
@@ -4883,6 +4947,22 @@
     },
     "Clean All User Defaults Key" : {
 
+    },
+    "contact.nameText.shikisuen" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "孫 志貴 (このいと しき, Shiki Suen) "
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shiki Suen (孫志貴)"
+          }
+        }
+      }
     },
     "daicanglong@gmail.com" : {
 
@@ -10812,9 +10892,6 @@
     "Min" : {
 
     },
-    "New Record Count: " : {
-
-    },
     "news.Events" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -14974,28 +15051,6 @@
           }
         }
       }
-    },
-    "Shiki Suen (孙志贵)" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "孫 志貴 (このいと しき, Shiki Suen) "
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Shiki Suen (孫志貴)"
-          }
-        }
-      }
-    },
-    "ShikiSuen" : {
-
-    },
-    "Successfully obtained..." : {
-
     },
     "sys.about.opensource.footer" : {
       "localizations" : {

@@ -56,7 +56,7 @@ struct GetGachaRecordView: View {
                         GachaItemBar(item: item)
                     }
                 } header: {
-                    Text("Successfully obtained...")
+                    Text("app.gacha.get.running")
                 }
             }
         }
@@ -265,7 +265,7 @@ struct FinishedView: View {
             }
         } footer: {
             VStack(alignment: .leading) {
-                Text("New Record Count: ") + Text(newRecordCount)
+                Text("gacha.get_record.finished.new_record_count") + Text(newRecordCount)
             }
         }
     }
