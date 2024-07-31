@@ -160,9 +160,9 @@ func generateGachaRequest(
 
     switch basicParam.server.region {
     case .mainlandChina:
-        components.host = "api-takumi.mihoyo.com"
+        components.host = "public-operation-hkrpg.mihoyo.com"
     case .global:
-        components.host = "api-os-takumi.mihoyo.com"
+        components.host = "public-operation-hkrpg-sg.hoyoverse.com"
     }
 
     components.path = "/common/gacha_record/api/getGachaLog"
