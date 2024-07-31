@@ -37,6 +37,7 @@ extension EnkaHSR {
             }
         }
 
+        @MainActor
         public static func getEnkaDB() async throws -> EnkaHSR.EnkaDB {
             var enkaDataExpired = Calendar.current.date(
                 byAdding: .hour,

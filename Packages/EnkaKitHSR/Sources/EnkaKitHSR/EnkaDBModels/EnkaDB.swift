@@ -200,6 +200,7 @@ extension EnkaHSR {
             return target
         }
 
+        @MainActor
         public func update(new: EnkaHSR.EnkaDB) {
             langTag = new.langTag
             locTable = new.locTable
