@@ -49,59 +49,62 @@ public struct CharacterIconView: View {
     // MARK: Internal
 
     @ViewBuilder var cardIcon: some View {
-        if let cidObj = EnkaHSR.AvatarSummarized.CharacterID(id: charID) {
-            if useGenshinStyleIcon, let idPhotoView = IDPhotoView(pid: charID.description, size, .asCard) {
-                idPhotoView
-            } else {
-                EnkaHSR.queryImageAssetSUI(for: cidObj.photoAssetName)?
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .scaleEffect(1.5, anchor: .top)
-                    .scaleEffect(1.4)
-                    .frame(width: size * 0.74, height: size)
-                    .background {
-                        Color.black.opacity(0.165)
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: size / 10))
-                    .contentShape(RoundedRectangle(cornerRadius: size / 10))
-                    .compositingGroup()
-            }
+        if useGenshinStyleIcon,
+           let idPhotoView = IDPhotoView(pid: charID.description, size, .asCard) {
+            idPhotoView
+        } else if useGenshinStyleIcon,
+                  let idPhotoView = IDPhotoFallbackView(pid: charID.description, size, .asCard) {
+            idPhotoView
+        } else if let traditionalFallback = EnkaHSR.queryImageAssetSUI(for: proposedPhotoAssetName) {
+            traditionalFallback
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(1.5, anchor: .top)
+                .scaleEffect(1.4)
+                .frame(width: size * 0.74, height: size)
+                .background {
+                    Color.black.opacity(0.165)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: size / 10))
+                .contentShape(RoundedRectangle(cornerRadius: size / 10))
+                .compositingGroup()
         } else {
-            EmptyView()
+            blankQuestionedView
         }
     }
 
     @ViewBuilder var normalIcon: some View {
-        if let cidObj = EnkaHSR.AvatarSummarized.CharacterID(id: charID) {
-            let cutType: IDPhotoView.IconType = clipToHead ? .cutHead : .cutShoulder
-            if useGenshinStyleIcon, let idPhotoView = IDPhotoView(pid: charID.description, size, cutType) {
-                idPhotoView
-            } else {
-                let result = EnkaHSR.queryImageAssetSUI(for: cidObj.photoAssetName)?
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .scaleEffect(1.5, anchor: .top)
-                    .scaleEffect(1.4)
-                    .frame(maxWidth: size, maxHeight: size)
-                // Draw.
-                let bgColor = Color.black.opacity(0.165)
-                Group {
-                    if circleClipped {
-                        result
-                            .background { bgColor }
-                            .clipShape(Circle())
-                            .contentShape(Circle())
-                    } else {
-                        result
-                            .background { bgColor }
-                            .clipShape(Rectangle())
-                            .contentShape(Rectangle())
-                    }
+        if useGenshinStyleIcon,
+           let idPhotoView = IDPhotoView(pid: charID.description, size, cutType) {
+            idPhotoView
+        } else if useGenshinStyleIcon,
+                  let idPhotoView = IDPhotoFallbackView(pid: charID.description, size, cutType) {
+            idPhotoView
+        } else if let result = EnkaHSR.queryImageAssetSUI(for: proposedPhotoAssetName) {
+            result
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(1.5, anchor: .top)
+                .scaleEffect(1.4)
+                .frame(maxWidth: size, maxHeight: size)
+            // Draw.
+            let bgColor = Color.black.opacity(0.165)
+            Group {
+                if circleClipped {
+                    result
+                        .background { bgColor }
+                        .clipShape(Circle())
+                        .contentShape(Circle())
+                } else {
+                    result
+                        .background { bgColor }
+                        .clipShape(Rectangle())
+                        .contentShape(Rectangle())
                 }
-                .compositingGroup()
             }
+            .compositingGroup()
         } else {
-            EmptyView()
+            blankQuestionedView
         }
     }
 
@@ -114,6 +117,23 @@ public struct CharacterIconView: View {
     private let size: CGFloat
     private let circleClipped: Bool
     private let clipToHead: Bool
+
+    private var cutType: IDPhotoView.IconType {
+        clipToHead ? .cutHead : .cutShoulder
+    }
+
+    private var proposedPhotoAssetName: String {
+        "characters_\(charID)"
+    }
+
+    @ViewBuilder private var blankQuestionedView: some View {
+        Circle().background(.gray).overlay {
+            Text(verbatim: "?").foregroundStyle(.white).fontWeight(.black)
+        }.frame(width: size, height: size)
+            .clipShape(RoundedRectangle(cornerRadius: size / 10))
+            .contentShape(RoundedRectangle(cornerRadius: size / 10))
+            .compositingGroup()
+    }
 }
 
 // MARK: - IDPhotoView
@@ -130,7 +150,7 @@ public struct IDPhotoView: View {
     ) {
         guard Defaults[.useGenshinStyleCharacterPhotos] || forceRender else { return nil }
         self.pid = pid
-        guard let coordinator = IDPhotoView.Coordinator(pid: pid) else { return nil }
+        guard let coordinator = Self.Coordinator(pid: pid) else { return nil }
         self.coordinator = coordinator
         let lifePath = EnkaHSR.Sputnik.sharedDB.characters[pid]?.avatarBaseType
         guard let lifePath = lifePath else { return nil }
@@ -315,6 +335,145 @@ public struct IDPhotoView: View {
     private let coordinator: Coordinator
 }
 
+// MARK: - IDPhotoFallbackView
+
+/// 仅用于 EnkaDB 还没更新的场合。
+struct IDPhotoFallbackView: View {
+    // MARK: Lifecycle
+
+    public init?(
+        pid: String,
+        _ size: CGFloat,
+        _ type: IDPhotoView.IconType,
+        imageHandler: ((Image) -> Image)? = nil
+    ) {
+        let coordinator = Self.Coordinator(pid: pid)
+        guard let coordinator = coordinator else { return nil }
+        self.pid = pid
+        self.coordinator = coordinator
+        self.size = size
+        self.iconType = type
+        self.imageHandler = imageHandler ?? { $0 }
+    }
+
+    // MARK: Public
+
+    public var body: some View {
+        coreBody.compositingGroup()
+    }
+
+    // MARK: Internal
+
+    @Environment(\.colorScheme) var colorScheme
+
+    var coreBody: some View {
+        switch iconType {
+        case .asCard: return AnyView(cardView)
+        default: return AnyView(circleIconView)
+        }
+    }
+
+    var proposedSize: CGSize {
+        switch iconType {
+        case .asCard: return .init(width: size * 0.74, height: size)
+        default: return .init(width: size, height: size)
+        }
+    }
+
+    @ViewBuilder var cardView: some View {
+        imageObj
+            .scaledToFill()
+            .frame(width: size * iconType.rawValue, height: size * iconType.rawValue)
+            .clipped()
+            .scaledToFit()
+            .offset(y: iconType.shiftedAmount(containerSize: size))
+            .background {
+                backgroundObj
+            }
+            .frame(width: size * 0.74, height: size)
+            .clipShape(RoundedRectangle(cornerRadius: size / 10))
+            .contentShape(RoundedRectangle(cornerRadius: size / 10))
+    }
+
+    @ViewBuilder var circleIconView: some View {
+        let ratio = 179.649 / 1024
+        let cornerSize = CGSize(width: ratio * size, height: ratio * size)
+        let roundCornerSize = CGSize(width: size / 2, height: size / 2)
+        let roundRect = iconType == .cutFaceRoundedRect
+        imageObj
+            .scaledToFill()
+            .frame(width: size * iconType.rawValue, height: size * iconType.rawValue)
+            .clipped()
+            .scaledToFit()
+            .offset(y: iconType.shiftedAmount(containerSize: size))
+            .background {
+                backgroundObj
+            }
+            .frame(width: size, height: size)
+            .clipShape(RoundedRectangle(cornerSize: roundRect ? cornerSize : roundCornerSize))
+            .contentShape(RoundedRectangle(cornerSize: roundRect ? cornerSize : roundCornerSize))
+    }
+
+    var imageObj: some View {
+        imageHandler(coordinator.charAvatarImage)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+
+    @ViewBuilder var backgroundObj: some View {
+        Group {
+            coordinator.backgroundImage
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .scaleEffect(2)
+                .rotationEffect(.degrees(180))
+                .blur(radius: 12)
+        }
+        .background(baseWindowBGColor)
+    }
+
+    var baseWindowBGColor: Color {
+        switch colorScheme {
+        case .dark:
+            return .init(cgColor: .init(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.00))
+        case .light:
+            return .init(cgColor: .init(red: 0.80, green: 0.80, blue: 0.80, alpha: 1.00))
+        @unknown default:
+            return .gray
+        }
+    }
+
+    // MARK: Private
+
+    private class Coordinator: ObservableObject {
+        // MARK: Lifecycle
+
+        public init?(pid: String) {
+            self.pid = pid
+            let fallbackPID = EnkaHSR.CharacterName.convertPIDForProtagonist(pid)
+            guard let charAvatarImage = EnkaHSR.queryImageAssetSUI(for: "idp\(pid)")
+                ?? EnkaHSR.queryImageAssetSUI(for: "idp\(fallbackPID)")
+            else { return nil }
+            let backgroundImage = EnkaHSR.queryImageAssetSUI(for: "characters_\(pid)")
+            guard let backgroundImage = backgroundImage else { return nil }
+            self.backgroundImage = backgroundImage
+            self.charAvatarImage = charAvatarImage
+        }
+
+        // MARK: Internal
+
+        var backgroundImage: Image
+        var charAvatarImage: Image
+        var pid: String
+    }
+
+    private let pid: String
+    private let imageHandler: (Image) -> Image
+    private let size: CGFloat
+    private let iconType: IDPhotoView.IconType
+    private let coordinator: Coordinator
+}
+
 extension EnkaHSR.DBModels.Element {
     public var themeColor: CGColor {
         switch self {
@@ -333,19 +492,28 @@ extension EnkaHSR.DBModels.Element {
 
 #if DEBUG
 struct IDPhotoView_Previews: PreviewProvider {
-    static let idp: IDPhotoView? = {
-        // Note: Do not use #Preview macro. Otherwise, the preview won't be able to access the assets.
-        let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
-            separator: "/"
-        ).dropFirst()
-        EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
-        return IDPhotoView(pid: "8004", 128, .cutShoulder)
-    }()
-
     static var previews: some View {
-        // NOTE: The preview only works if the canvas is set to use macOS (either native or Catalyst).
-        VStack {
-            idp
+        HStack(spacing: 14) {
+            VStack {
+                IDPhotoView(pid: "8004", 128, .cutShoulder)
+                IDPhotoView(pid: "1218", 128, .cutShoulder) // Should be missing if asset is missing.
+                IDPhotoView(pid: "1221", 128, .cutShoulder) // Should be missing if asset is missing.
+                IDPhotoView(pid: "1224", 128, .cutShoulder) // Should be missing if asset is missing.
+            }
+
+            VStack {
+                CharacterIconView(charID: "8004", size: 128, circleClipped: true, clipToHead: false)
+                CharacterIconView(charID: "1218", size: 128, circleClipped: true, clipToHead: false)
+                CharacterIconView(charID: "1221", size: 128, circleClipped: true, clipToHead: false)
+                CharacterIconView(charID: "1224", size: 128, circleClipped: true, clipToHead: false)
+            }
+
+            VStack {
+                IDPhotoFallbackView(pid: "8004", 128, .cutShoulder)
+                IDPhotoFallbackView(pid: "1218", 128, .cutShoulder)
+                IDPhotoFallbackView(pid: "1221", 128, .cutShoulder)
+                IDPhotoFallbackView(pid: "1224", 128, .cutShoulder)
+            }
         }
     }
 }
