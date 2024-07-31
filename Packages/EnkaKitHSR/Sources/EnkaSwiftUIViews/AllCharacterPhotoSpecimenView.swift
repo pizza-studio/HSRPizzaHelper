@@ -9,39 +9,22 @@ import SwiftUI
 // MARK: - CharSpecimen
 
 public struct CharSpecimen: Identifiable, Hashable {
-    public static var allSpecimens: [Self] {
-        EnkaHSR.Sputnik.sharedDB.characters.keys.sorted().map { Self(id: $0) }
-    }
+    // MARK: Public
 
     public let id: String
-
-    public static func putAllSecimensAsMatrix(lineCapacity: Int) -> [[Self]] {
-        let lineCapacity = Swift.max(1, lineCapacity)
-        guard lineCapacity > 1 else { return [allSpecimens] }
-        var outerContainer = [[Self]]()
-        var innerContainer = [Self]()
-        allSpecimens.forEach { specimen in
-            defer {
-                if innerContainer.count >= lineCapacity {
-                    outerContainer.append(innerContainer)
-                    innerContainer.removeAll()
-                }
-            }
-            innerContainer.append(specimen)
-        }
-        return outerContainer
-    }
 
     @ViewBuilder
     public static func renderAllSpecimen(
         scroll: Bool,
         columns: Int,
         size: Double,
-        cutType: IDPhotoView.IconType = .cutShoulder
+        cutType: IDPhotoView.IconType = .cutShoulder,
+        supplementalIDs: (() -> [String])? = nil
     )
         -> some View {
+        let specimens = Self.allSpecimens(supplementalIDs: supplementalIDs?())
         let inner = StaggeredGrid(
-            columns: columns, outerPadding: false, scroll: scroll, list: Self.allSpecimens
+            columns: columns, outerPadding: false, scroll: scroll, list: specimens
         ) { specimen in
             specimen.render(size: size, cutType: cutType)
         }
@@ -54,8 +37,20 @@ public struct CharSpecimen: Identifiable, Hashable {
         }
     }
 
+    @ViewBuilder
     public func render(size: Double, cutType: IDPhotoView.IconType = .cutShoulder) -> some View {
-        IDPhotoView(pid: id, size, cutType, forceRender: true)
+        if let first = IDPhotoView(pid: id, size, cutType, forceRender: true) {
+            first
+        } else {
+            IDPhotoFallbackView(pid: id, size, cutType)
+        }
+    }
+
+    // MARK: Internal
+
+    static func allSpecimens(supplementalIDs: [String]? = nil) -> [Self] {
+        let ids = EnkaHSR.Sputnik.sharedDB.characters.keys.sorted() + (supplementalIDs ?? [])
+        return Set<String>(ids).sorted().map { Self(id: $0) }
     }
 }
 
@@ -64,9 +59,10 @@ public struct CharSpecimen: Identifiable, Hashable {
 public struct AllCharacterPhotoSpecimenView: View {
     // MARK: Lifecycle
 
-    public init(columns: Int = 4, scroll: Bool = true) {
+    public init(columns: Int = 4, scroll: Bool = true, supplementalIDs: (() -> [String])? = nil) {
         self.columns = Swift.max(1, columns)
         self.scroll = scroll
+        self.supplementalIDs = supplementalIDs?() ?? []
     }
 
     // MARK: Public
@@ -100,36 +96,29 @@ public struct AllCharacterPhotoSpecimenView: View {
             columns: columns,
             size: containerSize.width / (base * Double(columns)),
             cutType: .cutShoulder
-        )
+        ) {
+            supplementalIDs
+        }
         .animation(.easeInOut, value: columns)
         .environmentObject(orientation)
     }
 
     // MARK: Private
 
+    @State private var supplementalIDs: [String]
     @StateObject private var orientation = DeviceOrientation()
 }
 
 #if DEBUG
 
 struct CharacterPhotoSpecimenView_Previews: PreviewProvider {
-    static let frameSize: CGSize = {
-        let packageRootPath = URL(fileURLWithPath: #file).pathComponents.prefix(while: { $0 != "Sources" }).joined(
-            separator: "/"
-        ).dropFirst()
-        EnkaHSR.assetPathRoot = "\(packageRootPath)/../../Assets"
-        return .init(width: 320, height: 720)
-    }()
-
     static var previews: some View {
-        let size = frameSize
         NavigationStack {
             List {
                 Section {
-                    AllCharacterPhotoSpecimenView(scroll: false)
-                        .overlay {
-                            Text(size.width.description).foregroundStyle(.clear)
-                        }
+                    AllCharacterPhotoSpecimenView(scroll: false) {
+                        ["1218", "1221", "1224"]
+                    }
                 }
             }
         }
