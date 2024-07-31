@@ -9,8 +9,7 @@ import Foundation
 
 extension MiHoYoAPI {
     static public func queryQRCodeStatus(deviceId: UUID, ticket: String) async throws -> QueryQRCodeStatus {
-        let appId = "8"
-        var request = URLRequest(url: URL(string: "https://hk4e-sdk.mihoyo.com/hkrpg_cn/combo/panda/qrcode/query")!)
+        var request = URLRequest(url: QRCodeShared.url4Query)
         request.httpMethod = "POST"
 
         struct Body: Encodable {
@@ -21,7 +20,7 @@ extension MiHoYoAPI {
 
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
-        let body = Body(appId: appId, device: deviceId.uuidString, ticket: ticket)
+        let body = Body(appId: QRCodeShared.appID, device: deviceId.uuidString, ticket: ticket)
         let bodyData = try encoder.encode(body)
         request.httpBody = bodyData
 

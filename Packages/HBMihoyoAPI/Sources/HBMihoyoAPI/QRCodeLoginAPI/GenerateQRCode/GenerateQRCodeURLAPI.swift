@@ -12,7 +12,7 @@ import UIKit
 
 extension MiHoYoAPI {
     public static func generateQRCodeURL(deviceId: UUID) async throws -> (url: URL, ticket: String) {
-        var request = URLRequest(url: URL(string: "https://hk4e-sdk.mihoyo.com/hkrpg_cn/combo/panda/qrcode/fetch")!)
+        var request = URLRequest(url: QRCodeShared.url4Fetch)
         request.httpMethod = "POST"
 
         struct Body: Encodable {
@@ -23,7 +23,7 @@ extension MiHoYoAPI {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
 
-        request.httpBody = try encoder.encode(Body(appId: "8", device: deviceId.uuidString))
+        request.httpBody = try encoder.encode(Body(appId: QRCodeShared.appID, device: deviceId.uuidString))
 
         let (data, _) = try await URLSession.shared.data(for: request)
 
