@@ -121,67 +121,67 @@ extension EnkaHSR {
 
         public var langTag: String {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var locTable: EnkaHSR.DBModels.LocTable {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var profileAvatars: EnkaHSR.DBModels.ProfileAvatarDict {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var characters: EnkaHSR.DBModels.CharacterDict {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var meta: EnkaHSR.DBModels.Meta {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var skillRanks: EnkaHSR.DBModels.SkillRanksDict {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var artifacts: EnkaHSR.DBModels.ArtifactsDict {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var skills: EnkaHSR.DBModels.SkillsDict {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var skillTrees: EnkaHSR.DBModels.SkillTreesDict {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var weapons: EnkaHSR.DBModels.WeaponsDict {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
         public var isExpired: Bool = false {
             didSet {
-                objectWillChange.send()
+                asyncSendObjWillChange()
             }
         }
 
@@ -220,6 +220,14 @@ extension EnkaHSR {
             let locTablesRN = try? EnkaHSR.JSONType.realNameTable.bundledJSONData
                 .assertedParseAs(EnkaHSR.DBModels.RawLocTables.self)
             realNameTable = locTablesRN?[langTag] ?? [:]
+        }
+
+        // MARK: Private
+
+        private func asyncSendObjWillChange() {
+            Task.detached { @MainActor in
+                self.objectWillChange.send()
+            }
         }
     }
 }
