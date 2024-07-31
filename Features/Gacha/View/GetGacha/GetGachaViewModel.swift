@@ -83,6 +83,20 @@ class GetGachaViewModel: ObservableObject {
         }
     }
 
+    func checkIDAndUIDExists(uid: String, id: String) -> Bool {
+        let request = GachaItemMO.fetchRequest()
+        let predicate = NSPredicate(format: "(id = %@) AND (uid = %@)", id, uid)
+        request.predicate = predicate
+
+        do {
+            let gachaItemMOs = try PersistenceController.shared.container.viewContext.fetch(request)
+            return !gachaItemMOs.isEmpty
+        } catch {
+            print("ERROR FETCHING CONFIGURATION. \(error.localizedDescription)")
+            return true
+        }
+    }
+
     // MARK: Private
 
     private var client: GachaClient?
@@ -150,28 +164,13 @@ class GetGachaViewModel: ObservableObject {
         }
     }
 
+    @MainActor
     private func insert(_ gachaItem: GachaItem) {
-        let context = PersistenceController.shared.container.viewContext
-
-        let request = GachaItemMO.fetchRequest()
-        request.predicate = NSPredicate(format: "(id = %@) AND (uid = %@)", gachaItem.id, gachaItem.uid)
-        if let duplicateItems = try? context.fetch(request),
-           duplicateItems.isEmpty {
-            let persistedItem = GachaItemMO(context: context)
-            persistedItem.id = gachaItem.id
-            persistedItem.count = Int32(gachaItem.count)
-            persistedItem.gachaID = gachaItem.gachaID
-            persistedItem.gachaType = gachaItem.gachaType
-            persistedItem.itemID = gachaItem.itemID
-            persistedItem.itemType = gachaItem.itemType
-            persistedItem.language = gachaItem.lang
-            persistedItem.name = gachaItem.name
-            persistedItem.rank = gachaItem.rank
-            persistedItem.time = gachaItem.time
-            persistedItem.timeRawValue = gachaItem.timeRawValue
-            persistedItem.uid = gachaItem.uid
+        guard !checkIDAndUIDExists(uid: gachaItem.uid, id: gachaItem.id) else { return }
+        _ = gachaItem.toGachaItemMO(context: PersistenceController.shared.container.viewContext)
+        Task.detached { @MainActor in
             withAnimation {
-                savedTypeFetchedCount[gachaItem.gachaType]! += 1
+                self.savedTypeFetchedCount[gachaItem.gachaType]! += 1
             }
         }
     }

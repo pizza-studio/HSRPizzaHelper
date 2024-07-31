@@ -41,6 +41,7 @@
 		5BCBAEF32C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCBAEF22C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift */; };
 		5BE468222C42410800D5FE38 /* UIGFImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE468212C42410800D5FE38 /* UIGFImpl.swift */; };
 		5BF453502BD422FE00A842C0 /* DetailPortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */; };
+		5BF90CDA2C5A1CAD00EF133B /* GachaItemImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF90CD92C5A1CAD00EF133B /* GachaItemImpl.swift */; };
 		BF06C4A52A04D42900EE9120 /* WebViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A42A04D42900EE9120 /* WebViews.swift */; };
 		BF06C4A82A04FD1F00EE9120 /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */; };
 		BF33C17B2A344DF0009D1E5D /* GeetestValidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF33C17A2A344DF0009D1E5D /* GeetestValidateView.swift */; };
@@ -372,6 +373,7 @@
 		5BCBAEF22C29BC3D00BAF156 /* GetCookieQRCodeView_HSR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCookieQRCodeView_HSR.swift; sourceTree = "<group>"; };
 		5BE468212C42410800D5FE38 /* UIGFImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGFImpl.swift; sourceTree = "<group>"; };
 		5BF4534F2BD422FE00A842C0 /* DetailPortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPortalView.swift; sourceTree = "<group>"; };
+		5BF90CD92C5A1CAD00EF133B /* GachaItemImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaItemImpl.swift; sourceTree = "<group>"; };
 		BF06C4A42A04D42900EE9120 /* WebViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViews.swift; sourceTree = "<group>"; };
 		BF06C4A72A04FD1F00EE9120 /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
 		BF2E97A72AD0E47700910FC0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/HSRPizzaHelperWidget.strings; sourceTree = "<group>"; };
@@ -609,6 +611,7 @@
 				5B16985D2BDBEE770017660A /* SRGFImpl.swift */,
 				5BE468212C42410800D5FE38 /* UIGFImpl.swift */,
 				5B23404C2BFA7C6700F1974A /* GachaNameViewRenderable.swift */,
+				5BF90CD92C5A1CAD00EF133B /* GachaItemImpl.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -1651,6 +1654,7 @@
 				EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
 				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,
+				5BF90CDA2C5A1CAD00EF133B /* GachaItemImpl.swift in Sources */,
 				EAEF1ABD2A8533A20013AD48 /* GachaItem.Rank+Background.swift in Sources */,
 				EAC9E4152A09F72600011E1F /* WidgetSettingView.swift in Sources */,
 				EA1D523C2A76267600FA66A9 /* HSRDictionaryModel.swift in Sources */,
