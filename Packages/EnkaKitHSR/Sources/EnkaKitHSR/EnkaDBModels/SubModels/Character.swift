@@ -11,7 +11,7 @@ extension EnkaHSR.DBModels {
         public struct AvatarFullName: Codable, Hashable {
             // MARK: Public
 
-            public let hash: Int64
+            public let hash: Int
 
             // MARK: Internal
 
@@ -23,7 +23,7 @@ extension EnkaHSR.DBModels {
         public struct AvatarName: Codable, Hashable {
             // MARK: Public
 
-            public let hash: Int64
+            public let hash: Int
 
             // MARK: Internal
 
