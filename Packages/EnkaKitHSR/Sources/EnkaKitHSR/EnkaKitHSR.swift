@@ -63,13 +63,11 @@ extension EnkaHSR {
         case weapons = "honker_weps"
         case locTable = "hsr"
         case realNameTable = "RealNameDict"
-        case retrieved = "N/A" // The JSON file retrieved from Enka Networks website per each query.
 
         // MARK: Public
 
         // Bundle JSON Accessor.
         public var bundledJSONData: Data? {
-            guard rawValue != "N/A" else { return nil }
             guard let url = Bundle.module.url(forResource: rawValue, withExtension: "json") else { return nil }
             do {
                 return try Data(contentsOf: url)
