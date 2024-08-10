@@ -23,20 +23,24 @@ public struct GachaItemIcon: View {
             if item.itemType == .characters {
                 CharacterIconView(charID: item.itemID, size: size, circleClipped: true, clipToHead: true)
             } else if let icon = item.icon {
-                icon.resizable().scaledToFit()
+                icon.resizable().scaledToFit().frame(width: size, height: size)
             } else {
                 Image(systemSymbol: .questionmarkCircle).resizable().scaledToFit()
             }
         }
+        .frame(width: size, height: size)
+        .clipShape(Circle())
+        .contentShape(Circle())
         .background {
             Image(item.rank.backgroundKey)
                 .scaledToFit()
                 .scaleEffect(1.5)
                 .offset(y: 3)
+                .frame(width: size, height: size)
+                .clipShape(Circle())
+                .contentShape(Circle())
         }
-        .clipShape(Circle())
-        .contentShape(Circle())
-        .frame(width: size, height: size)
+        .compositingGroup()
     }
 
     // MARK: Private

@@ -125,12 +125,15 @@ private struct GachaSmallChart: View {
             .chartXAxis(content: {
                 AxisMarks { value in
                     AxisValueLabel(content: {
-                        if let id = value.as(String.self),
-                           let item = matchedItem(from: fiveStarItems, with: id) {
-                            GachaItemIcon(item: item)
-                        } else {
-                            EmptyView()
+                        Group {
+                            if let id = value.as(String.self),
+                               let item = matchedItem(from: fiveStarItems, with: id) {
+                                GachaItemIcon(item: item, size: 30)
+                            } else {
+                                EmptyView()
+                            }
                         }
+                        .fixedSize()
                     })
                 }
             })
