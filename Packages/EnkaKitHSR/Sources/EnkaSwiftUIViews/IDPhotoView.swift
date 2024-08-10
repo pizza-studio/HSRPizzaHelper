@@ -81,7 +81,7 @@ public struct CharacterIconView: View {
                   let idPhotoView = IDPhotoFallbackView(pid: charID.description, size, cutType) {
             idPhotoView
         } else if let result = EnkaHSR.queryImageAssetSUI(for: proposedPhotoAssetName) {
-            result
+            let resultNew = result
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .scaleEffect(1.5, anchor: .top)
@@ -91,12 +91,12 @@ public struct CharacterIconView: View {
             let bgColor = Color.black.opacity(0.165)
             Group {
                 if circleClipped {
-                    result
+                    resultNew
                         .background { bgColor }
                         .clipShape(Circle())
                         .contentShape(Circle())
                 } else {
-                    result
+                    resultNew
                         .background { bgColor }
                         .clipShape(Rectangle())
                         .contentShape(Rectangle())
