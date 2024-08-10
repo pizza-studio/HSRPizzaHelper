@@ -139,6 +139,7 @@ private struct GachaSmallChart: View {
             })
             .chartLegend(position: .top)
             .chartYAxis { AxisMarks(position: .leading) }
+            .chartYScale(domain: [0, 100])
             .chartForegroundStyleScale(range: colors)
             .chartLegend(.hidden)
             .frame(width: CGFloat(fiveStarItems.count * 50))
