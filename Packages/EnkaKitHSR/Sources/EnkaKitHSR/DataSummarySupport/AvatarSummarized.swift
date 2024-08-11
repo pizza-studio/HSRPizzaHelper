@@ -138,7 +138,9 @@ extension EnkaHSR.AvatarSummarized.AvatarMainInfo {
             fetched: [EnkaHSR.QueryRelated.DetailInfo.SkillTreeItem]
         ) {
             guard fetched.count >= 4, let firstTreeItem = fetched.first else { return nil }
-            let charIDStr = firstTreeItem.pointId.description.prefix(4).description
+            var charID = Int((Double(firstTreeItem.pointId) / 1000.0).rounded(.down))
+            if case .ofStelle = Protagonist(rawValue: charID) { charID -= 1 }
+            let charIDStr = charID.description
             var levelAdditionList = [String: Int]()
             if constellation > 1 {
                 for i in 1 ... constellation {
