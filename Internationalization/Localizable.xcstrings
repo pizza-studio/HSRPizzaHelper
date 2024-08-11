@@ -2511,7 +2511,7 @@
       }
     },
     "app.detailPortal.avatar.summarzeToClipboard.asMD" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2576,7 +2576,7 @@
       }
     },
     "app.detailPortal.avatar.summarzeToClipboard.asText" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -9690,7 +9690,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d個の重複したレコードを削除しました"
+            "value" : "%lld個の重複したレコードを削除しました"
           }
         },
         "ru" : {
@@ -11479,7 +11479,7 @@
       }
     },
     "operation.scrolling.guide" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
