@@ -213,7 +213,7 @@ extension ArtifactRating {
         }
 
         public var isValid: Bool {
-            guard allpt == stat1pt + stat2pt + stat3pt + stat4pt + stat5pt
+            guard allpt == stat1pt + stat2pt + stat3pt + stat4pt + stat5pt + stat6pt
             else { return false }
             guard stat1pt >= 0 else { return false }
             guard stat2pt >= 0 else { return false }
