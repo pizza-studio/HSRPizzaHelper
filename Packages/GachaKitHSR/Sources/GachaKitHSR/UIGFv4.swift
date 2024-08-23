@@ -633,7 +633,7 @@ extension UIGFv4 {
         return defaultFileNameStem.replacingOccurrences(of: Self.initials, with: stack)
     }
 
-    public var asDocument: Document {
+    public var asDocument: GachaDocument {
         .init(model: self)
     }
 }

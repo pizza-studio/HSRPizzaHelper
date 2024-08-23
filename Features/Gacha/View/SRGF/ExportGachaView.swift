@@ -60,16 +60,8 @@ struct ExportGachaView: View {
             }
         )
         .fileExporter(
-            isPresented: $isSRGFExporterPresented,
-            document: srgfJson?.asDocument,
-            contentType: .json,
-            defaultFilename: fileNameStem
-        ) { result in
-            handleFileExporterResult(result)
-        }
-        .fileExporter(
-            isPresented: $isUIGFExporterPresented,
-            document: uigfJson?.asDocument,
+            isPresented: $isExporterPresented,
+            document: currentDocument,
             contentType: .json,
             defaultFilename: fileNameStem
         ) { result in
@@ -142,12 +134,18 @@ struct ExportGachaView: View {
 
     @ObservedObject private var params: ExportGachaParams = .init()
 
-    @State private var isSRGFExporterPresented: Bool = false
-    @State private var isUIGFExporterPresented: Bool = false
+    @State private var isExporterPresented: Bool = false
 
     @State private var srgfJson: SRGFv1?
     @State private var uigfJson: UIGFv4?
     @State private var currentFormat: UIGFFormat = .uigfv4
+
+    private var currentDocument: GachaDocument? {
+        switch currentFormat {
+        case .uigfv4: uigfJson?.asDocument
+        case .srgfv1: srgfJson?.asDocument
+        }
+    }
 
     private var fileNameStem: String {
         switch currentFormat {
@@ -216,7 +214,7 @@ struct ExportGachaView: View {
             } else {
                 uigfJson = exportAllAccountDataIntoSingleUIGFv4()
             }
-            isUIGFExporterPresented.toggle()
+            isExporterPresented = true
         case .srgfv1:
             guard let uid = params.uid else { return }
             currentFormat = format
@@ -231,7 +229,7 @@ struct ExportGachaView: View {
                 info: .init(uid: uid, lang: params.lang),
                 list: itemsSRGF
             )
-            isSRGFExporterPresented.toggle()
+            isExporterPresented = true
         }
     }
 

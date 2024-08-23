@@ -172,7 +172,7 @@ extension SRGFv1 {
         return "SRGF_\(info.uid)_\(dateFormatter.string(from: info.maybeDateExported ?? Date()))"
     }
 
-    public var asDocument: Document {
+    public var asDocument: GachaDocument {
         .init(model: self)
     }
 }
