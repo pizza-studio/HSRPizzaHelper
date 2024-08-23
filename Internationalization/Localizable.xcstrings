@@ -18011,13 +18011,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "国服"
+            "value" : "中国内地服务器"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "中國大陸伺服器"
+            "value" : "中國內地伺服器"
           }
         }
       }
@@ -18057,13 +18057,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "国际服"
+            "value" : "全球服务器"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "國際伺服器"
+            "value" : "全球伺服器"
           }
         }
       }
