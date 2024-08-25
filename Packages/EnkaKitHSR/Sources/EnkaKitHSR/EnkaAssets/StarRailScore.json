@@ -2182,6 +2182,183 @@
         },
         "max": 9.4
     },
+    "1218": {
+        "main": {
+            "1": {
+                "HPDelta": 1
+            },
+            "2": {
+                "AttackDelta": 1
+            },
+            "3": {
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 0,
+                "DefenceAddedRatio": 0,
+                "CriticalChanceBase": 0,
+                "CriticalDamageBase": 0,
+                "HealRatioBase": 0,
+                "StatusProbabilityBase": 1
+            },
+            "4": {
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 0,
+                "DefenceAddedRatio": 0,
+                "SpeedDelta": 1
+            },
+            "5": {
+                "HPAddedRatio": 1,
+                "AttackAddedRatio": 0.8,
+                "DefenceAddedRatio": 1,
+                "PhysicalAddedRatio": 0,
+                "FireAddedRatio": 1,
+                "IceAddedRatio": 0,
+                "ThunderAddedRatio": 0,
+                "WindAddedRatio": 0,
+                "QuantumAddedRatio": 0,
+                "ImaginaryAddedRatio": 0
+            },
+            "6": {
+                "BreakDamageAddedRatioBase": 0,
+                "SPRatioBase": 1,
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 0,
+                "DefenceAddedRatio": 0
+            }
+        },
+        "weight": {
+            "HPDelta": 0,
+            "AttackDelta": 0.3,
+            "DefenceDelta": 0,
+            "HPAddedRatio": 0,
+            "AttackAddedRatio": 0.8,
+            "DefenceAddedRatio": 0,
+            "SpeedDelta": 1,
+            "CriticalChanceBase": 0,
+            "CriticalDamageBase": 0,
+            "StatusProbabilityBase": 1,
+            "StatusResistanceBase": 0,
+            "BreakDamageAddedRatioBase": 0
+        },
+        "max": 9.32
+    },
+    "1221": {
+        "main": {
+            "1": {
+                "HPDelta": 1
+            },
+            "2": {
+                "AttackDelta": 1
+            },
+            "3": {
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 0.8,
+                "DefenceAddedRatio": 0,
+                "CriticalChanceBase": 1,
+                "CriticalDamageBase": 0.9,
+                "HealRatioBase": 0,
+                "StatusProbabilityBase": 0
+            },
+            "4": {
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 1,
+                "DefenceAddedRatio": 0,
+                "SpeedDelta": 0.8
+            },
+            "5": {
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 0.8,
+                "DefenceAddedRatio": 0,
+                "PhysicalAddedRatio": 1,
+                "FireAddedRatio": 0,
+                "IceAddedRatio": 0,
+                "ThunderAddedRatio": 0,
+                "WindAddedRatio": 0,
+                "QuantumAddedRatio": 0,
+                "ImaginaryAddedRatio": 0
+            },
+            "6": {
+                "BreakDamageAddedRatioBase": 0,
+                "SPRatioBase": 1,
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 1,
+                "DefenceAddedRatio": 0
+            }
+        },
+        "weight": {
+            "HPDelta": 0,
+            "AttackDelta": 0.3,
+            "DefenceDelta": 0,
+            "HPAddedRatio": 0,
+            "AttackAddedRatio": 0.8,
+            "DefenceAddedRatio": 0,
+            "SpeedDelta": 0.5,
+            "CriticalChanceBase": 1,
+            "CriticalDamageBase": 1,
+            "StatusProbabilityBase": 0,
+            "StatusResistanceBase": 0,
+            "BreakDamageAddedRatioBase": 0
+        },
+        "max": 9.72
+    },
+    "1224": {
+        "main": {
+            "1": {
+                "HPDelta": 1
+            },
+            "2": {
+                "AttackDelta": 1
+            },
+            "3": {
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 0.8,
+                "DefenceAddedRatio": 0,
+                "CriticalChanceBase": 1,
+                "CriticalDamageBase": 0.9,
+                "HealRatioBase": 0,
+                "StatusProbabilityBase": 0
+            },
+            "4": {
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 1,
+                "DefenceAddedRatio": 0,
+                "SpeedDelta": 1
+            },
+            "5": {
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 0.8,
+                "DefenceAddedRatio": 0,
+                "PhysicalAddedRatio": 0,
+                "FireAddedRatio": 0,
+                "IceAddedRatio": 0,
+                "ThunderAddedRatio": 0,
+                "WindAddedRatio": 0,
+                "QuantumAddedRatio": 0,
+                "ImaginaryAddedRatio": 1
+            },
+            "6": {
+                "BreakDamageAddedRatioBase": 0,
+                "SPRatioBase": 0,
+                "HPAddedRatio": 0,
+                "AttackAddedRatio": 1,
+                "DefenceAddedRatio": 0
+            }
+        },
+        "weight": {
+            "HPDelta": 0,
+            "AttackDelta": 0.3,
+            "DefenceDelta": 0,
+            "HPAddedRatio": 0,
+            "AttackAddedRatio": 0.8,
+            "DefenceAddedRatio": 0,
+            "SpeedDelta": 1,
+            "CriticalChanceBase": 1,
+            "CriticalDamageBase": 1,
+            "StatusProbabilityBase": 0,
+            "StatusResistanceBase": 0,
+            "BreakDamageAddedRatioBase": 0
+        },
+        "max": 10.22
+    },
     "1301": {
         "main": {
             "1": {
@@ -2468,14 +2645,14 @@
             "HPAddedRatio": 0,
             "AttackAddedRatio": 0.8,
             "DefenceAddedRatio": 0,
-            "SpeedDelta": 0.8,
+            "SpeedDelta": 1,
             "CriticalChanceBase": 1,
             "CriticalDamageBase": 1,
             "StatusProbabilityBase": 0,
             "StatusResistanceBase": 0,
             "BreakDamageAddedRatioBase": 0
         },
-        "max": 10.08
+        "max": 10.32
     },
     "1306": {
         "main": {
