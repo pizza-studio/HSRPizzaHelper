@@ -15,7 +15,7 @@ jobs:
 
             - name: Fetch latest commit SHA
               id: latest_sha
-              run: echo "::set-output name=sha::$(git ls-remote https://github.com/EnkaNetwork/API-docs.git HEAD | cut -f1)"
+              run: echo "::set-output name=sha::$(git ls-remote https://github.com/pizza-studio/EnkaDBGenerator.git HEAD | cut -f1)"
 
             - name: Run update asset meta script
               id: compare_shas
