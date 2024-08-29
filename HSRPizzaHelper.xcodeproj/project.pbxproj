@@ -276,8 +276,6 @@
 		EAE898812A06A8D3000AF830 /* RectangularWidgetConfigurationIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE8987F2A06A8A9000AF830 /* RectangularWidgetConfigurationIntentHandler.swift */; };
 		EAEC11EB2A0241620024314D /* InAppDailyNoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */; };
 		EAEF1ABD2A8533A20013AD48 /* GachaItem.Rank+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */; };
-		EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
-		EAF286522A124F5000F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */; };
 		EAFC5B502A35D29600598F2F /* WidgetErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */; };
 /* End PBXBuildFile section */
 
@@ -538,7 +536,6 @@
 		EAE898822A06A908000AF830 /* IntentAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentAccountExtension.swift; sourceTree = "<group>"; };
 		EAEC11EA2A0241620024314D /* InAppDailyNoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppDailyNoteCardView.swift; sourceTree = "<group>"; };
 		EAEF1ABC2A8533A20013AD48 /* GachaItem.Rank+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GachaItem.Rank+Background.swift"; sourceTree = "<group>"; };
-		EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiHoYoAPIError+LocalizedError.swift"; sourceTree = "<group>"; };
 		EAFC5B4F2A35D29600598F2F /* WidgetErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1257,7 +1254,6 @@
 			isa = PBXGroup;
 			children = (
 				5B28F9032BDE5045004B271E /* LocaleImpl.swift */,
-				EAF2864F2A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift */,
 				5B6162AB2BD4E0A200662F5A /* EnkaHSRImpl.swift */,
 				5B7990302BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift */,
 				5B11A2692C01FE9A006B0BF9 /* CGImageImpl.swift */,
@@ -1566,7 +1562,6 @@
 				EA8A77232A0748150005C511 /* LargeSquareDailyNoteWidget.swift in Sources */,
 				EA946A952A0FF87E003FC598 /* CommonStaminaLockscreenWidget.swift in Sources */,
 				EA8A77342A074C8A0005C511 /* WidgetBackgroundOptionsCollectionProvider.swift in Sources */,
-				EAF286522A124F5000F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */,
 				EA9E22182A0BA324002F3351 /* SmallSquareDailyNoteWidget.swift in Sources */,
 				EA946A8A2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */,
 				EA068D122A08082C003C4E69 /* RectangularDailyNoteWidgetView.swift in Sources */,
@@ -1651,7 +1646,6 @@
 				EA68B2A92AB95A2300D39095 /* ContainerBackground.swift in Sources */,
 				5B4C5BA32C09EECC00A6EA05 /* DismissableSheet.swift in Sources */,
 				EAE519892A01738600EF23B7 /* Persistence.swift in Sources */,
-				EAF286502A1249A600F876B6 /* MiHoYoAPIError+LocalizedError.swift in Sources */,
 				EA60BE5E2A05053200CBF10B /* ThanksView.swift in Sources */,
 				EA60BE622A050C5400CBF10B /* ScenePhaseOnChange.swift in Sources */,
 				5BF90CDA2C5A1CAD00EF133B /* GachaItemImpl.swift in Sources */,

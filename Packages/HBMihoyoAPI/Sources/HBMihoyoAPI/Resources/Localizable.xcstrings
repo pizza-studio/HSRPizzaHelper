@@ -1,0 +1,180 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "MiHoYoAPIError.fingerPrintInvalidOrMissing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPIErr] Device fingerprint is either wrecked or missing from the stored cookie."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPIエラー] Cookie には端末指紋が欠缺・無効。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPI错误] Cookie 尚未包含设备指纹资料、或相关资料失效。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPI錯誤] Cookie 尚未包含裝置指紋資料、或相關資料失效。"
+          }
+        }
+      }
+    },
+    "MiHoYoAPIError.insufficientDataVisibility" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insufficient data visibility in the Miyoushe / HoYoLAB account settings."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米遊社 / HoYoLAB アカウント設定での資料公開権限は不足である。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米游社 / HoYoLAB 账户设定内的资料公开权限不足。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米遊社 / HoYoLAB 帳戶設定內的資料公開權限不足。"
+          }
+        }
+      }
+    },
+    "MiHoYoAPIError.reloginRequired" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPIErr] Please relogin."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPIエラー] 再ログインが必要である。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPI错误] 请重新登入。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPI錯誤] 請重新登入。"
+          }
+        }
+      }
+    },
+    "MiHoYoAPIError.serverUnderMaintenanceUpgrade" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Miyoushe / HoYoLAB server under maintenance."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米遊社 / HoYoLAB サーバーは整備中である。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米游社 / HoYoLAB 伺服器正在进行维护处理。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米遊社 / HoYoLAB 伺服器正在進行維護處理。"
+          }
+        }
+      }
+    },
+    "MiHoYoAPIError.sTokenV2InvalidOrMissing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPIErr] STokenV2 is either wrecked or missing from the stored cookie."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPIエラー] Cookie には STokenV2 が欠缺・無効。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPI错误] Cookie 尚未包含 STokenV2 资料、或相关资料失效。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPI錯誤] Cookie 尚未包含 STokenV2 資料、或相關資料失效。"
+          }
+        }
+      }
+    },
+    "MiHoYoAPIError.verificationNeeded" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPIErr] Human verification needed."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPIエラー] 人間認証が必要である。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPI错误] 需要人机验证。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[HoYoAPI錯誤] 需要人機驗證。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

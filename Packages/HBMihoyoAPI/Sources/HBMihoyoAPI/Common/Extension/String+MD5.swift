@@ -15,6 +15,10 @@ extension String {
     var localized: String {
         String(format: NSLocalizedString(self, comment: ""))
     }
+
+    public var i18nHYK: String {
+        NSLocalizedString(self, bundle: Bundle.module, comment: "")
+    }
 }
 
 extension String {
