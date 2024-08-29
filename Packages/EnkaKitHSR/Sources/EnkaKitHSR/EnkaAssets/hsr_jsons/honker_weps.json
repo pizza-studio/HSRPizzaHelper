@@ -1,1 +1,858 @@
-{"20000":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-234052537},"ImagePath":"SpriteOutput/LightConeFigures/20000.png","Rarity":3},"20001":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":-234052538},"ImagePath":"SpriteOutput/LightConeFigures/20001.png","Rarity":3},"20002":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-234052535},"ImagePath":"SpriteOutput/LightConeFigures/20002.png","Rarity":3},"20003":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":-234052536},"ImagePath":"SpriteOutput/LightConeFigures/20003.png","Rarity":3},"20004":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-234052541},"ImagePath":"SpriteOutput/LightConeFigures/20004.png","Rarity":3},"20005":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-234052542},"ImagePath":"SpriteOutput/LightConeFigures/20005.png","Rarity":3},"20006":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-234052539},"ImagePath":"SpriteOutput/LightConeFigures/20006.png","Rarity":3},"20007":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-234052540},"ImagePath":"SpriteOutput/LightConeFigures/20007.png","Rarity":3},"20008":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":-234052545},"ImagePath":"SpriteOutput/LightConeFigures/20008.png","Rarity":3},"20009":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-234052546},"ImagePath":"SpriteOutput/LightConeFigures/20009.png","Rarity":3},"20010":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":1332031404},"ImagePath":"SpriteOutput/LightConeFigures/20010.png","Rarity":3},"20011":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":1332031403},"ImagePath":"SpriteOutput/LightConeFigures/20011.png","Rarity":3},"20012":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":1332031406},"ImagePath":"SpriteOutput/LightConeFigures/20012.png","Rarity":3},"20013":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":1332031405},"ImagePath":"SpriteOutput/LightConeFigures/20013.png","Rarity":3},"20014":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":1332031400},"ImagePath":"SpriteOutput/LightConeFigures/20014.png","Rarity":3},"20015":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":1332031399},"ImagePath":"SpriteOutput/LightConeFigures/20015.png","Rarity":3},"20016":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":1332031402},"ImagePath":"SpriteOutput/LightConeFigures/20016.png","Rarity":3},"20017":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":1332031401},"ImagePath":"SpriteOutput/LightConeFigures/20017.png","Rarity":3},"20018":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":1332031396},"ImagePath":"SpriteOutput/LightConeFigures/20018.png","Rarity":3},"20019":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":1332031395},"ImagePath":"SpriteOutput/LightConeFigures/20019.png","Rarity":3},"20020":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":928746877},"ImagePath":"SpriteOutput/LightConeFigures/20020.png","Rarity":3},"21000":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":1352234380},"ImagePath":"SpriteOutput/LightConeFigures/21000.png","Rarity":4},"21001":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":1352234379},"ImagePath":"SpriteOutput/LightConeFigures/21001.png","Rarity":4},"21002":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":1352234382},"ImagePath":"SpriteOutput/LightConeFigures/21002.png","Rarity":4},"21003":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":1352234381},"ImagePath":"SpriteOutput/LightConeFigures/21003.png","Rarity":4},"21004":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":1352234376},"ImagePath":"SpriteOutput/LightConeFigures/21004.png","Rarity":4},"21005":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":1352234375},"ImagePath":"SpriteOutput/LightConeFigures/21005.png","Rarity":4},"21006":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":1352234378},"ImagePath":"SpriteOutput/LightConeFigures/21006.png","Rarity":4},"21007":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":1352234377},"ImagePath":"SpriteOutput/LightConeFigures/21007.png","Rarity":4},"21008":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":1352234372},"ImagePath":"SpriteOutput/LightConeFigures/21008.png","Rarity":4},"21009":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":1352234371},"ImagePath":"SpriteOutput/LightConeFigures/21009.png","Rarity":4},"21010":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-213849561},"ImagePath":"SpriteOutput/LightConeFigures/21010.png","Rarity":4},"21011":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-213849562},"ImagePath":"SpriteOutput/LightConeFigures/21011.png","Rarity":4},"21012":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-213849559},"ImagePath":"SpriteOutput/LightConeFigures/21012.png","Rarity":4},"21013":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-213849560},"ImagePath":"SpriteOutput/LightConeFigures/21013.png","Rarity":4},"21014":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":-213849565},"ImagePath":"SpriteOutput/LightConeFigures/21014.png","Rarity":4},"21015":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-213849566},"ImagePath":"SpriteOutput/LightConeFigures/21015.png","Rarity":4},"21016":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":-213849563},"ImagePath":"SpriteOutput/LightConeFigures/21016.png","Rarity":4},"21017":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-213849564},"ImagePath":"SpriteOutput/LightConeFigures/21017.png","Rarity":4},"21018":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-213849569},"ImagePath":"SpriteOutput/LightConeFigures/21018.png","Rarity":4},"21019":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-213849570},"ImagePath":"SpriteOutput/LightConeFigures/21019.png","Rarity":4},"21020":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-1779933502},"ImagePath":"SpriteOutput/LightConeFigures/21020.png","Rarity":4},"21021":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":-1779933503},"ImagePath":"SpriteOutput/LightConeFigures/21021.png","Rarity":4},"21022":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-1779933500},"ImagePath":"SpriteOutput/LightConeFigures/21022.png","Rarity":4},"21023":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":-1779933501},"ImagePath":"SpriteOutput/LightConeFigures/21023.png","Rarity":4},"21024":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-1779933506},"ImagePath":"SpriteOutput/LightConeFigures/21024.png","Rarity":4},"21025":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-1779933507},"ImagePath":"SpriteOutput/LightConeFigures/21025.png","Rarity":4},"21026":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-1779933504},"ImagePath":"SpriteOutput/LightConeFigures/21026.png","Rarity":4},"21027":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-1779933505},"ImagePath":"SpriteOutput/LightConeFigures/21027.png","Rarity":4},"21028":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":-1779933510},"ImagePath":"SpriteOutput/LightConeFigures/21028.png","Rarity":4},"21029":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-1779933511},"ImagePath":"SpriteOutput/LightConeFigures/21029.png","Rarity":4},"21030":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":948949853},"ImagePath":"SpriteOutput/LightConeFigures/21030.png","Rarity":4},"21031":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":948949852},"ImagePath":"SpriteOutput/LightConeFigures/21031.png","Rarity":4},"21032":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":948949855},"ImagePath":"SpriteOutput/LightConeFigures/21032.png","Rarity":4},"21033":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":948949854},"ImagePath":"SpriteOutput/LightConeFigures/21033.png","Rarity":4},"21034":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":948949849},"ImagePath":"SpriteOutput/LightConeFigures/21034.png","Rarity":4},"21035":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":948949848},"ImagePath":"SpriteOutput/LightConeFigures/21035.png","Rarity":4},"21036":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":948949851},"ImagePath":"SpriteOutput/LightConeFigures/21036.png","Rarity":4},"21037":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":948949850},"ImagePath":"SpriteOutput/LightConeFigures/21037.png","Rarity":4},"21038":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":948949845},"ImagePath":"SpriteOutput/LightConeFigures/21038.png","Rarity":4},"21039":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":948949844},"ImagePath":"SpriteOutput/LightConeFigures/21039.png","Rarity":4},"21040":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-973364448},"ImagePath":"SpriteOutput/LightConeFigures/21040.png","Rarity":4},"21041":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-973364449},"ImagePath":"SpriteOutput/LightConeFigures/21041.png","Rarity":4},"21042":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-973364446},"ImagePath":"SpriteOutput/LightConeFigures/21042.png","Rarity":4},"21043":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":-973364447},"ImagePath":"SpriteOutput/LightConeFigures/21043.png","Rarity":4},"21044":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-973364452},"ImagePath":"SpriteOutput/LightConeFigures/21044.png","Rarity":4},"21045":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-973364453},"ImagePath":"SpriteOutput/LightConeFigures/21045.png","Rarity":4},"21046":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-973364450},"ImagePath":"SpriteOutput/LightConeFigures/21046.png","Rarity":4},"22000":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-516377539},"ImagePath":"SpriteOutput/LightConeFigures/22000.png","Rarity":4},"22001":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":-516377540},"ImagePath":"SpriteOutput/LightConeFigures/22001.png","Rarity":4},"22002":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-516377537},"ImagePath":"SpriteOutput/LightConeFigures/22002.png","Rarity":4},"23000":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":1069909378},"ImagePath":"SpriteOutput/LightConeFigures/23000.png","Rarity":5},"23001":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":1069909377},"ImagePath":"SpriteOutput/LightConeFigures/23001.png","Rarity":5},"23002":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":1069909380},"ImagePath":"SpriteOutput/LightConeFigures/23002.png","Rarity":5},"23003":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":1069909379},"ImagePath":"SpriteOutput/LightConeFigures/23003.png","Rarity":5},"23004":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":1069909374},"ImagePath":"SpriteOutput/LightConeFigures/23004.png","Rarity":5},"23005":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":1069909373},"ImagePath":"SpriteOutput/LightConeFigures/23005.png","Rarity":5},"23006":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":1069909376},"ImagePath":"SpriteOutput/LightConeFigures/23006.png","Rarity":5},"23007":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":1069909375},"ImagePath":"SpriteOutput/LightConeFigures/23007.png","Rarity":5},"23008":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":1069909370},"ImagePath":"SpriteOutput/LightConeFigures/23008.png","Rarity":5},"23009":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":1069909369},"ImagePath":"SpriteOutput/LightConeFigures/23009.png","Rarity":5},"23010":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-496174563},"ImagePath":"SpriteOutput/LightConeFigures/23010.png","Rarity":5},"23011":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":-496174564},"ImagePath":"SpriteOutput/LightConeFigures/23011.png","Rarity":5},"23012":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-496174561},"ImagePath":"SpriteOutput/LightConeFigures/23012.png","Rarity":5},"23013":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":-496174562},"ImagePath":"SpriteOutput/LightConeFigures/23013.png","Rarity":5},"23014":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-496174567},"ImagePath":"SpriteOutput/LightConeFigures/23014.png","Rarity":5},"23015":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-496174568},"ImagePath":"SpriteOutput/LightConeFigures/23015.png","Rarity":5},"23016":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-496174565},"ImagePath":"SpriteOutput/LightConeFigures/23016.png","Rarity":5},"23017":{"AvatarBaseType":"Priest","EquipmentName":{"Hash":-496174566},"ImagePath":"SpriteOutput/LightConeFigures/23017.png","Rarity":5},"23018":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-496174571},"ImagePath":"SpriteOutput/LightConeFigures/23018.png","Rarity":5},"23019":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-496174572},"ImagePath":"SpriteOutput/LightConeFigures/23019.png","Rarity":5},"23020":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-92890036},"ImagePath":"SpriteOutput/LightConeFigures/23020.png","Rarity":5},"23021":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-92890037},"ImagePath":"SpriteOutput/LightConeFigures/23021.png","Rarity":5},"23022":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-92890034},"ImagePath":"SpriteOutput/LightConeFigures/23022.png","Rarity":5},"23023":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":-92890035},"ImagePath":"SpriteOutput/LightConeFigures/23023.png","Rarity":5},"23024":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-92890040},"ImagePath":"SpriteOutput/LightConeFigures/23024.png","Rarity":5},"23025":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-92890041},"ImagePath":"SpriteOutput/LightConeFigures/23025.png","Rarity":5},"23026":{"AvatarBaseType":"Shaman","EquipmentName":{"Hash":-92890038},"ImagePath":"SpriteOutput/LightConeFigures/23026.png","Rarity":5},"23027":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":-92890039},"ImagePath":"SpriteOutput/LightConeFigures/23027.png","Rarity":5},"23028":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":-92890044},"ImagePath":"SpriteOutput/LightConeFigures/23028.png","Rarity":5},"23029":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":-92890045},"ImagePath":"SpriteOutput/LightConeFigures/23029.png","Rarity":5},"23030":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":-1658973977},"ImagePath":"SpriteOutput/LightConeFigures/23030.png","Rarity":5},"24000":{"AvatarBaseType":"Warrior","EquipmentName":{"Hash":330597467},"ImagePath":"SpriteOutput/LightConeFigures/24000.png","Rarity":5},"24001":{"AvatarBaseType":"Rogue","EquipmentName":{"Hash":330597466},"ImagePath":"SpriteOutput/LightConeFigures/24001.png","Rarity":5},"24002":{"AvatarBaseType":"Knight","EquipmentName":{"Hash":330597469},"ImagePath":"SpriteOutput/LightConeFigures/24002.png","Rarity":5},"24003":{"AvatarBaseType":"Warlock","EquipmentName":{"Hash":330597468},"ImagePath":"SpriteOutput/LightConeFigures/24003.png","Rarity":5},"24004":{"AvatarBaseType":"Mage","EquipmentName":{"Hash":330597463},"ImagePath":"SpriteOutput/LightConeFigures/24004.png","Rarity":5}}
+{
+  "20000" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -234052537
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20000.png",
+    "Rarity" : 3
+  },
+  "20001" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -234052538
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20001.png",
+    "Rarity" : 3
+  },
+  "20002" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -234052535
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20002.png",
+    "Rarity" : 3
+  },
+  "20003" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : -234052536
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20003.png",
+    "Rarity" : 3
+  },
+  "20004" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -234052541
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20004.png",
+    "Rarity" : 3
+  },
+  "20005" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -234052542
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20005.png",
+    "Rarity" : 3
+  },
+  "20006" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -234052539
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20006.png",
+    "Rarity" : 3
+  },
+  "20007" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -234052540
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20007.png",
+    "Rarity" : 3
+  },
+  "20008" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -234052545
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20008.png",
+    "Rarity" : 3
+  },
+  "20009" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -234052546
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20009.png",
+    "Rarity" : 3
+  },
+  "20010" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : 1332031404
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20010.png",
+    "Rarity" : 3
+  },
+  "20011" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : 1332031403
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20011.png",
+    "Rarity" : 3
+  },
+  "20012" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : 1332031406
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20012.png",
+    "Rarity" : 3
+  },
+  "20013" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : 1332031405
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20013.png",
+    "Rarity" : 3
+  },
+  "20014" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : 1332031400
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20014.png",
+    "Rarity" : 3
+  },
+  "20015" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : 1332031399
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20015.png",
+    "Rarity" : 3
+  },
+  "20016" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : 1332031402
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20016.png",
+    "Rarity" : 3
+  },
+  "20017" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : 1332031401
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20017.png",
+    "Rarity" : 3
+  },
+  "20018" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : 1332031396
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20018.png",
+    "Rarity" : 3
+  },
+  "20019" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : 1332031395
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20019.png",
+    "Rarity" : 3
+  },
+  "20020" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : 928746877
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/20020.png",
+    "Rarity" : 3
+  },
+  "21000" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : 1352234380
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21000.png",
+    "Rarity" : 4
+  },
+  "21001" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : 1352234379
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21001.png",
+    "Rarity" : 4
+  },
+  "21002" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : 1352234382
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21002.png",
+    "Rarity" : 4
+  },
+  "21003" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : 1352234381
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21003.png",
+    "Rarity" : 4
+  },
+  "21004" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : 1352234376
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21004.png",
+    "Rarity" : 4
+  },
+  "21005" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : 1352234375
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21005.png",
+    "Rarity" : 4
+  },
+  "21006" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : 1352234378
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21006.png",
+    "Rarity" : 4
+  },
+  "21007" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : 1352234377
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21007.png",
+    "Rarity" : 4
+  },
+  "21008" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : 1352234372
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21008.png",
+    "Rarity" : 4
+  },
+  "21009" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : 1352234371
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21009.png",
+    "Rarity" : 4
+  },
+  "21010" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -213849561
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21010.png",
+    "Rarity" : 4
+  },
+  "21011" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -213849562
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21011.png",
+    "Rarity" : 4
+  },
+  "21012" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -213849559
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21012.png",
+    "Rarity" : 4
+  },
+  "21013" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -213849560
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21013.png",
+    "Rarity" : 4
+  },
+  "21014" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -213849565
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21014.png",
+    "Rarity" : 4
+  },
+  "21015" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -213849566
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21015.png",
+    "Rarity" : 4
+  },
+  "21016" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : -213849563
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21016.png",
+    "Rarity" : 4
+  },
+  "21017" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -213849564
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21017.png",
+    "Rarity" : 4
+  },
+  "21018" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -213849569
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21018.png",
+    "Rarity" : 4
+  },
+  "21019" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -213849570
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21019.png",
+    "Rarity" : 4
+  },
+  "21020" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -1779933502
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21020.png",
+    "Rarity" : 4
+  },
+  "21021" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -1779933503
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21021.png",
+    "Rarity" : 4
+  },
+  "21022" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -1779933500
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21022.png",
+    "Rarity" : 4
+  },
+  "21023" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : -1779933501
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21023.png",
+    "Rarity" : 4
+  },
+  "21024" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -1779933506
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21024.png",
+    "Rarity" : 4
+  },
+  "21025" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -1779933507
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21025.png",
+    "Rarity" : 4
+  },
+  "21026" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -1779933504
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21026.png",
+    "Rarity" : 4
+  },
+  "21027" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -1779933505
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21027.png",
+    "Rarity" : 4
+  },
+  "21028" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -1779933510
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21028.png",
+    "Rarity" : 4
+  },
+  "21029" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -1779933511
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21029.png",
+    "Rarity" : 4
+  },
+  "21030" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : 948949853
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21030.png",
+    "Rarity" : 4
+  },
+  "21031" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : 948949852
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21031.png",
+    "Rarity" : 4
+  },
+  "21032" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : 948949855
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21032.png",
+    "Rarity" : 4
+  },
+  "21033" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : 948949854
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21033.png",
+    "Rarity" : 4
+  },
+  "21034" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : 948949849
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21034.png",
+    "Rarity" : 4
+  },
+  "21035" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : 948949848
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21035.png",
+    "Rarity" : 4
+  },
+  "21036" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : 948949851
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21036.png",
+    "Rarity" : 4
+  },
+  "21037" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : 948949850
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21037.png",
+    "Rarity" : 4
+  },
+  "21038" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : 948949845
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21038.png",
+    "Rarity" : 4
+  },
+  "21039" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : 948949844
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21039.png",
+    "Rarity" : 4
+  },
+  "21040" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -973364448
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21040.png",
+    "Rarity" : 4
+  },
+  "21041" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -973364449
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21041.png",
+    "Rarity" : 4
+  },
+  "21042" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -973364446
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21042.png",
+    "Rarity" : 4
+  },
+  "21043" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : -973364447
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21043.png",
+    "Rarity" : 4
+  },
+  "21044" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -973364452
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21044.png",
+    "Rarity" : 4
+  },
+  "21045" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -973364453
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21045.png",
+    "Rarity" : 4
+  },
+  "21046" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -973364450
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21046.png",
+    "Rarity" : 4
+  },
+  "22000" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -516377539
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/22000.png",
+    "Rarity" : 4
+  },
+  "22001" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -516377540
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/22001.png",
+    "Rarity" : 4
+  },
+  "22002" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -516377537
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/22002.png",
+    "Rarity" : 4
+  },
+  "23000" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : 1069909378
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23000.png",
+    "Rarity" : 5
+  },
+  "23001" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : 1069909377
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23001.png",
+    "Rarity" : 5
+  },
+  "23002" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : 1069909380
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23002.png",
+    "Rarity" : 5
+  },
+  "23003" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : 1069909379
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23003.png",
+    "Rarity" : 5
+  },
+  "23004" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : 1069909374
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23004.png",
+    "Rarity" : 5
+  },
+  "23005" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : 1069909373
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23005.png",
+    "Rarity" : 5
+  },
+  "23006" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : 1069909376
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23006.png",
+    "Rarity" : 5
+  },
+  "23007" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : 1069909375
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23007.png",
+    "Rarity" : 5
+  },
+  "23008" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : 1069909370
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23008.png",
+    "Rarity" : 5
+  },
+  "23009" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : 1069909369
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23009.png",
+    "Rarity" : 5
+  },
+  "23010" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -496174563
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23010.png",
+    "Rarity" : 5
+  },
+  "23011" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : -496174564
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23011.png",
+    "Rarity" : 5
+  },
+  "23012" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -496174561
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23012.png",
+    "Rarity" : 5
+  },
+  "23013" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -496174562
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23013.png",
+    "Rarity" : 5
+  },
+  "23014" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -496174567
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23014.png",
+    "Rarity" : 5
+  },
+  "23015" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -496174568
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23015.png",
+    "Rarity" : 5
+  },
+  "23016" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -496174565
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23016.png",
+    "Rarity" : 5
+  },
+  "23017" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -496174566
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23017.png",
+    "Rarity" : 5
+  },
+  "23018" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -496174571
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23018.png",
+    "Rarity" : 5
+  },
+  "23019" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -496174572
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23019.png",
+    "Rarity" : 5
+  },
+  "23020" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -92890036
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23020.png",
+    "Rarity" : 5
+  },
+  "23021" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -92890037
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23021.png",
+    "Rarity" : 5
+  },
+  "23022" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -92890034
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23022.png",
+    "Rarity" : 5
+  },
+  "23023" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : -92890035
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23023.png",
+    "Rarity" : 5
+  },
+  "23024" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -92890040
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23024.png",
+    "Rarity" : 5
+  },
+  "23025" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -92890041
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23025.png",
+    "Rarity" : 5
+  },
+  "23026" : {
+    "AvatarBaseType" : "Shaman",
+    "EquipmentName" : {
+      "Hash" : -92890038
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23026.png",
+    "Rarity" : 5
+  },
+  "23027" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -92890039
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23027.png",
+    "Rarity" : 5
+  },
+  "23028" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -92890044
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23028.png",
+    "Rarity" : 5
+  },
+  "23029" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : -92890045
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23029.png",
+    "Rarity" : 5
+  },
+  "23030" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -1658973977
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23030.png",
+    "Rarity" : 5
+  },
+  "24000" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : 330597467
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/24000.png",
+    "Rarity" : 5
+  },
+  "24001" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : 330597466
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/24001.png",
+    "Rarity" : 5
+  },
+  "24002" : {
+    "AvatarBaseType" : "Knight",
+    "EquipmentName" : {
+      "Hash" : 330597469
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/24002.png",
+    "Rarity" : 5
+  },
+  "24003" : {
+    "AvatarBaseType" : "Warlock",
+    "EquipmentName" : {
+      "Hash" : 330597468
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/24003.png",
+    "Rarity" : 5
+  },
+  "24004" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : 330597463
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/24004.png",
+    "Rarity" : 5
+  }
+}
