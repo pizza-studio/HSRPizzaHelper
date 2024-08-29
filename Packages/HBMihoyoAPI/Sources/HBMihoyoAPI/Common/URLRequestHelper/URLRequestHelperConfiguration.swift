@@ -60,10 +60,8 @@ enum URLRequestHelperConfiguration {
 
     static func xRpcAppVersion(region: Region) -> String {
         switch region {
-        case .mainlandChina:
-            return "2.71.1"
-        case .global:
-            return "2.54.0"
+        case .mainlandChina: return "2.40.1" // 跟 YunzaiBot 一致。
+        case .global: return "2.55.0" // 跟 YunzaiBot 一致。
         }
     }
 
@@ -81,7 +79,7 @@ enum URLRequestHelperConfiguration {
         case .mainlandChina:
             return "https://webstatic.mihoyo.com"
         case .global:
-            return "https://webstatic-sea.hoyolab.com"
+            return "https://act.hoyolab.com"
         }
     }
 
