@@ -47,13 +47,7 @@ struct EditAccountView: View {
         }
         Section {
             NavigationLink {
-                AccountDetailView(
-                    unsavedName: $account.name,
-                    unsavedUid: $account.uid,
-                    unsavedCookie: $account.cookie,
-                    unsavedServer: $account.server,
-                    unsavedDeviceFingerPrint: $account.deviceFingerPrint
-                )
+                AccountDetailView(account: account)
             } label: {
                 Text("account.label.detail")
             }

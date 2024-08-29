@@ -147,13 +147,7 @@ struct CreateAccountSheetView: View {
                     HStack {
                         Text("account.login.manual.1")
                         NavigationLink {
-                            AccountDetailView(
-                                unsavedName: $account.name,
-                                unsavedUid: $account.uid,
-                                unsavedCookie: $account.cookie,
-                                unsavedServer: $account.server,
-                                unsavedDeviceFingerPrint: $account.deviceFingerPrint
-                            )
+                            AccountDetailView(account: account)
                         } label: {
                             Text("account.login.manual.2")
                                 .font(.footnote)

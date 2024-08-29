@@ -11,39 +11,13 @@ import SwiftUI
 struct AccountDetailView: View {
     // MARK: Lifecycle
 
-    init(
-        unsavedName: Binding<String?>,
-        unsavedUid: Binding<String?>,
-        unsavedCookie: Binding<String?>,
-        unsavedServer: Binding<Server>,
-        unsavedDeviceFingerPrint: Binding<String>
-    ) {
-        _unsavedName = .init(get: {
-            unsavedName.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedName.wrappedValue = newValue
-        })
-        _unsavedUid = .init(get: {
-            unsavedUid.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedUid.wrappedValue = newValue
-        })
-        _unsavedCookie = .init(get: {
-            unsavedCookie.wrappedValue ?? ""
-        }, set: { newValue in
-            unsavedCookie.wrappedValue = newValue
-        })
-        _unsavedServer = unsavedServer
-        _deviceFingerPrint = unsavedDeviceFingerPrint
+    init(account: Account) {
+        self._account = ObservedObject(wrappedValue: account)
     }
 
     // MARK: Internal
 
-    @Binding var unsavedName: String
-    @Binding var unsavedUid: String
-    @Binding var unsavedCookie: String
-    @Binding var unsavedServer: Server
-    @Binding var deviceFingerPrint: String
+    @ObservedObject var account: Account
 
     var body: some View {
         List {
@@ -51,17 +25,17 @@ struct AccountDetailView: View {
                 HStack {
                     Text("account.label.nickname")
                     Spacer()
-                    TextField("account.label.nickname", text: $unsavedName, prompt: Text("account.label.nickname"))
+                    TextField("account.label.nickname", text: $account.name, prompt: Text("account.label.nickname"))
                         .multilineTextAlignment(.trailing)
                 }
                 HStack {
                     Text("UID")
                     Spacer()
-                    TextField("UID", text: $unsavedUid, prompt: Text("UID"))
+                    TextField("UID", text: $account.uid, prompt: Text("UID"))
                         .keyboardType(.numberPad)
                         .multilineTextAlignment(.trailing)
                 }
-                Picker("sys.label.server", selection: $unsavedServer) {
+                Picker("sys.label.server", selection: $account.server) {
                     ForEach(Server.allCases, id: \.self) { server in
                         Text(server.description).tag(server)
                     }
@@ -70,14 +44,14 @@ struct AccountDetailView: View {
 
             Section {
                 let cookieTextEditorFrame: CGFloat = 150
-                TextEditor(text: $unsavedCookie)
+                TextEditor(text: $account.cookie)
                     .frame(height: cookieTextEditorFrame)
             } header: {
                 Text("sys.label.cookie")
                     .textCase(.none)
             }
             Section {
-                TextField("account.fp.label", text: $deviceFingerPrint)
+                TextField("account.fp.label", text: $account.deviceFingerPrint)
                     .multilineTextAlignment(.leading)
             } header: {
                 Text("account.fp.label")
