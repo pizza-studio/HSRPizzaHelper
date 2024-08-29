@@ -1,1 +1,1797 @@
-{"1001":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1001B.png","AvatarBaseType":"Knight","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1001.png","AvatarFullName":{"Hash":-1063124016},"AvatarName":{"Hash":-531793651},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1001.png","Element":"Ice","RankIDList":[100101,100102,100103,100104,100105,100106],"Rarity":4,"SkillList":[100101,100102,100103,100104,100106,100107]},"1002":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1002B.png","AvatarBaseType":"Rogue","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1002.png","AvatarFullName":{"Hash":-8036553},"AvatarName":{"Hash":-935078178},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1002.png","Element":"Wind","RankIDList":[100201,100202,100203,100204,100205,100206],"Rarity":4,"SkillList":[100201,100202,100203,100204,100206,100207]},"1003":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1003B.png","AvatarBaseType":"Mage","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1003.png","AvatarFullName":{"Hash":-844315511},"AvatarName":{"Hash":631005763},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1003.png","Element":"Fire","RankIDList":[100301,100302,100303,100304,100305,100306],"Rarity":5,"SkillList":[100301,100302,100303,100304,100306,100307]},"1004":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1004B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1004.png","AvatarFullName":{"Hash":-871204766},"AvatarName":{"Hash":227721236},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1004.png","Element":"Imaginary","RankIDList":[100401,100402,100403,100404,100405,100406],"Rarity":5,"SkillList":[100401,100402,100403,100404,100406,100407]},"1005":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1005B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1005.png","AvatarFullName":{"Hash":-1328813516},"AvatarName":{"Hash":1793805177},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1005.png","Element":"Thunder","RankIDList":[100501,100502,100503,100504,100505,100506],"Rarity":5,"SkillList":[100501,100502,100503,100504,100506,100507]},"1006":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1006B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1006.png","AvatarFullName":{"Hash":621775846},"AvatarName":{"Hash":1390520650},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1006.png","Element":"Quantum","RankIDList":[100601,100602,100603,100604,100605,100606],"Rarity":5,"SkillList":[100601,100602,100603,100604,100606,100607]},"1008":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1008B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1008.png","AvatarFullName":{"Hash":1185245652},"AvatarName":{"Hash":1840859344},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1008.png","Element":"Thunder","RankIDList":[100801,100802,100803,100804,100805,100806],"Rarity":4,"SkillList":[100801,100802,100803,100804,100806,100807]},"1009":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1009B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1009.png","AvatarFullName":{"Hash":1138827395},"AvatarName":{"Hash":-888024011},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1009.png","Element":"Fire","RankIDList":[100901,100902,100903,100904,100905,100906],"Rarity":4,"SkillList":[100901,100902,100903,100904,100906,100907]},"1013":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1013B.png","AvatarBaseType":"Mage","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1013.png","AvatarFullName":{"Hash":-683608126},"AvatarName":{"Hash":631005764},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1013.png","Element":"Ice","RankIDList":[101301,101302,101303,101304,101305,101306],"Rarity":4,"SkillList":[101301,101302,101303,101304,101306,101307]},"1101":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1101B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1101.png","AvatarFullName":{"Hash":1695376073},"AvatarName":{"Hash":-2077674616},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1101.png","Element":"Wind","RankIDList":[110101,110102,110103,110104,110105,110106],"Rarity":5,"SkillList":[110101,110102,110103,110104,110106,110107]},"1102":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1102B.png","AvatarBaseType":"Rogue","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1102.png","AvatarFullName":{"Hash":-327370702},"AvatarName":{"Hash":651208739},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1102.png","Element":"Quantum","RankIDList":[110201,110202,110203,110204,110205,110206],"Rarity":5,"SkillList":[110201,110202,110203,110204,110206,110207]},"1103":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1103B.png","AvatarBaseType":"Mage","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1103.png","AvatarFullName":{"Hash":-748459673},"AvatarName":{"Hash":-914875202},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1103.png","Element":"Thunder","RankIDList":[110301,110302,110303,110304,110305,110306],"Rarity":4,"SkillList":[110301,110302,110303,110304,110306,110307]},"1104":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1104B.png","AvatarBaseType":"Knight","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1104.png","AvatarFullName":{"Hash":2027198969},"AvatarName":{"Hash":1814008153},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1104.png","Element":"Ice","RankIDList":[110401,110402,110403,110404,110405,110406],"Rarity":5,"SkillList":[110401,110402,110403,110404,110406,110407]},"1105":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1105B.png","AvatarBaseType":"Priest","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1105.png","AvatarFullName":{"Hash":-1244252722},"AvatarName":{"Hash":247924212},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1105.png","Element":"Physical","RankIDList":[110501,110502,110503,110504,110505,110506],"Rarity":4,"SkillList":[110501,110502,110503,110504,110506,110507]},"1106":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1106B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1106.png","AvatarFullName":{"Hash":-562028418},"AvatarName":{"Hash":-1318159729},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1106.png","Element":"Ice","RankIDList":[110601,110602,110603,110604,110605,110606],"Rarity":4,"SkillList":[110601,110602,110603,110604,110606,110607]},"1107":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1107B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1107.png","AvatarFullName":{"Hash":304527861},"AvatarName":{"Hash":1410723626},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1107.png","Element":"Physical","RankIDList":[110701,110702,110703,110704,110705,110706],"Rarity":5,"SkillList":[110701,110702,110703,110704,110706,110707]},"1108":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1108B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1108.png","AvatarFullName":{"Hash":-2088319272},"AvatarName":{"Hash":-867821035},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1108.png","Element":"Wind","RankIDList":[110801,110802,110803,110804,110805,110806],"Rarity":4,"SkillList":[110801,110802,110803,110804,110806,110807]},"1109":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1109B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1109.png","AvatarFullName":{"Hash":963907623},"AvatarName":{"Hash":1861062320},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1109.png","Element":"Fire","RankIDList":[110901,110902,110903,110904,110905,110906],"Rarity":4,"SkillList":[110901,110902,110903,110904,110906,110907,110909]},"1110":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1110B.png","AvatarBaseType":"Priest","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1110.png","AvatarFullName":{"Hash":-1401838949},"AvatarName":{"Hash":-511590674},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1110.png","Element":"Quantum","RankIDList":[111001,111002,111003,111004,111005,111006],"Rarity":4,"SkillList":[111001,111002,111003,111004,111006,111007]},"1111":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1111B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1111.png","AvatarFullName":{"Hash":1696571191},"AvatarName":{"Hash":-2077674615},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1111.png","Element":"Physical","RankIDList":[111101,111102,111103,111104,111105,111106],"Rarity":4,"SkillList":[111101,111102,111103,111104,111106,111107,111108]},"1112":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1112B.png","AvatarBaseType":"Rogue","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1112.png","AvatarFullName":{"Hash":-367521998},"AvatarName":{"Hash":651208740},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1112.png","Element":"Fire","RankIDList":[111201,111202,111203,111204,111205,111206],"Rarity":5,"SkillList":[111201,111202,111203,111204,111206,111207]},"1201":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1201B.png","AvatarBaseType":"Mage","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1201.png","AvatarFullName":{"Hash":23154468},"AvatarName":{"Hash":-814118653},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1201.png","Element":"Quantum","RankIDList":[120101,120102,120103,120104,120105,120106],"Rarity":4,"SkillList":[120101,120102,120103,120104,120106,120107,120108]},"1202":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1202B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1202.png","AvatarFullName":{"Hash":23263934},"AvatarName":{"Hash":751965288},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1202.png","Element":"Thunder","RankIDList":[120201,120202,120203,120204,120205,120206],"Rarity":4,"SkillList":[120201,120202,120203,120204,120206,120207]},"1203":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1203B.png","AvatarBaseType":"Priest","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1203.png","AvatarFullName":{"Hash":-1111281336},"AvatarName":{"Hash":-1976918067},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1203.png","Element":"Imaginary","RankIDList":[120301,120302,120303,120304,120305,120306],"Rarity":5,"SkillList":[120301,120302,120303,120304,120306,120307]},"1204":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1204B.png","AvatarBaseType":"Mage","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1204.png","AvatarFullName":{"Hash":753361161},"AvatarName":{"Hash":-54603766},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1204.png","Element":"Thunder","RankIDList":[120401,120402,120403,120404,120405,120406],"Rarity":5,"SkillList":[120401,120402,120403,120404,120406,120407]},"1205":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1205B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1205.png","AvatarFullName":{"Hash":-1273337479},"AvatarName":{"Hash":1511480175},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1205.png","Element":"Wind","RankIDList":[120501,120502,120503,120504,120505,120506],"Rarity":5,"SkillList":[120501,120502,120503,120504,120506,120507,120508]},"1206":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1206B.png","AvatarBaseType":"Rogue","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1206.png","AvatarFullName":{"Hash":-1520733615},"AvatarName":{"Hash":-1217403180},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1206.png","Element":"Physical","RankIDList":[120601,120602,120603,120604,120605,120606],"Rarity":4,"SkillList":[120601,120602,120603,120604,120606,120607]},"1207":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1207B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1207.png","AvatarFullName":{"Hash":-223886223},"AvatarName":{"Hash":348680761},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1207.png","Element":"Imaginary","RankIDList":[120701,120702,120703,120704,120705,120706],"Rarity":4,"SkillList":[120701,120702,120703,120704,120706,120707]},"1208":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1208B.png","AvatarBaseType":"Knight","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1208.png","AvatarFullName":{"Hash":689804049},"AvatarName":{"Hash":1558534342},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1208.png","Element":"Quantum","RankIDList":[120801,120802,120803,120804,120805,120806],"Rarity":5,"SkillList":[120801,120802,120803,120804,120806,120807]},"1209":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1209B.png","AvatarBaseType":"Rogue","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1209.png","AvatarFullName":{"Hash":-2117315133},"AvatarName":{"Hash":-1170349013},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1209.png","Element":"Ice","RankIDList":[120901,120902,120903,120904,120905,120906],"Rarity":5,"SkillList":[120901,120902,120903,120904,120906,120907]},"1210":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1210B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1210.png","AvatarFullName":{"Hash":-1637273828},"AvatarName":{"Hash":1914764703},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1210.png","Element":"Fire","RankIDList":[121001,121002,121003,121004,121005,121006],"Rarity":4,"SkillList":[121001,121002,121003,121004,121006,121007]},"1211":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1211B.png","AvatarBaseType":"Priest","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1211.png","AvatarFullName":{"Hash":593491427},"AvatarName":{"Hash":-814118652},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1211.png","Element":"Thunder","RankIDList":[121101,121102,121103,121104,121105,121106],"Rarity":5,"SkillList":[121101,121102,121103,121104,121106,121107]},"1212":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1212B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1212.png","AvatarFullName":{"Hash":-877653918},"AvatarName":{"Hash":751965289},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1212.png","Element":"Ice","RankIDList":[121201,121202,121203,121204,121205,121206],"Rarity":5,"SkillList":[121201,121202,121203,121204,121206,121207,121209]},"1213":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1213B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1213.png","AvatarFullName":{"Hash":-1905195496},"AvatarName":{"Hash":-1976918066},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1213.png","Element":"Imaginary","RankIDList":[121301,121302,121303,121304,121305,121306],"Rarity":5,"SkillList":[121301,121302,121303,121304,121306,121307,121308,121309,121310,121312]},"1214":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1214B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1214.png","AvatarFullName":{"Hash":-2054552258},"AvatarName":{"Hash":-54603765},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1214.png","Element":"Quantum","RankIDList":[121401,121402,121403,121404,121405,121406],"Rarity":4,"SkillList":[121401,121402,121403,121404,121406,121407]},"1215":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1215B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1215.png","AvatarFullName":{"Hash":-878473933},"AvatarName":{"Hash":1511480176},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1215.png","Element":"Physical","RankIDList":[121501,121502,121503,121504,121505,121506],"Rarity":4,"SkillList":[121501,121502,121503,121504,121506,121507]},"1217":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1217B.png","AvatarBaseType":"Priest","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1217.png","AvatarFullName":{"Hash":-1850589142},"AvatarName":{"Hash":348680762},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1217.png","Element":"Wind","RankIDList":[121701,121702,121703,121704,121705,121706],"Rarity":5,"SkillList":[121701,121702,121703,121704,121706,121707]},"1218":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1218B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1218.png","AvatarFullName":{"Hash":1575564764},"AvatarName":{"Hash":1558534343},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1218.png","Element":"Fire","RankIDList":[121801,121802,121803,121804,121805,121806],"Rarity":5,"SkillList":[121801,121802,121803,121804,121806,121807]},"1221":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1221B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1221.png","AvatarFullName":{"Hash":1931231335},"AvatarName":{"Hash":-814118655},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1221.png","Element":"Physical","RankIDList":[122101,122102,122103,122104,122105,122106],"Rarity":5,"SkillList":[122101,122102,122103,122104,122106,122107]},"1224":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1224B.png","AvatarBaseType":"Rogue","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1224.png","AvatarFullName":{"Hash":-1063124016},"AvatarName":{"Hash":-54603768},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1224.png","Element":"Imaginary","RankIDList":[122401,122402,122403,122404,122405,122406],"Rarity":4,"SkillList":[122401,122402,122403,122404,122406,122407,122408]},"1301":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1301B.png","AvatarBaseType":"Priest","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1301.png","AvatarFullName":{"Hash":-1686189145},"AvatarName":{"Hash":1934967678},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1301.png","Element":"Fire","RankIDList":[130101,130102,130103,130104,130105,130106],"Rarity":4,"SkillList":[130101,130102,130103,130104,130106,130107,130108]},"1302":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1302B.png","AvatarBaseType":"Mage","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1302.png","AvatarFullName":{"Hash":-1699195646},"AvatarName":{"Hash":-1956715091},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1302.png","Element":"Physical","RankIDList":[130201,130202,130203,130204,130205,130206],"Rarity":5,"SkillList":[130201,130202,130203,130204,130206,130207,130214]},"1303":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1303B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1303.png","AvatarFullName":{"Hash":-835139175},"AvatarName":{"Hash":772168264},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1303.png","Element":"Ice","RankIDList":[130301,130302,130303,130304,130305,130306],"Rarity":5,"SkillList":[130301,130302,130303,130304,130306,130307]},"1304":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1304B.png","AvatarBaseType":"Knight","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1304.png","AvatarFullName":{"Hash":-107934339},"AvatarName":{"Hash":1531683151},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1304.png","Element":"Imaginary","RankIDList":[130401,130402,130403,130404,130405,130406],"Rarity":5,"SkillList":[130401,130402,130403,130404,130406,130407]},"1305":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1305B.png","AvatarBaseType":"Rogue","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1305.png","AvatarFullName":{"Hash":-2043468308},"AvatarName":{"Hash":-34400790},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1305.png","Element":"Imaginary","RankIDList":[130501,130502,130503,130504,130505,130506],"Rarity":5,"SkillList":[130501,130502,130503,130504,130506,130507]},"1306":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1306B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1306.png","AvatarFullName":{"Hash":-1042486512},"AvatarName":{"Hash":368883737},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1306.png","Element":"Quantum","RankIDList":[130601,130602,130603,130604,130605,130606],"Rarity":5,"SkillList":[130601,130602,130603,130604,130606,130607]},"1307":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1307B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1307.png","AvatarFullName":{"Hash":2001738668},"AvatarName":{"Hash":-1197200204},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1307.png","Element":"Wind","RankIDList":[130701,130702,130703,130704,130705,130706],"Rarity":5,"SkillList":[130701,130702,130703,130704,130706,130707]},"1308":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1308B.png","AvatarBaseType":"Warlock","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1308.png","AvatarFullName":{"Hash":1372569644},"AvatarName":{"Hash":-1150146037},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1308.png","Element":"Thunder","RankIDList":[130801,130802,130803,130804,130805,130806],"Rarity":5,"SkillList":[130801,130802,130803,130804,130806,130807,130814,130815,130816,130817]},"1309":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1309B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1309.png","AvatarFullName":{"Hash":-11289014},"AvatarName":{"Hash":1578737318},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1309.png","Element":"Physical","RankIDList":[130901,130902,130903,130904,130905,130906],"Rarity":5,"SkillList":[130901,130902,130903,130904,130906,130907]},"1310":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1310B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1310.png","AvatarFullName":{"Hash":-515177433},"AvatarName":{"Hash":-793915676},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1310.png","Element":"Fire","RankIDList":[131001,131002,131003,131004,131005,131006],"Rarity":5,"SkillList":[131001,131002,131003,131004,131006,131007,131008,131009]},"1312":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1312B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1312.png","AvatarFullName":{"Hash":109652686},"AvatarName":{"Hash":-1956715090},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1312.png","Element":"Ice","RankIDList":[131201,131202,131203,131204,131205,131206],"Rarity":4,"SkillList":[131201,131202,131203,131204,131206,131207]},"1314":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1314B.png","AvatarBaseType":"Mage","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1314.png","AvatarFullName":{"Hash":-1966747216},"AvatarName":{"Hash":1531683152},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1314.png","Element":"Quantum","RankIDList":[131401,131402,131403,131404,131405,131406],"Rarity":5,"SkillList":[131401,131402,131403,131404,131406,131407]},"1315":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/1315B.png","AvatarBaseType":"Rogue","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/1315.png","AvatarFullName":{"Hash":-844857709},"AvatarName":{"Hash":-34400789},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/1315.png","Element":"Physical","RankIDList":[131501,131502,131503,131504,131505,131506],"Rarity":5,"SkillList":[131501,131502,131503,131504,131506,131507,131508]},"8001":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/8001B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/8001.png","AvatarFullName":{"Hash":-1461075445},"AvatarName":{"Hash":-531793818},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/8001.png","Element":"Physical","RankIDList":[800101,800102,800103,800104,800105,800106],"Rarity":5,"SkillList":[800101,800102,800103,800104,800106,800107,800108,800109]},"8002":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/8002B.png","AvatarBaseType":"Warrior","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/8002.png","AvatarFullName":{"Hash":802741703},"AvatarName":{"Hash":-935078345},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/8002.png","Element":"Physical","RankIDList":[800201,800202,800203,800204,800205,800206],"Rarity":5,"SkillList":[800201,800202,800203,800204,800206,800207,800208,800209]},"8003":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/8003B.png","AvatarBaseType":"Knight","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/8003.png","AvatarFullName":{"Hash":-1461075445},"AvatarName":{"Hash":631005596},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/8003.png","Element":"Fire","RankIDList":[800301,800302,800303,800304,800305,800306],"Rarity":5,"SkillList":[800301,800302,800303,800304,800306,800307,800308]},"8004":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/8004B.png","AvatarBaseType":"Knight","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/8004.png","AvatarFullName":{"Hash":802741703},"AvatarName":{"Hash":227721069},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/8004.png","Element":"Fire","RankIDList":[800401,800402,800403,800404,800405,800406],"Rarity":5,"SkillList":[800401,800402,800403,800404,800406,800407,800408]},"8005":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/8005B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/8005.png","AvatarFullName":{"Hash":-1461075445},"AvatarName":{"Hash":1793805010},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/8005.png","Element":"Imaginary","RankIDList":[800501,800502,800503,800504,800505,800506],"Rarity":5,"SkillList":[800501,800502,800503,800504,800506,800507]},"8006":{"ActionAvatarHeadIconPath":"SpriteOutput/AvatarIconTeam/8006B.png","AvatarBaseType":"Shaman","AvatarCutinFrontImgPath":"SpriteOutput/AvatarDrawCard/8006.png","AvatarFullName":{"Hash":802741703},"AvatarName":{"Hash":1390520483},"AvatarSideIconPath":"SpriteOutput/AvatarRoundIcon/8006.png","Element":"Imaginary","RankIDList":[800601,800602,800603,800604,800605,800606],"Rarity":5,"SkillList":[800601,800602,800603,800604,800606,800607]}}
+{
+  "1001" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1001B.png",
+    "AvatarBaseType" : "Knight",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1001.png",
+    "AvatarFullName" : {
+      "Hash" : -1063124016
+    },
+    "AvatarName" : {
+      "Hash" : -531793651
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1001.png",
+    "Element" : "Ice",
+    "RankIDList" : [
+      100101,
+      100102,
+      100103,
+      100104,
+      100105,
+      100106
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      100101,
+      100102,
+      100103,
+      100104,
+      100106,
+      100107
+    ]
+  },
+  "1002" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1002B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1002.png",
+    "AvatarFullName" : {
+      "Hash" : -8036553
+    },
+    "AvatarName" : {
+      "Hash" : -935078178
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1002.png",
+    "Element" : "Wind",
+    "RankIDList" : [
+      100201,
+      100202,
+      100203,
+      100204,
+      100205,
+      100206
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      100201,
+      100202,
+      100203,
+      100204,
+      100206,
+      100207
+    ]
+  },
+  "1003" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1003B.png",
+    "AvatarBaseType" : "Mage",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1003.png",
+    "AvatarFullName" : {
+      "Hash" : -844315511
+    },
+    "AvatarName" : {
+      "Hash" : 631005763
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1003.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      100301,
+      100302,
+      100303,
+      100304,
+      100305,
+      100306
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      100301,
+      100302,
+      100303,
+      100304,
+      100306,
+      100307
+    ]
+  },
+  "1004" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1004B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1004.png",
+    "AvatarFullName" : {
+      "Hash" : -871204766
+    },
+    "AvatarName" : {
+      "Hash" : 227721236
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1004.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      100401,
+      100402,
+      100403,
+      100404,
+      100405,
+      100406
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      100401,
+      100402,
+      100403,
+      100404,
+      100406,
+      100407
+    ]
+  },
+  "1005" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1005B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1005.png",
+    "AvatarFullName" : {
+      "Hash" : -1328813516
+    },
+    "AvatarName" : {
+      "Hash" : 1793805177
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1005.png",
+    "Element" : "Thunder",
+    "RankIDList" : [
+      100501,
+      100502,
+      100503,
+      100504,
+      100505,
+      100506
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      100501,
+      100502,
+      100503,
+      100504,
+      100506,
+      100507
+    ]
+  },
+  "1006" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1006B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1006.png",
+    "AvatarFullName" : {
+      "Hash" : 621775846
+    },
+    "AvatarName" : {
+      "Hash" : 1390520650
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1006.png",
+    "Element" : "Quantum",
+    "RankIDList" : [
+      100601,
+      100602,
+      100603,
+      100604,
+      100605,
+      100606
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      100601,
+      100602,
+      100603,
+      100604,
+      100606,
+      100607
+    ]
+  },
+  "1008" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1008B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1008.png",
+    "AvatarFullName" : {
+      "Hash" : 1185245652
+    },
+    "AvatarName" : {
+      "Hash" : 1840859344
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1008.png",
+    "Element" : "Thunder",
+    "RankIDList" : [
+      100801,
+      100802,
+      100803,
+      100804,
+      100805,
+      100806
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      100801,
+      100802,
+      100803,
+      100804,
+      100806,
+      100807
+    ]
+  },
+  "1009" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1009B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1009.png",
+    "AvatarFullName" : {
+      "Hash" : 1138827395
+    },
+    "AvatarName" : {
+      "Hash" : -888024011
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1009.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      100901,
+      100902,
+      100903,
+      100904,
+      100905,
+      100906
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      100901,
+      100902,
+      100903,
+      100904,
+      100906,
+      100907
+    ]
+  },
+  "1013" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1013B.png",
+    "AvatarBaseType" : "Mage",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1013.png",
+    "AvatarFullName" : {
+      "Hash" : -683608126
+    },
+    "AvatarName" : {
+      "Hash" : 631005764
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1013.png",
+    "Element" : "Ice",
+    "RankIDList" : [
+      101301,
+      101302,
+      101303,
+      101304,
+      101305,
+      101306
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      101301,
+      101302,
+      101303,
+      101304,
+      101306,
+      101307
+    ]
+  },
+  "1101" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1101B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1101.png",
+    "AvatarFullName" : {
+      "Hash" : 1695376073
+    },
+    "AvatarName" : {
+      "Hash" : -2077674616
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1101.png",
+    "Element" : "Wind",
+    "RankIDList" : [
+      110101,
+      110102,
+      110103,
+      110104,
+      110105,
+      110106
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      110101,
+      110102,
+      110103,
+      110104,
+      110106,
+      110107
+    ]
+  },
+  "1102" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1102B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1102.png",
+    "AvatarFullName" : {
+      "Hash" : -327370702
+    },
+    "AvatarName" : {
+      "Hash" : 651208739
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1102.png",
+    "Element" : "Quantum",
+    "RankIDList" : [
+      110201,
+      110202,
+      110203,
+      110204,
+      110205,
+      110206
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      110201,
+      110202,
+      110203,
+      110204,
+      110206,
+      110207
+    ]
+  },
+  "1103" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1103B.png",
+    "AvatarBaseType" : "Mage",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1103.png",
+    "AvatarFullName" : {
+      "Hash" : -748459673
+    },
+    "AvatarName" : {
+      "Hash" : -914875202
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1103.png",
+    "Element" : "Thunder",
+    "RankIDList" : [
+      110301,
+      110302,
+      110303,
+      110304,
+      110305,
+      110306
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      110301,
+      110302,
+      110303,
+      110304,
+      110306,
+      110307
+    ]
+  },
+  "1104" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1104B.png",
+    "AvatarBaseType" : "Knight",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1104.png",
+    "AvatarFullName" : {
+      "Hash" : 2027198969
+    },
+    "AvatarName" : {
+      "Hash" : 1814008153
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1104.png",
+    "Element" : "Ice",
+    "RankIDList" : [
+      110401,
+      110402,
+      110403,
+      110404,
+      110405,
+      110406
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      110401,
+      110402,
+      110403,
+      110404,
+      110406,
+      110407
+    ]
+  },
+  "1105" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1105B.png",
+    "AvatarBaseType" : "Priest",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1105.png",
+    "AvatarFullName" : {
+      "Hash" : -1244252722
+    },
+    "AvatarName" : {
+      "Hash" : 247924212
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1105.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      110501,
+      110502,
+      110503,
+      110504,
+      110505,
+      110506
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      110501,
+      110502,
+      110503,
+      110504,
+      110506,
+      110507
+    ]
+  },
+  "1106" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1106B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1106.png",
+    "AvatarFullName" : {
+      "Hash" : -562028418
+    },
+    "AvatarName" : {
+      "Hash" : -1318159729
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1106.png",
+    "Element" : "Ice",
+    "RankIDList" : [
+      110601,
+      110602,
+      110603,
+      110604,
+      110605,
+      110606
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      110601,
+      110602,
+      110603,
+      110604,
+      110606,
+      110607
+    ]
+  },
+  "1107" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1107B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1107.png",
+    "AvatarFullName" : {
+      "Hash" : 304527861
+    },
+    "AvatarName" : {
+      "Hash" : 1410723626
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1107.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      110701,
+      110702,
+      110703,
+      110704,
+      110705,
+      110706
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      110701,
+      110702,
+      110703,
+      110704,
+      110706,
+      110707
+    ]
+  },
+  "1108" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1108B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1108.png",
+    "AvatarFullName" : {
+      "Hash" : -2088319272
+    },
+    "AvatarName" : {
+      "Hash" : -867821035
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1108.png",
+    "Element" : "Wind",
+    "RankIDList" : [
+      110801,
+      110802,
+      110803,
+      110804,
+      110805,
+      110806
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      110801,
+      110802,
+      110803,
+      110804,
+      110806,
+      110807
+    ]
+  },
+  "1109" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1109B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1109.png",
+    "AvatarFullName" : {
+      "Hash" : 963907623
+    },
+    "AvatarName" : {
+      "Hash" : 1861062320
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1109.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      110901,
+      110902,
+      110903,
+      110904,
+      110905,
+      110906
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      110901,
+      110902,
+      110903,
+      110904,
+      110906,
+      110907,
+      110909
+    ]
+  },
+  "1110" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1110B.png",
+    "AvatarBaseType" : "Priest",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1110.png",
+    "AvatarFullName" : {
+      "Hash" : -1401838949
+    },
+    "AvatarName" : {
+      "Hash" : -511590674
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1110.png",
+    "Element" : "Quantum",
+    "RankIDList" : [
+      111001,
+      111002,
+      111003,
+      111004,
+      111005,
+      111006
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      111001,
+      111002,
+      111003,
+      111004,
+      111006,
+      111007
+    ]
+  },
+  "1111" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1111B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1111.png",
+    "AvatarFullName" : {
+      "Hash" : 1696571191
+    },
+    "AvatarName" : {
+      "Hash" : -2077674615
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1111.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      111101,
+      111102,
+      111103,
+      111104,
+      111105,
+      111106
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      111101,
+      111102,
+      111103,
+      111104,
+      111106,
+      111107,
+      111108
+    ]
+  },
+  "1112" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1112B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1112.png",
+    "AvatarFullName" : {
+      "Hash" : -367521998
+    },
+    "AvatarName" : {
+      "Hash" : 651208740
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1112.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      111201,
+      111202,
+      111203,
+      111204,
+      111205,
+      111206
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      111201,
+      111202,
+      111203,
+      111204,
+      111206,
+      111207
+    ]
+  },
+  "1201" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1201B.png",
+    "AvatarBaseType" : "Mage",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1201.png",
+    "AvatarFullName" : {
+      "Hash" : 23154468
+    },
+    "AvatarName" : {
+      "Hash" : -814118653
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1201.png",
+    "Element" : "Quantum",
+    "RankIDList" : [
+      120101,
+      120102,
+      120103,
+      120104,
+      120105,
+      120106
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      120101,
+      120102,
+      120103,
+      120104,
+      120106,
+      120107,
+      120108
+    ]
+  },
+  "1202" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1202B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1202.png",
+    "AvatarFullName" : {
+      "Hash" : 23263934
+    },
+    "AvatarName" : {
+      "Hash" : 751965288
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1202.png",
+    "Element" : "Thunder",
+    "RankIDList" : [
+      120201,
+      120202,
+      120203,
+      120204,
+      120205,
+      120206
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      120201,
+      120202,
+      120203,
+      120204,
+      120206,
+      120207
+    ]
+  },
+  "1203" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1203B.png",
+    "AvatarBaseType" : "Priest",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1203.png",
+    "AvatarFullName" : {
+      "Hash" : -1111281336
+    },
+    "AvatarName" : {
+      "Hash" : -1976918067
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1203.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      120301,
+      120302,
+      120303,
+      120304,
+      120305,
+      120306
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      120301,
+      120302,
+      120303,
+      120304,
+      120306,
+      120307
+    ]
+  },
+  "1204" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1204B.png",
+    "AvatarBaseType" : "Mage",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1204.png",
+    "AvatarFullName" : {
+      "Hash" : 753361161
+    },
+    "AvatarName" : {
+      "Hash" : -54603766
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1204.png",
+    "Element" : "Thunder",
+    "RankIDList" : [
+      120401,
+      120402,
+      120403,
+      120404,
+      120405,
+      120406
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      120401,
+      120402,
+      120403,
+      120404,
+      120406,
+      120407
+    ]
+  },
+  "1205" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1205B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1205.png",
+    "AvatarFullName" : {
+      "Hash" : -1273337479
+    },
+    "AvatarName" : {
+      "Hash" : 1511480175
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1205.png",
+    "Element" : "Wind",
+    "RankIDList" : [
+      120501,
+      120502,
+      120503,
+      120504,
+      120505,
+      120506
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      120501,
+      120502,
+      120503,
+      120504,
+      120506,
+      120507,
+      120508
+    ]
+  },
+  "1206" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1206B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1206.png",
+    "AvatarFullName" : {
+      "Hash" : -1520733615
+    },
+    "AvatarName" : {
+      "Hash" : -1217403180
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1206.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      120601,
+      120602,
+      120603,
+      120604,
+      120605,
+      120606
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      120601,
+      120602,
+      120603,
+      120604,
+      120606,
+      120607
+    ]
+  },
+  "1207" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1207B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1207.png",
+    "AvatarFullName" : {
+      "Hash" : -223886223
+    },
+    "AvatarName" : {
+      "Hash" : 348680761
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1207.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      120701,
+      120702,
+      120703,
+      120704,
+      120705,
+      120706
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      120701,
+      120702,
+      120703,
+      120704,
+      120706,
+      120707
+    ]
+  },
+  "1208" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1208B.png",
+    "AvatarBaseType" : "Knight",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1208.png",
+    "AvatarFullName" : {
+      "Hash" : 689804049
+    },
+    "AvatarName" : {
+      "Hash" : 1558534342
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1208.png",
+    "Element" : "Quantum",
+    "RankIDList" : [
+      120801,
+      120802,
+      120803,
+      120804,
+      120805,
+      120806
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      120801,
+      120802,
+      120803,
+      120804,
+      120806,
+      120807
+    ]
+  },
+  "1209" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1209B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1209.png",
+    "AvatarFullName" : {
+      "Hash" : -2117315133
+    },
+    "AvatarName" : {
+      "Hash" : -1170349013
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1209.png",
+    "Element" : "Ice",
+    "RankIDList" : [
+      120901,
+      120902,
+      120903,
+      120904,
+      120905,
+      120906
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      120901,
+      120902,
+      120903,
+      120904,
+      120906,
+      120907
+    ]
+  },
+  "1210" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1210B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1210.png",
+    "AvatarFullName" : {
+      "Hash" : -1637273828
+    },
+    "AvatarName" : {
+      "Hash" : 1914764703
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1210.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      121001,
+      121002,
+      121003,
+      121004,
+      121005,
+      121006
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      121001,
+      121002,
+      121003,
+      121004,
+      121006,
+      121007
+    ]
+  },
+  "1211" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1211B.png",
+    "AvatarBaseType" : "Priest",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1211.png",
+    "AvatarFullName" : {
+      "Hash" : 593491427
+    },
+    "AvatarName" : {
+      "Hash" : -814118652
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1211.png",
+    "Element" : "Thunder",
+    "RankIDList" : [
+      121101,
+      121102,
+      121103,
+      121104,
+      121105,
+      121106
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      121101,
+      121102,
+      121103,
+      121104,
+      121106,
+      121107
+    ]
+  },
+  "1212" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1212B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1212.png",
+    "AvatarFullName" : {
+      "Hash" : -877653918
+    },
+    "AvatarName" : {
+      "Hash" : 751965289
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1212.png",
+    "Element" : "Ice",
+    "RankIDList" : [
+      121201,
+      121202,
+      121203,
+      121204,
+      121205,
+      121206
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      121201,
+      121202,
+      121203,
+      121204,
+      121206,
+      121207,
+      121209
+    ]
+  },
+  "1213" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1213B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1213.png",
+    "AvatarFullName" : {
+      "Hash" : -1905195496
+    },
+    "AvatarName" : {
+      "Hash" : -1976918066
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1213.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      121301,
+      121302,
+      121303,
+      121304,
+      121305,
+      121306
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      121301,
+      121302,
+      121303,
+      121304,
+      121306,
+      121307,
+      121308,
+      121309,
+      121310,
+      121312
+    ]
+  },
+  "1214" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1214B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1214.png",
+    "AvatarFullName" : {
+      "Hash" : -2054552258
+    },
+    "AvatarName" : {
+      "Hash" : -54603765
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1214.png",
+    "Element" : "Quantum",
+    "RankIDList" : [
+      121401,
+      121402,
+      121403,
+      121404,
+      121405,
+      121406
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      121401,
+      121402,
+      121403,
+      121404,
+      121406,
+      121407
+    ]
+  },
+  "1215" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1215B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1215.png",
+    "AvatarFullName" : {
+      "Hash" : -878473933
+    },
+    "AvatarName" : {
+      "Hash" : 1511480176
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1215.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      121501,
+      121502,
+      121503,
+      121504,
+      121505,
+      121506
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      121501,
+      121502,
+      121503,
+      121504,
+      121506,
+      121507
+    ]
+  },
+  "1217" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1217B.png",
+    "AvatarBaseType" : "Priest",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1217.png",
+    "AvatarFullName" : {
+      "Hash" : -1850589142
+    },
+    "AvatarName" : {
+      "Hash" : 348680762
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1217.png",
+    "Element" : "Wind",
+    "RankIDList" : [
+      121701,
+      121702,
+      121703,
+      121704,
+      121705,
+      121706
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      121701,
+      121702,
+      121703,
+      121704,
+      121706,
+      121707
+    ]
+  },
+  "1218" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1218B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1218.png",
+    "AvatarFullName" : {
+      "Hash" : 1575564764
+    },
+    "AvatarName" : {
+      "Hash" : 1558534343
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1218.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      121801,
+      121802,
+      121803,
+      121804,
+      121805,
+      121806
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      121801,
+      121802,
+      121803,
+      121804,
+      121806,
+      121807
+    ]
+  },
+  "1221" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1221B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1221.png",
+    "AvatarFullName" : {
+      "Hash" : 1931231335
+    },
+    "AvatarName" : {
+      "Hash" : -814118655
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1221.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      122101,
+      122102,
+      122103,
+      122104,
+      122105,
+      122106
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      122101,
+      122102,
+      122103,
+      122104,
+      122106,
+      122107
+    ]
+  },
+  "1224" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1224B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1224.png",
+    "AvatarFullName" : {
+      "Hash" : -1063124016
+    },
+    "AvatarName" : {
+      "Hash" : -54603768
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1224.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      122401,
+      122402,
+      122403,
+      122404,
+      122405,
+      122406
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      122401,
+      122402,
+      122403,
+      122404,
+      122406,
+      122407,
+      122408
+    ]
+  },
+  "1301" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1301B.png",
+    "AvatarBaseType" : "Priest",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1301.png",
+    "AvatarFullName" : {
+      "Hash" : -1686189145
+    },
+    "AvatarName" : {
+      "Hash" : 1934967678
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1301.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      130101,
+      130102,
+      130103,
+      130104,
+      130105,
+      130106
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      130101,
+      130102,
+      130103,
+      130104,
+      130106,
+      130107,
+      130108
+    ]
+  },
+  "1302" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1302B.png",
+    "AvatarBaseType" : "Mage",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1302.png",
+    "AvatarFullName" : {
+      "Hash" : -1699195646
+    },
+    "AvatarName" : {
+      "Hash" : -1956715091
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1302.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      130201,
+      130202,
+      130203,
+      130204,
+      130205,
+      130206
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      130201,
+      130202,
+      130203,
+      130204,
+      130206,
+      130207,
+      130214
+    ]
+  },
+  "1303" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1303B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1303.png",
+    "AvatarFullName" : {
+      "Hash" : -835139175
+    },
+    "AvatarName" : {
+      "Hash" : 772168264
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1303.png",
+    "Element" : "Ice",
+    "RankIDList" : [
+      130301,
+      130302,
+      130303,
+      130304,
+      130305,
+      130306
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      130301,
+      130302,
+      130303,
+      130304,
+      130306,
+      130307
+    ]
+  },
+  "1304" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1304B.png",
+    "AvatarBaseType" : "Knight",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1304.png",
+    "AvatarFullName" : {
+      "Hash" : -107934339
+    },
+    "AvatarName" : {
+      "Hash" : 1531683151
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1304.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      130401,
+      130402,
+      130403,
+      130404,
+      130405,
+      130406
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      130401,
+      130402,
+      130403,
+      130404,
+      130406,
+      130407
+    ]
+  },
+  "1305" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1305B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1305.png",
+    "AvatarFullName" : {
+      "Hash" : -2043468308
+    },
+    "AvatarName" : {
+      "Hash" : -34400790
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1305.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      130501,
+      130502,
+      130503,
+      130504,
+      130505,
+      130506
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      130501,
+      130502,
+      130503,
+      130504,
+      130506,
+      130507
+    ]
+  },
+  "1306" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1306B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1306.png",
+    "AvatarFullName" : {
+      "Hash" : -1042486512
+    },
+    "AvatarName" : {
+      "Hash" : 368883737
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1306.png",
+    "Element" : "Quantum",
+    "RankIDList" : [
+      130601,
+      130602,
+      130603,
+      130604,
+      130605,
+      130606
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      130601,
+      130602,
+      130603,
+      130604,
+      130606,
+      130607
+    ]
+  },
+  "1307" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1307B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1307.png",
+    "AvatarFullName" : {
+      "Hash" : 2001738668
+    },
+    "AvatarName" : {
+      "Hash" : -1197200204
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1307.png",
+    "Element" : "Wind",
+    "RankIDList" : [
+      130701,
+      130702,
+      130703,
+      130704,
+      130705,
+      130706
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      130701,
+      130702,
+      130703,
+      130704,
+      130706,
+      130707
+    ]
+  },
+  "1308" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1308B.png",
+    "AvatarBaseType" : "Warlock",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1308.png",
+    "AvatarFullName" : {
+      "Hash" : 1372569644
+    },
+    "AvatarName" : {
+      "Hash" : -1150146037
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1308.png",
+    "Element" : "Thunder",
+    "RankIDList" : [
+      130801,
+      130802,
+      130803,
+      130804,
+      130805,
+      130806
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      130801,
+      130802,
+      130803,
+      130804,
+      130806,
+      130807,
+      130814,
+      130815,
+      130816,
+      130817
+    ]
+  },
+  "1309" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1309B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1309.png",
+    "AvatarFullName" : {
+      "Hash" : -11289014
+    },
+    "AvatarName" : {
+      "Hash" : 1578737318
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1309.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      130901,
+      130902,
+      130903,
+      130904,
+      130905,
+      130906
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      130901,
+      130902,
+      130903,
+      130904,
+      130906,
+      130907
+    ]
+  },
+  "1310" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1310B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1310.png",
+    "AvatarFullName" : {
+      "Hash" : -515177433
+    },
+    "AvatarName" : {
+      "Hash" : -793915676
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1310.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      131001,
+      131002,
+      131003,
+      131004,
+      131005,
+      131006
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      131001,
+      131002,
+      131003,
+      131004,
+      131006,
+      131007,
+      131008,
+      131009
+    ]
+  },
+  "1312" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1312B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1312.png",
+    "AvatarFullName" : {
+      "Hash" : 109652686
+    },
+    "AvatarName" : {
+      "Hash" : -1956715090
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1312.png",
+    "Element" : "Ice",
+    "RankIDList" : [
+      131201,
+      131202,
+      131203,
+      131204,
+      131205,
+      131206
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      131201,
+      131202,
+      131203,
+      131204,
+      131206,
+      131207
+    ]
+  },
+  "1314" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1314B.png",
+    "AvatarBaseType" : "Mage",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1314.png",
+    "AvatarFullName" : {
+      "Hash" : -1966747216
+    },
+    "AvatarName" : {
+      "Hash" : 1531683152
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1314.png",
+    "Element" : "Quantum",
+    "RankIDList" : [
+      131401,
+      131402,
+      131403,
+      131404,
+      131405,
+      131406
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      131401,
+      131402,
+      131403,
+      131404,
+      131406,
+      131407
+    ]
+  },
+  "1315" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1315B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1315.png",
+    "AvatarFullName" : {
+      "Hash" : -844857709
+    },
+    "AvatarName" : {
+      "Hash" : -34400789
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1315.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      131501,
+      131502,
+      131503,
+      131504,
+      131505,
+      131506
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      131501,
+      131502,
+      131503,
+      131504,
+      131506,
+      131507,
+      131508
+    ]
+  },
+  "8001" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8001B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8001.png",
+    "AvatarFullName" : {
+      "Hash" : -1461075445
+    },
+    "AvatarName" : {
+      "Hash" : -531793818
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8001.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      800101,
+      800102,
+      800103,
+      800104,
+      800105,
+      800106
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      800101,
+      800102,
+      800103,
+      800104,
+      800106,
+      800107,
+      800108,
+      800109
+    ]
+  },
+  "8002" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8002B.png",
+    "AvatarBaseType" : "Warrior",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8002.png",
+    "AvatarFullName" : {
+      "Hash" : 802741703
+    },
+    "AvatarName" : {
+      "Hash" : -935078345
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8002.png",
+    "Element" : "Physical",
+    "RankIDList" : [
+      800201,
+      800202,
+      800203,
+      800204,
+      800205,
+      800206
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      800201,
+      800202,
+      800203,
+      800204,
+      800206,
+      800207,
+      800208,
+      800209
+    ]
+  },
+  "8003" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8003B.png",
+    "AvatarBaseType" : "Knight",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8003.png",
+    "AvatarFullName" : {
+      "Hash" : -1461075445
+    },
+    "AvatarName" : {
+      "Hash" : 631005596
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8003.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      800301,
+      800302,
+      800303,
+      800304,
+      800305,
+      800306
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      800301,
+      800302,
+      800303,
+      800304,
+      800306,
+      800307,
+      800308
+    ]
+  },
+  "8004" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8004B.png",
+    "AvatarBaseType" : "Knight",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8004.png",
+    "AvatarFullName" : {
+      "Hash" : 802741703
+    },
+    "AvatarName" : {
+      "Hash" : 227721069
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8004.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      800401,
+      800402,
+      800403,
+      800404,
+      800405,
+      800406
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      800401,
+      800402,
+      800403,
+      800404,
+      800406,
+      800407,
+      800408
+    ]
+  },
+  "8005" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8005B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8005.png",
+    "AvatarFullName" : {
+      "Hash" : -1461075445
+    },
+    "AvatarName" : {
+      "Hash" : 1793805010
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8005.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      800501,
+      800502,
+      800503,
+      800504,
+      800505,
+      800506
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      800501,
+      800502,
+      800503,
+      800504,
+      800506,
+      800507
+    ]
+  },
+  "8006" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/8006B.png",
+    "AvatarBaseType" : "Shaman",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/8006.png",
+    "AvatarFullName" : {
+      "Hash" : 802741703
+    },
+    "AvatarName" : {
+      "Hash" : 1390520483
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/8006.png",
+    "Element" : "Imaginary",
+    "RankIDList" : [
+      800601,
+      800602,
+      800603,
+      800604,
+      800605,
+      800606
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      800601,
+      800602,
+      800603,
+      800604,
+      800606,
+      800607
+    ]
+  }
+}
