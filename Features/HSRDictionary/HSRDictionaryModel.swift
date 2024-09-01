@@ -14,26 +14,13 @@ struct HSRDictionaryTranslationResult: Decodable {
         // MARK: Lifecycle
 
         init(from decoder: Decoder) throws {
-            let container: KeyedDecodingContainer<HSRDictionaryTranslationResult.Translation.CodingKeys> = try decoder
-                .container(keyedBy: HSRDictionaryTranslationResult.Translation.CodingKeys.self)
-            self.vocabularyId = try container.decode(
-                Int.self,
-                forKey: HSRDictionaryTranslationResult.Translation.CodingKeys.vocabularyId
-            )
-            self.target = try container.decode(
-                String.self,
-                forKey: HSRDictionaryTranslationResult.Translation.CodingKeys.target
-            )
-            self.targetLanguage = try container.decode(
-                DictionaryLanguage.self,
-                forKey: HSRDictionaryTranslationResult.Translation.CodingKeys.targetLanguage
-            )
-            let translationDictionary = try container.decode(
-                [String: String].self,
-                forKey: HSRDictionaryTranslationResult.Translation.CodingKeys.translationDictionary
-            )
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.vocabularyId = try container.decode(Int.self, forKey: .vocabularyId)
+            self.target = try container.decode(String.self, forKey: .target)
+            self.targetLanguage = try container.decode(DictionaryLanguage.self, forKey: .targetLanguage)
+            let rawTransMap = try container.decode([String: String].self, forKey: .translationDictionary)
             var temp: [DictionaryLanguage: String] = .init()
-            for (key, value) in translationDictionary {
+            for (key, value) in rawTransMap {
                 if let key = DictionaryLanguage(rawValue: key) {
                     temp[key] = value
                 }
