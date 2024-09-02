@@ -21,9 +21,12 @@ extension MiHoYoAPI {
         deviceFingerPrint: String?
     ) async throws
         -> CharacterInventory {
-        switch server.region {
+        #if DEBUG
+        print("||| START REQUESTING CHARACTER INVENTORY |||")
+        #endif
+        return switch server.region {
         case .global, .mainlandChina:
-            return try await generalCharacterInventory(
+            try await generalCharacterInventory(
                 server: server,
                 uid: uid,
                 cookie: cookie,
@@ -78,6 +81,19 @@ extension MiHoYoAPI {
             cookie: newCookie,
             additionalHeaders: additionalHeaders
         )
+        #if DEBUG
+        print("---------------------------------------------")
+        print(request.debugDescription)
+        if let headerEX = request.allHTTPHeaderFields {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = [.sortedKeys, .prettyPrinted, .withoutEscapingSlashes]
+            if let theData = try? encoder.encode(headerEX),
+               let str = String(data: theData, encoding: .utf8) {
+                print(str)
+            }
+        }
+        print("---------------------------------------------")
+        #endif
 
         let (data, _) = try await URLSession.shared.data(for: request)
 
