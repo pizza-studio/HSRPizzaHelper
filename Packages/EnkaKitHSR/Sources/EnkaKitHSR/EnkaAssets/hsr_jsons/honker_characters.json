@@ -1148,6 +1148,39 @@
       121807
     ]
   },
+  "1220" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1220B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1220.png",
+    "AvatarFullName" : {
+      "Hash" : -378932311
+    },
+    "AvatarName" : {
+      "Hash" : 1914764700
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1220.png",
+    "Element" : "Wind",
+    "RankIDList" : [
+      122001,
+      122002,
+      122003,
+      122004,
+      122005,
+      122006
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      122001,
+      122002,
+      122003,
+      122004,
+      122006,
+      122007,
+      122008,
+      122009,
+      122014
+    ]
+  },
   "1221" : {
     "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1221B.png",
     "AvatarBaseType" : "Warrior",
@@ -1176,6 +1209,66 @@
       122104,
       122106,
       122107
+    ]
+  },
+  "1222" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1222B.png",
+    "AvatarBaseType" : "Priest",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1222.png",
+    "AvatarFullName" : {
+      "Hash" : 688366948
+    },
+    "AvatarName" : {
+      "Hash" : 751965286
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1222.png",
+    "Element" : "Fire",
+    "RankIDList" : [
+      122201,
+      122202,
+      122203,
+      122204,
+      122205,
+      122206
+    ],
+    "Rarity" : 5,
+    "SkillList" : [
+      122201,
+      122202,
+      122203,
+      122204,
+      122206,
+      122207
+    ]
+  },
+  "1223" : {
+    "ActionAvatarHeadIconPath" : "SpriteOutput/AvatarIconTeam/1223B.png",
+    "AvatarBaseType" : "Rogue",
+    "AvatarCutinFrontImgPath" : "SpriteOutput/AvatarDrawCard/1223.png",
+    "AvatarFullName" : {
+      "Hash" : 1414245981
+    },
+    "AvatarName" : {
+      "Hash" : -1976918069
+    },
+    "AvatarSideIconPath" : "SpriteOutput/AvatarRoundIcon/1223.png",
+    "Element" : "Thunder",
+    "RankIDList" : [
+      122301,
+      122302,
+      122303,
+      122304,
+      122305,
+      122306
+    ],
+    "Rarity" : 4,
+    "SkillList" : [
+      122301,
+      122302,
+      122303,
+      122304,
+      122306,
+      122307
     ]
   },
   "1224" : {
