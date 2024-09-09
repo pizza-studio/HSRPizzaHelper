@@ -543,6 +543,14 @@
     "ImagePath" : "SpriteOutput/LightConeFigures/21046.png",
     "Rarity" : 4
   },
+  "21047" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -973364451
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21047.png",
+    "Rarity" : 4
+  },
   "22000" : {
     "AvatarBaseType" : "Warlock",
     "EquipmentName" : {
@@ -813,6 +821,22 @@
       "Hash" : -1658973977
     },
     "ImagePath" : "SpriteOutput/LightConeFigures/23030.png",
+    "Rarity" : 5
+  },
+  "23031" : {
+    "AvatarBaseType" : "Rogue",
+    "EquipmentName" : {
+      "Hash" : -1658973978
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23031.png",
+    "Rarity" : 5
+  },
+  "23032" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -1658973975
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23032.png",
     "Rarity" : 5
   },
   "24000" : {
