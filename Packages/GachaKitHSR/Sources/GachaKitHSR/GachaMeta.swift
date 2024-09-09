@@ -14,14 +14,6 @@ import UIKit
 import AppKit
 #endif
 
-// MARK: - SPMConfig
-
-enum SPMConfig {
-    static let otherMetaFolderName: String = "other_meta"
-    static let gachaMetaFolderName: String = "gacha_meta"
-    static let gachaMetaIndexFileName: String = "gacha_meta.json"
-}
-
 // MARK: - GachaMetaManager
 
 public class GachaMetaManager {
