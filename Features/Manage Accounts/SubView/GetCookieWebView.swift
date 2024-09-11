@@ -10,7 +10,7 @@ import WebKit
 // MARK: - GetCookieWebView
 
 struct GetCookieWebView: View {
-    @Binding var isShown: Bool
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
 
     @Binding var cookie: String!
 
@@ -40,7 +40,7 @@ struct GetCookieWebView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("sys.cancel") {
                         Task.detached { @MainActor in
-                            isShown.toggle()
+                            presentationMode.wrappedValue.dismiss()
                         }
                     }
                 }
@@ -57,7 +57,7 @@ struct GetCookieWebView: View {
 
     @MainActor
     func getCookieFromDataStore() async {
-        defer { isShown.toggle() }
+        defer { presentationMode.wrappedValue.dismiss() }
         cookie = ""
         let cookies = await dataStore.httpCookieStore.allCookies()
 

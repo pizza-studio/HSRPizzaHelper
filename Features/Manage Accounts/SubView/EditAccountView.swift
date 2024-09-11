@@ -78,16 +78,16 @@ struct EditAccountView: View {
 // MARK: - RequireLoginView
 
 private struct RequireLoginView: View {
+    // MARK: Internal
+
     @Binding var unsavedCookie: String?
     @Binding var unsavedFP: String
-
-    @State private var isGetCookieWebViewShown: Bool = false
 
     let region: Region
 
     var body: some View {
-        Button {
-            isGetCookieWebViewShown.toggle()
+        NavigationLink {
+            handleSheetNavigation()
         } label: {
             Text("settings.account.loginViaMiyousheOrHoyoLab.relogin")
                 .frame(
@@ -95,18 +95,28 @@ private struct RequireLoginView: View {
                     maxHeight: .infinity
                 )
         }
-        .sheet(isPresented: $isGetCookieWebViewShown, content: {
+        .foregroundColor(.accentColor)
+    }
+
+    // MARK: Private
+
+    private func handleSheetNavigation() -> some View {
+        Group {
             switch region {
             case .mainlandChina:
                 GetCookieQRCodeView(cookie: $unsavedCookie, deviceFP: $unsavedFP)
             case .global:
-                GetCookieWebView(
-                    isShown: $isGetCookieWebViewShown,
-                    cookie: $unsavedCookie,
-                    region: region
-                )
+                GetCookieWebView(cookie: $unsavedCookie, region: region)
             }
-        })
+        }
+        // 保证用户只能在结束编辑、关掉该画面之后才能切到别的 Tab。
+        #if os(iOS) || targetEnvironment(macCatalyst)
+        .toolbar(.hidden, for: .tabBar)
+        #endif
+        // 逼着用户改用自订的后退按钮。
+        // 这也防止 iPhone / iPad 用户以横扫手势将当前画面失手关掉。
+        // 当且仅当用户点了后退按钮或完成按钮，这个画面才会关闭。
+        .navigationBarBackButtonHidden(true)
     }
 }
 

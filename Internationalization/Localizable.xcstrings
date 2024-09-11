@@ -17840,43 +17840,67 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "China Mainland Servers"
+            "value" : "Miyoushe"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Servidores de China"
+            "value" : "Miyoushe"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Miyoushe"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Miyoushe"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Miyoushe"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "中国本土のプレーヤー"
+            "value" : "米遊社"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Miyoushe"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Сервера Континентального Китая"
+            "value" : "Miyoushe"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Máy Chủ Trung Quốc"
+            "value" : "Miyoushe"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "中国内地服务器"
+            "value" : "米游社"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "中國內地伺服器"
+            "value" : "米遊社"
           }
         }
       }
@@ -17886,43 +17910,67 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Global Servers"
+            "value" : "HoYoLAB"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Servidores Globales"
+            "value" : "HoYoLAB"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HoYoLAB"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HoYoLAB"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HoYoLAB"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "グローバルプレーヤー"
+            "value" : "HoYoLAB"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HoYoLAB"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Глобальные серверы"
+            "value" : "HoYoLAB"
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Máy Chủ Quốc Tế"
+            "state" : "needs_review",
+            "value" : "HoYoLAB"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "全球服务器"
+            "value" : "HoYoLAB"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "全球伺服器"
+            "value" : "HoYoLAB"
           }
         }
       }
