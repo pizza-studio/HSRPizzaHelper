@@ -52,6 +52,7 @@ struct GetCookieQRCodeView: View {
         guard !viewModel.scanningConfirmationStatus.isBusy else { return }
         guard let ticket = viewModel.qrCodeAndTicket?.ticket else { return }
         let task = Task.detached { @MainActor [weak viewModel] in
+            var counter = 0
             loopTask: while case .automatically = viewModel?.scanningConfirmationStatus {
                 guard let viewModel = viewModel else { break loopTask }
                 do {
@@ -65,8 +66,13 @@ struct GetCookieQRCodeView: View {
                     }
                     try await Task.sleep(nanoseconds: 3 * 1_000_000_000) // 3sec.
                 } catch {
-                    viewModel.error = error
-                    break loopTask
+                    if error._code != NSURLErrorNetworkConnectionLost || counter >= 20 {
+                        viewModel.error = error
+                        counter = 0
+                        break loopTask
+                    } else {
+                        counter += 1
+                    }
                 }
             }
             viewModel?.scanningConfirmationStatus = .idle
