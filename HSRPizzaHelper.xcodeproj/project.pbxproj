@@ -22,7 +22,6 @@
 		5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */; };
 		5B4C5BA32C09EECC00A6EA05 /* DismissableSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C5BA22C09EECC00A6EA05 /* DismissableSheet.swift */; };
 		5B4C5BA62C09F20300A6EA05 /* CharacterInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C5BA52C09F20300A6EA05 /* CharacterInventoryView.swift */; };
-		5B4C5BA92C09F26F00A6EA05 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 5B4C5BA82C09F26F00A6EA05 /* Flow */; };
 		5B4C5BAB2C09F3BD00A6EA05 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C5BAA2C09F3BD00A6EA05 /* WebImageView.swift */; };
 		5B4D13C12C22CF3500EB7945 /* LinkLabelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4D13C02C22CF3500EB7945 /* LinkLabelItem.swift */; };
 		5B55DD1E2BE9004800CEFDE0 /* GachaItemIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B55DD1D2BE9004800CEFDE0 /* GachaItemIcon.swift */; };
@@ -574,7 +573,6 @@
 				BFDF6A802A08C32200048FF9 /* HBPizzaHelperAPI in Frameworks */,
 				EABA18082A87A908005A639E /* Collections in Frameworks */,
 				EA4DAC112A0BB1AD00D2AC5F /* Algorithms in Frameworks */,
-				5B4C5BA92C09F26F00A6EA05 /* Flow in Frameworks */,
 				5B62B7562BFB9B550051E097 /* NewsKitHSR in Frameworks */,
 				5B1033762ADC309F00B1DA08 /* Defaults in Frameworks */,
 				EAE519B12A0174D800EF23B7 /* SFSafeSymbols in Frameworks */,
@@ -1345,7 +1343,6 @@
 				5B7CE2B72BCD2EAE0053FD7D /* EnkaKitHSR */,
 				5B499B312BDBB918004919F5 /* GachaKitHSR */,
 				5B62B7552BFB9B550051E097 /* NewsKitHSR */,
-				5B4C5BA82C09F26F00A6EA05 /* Flow */,
 			);
 			productName = HSRPizzaHelper;
 			productReference = EAE5197C2A01738600EF23B7 /* HSRPizzaHelper.app */;
@@ -1423,7 +1420,6 @@
 				EABA18062A87A8E7005A639E /* XCRemoteSwiftPackageReference "swift-collections" */,
 				5B1033742ADC309F00B1DA08 /* XCRemoteSwiftPackageReference "Defaults" */,
 				5B3C109D2BFB9BCC0095E5EB /* XCLocalSwiftPackageReference "Packages/NewsKitHSR" */,
-				5B4C5BA72C09F26F00A6EA05 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 			);
 			productRefGroup = EAE5197D2A01738600EF23B7 /* Products */;
 			projectDirPath = "";
@@ -2252,15 +2248,7 @@
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 7.3.1;
-			};
-		};
-		5B4C5BA72C09F26F00A6EA05 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.1;
+				minimumVersion = 8.2.0;
 			};
 		};
 		BFA4A8472A0BD07400239BB0 /* XCRemoteSwiftPackageReference "Mantis" */ = {
@@ -2268,7 +2256,7 @@
 			repositoryURL = "https://github.com/guoyingtao/Mantis";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 2.22.0;
 			};
 		};
 		EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
@@ -2276,7 +2264,7 @@
 			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 6.2.0;
 			};
 		};
 		EA4DAC0F2A0BB1AD00D2AC5F /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
@@ -2284,7 +2272,7 @@
 			repositoryURL = "https://github.com/apple/swift-algorithms.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.2.0;
 			};
 		};
 		EABA18062A87A8E7005A639E /* XCRemoteSwiftPackageReference "swift-collections" */ = {
@@ -2292,7 +2280,7 @@
 			repositoryURL = "https://github.com/apple/swift-collections.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.1.3;
 			};
 		};
 		EAE519AF2A0174D800EF23B7 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
@@ -2337,11 +2325,6 @@
 		5B499B312BDBB918004919F5 /* GachaKitHSR */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GachaKitHSR;
-		};
-		5B4C5BA82C09F26F00A6EA05 /* Flow */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5B4C5BA72C09F26F00A6EA05 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
-			productName = Flow;
 		};
 		5B62B7552BFB9B550051E097 /* NewsKitHSR */ = {
 			isa = XCSwiftPackageProductDependency;

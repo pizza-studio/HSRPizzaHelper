@@ -16,7 +16,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/sindresorhus/Defaults", from: "7.3.1"),
+        .package(url: "https://github.com/sindresorhus/Defaults", from: "8.2.0"),
         .package(url: "./Packages/DefaultsKeys", from: "1.0.0"),
         .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", .upToNextMajor(from: "4.1.1")),
     ],
