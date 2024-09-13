@@ -10,6 +10,7 @@ import DefaultsKeys
 import EnkaKitHSR
 import EnkaSwiftUIViews
 import GachaKitHSR
+import GachaMetaDB
 import SwiftUI
 
 struct DisplayOptionsView: View {
@@ -106,7 +107,7 @@ struct DisplayOptionsView: View {
                     List {
                         Section {
                             AllCharacterPhotoSpecimenView(columns: specimenColumns, scroll: false) {
-                                Array(GachaMetaDBExposed.shared.mainDB.keys)
+                                Array(GachaMeta.sharedDB.mainDB.keys)
                             }
                         } header: {
                             disclaimerView

@@ -38,10 +38,10 @@ public class GachaMetaManager {
     // MARK: Private
 
     private func getMeta(id: String) -> ItemMeta? {
-        let result = GachaMetaDB.shared.mainDB[id]
+        let result = GachaMeta.sharedDB.mainDB[id]
         if result == nil {
             Task.detached { @MainActor in
-                try? await GachaMetaDBExposed.Sputnik.updateLocalGachaMetaDB()
+                try? await GachaMeta.Sputnik.updateLocalGachaMetaDB()
             }
         }
         return result
