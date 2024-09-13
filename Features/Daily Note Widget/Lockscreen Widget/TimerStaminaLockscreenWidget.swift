@@ -31,6 +31,8 @@ struct TimerStaminaLockscreenWidget: Widget {
         .supportedFamilies([
             .accessoryCircular,
         ])
+        .widgetContainerBackgroundRemovable(false)
+        .contentMarginsDisabled()
     }
 }
 
@@ -49,6 +51,7 @@ private struct TimerStaminaLockscreenWidgetView: View {
                 Image(systemSymbol: .ellipsis)
             }
         }
+        .widgetEmptyContainerBackground()
     }
 }
 

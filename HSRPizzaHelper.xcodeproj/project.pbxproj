@@ -178,6 +178,9 @@
 		EA742BF92A020B8700ACB8E4 /* GetCookieWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */; };
 		EA742BFC2A0238C500ACB8E4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */; };
 		EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */; };
+		EA762AD62C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA762AD52C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift */; };
+		EA762AD72C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA762AD52C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift */; };
+		EA762AD82C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA762AD52C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift */; };
 		EA80CFE12A0E8F2700002B53 /* RequestNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE02A0E8F2700002B53 /* RequestNotification.swift */; };
 		EA80CFE32A0E8FFF00002B53 /* HSRNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */; };
 		EA80CFE62A0E928B00002B53 /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80CFE52A0E928B00002B53 /* NotificationSettingView.swift */; };
@@ -463,6 +466,7 @@
 		EA742BF82A020B8700ACB8E4 /* GetCookieWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCookieWebView.swift; sourceTree = "<group>"; };
 		EA742BFB2A0238C500ACB8E4 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		EA742BFD2A0238FC00ACB8E4 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		EA762AD52C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithAccessoryWidgetBackground.swift; sourceTree = "<group>"; };
 		EA80CFE02A0E8F2700002B53 /* RequestNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNotification.swift; sourceTree = "<group>"; };
 		EA80CFE22A0E8FFF00002B53 /* HSRNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRNotificationCenter.swift; sourceTree = "<group>"; };
 		EA80CFE52A0E928B00002B53 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
@@ -851,6 +855,7 @@
 				EA80CFE72A0E983C00002B53 /* InlineNavigationTitle.swift */,
 				EA68B2A82AB95A2300D39095 /* ContainerBackground.swift */,
 				EA39D0962ABBE895008F93CF /* WidgetContainerBackgroundRemovable.swift */,
+				EA762AD52C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift */,
 			);
 			path = "View Modifier";
 			sourceTree = "<group>";
@@ -1580,6 +1585,7 @@
 				EA8A77392A0751980005C511 /* WidgetConfigurationIntentExtension.swift in Sources */,
 				EA946A982A0FF97C003FC598 /* StaminaLockscreenWidgetCircularView.swift in Sources */,
 				EA8A772E2A074AD40005C511 /* HasDefaultBackground.swift in Sources */,
+				EA762AD72C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift in Sources */,
 				EA9E221B2A0BA3A0002F3351 /* SmallSquareDailyNoteTimelineProvider.swift in Sources */,
 				EA68B2A62AB9575E00D39095 /* GeneralWidgetRefreshIntent.swift in Sources */,
 				EAA6916B2A0E6783003D17FF /* Persistence.swift in Sources */,
@@ -1677,6 +1683,7 @@
 				5B7990312BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift in Sources */,
 				EA2C06552A04ACE200A328E6 /* EditAccountSheetView.swift in Sources */,
 				BFA4A84B2A0BD0AA00239BB0 /* ImageCroper.swift in Sources */,
+				EA762AD62C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift in Sources */,
 				EA742BFE2A0238FC00ACB8E4 /* UserDefaultKeys.swift in Sources */,
 				5B579DB52BFCEC9E0030C64D /* ViewTools.swift in Sources */,
 				5BB792B22C1067C400AFCBF5 /* GetCookieQRCodeView.swift in Sources */,
@@ -1759,6 +1766,7 @@
 				EA68B2A72AB9575F00D39095 /* GeneralWidgetRefreshIntent.swift in Sources */,
 				EA8A77172A0737450005C511 /* DailyNoteBackgroundWidgetConfiguration.swift in Sources */,
 				EA702C0F2A06B13B006D3BC9 /* AppConfig.swift in Sources */,
+				EA762AD82C94EE0C00997CDC /* WithAccessoryWidgetBackground.swift in Sources */,
 				BFBF6DDA2A1B35FA009C684B /* HSRPizzaHelperWidget.intentdefinition in Sources */,
 				EA946A8B2A0FF630003FC598 /* LockscreenWidgetConfigurationIntentHandler.swift in Sources */,
 				EAE8987E2A06A2A6000AF830 /* SquareWidgetConfigurationIntentHandler.swift in Sources */,

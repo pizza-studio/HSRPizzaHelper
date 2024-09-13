@@ -31,6 +31,8 @@ struct StaminaFullTimeLockscreenWidget: Widget {
         .supportedFamilies([
             .accessoryCircular,
         ])
+        .widgetContainerBackgroundRemovable(false)
+        .contentMarginsDisabled()
     }
 }
 
@@ -49,6 +51,7 @@ private struct StaminaFullTimeLockscreenWidgetView: View {
                 Image(systemSymbol: .ellipsis)
             }
         }
+        .widgetEmptyContainerBackground()
     }
 }
 

@@ -27,6 +27,8 @@ struct CommonStaminaLockscreenWidget: Widget {
         }
         .configurationDisplayName("widget.lockscreen.common.display".localized())
         .description("widget.lockscreen.common.desc".localized())
+        .widgetContainerBackgroundRemovable(false)
+        .contentMarginsDisabled()
         #if !os(watchOS)
             .supportedFamilies([
                 .accessoryCircular,
@@ -53,20 +55,23 @@ private struct CommonStaminaLockscreenWidgetView: View {
     let entry: LockscreenEntry
 
     var body: some View {
-        switch widgetFamily {
-        case .accessoryCircular:
-            StaminaLockscreenWidgetCircularView(entry: entry)
-        case .accessoryInline:
-            StaminaLockscreenWidgetInlineView(entry: entry)
-        case .accessoryRectangular:
-            StaminaLockscreenWidgetRectangularView(entry: entry)
-        #if os(watchOS)
-        case .accessoryCorner:
-            // TODO: watch corner widget
-            EmptyView()
-        #endif
-        default:
-            EmptyView()
+        Group {
+            switch widgetFamily {
+            case .accessoryCircular:
+                StaminaLockscreenWidgetCircularView(entry: entry)
+            case .accessoryInline:
+                StaminaLockscreenWidgetInlineView(entry: entry)
+            case .accessoryRectangular:
+                StaminaLockscreenWidgetRectangularView(entry: entry)
+            #if os(watchOS)
+            case .accessoryCorner:
+                // TODO: watch corner widget
+                EmptyView()
+            #endif
+            default:
+                EmptyView()
+            }
         }
+        .widgetEmptyContainerBackground()
     }
 }

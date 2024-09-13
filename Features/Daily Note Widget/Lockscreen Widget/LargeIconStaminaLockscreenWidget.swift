@@ -28,9 +28,12 @@ struct LargeIconStaminaLockscreenWidget: Widget {
         }
         .configurationDisplayName("widget.lockscreen.largeicon.display".localized())
         .description("widget.lockscreen.largeicon.desc".localized())
+        .widgetContainerBackgroundRemovable(false)
+        .contentMarginsDisabled()
         .supportedFamilies([
             .accessoryCircular,
         ])
+        .widgetContainerBackgroundRemovable(false)
     }
 }
 
@@ -48,6 +51,7 @@ struct LargeIconStaminaLockscreenWidgetView: View {
                 Image(systemSymbol: .ellipsis)
             }
         }
+        .widgetEmptyContainerBackground()
     }
 }
 

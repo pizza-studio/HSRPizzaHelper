@@ -17,10 +17,26 @@ extension View {
         modifier(ContainerBackgroundModifier(paddingUnderIOS17: padding, background: content))
     }
 
+    func widgetEmptyContainerBackground() -> some View {
+        modifier(WidgetEmptyContainerBackground())
+    }
+
     @available(iOS 17.0, iOSApplicationExtension 17.0, *)
     fileprivate func containerBackgroundStandbyDetector<V: View>(@ViewBuilder _ content: @escaping () -> V)
         -> some View {
         modifier(ContainerBackgroundStandbyDetector(background: content))
+    }
+}
+
+// MARK: - WidgetEmptyContainerBackground
+
+private struct WidgetEmptyContainerBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 17, iOSApplicationExtension 17.0, *) {
+            content.containerBackground(for: .widget, content: { EmptyView() })
+        } else {
+            content
+        }
     }
 }
 
