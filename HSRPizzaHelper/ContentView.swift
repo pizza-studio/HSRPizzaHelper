@@ -42,6 +42,21 @@ struct ContentView: View {
                     Label("tab.settings", systemSymbol: .gear)
                 }
         }
+        #if targetEnvironment(macCatalyst)
+        .apply { theContent in
+            #if compiler(>=6.0) && canImport(UIKit, _version: 18.0)
+            if #unavailable(iOS 18.0), #unavailable(macCatalyst 18.0) {
+                theContent
+            } else {
+                theContent
+                    .tabViewStyle(.sidebarAdaptable)
+                    .tabViewCustomization(.none)
+            }
+            #else
+            theContent
+            #endif
+        }
+        #endif
         .tint(tintForCurrentTab)
         .onChange(of: selection) { _ in
             feedbackGenerator.selectionChanged()

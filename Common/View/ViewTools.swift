@@ -10,6 +10,12 @@ import EnkaKitHSR
 import Foundation
 import SwiftUI
 
+// MARK: - Optional Modifier Wrappers
+
+extension View {
+    public func apply<V: View>(@ViewBuilder _ block: (Self) -> V) -> V { block(self) }
+}
+
 extension View {
     @available(iOS 16.0, *)
     @MainActor
