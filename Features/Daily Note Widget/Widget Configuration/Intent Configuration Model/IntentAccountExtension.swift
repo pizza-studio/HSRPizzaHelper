@@ -8,7 +8,6 @@
 import Foundation
 import HBMihoyoAPI
 import Intents
-import SwifterSwift
 
 extension IntentAccount {
     /// Convert a `Account` instance to an `IntentAccount` instance.

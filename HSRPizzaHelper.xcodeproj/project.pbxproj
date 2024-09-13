@@ -52,7 +52,6 @@
 		BF58D2512A57A16900CC0DC6 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D2502A57A16900CC0DC6 /* SFSafeSymbols */; };
 		BF58D2522A57A30C00CC0DC6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C064A2A04A0CA00A328E6 /* Account+CoreDataClass.swift */; };
 		BF58D2542A57A32400CC0DC6 /* DailyNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA63742A01FF8B00BF070F /* DailyNoteViewModel.swift */; };
-		BF58D25A2A57A34200CC0DC6 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF58D2592A57A34200CC0DC6 /* SwifterSwift */; };
 		BF58D25B2A57A3E200CC0DC6 /* FetchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE519CD2A017BD300EF23B7 /* FetchStatus.swift */; };
 		BF58D25C2A57A48100CC0DC6 /* HSRPizzaHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAE5198A2A01738600EF23B7 /* HSRPizzaHelper.xcdatamodeld */; };
 		BF58D2602A57A58E00CC0DC6 /* WatchHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF58D25F2A57A58E00CC0DC6 /* WatchHomeView.swift */; };
@@ -546,7 +545,6 @@
 				5B10337C2ADC313400B1DA08 /* Defaults in Frameworks */,
 				BF58D2512A57A16900CC0DC6 /* SFSafeSymbols in Frameworks */,
 				BF58D24F2A57A01100CC0DC6 /* HBMihoyoAPI in Frameworks */,
-				BF58D25A2A57A34200CC0DC6 /* SwifterSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1278,7 +1276,6 @@
 			packageProductDependencies = (
 				BF58D24E2A57A01100CC0DC6 /* HBMihoyoAPI */,
 				BF58D2502A57A16900CC0DC6 /* SFSafeSymbols */,
-				BF58D2592A57A34200CC0DC6 /* SwifterSwift */,
 				5B10337B2ADC313400B1DA08 /* Defaults */,
 			);
 			productName = "HSRPizzaHelperWatch Watch App";
@@ -2342,11 +2339,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EAE519AF2A0174D800EF23B7 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
 			productName = SFSafeSymbols;
-		};
-		BF58D2592A57A34200CC0DC6 /* SwifterSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EA37AEB22A02CDB900E4AADA /* XCRemoteSwiftPackageReference "SwifterSwift" */;
-			productName = SwifterSwift;
 		};
 		BFA4A8482A0BD07400239BB0 /* Mantis */ = {
 			isa = XCSwiftPackageProductDependency;
