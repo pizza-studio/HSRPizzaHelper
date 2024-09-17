@@ -16,12 +16,10 @@ struct HSRPizzaHelperWidgetBundle: WidgetBundle {
         SmallSquareDailyNoteWidget()
         LargeSquareDailyNoteWidget()
         SquareGIStyleWidget()
-        if #available(iOSApplicationExtension 16.0, *) {
-            CommonStaminaLockscreenWidget()
-            LargeIconStaminaLockscreenWidget()
-            TimerStaminaLockscreenWidget()
-            StaminaFullTimeLockscreenWidget()
-        }
+        CommonStaminaLockscreenWidget()
+        LargeIconStaminaLockscreenWidget()
+        TimerStaminaLockscreenWidget()
+        StaminaFullTimeLockscreenWidget()
         #if canImport(ActivityKit)
         if #available(iOSApplicationExtension 16.1, *) {
             DailyNoteCountDownLiveActivity()
