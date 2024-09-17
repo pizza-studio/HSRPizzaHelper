@@ -53,7 +53,7 @@ struct GetCookieQRCodeView: View {
         guard let ticket = viewModel.qrCodeAndTicket?.ticket else { return }
         let task = Task.detached { @MainActor [weak viewModel] in
             var counter = 0
-            loopTask: while case .automatically = viewModel?.scanningConfirmationStatus {
+            loopTask: while case let .automatically(task) = viewModel?.scanningConfirmationStatus, !task.isCancelled {
                 guard let viewModel = viewModel else { break loopTask }
                 do {
                     let status = try await MiHoYoAPI.queryQRCodeStatus(
