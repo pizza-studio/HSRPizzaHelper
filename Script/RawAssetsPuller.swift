@@ -276,7 +276,7 @@ public enum DataType: String, CaseIterable {
     static let mar7BasePath = "https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/index_new/en/"
     static let hksResHeader = "https://api.hakush.in/hsr/UI/"
     static let mar7ResHeader = "https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/"
-    static let yattaResHeader = "https://api.yatta.top/hsr/assets/"
+    static let yattaResHeader = "https://sr.yatta.moe/hsr/assets/"
 
     // MARK: Private
 
