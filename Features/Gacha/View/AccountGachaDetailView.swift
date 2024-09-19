@@ -116,6 +116,7 @@ private struct GachaItemDetail: View {
     }
 
     var filteredGachaItemsWithDrawCount: [(GachaItemMO, Int)] {
+        /// 补记：这里已经用 Query Predicate 筛检过了，所以 drawCounts 计算结果无误。
         let drawCounts = calculateGachaItemsDrawCount(gachaItemsResult)
         return zip(gachaItemsResult, drawCounts)
             .filter { item, _ in
