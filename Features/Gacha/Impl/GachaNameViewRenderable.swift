@@ -12,7 +12,7 @@ import SwiftUI
 protocol GachaNameViewRenderable {
     var itemType: GachaItem.ItemType { get }
     var localizedName: String { get }
-    var itemID: String { get }
+    var itemIDGuarded: String { get }
 }
 
 extension GachaNameViewRenderable {
@@ -28,7 +28,7 @@ extension GachaNameViewRenderable {
         }
 
         let resultText = EnkaHSR.Sputnik.sharedDB.queryLocalizedNameForChar(
-            id: itemID,
+            id: itemIDGuarded,
             officialNameOnly: officialNameOnly
         ) {
             provideFallbackValue()

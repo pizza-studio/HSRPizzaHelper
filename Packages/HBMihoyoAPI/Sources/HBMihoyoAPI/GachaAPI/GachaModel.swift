@@ -103,7 +103,7 @@ public struct GachaResult: DecodableFromMiHoYoAPIJSONResult {
 
 public protocol GachaItemProtocol {
     var itemType: GachaItem.ItemType { get }
-    var itemID: String { get }
+    var itemIDGuarded: String { get }
     var rank: GachaItem.Rank { get }
 }
 
@@ -192,7 +192,7 @@ public struct GachaItem: Codable, GachaItemProtocol {
                  "personajes", "personnage", "personnages", "персонажи",
                  "ตัวละคร", "캐릭터", "キャラクター":
                 self = .characters
-            case "光円錐", "光锥", "光錐", "武器", "arma", "arme", "cône de lumière",
+            case "光锥", "光錐", "光円錐", "武器", "arma", "arme", "cône de lumière",
                  "cone de luz", "cônes de lumière", "cones de luz", "cono de luz",
                  "conos de luz", "lichtkegel", "light cone", "light_cone", "light_cones",
                  "lightcone", "lightcones", "nón ánh sáng", "senjata", "vũ khí", "waffe",
@@ -220,6 +220,8 @@ public struct GachaItem: Codable, GachaItemProtocol {
     public let rank: Rank
     public let id: String
     public let lang: MiHoYoAPILanguage
+
+    public var itemIDGuarded: String { itemID }
 
     public static func getServerTimeZoneDelta(_ uid: String) -> Int {
         // 抽卡记录的网页固定显示伺服器时间。

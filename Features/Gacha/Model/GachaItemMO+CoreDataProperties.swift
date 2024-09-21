@@ -24,7 +24,7 @@ extension GachaItemMO: GachaItemProtocol {
     @NSManaged public var gachaID: String!
     @NSManaged public var gachaTypeRawValue: String!
     @NSManaged public var id: String!
-    @NSManaged public var itemID: String
+    @NSManaged public var itemID: String!
     @NSManaged public var itemTypeRawValue: String!
     @NSManaged public var langRawValue: String!
     @NSManaged public var name: String!
@@ -32,6 +32,8 @@ extension GachaItemMO: GachaItemProtocol {
     @NSManaged public var time: Date!
     @NSManaged public var timeRawValue: String?
     @NSManaged public var uid: String!
+
+    public var itemIDGuarded: String { itemID! }
 
     var gachaType: GachaType {
         get {

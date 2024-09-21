@@ -21,7 +21,7 @@ public struct GachaItemIcon: View {
     public var body: some View {
         Group {
             if item.itemType == .characters {
-                CharacterIconView(charID: item.itemID, size: size, circleClipped: true, clipToHead: true)
+                CharacterIconView(charID: item.itemIDGuarded, size: size, circleClipped: true, clipToHead: true)
             } else if let icon = item.icon {
                 icon.resizable().scaledToFit().frame(width: size, height: size)
             } else {

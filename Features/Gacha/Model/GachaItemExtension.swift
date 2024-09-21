@@ -10,7 +10,7 @@ import SwiftUI
 
 extension GachaItemProtocol {
     var localizedName: String {
-        let initialValue = GachaMetaManager.shared.getLocalizedName(id: itemID)
+        let initialValue = GachaMetaManager.shared.getLocalizedName(id: itemIDGuarded)
         let secondaryValue: String? = {
             if let this = self as? GachaItemMO {
                 return this.name
@@ -20,15 +20,15 @@ extension GachaItemProtocol {
             }
             return nil
         }()
-        return initialValue ?? secondaryValue ?? "MissingName: \(itemID)"
+        return initialValue ?? secondaryValue ?? "MissingName: \(itemIDGuarded)"
     }
 
     var icon: Image? {
         switch itemType {
         case .lightCones:
-            EnkaHSR.queryWeaponImageSUI(for: itemID)
+            EnkaHSR.queryWeaponImageSUI(for: itemIDGuarded)
         case .characters:
-            EnkaHSR.queryOfficialCharAvatarSUI(for: itemID)
+            EnkaHSR.queryOfficialCharAvatarSUI(for: itemIDGuarded)
         }
     }
 }
