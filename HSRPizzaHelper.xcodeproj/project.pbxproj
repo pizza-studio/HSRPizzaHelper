@@ -18,6 +18,9 @@
 		5B28F8FE2BDE41F7004B271E /* ImportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */; };
 		5B28F8FF2BDE41F7004B271E /* ExportGachaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F8FD2BDE41F7004B271E /* ExportGachaView.swift */; };
 		5B28F9042BDE5045004B271E /* LocaleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28F9032BDE5045004B271E /* LocaleImpl.swift */; };
+		5B43276C2CC7AA160021D5CF /* PZProfileSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B43276B2CC7AA160021D5CF /* PZProfileSendable.swift */; };
+		5B43276E2CC7AA560021D5CF /* ProfileBackupRestoreMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B43276D2CC7AA560021D5CF /* ProfileBackupRestoreMenu.swift */; };
+		5B4327722CC7AADA0021D5CF /* TaskManagedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4327712CC7AADA0021D5CF /* TaskManagedVM.swift */; };
 		5B499B322BDBB918004919F5 /* GachaKitHSR in Frameworks */ = {isa = PBXBuildFile; productRef = 5B499B312BDBB918004919F5 /* GachaKitHSR */; };
 		5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */; };
 		5B4C5BA32C09EECC00A6EA05 /* DismissableSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C5BA22C09EECC00A6EA05 /* DismissableSheet.swift */; };
@@ -352,6 +355,9 @@
 		5B28F9032BDE5045004B271E /* LocaleImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocaleImpl.swift; sourceTree = "<group>"; };
 		5B2CBE182C54F68F0056CDC0 /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		5B30C9C72BD53A06001935B0 /* Script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Script; sourceTree = "<group>"; };
+		5B43276B2CC7AA160021D5CF /* PZProfileSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PZProfileSendable.swift; sourceTree = "<group>"; };
+		5B43276D2CC7AA560021D5CF /* ProfileBackupRestoreMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBackupRestoreMenu.swift; sourceTree = "<group>"; };
+		5B4327712CC7AADA0021D5CF /* TaskManagedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagedVM.swift; sourceTree = "<group>"; };
 		5B499B302BDBB8FC004919F5 /* GachaKitHSR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GachaKitHSR; path = Packages/GachaKitHSR; sourceTree = "<group>"; };
 		5B4A25192BD8EA8F00614070 /* LinearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
 		5B4C5BA22C09EECC00A6EA05 /* DismissableSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissableSheet.swift; sourceTree = "<group>"; };
@@ -620,6 +626,15 @@
 				5B28F8FC2BDE41F7004B271E /* ImportGachaView.swift */,
 			);
 			path = SRGF;
+			sourceTree = "<group>";
+		};
+		5B43276A2CC7AA0B0021D5CF /* Account Backup */ = {
+			isa = PBXGroup;
+			children = (
+				5B43276D2CC7AA560021D5CF /* ProfileBackupRestoreMenu.swift */,
+				5B43276B2CC7AA160021D5CF /* PZProfileSendable.swift */,
+			);
+			path = "Account Backup";
 			sourceTree = "<group>";
 		};
 		5B4C5BA42C09F1E500A6EA05 /* CharacterInventory */ = {
@@ -1167,6 +1182,7 @@
 		EAE519BB2A0175DA00EF23B7 /* Manage Accounts */ = {
 			isa = PBXGroup;
 			children = (
+				5B43276A2CC7AA0B0021D5CF /* Account Backup */,
 				EA2C06502A04AC5200A328E6 /* SubView */,
 				EAE37EC02A0206BC00154432 /* ManageAccountsView.swift */,
 				EA742BF62A020A3300ACB8E4 /* CreateAccountSheetView.swift */,
@@ -1199,6 +1215,7 @@
 		EAE519C82A0178AD00EF23B7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5B4327712CC7AADA0021D5CF /* TaskManagedVM.swift */,
 				EAF286512A124ABA00F876B6 /* Extension */,
 				EA09B1932A09180200986D46 /* View */,
 				EA09B19E2A091DFE00986D46 /* Model */,
@@ -1676,8 +1693,10 @@
 				EA2C06522A04AC5A00A328E6 /* TestAccountSectionView.swift in Sources */,
 				5BB6BD702ACAC529001D6847 /* DisplayOptionsView.swift in Sources */,
 				EAE519822A01738600EF23B7 /* ContentView.swift in Sources */,
+				5B4327722CC7AADA0021D5CF /* TaskManagedVM.swift in Sources */,
 				5B16985E2BDBEE770017660A /* SRGFImpl.swift in Sources */,
 				EA1D523E2A76521E00FA66A9 /* ToolView.swift in Sources */,
+				5B43276E2CC7AA560021D5CF /* ProfileBackupRestoreMenu.swift in Sources */,
 				EADA63752A01FF8B00BF070F /* DailyNoteViewModel.swift in Sources */,
 				BFDF6A862A08D6C000048FF9 /* TapticSupport.swift in Sources */,
 				5B7990312BD7565900C7AD34 /* AppConfig_SwiftUIImpl.swift in Sources */,
@@ -1698,6 +1717,7 @@
 				EAE519802A01738600EF23B7 /* HSRPizzaHelperApp.swift in Sources */,
 				5B4A251A2BD8EA8F00614070 /* LinearProgressView.swift in Sources */,
 				EA1D523A2A76262B00FA66A9 /* HSRDictionaryView.swift in Sources */,
+				5B43276C2CC7AA160021D5CF /* PZProfileSendable.swift in Sources */,
 				EA8D28802A8601B600B47869 /* AccountGachaView.swift in Sources */,
 				BFDF6A882A08D84200048FF9 /* DeviceRecognizer.swift in Sources */,
 				EA3BDCA02A83A98A001C3C6C /* GachaItemMO+CoreDataClass.swift in Sources */,

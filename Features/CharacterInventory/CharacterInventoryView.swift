@@ -21,6 +21,16 @@ struct CharacterInventoryView: View {
 
     // MARK: Internal
 
+    struct GoldNum {
+        let allGold, charGold, weaponGold: Int
+    }
+
+    #if !os(OSX) && !targetEnvironment(macCatalyst)
+    let flowSpacing: CGFloat = 4
+    #else
+    let flowSpacing: CGFloat = 2
+    #endif
+
     var body: some View {
         List {
             Section {
@@ -121,16 +131,6 @@ struct CharacterInventoryView: View {
                 }
             }
         }
-    }
-
-    #if !os(OSX) && !targetEnvironment(macCatalyst)
-    let flowSpacing: CGFloat = 4
-    #else
-    let flowSpacing: CGFloat = 2
-    #endif
-
-    struct GoldNum {
-        let allGold, charGold, weaponGold: Int
     }
 
     func goldNum(data: MiHoYoAPI.CharacterInventory)

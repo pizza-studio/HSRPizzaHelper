@@ -11616,6 +11616,35 @@
         }
       }
     },
+    "pizza.migrationNotice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The development and maintenance of Pizza Helper for HSR (PizzaHelper4HSR) is scheduled to be stopped with the release of version 5.0 of Pizza Helper for Genshin (PizzaHelper4GI), which is expected to launch by approximately December 2024. We recommend transitioning to Pizza Helper 4 Genshin since its v5.0 update, which will run on the United Pizza Engine and include all the features currently offered in PizzaHelper4HSR. In other words, PizzaHelper4HSR will be merged into PizzaHelper4GI, and the combined app will be rebranded as The Pizza Helper (TPH). For more details on PizzaHelper4GI on App Store, please visit: [https://apps.apple.com/app/id1635319193](https://apps.apple.com/app/id1635319193). This decision was made to streamline development and reduce the workload of maintaining multiple FOSS (Free and Open Source Software) apps. As our individual careers evolve, we have less time to dedicate to Pizza app development and maintenance. We appreciate your understanding. You may still use the current version of PizzaHelper4HSR despite its lack of support of new characters and artifacts in future Star Rail updates (probably v2.7 or newer)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "『崩スタピザ助手』（スタピザ）は、『原神ピザ助手』（原神ピザ）のバージョン5.0のリリースとともに開発を終了する予定です（2024年12月にリリースされる見込）。『原神ピザ』はその時点で『スタピザ』のすべての機能を引き継ぎ、統一ピザエンジンを使用して、アプリの名称は『ピザ助手（無印）』と変更します。言い換えれば、『スタピザ』は『原神ピザ』に統合され、その後、『ピザ助手（無印）』として提供し続くことにします。『原神ピザ』の詳細については、以下のリンクをご確認ください：[https://apps.apple.com/app/id1635319193](https://apps.apple.com/app/id1635319193)。この決定は、複数の FOSS（無料かつオープンソースソフトウェア）アプリを維持する負担を軽減するために行われました。個々の職業生涯の変化に伴い、ピザアプリの開発とメンテナンスに充てられる時間が減少してきています。ご理解のほど、よろしくお願い申し上げます。今の『スタピザ』は今後も使えるかもしれませんが、多分 v2.7 とその後の『崩壊：スターレイル』の新しいキャラクターと聖遺物に対するサポートはないでしょう。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "《星铁披萨小助手（穹披助手）》将会在《原神披萨小助手（原披助手）》完成 5.0 更新之后停止开发、将所有功能并入后者。届时，后者将会重新命名为《披萨小助手》。这个改变预计将会在 2024 年 12 月实装，请关注后者在 App Store 的更新：[https://apps.apple.com/app/id1635319193](https://apps.apple.com/app/id1635319193)。此决定旨在简化开发流程，并减少维护多个 FOSS（免费开源软件）的工作负担。随着开发团队成员们彼此的个人生涯的变化，能投入到披萨系列应用软件的开发和维护的时间越来越有限。感谢您的理解。目前的穹披助手兴许能够继续正常使用，只是无法再支援今后星穹铁道 2.7 或更新版开始的新角色与新圣遗物。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "《星穹鐵道披薩小助手（穹披助手）》將會在《原神披薩小助手（原披助手）》完成 5.0 更新之後停止開發、將所有功能併入後者。屆時，後者將會重新命名為《披薩小助手》。這個改變預計將會在 2024 年 12 月實裝，請關注後者在 App Store 的更新：[https://apps.apple.com/app/id1635319193](https://apps.apple.com/app/id1635319193)。此決定旨在簡化開發流程，並減少維護多個 FOSS（開放原始碼的免費軟體）的工作負擔。隨著開發團隊成員們彼此的個人生涯的變化，能投入到披薩系列應用軟體的開發和維護的時間越來越有限。感謝您的理解。目前的穹披助手興許能夠繼續正常使用，只是無法再支援今後星穹鐵道 2.7 或更新版開始的新角色與新聖遺物。"
+          }
+        }
+      }
+    },
     "Refresh" : {
 
     },

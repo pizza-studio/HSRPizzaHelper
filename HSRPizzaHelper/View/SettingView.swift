@@ -20,6 +20,21 @@ struct SettingView: View {
         NavigationSplitView(columnVisibility: .constant(.all)) {
             List(selection: $selectedView) {
                 Section {
+                    ProfileBackupRestoreButton()
+                } footer: {
+                    let raw =
+                        LocalizedStringResource(
+                            stringLiteral: "pizza.migrationNotice"
+                        )
+                    let attrStr = try? AttributedString(markdown: String(localized: raw))
+                    if let attrStr = attrStr {
+                        Text(attrStr)
+                    } else {
+                        Text(raw)
+                    }
+                }
+
+                Section {
                     NavigationLink(value: Navigation.accountManagement) {
                         Label("account.manage.title", systemSymbol: .personFill)
                     }
