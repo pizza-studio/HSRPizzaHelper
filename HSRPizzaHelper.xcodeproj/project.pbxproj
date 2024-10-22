@@ -1847,7 +1847,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelper Watch App/HSRPizzaHelperWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 909;
+				CURRENT_PROJECT_VERSION = 920;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -1859,7 +1859,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.6;
+				MARKETING_VERSION = 1.4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper.watchkitapp;
 				PRODUCT_NAME = HSRPizzaHelper;
 				SDKROOT = watchos;
@@ -1878,7 +1878,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HSRPizzaHelper Watch App/HSRPizzaHelperWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 909;
+				CURRENT_PROJECT_VERSION = 920;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -1890,7 +1890,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.6;
+				MARKETING_VERSION = 1.4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper.watchkitapp;
 				PRODUCT_NAME = HSRPizzaHelper;
 				SDKROOT = watchos;
@@ -1909,7 +1909,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 909;
+				CURRENT_PROJECT_VERSION = 920;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/Info.plist;
@@ -1921,7 +1921,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.6;
+				MARKETING_VERSION = 1.4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper.HSRPizzaHelperWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1939,7 +1939,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 909;
+				CURRENT_PROJECT_VERSION = 920;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/Info.plist;
@@ -1951,7 +1951,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.6;
+				MARKETING_VERSION = 1.4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper.HSRPizzaHelperWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2093,7 +2093,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 909;
+				CURRENT_PROJECT_VERSION = 920;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -2110,7 +2110,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.6;
+				MARKETING_VERSION = 1.4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2129,7 +2129,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelper/HSRPizzaHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 909;
+				CURRENT_PROJECT_VERSION = 920;
 				DEVELOPMENT_ASSET_PATHS = "\"HSRPizzaHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				ENABLE_PREVIEWS = YES;
@@ -2146,7 +2146,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.6;
+				MARKETING_VERSION = 1.4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2163,7 +2163,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/HSRPizzaHelperWidgetConfigurationIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 909;
+				CURRENT_PROJECT_VERSION = 920;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/Info.plist;
@@ -2175,7 +2175,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.6;
+				MARKETING_VERSION = 1.4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper.HSRPizzaHelperWidgetConfigurationIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2191,7 +2191,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/HSRPizzaHelperWidgetConfigurationIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 909;
+				CURRENT_PROJECT_VERSION = 920;
 				DEVELOPMENT_TEAM = 45Z6V4YD5U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSRPizzaHelperWidget/HSRPizzaHelperWidgetConfigurationIntent/Info.plist;
@@ -2203,7 +2203,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.6;
+				MARKETING_VERSION = 1.4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = Canglong.HSRPizzaHelper.HSRPizzaHelperWidgetConfigurationIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
