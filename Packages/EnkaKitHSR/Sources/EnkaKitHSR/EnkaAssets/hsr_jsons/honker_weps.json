@@ -551,6 +551,14 @@
     "ImagePath" : "SpriteOutput/LightConeFigures/21047.png",
     "Rarity" : 4
   },
+  "21048" : {
+    "AvatarBaseType" : "Priest",
+    "EquipmentName" : {
+      "Hash" : -973364456
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/21048.png",
+    "Rarity" : 4
+  },
   "22000" : {
     "AvatarBaseType" : "Warlock",
     "EquipmentName" : {
@@ -573,6 +581,14 @@
       "Hash" : -516377537
     },
     "ImagePath" : "SpriteOutput/LightConeFigures/22002.png",
+    "Rarity" : 4
+  },
+  "22003" : {
+    "AvatarBaseType" : "Warrior",
+    "EquipmentName" : {
+      "Hash" : -516377538
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/22003.png",
     "Rarity" : 4
   },
   "23000" : {
@@ -837,6 +853,14 @@
       "Hash" : -1658973975
     },
     "ImagePath" : "SpriteOutput/LightConeFigures/23032.png",
+    "Rarity" : 5
+  },
+  "23033" : {
+    "AvatarBaseType" : "Mage",
+    "EquipmentName" : {
+      "Hash" : -1658973976
+    },
+    "ImagePath" : "SpriteOutput/LightConeFigures/23033.png",
     "Rarity" : 5
   },
   "24000" : {
