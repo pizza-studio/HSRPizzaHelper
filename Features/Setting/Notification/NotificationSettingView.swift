@@ -374,12 +374,21 @@ private struct CustomizeStaminaNotificationSettingView: View {
             }
         }
         .toolbar {
-            EditButton()
+            ToolbarItem(placement: .confirmationAction) {
+                Button((isEditMode.isEditing) ? "sys.done".localized() : "sys.edit".localized()) {
+                    withAnimation {
+                        isEditMode = (isEditMode.isEditing) ? .inactive : .active
+                    }
+                }
+            }
         }
         .inlineNavigationTitle("setting.notification.stamina.customize.title")
+        .environment(\.editMode, $isEditMode)
     }
 
     // MARK: Private
+
+    @State private var isEditMode: EditMode = .inactive
 
     @State private var isActivated: Bool = false
 

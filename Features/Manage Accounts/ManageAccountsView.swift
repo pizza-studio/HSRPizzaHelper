@@ -88,7 +88,13 @@ struct ManageAccountsView: View {
             }
         }
         .toolbar {
-            EditButton()
+            ToolbarItem(placement: .confirmationAction) {
+                Button((isEditMode.isEditing) ? "sys.done".localized() : "sys.edit".localized()) {
+                    withAnimation {
+                        isEditMode = (isEditMode.isEditing) ? .inactive : .active
+                    }
+                }
+            }
         }
         .toast(isPresenting: $alertToastVariable.isDoneButtonTapped) {
             AlertToast(
@@ -98,6 +104,7 @@ struct ManageAccountsView: View {
             )
         }
         .environmentObject(alertToastVariable)
+        .environment(\.editMode, $isEditMode)
     }
 
     var isShown: Binding<Bool> {
@@ -125,6 +132,8 @@ struct ManageAccountsView: View {
             }
         }
     }
+
+    @State private var isEditMode: EditMode = .inactive
 
     @StateObject private var alertToastVariable = AlertToastVariable()
 
