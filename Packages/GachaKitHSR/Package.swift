@@ -18,7 +18,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/sindresorhus/Defaults", from: "8.2.0"),
         .package(url: "./Packages/DefaultsKeys", from: "1.0.0"),
-        .package(url: "https://github.com/pizza-studio/GachaMetaGenerator", from: "2.3.4"),
+        .package(url: "https://github.com/pizza-studio/GachaMetaGenerator", from: "2.3.5"),
         .package(url: "./Packages/HBMihoyoAPI", from: "1.0.0"),
     ],
     targets: [
