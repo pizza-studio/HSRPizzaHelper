@@ -19,6 +19,8 @@ struct SettingView: View {
     @ViewBuilder public var body: some View {
         NavigationSplitView(columnVisibility: .constant(.all)) {
             List(selection: $selectedView) {
+                MigrationView(sectionOnly: true)
+
                 Section {
                     NavigationLink(value: Navigation.accountManagement) {
                         Label("account.manage.title", systemSymbol: .personFill)

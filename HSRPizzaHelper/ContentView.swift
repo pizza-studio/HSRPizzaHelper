@@ -25,11 +25,6 @@ struct ContentView: View {
                     Label("tab.home", systemSymbol: .listBullet)
                 }
                 .toolbarBackground(.thinMaterial, for: .tabBar)
-            MigrationView()
-                .tag(-1)
-                .tabItem {
-                    Label("tab.migration", systemSymbol: .suitcaseCart)
-                }
             DetailPortalView()
                 .tag(1)
                 .tabItem {
